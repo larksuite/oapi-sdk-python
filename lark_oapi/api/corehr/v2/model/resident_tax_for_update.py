@@ -33,24 +33,30 @@ class ResidentTaxForUpdate(object):
 class ResidentTaxForUpdateBuilder(object):
     def __init__(self) -> None:
         self._resident_tax_for_update = ResidentTaxForUpdate()
+
     def tax_country_region(self, tax_country_region: str) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.tax_country_region = tax_country_region
         return self
+
     def resident_status(self, resident_status: str) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.resident_status = resident_status
         return self
+
     def tax_address(self, tax_address: AddressForUpdate) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.tax_address = tax_address
         return self
+
     def resident_status_specification(self, resident_status_specification: str) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.resident_status_specification = resident_status_specification
         return self
+
     def year_resident_tax(self, year_resident_tax: str) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.year_resident_tax = year_resident_tax
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "ResidentTaxForUpdate":
         return self._resident_tax_for_update

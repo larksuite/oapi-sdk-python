@@ -25,15 +25,18 @@ class CombinedUpdateTalentResponseBody(object):
 class CombinedUpdateTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._combined_update_talent_response_body = CombinedUpdateTalentResponseBody()
+
     def talent_id(self, talent_id: str) -> "CombinedUpdateTalentResponseBodyBuilder":
         self._combined_update_talent_response_body.talent_id = talent_id
         return self
+
     def operator_id(self, operator_id: str) -> "CombinedUpdateTalentResponseBodyBuilder":
         self._combined_update_talent_response_body.operator_id = operator_id
         return self
+
     def operator_account_type(self, operator_account_type: int) -> "CombinedUpdateTalentResponseBodyBuilder":
         self._combined_update_talent_response_body.operator_account_type = operator_account_type
         return self
-    
+
     def build(self) -> "CombinedUpdateTalentResponseBody":
         return self._combined_update_talent_response_body

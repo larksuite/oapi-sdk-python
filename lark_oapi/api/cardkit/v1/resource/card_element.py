@@ -25,7 +25,8 @@ class CardElement(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def content(self, request: ContentCardElementRequest, option: Optional[RequestOption] = None) -> ContentCardElementResponse:
+    def content(self, request: ContentCardElementRequest,
+                option: Optional[RequestOption] = None) -> ContentCardElementResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,33 +39,32 @@ class CardElement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ContentCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), ContentCardElementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acontent(self, request: ContentCardElementRequest, option: Optional[RequestOption] = None) -> ContentCardElementResponse:
+    async def acontent(self, request: ContentCardElementRequest,
+                       option: Optional[RequestOption] = None) -> ContentCardElementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ContentCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), ContentCardElementResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateCardElementRequest, option: Optional[RequestOption] = None) -> CreateCardElementResponse:
+
+    def create(self, request: CreateCardElementRequest,
+               option: Optional[RequestOption] = None) -> CreateCardElementResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,33 +77,32 @@ class CardElement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCardElementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateCardElementRequest, option: Optional[RequestOption] = None) -> CreateCardElementResponse:
+    async def acreate(self, request: CreateCardElementRequest,
+                      option: Optional[RequestOption] = None) -> CreateCardElementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCardElementResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteCardElementRequest, option: Optional[RequestOption] = None) -> DeleteCardElementResponse:
+
+    def delete(self, request: DeleteCardElementRequest,
+               option: Optional[RequestOption] = None) -> DeleteCardElementResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,33 +115,32 @@ class CardElement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCardElementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteCardElementRequest, option: Optional[RequestOption] = None) -> DeleteCardElementResponse:
+    async def adelete(self, request: DeleteCardElementRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCardElementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCardElementResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchCardElementRequest, option: Optional[RequestOption] = None) -> PatchCardElementResponse:
+
+    def patch(self, request: PatchCardElementRequest,
+              option: Optional[RequestOption] = None) -> PatchCardElementResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,33 +153,32 @@ class CardElement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCardElementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchCardElementRequest, option: Optional[RequestOption] = None) -> PatchCardElementResponse:
+    async def apatch(self, request: PatchCardElementRequest,
+                     option: Optional[RequestOption] = None) -> PatchCardElementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCardElementResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateCardElementRequest, option: Optional[RequestOption] = None) -> UpdateCardElementResponse:
+
+    def update(self, request: UpdateCardElementRequest,
+               option: Optional[RequestOption] = None) -> UpdateCardElementResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,30 +191,26 @@ class CardElement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateCardElementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateCardElementRequest, option: Optional[RequestOption] = None) -> UpdateCardElementResponse:
+    async def aupdate(self, request: UpdateCardElementRequest,
+                      option: Optional[RequestOption] = None) -> UpdateCardElementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateCardElementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateCardElementResponse)
         response.raw = resp
 
         return response
-        
-    

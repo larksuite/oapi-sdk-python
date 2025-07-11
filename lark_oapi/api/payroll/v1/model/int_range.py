@@ -27,18 +27,22 @@ class IntRange(object):
 class IntRangeBuilder(object):
     def __init__(self) -> None:
         self._int_range = IntRange()
+
     def greate_than(self, greate_than: int) -> "IntRangeBuilder":
         self._int_range.greate_than = greate_than
         return self
+
     def greate_equal_than(self, greate_equal_than: int) -> "IntRangeBuilder":
         self._int_range.greate_equal_than = greate_equal_than
         return self
+
     def less_than(self, less_than: int) -> "IntRangeBuilder":
         self._int_range.less_than = less_than
         return self
+
     def less_equal_than(self, less_equal_than: int) -> "IntRangeBuilder":
         self._int_range.less_equal_than = less_equal_than
         return self
-    
+
     def build(self) -> "IntRange":
         return self._int_range

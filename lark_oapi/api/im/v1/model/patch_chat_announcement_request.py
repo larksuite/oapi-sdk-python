@@ -25,12 +25,12 @@ class PatchChatAnnouncementRequestBuilder(object):
         patch_chat_announcement_request.uri = "/open-apis/im/v1/chats/:chat_id/announcement"
         patch_chat_announcement_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._patch_chat_announcement_request: PatchChatAnnouncementRequest = patch_chat_announcement_request
-    
+
     def chat_id(self, chat_id: str) -> "PatchChatAnnouncementRequestBuilder":
         self._patch_chat_announcement_request.chat_id = chat_id
         self._patch_chat_announcement_request.paths["chat_id"] = str(chat_id)
         return self
-    
+
     def request_body(self, request_body: PatchChatAnnouncementRequestBody) -> "PatchChatAnnouncementRequestBuilder":
         self._patch_chat_announcement_request.request_body = request_body
         self._patch_chat_announcement_request.body = request_body

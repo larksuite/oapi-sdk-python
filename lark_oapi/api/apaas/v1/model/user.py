@@ -23,12 +23,14 @@ class User(object):
 class UserBuilder(object):
     def __init__(self) -> None:
         self._user = User()
+
     def user_id(self, user_id: str) -> "UserBuilder":
         self._user.user_id = user_id
         return self
+
     def name(self, name: str) -> "UserBuilder":
         self._user.name = name
         return self
-    
+
     def build(self) -> "User":
         return self._user

@@ -35,7 +35,8 @@ class Department(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetDepartmentRequest, option: Optional[RequestOption] = None) -> BatchGetDepartmentResponse:
+    def batch_get(self, request: BatchGetDepartmentRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,33 +49,32 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_get(self, request: BatchGetDepartmentRequest, option: Optional[RequestOption] = None) -> BatchGetDepartmentResponse:
+    async def abatch_get(self, request: BatchGetDepartmentRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteDepartmentRequest, option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
+
+    def delete(self, request: DeleteDepartmentRequest,
+               option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,33 +87,32 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteDepartmentRequest, option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
+    async def adelete(self, request: DeleteDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def parents(self, request: ParentsDepartmentRequest, option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:
+
+    def parents(self, request: ParentsDepartmentRequest,
+                option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -126,32 +125,30 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ParentsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ParentsDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aparents(self, request: ParentsDepartmentRequest, option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:
+    async def aparents(self, request: ParentsDepartmentRequest,
+                       option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ParentsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ParentsDepartmentResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
         if option is None:
             option = RequestOption()
@@ -165,33 +162,32 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
+    async def apatch(self, request: PatchDepartmentRequest,
+                     option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def query_multi_timeline(self, request: QueryMultiTimelineDepartmentRequest, option: Optional[RequestOption] = None) -> QueryMultiTimelineDepartmentResponse:
+
+    def query_multi_timeline(self, request: QueryMultiTimelineDepartmentRequest,
+                             option: Optional[RequestOption] = None) -> QueryMultiTimelineDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -204,33 +200,34 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryMultiTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMultiTimelineDepartmentResponse)
+        response: QueryMultiTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryMultiTimelineDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineDepartmentRequest, option: Optional[RequestOption] = None) -> QueryMultiTimelineDepartmentResponse:
+    async def aquery_multi_timeline(self, request: QueryMultiTimelineDepartmentRequest,
+                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryMultiTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMultiTimelineDepartmentResponse)
+        response: QueryMultiTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryMultiTimelineDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def query_operation_logs(self, request: QueryOperationLogsDepartmentRequest, option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
+
+    def query_operation_logs(self, request: QueryOperationLogsDepartmentRequest,
+                             option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,33 +240,34 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryOperationLogsDepartmentResponse)
+        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryOperationLogsDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_operation_logs(self, request: QueryOperationLogsDepartmentRequest, option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
+    async def aquery_operation_logs(self, request: QueryOperationLogsDepartmentRequest,
+                                    option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryOperationLogsDepartmentResponse)
+        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryOperationLogsDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def query_recent_change(self, request: QueryRecentChangeDepartmentRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeDepartmentResponse:
+
+    def query_recent_change(self, request: QueryRecentChangeDepartmentRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -282,33 +280,34 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeDepartmentResponse)
+        response: QueryRecentChangeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       QueryRecentChangeDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_recent_change(self, request: QueryRecentChangeDepartmentRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeDepartmentResponse:
+    async def aquery_recent_change(self, request: QueryRecentChangeDepartmentRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeDepartmentResponse)
+        response: QueryRecentChangeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       QueryRecentChangeDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def query_timeline(self, request: QueryTimelineDepartmentRequest, option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
+
+    def query_timeline(self, request: QueryTimelineDepartmentRequest,
+                       option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -321,33 +320,34 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTimelineDepartmentResponse)
+        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   QueryTimelineDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_timeline(self, request: QueryTimelineDepartmentRequest, option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
+    async def aquery_timeline(self, request: QueryTimelineDepartmentRequest,
+                              option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTimelineDepartmentResponse)
+        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   QueryTimelineDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    def search(self, request: SearchDepartmentRequest, option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+
+    def search(self, request: SearchDepartmentRequest,
+               option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -360,32 +360,30 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchDepartmentRequest, option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+    async def asearch(self, request: SearchDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
         response.raw = resp
 
         return response
-        
+
     def tree(self, request: TreeDepartmentRequest, option: Optional[RequestOption] = None) -> TreeDepartmentResponse:
         if option is None:
             option = RequestOption()
@@ -399,30 +397,26 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: TreeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeDepartmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def atree(self, request: TreeDepartmentRequest, option: Optional[RequestOption] = None) -> TreeDepartmentResponse:
+    async def atree(self, request: TreeDepartmentRequest,
+                    option: Optional[RequestOption] = None) -> TreeDepartmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: TreeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeDepartmentResponse)
         response.raw = resp
 
         return response
-        
-    

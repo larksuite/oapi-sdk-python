@@ -22,9 +22,10 @@ class GetAgencyResponseBody(object):
 class GetAgencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_agency_response_body = GetAgencyResponseBody()
+
     def agency(self, agency: Agency) -> "GetAgencyResponseBodyBuilder":
         self._get_agency_response_body.agency = agency
         return self
-    
+
     def build(self) -> "GetAgencyResponseBody":
         return self._get_agency_response_body

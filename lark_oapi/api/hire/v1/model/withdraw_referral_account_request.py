@@ -25,12 +25,12 @@ class WithdrawReferralAccountRequestBuilder(object):
         withdraw_referral_account_request.uri = "/open-apis/hire/v1/referral_account/:referral_account_id/withdraw"
         withdraw_referral_account_request.token_types = {AccessTokenType.TENANT}
         self._withdraw_referral_account_request: WithdrawReferralAccountRequest = withdraw_referral_account_request
-    
+
     def referral_account_id(self, referral_account_id: str) -> "WithdrawReferralAccountRequestBuilder":
         self._withdraw_referral_account_request.referral_account_id = referral_account_id
         self._withdraw_referral_account_request.paths["referral_account_id"] = str(referral_account_id)
         return self
-    
+
     def request_body(self, request_body: WithdrawReferralAccountRequestBody) -> "WithdrawReferralAccountRequestBuilder":
         self._withdraw_referral_account_request.request_body = request_body
         self._withdraw_referral_account_request.body = request_body

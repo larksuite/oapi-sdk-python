@@ -23,12 +23,14 @@ class KvEntity(object):
 class KvEntityBuilder(object):
     def __init__(self) -> None:
         self._kv_entity = KvEntity()
+
     def type(self, type: str) -> "KvEntityBuilder":
         self._kv_entity.type = type
         return self
+
     def value(self, value: str) -> "KvEntityBuilder":
         self._kv_entity.value = value
         return self
-    
+
     def build(self) -> "KvEntity":
         return self._kv_entity

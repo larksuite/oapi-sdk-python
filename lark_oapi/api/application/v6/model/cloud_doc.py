@@ -28,18 +28,22 @@ class CloudDoc(object):
 class CloudDocBuilder(object):
     def __init__(self) -> None:
         self._cloud_doc = CloudDoc()
+
     def space_url(self, space_url: str) -> "CloudDocBuilder":
         self._cloud_doc.space_url = space_url
         return self
+
     def i18n(self, i18n: List[CloudDocI18nInfo]) -> "CloudDocBuilder":
         self._cloud_doc.i18n = i18n
         return self
+
     def icon_url(self, icon_url: str) -> "CloudDocBuilder":
         self._cloud_doc.icon_url = icon_url
         return self
+
     def mode(self, mode: int) -> "CloudDocBuilder":
         self._cloud_doc.mode = mode
         return self
-    
+
     def build(self) -> "CloudDoc":
         return self._cloud_doc

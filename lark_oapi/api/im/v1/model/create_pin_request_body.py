@@ -21,9 +21,10 @@ class CreatePinRequestBody(object):
 class CreatePinRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_pin_request_body = CreatePinRequestBody()
+
     def message_id(self, message_id: str) -> "CreatePinRequestBodyBuilder":
         self._create_pin_request_body.message_id = message_id
         return self
-    
+
     def build(self) -> "CreatePinRequestBody":
         return self._create_pin_request_body

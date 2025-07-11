@@ -25,15 +25,18 @@ class OqlQueryApplicationObjectRequestBody(object):
 class OqlQueryApplicationObjectRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._oql_query_application_object_request_body = OqlQueryApplicationObjectRequestBody()
+
     def query(self, query: str) -> "OqlQueryApplicationObjectRequestBodyBuilder":
         self._oql_query_application_object_request_body.query = query
         return self
+
     def args(self, args: str) -> "OqlQueryApplicationObjectRequestBodyBuilder":
         self._oql_query_application_object_request_body.args = args
         return self
+
     def named_args(self, named_args: str) -> "OqlQueryApplicationObjectRequestBodyBuilder":
         self._oql_query_application_object_request_body.named_args = named_args
         return self
-    
+
     def build(self) -> "OqlQueryApplicationObjectRequestBody":
         return self._oql_query_application_object_request_body

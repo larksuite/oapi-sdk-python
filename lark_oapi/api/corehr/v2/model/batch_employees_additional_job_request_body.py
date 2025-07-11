@@ -33,24 +33,31 @@ class BatchEmployeesAdditionalJobRequestBody(object):
 class BatchEmployeesAdditionalJobRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_employees_additional_job_request_body = BatchEmployeesAdditionalJobRequestBody()
+
     def employment_ids(self, employment_ids: List[str]) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.employment_ids = employment_ids
         return self
+
     def additional_job_ids(self, additional_job_ids: List[str]) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.additional_job_ids = additional_job_ids
         return self
-    def start_date(self, start_date: EmployeesAdditionalJobBatchReqDate) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
+
+    def start_date(self,
+                   start_date: EmployeesAdditionalJobBatchReqDate) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.start_date = start_date
         return self
+
     def end_date(self, end_date: EmployeesAdditionalJobBatchReqDate) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.end_date = end_date
         return self
+
     def data_date(self, data_date: str) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.data_date = data_date
         return self
+
     def is_effective(self, is_effective: bool) -> "BatchEmployeesAdditionalJobRequestBodyBuilder":
         self._batch_employees_additional_job_request_body.is_effective = is_effective
         return self
-    
+
     def build(self) -> "BatchEmployeesAdditionalJobRequestBody":
         return self._batch_employees_additional_job_request_body

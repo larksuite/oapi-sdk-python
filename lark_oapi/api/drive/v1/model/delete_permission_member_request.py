@@ -28,27 +28,27 @@ class DeletePermissionMemberRequestBuilder(object):
         delete_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/:member_id"
         delete_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_permission_member_request: DeletePermissionMemberRequest = delete_permission_member_request
-    
+
     def type(self, type: str) -> "DeletePermissionMemberRequestBuilder":
         self._delete_permission_member_request.type = type
         self._delete_permission_member_request.add_query("type", type)
         return self
-    
+
     def member_type(self, member_type: str) -> "DeletePermissionMemberRequestBuilder":
         self._delete_permission_member_request.member_type = member_type
         self._delete_permission_member_request.add_query("member_type", member_type)
         return self
-    
+
     def token(self, token: str) -> "DeletePermissionMemberRequestBuilder":
         self._delete_permission_member_request.token = token
         self._delete_permission_member_request.paths["token"] = str(token)
         return self
-    
+
     def member_id(self, member_id: str) -> "DeletePermissionMemberRequestBuilder":
         self._delete_permission_member_request.member_id = member_id
         self._delete_permission_member_request.paths["member_id"] = str(member_id)
         return self
-    
+
     def request_body(self, request_body: DeletePermissionMemberRequestBody) -> "DeletePermissionMemberRequestBuilder":
         self._delete_permission_member_request.request_body = request_body
         self._delete_permission_member_request.body = request_body

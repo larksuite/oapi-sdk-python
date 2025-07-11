@@ -26,15 +26,18 @@ class DimensionOption(object):
 class DimensionOptionBuilder(object):
     def __init__(self) -> None:
         self._dimension_option = DimensionOption()
+
     def id(self, id: str) -> "DimensionOptionBuilder":
         self._dimension_option.id = id
         return self
+
     def name(self, name: I18n) -> "DimensionOptionBuilder":
         self._dimension_option.name = name
         return self
+
     def score_val(self, score_val: int) -> "DimensionOptionBuilder":
         self._dimension_option.score_val = score_val
         return self
-    
+
     def build(self) -> "DimensionOption":
         return self._dimension_option

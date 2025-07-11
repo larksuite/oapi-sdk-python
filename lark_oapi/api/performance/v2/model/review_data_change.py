@@ -29,18 +29,22 @@ class ReviewDataChange(object):
 class ReviewDataChangeBuilder(object):
     def __init__(self) -> None:
         self._review_data_change = ReviewDataChange()
+
     def user_id(self, user_id: UserId) -> "ReviewDataChangeBuilder":
         self._review_data_change.user_id = user_id
         return self
+
     def semester_id(self, semester_id: str) -> "ReviewDataChangeBuilder":
         self._review_data_change.semester_id = semester_id
         return self
+
     def activity_id(self, activity_id: str) -> "ReviewDataChangeBuilder":
         self._review_data_change.activity_id = activity_id
         return self
+
     def stage_changes(self, stage_changes: List[StageChange]) -> "ReviewDataChangeBuilder":
         self._review_data_change.stage_changes = stage_changes
         return self
-    
+
     def build(self) -> "ReviewDataChange":
         return self._review_data_change

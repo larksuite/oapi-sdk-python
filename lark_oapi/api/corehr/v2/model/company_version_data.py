@@ -39,33 +39,42 @@ class CompanyVersionData(object):
 class CompanyVersionDataBuilder(object):
     def __init__(self) -> None:
         self._company_version_data = CompanyVersionData()
+
     def company_id(self, company_id: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.company_id = company_id
         return self
+
     def company_version_id(self, company_version_id: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.company_version_id = company_version_id
         return self
+
     def company_names(self, company_names: List[I18n]) -> "CompanyVersionDataBuilder":
         self._company_version_data.company_names = company_names
         return self
+
     def parent_company_id(self, parent_company_id: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.parent_company_id = parent_company_id
         return self
+
     def effective_date(self, effective_date: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.effective_date = effective_date
         return self
+
     def expiration_date(self, expiration_date: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.expiration_date = expiration_date
         return self
+
     def active(self, active: bool) -> "CompanyVersionDataBuilder":
         self._company_version_data.active = active
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "CompanyVersionDataBuilder":
         self._company_version_data.descriptions = descriptions
         return self
+
     def code(self, code: str) -> "CompanyVersionDataBuilder":
         self._company_version_data.code = code
         return self
-    
+
     def build(self) -> "CompanyVersionData":
         return self._company_version_data

@@ -23,12 +23,14 @@ class TestSchedule(object):
 class TestScheduleBuilder(object):
     def __init__(self) -> None:
         self._test_schedule = TestSchedule()
+
     def start_time(self, start_time: str) -> "TestScheduleBuilder":
         self._test_schedule.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "TestScheduleBuilder":
         self._test_schedule.end_time = end_time
         return self
-    
+
     def build(self) -> "TestSchedule":
         return self._test_schedule

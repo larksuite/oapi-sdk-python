@@ -43,39 +43,50 @@ class Space(object):
 class SpaceBuilder(object):
     def __init__(self) -> None:
         self._space = Space()
+
     def space_id(self, space_id: str) -> "SpaceBuilder":
         self._space.space_id = space_id
         return self
+
     def name(self, name: str) -> "SpaceBuilder":
         self._space.name = name
         return self
+
     def description(self, description: str) -> "SpaceBuilder":
         self._space.description = description
         return self
+
     def avatar_url(self, avatar_url: str) -> "SpaceBuilder":
         self._space.avatar_url = avatar_url
         return self
+
     def tenant_id(self, tenant_id: str) -> "SpaceBuilder":
         self._space.tenant_id = tenant_id
         return self
+
     def domain(self, domain: str) -> "SpaceBuilder":
         self._space.domain = domain
         return self
+
     def is_cross_tenant(self, is_cross_tenant: bool) -> "SpaceBuilder":
         self._space.is_cross_tenant = is_cross_tenant
         return self
+
     def default_attr(self, default_attr: int) -> "SpaceBuilder":
         self._space.default_attr = default_attr
         return self
+
     def home_page(self, home_page: SpaceHomePage) -> "SpaceBuilder":
         self._space.home_page = home_page
         return self
+
     def cover_info(self, cover_info: SpaceCoverInfo) -> "SpaceBuilder":
         self._space.cover_info = cover_info
         return self
+
     def version(self, version: int) -> "SpaceBuilder":
         self._space.version = version
         return self
-    
+
     def build(self) -> "Space":
         return self._space

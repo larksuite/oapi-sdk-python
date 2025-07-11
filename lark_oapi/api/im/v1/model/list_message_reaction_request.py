@@ -27,32 +27,31 @@ class ListMessageReactionRequestBuilder(object):
         list_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions"
         list_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_message_reaction_request: ListMessageReactionRequest = list_message_reaction_request
-    
+
     def reaction_type(self, reaction_type: str) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.reaction_type = reaction_type
         self._list_message_reaction_request.add_query("reaction_type", reaction_type)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.page_token = page_token
         self._list_message_reaction_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.page_size = page_size
         self._list_message_reaction_request.add_query("page_size", page_size)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.user_id_type = user_id_type
         self._list_message_reaction_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def message_id(self, message_id: str) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.message_id = message_id
         self._list_message_reaction_request.paths["message_id"] = str(message_id)
         return self
-    
 
     def build(self) -> ListMessageReactionRequest:
         return self._list_message_reaction_request

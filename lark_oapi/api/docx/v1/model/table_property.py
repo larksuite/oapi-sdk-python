@@ -32,24 +32,30 @@ class TableProperty(object):
 class TablePropertyBuilder(object):
     def __init__(self) -> None:
         self._table_property = TableProperty()
+
     def row_size(self, row_size: int) -> "TablePropertyBuilder":
         self._table_property.row_size = row_size
         return self
+
     def column_size(self, column_size: int) -> "TablePropertyBuilder":
         self._table_property.column_size = column_size
         return self
+
     def column_width(self, column_width: List[int]) -> "TablePropertyBuilder":
         self._table_property.column_width = column_width
         return self
+
     def merge_info(self, merge_info: List[TableMergeInfo]) -> "TablePropertyBuilder":
         self._table_property.merge_info = merge_info
         return self
+
     def header_row(self, header_row: bool) -> "TablePropertyBuilder":
         self._table_property.header_row = header_row
         return self
+
     def header_column(self, header_column: bool) -> "TablePropertyBuilder":
         self._table_property.header_column = header_column
         return self
-    
+
     def build(self) -> "TableProperty":
         return self._table_property

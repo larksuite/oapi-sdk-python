@@ -25,12 +25,12 @@ class ListFreebusyRequestBuilder(object):
         list_freebusy_request.uri = "/open-apis/calendar/v4/freebusy/list"
         list_freebusy_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_freebusy_request: ListFreebusyRequest = list_freebusy_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ListFreebusyRequestBuilder":
         self._list_freebusy_request.user_id_type = user_id_type
         self._list_freebusy_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: ListFreebusyRequestBody) -> "ListFreebusyRequestBuilder":
         self._list_freebusy_request.request_body = request_body
         self._list_freebusy_request.body = request_body

@@ -23,12 +23,14 @@ class DeleteAppTableRecordResponseBody(object):
 class DeleteAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_app_table_record_response_body = DeleteAppTableRecordResponseBody()
+
     def deleted(self, deleted: bool) -> "DeleteAppTableRecordResponseBodyBuilder":
         self._delete_app_table_record_response_body.deleted = deleted
         return self
+
     def record_id(self, record_id: str) -> "DeleteAppTableRecordResponseBodyBuilder":
         self._delete_app_table_record_response_body.record_id = record_id
         return self
-    
+
     def build(self) -> "DeleteAppTableRecordResponseBody":
         return self._delete_app_table_record_response_body

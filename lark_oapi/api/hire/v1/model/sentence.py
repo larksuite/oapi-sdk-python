@@ -28,18 +28,22 @@ class Sentence(object):
 class SentenceBuilder(object):
     def __init__(self) -> None:
         self._sentence = Sentence()
+
     def content(self, content: str) -> "SentenceBuilder":
         self._sentence.content = content
         return self
+
     def speak_time(self, speak_time: str) -> "SentenceBuilder":
         self._sentence.speak_time = speak_time
         return self
+
     def user_type(self, user_type: int) -> "SentenceBuilder":
         self._sentence.user_type = user_type
         return self
+
     def speaker_name(self, speaker_name: I18n) -> "SentenceBuilder":
         self._sentence.speaker_name = speaker_name
         return self
-    
+
     def build(self) -> "Sentence":
         return self._sentence

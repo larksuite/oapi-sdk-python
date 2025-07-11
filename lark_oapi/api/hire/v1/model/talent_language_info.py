@@ -28,18 +28,23 @@ class TalentLanguageInfo(object):
 class TalentLanguageInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_language_info = TalentLanguageInfo()
+
     def id(self, id: str) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.id = id
         return self
+
     def language(self, language: int) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.language = language
         return self
+
     def proficiency(self, proficiency: int) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.proficiency = proficiency
         return self
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentLanguageInfoBuilder":
+
+    def customized_data_list(self,
+                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "TalentLanguageInfo":
         return self._talent_language_info

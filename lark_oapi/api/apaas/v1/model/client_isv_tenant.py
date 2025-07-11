@@ -23,12 +23,14 @@ class ClientIsvTenant(object):
 class ClientIsvTenantBuilder(object):
     def __init__(self) -> None:
         self._client_isv_tenant = ClientIsvTenant()
+
     def id(self, id: str) -> "ClientIsvTenantBuilder":
         self._client_isv_tenant.id = id
         return self
+
     def name(self, name: str) -> "ClientIsvTenantBuilder":
         self._client_isv_tenant.name = name
         return self
-    
+
     def build(self) -> "ClientIsvTenant":
         return self._client_isv_tenant

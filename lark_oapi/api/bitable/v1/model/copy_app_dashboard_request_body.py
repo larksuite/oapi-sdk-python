@@ -21,9 +21,10 @@ class CopyAppDashboardRequestBody(object):
 class CopyAppDashboardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_app_dashboard_request_body = CopyAppDashboardRequestBody()
+
     def name(self, name: str) -> "CopyAppDashboardRequestBodyBuilder":
         self._copy_app_dashboard_request_body.name = name
         return self
-    
+
     def build(self) -> "CopyAppDashboardRequestBody":
         return self._copy_app_dashboard_request_body

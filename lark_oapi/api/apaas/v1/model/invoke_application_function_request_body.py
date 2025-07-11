@@ -21,9 +21,10 @@ class InvokeApplicationFunctionRequestBody(object):
 class InvokeApplicationFunctionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._invoke_application_function_request_body = InvokeApplicationFunctionRequestBody()
+
     def params(self, params: str) -> "InvokeApplicationFunctionRequestBodyBuilder":
         self._invoke_application_function_request_body.params = params
         return self
-    
+
     def build(self) -> "InvokeApplicationFunctionRequestBody":
         return self._invoke_application_function_request_body

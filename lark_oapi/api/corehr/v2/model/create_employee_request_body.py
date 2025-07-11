@@ -31,18 +31,22 @@ class CreateEmployeeRequestBody(object):
 class CreateEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_employee_request_body = CreateEmployeeRequestBody()
+
     def personal_info(self, personal_info: ProfileSettingPersonalInfo) -> "CreateEmployeeRequestBodyBuilder":
         self._create_employee_request_body.personal_info = personal_info
         return self
+
     def employment_info(self, employment_info: ProfileSettingEmploymentInfo) -> "CreateEmployeeRequestBodyBuilder":
         self._create_employee_request_body.employment_info = employment_info
         return self
+
     def career(self, career: ProfileSettingCareer) -> "CreateEmployeeRequestBodyBuilder":
         self._create_employee_request_body.career = career
         return self
+
     def data_attachment(self, data_attachment: ProfileSettingDataAttachment) -> "CreateEmployeeRequestBodyBuilder":
         self._create_employee_request_body.data_attachment = data_attachment
         return self
-    
+
     def build(self) -> "CreateEmployeeRequestBody":
         return self._create_employee_request_body

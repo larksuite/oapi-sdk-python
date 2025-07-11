@@ -29,21 +29,26 @@ class SignatureTemplatePermissionInfo(object):
 class SignatureTemplatePermissionInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_permission_info = SignatureTemplatePermissionInfo()
+
     def read_permission(self, read_permission: bool) -> "SignatureTemplatePermissionInfoBuilder":
         self._signature_template_permission_info.read_permission = read_permission
         return self
+
     def write_permission(self, write_permission: bool) -> "SignatureTemplatePermissionInfoBuilder":
         self._signature_template_permission_info.write_permission = write_permission
         return self
+
     def switch_permission(self, switch_permission: bool) -> "SignatureTemplatePermissionInfoBuilder":
         self._signature_template_permission_info.switch_permission = switch_permission
         return self
+
     def copy_permission(self, copy_permission: bool) -> "SignatureTemplatePermissionInfoBuilder":
         self._signature_template_permission_info.copy_permission = copy_permission
         return self
+
     def delete_permission(self, delete_permission: bool) -> "SignatureTemplatePermissionInfoBuilder":
         self._signature_template_permission_info.delete_permission = delete_permission
         return self
-    
+
     def build(self) -> "SignatureTemplatePermissionInfo":
         return self._signature_template_permission_info

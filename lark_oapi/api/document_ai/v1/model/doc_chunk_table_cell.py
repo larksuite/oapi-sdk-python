@@ -41,39 +41,50 @@ class DocChunkTableCell(object):
 class DocChunkTableCellBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_table_cell = DocChunkTableCell()
+
     def type(self, type: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.type = type
         return self
+
     def text(self, text: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.text = text
         return self
+
     def x0(self, x0: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.x0 = x0
         return self
+
     def y0(self, y0: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.y0 = y0
         return self
+
     def x1(self, x1: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.x1 = x1
         return self
+
     def y1(self, y1: str) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.y1 = y1
         return self
+
     def row_index(self, row_index: int) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.row_index = row_index
         return self
+
     def col_index(self, col_index: int) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.col_index = col_index
         return self
+
     def row_span(self, row_span: int) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.row_span = row_span
         return self
+
     def col_span(self, col_span: int) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.col_span = col_span
         return self
+
     def is_merge_cell(self, is_merge_cell: bool) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.is_merge_cell = is_merge_cell
         return self
-    
+
     def build(self) -> "DocChunkTableCell":
         return self._doc_chunk_table_cell

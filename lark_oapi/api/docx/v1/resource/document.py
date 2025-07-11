@@ -23,7 +23,8 @@ class Document(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def convert(self, request: ConvertDocumentRequest, option: Optional[RequestOption] = None) -> ConvertDocumentResponse:
+    def convert(self, request: ConvertDocumentRequest,
+                option: Optional[RequestOption] = None) -> ConvertDocumentResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,32 +37,30 @@ class Document(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ConvertDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), ConvertDocumentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aconvert(self, request: ConvertDocumentRequest, option: Optional[RequestOption] = None) -> ConvertDocumentResponse:
+    async def aconvert(self, request: ConvertDocumentRequest,
+                       option: Optional[RequestOption] = None) -> ConvertDocumentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ConvertDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), ConvertDocumentResponse)
         response.raw = resp
 
         return response
-        
+
     def create(self, request: CreateDocumentRequest, option: Optional[RequestOption] = None) -> CreateDocumentResponse:
         if option is None:
             option = RequestOption()
@@ -75,32 +74,30 @@ class Document(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDocumentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateDocumentRequest, option: Optional[RequestOption] = None) -> CreateDocumentResponse:
+    async def acreate(self, request: CreateDocumentRequest,
+                      option: Optional[RequestOption] = None) -> CreateDocumentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDocumentResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetDocumentRequest, option: Optional[RequestOption] = None) -> GetDocumentResponse:
         if option is None:
             option = RequestOption()
@@ -114,13 +111,12 @@ class Document(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDocumentResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetDocumentRequest, option: Optional[RequestOption] = None) -> GetDocumentResponse:
         if option is None:
@@ -129,18 +125,17 @@ class Document(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDocumentResponse)
         response.raw = resp
 
         return response
-        
-    def raw_content(self, request: RawContentDocumentRequest, option: Optional[RequestOption] = None) -> RawContentDocumentResponse:
+
+    def raw_content(self, request: RawContentDocumentRequest,
+                    option: Optional[RequestOption] = None) -> RawContentDocumentResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +148,26 @@ class Document(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: RawContentDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), RawContentDocumentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def araw_content(self, request: RawContentDocumentRequest, option: Optional[RequestOption] = None) -> RawContentDocumentResponse:
+    async def araw_content(self, request: RawContentDocumentRequest,
+                           option: Optional[RequestOption] = None) -> RawContentDocumentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: RawContentDocumentResponse = JSON.unmarshal(str(resp.content, UTF_8), RawContentDocumentResponse)
         response.raw = resp
 
         return response
-        
-    

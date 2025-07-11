@@ -34,27 +34,34 @@ class WebsiteDeliveryProject(object):
 class WebsiteDeliveryProjectBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_project = WebsiteDeliveryProject()
+
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.customized_data = customized_data
         return self
+
     def desc(self, desc: str) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.desc = desc
         return self
+
     def end_time(self, end_time: int) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.end_time = end_time
         return self
+
     def link(self, link: str) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.link = link
         return self
+
     def name(self, name: str) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.name = name
         return self
+
     def role(self, role: str) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.role = role
         return self
+
     def start_time(self, start_time: int) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.start_time = start_time
         return self
-    
+
     def build(self) -> "WebsiteDeliveryProject":
         return self._website_delivery_project

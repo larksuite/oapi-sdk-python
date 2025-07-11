@@ -28,18 +28,22 @@ class ApprovalConfig(object):
 class ApprovalConfigBuilder(object):
     def __init__(self) -> None:
         self._approval_config = ApprovalConfig()
+
     def approval_switch(self, approval_switch: int) -> "ApprovalConfigBuilder":
         self._approval_config.approval_switch = approval_switch
         return self
+
     def approval_condition(self, approval_condition: int) -> "ApprovalConfigBuilder":
         self._approval_config.approval_condition = approval_condition
         return self
+
     def meeting_duration(self, meeting_duration: float) -> "ApprovalConfigBuilder":
         self._approval_config.meeting_duration = meeting_duration
         return self
+
     def approvers(self, approvers: List[SubscribeUser]) -> "ApprovalConfigBuilder":
         self._approval_config.approvers = approvers
         return self
-    
+
     def build(self) -> "ApprovalConfig":
         return self._approval_config

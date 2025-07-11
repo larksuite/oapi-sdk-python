@@ -21,9 +21,10 @@ class Device(object):
 class DeviceBuilder(object):
     def __init__(self) -> None:
         self._device = Device()
+
     def name(self, name: str) -> "DeviceBuilder":
         self._device.name = name
         return self
-    
+
     def build(self) -> "Device":
         return self._device

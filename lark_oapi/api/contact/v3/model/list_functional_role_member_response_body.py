@@ -26,15 +26,18 @@ class ListFunctionalRoleMemberResponseBody(object):
 class ListFunctionalRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_functional_role_member_response_body = ListFunctionalRoleMemberResponseBody()
+
     def members(self, members: List[FunctionalRoleMember]) -> "ListFunctionalRoleMemberResponseBodyBuilder":
         self._list_functional_role_member_response_body.members = members
         return self
+
     def page_token(self, page_token: str) -> "ListFunctionalRoleMemberResponseBodyBuilder":
         self._list_functional_role_member_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListFunctionalRoleMemberResponseBodyBuilder":
         self._list_functional_role_member_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListFunctionalRoleMemberResponseBody":
         return self._list_functional_role_member_response_body

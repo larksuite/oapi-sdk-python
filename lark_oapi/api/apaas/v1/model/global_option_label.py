@@ -23,12 +23,14 @@ class GlobalOptionLabel(object):
 class GlobalOptionLabelBuilder(object):
     def __init__(self) -> None:
         self._global_option_label = GlobalOptionLabel()
+
     def zh_cn(self, zh_cn: str) -> "GlobalOptionLabelBuilder":
         self._global_option_label.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "GlobalOptionLabelBuilder":
         self._global_option_label.en_us = en_us
         return self
-    
+
     def build(self) -> "GlobalOptionLabel":
         return self._global_option_label

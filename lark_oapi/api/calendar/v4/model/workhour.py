@@ -25,15 +25,18 @@ class Workhour(object):
 class WorkhourBuilder(object):
     def __init__(self) -> None:
         self._workhour = Workhour()
+
     def day_of_week(self, day_of_week: int) -> "WorkhourBuilder":
         self._workhour.day_of_week = day_of_week
         return self
+
     def start_time(self, start_time: int) -> "WorkhourBuilder":
         self._workhour.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "WorkhourBuilder":
         self._workhour.end_time = end_time
         return self
-    
+
     def build(self) -> "Workhour":
         return self._workhour

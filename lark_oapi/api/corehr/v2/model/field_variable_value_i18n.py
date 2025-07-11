@@ -23,12 +23,14 @@ class FieldVariableValueI18n(object):
 class FieldVariableValueI18nBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_i18n = FieldVariableValueI18n()
+
     def zh_cn(self, zh_cn: str) -> "FieldVariableValueI18nBuilder":
         self._field_variable_value_i18n.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "FieldVariableValueI18nBuilder":
         self._field_variable_value_i18n.en_us = en_us
         return self
-    
+
     def build(self) -> "FieldVariableValueI18n":
         return self._field_variable_value_i18n

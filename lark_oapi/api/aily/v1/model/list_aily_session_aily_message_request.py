@@ -27,32 +27,31 @@ class ListAilySessionAilyMessageRequestBuilder(object):
         list_aily_session_aily_message_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id/messages"
         list_aily_session_aily_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_aily_session_aily_message_request: ListAilySessionAilyMessageRequest = list_aily_session_aily_message_request
-    
+
     def page_size(self, page_size: int) -> "ListAilySessionAilyMessageRequestBuilder":
         self._list_aily_session_aily_message_request.page_size = page_size
         self._list_aily_session_aily_message_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListAilySessionAilyMessageRequestBuilder":
         self._list_aily_session_aily_message_request.page_token = page_token
         self._list_aily_session_aily_message_request.add_query("page_token", page_token)
         return self
-    
+
     def run_id(self, run_id: str) -> "ListAilySessionAilyMessageRequestBuilder":
         self._list_aily_session_aily_message_request.run_id = run_id
         self._list_aily_session_aily_message_request.add_query("run_id", run_id)
         return self
-    
+
     def with_partial_message(self, with_partial_message: bool) -> "ListAilySessionAilyMessageRequestBuilder":
         self._list_aily_session_aily_message_request.with_partial_message = with_partial_message
         self._list_aily_session_aily_message_request.add_query("with_partial_message", with_partial_message)
         return self
-    
+
     def aily_session_id(self, aily_session_id: str) -> "ListAilySessionAilyMessageRequestBuilder":
         self._list_aily_session_aily_message_request.aily_session_id = aily_session_id
         self._list_aily_session_aily_message_request.paths["aily_session_id"] = str(aily_session_id)
         return self
-    
 
     def build(self) -> ListAilySessionAilyMessageRequest:
         return self._list_aily_session_aily_message_request

@@ -22,9 +22,11 @@ class OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBody(object):
 class OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._open_query_department_change_list_by_ids_approval_groups_response_body = OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBody()
-    def department_changes(self, department_changes: List[DepartmentChange]) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBodyBuilder":
+
+    def department_changes(self, department_changes: List[
+        DepartmentChange]) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBodyBuilder":
         self._open_query_department_change_list_by_ids_approval_groups_response_body.department_changes = department_changes
         return self
-    
+
     def build(self) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBody":
         return self._open_query_department_change_list_by_ids_approval_groups_response_body

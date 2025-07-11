@@ -23,12 +23,14 @@ class ConvertDocumentRequestBody(object):
 class ConvertDocumentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._convert_document_request_body = ConvertDocumentRequestBody()
+
     def content_type(self, content_type: str) -> "ConvertDocumentRequestBodyBuilder":
         self._convert_document_request_body.content_type = content_type
         return self
+
     def content(self, content: str) -> "ConvertDocumentRequestBodyBuilder":
         self._convert_document_request_body.content = content
         return self
-    
+
     def build(self) -> "ConvertDocumentRequestBody":
         return self._convert_document_request_body

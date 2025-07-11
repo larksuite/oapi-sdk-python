@@ -5,68 +5,70 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListCalendarEventAttendeeChatMemberRequest = ListCalendarEventAttendeeChatMemberRequest.builder() \
-		.calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
-		.event_id("xxxxxxxxx_0") \
-		.attendee_id("chat_xxxxxx") \
-		.page_token("23jhysaxxxxsysy") \
-		.page_size(20) \
-		.user_id_type("user_id") \
-		.build()
+    # 构造请求对象
+    request: ListCalendarEventAttendeeChatMemberRequest = ListCalendarEventAttendeeChatMemberRequest.builder() \
+        .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
+        .event_id("xxxxxxxxx_0") \
+        .attendee_id("chat_xxxxxx") \
+        .page_token("23jhysaxxxxsysy") \
+        .page_size(20) \
+        .user_id_type("user_id") \
+        .build()
 
-	# 发起请求
-	response: ListCalendarEventAttendeeChatMemberResponse = client.calendar.v4.calendar_event_attendee_chat_member.list(request)
+    # 发起请求
+    response: ListCalendarEventAttendeeChatMemberResponse = client.calendar.v4.calendar_event_attendee_chat_member.list(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.calendar.v4.calendar_event_attendee_chat_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.calendar.v4.calendar_event_attendee_chat_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListCalendarEventAttendeeChatMemberRequest = ListCalendarEventAttendeeChatMemberRequest.builder() \
-		.calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
-		.event_id("xxxxxxxxx_0") \
-		.attendee_id("chat_xxxxxx") \
-		.page_token("23jhysaxxxxsysy") \
-		.page_size(20) \
-		.user_id_type("user_id") \
-		.build()
+    # 构造请求对象
+    request: ListCalendarEventAttendeeChatMemberRequest = ListCalendarEventAttendeeChatMemberRequest.builder() \
+        .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
+        .event_id("xxxxxxxxx_0") \
+        .attendee_id("chat_xxxxxx") \
+        .page_token("23jhysaxxxxsysy") \
+        .page_size(20) \
+        .user_id_type("user_id") \
+        .build()
 
-	# 发起请求
-	response: ListCalendarEventAttendeeChatMemberResponse = await client.calendar.v4.calendar_event_attendee_chat_member.alist(request)
+    # 发起请求
+    response: ListCalendarEventAttendeeChatMemberResponse = await client.calendar.v4.calendar_event_attendee_chat_member.alist(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.calendar.v4.calendar_event_attendee_chat_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.calendar.v4.calendar_event_attendee_chat_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

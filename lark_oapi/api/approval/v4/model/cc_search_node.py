@@ -32,24 +32,30 @@ class CcSearchNode(object):
 class CcSearchNodeBuilder(object):
     def __init__(self) -> None:
         self._cc_search_node = CcSearchNode()
+
     def user_id(self, user_id: str) -> "CcSearchNodeBuilder":
         self._cc_search_node.user_id = user_id
         return self
+
     def create_time(self, create_time: int) -> "CcSearchNodeBuilder":
         self._cc_search_node.create_time = create_time
         return self
+
     def read_status(self, read_status: str) -> "CcSearchNodeBuilder":
         self._cc_search_node.read_status = read_status
         return self
+
     def title(self, title: str) -> "CcSearchNodeBuilder":
         self._cc_search_node.title = title
         return self
+
     def extra(self, extra: str) -> "CcSearchNodeBuilder":
         self._cc_search_node.extra = extra
         return self
+
     def link(self, link: InstanceSearchLink) -> "CcSearchNodeBuilder":
         self._cc_search_node.link = link
         return self
-    
+
     def build(self) -> "CcSearchNode":
         return self._cc_search_node

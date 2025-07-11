@@ -23,12 +23,14 @@ class CreateOidcAccessTokenRequestBody(object):
 class CreateOidcAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_oidc_access_token_request_body = CreateOidcAccessTokenRequestBody()
+
     def grant_type(self, grant_type: str) -> "CreateOidcAccessTokenRequestBodyBuilder":
         self._create_oidc_access_token_request_body.grant_type = grant_type
         return self
+
     def code(self, code: str) -> "CreateOidcAccessTokenRequestBodyBuilder":
         self._create_oidc_access_token_request_body.code = code
         return self
-    
+
     def build(self) -> "CreateOidcAccessTokenRequestBody":
         return self._create_oidc_access_token_request_body

@@ -21,9 +21,10 @@ class CancelSendNotificationRequestBody(object):
 class CancelSendNotificationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._cancel_send_notification_request_body = CancelSendNotificationRequestBody()
+
     def is_recall(self, is_recall: bool) -> "CancelSendNotificationRequestBodyBuilder":
         self._cancel_send_notification_request_body.is_recall = is_recall
         return self
-    
+
     def build(self) -> "CancelSendNotificationRequestBody":
         return self._cancel_send_notification_request_body

@@ -41,33 +41,42 @@ class LocationRecord(object):
 class LocationRecordBuilder(object):
     def __init__(self) -> None:
         self._location_record = LocationRecord()
+
     def user_id(self, user_id: UserId) -> "LocationRecordBuilder":
         self._location_record.user_id = user_id
         return self
+
     def timestamp(self, timestamp: str) -> "LocationRecordBuilder":
         self._location_record.timestamp = timestamp
         return self
+
     def location(self, location: LocationInfoEvent) -> "LocationRecordBuilder":
         self._location_record.location = location
         return self
+
     def wifi(self, wifi: WifiInfoEvent) -> "LocationRecordBuilder":
         self._location_record.wifi = wifi
         return self
+
     def rule_snapshot_id(self, rule_snapshot_id: str) -> "LocationRecordBuilder":
         self._location_record.rule_snapshot_id = rule_snapshot_id
         return self
+
     def type(self, type: str) -> "LocationRecordBuilder":
         self._location_record.type = type
         return self
+
     def scan_wifi_list(self, scan_wifi_list: List[ScanWifiInfo]) -> "LocationRecordBuilder":
         self._location_record.scan_wifi_list = scan_wifi_list
         return self
+
     def device_id(self, device_id: str) -> "LocationRecordBuilder":
         self._location_record.device_id = device_id
         return self
+
     def client_info(self, client_info: str) -> "LocationRecordBuilder":
         self._location_record.client_info = client_info
         return self
-    
+
     def build(self) -> "LocationRecord":
         return self._location_record

@@ -23,12 +23,14 @@ class SignatureCustomFieldValueMultilingualValue(object):
 class SignatureCustomFieldValueMultilingualValueBuilder(object):
     def __init__(self) -> None:
         self._signature_custom_field_value_multilingual_value = SignatureCustomFieldValueMultilingualValue()
+
     def zh(self, zh: str) -> "SignatureCustomFieldValueMultilingualValueBuilder":
         self._signature_custom_field_value_multilingual_value.zh = zh
         return self
+
     def en(self, en: str) -> "SignatureCustomFieldValueMultilingualValueBuilder":
         self._signature_custom_field_value_multilingual_value.en = en
         return self
-    
+
     def build(self) -> "SignatureCustomFieldValueMultilingualValue":
         return self._signature_custom_field_value_multilingual_value

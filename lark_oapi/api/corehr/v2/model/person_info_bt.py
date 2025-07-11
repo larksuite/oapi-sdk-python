@@ -146,162 +146,214 @@ class PersonInfoBt(object):
 class PersonInfoBtBuilder(object):
     def __init__(self) -> None:
         self._person_info_bt = PersonInfoBt()
+
     def person_id(self, person_id: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.person_id = person_id
         return self
+
     def phone_number(self, phone_number: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.phone_number = phone_number
         return self
+
     def legal_name(self, legal_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.legal_name = legal_name
         return self
+
     def additional_name(self, additional_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.additional_name = additional_name
         return self
+
     def preferred_name(self, preferred_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.preferred_name = preferred_name
         return self
+
     def preferred_local_full_name(self, preferred_local_full_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.preferred_local_full_name = preferred_local_full_name
         return self
+
     def preferred_english_full_name(self, preferred_english_full_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.preferred_english_full_name = preferred_english_full_name
         return self
+
     def name_list(self, name_list: List[PersonName]) -> "PersonInfoBtBuilder":
         self._person_info_bt.name_list = name_list
         return self
+
     def gender(self, gender: Enum) -> "PersonInfoBtBuilder":
         self._person_info_bt.gender = gender
         return self
+
     def date_of_birth(self, date_of_birth: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.date_of_birth = date_of_birth
         return self
+
     def nationality_id(self, nationality_id: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.nationality_id = nationality_id
         return self
+
     def nationality_id_v2(self, nationality_id_v2: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.nationality_id_v2 = nationality_id_v2
         return self
+
     def additional_nationalities(self, additional_nationalities: List[Nationality]) -> "PersonInfoBtBuilder":
         self._person_info_bt.additional_nationalities = additional_nationalities
         return self
+
     def citizenship_status(self, citizenship_status: List[CitizenshipStatus]) -> "PersonInfoBtBuilder":
         self._person_info_bt.citizenship_status = citizenship_status
         return self
+
     def race(self, race: Enum) -> "PersonInfoBtBuilder":
         self._person_info_bt.race = race
         return self
+
     def marital_status(self, marital_status: Enum) -> "PersonInfoBtBuilder":
         self._person_info_bt.marital_status = marital_status
         return self
+
     def phone_list(self, phone_list: List[Phone]) -> "PersonInfoBtBuilder":
         self._person_info_bt.phone_list = phone_list
         return self
+
     def address_list(self, address_list: List[Address]) -> "PersonInfoBtBuilder":
         self._person_info_bt.address_list = address_list
         return self
+
     def email_list(self, email_list: List[Email]) -> "PersonInfoBtBuilder":
         self._person_info_bt.email_list = email_list
         return self
+
     def work_experience_list(self, work_experience_list: List[WorkExperienceInfo]) -> "PersonInfoBtBuilder":
         self._person_info_bt.work_experience_list = work_experience_list
         return self
+
     def education_list(self, education_list: List[Education]) -> "PersonInfoBtBuilder":
         self._person_info_bt.education_list = education_list
         return self
+
     def bank_account_list(self, bank_account_list: List[BankAccount]) -> "PersonInfoBtBuilder":
         self._person_info_bt.bank_account_list = bank_account_list
         return self
+
     def national_id_list(self, national_id_list: List[NationalId]) -> "PersonInfoBtBuilder":
         self._person_info_bt.national_id_list = national_id_list
         return self
+
     def dependent_list(self, dependent_list: List[Dependent]) -> "PersonInfoBtBuilder":
         self._person_info_bt.dependent_list = dependent_list
         return self
+
     def emergency_contact_list(self, emergency_contact_list: List[EmergencyContact]) -> "PersonInfoBtBuilder":
         self._person_info_bt.emergency_contact_list = emergency_contact_list
         return self
+
     def date_entered_workforce(self, date_entered_workforce: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.date_entered_workforce = date_entered_workforce
         return self
+
     def working_years(self, working_years: int) -> "PersonInfoBtBuilder":
         self._person_info_bt.working_years = working_years
         return self
+
     def profile_image_id(self, profile_image_id: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.profile_image_id = profile_image_id
         return self
+
     def email_address(self, email_address: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.email_address = email_address
         return self
+
     def age(self, age: int) -> "PersonInfoBtBuilder":
         self._person_info_bt.age = age
         return self
+
     def highest_level_of_education(self, highest_level_of_education: Education) -> "PersonInfoBtBuilder":
         self._person_info_bt.highest_level_of_education = highest_level_of_education
         return self
+
     def highest_degree_of_education(self, highest_degree_of_education: Education) -> "PersonInfoBtBuilder":
         self._person_info_bt.highest_degree_of_education = highest_degree_of_education
         return self
+
     def personal_profile(self, personal_profile: List[PersonalProfile]) -> "PersonInfoBtBuilder":
         self._person_info_bt.personal_profile = personal_profile
         return self
+
     def native_region(self, native_region: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.native_region = native_region
         return self
+
     def hukou_type(self, hukou_type: Enum) -> "PersonInfoBtBuilder":
         self._person_info_bt.hukou_type = hukou_type
         return self
+
     def hukou_location(self, hukou_location: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.hukou_location = hukou_location
         return self
+
     def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoBtBuilder":
         self._person_info_bt.political_affiliations = political_affiliations
         return self
+
     def talent_id(self, talent_id: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.talent_id = talent_id
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PersonInfoBtBuilder":
         self._person_info_bt.custom_fields = custom_fields
         return self
+
     def national_id_number(self, national_id_number: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.national_id_number = national_id_number
         return self
+
     def family_address(self, family_address: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.family_address = family_address
         return self
+
     def born_country_region(self, born_country_region: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.born_country_region = born_country_region
         return self
+
     def is_disabled(self, is_disabled: bool) -> "PersonInfoBtBuilder":
         self._person_info_bt.is_disabled = is_disabled
         return self
+
     def disable_card_number(self, disable_card_number: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.disable_card_number = disable_card_number
         return self
+
     def is_martyr_family(self, is_martyr_family: bool) -> "PersonInfoBtBuilder":
         self._person_info_bt.is_martyr_family = is_martyr_family
         return self
+
     def martyr_card_number(self, martyr_card_number: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.martyr_card_number = martyr_card_number
         return self
+
     def is_old_alone(self, is_old_alone: bool) -> "PersonInfoBtBuilder":
         self._person_info_bt.is_old_alone = is_old_alone
         return self
+
     def resident_taxes(self, resident_taxes: List[ResidentTax]) -> "PersonInfoBtBuilder":
         self._person_info_bt.resident_taxes = resident_taxes
         return self
+
     def first_entry_time(self, first_entry_time: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.first_entry_time = first_entry_time
         return self
+
     def leave_time(self, leave_time: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.leave_time = leave_time
         return self
+
     def religion(self, religion: Enum) -> "PersonInfoBtBuilder":
         self._person_info_bt.religion = religion
         return self
+
     def working_years_v2(self, working_years_v2: float) -> "PersonInfoBtBuilder":
         self._person_info_bt.working_years_v2 = working_years_v2
         return self
-    
+
     def build(self) -> "PersonInfoBt":
         return self._person_info_bt

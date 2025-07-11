@@ -5,72 +5,72 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateUserMailboxRuleRequest = CreateUserMailboxRuleRequest.builder() \
-		.user_mailbox_id("user@xxx.xx 或 me") \
-		.request_body(Rule.builder()
-					  .condition(RuleCondition.builder().build())
-					  .action(RuleAction.builder().build())
-					  .ignore_the_rest_of_rules(False)
-					  .name("将李三的邮件标记为垃圾邮件")
-					  .is_enable(False)
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateUserMailboxRuleRequest = CreateUserMailboxRuleRequest.builder() \
+        .user_mailbox_id("user@xxx.xx 或 me") \
+        .request_body(Rule.builder()
+                      .condition(RuleCondition.builder().build())
+                      .action(RuleAction.builder().build())
+                      .ignore_the_rest_of_rules(False)
+                      .name("将李三的邮件标记为垃圾邮件")
+                      .is_enable(False)
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateUserMailboxRuleResponse = client.mail.v1.user_mailbox_rule.create(request)
+    # 发起请求
+    response: CreateUserMailboxRuleResponse = client.mail.v1.user_mailbox_rule.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.mail.v1.user_mailbox_rule.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.mail.v1.user_mailbox_rule.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateUserMailboxRuleRequest = CreateUserMailboxRuleRequest.builder() \
-		.user_mailbox_id("user@xxx.xx 或 me") \
-		.request_body(Rule.builder()
-					  .condition(RuleCondition.builder().build())
-					  .action(RuleAction.builder().build())
-					  .ignore_the_rest_of_rules(False)
-					  .name("将李三的邮件标记为垃圾邮件")
-					  .is_enable(False)
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateUserMailboxRuleRequest = CreateUserMailboxRuleRequest.builder() \
+        .user_mailbox_id("user@xxx.xx 或 me") \
+        .request_body(Rule.builder()
+                      .condition(RuleCondition.builder().build())
+                      .action(RuleAction.builder().build())
+                      .ignore_the_rest_of_rules(False)
+                      .name("将李三的邮件标记为垃圾邮件")
+                      .is_enable(False)
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateUserMailboxRuleResponse = await client.mail.v1.user_mailbox_rule.acreate(request)
+    # 发起请求
+    response: CreateUserMailboxRuleResponse = await client.mail.v1.user_mailbox_rule.acreate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.mail.v1.user_mailbox_rule.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.mail.v1.user_mailbox_rule.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

@@ -5,62 +5,62 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: GetFileRequest = GetFileRequest.builder() \
-		.id("150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100") \
-		.build()
+    # 构造请求对象
+    request: GetFileRequest = GetFileRequest.builder() \
+        .id("150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100") \
+        .build()
 
-	# 发起请求
-	response: GetFileResponse = client.corehr.v1.file.get(request)
+    # 发起请求
+    response: GetFileResponse = client.corehr.v1.file.get(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.file.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.file.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	f = open(f"/file_path/{response.file_name}", "wb")
-	f.write(response.file.read())
-	f.close()
+    # 处理业务结果
+    f = open(f"/file_path/{response.file_name}", "wb")
+    f.write(response.file.read())
+    f.close()
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: GetFileRequest = GetFileRequest.builder() \
-		.id("150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100") \
-		.build()
+    # 构造请求对象
+    request: GetFileRequest = GetFileRequest.builder() \
+        .id("150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100") \
+        .build()
 
-	# 发起请求
-	response: GetFileResponse = await client.corehr.v1.file.aget(request)
+    # 发起请求
+    response: GetFileResponse = await client.corehr.v1.file.aget(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.file.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.file.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	f = open(f"/file_path/{response.file_name}", "wb")
-	f.write(response.file.read())
-	f.close()
+    # 处理业务结果
+    f = open(f"/file_path/{response.file_name}", "wb")
+    f.write(response.file.read())
+    f.close()
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

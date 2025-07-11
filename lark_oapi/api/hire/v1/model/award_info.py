@@ -25,15 +25,18 @@ class AwardInfo(object):
 class AwardInfoBuilder(object):
     def __init__(self) -> None:
         self._award_info = AwardInfo()
+
     def award_time(self, award_time: int) -> "AwardInfoBuilder":
         self._award_info.award_time = award_time
         return self
+
     def desc(self, desc: str) -> "AwardInfoBuilder":
         self._award_info.desc = desc
         return self
+
     def title(self, title: str) -> "AwardInfoBuilder":
         self._award_info.title = title
         return self
-    
+
     def build(self) -> "AwardInfo":
         return self._award_info

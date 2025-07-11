@@ -23,12 +23,14 @@ class TimeSpan(object):
 class TimeSpanBuilder(object):
     def __init__(self) -> None:
         self._time_span = TimeSpan()
+
     def start_time(self, start_time: str) -> "TimeSpanBuilder":
         self._time_span.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "TimeSpanBuilder":
         self._time_span.end_time = end_time
         return self
-    
+
     def build(self) -> "TimeSpan":
         return self._time_span

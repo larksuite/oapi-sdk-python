@@ -19,6 +19,6 @@ class TextSetting(object):
 class TextSettingBuilder(object):
     def __init__(self) -> None:
         self._text_setting = TextSetting()
-    
+
     def build(self) -> "TextSetting":
         return self._text_setting

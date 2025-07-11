@@ -29,21 +29,26 @@ class TenantThirdPartyEncryptionApp(object):
 class TenantThirdPartyEncryptionAppBuilder(object):
     def __init__(self) -> None:
         self._tenant_third_party_encryption_app = TenantThirdPartyEncryptionApp()
+
     def vendor_name(self, vendor_name: str) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.vendor_name = vendor_name
         return self
+
     def status(self, status: int) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.status = status
         return self
+
     def service_start_time(self, service_start_time: int) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.service_start_time = service_start_time
         return self
+
     def service_end_time(self, service_end_time: int) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.service_end_time = service_end_time
         return self
+
     def config(self, config: str) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.config = config
         return self
-    
+
     def build(self) -> "TenantThirdPartyEncryptionApp":
         return self._tenant_third_party_encryption_app

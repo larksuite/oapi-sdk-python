@@ -21,9 +21,10 @@ class DataAssetImportKnowledgeHelpdesk(object):
 class DataAssetImportKnowledgeHelpdeskBuilder(object):
     def __init__(self) -> None:
         self._data_asset_import_knowledge_helpdesk = DataAssetImportKnowledgeHelpdesk()
+
     def helpdesk_id(self, helpdesk_id: str) -> "DataAssetImportKnowledgeHelpdeskBuilder":
         self._data_asset_import_knowledge_helpdesk.helpdesk_id = helpdesk_id
         return self
-    
+
     def build(self) -> "DataAssetImportKnowledgeHelpdesk":
         return self._data_asset_import_knowledge_helpdesk

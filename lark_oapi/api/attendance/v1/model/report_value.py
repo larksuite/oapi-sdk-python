@@ -23,12 +23,14 @@ class ReportValue(object):
 class ReportValueBuilder(object):
     def __init__(self) -> None:
         self._report_value = ReportValue()
+
     def value(self, value: str) -> "ReportValueBuilder":
         self._report_value.value = value
         return self
+
     def field_id(self, field_id: str) -> "ReportValueBuilder":
         self._report_value.field_id = field_id
         return self
-    
+
     def build(self) -> "ReportValue":
         return self._report_value

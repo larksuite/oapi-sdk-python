@@ -24,7 +24,7 @@ class RecognizeBusinessCardRequestBuilder(object):
         recognize_business_card_request.uri = "/open-apis/document_ai/v1/business_card/recognize"
         recognize_business_card_request.token_types = {AccessTokenType.TENANT}
         self._recognize_business_card_request: RecognizeBusinessCardRequest = recognize_business_card_request
-    
+
     def request_body(self, request_body: RecognizeBusinessCardRequestBody) -> "RecognizeBusinessCardRequestBuilder":
         self._recognize_business_card_request.request_body = request_body
         self._recognize_business_card_request.body = request_body

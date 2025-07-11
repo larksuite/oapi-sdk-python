@@ -25,22 +25,21 @@ class SearchTalentPoolRequestBuilder(object):
         search_talent_pool_request.uri = "/open-apis/hire/v1/talent_pools"
         search_talent_pool_request.token_types = {AccessTokenType.TENANT}
         self._search_talent_pool_request: SearchTalentPoolRequest = search_talent_pool_request
-    
+
     def page_size(self, page_size: int) -> "SearchTalentPoolRequestBuilder":
         self._search_talent_pool_request.page_size = page_size
         self._search_talent_pool_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "SearchTalentPoolRequestBuilder":
         self._search_talent_pool_request.page_token = page_token
         self._search_talent_pool_request.add_query("page_token", page_token)
         return self
-    
+
     def id_list(self, id_list: List[str]) -> "SearchTalentPoolRequestBuilder":
         self._search_talent_pool_request.id_list = id_list
         self._search_talent_pool_request.add_query("id_list", id_list)
         return self
-    
 
     def build(self) -> SearchTalentPoolRequest:
         return self._search_talent_pool_request

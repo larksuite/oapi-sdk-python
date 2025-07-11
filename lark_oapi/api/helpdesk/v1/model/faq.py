@@ -49,45 +49,58 @@ class Faq(object):
 class FaqBuilder(object):
     def __init__(self) -> None:
         self._faq = Faq()
+
     def faq_id(self, faq_id: str) -> "FaqBuilder":
         self._faq.faq_id = faq_id
         return self
+
     def id(self, id: str) -> "FaqBuilder":
         self._faq.id = id
         return self
+
     def helpdesk_id(self, helpdesk_id: str) -> "FaqBuilder":
         self._faq.helpdesk_id = helpdesk_id
         return self
+
     def question(self, question: str) -> "FaqBuilder":
         self._faq.question = question
         return self
+
     def answer(self, answer: str) -> "FaqBuilder":
         self._faq.answer = answer
         return self
+
     def answer_richtext(self, answer_richtext: List[Richtext]) -> "FaqBuilder":
         self._faq.answer_richtext = answer_richtext
         return self
+
     def create_time(self, create_time: int) -> "FaqBuilder":
         self._faq.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "FaqBuilder":
         self._faq.update_time = update_time
         return self
+
     def categories(self, categories: List[Category]) -> "FaqBuilder":
         self._faq.categories = categories
         return self
+
     def tags(self, tags: List[str]) -> "FaqBuilder":
         self._faq.tags = tags
         return self
+
     def expire_time(self, expire_time: int) -> "FaqBuilder":
         self._faq.expire_time = expire_time
         return self
+
     def update_user(self, update_user: TicketUser) -> "FaqBuilder":
         self._faq.update_user = update_user
         return self
+
     def create_user(self, create_user: TicketUser) -> "FaqBuilder":
         self._faq.create_user = create_user
         return self
-    
+
     def build(self) -> "Faq":
         return self._faq

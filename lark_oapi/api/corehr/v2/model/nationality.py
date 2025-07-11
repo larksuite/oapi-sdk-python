@@ -34,27 +34,34 @@ class Nationality(object):
 class NationalityBuilder(object):
     def __init__(self) -> None:
         self._nationality = Nationality()
+
     def nationality_id(self, nationality_id: str) -> "NationalityBuilder":
         self._nationality.nationality_id = nationality_id
         return self
+
     def name(self, name: List[I18n]) -> "NationalityBuilder":
         self._nationality.name = name
         return self
+
     def alpha_2_code(self, alpha_2_code: str) -> "NationalityBuilder":
         self._nationality.alpha_2_code = alpha_2_code
         return self
+
     def alpha_3_code(self, alpha_3_code: str) -> "NationalityBuilder":
         self._nationality.alpha_3_code = alpha_3_code
         return self
+
     def numeric_code(self, numeric_code: int) -> "NationalityBuilder":
         self._nationality.numeric_code = numeric_code
         return self
+
     def country_region_id(self, country_region_id: str) -> "NationalityBuilder":
         self._nationality.country_region_id = country_region_id
         return self
+
     def status(self, status: int) -> "NationalityBuilder":
         self._nationality.status = status
         return self
-    
+
     def build(self) -> "Nationality":
         return self._nationality

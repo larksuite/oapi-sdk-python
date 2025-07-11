@@ -24,12 +24,14 @@ class SignatureTemplateRegionInfo(object):
 class SignatureTemplateRegionInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_region_info = SignatureTemplateRegionInfo()
+
     def is_global_scope(self, is_global_scope: str) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.is_global_scope = is_global_scope
         return self
+
     def meta_infos(self, meta_infos: List[SignatureMetaInfo]) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.meta_infos = meta_infos
         return self
-    
+
     def build(self) -> "SignatureTemplateRegionInfo":
         return self._signature_template_region_info

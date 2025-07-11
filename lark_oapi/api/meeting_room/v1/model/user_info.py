@@ -23,12 +23,14 @@ class UserInfo(object):
 class UserInfoBuilder(object):
     def __init__(self) -> None:
         self._user_info = UserInfo()
+
     def open_id(self, open_id: str) -> "UserInfoBuilder":
         self._user_info.open_id = open_id
         return self
+
     def user_id(self, user_id: str) -> "UserInfoBuilder":
         self._user_info.user_id = user_id
         return self
-    
+
     def build(self) -> "UserInfo":
         return self._user_info

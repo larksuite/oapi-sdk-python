@@ -32,21 +32,26 @@ class CpstGrade(object):
 class CpstGradeBuilder(object):
     def __init__(self) -> None:
         self._cpst_grade = CpstGrade()
+
     def grade_id(self, grade_id: str) -> "CpstGradeBuilder":
         self._cpst_grade.grade_id = grade_id
         return self
+
     def grade_tid(self, grade_tid: str) -> "CpstGradeBuilder":
         self._cpst_grade.grade_tid = grade_tid
         return self
+
     def grade_standard_value(self, grade_standard_value: CpstGradeStandardValue) -> "CpstGradeBuilder":
         self._cpst_grade.grade_standard_value = grade_standard_value
         return self
+
     def currency(self, currency: CpstCurrency) -> "CpstGradeBuilder":
         self._cpst_grade.currency = currency
         return self
+
     def description(self, description: CpstI18n) -> "CpstGradeBuilder":
         self._cpst_grade.description = description
         return self
-    
+
     def build(self) -> "CpstGrade":
         return self._cpst_grade

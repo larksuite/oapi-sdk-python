@@ -108,123 +108,162 @@ class BasicInfo(object):
 class BasicInfoBuilder(object):
     def __init__(self) -> None:
         self._basic_info = BasicInfo()
+
     def name(self, name: Name) -> "BasicInfoBuilder":
         self._basic_info.name = name
         return self
+
     def phone_number(self, phone_number: str) -> "BasicInfoBuilder":
         self._basic_info.phone_number = phone_number
         return self
+
     def international_area_code(self, international_area_code: str) -> "BasicInfoBuilder":
         self._basic_info.international_area_code = international_area_code
         return self
+
     def email(self, email: str) -> "BasicInfoBuilder":
         self._basic_info.email = email
         return self
+
     def date_of_birth(self, date_of_birth: str) -> "BasicInfoBuilder":
         self._basic_info.date_of_birth = date_of_birth
         return self
+
     def personal_id_number(self, personal_id_number: str) -> "BasicInfoBuilder":
         self._basic_info.personal_id_number = personal_id_number
         return self
+
     def personal_id_type(self, personal_id_type: str) -> "BasicInfoBuilder":
         self._basic_info.personal_id_type = personal_id_type
         return self
+
     def date_entered_workforce(self, date_entered_workforce: str) -> "BasicInfoBuilder":
         self._basic_info.date_entered_workforce = date_entered_workforce
         return self
+
     def gender_id(self, gender_id: str) -> "BasicInfoBuilder":
         self._basic_info.gender_id = gender_id
         return self
+
     def nationality_id(self, nationality_id: str) -> "BasicInfoBuilder":
         self._basic_info.nationality_id = nationality_id
         return self
+
     def nationality_v2_id(self, nationality_v2_id: str) -> "BasicInfoBuilder":
         self._basic_info.nationality_v2_id = nationality_v2_id
         return self
+
     def additional_nationality_id_list(self, additional_nationality_id_list: List[str]) -> "BasicInfoBuilder":
         self._basic_info.additional_nationality_id_list = additional_nationality_id_list
         return self
+
     def citizenship_status_id_list(self, citizenship_status_id_list: List[str]) -> "BasicInfoBuilder":
         self._basic_info.citizenship_status_id_list = citizenship_status_id_list
         return self
+
     def home_address(self, home_address: str) -> "BasicInfoBuilder":
         self._basic_info.home_address = home_address
         return self
+
     def worker_id(self, worker_id: str) -> "BasicInfoBuilder":
         self._basic_info.worker_id = worker_id
         return self
+
     def user_geo(self, user_geo: str) -> "BasicInfoBuilder":
         self._basic_info.user_geo = user_geo
         return self
+
     def legal_name(self, legal_name: Name) -> "BasicInfoBuilder":
         self._basic_info.legal_name = legal_name
         return self
+
     def additional_name(self, additional_name: Name) -> "BasicInfoBuilder":
         self._basic_info.additional_name = additional_name
         return self
+
     def resident_tax_list(self, resident_tax_list: List[ResidentTaxForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.resident_tax_list = resident_tax_list
         return self
+
     def born_country_region(self, born_country_region: str) -> "BasicInfoBuilder":
         self._basic_info.born_country_region = born_country_region
         return self
+
     def is_disabled(self, is_disabled: bool) -> "BasicInfoBuilder":
         self._basic_info.is_disabled = is_disabled
         return self
+
     def disable_card_number(self, disable_card_number: str) -> "BasicInfoBuilder":
         self._basic_info.disable_card_number = disable_card_number
         return self
+
     def is_old_alone(self, is_old_alone: bool) -> "BasicInfoBuilder":
         self._basic_info.is_old_alone = is_old_alone
         return self
+
     def is_martyr_family(self, is_martyr_family: bool) -> "BasicInfoBuilder":
         self._basic_info.is_martyr_family = is_martyr_family
         return self
+
     def martyr_card_number(self, martyr_card_number: str) -> "BasicInfoBuilder":
         self._basic_info.martyr_card_number = martyr_card_number
         return self
+
     def dependent_list(self, dependent_list: List[DependentForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.dependent_list = dependent_list
         return self
+
     def religion(self, religion: str) -> "BasicInfoBuilder":
         self._basic_info.religion = religion
         return self
+
     def bank_account_list(self, bank_account_list: List[BankAccountForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.bank_account_list = bank_account_list
         return self
+
     def national_id_list(self, national_id_list: List[NationalIdForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.national_id_list = national_id_list
         return self
+
     def personal_profile_list(self, personal_profile_list: List[PersonalProfileForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.personal_profile_list = personal_profile_list
         return self
+
     def emergency_contact_list(self, emergency_contact_list: List[EmergencyContactForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.emergency_contact_list = emergency_contact_list
         return self
+
     def address_list(self, address_list: List[AddressForUpdate]) -> "BasicInfoBuilder":
         self._basic_info.address_list = address_list
         return self
+
     def marital_status(self, marital_status: str) -> "BasicInfoBuilder":
         self._basic_info.marital_status = marital_status
         return self
+
     def ethnicity_race(self, ethnicity_race: str) -> "BasicInfoBuilder":
         self._basic_info.ethnicity_race = ethnicity_race
         return self
+
     def native_region(self, native_region: str) -> "BasicInfoBuilder":
         self._basic_info.native_region = native_region
         return self
+
     def hukou_type(self, hukou_type: str) -> "BasicInfoBuilder":
         self._basic_info.hukou_type = hukou_type
         return self
+
     def hukou_location(self, hukou_location: str) -> "BasicInfoBuilder":
         self._basic_info.hukou_location = hukou_location
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BasicInfoBuilder":
         self._basic_info.custom_fields = custom_fields
         return self
+
     def expected_graduate_date(self, expected_graduate_date: str) -> "BasicInfoBuilder":
         self._basic_info.expected_graduate_date = expected_graduate_date
         return self
-    
+
     def build(self) -> "BasicInfo":
         return self._basic_info

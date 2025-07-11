@@ -24,12 +24,14 @@ class AgencyBasicInfo(object):
 class AgencyBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._agency_basic_info = AgencyBasicInfo()
+
     def hunter_user_name(self, hunter_user_name: I18n) -> "AgencyBasicInfoBuilder":
         self._agency_basic_info.hunter_user_name = hunter_user_name
         return self
+
     def hunter_company_name(self, hunter_company_name: str) -> "AgencyBasicInfoBuilder":
         self._agency_basic_info.hunter_company_name = hunter_company_name
         return self
-    
+
     def build(self) -> "AgencyBasicInfo":
         return self._agency_basic_info

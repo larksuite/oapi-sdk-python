@@ -23,12 +23,14 @@ class AttachmentDownloadUrlItem(object):
 class AttachmentDownloadUrlItemBuilder(object):
     def __init__(self) -> None:
         self._attachment_download_url_item = AttachmentDownloadUrlItem()
+
     def attachment_id(self, attachment_id: str) -> "AttachmentDownloadUrlItemBuilder":
         self._attachment_download_url_item.attachment_id = attachment_id
         return self
+
     def download_url(self, download_url: str) -> "AttachmentDownloadUrlItemBuilder":
         self._attachment_download_url_item.download_url = download_url
         return self
-    
+
     def build(self) -> "AttachmentDownloadUrlItem":
         return self._attachment_download_url_item

@@ -30,21 +30,26 @@ class DocData(object):
 class DocDataBuilder(object):
     def __init__(self) -> None:
         self._doc_data = DocData()
+
     def doc_token(self, doc_token: str) -> "DocDataBuilder":
         self._doc_data.doc_token = doc_token
         return self
+
     def created_at(self, created_at: int) -> "DocDataBuilder":
         self._doc_data.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "DocDataBuilder":
         self._doc_data.updated_at = updated_at
         return self
+
     def doc_contents(self, doc_contents: List[DocContent]) -> "DocDataBuilder":
         self._doc_data.doc_contents = doc_contents
         return self
+
     def root_content_id(self, root_content_id: str) -> "DocDataBuilder":
         self._doc_data.root_content_id = root_content_id
         return self
-    
+
     def build(self) -> "DocData":
         return self._doc_data

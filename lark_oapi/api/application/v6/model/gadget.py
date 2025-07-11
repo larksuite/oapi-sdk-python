@@ -33,27 +33,34 @@ class Gadget(object):
 class GadgetBuilder(object):
     def __init__(self) -> None:
         self._gadget = Gadget()
+
     def enable_pc_mode(self, enable_pc_mode: int) -> "GadgetBuilder":
         self._gadget.enable_pc_mode = enable_pc_mode
         return self
+
     def schema_urls(self, schema_urls: List[str]) -> "GadgetBuilder":
         self._gadget.schema_urls = schema_urls
         return self
+
     def pc_use_mobile_pkg(self, pc_use_mobile_pkg: bool) -> "GadgetBuilder":
         self._gadget.pc_use_mobile_pkg = pc_use_mobile_pkg
         return self
+
     def pc_version(self, pc_version: str) -> "GadgetBuilder":
         self._gadget.pc_version = pc_version
         return self
+
     def mobile_version(self, mobile_version: str) -> "GadgetBuilder":
         self._gadget.mobile_version = mobile_version
         return self
+
     def mobile_min_lark_version(self, mobile_min_lark_version: str) -> "GadgetBuilder":
         self._gadget.mobile_min_lark_version = mobile_min_lark_version
         return self
+
     def pc_min_lark_version(self, pc_min_lark_version: str) -> "GadgetBuilder":
         self._gadget.pc_min_lark_version = pc_min_lark_version
         return self
-    
+
     def build(self) -> "Gadget":
         return self._gadget

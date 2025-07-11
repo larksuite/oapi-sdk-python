@@ -23,12 +23,14 @@ class InstanceSearchGroup(object):
 class InstanceSearchGroupBuilder(object):
     def __init__(self) -> None:
         self._instance_search_group = InstanceSearchGroup()
+
     def external_id(self, external_id: str) -> "InstanceSearchGroupBuilder":
         self._instance_search_group.external_id = external_id
         return self
+
     def name(self, name: str) -> "InstanceSearchGroupBuilder":
         self._instance_search_group.name = name
         return self
-    
+
     def build(self) -> "InstanceSearchGroup":
         return self._instance_search_group

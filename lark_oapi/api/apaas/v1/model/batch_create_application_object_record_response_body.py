@@ -22,9 +22,10 @@ class BatchCreateApplicationObjectRecordResponseBody(object):
 class BatchCreateApplicationObjectRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_application_object_record_response_body = BatchCreateApplicationObjectRecordResponseBody()
+
     def items(self, items: List[RecordResult]) -> "BatchCreateApplicationObjectRecordResponseBodyBuilder":
         self._batch_create_application_object_record_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchCreateApplicationObjectRecordResponseBody":
         return self._batch_create_application_object_record_response_body

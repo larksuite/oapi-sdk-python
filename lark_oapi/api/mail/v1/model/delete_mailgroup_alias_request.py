@@ -24,17 +24,16 @@ class DeleteMailgroupAliasRequestBuilder(object):
         delete_mailgroup_alias_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id"
         delete_mailgroup_alias_request.token_types = {AccessTokenType.TENANT}
         self._delete_mailgroup_alias_request: DeleteMailgroupAliasRequest = delete_mailgroup_alias_request
-    
+
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupAliasRequestBuilder":
         self._delete_mailgroup_alias_request.mailgroup_id = mailgroup_id
         self._delete_mailgroup_alias_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
-    
+
     def alias_id(self, alias_id: str) -> "DeleteMailgroupAliasRequestBuilder":
         self._delete_mailgroup_alias_request.alias_id = alias_id
         self._delete_mailgroup_alias_request.paths["alias_id"] = str(alias_id)
         return self
-    
 
     def build(self) -> DeleteMailgroupAliasRequest:
         return self._delete_mailgroup_alias_request

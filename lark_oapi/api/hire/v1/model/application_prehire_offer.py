@@ -28,15 +28,19 @@ class ApplicationPrehireOffer(object):
 class ApplicationPrehireOfferBuilder(object):
     def __init__(self) -> None:
         self._application_prehire_offer = ApplicationPrehireOffer()
+
     def basic_info(self, basic_info: ApplicationPrehireOfferBasic) -> "ApplicationPrehireOfferBuilder":
         self._application_prehire_offer.basic_info = basic_info
         return self
-    def offer_onboard_profile(self, offer_onboard_profile: AppliOfferOnboardProfile) -> "ApplicationPrehireOfferBuilder":
+
+    def offer_onboard_profile(self,
+                              offer_onboard_profile: AppliOfferOnboardProfile) -> "ApplicationPrehireOfferBuilder":
         self._application_prehire_offer.offer_onboard_profile = offer_onboard_profile
         return self
+
     def attachment_list(self, attachment_list: List[ApplicationOfferAttachment]) -> "ApplicationPrehireOfferBuilder":
         self._application_prehire_offer.attachment_list = attachment_list
         return self
-    
+
     def build(self) -> "ApplicationPrehireOffer":
         return self._application_prehire_offer

@@ -23,12 +23,14 @@ class TaskStatus(object):
 class TaskStatusBuilder(object):
     def __init__(self) -> None:
         self._task_status = TaskStatus()
+
     def failure_reason(self, failure_reason: str) -> "TaskStatusBuilder":
         self._task_status.failure_reason = failure_reason
         return self
+
     def status_code(self, status_code: int) -> "TaskStatusBuilder":
         self._task_status.status_code = status_code
         return self
-    
+
     def build(self) -> "TaskStatus":
         return self._task_status

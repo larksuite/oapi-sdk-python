@@ -32,24 +32,30 @@ class Currency(object):
 class CurrencyBuilder(object):
     def __init__(self) -> None:
         self._currency = Currency()
+
     def currency_id(self, currency_id: str) -> "CurrencyBuilder":
         self._currency.currency_id = currency_id
         return self
+
     def country_region_id_list(self, country_region_id_list: List[str]) -> "CurrencyBuilder":
         self._currency.country_region_id_list = country_region_id_list
         return self
+
     def currency_name(self, currency_name: List[I18n]) -> "CurrencyBuilder":
         self._currency.currency_name = currency_name
         return self
+
     def numeric_code(self, numeric_code: int) -> "CurrencyBuilder":
         self._currency.numeric_code = numeric_code
         return self
+
     def currency_alpha_3_code(self, currency_alpha_3_code: str) -> "CurrencyBuilder":
         self._currency.currency_alpha_3_code = currency_alpha_3_code
         return self
+
     def status(self, status: int) -> "CurrencyBuilder":
         self._currency.status = status
         return self
-    
+
     def build(self) -> "Currency":
         return self._currency

@@ -27,15 +27,18 @@ class SignatureSignatoryLabel(object):
 class SignatureSignatoryLabelBuilder(object):
     def __init__(self) -> None:
         self._signature_signatory_label = SignatureSignatoryLabel()
+
     def template_signatory_type(self, template_signatory_type: Enum) -> "SignatureSignatoryLabelBuilder":
         self._signature_signatory_label.template_signatory_type = template_signatory_type
         return self
+
     def label(self, label: List[I18n]) -> "SignatureSignatoryLabelBuilder":
         self._signature_signatory_label.label = label
         return self
+
     def apiname(self, apiname: str) -> "SignatureSignatoryLabelBuilder":
         self._signature_signatory_label.apiname = apiname
         return self
-    
+
     def build(self) -> "SignatureSignatoryLabel":
         return self._signature_signatory_label

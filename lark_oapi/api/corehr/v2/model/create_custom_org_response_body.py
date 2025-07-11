@@ -21,9 +21,10 @@ class CreateCustomOrgResponseBody(object):
 class CreateCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_custom_org_response_body = CreateCustomOrgResponseBody()
+
     def org_id(self, org_id: str) -> "CreateCustomOrgResponseBodyBuilder":
         self._create_custom_org_response_body.org_id = org_id
         return self
-    
+
     def build(self) -> "CreateCustomOrgResponseBody":
         return self._create_custom_org_response_body

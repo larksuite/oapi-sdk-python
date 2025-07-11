@@ -23,12 +23,14 @@ class KrContent(object):
 class KrContentBuilder(object):
     def __init__(self) -> None:
         self._kr_content = KrContent()
+
     def zh(self, zh: str) -> "KrContentBuilder":
         self._kr_content.zh = zh
         return self
+
     def en(self, en: str) -> "KrContentBuilder":
         self._kr_content.en = en
         return self
-    
+
     def build(self) -> "KrContent":
         return self._kr_content

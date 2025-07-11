@@ -23,12 +23,14 @@ class Property(object):
 class PropertyBuilder(object):
     def __init__(self) -> None:
         self._property = Property()
+
     def key(self, key: str) -> "PropertyBuilder":
         self._property.key = key
         return self
+
     def value(self, value: str) -> "PropertyBuilder":
         self._property.value = value
         return self
-    
+
     def build(self) -> "Property":
         return self._property

@@ -22,9 +22,10 @@ class GetSubdivisionResponseBody(object):
 class GetSubdivisionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_subdivision_response_body = GetSubdivisionResponseBody()
+
     def subdivision(self, subdivision: Subdivision) -> "GetSubdivisionResponseBodyBuilder":
         self._get_subdivision_response_body.subdivision = subdivision
         return self
-    
+
     def build(self) -> "GetSubdivisionResponseBody":
         return self._get_subdivision_response_body

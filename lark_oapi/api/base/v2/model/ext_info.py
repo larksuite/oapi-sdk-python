@@ -36,30 +36,38 @@ class ExtInfo(object):
 class ExtInfoBuilder(object):
     def __init__(self) -> None:
         self._ext_info = ExtInfo()
+
     def sub_type(self, sub_type: str) -> "ExtInfoBuilder":
         self._ext_info.sub_type = sub_type
         return self
+
     def version(self, version: str) -> "ExtInfoBuilder":
         self._ext_info.version = version
         return self
+
     def bg_image(self, bg_image: str) -> "ExtInfoBuilder":
         self._ext_info.bg_image = bg_image
         return self
+
     def title_color(self, title_color: str) -> "ExtInfoBuilder":
         self._ext_info.title_color = title_color
         return self
+
     def ga_chat_id(self, ga_chat_id: str) -> "ExtInfoBuilder":
         self._ext_info.ga_chat_id = ga_chat_id
         return self
+
     def modified_time(self, modified_time: str) -> "ExtInfoBuilder":
         self._ext_info.modified_time = modified_time
         return self
+
     def icon(self, icon: Icon) -> "ExtInfoBuilder":
         self._ext_info.icon = icon
         return self
+
     def is_copying(self, is_copying: bool) -> "ExtInfoBuilder":
         self._ext_info.is_copying = is_copying
         return self
-    
+
     def build(self) -> "ExtInfo":
         return self._ext_info

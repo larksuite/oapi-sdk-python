@@ -46,45 +46,58 @@ class Language(object):
 class LanguageBuilder(object):
     def __init__(self) -> None:
         self._language = Language()
+
     def id(self, id: str) -> "LanguageBuilder":
         self._language.id = id
         return self
+
     def update_by(self, update_by: str) -> "LanguageBuilder":
         self._language.update_by = update_by
         return self
+
     def create_by(self, create_by: str) -> "LanguageBuilder":
         self._language.create_by = create_by
         return self
+
     def update_time(self, update_time: str) -> "LanguageBuilder":
         self._language.update_time = update_time
         return self
+
     def create_time(self, create_time: str) -> "LanguageBuilder":
         self._language.create_time = create_time
         return self
+
     def ietf_language_tag(self, ietf_language_tag: str) -> "LanguageBuilder":
         self._language.ietf_language_tag = ietf_language_tag
         return self
+
     def name(self, name: I18nString) -> "LanguageBuilder":
         self._language.name = name
         return self
+
     def enable(self, enable: bool) -> "LanguageBuilder":
         self._language.enable = enable
         return self
+
     def mdm_code(self, mdm_code: str) -> "LanguageBuilder":
         self._language.mdm_code = mdm_code
         return self
+
     def status(self, status: str) -> "LanguageBuilder":
         self._language.status = status
         return self
+
     def system_status(self, system_status: str) -> "LanguageBuilder":
         self._language.system_status = system_status
         return self
+
     def remark(self, remark: str) -> "LanguageBuilder":
         self._language.remark = remark
         return self
+
     def update_reason(self, update_reason: str) -> "LanguageBuilder":
         self._language.update_reason = update_reason
         return self
-    
+
     def build(self) -> "Language":
         return self._language

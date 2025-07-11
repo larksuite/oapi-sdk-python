@@ -21,9 +21,10 @@ class BasicRecognizeImageResponseBody(object):
 class BasicRecognizeImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._basic_recognize_image_response_body = BasicRecognizeImageResponseBody()
+
     def text_list(self, text_list: List[str]) -> "BasicRecognizeImageResponseBodyBuilder":
         self._basic_recognize_image_response_body.text_list = text_list
         return self
-    
+
     def build(self) -> "BasicRecognizeImageResponseBody":
         return self._basic_recognize_image_response_body

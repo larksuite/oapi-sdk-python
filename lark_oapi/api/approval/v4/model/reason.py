@@ -24,12 +24,14 @@ class Reason(object):
 class ReasonBuilder(object):
     def __init__(self) -> None:
         self._reason = Reason()
+
     def text(self, text: str) -> "ReasonBuilder":
         self._reason.text = text
         return self
+
     def files(self, files: List[File]) -> "ReasonBuilder":
         self._reason.files = files
         return self
-    
+
     def build(self) -> "Reason":
         return self._reason

@@ -23,12 +23,14 @@ class FeedGroupItem(object):
 class FeedGroupItemBuilder(object):
     def __init__(self) -> None:
         self._feed_group_item = FeedGroupItem()
+
     def feed_id(self, feed_id: str) -> "FeedGroupItemBuilder":
         self._feed_group_item.feed_id = feed_id
         return self
+
     def feed_type(self, feed_type: str) -> "FeedGroupItemBuilder":
         self._feed_group_item.feed_type = feed_type
         return self
-    
+
     def build(self) -> "FeedGroupItem":
         return self._feed_group_item

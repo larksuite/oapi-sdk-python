@@ -24,17 +24,16 @@ class CreateCalendarEventMeetingChatRequestBuilder(object):
         create_calendar_event_meeting_chat_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/meeting_chat"
         create_calendar_event_meeting_chat_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_calendar_event_meeting_chat_request: CreateCalendarEventMeetingChatRequest = create_calendar_event_meeting_chat_request
-    
+
     def calendar_id(self, calendar_id: str) -> "CreateCalendarEventMeetingChatRequestBuilder":
         self._create_calendar_event_meeting_chat_request.calendar_id = calendar_id
         self._create_calendar_event_meeting_chat_request.paths["calendar_id"] = str(calendar_id)
         return self
-    
+
     def event_id(self, event_id: str) -> "CreateCalendarEventMeetingChatRequestBuilder":
         self._create_calendar_event_meeting_chat_request.event_id = event_id
         self._create_calendar_event_meeting_chat_request.paths["event_id"] = str(event_id)
         return self
-    
 
     def build(self) -> CreateCalendarEventMeetingChatRequest:
         return self._create_calendar_event_meeting_chat_request

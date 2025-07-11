@@ -22,9 +22,10 @@ class PatchDataSourceResponseBody(object):
 class PatchDataSourceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_data_source_response_body = PatchDataSourceResponseBody()
+
     def data_source(self, data_source: DataSource) -> "PatchDataSourceResponseBodyBuilder":
         self._patch_data_source_response_body.data_source = data_source
         return self
-    
+
     def build(self) -> "PatchDataSourceResponseBody":
         return self._patch_data_source_response_body

@@ -25,22 +25,21 @@ class ListAppWorkflowRequestBuilder(object):
         list_app_workflow_request.uri = "/open-apis/bitable/v1/apps/:app_token/workflows"
         list_app_workflow_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_app_workflow_request: ListAppWorkflowRequest = list_app_workflow_request
-    
+
     def page_token(self, page_token: str) -> "ListAppWorkflowRequestBuilder":
         self._list_app_workflow_request.page_token = page_token
         self._list_app_workflow_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListAppWorkflowRequestBuilder":
         self._list_app_workflow_request.page_size = page_size
         self._list_app_workflow_request.add_query("page_size", page_size)
         return self
-    
+
     def app_token(self, app_token: str) -> "ListAppWorkflowRequestBuilder":
         self._list_app_workflow_request.app_token = app_token
         self._list_app_workflow_request.paths["app_token"] = str(app_token)
         return self
-    
 
     def build(self) -> ListAppWorkflowRequest:
         return self._list_app_workflow_request

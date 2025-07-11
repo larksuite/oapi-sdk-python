@@ -30,21 +30,27 @@ class EcoBackgroundCheckCreateEventCandidateInfo(object):
 class EcoBackgroundCheckCreateEventCandidateInfoBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_create_event_candidate_info = EcoBackgroundCheckCreateEventCandidateInfo()
+
     def name(self, name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.name = name
         return self
-    def mobile(self, mobile: EcoBackgroundCheckCreateEventMobile) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+
+    def mobile(self,
+               mobile: EcoBackgroundCheckCreateEventMobile) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.mobile = mobile
         return self
+
     def email(self, email: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.email = email
         return self
+
     def first_name(self, first_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.first_name = first_name
         return self
+
     def last_name(self, last_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.last_name = last_name
         return self
-    
+
     def build(self) -> "EcoBackgroundCheckCreateEventCandidateInfo":
         return self._eco_background_check_create_event_candidate_info

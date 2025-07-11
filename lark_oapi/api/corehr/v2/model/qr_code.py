@@ -38,33 +38,42 @@ class QrCode(object):
 class QrCodeBuilder(object):
     def __init__(self) -> None:
         self._qr_code = QrCode()
+
     def id(self, id: str) -> "QrCodeBuilder":
         self._qr_code.id = id
         return self
+
     def png(self, png: str) -> "QrCodeBuilder":
         self._qr_code.png = png
         return self
+
     def url(self, url: str) -> "QrCodeBuilder":
         self._qr_code.url = url
         return self
+
     def active(self, active: bool) -> "QrCodeBuilder":
         self._qr_code.active = active
         return self
+
     def created_by(self, created_by: str) -> "QrCodeBuilder":
         self._qr_code.created_by = created_by
         return self
+
     def updated_by(self, updated_by: str) -> "QrCodeBuilder":
         self._qr_code.updated_by = updated_by
         return self
+
     def created_at(self, created_at: int) -> "QrCodeBuilder":
         self._qr_code.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "QrCodeBuilder":
         self._qr_code.updated_at = updated_at
         return self
+
     def dimension_value_list(self, dimension_value_list: List[QrCodeDimensionValue]) -> "QrCodeBuilder":
         self._qr_code.dimension_value_list = dimension_value_list
         return self
-    
+
     def build(self) -> "QrCode":
         return self._qr_code

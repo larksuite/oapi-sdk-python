@@ -27,18 +27,23 @@ class QueryRecentChangeCustomOrgResponseBody(object):
 class QueryRecentChangeCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_custom_org_response_body = QueryRecentChangeCustomOrgResponseBody()
+
     def custom_org_ids(self, custom_org_ids: List[str]) -> "QueryRecentChangeCustomOrgResponseBodyBuilder":
         self._query_recent_change_custom_org_response_body.custom_org_ids = custom_org_ids
         return self
+
     def page_token(self, page_token: str) -> "QueryRecentChangeCustomOrgResponseBodyBuilder":
         self._query_recent_change_custom_org_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryRecentChangeCustomOrgResponseBodyBuilder":
         self._query_recent_change_custom_org_response_body.has_more = has_more
         return self
-    def deleted_custom_org_ids(self, deleted_custom_org_ids: List[str]) -> "QueryRecentChangeCustomOrgResponseBodyBuilder":
+
+    def deleted_custom_org_ids(self,
+                               deleted_custom_org_ids: List[str]) -> "QueryRecentChangeCustomOrgResponseBodyBuilder":
         self._query_recent_change_custom_org_response_body.deleted_custom_org_ids = deleted_custom_org_ids
         return self
-    
+
     def build(self) -> "QueryRecentChangeCustomOrgResponseBody":
         return self._query_recent_change_custom_org_response_body

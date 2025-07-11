@@ -24,12 +24,14 @@ class PlanIndicator(object):
 class PlanIndicatorBuilder(object):
     def __init__(self) -> None:
         self._plan_indicator = PlanIndicator()
+
     def indicator_id(self, indicator_id: str) -> "PlanIndicatorBuilder":
         self._plan_indicator.indicator_id = indicator_id
         return self
+
     def plan_indicator_logic(self, plan_indicator_logic: AdjustmentLogic) -> "PlanIndicatorBuilder":
         self._plan_indicator.plan_indicator_logic = plan_indicator_logic
         return self
-    
+
     def build(self) -> "PlanIndicator":
         return self._plan_indicator

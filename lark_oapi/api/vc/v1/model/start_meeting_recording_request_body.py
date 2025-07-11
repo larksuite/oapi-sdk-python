@@ -21,9 +21,10 @@ class StartMeetingRecordingRequestBody(object):
 class StartMeetingRecordingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._start_meeting_recording_request_body = StartMeetingRecordingRequestBody()
+
     def timezone(self, timezone: int) -> "StartMeetingRecordingRequestBodyBuilder":
         self._start_meeting_recording_request_body.timezone = timezone
         return self
-    
+
     def build(self) -> "StartMeetingRecordingRequestBody":
         return self._start_meeting_recording_request_body

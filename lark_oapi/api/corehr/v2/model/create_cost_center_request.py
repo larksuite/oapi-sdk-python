@@ -25,12 +25,12 @@ class CreateCostCenterRequestBuilder(object):
         create_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers"
         create_cost_center_request.token_types = {AccessTokenType.TENANT}
         self._create_cost_center_request: CreateCostCenterRequest = create_cost_center_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateCostCenterRequestBuilder":
         self._create_cost_center_request.user_id_type = user_id_type
         self._create_cost_center_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: CostCenter) -> "CreateCostCenterRequestBuilder":
         self._create_cost_center_request.request_body = request_body
         self._create_cost_center_request.body = request_body

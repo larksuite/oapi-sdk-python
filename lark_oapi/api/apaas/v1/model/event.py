@@ -35,30 +35,38 @@ class Event(object):
 class EventBuilder(object):
     def __init__(self) -> None:
         self._event = Event()
+
     def id(self, id: str) -> "EventBuilder":
         self._event.id = id
         return self
+
     def type(self, type: str) -> "EventBuilder":
         self._event.type = type
         return self
+
     def start_timestamp(self, start_timestamp: int) -> "EventBuilder":
         self._event.start_timestamp = start_timestamp
         return self
+
     def end_timestamp(self, end_timestamp: int) -> "EventBuilder":
         self._event.end_timestamp = end_timestamp
         return self
+
     def is_finished(self, is_finished: bool) -> "EventBuilder":
         self._event.is_finished = is_finished
         return self
+
     def trace_id(self, trace_id: str) -> "EventBuilder":
         self._event.trace_id = trace_id
         return self
+
     def detail(self, detail: str) -> "EventBuilder":
         self._event.detail = detail
         return self
+
     def attributes(self, attributes: str) -> "EventBuilder":
         self._event.attributes = attributes
         return self
-    
+
     def build(self) -> "Event":
         return self._event

@@ -23,12 +23,14 @@ class DlpProofContext(object):
 class DlpProofContextBuilder(object):
     def __init__(self) -> None:
         self._dlp_proof_context = DlpProofContext()
+
     def hit_content(self, hit_content: str) -> "DlpProofContextBuilder":
         self._dlp_proof_context.hit_content = hit_content
         return self
+
     def context_snippet(self, context_snippet: str) -> "DlpProofContextBuilder":
         self._dlp_proof_context.context_snippet = context_snippet
         return self
-    
+
     def build(self) -> "DlpProofContext":
         return self._dlp_proof_context

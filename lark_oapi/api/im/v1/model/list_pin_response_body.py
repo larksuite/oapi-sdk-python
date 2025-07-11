@@ -26,15 +26,18 @@ class ListPinResponseBody(object):
 class ListPinResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_pin_response_body = ListPinResponseBody()
+
     def items(self, items: List[Pin]) -> "ListPinResponseBodyBuilder":
         self._list_pin_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListPinResponseBodyBuilder":
         self._list_pin_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListPinResponseBodyBuilder":
         self._list_pin_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListPinResponseBody":
         return self._list_pin_response_body

@@ -25,15 +25,18 @@ class TalentBlock(object):
 class TalentBlockBuilder(object):
     def __init__(self) -> None:
         self._talent_block = TalentBlock()
+
     def blocked_time(self, blocked_time: str) -> "TalentBlockBuilder":
         self._talent_block.blocked_time = blocked_time
         return self
+
     def creator_id(self, creator_id: str) -> "TalentBlockBuilder":
         self._talent_block.creator_id = creator_id
         return self
+
     def reason(self, reason: str) -> "TalentBlockBuilder":
         self._talent_block.reason = reason
         return self
-    
+
     def build(self) -> "TalentBlock":
         return self._talent_block

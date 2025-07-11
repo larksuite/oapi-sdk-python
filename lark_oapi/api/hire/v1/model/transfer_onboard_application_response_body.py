@@ -22,9 +22,10 @@ class TransferOnboardApplicationResponseBody(object):
 class TransferOnboardApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._transfer_onboard_application_response_body = TransferOnboardApplicationResponseBody()
+
     def employee(self, employee: Employee) -> "TransferOnboardApplicationResponseBodyBuilder":
         self._transfer_onboard_application_response_body.employee = employee
         return self
-    
+
     def build(self) -> "TransferOnboardApplicationResponseBody":
         return self._transfer_onboard_application_response_body

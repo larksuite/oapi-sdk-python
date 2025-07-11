@@ -27,18 +27,22 @@ class Avatar(object):
 class AvatarBuilder(object):
     def __init__(self) -> None:
         self._avatar = Avatar()
+
     def avatar_origin(self, avatar_origin: str) -> "AvatarBuilder":
         self._avatar.avatar_origin = avatar_origin
         return self
+
     def avatar_72(self, avatar_72: str) -> "AvatarBuilder":
         self._avatar.avatar_72 = avatar_72
         return self
+
     def avatar_240(self, avatar_240: str) -> "AvatarBuilder":
         self._avatar.avatar_240 = avatar_240
         return self
+
     def avatar_640(self, avatar_640: str) -> "AvatarBuilder":
         self._avatar.avatar_640 = avatar_640
         return self
-    
+
     def build(self) -> "Avatar":
         return self._avatar

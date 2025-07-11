@@ -21,9 +21,10 @@ class IdConvertCardRequestBody(object):
 class IdConvertCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._id_convert_card_request_body = IdConvertCardRequestBody()
+
     def message_id(self, message_id: str) -> "IdConvertCardRequestBodyBuilder":
         self._id_convert_card_request_body.message_id = message_id
         return self
-    
+
     def build(self) -> "IdConvertCardRequestBody":
         return self._id_convert_card_request_body

@@ -28,18 +28,22 @@ class Subregion(object):
 class SubregionBuilder(object):
     def __init__(self) -> None:
         self._subregion = Subregion()
+
     def id(self, id: str) -> "SubregionBuilder":
         self._subregion.id = id
         return self
+
     def name(self, name: List[I18n]) -> "SubregionBuilder":
         self._subregion.name = name
         return self
+
     def subdivision_id(self, subdivision_id: str) -> "SubregionBuilder":
         self._subregion.subdivision_id = subdivision_id
         return self
+
     def superior_subregion_id(self, superior_subregion_id: str) -> "SubregionBuilder":
         self._subregion.superior_subregion_id = superior_subregion_id
         return self
-    
+
     def build(self) -> "Subregion":
         return self._subregion

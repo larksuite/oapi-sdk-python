@@ -21,9 +21,10 @@ class ExternalGrantRoleInfo(object):
 class ExternalGrantRoleInfoBuilder(object):
     def __init__(self) -> None:
         self._external_grant_role_info = ExternalGrantRoleInfo()
+
     def role_id(self, role_id: str) -> "ExternalGrantRoleInfoBuilder":
         self._external_grant_role_info.role_id = role_id
         return self
-    
+
     def build(self) -> "ExternalGrantRoleInfo":
         return self._external_grant_role_info

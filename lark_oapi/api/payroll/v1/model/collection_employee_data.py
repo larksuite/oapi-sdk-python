@@ -29,18 +29,22 @@ class CollectionEmployeeData(object):
 class CollectionEmployeeDataBuilder(object):
     def __init__(self) -> None:
         self._collection_employee_data = CollectionEmployeeData()
+
     def row_id(self, row_id: str) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.row_id = row_id
         return self
+
     def activity_id(self, activity_id: str) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.activity_id = activity_id
         return self
+
     def employee_info(self, employee_info: EmployeeInfo) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.employee_info = employee_info
         return self
+
     def collection_datas(self, collection_datas: List[CollectionData]) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.collection_datas = collection_datas
         return self
-    
+
     def build(self) -> "CollectionEmployeeData":
         return self._collection_employee_data

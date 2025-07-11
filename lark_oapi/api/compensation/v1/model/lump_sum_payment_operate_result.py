@@ -27,18 +27,22 @@ class LumpSumPaymentOperateResult(object):
 class LumpSumPaymentOperateResultBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_operate_result = LumpSumPaymentOperateResult()
+
     def id(self, id: str) -> "LumpSumPaymentOperateResultBuilder":
         self._lump_sum_payment_operate_result.id = id
         return self
+
     def unique_id(self, unique_id: str) -> "LumpSumPaymentOperateResultBuilder":
         self._lump_sum_payment_operate_result.unique_id = unique_id
         return self
+
     def code(self, code: int) -> "LumpSumPaymentOperateResultBuilder":
         self._lump_sum_payment_operate_result.code = code
         return self
+
     def message(self, message: str) -> "LumpSumPaymentOperateResultBuilder":
         self._lump_sum_payment_operate_result.message = message
         return self
-    
+
     def build(self) -> "LumpSumPaymentOperateResult":
         return self._lump_sum_payment_operate_result

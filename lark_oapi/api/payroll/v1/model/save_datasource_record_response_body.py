@@ -21,9 +21,10 @@ class SaveDatasourceRecordResponseBody(object):
 class SaveDatasourceRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._save_datasource_record_response_body = SaveDatasourceRecordResponseBody()
+
     def affect_counts(self, affect_counts: str) -> "SaveDatasourceRecordResponseBodyBuilder":
         self._save_datasource_record_response_body.affect_counts = affect_counts
         return self
-    
+
     def build(self) -> "SaveDatasourceRecordResponseBody":
         return self._save_datasource_record_response_body

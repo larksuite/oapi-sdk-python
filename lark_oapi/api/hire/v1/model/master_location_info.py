@@ -25,15 +25,18 @@ class MasterLocationInfo(object):
 class MasterLocationInfoBuilder(object):
     def __init__(self) -> None:
         self._master_location_info = MasterLocationInfo()
+
     def id(self, id: str) -> "MasterLocationInfoBuilder":
         self._master_location_info.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "MasterLocationInfoBuilder":
         self._master_location_info.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "MasterLocationInfoBuilder":
         self._master_location_info.en_name = en_name
         return self
-    
+
     def build(self) -> "MasterLocationInfo":
         return self._master_location_info

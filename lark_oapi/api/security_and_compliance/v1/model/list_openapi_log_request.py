@@ -31,24 +31,30 @@ class ListOpenapiLogRequest(object):
 class ListOpenapiLogRequestBuilder(object):
     def __init__(self) -> None:
         self._list_openapi_log_request = ListOpenapiLogRequest()
+
     def api_keys(self, api_keys: List[str]) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.api_keys = api_keys
         return self
+
     def start_time(self, start_time: int) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.end_time = end_time
         return self
+
     def app_id(self, app_id: str) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.app_id = app_id
         return self
+
     def page_size(self, page_size: int) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.page_size = page_size
         return self
+
     def page_token(self, page_token: str) -> "ListOpenapiLogRequestBuilder":
         self._list_openapi_log_request.page_token = page_token
         return self
-    
+
     def build(self) -> "ListOpenapiLogRequest":
         return self._list_openapi_log_request

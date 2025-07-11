@@ -38,33 +38,42 @@ class LumpSumPaymentForUpdate(object):
 class LumpSumPaymentForUpdateBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_for_update = LumpSumPaymentForUpdate()
+
     def id(self, id: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.id = id
         return self
+
     def total_amount(self, total_amount: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.total_amount = total_amount
         return self
+
     def binding_period(self, binding_period: int) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.binding_period = binding_period
         return self
+
     def currency_id(self, currency_id: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.currency_id = currency_id
         return self
+
     def issuance_frequency(self, issuance_frequency: int) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.issuance_frequency = issuance_frequency
         return self
+
     def remark(self, remark: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.remark = remark
         return self
+
     def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.reference_period_start_date = reference_period_start_date
         return self
+
     def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.reference_period_end_date = reference_period_end_date
         return self
+
     def details(self, details: List[LumpSumPaymentDetailForUpdate]) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.details = details
         return self
-    
+
     def build(self) -> "LumpSumPaymentForUpdate":
         return self._lump_sum_payment_for_update

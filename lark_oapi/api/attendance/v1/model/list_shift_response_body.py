@@ -26,15 +26,18 @@ class ListShiftResponseBody(object):
 class ListShiftResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_shift_response_body = ListShiftResponseBody()
+
     def shift_list(self, shift_list: List[Shift]) -> "ListShiftResponseBodyBuilder":
         self._list_shift_response_body.shift_list = shift_list
         return self
+
     def page_token(self, page_token: str) -> "ListShiftResponseBodyBuilder":
         self._list_shift_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListShiftResponseBodyBuilder":
         self._list_shift_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListShiftResponseBody":
         return self._list_shift_response_body

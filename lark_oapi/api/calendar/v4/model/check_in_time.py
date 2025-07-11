@@ -23,12 +23,14 @@ class CheckInTime(object):
 class CheckInTimeBuilder(object):
     def __init__(self) -> None:
         self._check_in_time = CheckInTime()
+
     def time_type(self, time_type: str) -> "CheckInTimeBuilder":
         self._check_in_time.time_type = time_type
         return self
+
     def duration(self, duration: int) -> "CheckInTimeBuilder":
         self._check_in_time.duration = duration
         return self
-    
+
     def build(self) -> "CheckInTime":
         return self._check_in_time

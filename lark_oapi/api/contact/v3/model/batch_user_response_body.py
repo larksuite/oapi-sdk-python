@@ -22,9 +22,10 @@ class BatchUserResponseBody(object):
 class BatchUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_user_response_body = BatchUserResponseBody()
+
     def items(self, items: List[User]) -> "BatchUserResponseBodyBuilder":
         self._batch_user_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchUserResponseBody":
         return self._batch_user_response_body

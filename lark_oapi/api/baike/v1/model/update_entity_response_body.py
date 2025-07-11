@@ -22,9 +22,10 @@ class UpdateEntityResponseBody(object):
 class UpdateEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_entity_response_body = UpdateEntityResponseBody()
+
     def entity(self, entity: Entity) -> "UpdateEntityResponseBodyBuilder":
         self._update_entity_response_body.entity = entity
         return self
-    
+
     def build(self) -> "UpdateEntityResponseBody":
         return self._update_entity_response_body

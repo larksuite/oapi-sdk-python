@@ -26,15 +26,18 @@ class ListRegistrationSchemaResponseBody(object):
 class ListRegistrationSchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_registration_schema_response_body = ListRegistrationSchemaResponseBody()
+
     def items(self, items: List[RegistrationSchema]) -> "ListRegistrationSchemaResponseBodyBuilder":
         self._list_registration_schema_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListRegistrationSchemaResponseBodyBuilder":
         self._list_registration_schema_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListRegistrationSchemaResponseBodyBuilder":
         self._list_registration_schema_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListRegistrationSchemaResponseBody":
         return self._list_registration_schema_response_body

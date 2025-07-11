@@ -30,18 +30,22 @@ class RevieweeMetric(object):
 class RevieweeMetricBuilder(object):
     def __init__(self) -> None:
         self._reviewee_metric = RevieweeMetric()
+
     def reviewee_user_id(self, reviewee_user_id: User) -> "RevieweeMetricBuilder":
         self._reviewee_metric.reviewee_user_id = reviewee_user_id
         return self
+
     def metric_template_id(self, metric_template_id: int) -> "RevieweeMetricBuilder":
         self._reviewee_metric.metric_template_id = metric_template_id
         return self
+
     def metric_details(self, metric_details: MetricDetail) -> "RevieweeMetricBuilder":
         self._reviewee_metric.metric_details = metric_details
         return self
+
     def reviewee_stage_statuses(self, reviewee_stage_statuses: List[RevieweeStageStatus]) -> "RevieweeMetricBuilder":
         self._reviewee_metric.reviewee_stage_statuses = reviewee_stage_statuses
         return self
-    
+
     def build(self) -> "RevieweeMetric":
         return self._reviewee_metric

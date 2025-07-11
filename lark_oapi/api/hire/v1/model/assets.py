@@ -25,12 +25,14 @@ class Assets(object):
 class AssetsBuilder(object):
     def __init__(self) -> None:
         self._assets = Assets()
+
     def confirmed_bonus(self, confirmed_bonus: BonusAmount) -> "AssetsBuilder":
         self._assets.confirmed_bonus = confirmed_bonus
         return self
+
     def paid_bonus(self, paid_bonus: BonusAmount) -> "AssetsBuilder":
         self._assets.paid_bonus = paid_bonus
         return self
-    
+
     def build(self) -> "Assets":
         return self._assets

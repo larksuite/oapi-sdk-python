@@ -41,36 +41,46 @@ class EnvironmentVariable(object):
 class EnvironmentVariableBuilder(object):
     def __init__(self) -> None:
         self._environment_variable = EnvironmentVariable()
+
     def api_name(self, api_name: str) -> "EnvironmentVariableBuilder":
         self._environment_variable.api_name = api_name
         return self
+
     def label(self, label: Label) -> "EnvironmentVariableBuilder":
         self._environment_variable.label = label
         return self
+
     def description(self, description: str) -> "EnvironmentVariableBuilder":
         self._environment_variable.description = description
         return self
+
     def value(self, value: str) -> "EnvironmentVariableBuilder":
         self._environment_variable.value = value
         return self
+
     def is_encrypted(self, is_encrypted: bool) -> "EnvironmentVariableBuilder":
         self._environment_variable.is_encrypted = is_encrypted
         return self
+
     def object_api_name(self, object_api_name: str) -> "EnvironmentVariableBuilder":
         self._environment_variable.object_api_name = object_api_name
         return self
+
     def object_label(self, object_label: Label) -> "EnvironmentVariableBuilder":
         self._environment_variable.object_label = object_label
         return self
+
     def created_at(self, created_at: int) -> "EnvironmentVariableBuilder":
         self._environment_variable.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "EnvironmentVariableBuilder":
         self._environment_variable.updated_at = updated_at
         return self
+
     def type(self, type: str) -> "EnvironmentVariableBuilder":
         self._environment_variable.type = type
         return self
-    
+
     def build(self) -> "EnvironmentVariable":
         return self._environment_variable

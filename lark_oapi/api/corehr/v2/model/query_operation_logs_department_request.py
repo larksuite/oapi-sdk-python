@@ -27,23 +27,24 @@ class QueryOperationLogsDepartmentRequestBuilder(object):
         query_operation_logs_department_request.uri = "/open-apis/corehr/v2/departments/query_operation_logs"
         query_operation_logs_department_request.token_types = {AccessTokenType.TENANT}
         self._query_operation_logs_department_request: QueryOperationLogsDepartmentRequest = query_operation_logs_department_request
-    
+
     def page_size(self, page_size: int) -> "QueryOperationLogsDepartmentRequestBuilder":
         self._query_operation_logs_department_request.page_size = page_size
         self._query_operation_logs_department_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "QueryOperationLogsDepartmentRequestBuilder":
         self._query_operation_logs_department_request.page_token = page_token
         self._query_operation_logs_department_request.add_query("page_token", page_token)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "QueryOperationLogsDepartmentRequestBuilder":
         self._query_operation_logs_department_request.department_id_type = department_id_type
         self._query_operation_logs_department_request.add_query("department_id_type", department_id_type)
         return self
-    
-    def request_body(self, request_body: QueryOperationLogsDepartmentRequestBody) -> "QueryOperationLogsDepartmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: QueryOperationLogsDepartmentRequestBody) -> "QueryOperationLogsDepartmentRequestBuilder":
         self._query_operation_logs_department_request.request_body = request_body
         self._query_operation_logs_department_request.body = request_body
         return self

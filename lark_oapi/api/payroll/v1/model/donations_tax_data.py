@@ -37,33 +37,42 @@ class DonationsTaxData(object):
 class DonationsTaxDataBuilder(object):
     def __init__(self) -> None:
         self._donations_tax_data = DonationsTaxData()
+
     def employee_id(self, employee_id: int) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.employee_id = employee_id
         return self
+
     def legal_name(self, legal_name: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.legal_name = legal_name
         return self
+
     def identity_type(self, identity_type: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.identity_type = identity_type
         return self
+
     def identity_number(self, identity_number: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.identity_number = identity_number
         return self
+
     def issuing_company(self, issuing_company: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.issuing_company = issuing_company
         return self
+
     def non_tax_residence(self, non_tax_residence: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.non_tax_residence = non_tax_residence
         return self
+
     def total_donation_amount(self, total_donation_amount: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.total_donation_amount = total_donation_amount
         return self
+
     def tax_free_donation_amount30(self, tax_free_donation_amount30: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.tax_free_donation_amount30 = tax_free_donation_amount30
         return self
+
     def tax_free_donation_amount100(self, tax_free_donation_amount100: str) -> "DonationsTaxDataBuilder":
         self._donations_tax_data.tax_free_donation_amount100 = tax_free_donation_amount100
         return self
-    
+
     def build(self) -> "DonationsTaxData":
         return self._donations_tax_data

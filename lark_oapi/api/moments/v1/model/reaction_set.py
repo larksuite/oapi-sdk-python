@@ -24,12 +24,14 @@ class ReactionSet(object):
 class ReactionSetBuilder(object):
     def __init__(self) -> None:
         self._reaction_set = ReactionSet()
+
     def reactions(self, reactions: List[ReactionList]) -> "ReactionSetBuilder":
         self._reaction_set.reactions = reactions
         return self
+
     def total_count(self, total_count: int) -> "ReactionSetBuilder":
         self._reaction_set.total_count = total_count
         return self
-    
+
     def build(self) -> "ReactionSet":
         return self._reaction_set

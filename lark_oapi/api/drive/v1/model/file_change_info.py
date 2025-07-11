@@ -24,12 +24,14 @@ class FileChangeInfo(object):
 class FileChangeInfoBuilder(object):
     def __init__(self) -> None:
         self._file_change_info = FileChangeInfo()
+
     def start_time(self, start_time: int) -> "FileChangeInfoBuilder":
         self._file_change_info.start_time = start_time
         return self
+
     def changes(self, changes: List[FileBlockChangeInfo]) -> "FileChangeInfoBuilder":
         self._file_change_info.changes = changes
         return self
-    
+
     def build(self) -> "FileChangeInfo":
         return self._file_change_info

@@ -25,15 +25,18 @@ class I18nMap(object):
 class I18nMapBuilder(object):
     def __init__(self) -> None:
         self._i18n_map = I18nMap()
+
     def zh(self, zh: str) -> "I18nMapBuilder":
         self._i18n_map.zh = zh
         return self
+
     def en(self, en: str) -> "I18nMapBuilder":
         self._i18n_map.en = en
         return self
+
     def ja(self, ja: str) -> "I18nMapBuilder":
         self._i18n_map.ja = ja
         return self
-    
+
     def build(self) -> "I18nMap":
         return self._i18n_map

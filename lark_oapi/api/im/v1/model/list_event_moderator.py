@@ -24,12 +24,14 @@ class ListEventModerator(object):
 class ListEventModeratorBuilder(object):
     def __init__(self) -> None:
         self._list_event_moderator = ListEventModerator()
+
     def tenant_key(self, tenant_key: str) -> "ListEventModeratorBuilder":
         self._list_event_moderator.tenant_key = tenant_key
         return self
+
     def user_id(self, user_id: UserId) -> "ListEventModeratorBuilder":
         self._list_event_moderator.user_id = user_id
         return self
-    
+
     def build(self) -> "ListEventModerator":
         return self._list_event_moderator

@@ -26,17 +26,17 @@ class SearchBasicInfoTimeZoneRequestBuilder(object):
         search_basic_info_time_zone_request.uri = "/open-apis/corehr/v2/basic_info/time_zones/search"
         search_basic_info_time_zone_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_time_zone_request: SearchBasicInfoTimeZoneRequest = search_basic_info_time_zone_request
-    
+
     def page_size(self, page_size: int) -> "SearchBasicInfoTimeZoneRequestBuilder":
         self._search_basic_info_time_zone_request.page_size = page_size
         self._search_basic_info_time_zone_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "SearchBasicInfoTimeZoneRequestBuilder":
         self._search_basic_info_time_zone_request.page_token = page_token
         self._search_basic_info_time_zone_request.add_query("page_token", page_token)
         return self
-    
+
     def request_body(self, request_body: SearchBasicInfoTimeZoneRequestBody) -> "SearchBasicInfoTimeZoneRequestBuilder":
         self._search_basic_info_time_zone_request.request_body = request_body
         self._search_basic_info_time_zone_request.body = request_body

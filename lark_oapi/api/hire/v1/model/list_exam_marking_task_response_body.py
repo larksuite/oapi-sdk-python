@@ -26,15 +26,18 @@ class ListExamMarkingTaskResponseBody(object):
 class ListExamMarkingTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_exam_marking_task_response_body = ListExamMarkingTaskResponseBody()
+
     def has_more(self, has_more: bool) -> "ListExamMarkingTaskResponseBodyBuilder":
         self._list_exam_marking_task_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListExamMarkingTaskResponseBodyBuilder":
         self._list_exam_marking_task_response_body.page_token = page_token
         return self
+
     def items(self, items: List[ExamMarkingTask]) -> "ListExamMarkingTaskResponseBodyBuilder":
         self._list_exam_marking_task_response_body.items = items
         return self
-    
+
     def build(self) -> "ListExamMarkingTaskResponseBody":
         return self._list_exam_marking_task_response_body

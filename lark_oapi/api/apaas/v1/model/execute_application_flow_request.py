@@ -26,17 +26,17 @@ class ExecuteApplicationFlowRequestBuilder(object):
         execute_application_flow_request.uri = "/open-apis/apaas/v1/applications/:namespace/flows/:flow_id/execute"
         execute_application_flow_request.token_types = {AccessTokenType.TENANT}
         self._execute_application_flow_request: ExecuteApplicationFlowRequest = execute_application_flow_request
-    
+
     def namespace(self, namespace: str) -> "ExecuteApplicationFlowRequestBuilder":
         self._execute_application_flow_request.namespace = namespace
         self._execute_application_flow_request.paths["namespace"] = str(namespace)
         return self
-    
+
     def flow_id(self, flow_id: str) -> "ExecuteApplicationFlowRequestBuilder":
         self._execute_application_flow_request.flow_id = flow_id
         self._execute_application_flow_request.paths["flow_id"] = str(flow_id)
         return self
-    
+
     def request_body(self, request_body: ExecuteApplicationFlowRequestBody) -> "ExecuteApplicationFlowRequestBuilder":
         self._execute_application_flow_request.request_body = request_body
         self._execute_application_flow_request.body = request_body

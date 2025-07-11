@@ -23,12 +23,11 @@ class GetAgentSkillRequestBuilder(object):
         get_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
         get_agent_skill_request.token_types = {AccessTokenType.TENANT}
         self._get_agent_skill_request: GetAgentSkillRequest = get_agent_skill_request
-    
+
     def agent_skill_id(self, agent_skill_id: str) -> "GetAgentSkillRequestBuilder":
         self._get_agent_skill_request.agent_skill_id = agent_skill_id
         self._get_agent_skill_request.paths["agent_skill_id"] = str(agent_skill_id)
         return self
-    
 
     def build(self) -> GetAgentSkillRequest:
         return self._get_agent_skill_request

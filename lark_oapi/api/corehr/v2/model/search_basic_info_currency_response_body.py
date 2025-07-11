@@ -26,15 +26,18 @@ class SearchBasicInfoCurrencyResponseBody(object):
 class SearchBasicInfoCurrencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_currency_response_body = SearchBasicInfoCurrencyResponseBody()
+
     def items(self, items: List[Currency]) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
         self._search_basic_info_currency_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
         self._search_basic_info_currency_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
         self._search_basic_info_currency_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchBasicInfoCurrencyResponseBody":
         return self._search_basic_info_currency_response_body

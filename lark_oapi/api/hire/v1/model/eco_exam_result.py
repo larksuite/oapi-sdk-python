@@ -29,18 +29,22 @@ class EcoExamResult(object):
 class EcoExamResultBuilder(object):
     def __init__(self) -> None:
         self._eco_exam_result = EcoExamResult()
+
     def result(self, result: str) -> "EcoExamResultBuilder":
         self._eco_exam_result.result = result
         return self
+
     def result_time(self, result_time: str) -> "EcoExamResultBuilder":
         self._eco_exam_result.result_time = result_time
         return self
+
     def report_list(self, report_list: List[EcoExamResultReport]) -> "EcoExamResultBuilder":
         self._eco_exam_result.report_list = report_list
         return self
+
     def detail_list(self, detail_list: List[EcoExamResultDetail]) -> "EcoExamResultBuilder":
         self._eco_exam_result.detail_list = detail_list
         return self
-    
+
     def build(self) -> "EcoExamResult":
         return self._eco_exam_result

@@ -31,21 +31,26 @@ class PrehireUpdate(object):
 class PrehireUpdateBuilder(object):
     def __init__(self) -> None:
         self._prehire_update = PrehireUpdate()
+
     def basic_info_update(self, basic_info_update: BasicInfoUpdate) -> "PrehireUpdateBuilder":
         self._prehire_update.basic_info_update = basic_info_update
         return self
+
     def offer_info_update(self, offer_info_update: OfferInfoUpdate) -> "PrehireUpdateBuilder":
         self._prehire_update.offer_info_update = offer_info_update
         return self
+
     def standard_update_fields(self, standard_update_fields: List[str]) -> "PrehireUpdateBuilder":
         self._prehire_update.standard_update_fields = standard_update_fields
         return self
+
     def custom_update_fields(self, custom_update_fields: List[str]) -> "PrehireUpdateBuilder":
         self._prehire_update.custom_update_fields = custom_update_fields
         return self
+
     def person_custom_update_fields(self, person_custom_update_fields: List[str]) -> "PrehireUpdateBuilder":
         self._prehire_update.person_custom_update_fields = person_custom_update_fields
         return self
-    
+
     def build(self) -> "PrehireUpdate":
         return self._prehire_update

@@ -32,13 +32,12 @@ class Role(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoleResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetRoleRequest, option: Optional[RequestOption] = None) -> GetRoleResponse:
         if option is None:
@@ -47,17 +46,15 @@ class Role(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoleResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
         if option is None:
             option = RequestOption()
@@ -71,13 +68,12 @@ class Role(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
         if option is None:
@@ -86,15 +82,11 @@ class Role(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
         response.raw = resp
 
         return response
-        
-    

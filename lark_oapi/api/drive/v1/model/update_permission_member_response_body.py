@@ -22,9 +22,10 @@ class UpdatePermissionMemberResponseBody(object):
 class UpdatePermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_permission_member_response_body = UpdatePermissionMemberResponseBody()
+
     def member(self, member: BaseMember) -> "UpdatePermissionMemberResponseBodyBuilder":
         self._update_permission_member_response_body.member = member
         return self
-    
+
     def build(self) -> "UpdatePermissionMemberResponseBody":
         return self._update_permission_member_response_body

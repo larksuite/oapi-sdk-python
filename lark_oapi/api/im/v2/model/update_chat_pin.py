@@ -24,12 +24,14 @@ class UpdateChatPin(object):
 class UpdateChatPinBuilder(object):
     def __init__(self) -> None:
         self._update_chat_pin = UpdateChatPin()
+
     def is_fixed(self, is_fixed: bool) -> "UpdateChatPinBuilder":
         self._update_chat_pin.is_fixed = is_fixed
         return self
+
     def update_url_pin(self, update_url_pin: UpdateUrlPin) -> "UpdateChatPinBuilder":
         self._update_chat_pin.update_url_pin = update_url_pin
         return self
-    
+
     def build(self) -> "UpdateChatPin":
         return self._update_chat_pin

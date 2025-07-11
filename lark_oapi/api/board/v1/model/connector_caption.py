@@ -22,9 +22,10 @@ class ConnectorCaption(object):
 class ConnectorCaptionBuilder(object):
     def __init__(self) -> None:
         self._connector_caption = ConnectorCaption()
+
     def data(self, data: List[Text]) -> "ConnectorCaptionBuilder":
         self._connector_caption.data = data
         return self
-    
+
     def build(self) -> "ConnectorCaption":
         return self._connector_caption

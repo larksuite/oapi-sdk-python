@@ -25,15 +25,18 @@ class ArchiveIndicator(object):
 class ArchiveIndicatorBuilder(object):
     def __init__(self) -> None:
         self._archive_indicator = ArchiveIndicator()
+
     def indicator_id(self, indicator_id: str) -> "ArchiveIndicatorBuilder":
         self._archive_indicator.indicator_id = indicator_id
         return self
+
     def indicator_result(self, indicator_result: str) -> "ArchiveIndicatorBuilder":
         self._archive_indicator.indicator_result = indicator_result
         return self
+
     def indicator_result_regular(self, indicator_result_regular: str) -> "ArchiveIndicatorBuilder":
         self._archive_indicator.indicator_result_regular = indicator_result_regular
         return self
-    
+
     def build(self) -> "ArchiveIndicator":
         return self._archive_indicator

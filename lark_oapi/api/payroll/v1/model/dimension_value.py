@@ -25,15 +25,18 @@ class DimensionValue(object):
 class DimensionValueBuilder(object):
     def __init__(self) -> None:
         self._dimension_value = DimensionValue()
+
     def obj_api_name(self, obj_api_name: str) -> "DimensionValueBuilder":
         self._dimension_value.obj_api_name = obj_api_name
         return self
+
     def api_name(self, api_name: str) -> "DimensionValueBuilder":
         self._dimension_value.api_name = api_name
         return self
+
     def value(self, value: str) -> "DimensionValueBuilder":
         self._dimension_value.value = value
         return self
-    
+
     def build(self) -> "DimensionValue":
         return self._dimension_value

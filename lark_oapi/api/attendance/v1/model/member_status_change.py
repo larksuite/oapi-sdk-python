@@ -27,18 +27,22 @@ class MemberStatusChange(object):
 class MemberStatusChangeBuilder(object):
     def __init__(self) -> None:
         self._member_status_change = MemberStatusChange()
+
     def onboarding_on_no_need_punch(self, onboarding_on_no_need_punch: bool) -> "MemberStatusChangeBuilder":
         self._member_status_change.onboarding_on_no_need_punch = onboarding_on_no_need_punch
         return self
+
     def onboarding_off_no_need_punch(self, onboarding_off_no_need_punch: bool) -> "MemberStatusChangeBuilder":
         self._member_status_change.onboarding_off_no_need_punch = onboarding_off_no_need_punch
         return self
+
     def offboarding_on_no_need_punch(self, offboarding_on_no_need_punch: bool) -> "MemberStatusChangeBuilder":
         self._member_status_change.offboarding_on_no_need_punch = offboarding_on_no_need_punch
         return self
+
     def offboarding_off_no_need_punch(self, offboarding_off_no_need_punch: bool) -> "MemberStatusChangeBuilder":
         self._member_status_change.offboarding_off_no_need_punch = offboarding_off_no_need_punch
         return self
-    
+
     def build(self) -> "MemberStatusChange":
         return self._member_status_change

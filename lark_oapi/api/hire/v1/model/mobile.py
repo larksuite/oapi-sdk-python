@@ -23,12 +23,14 @@ class Mobile(object):
 class MobileBuilder(object):
     def __init__(self) -> None:
         self._mobile = Mobile()
+
     def code(self, code: str) -> "MobileBuilder":
         self._mobile.code = code
         return self
+
     def number(self, number: str) -> "MobileBuilder":
         self._mobile.number = number
         return self
-    
+
     def build(self) -> "Mobile":
         return self._mobile

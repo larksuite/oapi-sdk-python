@@ -23,12 +23,14 @@ class ObjectiveCheckOutput(object):
 class ObjectiveCheckOutputBuilder(object):
     def __init__(self) -> None:
         self._objective_check_output = ObjectiveCheckOutput()
+
     def failed_lists(self, failed_lists: List[int]) -> "ObjectiveCheckOutputBuilder":
         self._objective_check_output.failed_lists = failed_lists
         return self
+
     def status_code(self, status_code: int) -> "ObjectiveCheckOutputBuilder":
         self._objective_check_output.status_code = status_code
         return self
-    
+
     def build(self) -> "ObjectiveCheckOutput":
         return self._objective_check_output

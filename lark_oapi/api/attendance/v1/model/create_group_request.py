@@ -26,17 +26,17 @@ class CreateGroupRequestBuilder(object):
         create_group_request.uri = "/open-apis/attendance/v1/groups"
         create_group_request.token_types = {AccessTokenType.TENANT}
         self._create_group_request: CreateGroupRequest = create_group_request
-    
+
     def employee_type(self, employee_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.employee_type = employee_type
         self._create_group_request.add_query("employee_type", employee_type)
         return self
-    
+
     def dept_type(self, dept_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.dept_type = dept_type
         self._create_group_request.add_query("dept_type", dept_type)
         return self
-    
+
     def request_body(self, request_body: CreateGroupRequestBody) -> "CreateGroupRequestBuilder":
         self._create_group_request.request_body = request_body
         self._create_group_request.body = request_body

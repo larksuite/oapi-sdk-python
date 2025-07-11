@@ -27,18 +27,22 @@ class Attachment(object):
 class AttachmentBuilder(object):
     def __init__(self) -> None:
         self._attachment = Attachment()
+
     def body(self, body: str) -> "AttachmentBuilder":
         self._attachment.body = body
         return self
+
     def filename(self, filename: str) -> "AttachmentBuilder":
         self._attachment.filename = filename
         return self
+
     def id(self, id: str) -> "AttachmentBuilder":
         self._attachment.id = id
         return self
+
     def attachment_type(self, attachment_type: int) -> "AttachmentBuilder":
         self._attachment.attachment_type = attachment_type
         return self
-    
+
     def build(self) -> "Attachment":
         return self._attachment

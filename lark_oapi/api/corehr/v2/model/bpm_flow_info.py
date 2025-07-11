@@ -50,45 +50,58 @@ class BpmFlowInfo(object):
 class BpmFlowInfoBuilder(object):
     def __init__(self) -> None:
         self._bpm_flow_info = BpmFlowInfo()
+
     def flow_definition_id(self, flow_definition_id: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.flow_definition_id = flow_definition_id
         return self
+
     def flow_definition_name(self, flow_definition_name: DataengineI18n) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.flow_definition_name = flow_definition_name
         return self
+
     def description(self, description: DataengineI18n) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.description = description
         return self
+
     def biz_type(self, biz_type: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.biz_type = biz_type
         return self
+
     def biz_type_name(self, biz_type_name: DataengineI18n) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.biz_type_name = biz_type_name
         return self
+
     def status(self, status: int) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.status = status
         return self
+
     def creator_id(self, creator_id: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.creator_id = creator_id
         return self
+
     def creator_name(self, creator_name: DataengineI18n) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.creator_name = creator_name
         return self
+
     def create_time(self, create_time: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.create_time = create_time
         return self
+
     def last_editor_id(self, last_editor_id: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.last_editor_id = last_editor_id
         return self
+
     def last_editor_name(self, last_editor_name: DataengineI18n) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.last_editor_name = last_editor_name
         return self
+
     def last_edit_time(self, last_edit_time: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.last_edit_time = last_edit_time
         return self
+
     def last_active_time(self, last_active_time: str) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.last_active_time = last_active_time
         return self
-    
+
     def build(self) -> "BpmFlowInfo":
         return self._bpm_flow_info

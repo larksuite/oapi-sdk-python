@@ -21,9 +21,10 @@ class JobProcess(object):
 class JobProcessBuilder(object):
     def __init__(self) -> None:
         self._job_process = JobProcess()
+
     def your_property_name(self, your_property_name: str) -> "JobProcessBuilder":
         self._job_process.your_property_name = your_property_name
         return self
-    
+
     def build(self) -> "JobProcess":
         return self._job_process

@@ -29,21 +29,26 @@ class ItemRecord(object):
 class ItemRecordBuilder(object):
     def __init__(self) -> None:
         self._item_record = ItemRecord()
+
     def item_id(self, item_id: str) -> "ItemRecordBuilder":
         self._item_record.item_id = item_id
         return self
+
     def data_source_id(self, data_source_id: str) -> "ItemRecordBuilder":
         self._item_record.data_source_id = data_source_id
         return self
+
     def version(self, version: str) -> "ItemRecordBuilder":
         self._item_record.version = version
         return self
+
     def created_at(self, created_at: str) -> "ItemRecordBuilder":
         self._item_record.created_at = created_at
         return self
+
     def updated_at(self, updated_at: str) -> "ItemRecordBuilder":
         self._item_record.updated_at = updated_at
         return self
-    
+
     def build(self) -> "ItemRecord":
         return self._item_record

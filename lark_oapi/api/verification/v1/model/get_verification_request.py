@@ -22,7 +22,6 @@ class GetVerificationRequestBuilder(object):
         get_verification_request.uri = "/open-apis/verification/v1/verification"
         get_verification_request.token_types = {AccessTokenType.TENANT}
         self._get_verification_request: GetVerificationRequest = get_verification_request
-    
 
     def build(self) -> GetVerificationRequest:
         return self._get_verification_request

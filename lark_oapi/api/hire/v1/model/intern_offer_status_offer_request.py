@@ -25,12 +25,12 @@ class InternOfferStatusOfferRequestBuilder(object):
         intern_offer_status_offer_request.uri = "/open-apis/hire/v1/offers/:offer_id/intern_offer_status"
         intern_offer_status_offer_request.token_types = {AccessTokenType.TENANT}
         self._intern_offer_status_offer_request: InternOfferStatusOfferRequest = intern_offer_status_offer_request
-    
+
     def offer_id(self, offer_id: str) -> "InternOfferStatusOfferRequestBuilder":
         self._intern_offer_status_offer_request.offer_id = offer_id
         self._intern_offer_status_offer_request.paths["offer_id"] = str(offer_id)
         return self
-    
+
     def request_body(self, request_body: InternOfferStatus) -> "InternOfferStatusOfferRequestBuilder":
         self._intern_offer_status_offer_request.request_body = request_body
         self._intern_offer_status_offer_request.body = request_body

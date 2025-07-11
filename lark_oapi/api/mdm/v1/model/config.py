@@ -37,33 +37,42 @@ class Config(object):
 class ConfigBuilder(object):
     def __init__(self) -> None:
         self._config = Config()
+
     def field_code(self, field_code: str) -> "ConfigBuilder":
         self._config.field_code = field_code
         return self
+
     def field_name(self, field_name: str) -> "ConfigBuilder":
         self._config.field_name = field_name
         return self
+
     def module(self, module: int) -> "ConfigBuilder":
         self._config.module = module
         return self
+
     def field_describe(self, field_describe: str) -> "ConfigBuilder":
         self._config.field_describe = field_describe
         return self
+
     def sys(self, sys: int) -> "ConfigBuilder":
         self._config.sys = sys
         return self
+
     def field_type(self, field_type: int) -> "ConfigBuilder":
         self._config.field_type = field_type
         return self
+
     def required(self, required: int) -> "ConfigBuilder":
         self._config.required = required
         return self
+
     def status(self, status: int) -> "ConfigBuilder":
         self._config.status = status
         return self
+
     def field_version(self, field_version: int) -> "ConfigBuilder":
         self._config.field_version = field_version
         return self
-    
+
     def build(self) -> "Config":
         return self._config

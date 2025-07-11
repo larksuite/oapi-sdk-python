@@ -34,24 +34,30 @@ class AskAppKnowledgeResponseBody(object):
 class AskAppKnowledgeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._ask_app_knowledge_response_body = AskAppKnowledgeResponseBody()
+
     def status(self, status: str) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.status = status
         return self
+
     def finish_type(self, finish_type: str) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.finish_type = finish_type
         return self
+
     def message(self, message: AilyKnowledgeMessage) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.message = message
         return self
+
     def process_data(self, process_data: AilyKnowledgeAskProcessData) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.process_data = process_data
         return self
+
     def faq_result(self, faq_result: AilyKnowledgeFaq) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.faq_result = faq_result
         return self
+
     def has_answer(self, has_answer: bool) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.has_answer = has_answer
         return self
-    
+
     def build(self) -> "AskAppKnowledgeResponseBody":
         return self._ask_app_knowledge_response_body

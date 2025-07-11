@@ -41,36 +41,49 @@ class ProfileSettingEmploymentBasicInfo(object):
 class ProfileSettingEmploymentBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_employment_basic_info = ProfileSettingEmploymentBasicInfo()
+
     def employee_number(self, employee_number: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.employee_number = employee_number
         return self
+
     def rehire(self, rehire: bool) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.rehire = rehire
         return self
-    def employment_info_before_rehire(self, employment_info_before_rehire: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
+
+    def employment_info_before_rehire(self,
+                                      employment_info_before_rehire: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.employment_info_before_rehire = employment_info_before_rehire
         return self
+
     def effective_time(self, effective_time: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.effective_time = effective_time
         return self
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
+
+    def regular_employee_start_date(self,
+                                    regular_employee_start_date: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.regular_employee_start_date = regular_employee_start_date
         return self
+
     def seniority_date(self, seniority_date: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.seniority_date = seniority_date
         return self
+
     def work_email(self, work_email: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.work_email = work_email
         return self
+
     def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.phone = phone
         return self
+
     def user_geo(self, user_geo: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.user_geo = user_geo
         return self
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEmploymentBasicInfoBuilder":
+
+    def custom_fields(self,
+                      custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "ProfileSettingEmploymentBasicInfo":
         return self._profile_setting_employment_basic_info

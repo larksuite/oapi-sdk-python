@@ -19,6 +19,6 @@ class OkrProgress(object):
 class OkrProgressBuilder(object):
     def __init__(self) -> None:
         self._okr_progress = OkrProgress()
-    
+
     def build(self) -> "OkrProgress":
         return self._okr_progress

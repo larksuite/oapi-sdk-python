@@ -24,12 +24,14 @@ class ListNotifyStatus(object):
 class ListNotifyStatusBuilder(object):
     def __init__(self) -> None:
         self._list_notify_status = ListNotifyStatus()
+
     def user_id(self, user_id: UserId) -> "ListNotifyStatusBuilder":
         self._list_notify_status.user_id = user_id
         return self
+
     def notify_status_type(self, notify_status_type: str) -> "ListNotifyStatusBuilder":
         self._list_notify_status.notify_status_type = notify_status_type
         return self
-    
+
     def build(self) -> "ListNotifyStatus":
         return self._list_notify_status

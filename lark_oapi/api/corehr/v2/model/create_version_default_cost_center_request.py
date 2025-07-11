@@ -26,18 +26,19 @@ class CreateVersionDefaultCostCenterRequestBuilder(object):
         create_version_default_cost_center_request.uri = "/open-apis/corehr/v2/default_cost_centers/create_version"
         create_version_default_cost_center_request.token_types = {AccessTokenType.TENANT}
         self._create_version_default_cost_center_request: CreateVersionDefaultCostCenterRequest = create_version_default_cost_center_request
-    
+
     def client_token(self, client_token: str) -> "CreateVersionDefaultCostCenterRequestBuilder":
         self._create_version_default_cost_center_request.client_token = client_token
         self._create_version_default_cost_center_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateVersionDefaultCostCenterRequestBuilder":
         self._create_version_default_cost_center_request.user_id_type = user_id_type
         self._create_version_default_cost_center_request.add_query("user_id_type", user_id_type)
         return self
-    
-    def request_body(self, request_body: CreateVersionDefaultCostCenterRequestBody) -> "CreateVersionDefaultCostCenterRequestBuilder":
+
+    def request_body(self,
+                     request_body: CreateVersionDefaultCostCenterRequestBody) -> "CreateVersionDefaultCostCenterRequestBuilder":
         self._create_version_default_cost_center_request.request_body = request_body
         self._create_version_default_cost_center_request.body = request_body
         return self

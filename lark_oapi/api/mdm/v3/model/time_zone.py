@@ -42,39 +42,50 @@ class TimeZone(object):
 class TimeZoneBuilder(object):
     def __init__(self) -> None:
         self._time_zone = TimeZone()
+
     def update_by(self, update_by: str) -> "TimeZoneBuilder":
         self._time_zone.update_by = update_by
         return self
+
     def create_by(self, create_by: str) -> "TimeZoneBuilder":
         self._time_zone.create_by = create_by
         return self
+
     def update_time(self, update_time: str) -> "TimeZoneBuilder":
         self._time_zone.update_time = update_time
         return self
+
     def create_time(self, create_time: str) -> "TimeZoneBuilder":
         self._time_zone.create_time = create_time
         return self
+
     def time_zone_id(self, time_zone_id: str) -> "TimeZoneBuilder":
         self._time_zone.time_zone_id = time_zone_id
         return self
+
     def name(self, name: Common) -> "TimeZoneBuilder":
         self._time_zone.name = name
         return self
+
     def utc_offset(self, utc_offset: str) -> "TimeZoneBuilder":
         self._time_zone.utc_offset = utc_offset
         return self
+
     def mdm_code(self, mdm_code: str) -> "TimeZoneBuilder":
         self._time_zone.mdm_code = mdm_code
         return self
+
     def remark(self, remark: str) -> "TimeZoneBuilder":
         self._time_zone.remark = remark
         return self
+
     def update_reason(self, update_reason: str) -> "TimeZoneBuilder":
         self._time_zone.update_reason = update_reason
         return self
+
     def status(self, status: str) -> "TimeZoneBuilder":
         self._time_zone.status = status
         return self
-    
+
     def build(self) -> "TimeZone":
         return self._time_zone

@@ -29,18 +29,22 @@ class WebsiteDeliveryWorks(object):
 class WebsiteDeliveryWorksBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_works = WebsiteDeliveryWorks()
+
     def desc(self, desc: str) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.desc = desc
         return self
+
     def link(self, link: str) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.link = link
         return self
+
     def attachment(self, attachment: WebsiteDeliveryWorksAttachment) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.attachment = attachment
         return self
+
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.customized_data = customized_data
         return self
-    
+
     def build(self) -> "WebsiteDeliveryWorks":
         return self._website_delivery_works

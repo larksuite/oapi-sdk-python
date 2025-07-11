@@ -29,21 +29,26 @@ class FaqCreateInfo(object):
 class FaqCreateInfoBuilder(object):
     def __init__(self) -> None:
         self._faq_create_info = FaqCreateInfo()
+
     def category_id(self, category_id: str) -> "FaqCreateInfoBuilder":
         self._faq_create_info.category_id = category_id
         return self
+
     def question(self, question: str) -> "FaqCreateInfoBuilder":
         self._faq_create_info.question = question
         return self
+
     def answer(self, answer: str) -> "FaqCreateInfoBuilder":
         self._faq_create_info.answer = answer
         return self
+
     def answer_richtext(self, answer_richtext: str) -> "FaqCreateInfoBuilder":
         self._faq_create_info.answer_richtext = answer_richtext
         return self
+
     def tags(self, tags: List[str]) -> "FaqCreateInfoBuilder":
         self._faq_create_info.tags = tags
         return self
-    
+
     def build(self) -> "FaqCreateInfo":
         return self._faq_create_info

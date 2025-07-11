@@ -7,4 +7,3 @@ from .v3.version import V3
 class AuthService(object):
     def __init__(self, config: Config) -> None:
         self.v3: V3 = V3(config)
-

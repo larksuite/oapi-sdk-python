@@ -25,12 +25,12 @@ class CreateSectionRequestBuilder(object):
         create_section_request.uri = "/open-apis/task/v2/sections"
         create_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_section_request: CreateSectionRequest = create_section_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateSectionRequestBuilder":
         self._create_section_request.user_id_type = user_id_type
         self._create_section_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: InputSection) -> "CreateSectionRequestBuilder":
         self._create_section_request.request_body = request_body
         self._create_section_request.body = request_body

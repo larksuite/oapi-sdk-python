@@ -23,12 +23,14 @@ class Span(object):
 class SpanBuilder(object):
     def __init__(self) -> None:
         self._span = Span()
+
     def start(self, start: int) -> "SpanBuilder":
         self._span.start = start
         return self
+
     def end(self, end: int) -> "SpanBuilder":
         self._span.end = end
         return self
-    
+
     def build(self) -> "Span":
         return self._span

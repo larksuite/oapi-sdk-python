@@ -24,7 +24,7 @@ class ActiveCompanyRequestBuilder(object):
         active_company_request.uri = "/open-apis/corehr/v2/companies/active"
         active_company_request.token_types = {AccessTokenType.TENANT}
         self._active_company_request: ActiveCompanyRequest = active_company_request
-    
+
     def request_body(self, request_body: ActiveCompanyRequestBody) -> "ActiveCompanyRequestBuilder":
         self._active_company_request.request_body = request_body
         self._active_company_request.body = request_body

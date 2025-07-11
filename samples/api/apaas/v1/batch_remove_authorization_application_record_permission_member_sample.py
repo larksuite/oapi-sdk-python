@@ -5,66 +5,68 @@ from lark_oapi.api.apaas.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest = BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest.builder() \
-		.namespace("package_test__c") \
-		.record_permission_api_name("adminRecordPermission") \
-		.request_body(BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody.builder()
-					  .user_ids([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest = BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest.builder() \
+        .namespace("package_test__c") \
+        .record_permission_api_name("adminRecordPermission") \
+        .request_body(BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody.builder()
+                      .user_ids([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = client.apaas.v1.application_record_permission_member.batch_remove_authorization(request)
+    # 发起请求
+    response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = client.apaas.v1.application_record_permission_member.batch_remove_authorization(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_record_permission_member.batch_remove_authorization failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_record_permission_member.batch_remove_authorization failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest = BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest.builder() \
-		.namespace("package_test__c") \
-		.record_permission_api_name("adminRecordPermission") \
-		.request_body(BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody.builder()
-					  .user_ids([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest = BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest.builder() \
+        .namespace("package_test__c") \
+        .record_permission_api_name("adminRecordPermission") \
+        .request_body(BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody.builder()
+                      .user_ids([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = await client.apaas.v1.application_record_permission_member.abatch_remove_authorization(request)
+    # 发起请求
+    response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = await client.apaas.v1.application_record_permission_member.abatch_remove_authorization(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_record_permission_member.abatch_remove_authorization failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_record_permission_member.abatch_remove_authorization failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

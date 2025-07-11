@@ -28,18 +28,22 @@ class VerifActItemValue(object):
 class VerifActItemValueBuilder(object):
     def __init__(self) -> None:
         self._verif_act_item_value = VerifActItemValue()
+
     def item_id(self, item_id: str) -> "VerifActItemValueBuilder":
         self._verif_act_item_value.item_id = item_id
         return self
+
     def value(self, value: str) -> "VerifActItemValueBuilder":
         self._verif_act_item_value.value = value
         return self
+
     def is_ref(self, is_ref: bool) -> "VerifActItemValueBuilder":
         self._verif_act_item_value.is_ref = is_ref
         return self
+
     def name(self, name: IdWithName) -> "VerifActItemValueBuilder":
         self._verif_act_item_value.name = name
         return self
-    
+
     def build(self) -> "VerifActItemValue":
         return self._verif_act_item_value

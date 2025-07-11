@@ -21,9 +21,10 @@ class QueryQuestionRequestBody(object):
 class QueryQuestionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_question_request_body = QueryQuestionRequestBody()
+
     def tag_based_question_ids(self, tag_based_question_ids: List[int]) -> "QueryQuestionRequestBodyBuilder":
         self._query_question_request_body.tag_based_question_ids = tag_based_question_ids
         return self
-    
+
     def build(self) -> "QueryQuestionRequestBody":
         return self._query_question_request_body

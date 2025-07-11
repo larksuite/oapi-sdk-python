@@ -35,30 +35,38 @@ class Params(object):
 class ParamsBuilder(object):
     def __init__(self) -> None:
         self._params = Params()
+
     def type(self, type: str) -> "ParamsBuilder":
         self._params.type = type
         return self
+
     def target_element_id(self, target_element_id: str) -> "ParamsBuilder":
         self._params.target_element_id = target_element_id
         return self
+
     def elements(self, elements: List[str]) -> "ParamsBuilder":
         self._params.elements = elements
         return self
+
     def element_ids(self, element_ids: List[str]) -> "ParamsBuilder":
         self._params.element_ids = element_ids
         return self
+
     def element_id(self, element_id: str) -> "ParamsBuilder":
         self._params.element_id = element_id
         return self
+
     def partial_element(self, partial_element: str) -> "ParamsBuilder":
         self._params.partial_element = partial_element
         return self
+
     def element(self, element: str) -> "ParamsBuilder":
         self._params.element = element
         return self
+
     def settings(self, settings: str) -> "ParamsBuilder":
         self._params.settings = settings
         return self
-    
+
     def build(self) -> "Params":
         return self._params

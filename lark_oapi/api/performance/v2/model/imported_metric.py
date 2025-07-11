@@ -26,15 +26,18 @@ class ImportedMetric(object):
 class ImportedMetricBuilder(object):
     def __init__(self) -> None:
         self._imported_metric = ImportedMetric()
+
     def reviewee_user_id(self, reviewee_user_id: str) -> "ImportedMetricBuilder":
         self._imported_metric.reviewee_user_id = reviewee_user_id
         return self
+
     def metric_id(self, metric_id: int) -> "ImportedMetricBuilder":
         self._imported_metric.metric_id = metric_id
         return self
+
     def fields(self, fields: List[ImportedMetricField]) -> "ImportedMetricBuilder":
         self._imported_metric.fields = fields
         return self
-    
+
     def build(self) -> "ImportedMetric":
         return self._imported_metric

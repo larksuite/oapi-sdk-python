@@ -5,104 +5,104 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateEmployeesAdditionalJobRequest = CreateEmployeesAdditionalJobRequest.builder() \
-		.client_token("12454646") \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.request_body(EmployeesAdditionalJobEdit.builder()
-					  .employee_type_id("6890452208593372679")
-					  .working_hours_type_id("6890452208593372679")
-					  .work_location_id("6890452208593372679")
-					  .department_id("6890452208593372679")
-					  .job_id("6890452208593372679")
-					  .job_level_id("6890452208593372679")
-					  .job_family_id("1245678")
-					  .employment_id("6893014062142064135")
-					  .start_date("2020-05-01")
-					  .end_date("2020-05-02")
-					  .direct_manager_id("6890452208593372680")
-					  .dotted_line_manager_id("6890452208593372680")
-					  .work_shift(Enum.builder().build())
-					  .compensation_type(Enum.builder().build())
-					  .service_company("6890452208593372680")
-					  .weekly_working_hours("5")
-					  .work_calendar_id("6890452208593372680")
-					  .position_id("6890452208593372680")
-					  .employee_subtype_id("6890452208593372680")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateEmployeesAdditionalJobRequest = CreateEmployeesAdditionalJobRequest.builder() \
+        .client_token("12454646") \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .request_body(EmployeesAdditionalJobEdit.builder()
+                      .employee_type_id("6890452208593372679")
+                      .working_hours_type_id("6890452208593372679")
+                      .work_location_id("6890452208593372679")
+                      .department_id("6890452208593372679")
+                      .job_id("6890452208593372679")
+                      .job_level_id("6890452208593372679")
+                      .job_family_id("1245678")
+                      .employment_id("6893014062142064135")
+                      .start_date("2020-05-01")
+                      .end_date("2020-05-02")
+                      .direct_manager_id("6890452208593372680")
+                      .dotted_line_manager_id("6890452208593372680")
+                      .work_shift(Enum.builder().build())
+                      .compensation_type(Enum.builder().build())
+                      .service_company("6890452208593372680")
+                      .weekly_working_hours("5")
+                      .work_calendar_id("6890452208593372680")
+                      .position_id("6890452208593372680")
+                      .employee_subtype_id("6890452208593372680")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateEmployeesAdditionalJobResponse = client.corehr.v2.employees_additional_job.create(request)
+    # 发起请求
+    response: CreateEmployeesAdditionalJobResponse = client.corehr.v2.employees_additional_job.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.employees_additional_job.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.employees_additional_job.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateEmployeesAdditionalJobRequest = CreateEmployeesAdditionalJobRequest.builder() \
-		.client_token("12454646") \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.request_body(EmployeesAdditionalJobEdit.builder()
-					  .employee_type_id("6890452208593372679")
-					  .working_hours_type_id("6890452208593372679")
-					  .work_location_id("6890452208593372679")
-					  .department_id("6890452208593372679")
-					  .job_id("6890452208593372679")
-					  .job_level_id("6890452208593372679")
-					  .job_family_id("1245678")
-					  .employment_id("6893014062142064135")
-					  .start_date("2020-05-01")
-					  .end_date("2020-05-02")
-					  .direct_manager_id("6890452208593372680")
-					  .dotted_line_manager_id("6890452208593372680")
-					  .work_shift(Enum.builder().build())
-					  .compensation_type(Enum.builder().build())
-					  .service_company("6890452208593372680")
-					  .weekly_working_hours("5")
-					  .work_calendar_id("6890452208593372680")
-					  .position_id("6890452208593372680")
-					  .employee_subtype_id("6890452208593372680")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateEmployeesAdditionalJobRequest = CreateEmployeesAdditionalJobRequest.builder() \
+        .client_token("12454646") \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .request_body(EmployeesAdditionalJobEdit.builder()
+                      .employee_type_id("6890452208593372679")
+                      .working_hours_type_id("6890452208593372679")
+                      .work_location_id("6890452208593372679")
+                      .department_id("6890452208593372679")
+                      .job_id("6890452208593372679")
+                      .job_level_id("6890452208593372679")
+                      .job_family_id("1245678")
+                      .employment_id("6893014062142064135")
+                      .start_date("2020-05-01")
+                      .end_date("2020-05-02")
+                      .direct_manager_id("6890452208593372680")
+                      .dotted_line_manager_id("6890452208593372680")
+                      .work_shift(Enum.builder().build())
+                      .compensation_type(Enum.builder().build())
+                      .service_company("6890452208593372680")
+                      .weekly_working_hours("5")
+                      .work_calendar_id("6890452208593372680")
+                      .position_id("6890452208593372680")
+                      .employee_subtype_id("6890452208593372680")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateEmployeesAdditionalJobResponse = await client.corehr.v2.employees_additional_job.acreate(request)
+    # 发起请求
+    response: CreateEmployeesAdditionalJobResponse = await client.corehr.v2.employees_additional_job.acreate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.employees_additional_job.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.employees_additional_job.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

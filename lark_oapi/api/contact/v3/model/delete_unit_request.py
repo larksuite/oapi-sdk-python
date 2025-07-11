@@ -23,12 +23,11 @@ class DeleteUnitRequestBuilder(object):
         delete_unit_request.uri = "/open-apis/contact/v3/unit/:unit_id"
         delete_unit_request.token_types = {AccessTokenType.TENANT}
         self._delete_unit_request: DeleteUnitRequest = delete_unit_request
-    
+
     def unit_id(self, unit_id: str) -> "DeleteUnitRequestBuilder":
         self._delete_unit_request.unit_id = unit_id
         self._delete_unit_request.paths["unit_id"] = str(unit_id)
         return self
-    
 
     def build(self) -> DeleteUnitRequest:
         return self._delete_unit_request

@@ -29,21 +29,26 @@ class AuditRecipientDetail(object):
 class AuditRecipientDetailBuilder(object):
     def __init__(self) -> None:
         self._audit_recipient_detail = AuditRecipientDetail()
+
     def permission_action_type(self, permission_action_type: str) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.permission_action_type = permission_action_type
         return self
+
     def chat_id(self, chat_id: str) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.chat_id = chat_id
         return self
+
     def chat_name(self, chat_name: str) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.chat_name = chat_name
         return self
+
     def chat_type(self, chat_type: int) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.chat_type = chat_type
         return self
+
     def external_flag(self, external_flag: bool) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.external_flag = external_flag
         return self
-    
+
     def build(self) -> "AuditRecipientDetail":
         return self._audit_recipient_detail

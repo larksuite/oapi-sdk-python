@@ -32,13 +32,12 @@ class Tag(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTagResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTagResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateTagRequest, option: Optional[RequestOption] = None) -> CreateTagResponse:
         if option is None:
@@ -47,17 +46,15 @@ class Tag(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTagResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTagResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchTagRequest, option: Optional[RequestOption] = None) -> PatchTagResponse:
         if option is None:
             option = RequestOption()
@@ -71,13 +68,12 @@ class Tag(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchTagResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTagResponse)
         response.raw = resp
 
         return response
-        
 
     async def apatch(self, request: PatchTagRequest, option: Optional[RequestOption] = None) -> PatchTagResponse:
         if option is None:
@@ -86,15 +82,11 @@ class Tag(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchTagResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTagResponse)
         response.raw = resp
 
         return response
-        
-    

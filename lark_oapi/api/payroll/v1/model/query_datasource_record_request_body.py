@@ -26,15 +26,19 @@ class QueryDatasourceRecordRequestBody(object):
 class QueryDatasourceRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_datasource_record_request_body = QueryDatasourceRecordRequestBody()
+
     def source_code(self, source_code: str) -> "QueryDatasourceRecordRequestBodyBuilder":
         self._query_datasource_record_request_body.source_code = source_code
         return self
+
     def selected_fields(self, selected_fields: List[str]) -> "QueryDatasourceRecordRequestBodyBuilder":
         self._query_datasource_record_request_body.selected_fields = selected_fields
         return self
-    def field_filters(self, field_filters: List[DatasourceRecordFieldFilter]) -> "QueryDatasourceRecordRequestBodyBuilder":
+
+    def field_filters(self,
+                      field_filters: List[DatasourceRecordFieldFilter]) -> "QueryDatasourceRecordRequestBodyBuilder":
         self._query_datasource_record_request_body.field_filters = field_filters
         return self
-    
+
     def build(self) -> "QueryDatasourceRecordRequestBody":
         return self._query_datasource_record_request_body

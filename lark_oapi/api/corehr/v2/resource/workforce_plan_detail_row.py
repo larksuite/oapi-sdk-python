@@ -19,7 +19,8 @@ class WorkforcePlanDetailRow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteWorkforcePlanDetailRowRequest, option: Optional[RequestOption] = None) -> BatchDeleteWorkforcePlanDetailRowResponse:
+    def batch_delete(self, request: BatchDeleteWorkforcePlanDetailRowRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteWorkforcePlanDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,34 @@ class WorkforcePlanDetailRow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteWorkforcePlanDetailRowResponse)
+        response: BatchDeleteWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             BatchDeleteWorkforcePlanDetailRowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteWorkforcePlanDetailRowRequest, option: Optional[RequestOption] = None) -> BatchDeleteWorkforcePlanDetailRowResponse:
+    async def abatch_delete(self, request: BatchDeleteWorkforcePlanDetailRowRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteWorkforcePlanDetailRowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteWorkforcePlanDetailRowResponse)
+        response: BatchDeleteWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             BatchDeleteWorkforcePlanDetailRowResponse)
         response.raw = resp
 
         return response
-        
-    def batch_save(self, request: BatchSaveWorkforcePlanDetailRowRequest, option: Optional[RequestOption] = None) -> BatchSaveWorkforcePlanDetailRowResponse:
+
+    def batch_save(self, request: BatchSaveWorkforcePlanDetailRowRequest,
+                   option: Optional[RequestOption] = None) -> BatchSaveWorkforcePlanDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +73,28 @@ class WorkforcePlanDetailRow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchSaveWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchSaveWorkforcePlanDetailRowResponse)
+        response: BatchSaveWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchSaveWorkforcePlanDetailRowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_save(self, request: BatchSaveWorkforcePlanDetailRowRequest, option: Optional[RequestOption] = None) -> BatchSaveWorkforcePlanDetailRowResponse:
+    async def abatch_save(self, request: BatchSaveWorkforcePlanDetailRowRequest,
+                          option: Optional[RequestOption] = None) -> BatchSaveWorkforcePlanDetailRowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchSaveWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchSaveWorkforcePlanDetailRowResponse)
+        response: BatchSaveWorkforcePlanDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchSaveWorkforcePlanDetailRowResponse)
         response.raw = resp
 
         return response
-        
-    

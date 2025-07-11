@@ -29,21 +29,26 @@ class QueryUserTaskRemedyRequestBody(object):
 class QueryUserTaskRemedyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_task_remedy_request_body = QueryUserTaskRemedyRequestBody()
+
     def user_ids(self, user_ids: List[str]) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.user_ids = user_ids
         return self
+
     def check_time_from(self, check_time_from: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_time_from = check_time_from
         return self
+
     def check_time_to(self, check_time_to: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_time_to = check_time_to
         return self
+
     def check_date_type(self, check_date_type: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_date_type = check_date_type
         return self
+
     def status(self, status: int) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.status = status
         return self
-    
+
     def build(self) -> "QueryUserTaskRemedyRequestBody":
         return self._query_user_task_remedy_request_body

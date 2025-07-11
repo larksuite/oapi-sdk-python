@@ -30,21 +30,26 @@ class StandardScopeExpression(object):
 class StandardScopeExpressionBuilder(object):
     def __init__(self) -> None:
         self._standard_scope_expression = StandardScopeExpression()
+
     def api_name(self, api_name: str) -> "StandardScopeExpressionBuilder":
         self._standard_scope_expression.api_name = api_name
         return self
+
     def operator_type(self, operator_type: int) -> "StandardScopeExpressionBuilder":
         self._standard_scope_expression.operator_type = operator_type
         return self
+
     def contain_sub(self, contain_sub: bool) -> "StandardScopeExpressionBuilder":
         self._standard_scope_expression.contain_sub = contain_sub
         return self
+
     def values(self, values: List[str]) -> "StandardScopeExpressionBuilder":
         self._standard_scope_expression.values = values
         return self
+
     def scope_name(self, scope_name: I18n) -> "StandardScopeExpressionBuilder":
         self._standard_scope_expression.scope_name = scope_name
         return self
-    
+
     def build(self) -> "StandardScopeExpression":
         return self._standard_scope_expression

@@ -22,9 +22,10 @@ class PatchFeedCardResponseBody(object):
 class PatchFeedCardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_feed_card_response_body = PatchFeedCardResponseBody()
+
     def failed_user_reasons(self, failed_user_reasons: List[FailedReason]) -> "PatchFeedCardResponseBodyBuilder":
         self._patch_feed_card_response_body.failed_user_reasons = failed_user_reasons
         return self
-    
+
     def build(self) -> "PatchFeedCardResponseBody":
         return self._patch_feed_card_response_body

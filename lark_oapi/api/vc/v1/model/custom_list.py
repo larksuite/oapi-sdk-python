@@ -35,27 +35,34 @@ class CustomList(object):
 class CustomListBuilder(object):
     def __init__(self) -> None:
         self._custom_list = CustomList()
+
     def custom_type(self, custom_type: int) -> "CustomListBuilder":
         self._custom_list.custom_type = custom_type
         return self
+
     def key(self, key: str) -> "CustomListBuilder":
         self._custom_list.key = key
         return self
+
     def need_fill(self, need_fill: bool) -> "CustomListBuilder":
         self._custom_list.need_fill = need_fill
         return self
+
     def title(self, title: str) -> "CustomListBuilder":
         self._custom_list.title = title
         return self
+
     def placeholder(self, placeholder: str) -> "CustomListBuilder":
         self._custom_list.placeholder = placeholder
         return self
+
     def options(self, options: List[Options]) -> "CustomListBuilder":
         self._custom_list.options = options
         return self
+
     def conditions(self, conditions: List[Conditions]) -> "CustomListBuilder":
         self._custom_list.conditions = conditions
         return self
-    
+
     def build(self) -> "CustomList":
         return self._custom_list

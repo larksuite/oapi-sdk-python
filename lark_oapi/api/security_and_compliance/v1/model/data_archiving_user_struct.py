@@ -25,15 +25,18 @@ class DataArchivingUserStruct(object):
 class DataArchivingUserStructBuilder(object):
     def __init__(self) -> None:
         self._data_archiving_user_struct = DataArchivingUserStruct()
+
     def type(self, type: str) -> "DataArchivingUserStructBuilder":
         self._data_archiving_user_struct.type = type
         return self
+
     def id(self, id: str) -> "DataArchivingUserStructBuilder":
         self._data_archiving_user_struct.id = id
         return self
+
     def name(self, name: str) -> "DataArchivingUserStructBuilder":
         self._data_archiving_user_struct.name = name
         return self
-    
+
     def build(self) -> "DataArchivingUserStruct":
         return self._data_archiving_user_struct

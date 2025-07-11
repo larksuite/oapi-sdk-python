@@ -22,9 +22,10 @@ class GetDocumentResponseBody(object):
 class GetDocumentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_document_response_body = GetDocumentResponseBody()
+
     def document(self, document: Document) -> "GetDocumentResponseBodyBuilder":
         self._get_document_response_body.document = document
         return self
-    
+
     def build(self) -> "GetDocumentResponseBody":
         return self._get_document_response_body

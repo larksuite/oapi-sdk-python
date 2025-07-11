@@ -19,6 +19,6 @@ class Divider(object):
 class DividerBuilder(object):
     def __init__(self) -> None:
         self._divider = Divider()
-    
+
     def build(self) -> "Divider":
         return self._divider

@@ -23,12 +23,14 @@ class CustomizationOption(object):
 class CustomizationOptionBuilder(object):
     def __init__(self) -> None:
         self._customization_option = CustomizationOption()
+
     def option_key(self, option_key: str) -> "CustomizationOptionBuilder":
         self._customization_option.option_key = option_key
         return self
+
     def others_content(self, others_content: str) -> "CustomizationOptionBuilder":
         self._customization_option.others_content = others_content
         return self
-    
+
     def build(self) -> "CustomizationOption":
         return self._customization_option

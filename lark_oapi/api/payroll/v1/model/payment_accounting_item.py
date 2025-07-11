@@ -32,21 +32,26 @@ class PaymentAccountingItem(object):
 class PaymentAccountingItemBuilder(object):
     def __init__(self) -> None:
         self._payment_accounting_item = PaymentAccountingItem()
+
     def id(self, id: str) -> "PaymentAccountingItemBuilder":
         self._payment_accounting_item.id = id
         return self
+
     def accounting_item_names(self, accounting_item_names: List[I18nContent]) -> "PaymentAccountingItemBuilder":
         self._payment_accounting_item.accounting_item_names = accounting_item_names
         return self
+
     def accounting_item_value(self, accounting_item_value: AccountingItemValue) -> "PaymentAccountingItemBuilder":
         self._payment_accounting_item.accounting_item_value = accounting_item_value
         return self
+
     def segment_values(self, segment_values: List[SegmentValue]) -> "PaymentAccountingItemBuilder":
         self._payment_accounting_item.segment_values = segment_values
         return self
+
     def accounting_item_type(self, accounting_item_type: int) -> "PaymentAccountingItemBuilder":
         self._payment_accounting_item.accounting_item_type = accounting_item_type
         return self
-    
+
     def build(self) -> "PaymentAccountingItem":
         return self._payment_accounting_item

@@ -22,9 +22,10 @@ class GetAttachmentResponseBody(object):
 class GetAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_attachment_response_body = GetAttachmentResponseBody()
+
     def attachment(self, attachment: Attachment) -> "GetAttachmentResponseBodyBuilder":
         self._get_attachment_response_body.attachment = attachment
         return self
-    
+
     def build(self) -> "GetAttachmentResponseBody":
         return self._get_attachment_response_body

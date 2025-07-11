@@ -24,12 +24,14 @@ class ReviewDataPermissionUnit(object):
 class ReviewDataPermissionUnitBuilder(object):
     def __init__(self) -> None:
         self._review_data_permission_unit = ReviewDataPermissionUnit()
+
     def unit_id(self, unit_id: str) -> "ReviewDataPermissionUnitBuilder":
         self._review_data_permission_unit.unit_id = unit_id
         return self
+
     def fields(self, fields: List[ReviewDataPermissionField]) -> "ReviewDataPermissionUnitBuilder":
         self._review_data_permission_unit.fields = fields
         return self
-    
+
     def build(self) -> "ReviewDataPermissionUnit":
         return self._review_data_permission_unit

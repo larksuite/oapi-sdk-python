@@ -33,24 +33,31 @@ class KnowledgeQaAnswerRequest(object):
 class KnowledgeQaAnswerRequestBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_answer_request = KnowledgeQaAnswerRequest()
+
     def query(self, query: str) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.query = query
         return self
+
     def enable_image(self, enable_image: bool) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.enable_image = enable_image
         return self
+
     def knowledge_scope(self, knowledge_scope: str) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.knowledge_scope = knowledge_scope
         return self
-    def enterprise_knowledge_source(self, enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaAnswerRequestBuilder":
+
+    def enterprise_knowledge_source(self,
+                                    enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.enterprise_knowledge_source = enterprise_knowledge_source
         return self
+
     def extra(self, extra: KnowledgeSourceRequestExtra) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.extra = extra
         return self
+
     def model_type(self, model_type: str) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.model_type = model_type
         return self
-    
+
     def build(self) -> "KnowledgeQaAnswerRequest":
         return self._knowledge_qa_answer_request

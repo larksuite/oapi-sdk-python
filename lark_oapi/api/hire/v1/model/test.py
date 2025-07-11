@@ -62,66 +62,86 @@ class Test(object):
 class TestBuilder(object):
     def __init__(self) -> None:
         self._test = Test()
+
     def test_id(self, test_id: str) -> "TestBuilder":
         self._test.test_id = test_id
         return self
+
     def application_id(self, application_id: str) -> "TestBuilder":
         self._test.application_id = application_id
         return self
+
     def talent_id(self, talent_id: str) -> "TestBuilder":
         self._test.talent_id = talent_id
         return self
+
     def job_id(self, job_id: str) -> "TestBuilder":
         self._test.job_id = job_id
         return self
+
     def test_paper_id(self, test_paper_id: str) -> "TestBuilder":
         self._test.test_paper_id = test_paper_id
         return self
+
     def test_paper_name(self, test_paper_name: str) -> "TestBuilder":
         self._test.test_paper_name = test_paper_name
         return self
+
     def test_paper_source_id(self, test_paper_source_id: str) -> "TestBuilder":
         self._test.test_paper_source_id = test_paper_source_id
         return self
+
     def test_paper_source_name(self, test_paper_source_name: I18n) -> "TestBuilder":
         self._test.test_paper_source_name = test_paper_source_name
         return self
+
     def reply_status(self, reply_status: int) -> "TestBuilder":
         self._test.reply_status = reply_status
         return self
+
     def test_status(self, test_status: int) -> "TestBuilder":
         self._test.test_status = test_status
         return self
+
     def test_schedule(self, test_schedule: TestSchedule) -> "TestBuilder":
         self._test.test_schedule = test_schedule
         return self
+
     def test_complete_time(self, test_complete_time: str) -> "TestBuilder":
         self._test.test_complete_time = test_complete_time
         return self
+
     def report_url_list(self, report_url_list: List[str]) -> "TestBuilder":
         self._test.report_url_list = report_url_list
         return self
+
     def result_detail_list(self, result_detail_list: List[TestResultDetail]) -> "TestBuilder":
         self._test.result_detail_list = result_detail_list
         return self
+
     def result_upload_time(self, result_upload_time: str) -> "TestBuilder":
         self._test.result_upload_time = result_upload_time
         return self
+
     def score(self, score: str) -> "TestBuilder":
         self._test.score = score
         return self
+
     def score_submit_time(self, score_submit_time: str) -> "TestBuilder":
         self._test.score_submit_time = score_submit_time
         return self
+
     def reviewer(self, reviewer: str) -> "TestBuilder":
         self._test.reviewer = reviewer
         return self
+
     def review_created_at(self, review_created_at: str) -> "TestBuilder":
         self._test.review_created_at = review_created_at
         return self
+
     def created_at(self, created_at: str) -> "TestBuilder":
         self._test.created_at = created_at
         return self
-    
+
     def build(self) -> "Test":
         return self._test

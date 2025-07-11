@@ -23,12 +23,14 @@ class ContractPeriod(object):
 class ContractPeriodBuilder(object):
     def __init__(self) -> None:
         self._contract_period = ContractPeriod()
+
     def period_type(self, period_type: int) -> "ContractPeriodBuilder":
         self._contract_period.period_type = period_type
         return self
+
     def period(self, period: int) -> "ContractPeriodBuilder":
         self._contract_period.period = period
         return self
-    
+
     def build(self) -> "ContractPeriod":
         return self._contract_period

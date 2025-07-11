@@ -26,15 +26,18 @@ class ExteranlInstanceCheckResponse(object):
 class ExteranlInstanceCheckResponseBuilder(object):
     def __init__(self) -> None:
         self._exteranl_instance_check_response = ExteranlInstanceCheckResponse()
+
     def instance_id(self, instance_id: str) -> "ExteranlInstanceCheckResponseBuilder":
         self._exteranl_instance_check_response.instance_id = instance_id
         return self
+
     def update_time(self, update_time: int) -> "ExteranlInstanceCheckResponseBuilder":
         self._exteranl_instance_check_response.update_time = update_time
         return self
+
     def tasks(self, tasks: List[ExternalInstanceTask]) -> "ExteranlInstanceCheckResponseBuilder":
         self._exteranl_instance_check_response.tasks = tasks
         return self
-    
+
     def build(self) -> "ExteranlInstanceCheckResponse":
         return self._exteranl_instance_check_response

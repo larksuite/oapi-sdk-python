@@ -17,7 +17,8 @@ class BasicInfoNationality(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoNationalityRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
+    def search(self, request: SearchBasicInfoNationalityRequest,
+               option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class BasicInfoNationality(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoNationalityResponse)
+        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      SearchBasicInfoNationalityResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchBasicInfoNationalityRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
+    async def asearch(self, request: SearchBasicInfoNationalityRequest,
+                      option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoNationalityResponse)
+        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      SearchBasicInfoNationalityResponse)
         response.raw = resp
 
         return response
-        
-    

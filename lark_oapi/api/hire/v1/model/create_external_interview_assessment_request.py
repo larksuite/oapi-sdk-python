@@ -24,8 +24,9 @@ class CreateExternalInterviewAssessmentRequestBuilder(object):
         create_external_interview_assessment_request.uri = "/open-apis/hire/v1/external_interview_assessments"
         create_external_interview_assessment_request.token_types = {AccessTokenType.TENANT}
         self._create_external_interview_assessment_request: CreateExternalInterviewAssessmentRequest = create_external_interview_assessment_request
-    
-    def request_body(self, request_body: ExternalInterviewAssessment) -> "CreateExternalInterviewAssessmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: ExternalInterviewAssessment) -> "CreateExternalInterviewAssessmentRequestBuilder":
         self._create_external_interview_assessment_request.request_body = request_body
         self._create_external_interview_assessment_request.body = request_body
         return self

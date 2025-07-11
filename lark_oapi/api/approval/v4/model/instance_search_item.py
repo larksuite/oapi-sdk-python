@@ -28,15 +28,18 @@ class InstanceSearchItem(object):
 class InstanceSearchItemBuilder(object):
     def __init__(self) -> None:
         self._instance_search_item = InstanceSearchItem()
+
     def approval(self, approval: InstanceSearchApproval) -> "InstanceSearchItemBuilder":
         self._instance_search_item.approval = approval
         return self
+
     def group(self, group: InstanceSearchGroup) -> "InstanceSearchItemBuilder":
         self._instance_search_item.group = group
         return self
+
     def instance(self, instance: InstanceSearchNode) -> "InstanceSearchItemBuilder":
         self._instance_search_item.instance = instance
         return self
-    
+
     def build(self) -> "InstanceSearchItem":
         return self._instance_search_item

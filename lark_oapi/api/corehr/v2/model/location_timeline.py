@@ -25,12 +25,14 @@ class LocationTimeline(object):
 class LocationTimelineBuilder(object):
     def __init__(self) -> None:
         self._location_timeline = LocationTimeline()
+
     def location_version_data(self, location_version_data: List[LocationVersionData]) -> "LocationTimelineBuilder":
         self._location_timeline.location_version_data = location_version_data
         return self
+
     def address(self, address: List[Address]) -> "LocationTimelineBuilder":
         self._location_timeline.address = address
         return self
-    
+
     def build(self) -> "LocationTimeline":
         return self._location_timeline

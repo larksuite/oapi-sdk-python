@@ -29,18 +29,22 @@ class AppRole(object):
 class AppRoleBuilder(object):
     def __init__(self) -> None:
         self._app_role = AppRole()
+
     def role_name(self, role_name: str) -> "AppRoleBuilder":
         self._app_role.role_name = role_name
         return self
+
     def role_id(self, role_id: str) -> "AppRoleBuilder":
         self._app_role.role_id = role_id
         return self
+
     def table_roles(self, table_roles: List[AppRoleTableRole]) -> "AppRoleBuilder":
         self._app_role.table_roles = table_roles
         return self
+
     def block_roles(self, block_roles: List[AppRoleBlockRole]) -> "AppRoleBuilder":
         self._app_role.block_roles = block_roles
         return self
-    
+
     def build(self) -> "AppRole":
         return self._app_role

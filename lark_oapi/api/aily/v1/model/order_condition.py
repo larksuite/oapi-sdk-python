@@ -23,12 +23,14 @@ class OrderCondition(object):
 class OrderConditionBuilder(object):
     def __init__(self) -> None:
         self._order_condition = OrderCondition()
+
     def field(self, field: str) -> "OrderConditionBuilder":
         self._order_condition.field = field
         return self
+
     def direction(self, direction: str) -> "OrderConditionBuilder":
         self._order_condition.direction = direction
         return self
-    
+
     def build(self) -> "OrderCondition":
         return self._order_condition

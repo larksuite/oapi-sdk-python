@@ -30,21 +30,26 @@ class TalentWorksInfo(object):
 class TalentWorksInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_works_info = TalentWorksInfo()
+
     def id(self, id: str) -> "TalentWorksInfoBuilder":
         self._talent_works_info.id = id
         return self
+
     def link(self, link: str) -> "TalentWorksInfoBuilder":
         self._talent_works_info.link = link
         return self
+
     def desc(self, desc: str) -> "TalentWorksInfoBuilder":
         self._talent_works_info.desc = desc
         return self
+
     def name(self, name: str) -> "TalentWorksInfoBuilder":
         self._talent_works_info.name = name
         return self
+
     def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentWorksInfoBuilder":
         self._talent_works_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "TalentWorksInfo":
         return self._talent_works_info

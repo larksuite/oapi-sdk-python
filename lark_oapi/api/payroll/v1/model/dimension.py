@@ -26,15 +26,18 @@ class Dimension(object):
 class DimensionBuilder(object):
     def __init__(self) -> None:
         self._dimension = Dimension()
+
     def i18n_names(self, i18n_names: List[I18nContent]) -> "DimensionBuilder":
         self._dimension.i18n_names = i18n_names
         return self
+
     def api_name(self, api_name: str) -> "DimensionBuilder":
         self._dimension.api_name = api_name
         return self
+
     def obj_api_name(self, obj_api_name: str) -> "DimensionBuilder":
         self._dimension.obj_api_name = obj_api_name
         return self
-    
+
     def build(self) -> "Dimension":
         return self._dimension

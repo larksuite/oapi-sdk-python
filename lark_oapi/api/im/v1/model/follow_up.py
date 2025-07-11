@@ -24,12 +24,14 @@ class FollowUp(object):
 class FollowUpBuilder(object):
     def __init__(self) -> None:
         self._follow_up = FollowUp()
+
     def content(self, content: str) -> "FollowUpBuilder":
         self._follow_up.content = content
         return self
+
     def i18n_contents(self, i18n_contents: List[I18nContent]) -> "FollowUpBuilder":
         self._follow_up.i18n_contents = i18n_contents
         return self
-    
+
     def build(self) -> "FollowUp":
         return self._follow_up

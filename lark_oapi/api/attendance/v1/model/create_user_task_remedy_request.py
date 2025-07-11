@@ -25,12 +25,12 @@ class CreateUserTaskRemedyRequestBuilder(object):
         create_user_task_remedy_request.uri = "/open-apis/attendance/v1/user_task_remedys"
         create_user_task_remedy_request.token_types = {AccessTokenType.TENANT}
         self._create_user_task_remedy_request: CreateUserTaskRemedyRequest = create_user_task_remedy_request
-    
+
     def employee_type(self, employee_type: str) -> "CreateUserTaskRemedyRequestBuilder":
         self._create_user_task_remedy_request.employee_type = employee_type
         self._create_user_task_remedy_request.add_query("employee_type", employee_type)
         return self
-    
+
     def request_body(self, request_body: UserTaskRemedy) -> "CreateUserTaskRemedyRequestBuilder":
         self._create_user_task_remedy_request.request_body = request_body
         self._create_user_task_remedy_request.body = request_body

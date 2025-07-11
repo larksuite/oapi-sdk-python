@@ -17,7 +17,8 @@ class RefreshAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateRefreshAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
+    def create(self, request: CreateRefreshAccessTokenRequest,
+               option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class RefreshAccessToken(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRefreshAccessTokenResponse)
+        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    CreateRefreshAccessTokenResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateRefreshAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
+    async def acreate(self, request: CreateRefreshAccessTokenRequest,
+                      option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRefreshAccessTokenResponse)
+        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    CreateRefreshAccessTokenResponse)
         response.raw = resp
 
         return response
-        
-    

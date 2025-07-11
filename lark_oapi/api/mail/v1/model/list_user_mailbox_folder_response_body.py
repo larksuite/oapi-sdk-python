@@ -22,9 +22,10 @@ class ListUserMailboxFolderResponseBody(object):
 class ListUserMailboxFolderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_user_mailbox_folder_response_body = ListUserMailboxFolderResponseBody()
+
     def items(self, items: List[Folder]) -> "ListUserMailboxFolderResponseBodyBuilder":
         self._list_user_mailbox_folder_response_body.items = items
         return self
-    
+
     def build(self) -> "ListUserMailboxFolderResponseBody":
         return self._list_user_mailbox_folder_response_body

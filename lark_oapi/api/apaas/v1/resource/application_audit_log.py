@@ -23,7 +23,8 @@ class ApplicationAuditLog(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def audit_log_list(self, request: AuditLogListApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> AuditLogListApplicationAuditLogResponse:
+    def audit_log_list(self, request: AuditLogListApplicationAuditLogRequest,
+                       option: Optional[RequestOption] = None) -> AuditLogListApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class ApplicationAuditLog(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: AuditLogListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), AuditLogListApplicationAuditLogResponse)
+        response: AuditLogListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           AuditLogListApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aaudit_log_list(self, request: AuditLogListApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> AuditLogListApplicationAuditLogResponse:
+    async def aaudit_log_list(self, request: AuditLogListApplicationAuditLogRequest,
+                              option: Optional[RequestOption] = None) -> AuditLogListApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: AuditLogListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), AuditLogListApplicationAuditLogResponse)
+        response: AuditLogListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           AuditLogListApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
-    def data_change_log_detail(self, request: DataChangeLogDetailApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> DataChangeLogDetailApplicationAuditLogResponse:
+
+    def data_change_log_detail(self, request: DataChangeLogDetailApplicationAuditLogRequest, option: Optional[
+        RequestOption] = None) -> DataChangeLogDetailApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class ApplicationAuditLog(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DataChangeLogDetailApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), DataChangeLogDetailApplicationAuditLogResponse)
+        response: DataChangeLogDetailApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                  DataChangeLogDetailApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adata_change_log_detail(self, request: DataChangeLogDetailApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> DataChangeLogDetailApplicationAuditLogResponse:
+    async def adata_change_log_detail(self, request: DataChangeLogDetailApplicationAuditLogRequest, option: Optional[
+        RequestOption] = None) -> DataChangeLogDetailApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DataChangeLogDetailApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), DataChangeLogDetailApplicationAuditLogResponse)
+        response: DataChangeLogDetailApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                  DataChangeLogDetailApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
-    def data_change_logs_list(self, request: DataChangeLogsListApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> DataChangeLogsListApplicationAuditLogResponse:
+
+    def data_change_logs_list(self, request: DataChangeLogsListApplicationAuditLogRequest,
+                              option: Optional[RequestOption] = None) -> DataChangeLogsListApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class ApplicationAuditLog(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DataChangeLogsListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), DataChangeLogsListApplicationAuditLogResponse)
+        response: DataChangeLogsListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                 DataChangeLogsListApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adata_change_logs_list(self, request: DataChangeLogsListApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> DataChangeLogsListApplicationAuditLogResponse:
+    async def adata_change_logs_list(self, request: DataChangeLogsListApplicationAuditLogRequest, option: Optional[
+        RequestOption] = None) -> DataChangeLogsListApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DataChangeLogsListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), DataChangeLogsListApplicationAuditLogResponse)
+        response: DataChangeLogsListApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                 DataChangeLogsListApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> GetApplicationAuditLogResponse:
+
+    def get(self, request: GetApplicationAuditLogRequest,
+            option: Optional[RequestOption] = None) -> GetApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class ApplicationAuditLog(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationAuditLogResponse)
+        response: GetApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  GetApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetApplicationAuditLogRequest, option: Optional[RequestOption] = None) -> GetApplicationAuditLogResponse:
+    async def aget(self, request: GetApplicationAuditLogRequest,
+                   option: Optional[RequestOption] = None) -> GetApplicationAuditLogResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationAuditLogResponse)
+        response: GetApplicationAuditLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  GetApplicationAuditLogResponse)
         response.raw = resp
 
         return response
-        
-    

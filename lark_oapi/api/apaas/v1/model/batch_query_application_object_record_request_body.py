@@ -40,33 +40,42 @@ class BatchQueryApplicationObjectRecordRequestBody(object):
 class BatchQueryApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_application_object_record_request_body = BatchQueryApplicationObjectRecordRequestBody()
+
     def select(self, select: List[str]) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.select = select
         return self
+
     def filter(self, filter: Criterion) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.filter = filter
         return self
+
     def order_by(self, order_by: List[Sort]) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.order_by = order_by
         return self
+
     def group_by(self, group_by: List[RecordGroupByItem]) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.group_by = group_by
         return self
+
     def page_token(self, page_token: str) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.page_token = page_token
         return self
+
     def use_page_token(self, use_page_token: bool) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.use_page_token = use_page_token
         return self
+
     def page_size(self, page_size: int) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.page_size = page_size
         return self
+
     def offset(self, offset: int) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.offset = offset
         return self
+
     def need_total_count(self, need_total_count: bool) -> "BatchQueryApplicationObjectRecordRequestBodyBuilder":
         self._batch_query_application_object_record_request_body.need_total_count = need_total_count
         return self
-    
+
     def build(self) -> "BatchQueryApplicationObjectRecordRequestBody":
         return self._batch_query_application_object_record_request_body

@@ -31,24 +31,30 @@ class LogoutSessionRequestBody(object):
 class LogoutSessionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._logout_session_request_body = LogoutSessionRequestBody()
+
     def idp_credential_id(self, idp_credential_id: str) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.idp_credential_id = idp_credential_id
         return self
+
     def logout_type(self, logout_type: int) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.logout_type = logout_type
         return self
+
     def terminal_type(self, terminal_type: List[int]) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.terminal_type = terminal_type
         return self
+
     def user_id(self, user_id: str) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.user_id = user_id
         return self
+
     def logout_reason(self, logout_reason: int) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.logout_reason = logout_reason
         return self
+
     def sid(self, sid: str) -> "LogoutSessionRequestBodyBuilder":
         self._logout_session_request_body.sid = sid
         return self
-    
+
     def build(self) -> "LogoutSessionRequestBody":
         return self._logout_session_request_body

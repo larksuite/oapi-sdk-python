@@ -21,9 +21,10 @@ class ForwardThreadRequestBody(object):
 class ForwardThreadRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._forward_thread_request_body = ForwardThreadRequestBody()
+
     def receive_id(self, receive_id: str) -> "ForwardThreadRequestBodyBuilder":
         self._forward_thread_request_body.receive_id = receive_id
         return self
-    
+
     def build(self) -> "ForwardThreadRequestBody":
         return self._forward_thread_request_body

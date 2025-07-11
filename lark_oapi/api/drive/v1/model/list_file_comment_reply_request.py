@@ -28,37 +28,36 @@ class ListFileCommentReplyRequestBuilder(object):
         list_file_comment_reply_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
         list_file_comment_reply_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_file_comment_reply_request: ListFileCommentReplyRequest = list_file_comment_reply_request
-    
+
     def page_size(self, page_size: int) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.page_size = page_size
         self._list_file_comment_reply_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.page_token = page_token
         self._list_file_comment_reply_request.add_query("page_token", page_token)
         return self
-    
+
     def file_type(self, file_type: str) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.file_type = file_type
         self._list_file_comment_reply_request.add_query("file_type", file_type)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.user_id_type = user_id_type
         self._list_file_comment_reply_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def file_token(self, file_token: str) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.file_token = file_token
         self._list_file_comment_reply_request.paths["file_token"] = str(file_token)
         return self
-    
+
     def comment_id(self, comment_id: str) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.comment_id = comment_id
         self._list_file_comment_reply_request.paths["comment_id"] = str(comment_id)
         return self
-    
 
     def build(self) -> ListFileCommentReplyRequest:
         return self._list_file_comment_reply_request

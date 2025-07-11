@@ -25,13 +25,14 @@ class UnbindDepartmentChatDepartmentRequestBuilder(object):
         unbind_department_chat_department_request.uri = "/open-apis/contact/v3/departments/unbind_department_chat"
         unbind_department_chat_department_request.token_types = {AccessTokenType.TENANT}
         self._unbind_department_chat_department_request: UnbindDepartmentChatDepartmentRequest = unbind_department_chat_department_request
-    
+
     def department_id_type(self, department_id_type: str) -> "UnbindDepartmentChatDepartmentRequestBuilder":
         self._unbind_department_chat_department_request.department_id_type = department_id_type
         self._unbind_department_chat_department_request.add_query("department_id_type", department_id_type)
         return self
-    
-    def request_body(self, request_body: UnbindDepartmentChatDepartmentRequestBody) -> "UnbindDepartmentChatDepartmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: UnbindDepartmentChatDepartmentRequestBody) -> "UnbindDepartmentChatDepartmentRequestBuilder":
         self._unbind_department_chat_department_request.request_body = request_body
         self._unbind_department_chat_department_request.body = request_body
         return self

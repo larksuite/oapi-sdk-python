@@ -27,18 +27,22 @@ class OfferAttachmentInfo(object):
 class OfferAttachmentInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_attachment_info = OfferAttachmentInfo()
+
     def id(self, id: str) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.id = id
         return self
+
     def name(self, name: str) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.name = name
         return self
+
     def size(self, size: int) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.size = size
         return self
+
     def common_attachment_id(self, common_attachment_id: str) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.common_attachment_id = common_attachment_id
         return self
-    
+
     def build(self) -> "OfferAttachmentInfo":
         return self._offer_attachment_info

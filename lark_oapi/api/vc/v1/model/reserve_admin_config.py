@@ -25,12 +25,14 @@ class ReserveAdminConfig(object):
 class ReserveAdminConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_admin_config = ReserveAdminConfig()
+
     def depts(self, depts: List[SubscribeDepartment]) -> "ReserveAdminConfigBuilder":
         self._reserve_admin_config.depts = depts
         return self
+
     def users(self, users: List[SubscribeUser]) -> "ReserveAdminConfigBuilder":
         self._reserve_admin_config.users = users
         return self
-    
+
     def build(self) -> "ReserveAdminConfig":
         return self._reserve_admin_config

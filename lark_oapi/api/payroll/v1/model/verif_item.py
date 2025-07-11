@@ -39,33 +39,42 @@ class VerifItem(object):
 class VerifItemBuilder(object):
     def __init__(self) -> None:
         self._verif_item = VerifItem()
+
     def item_id(self, item_id: str) -> "VerifItemBuilder":
         self._verif_item.item_id = item_id
         return self
+
     def item_name(self, item_name: IdWithName) -> "VerifItemBuilder":
         self._verif_item.item_name = item_name
         return self
+
     def field_type(self, field_type: int) -> "VerifItemBuilder":
         self._verif_item.field_type = field_type
         return self
+
     def decimal_places(self, decimal_places: int) -> "VerifItemBuilder":
         self._verif_item.decimal_places = decimal_places
         return self
+
     def aggregation_type(self, aggregation_type: int) -> "VerifItemBuilder":
         self._verif_item.aggregation_type = aggregation_type
         return self
+
     def seq(self, seq: int) -> "VerifItemBuilder":
         self._verif_item.seq = seq
         return self
+
     def source_type(self, source_type: int) -> "VerifItemBuilder":
         self._verif_item.source_type = source_type
         return self
+
     def source_config(self, source_config: VerifSourceConfig) -> "VerifItemBuilder":
         self._verif_item.source_config = source_config
         return self
+
     def status(self, status: int) -> "VerifItemBuilder":
         self._verif_item.status = status
         return self
-    
+
     def build(self) -> "VerifItem":
         return self._verif_item

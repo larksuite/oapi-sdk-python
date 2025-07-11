@@ -54,57 +54,74 @@ class LegalEntityBank(object):
 class LegalEntityBankBuilder(object):
     def __init__(self) -> None:
         self._legal_entity_bank = LegalEntityBank()
+
     def id(self, id: int) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.id = id
         return self
+
     def company_code(self, company_code: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.company_code = company_code
         return self
+
     def bank_id(self, bank_id: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_id = bank_id
         return self
+
     def bank_code(self, bank_code: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_code = bank_code
         return self
+
     def bank_name(self, bank_name: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_name = bank_name
         return self
+
     def bank_acronym(self, bank_acronym: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_acronym = bank_acronym
         return self
+
     def country(self, country: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.country = country
         return self
+
     def account_name(self, account_name: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.account_name = account_name
         return self
+
     def bank_account(self, bank_account: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_account = bank_account
         return self
+
     def swift_code(self, swift_code: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.swift_code = swift_code
         return self
+
     def bank_control_code(self, bank_control_code: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.bank_control_code = bank_control_code
         return self
+
     def extend_info(self, extend_info: List[ExtendField]) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.extend_info = extend_info
         return self
+
     def iban_account(self, iban_account: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.iban_account = iban_account
         return self
+
     def currency(self, currency: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.currency = currency
         return self
+
     def gl_account(self, gl_account: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.gl_account = gl_account
         return self
+
     def clearing_account(self, clearing_account: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.clearing_account = clearing_account
         return self
+
     def account_attribute_desc(self, account_attribute_desc: str) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.account_attribute_desc = account_attribute_desc
         return self
-    
+
     def build(self) -> "LegalEntityBank":
         return self._legal_entity_bank

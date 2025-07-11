@@ -25,12 +25,14 @@ class CooperationRole(object):
 class CooperationRoleBuilder(object):
     def __init__(self) -> None:
         self._cooperation_role = CooperationRole()
+
     def reviewer_role(self, reviewer_role: CooperationUserRole) -> "CooperationRoleBuilder":
         self._cooperation_role.reviewer_role = reviewer_role
         return self
+
     def reviewee_role(self, reviewee_role: CooperationUserRole) -> "CooperationRoleBuilder":
         self._cooperation_role.reviewee_role = reviewee_role
         return self
-    
+
     def build(self) -> "CooperationRole":
         return self._cooperation_role

@@ -22,7 +22,6 @@ class ApplyScopeRequestBuilder(object):
         apply_scope_request.uri = "/open-apis/application/v6/scopes/apply"
         apply_scope_request.token_types = {AccessTokenType.TENANT}
         self._apply_scope_request: ApplyScopeRequest = apply_scope_request
-    
 
     def build(self) -> ApplyScopeRequest:
         return self._apply_scope_request

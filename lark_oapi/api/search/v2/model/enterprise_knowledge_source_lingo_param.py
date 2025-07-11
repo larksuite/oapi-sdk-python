@@ -21,9 +21,10 @@ class EnterpriseKnowledgeSourceLingoParam(object):
 class EnterpriseKnowledgeSourceLingoParamBuilder(object):
     def __init__(self) -> None:
         self._enterprise_knowledge_source_lingo_param = EnterpriseKnowledgeSourceLingoParam()
+
     def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceLingoParamBuilder":
         self._enterprise_knowledge_source_lingo_param.searchable = searchable
         return self
-    
+
     def build(self) -> "EnterpriseKnowledgeSourceLingoParam":
         return self._enterprise_knowledge_source_lingo_param

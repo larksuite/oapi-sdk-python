@@ -22,9 +22,10 @@ class ModifyUserSettingRequestBody(object):
 class ModifyUserSettingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._modify_user_setting_request_body = ModifyUserSettingRequestBody()
+
     def user_setting(self, user_setting: UserSetting) -> "ModifyUserSettingRequestBodyBuilder":
         self._modify_user_setting_request_body.user_setting = user_setting
         return self
-    
+
     def build(self) -> "ModifyUserSettingRequestBody":
         return self._modify_user_setting_request_body

@@ -22,9 +22,10 @@ class PatchWorkingHoursTypeResponseBody(object):
 class PatchWorkingHoursTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_working_hours_type_response_body = PatchWorkingHoursTypeResponseBody()
+
     def working_hours_type(self, working_hours_type: WorkingHoursType) -> "PatchWorkingHoursTypeResponseBodyBuilder":
         self._patch_working_hours_type_response_body.working_hours_type = working_hours_type
         return self
-    
+
     def build(self) -> "PatchWorkingHoursTypeResponseBody":
         return self._patch_working_hours_type_response_body

@@ -23,12 +23,14 @@ class AilyKnowledgeDataset(object):
 class AilyKnowledgeDatasetBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_dataset = AilyKnowledgeDataset()
+
     def api_name(self, api_name: str) -> "AilyKnowledgeDatasetBuilder":
         self._aily_knowledge_dataset.api_name = api_name
         return self
+
     def title(self, title: str) -> "AilyKnowledgeDatasetBuilder":
         self._aily_knowledge_dataset.title = title
         return self
-    
+
     def build(self) -> "AilyKnowledgeDataset":
         return self._aily_knowledge_dataset

@@ -27,15 +27,18 @@ class TerminationReasonInfo(object):
 class TerminationReasonInfoBuilder(object):
     def __init__(self) -> None:
         self._termination_reason_info = TerminationReasonInfo()
+
     def id(self, id: str) -> "TerminationReasonInfoBuilder":
         self._termination_reason_info.id = id
         return self
+
     def name(self, name: I18n) -> "TerminationReasonInfoBuilder":
         self._termination_reason_info.name = name
         return self
+
     def children(self, children: List[TerminationReasonChildInfo]) -> "TerminationReasonInfoBuilder":
         self._termination_reason_info.children = children
         return self
-    
+
     def build(self) -> "TerminationReasonInfo":
         return self._termination_reason_info

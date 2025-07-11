@@ -29,18 +29,22 @@ class CustomAttr(object):
 class CustomAttrBuilder(object):
     def __init__(self) -> None:
         self._custom_attr = CustomAttr()
+
     def id(self, id: str) -> "CustomAttrBuilder":
         self._custom_attr.id = id
         return self
+
     def type(self, type: str) -> "CustomAttrBuilder":
         self._custom_attr.type = type
         return self
+
     def options(self, options: CustomAttrOptions) -> "CustomAttrBuilder":
         self._custom_attr.options = options
         return self
+
     def i18n_name(self, i18n_name: List[I18nContent]) -> "CustomAttrBuilder":
         self._custom_attr.i18n_name = i18n_name
         return self
-    
+
     def build(self) -> "CustomAttr":
         return self._custom_attr

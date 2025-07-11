@@ -25,15 +25,18 @@ class OrgroleAssignmentOrg(object):
 class OrgroleAssignmentOrgBuilder(object):
     def __init__(self) -> None:
         self._orgrole_assignment_org = OrgroleAssignmentOrg()
+
     def org_id(self, org_id: str) -> "OrgroleAssignmentOrgBuilder":
         self._orgrole_assignment_org.org_id = org_id
         return self
+
     def org_type(self, org_type: str) -> "OrgroleAssignmentOrgBuilder":
         self._orgrole_assignment_org.org_type = org_type
         return self
+
     def org_name(self, org_name: str) -> "OrgroleAssignmentOrgBuilder":
         self._orgrole_assignment_org.org_name = org_name
         return self
-    
+
     def build(self) -> "OrgroleAssignmentOrg":
         return self._orgrole_assignment_org

@@ -26,15 +26,18 @@ class AssignedOrganization(object):
 class AssignedOrganizationBuilder(object):
     def __init__(self) -> None:
         self._assigned_organization = AssignedOrganization()
+
     def org_key(self, org_key: str) -> "AssignedOrganizationBuilder":
         self._assigned_organization.org_key = org_key
         return self
+
     def org_name(self, org_name: Name) -> "AssignedOrganizationBuilder":
         self._assigned_organization.org_name = org_name
         return self
+
     def org_id_list(self, org_id_list: List[str]) -> "AssignedOrganizationBuilder":
         self._assigned_organization.org_id_list = org_id_list
         return self
-    
+
     def build(self) -> "AssignedOrganization":
         return self._assigned_organization

@@ -23,12 +23,11 @@ class GetFileRequestBuilder(object):
         get_file_request.uri = "/open-apis/im/v1/files/:file_key"
         get_file_request.token_types = {AccessTokenType.TENANT}
         self._get_file_request: GetFileRequest = get_file_request
-    
+
     def file_key(self, file_key: str) -> "GetFileRequestBuilder":
         self._get_file_request.file_key = file_key
         self._get_file_request.paths["file_key"] = str(file_key)
         return self
-    
 
     def build(self) -> GetFileRequest:
         return self._get_file_request

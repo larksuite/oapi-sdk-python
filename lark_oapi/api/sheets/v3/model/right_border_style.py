@@ -23,12 +23,14 @@ class RightBorderStyle(object):
 class RightBorderStyleBuilder(object):
     def __init__(self) -> None:
         self._right_border_style = RightBorderStyle()
+
     def style(self, style: str) -> "RightBorderStyleBuilder":
         self._right_border_style.style = style
         return self
+
     def color(self, color: str) -> "RightBorderStyleBuilder":
         self._right_border_style.color = color
         return self
-    
+
     def build(self) -> "RightBorderStyle":
         return self._right_border_style

@@ -28,37 +28,36 @@ class ListTalentTagRequestBuilder(object):
         list_talent_tag_request.uri = "/open-apis/hire/v1/talent_tags"
         list_talent_tag_request.token_types = {AccessTokenType.TENANT}
         self._list_talent_tag_request: ListTalentTagRequest = list_talent_tag_request
-    
+
     def keyword(self, keyword: str) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.keyword = keyword
         self._list_talent_tag_request.add_query("keyword", keyword)
         return self
-    
+
     def id_list(self, id_list: List[str]) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.id_list = id_list
         self._list_talent_tag_request.add_query("id_list", id_list)
         return self
-    
+
     def type(self, type: int) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.type = type
         self._list_talent_tag_request.add_query("type", type)
         return self
-    
+
     def include_inactive(self, include_inactive: bool) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.include_inactive = include_inactive
         self._list_talent_tag_request.add_query("include_inactive", include_inactive)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.page_size = page_size
         self._list_talent_tag_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListTalentTagRequestBuilder":
         self._list_talent_tag_request.page_token = page_token
         self._list_talent_tag_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListTalentTagRequest:
         return self._list_talent_tag_request

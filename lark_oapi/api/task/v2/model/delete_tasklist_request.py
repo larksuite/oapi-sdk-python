@@ -23,12 +23,11 @@ class DeleteTasklistRequestBuilder(object):
         delete_tasklist_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid"
         delete_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_tasklist_request: DeleteTasklistRequest = delete_tasklist_request
-    
+
     def tasklist_guid(self, tasklist_guid: str) -> "DeleteTasklistRequestBuilder":
         self._delete_tasklist_request.tasklist_guid = tasklist_guid
         self._delete_tasklist_request.paths["tasklist_guid"] = str(tasklist_guid)
         return self
-    
 
     def build(self) -> DeleteTasklistRequest:
         return self._delete_tasklist_request

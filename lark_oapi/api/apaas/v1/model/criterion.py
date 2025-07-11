@@ -24,12 +24,14 @@ class Criterion(object):
 class CriterionBuilder(object):
     def __init__(self) -> None:
         self._criterion = Criterion()
+
     def conditions(self, conditions: List[Condition]) -> "CriterionBuilder":
         self._criterion.conditions = conditions
         return self
+
     def logic_expression(self, logic_expression: str) -> "CriterionBuilder":
         self._criterion.logic_expression = logic_expression
         return self
-    
+
     def build(self) -> "Criterion":
         return self._criterion

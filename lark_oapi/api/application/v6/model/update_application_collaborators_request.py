@@ -26,18 +26,19 @@ class UpdateApplicationCollaboratorsRequestBuilder(object):
         update_application_collaborators_request.uri = "/open-apis/application/v6/applications/:app_id/collaborators"
         update_application_collaborators_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._update_application_collaborators_request: UpdateApplicationCollaboratorsRequest = update_application_collaborators_request
-    
+
     def user_id_type(self, user_id_type: str) -> "UpdateApplicationCollaboratorsRequestBuilder":
         self._update_application_collaborators_request.user_id_type = user_id_type
         self._update_application_collaborators_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def app_id(self, app_id: str) -> "UpdateApplicationCollaboratorsRequestBuilder":
         self._update_application_collaborators_request.app_id = app_id
         self._update_application_collaborators_request.paths["app_id"] = str(app_id)
         return self
-    
-    def request_body(self, request_body: UpdateApplicationCollaboratorsRequestBody) -> "UpdateApplicationCollaboratorsRequestBuilder":
+
+    def request_body(self,
+                     request_body: UpdateApplicationCollaboratorsRequestBody) -> "UpdateApplicationCollaboratorsRequestBuilder":
         self._update_application_collaborators_request.request_body = request_body
         self._update_application_collaborators_request.body = request_body
         return self

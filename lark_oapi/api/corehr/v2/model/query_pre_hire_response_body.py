@@ -26,15 +26,18 @@ class QueryPreHireResponseBody(object):
 class QueryPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_pre_hire_response_body = QueryPreHireResponseBody()
+
     def items(self, items: List[PreHire]) -> "QueryPreHireResponseBodyBuilder":
         self._query_pre_hire_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "QueryPreHireResponseBodyBuilder":
         self._query_pre_hire_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryPreHireResponseBodyBuilder":
         self._query_pre_hire_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "QueryPreHireResponseBody":
         return self._query_pre_hire_response_body

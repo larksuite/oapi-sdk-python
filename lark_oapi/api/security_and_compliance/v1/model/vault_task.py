@@ -4,7 +4,6 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .simple_user import SimpleUser
 from .vault_export_file import VaultExportFile
-from .task_status import TaskStatus
 
 
 class VaultTask(object):
@@ -17,7 +16,7 @@ class VaultTask(object):
         "extract_key": str,
         "creator": SimpleUser,
         "files": List[VaultExportFile],
-        "status": TaskStatus,
+        "status": str,
     }
 
     def __init__(self, d=None):
@@ -29,7 +28,7 @@ class VaultTask(object):
         self.extract_key: Optional[str] = None
         self.creator: Optional[SimpleUser] = None
         self.files: Optional[List[VaultExportFile]] = None
-        self.status: Optional[TaskStatus] = None
+        self.status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,33 +39,42 @@ class VaultTask(object):
 class VaultTaskBuilder(object):
     def __init__(self) -> None:
         self._vault_task = VaultTask()
+
     def task_id(self, task_id: str) -> "VaultTaskBuilder":
         self._vault_task.task_id = task_id
         return self
+
     def name(self, name: str) -> "VaultTaskBuilder":
         self._vault_task.name = name
         return self
+
     def size(self, size: str) -> "VaultTaskBuilder":
         self._vault_task.size = size
         return self
+
     def valid_days(self, valid_days: int) -> "VaultTaskBuilder":
         self._vault_task.valid_days = valid_days
         return self
+
     def create_time(self, create_time: int) -> "VaultTaskBuilder":
         self._vault_task.create_time = create_time
         return self
+
     def extract_key(self, extract_key: str) -> "VaultTaskBuilder":
         self._vault_task.extract_key = extract_key
         return self
+
     def creator(self, creator: SimpleUser) -> "VaultTaskBuilder":
         self._vault_task.creator = creator
         return self
+
     def files(self, files: List[VaultExportFile]) -> "VaultTaskBuilder":
         self._vault_task.files = files
         return self
-    def status(self, status: TaskStatus) -> "VaultTaskBuilder":
+
+    def status(self, status: str) -> "VaultTaskBuilder":
         self._vault_task.status = status
         return self
-    
+
     def build(self) -> "VaultTask":
         return self._vault_task

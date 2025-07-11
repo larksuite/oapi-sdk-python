@@ -23,12 +23,14 @@ class PrehireDefaultCostCenterUpdate(object):
 class PrehireDefaultCostCenterUpdateBuilder(object):
     def __init__(self) -> None:
         self._prehire_default_cost_center_update = PrehireDefaultCostCenterUpdate()
+
     def cost_center_id(self, cost_center_id: str) -> "PrehireDefaultCostCenterUpdateBuilder":
         self._prehire_default_cost_center_update.cost_center_id = cost_center_id
         return self
+
     def is_herit(self, is_herit: bool) -> "PrehireDefaultCostCenterUpdateBuilder":
         self._prehire_default_cost_center_update.is_herit = is_herit
         return self
-    
+
     def build(self) -> "PrehireDefaultCostCenterUpdate":
         return self._prehire_default_cost_center_update

@@ -23,12 +23,14 @@ class OpenJobRequestBody(object):
 class OpenJobRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._open_job_request_body = OpenJobRequestBody()
+
     def expiry_time(self, expiry_time: int) -> "OpenJobRequestBodyBuilder":
         self._open_job_request_body.expiry_time = expiry_time
         return self
+
     def is_never_expired(self, is_never_expired: bool) -> "OpenJobRequestBodyBuilder":
         self._open_job_request_body.is_never_expired = is_never_expired
         return self
-    
+
     def build(self) -> "OpenJobRequestBody":
         return self._open_job_request_body

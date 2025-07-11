@@ -23,12 +23,14 @@ class Count(object):
 class CountBuilder(object):
     def __init__(self) -> None:
         self._count = Count()
+
     def total(self, total: int) -> "CountBuilder":
         self._count.total = total
         return self
+
     def has_more(self, has_more: bool) -> "CountBuilder":
         self._count.has_more = has_more
         return self
-    
+
     def build(self) -> "Count":
         return self._count

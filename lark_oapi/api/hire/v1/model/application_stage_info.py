@@ -27,18 +27,22 @@ class ApplicationStageInfo(object):
 class ApplicationStageInfoBuilder(object):
     def __init__(self) -> None:
         self._application_stage_info = ApplicationStageInfo()
+
     def id(self, id: str) -> "ApplicationStageInfoBuilder":
         self._application_stage_info.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "ApplicationStageInfoBuilder":
         self._application_stage_info.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "ApplicationStageInfoBuilder":
         self._application_stage_info.en_name = en_name
         return self
+
     def type(self, type: int) -> "ApplicationStageInfoBuilder":
         self._application_stage_info.type = type
         return self
-    
+
     def build(self) -> "ApplicationStageInfo":
         return self._application_stage_info

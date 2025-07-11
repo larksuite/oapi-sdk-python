@@ -27,18 +27,22 @@ class CustomFields(object):
 class CustomFieldsBuilder(object):
     def __init__(self) -> None:
         self._custom_fields = CustomFields()
+
     def key(self, key: str) -> "CustomFieldsBuilder":
         self._custom_fields.key = key
         return self
+
     def label(self, label: str) -> "CustomFieldsBuilder":
         self._custom_fields.label = label
         return self
+
     def type(self, type: str) -> "CustomFieldsBuilder":
         self._custom_fields.type = type
         return self
+
     def value(self, value: str) -> "CustomFieldsBuilder":
         self._custom_fields.value = value
         return self
-    
+
     def build(self) -> "CustomFields":
         return self._custom_fields

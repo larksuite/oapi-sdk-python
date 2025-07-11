@@ -23,12 +23,14 @@ class NodeCc(object):
 class NodeCcBuilder(object):
     def __init__(self) -> None:
         self._node_cc = NodeCc()
+
     def key(self, key: str) -> "NodeCcBuilder":
         self._node_cc.key = key
         return self
+
     def value(self, value: List[str]) -> "NodeCcBuilder":
         self._node_cc.value = value
         return self
-    
+
     def build(self) -> "NodeCc":
         return self._node_cc

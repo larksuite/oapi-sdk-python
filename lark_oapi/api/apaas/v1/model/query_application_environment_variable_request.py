@@ -25,13 +25,14 @@ class QueryApplicationEnvironmentVariableRequestBuilder(object):
         query_application_environment_variable_request.uri = "/open-apis/apaas/v1/applications/:namespace/environment_variables/query"
         query_application_environment_variable_request.token_types = {AccessTokenType.TENANT}
         self._query_application_environment_variable_request: QueryApplicationEnvironmentVariableRequest = query_application_environment_variable_request
-    
+
     def namespace(self, namespace: str) -> "QueryApplicationEnvironmentVariableRequestBuilder":
         self._query_application_environment_variable_request.namespace = namespace
         self._query_application_environment_variable_request.paths["namespace"] = str(namespace)
         return self
-    
-    def request_body(self, request_body: QueryApplicationEnvironmentVariableRequestBody) -> "QueryApplicationEnvironmentVariableRequestBuilder":
+
+    def request_body(self,
+                     request_body: QueryApplicationEnvironmentVariableRequestBody) -> "QueryApplicationEnvironmentVariableRequestBuilder":
         self._query_application_environment_variable_request.request_body = request_body
         self._query_application_environment_variable_request.body = request_body
         return self

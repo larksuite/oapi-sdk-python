@@ -48,48 +48,62 @@ class CalendarPeriod(object):
 class CalendarPeriodBuilder(object):
     def __init__(self) -> None:
         self._calendar_period = CalendarPeriod()
+
     def period_start_date(self, period_start_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.period_start_date = period_start_date
         return self
+
     def period_end_date(self, period_end_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.period_end_date = period_end_date
         return self
+
     def period_key(self, period_key: str) -> "CalendarPeriodBuilder":
         self._calendar_period.period_key = period_key
         return self
+
     def period_name(self, period_name: I18n) -> "CalendarPeriodBuilder":
         self._calendar_period.period_name = period_name
         return self
+
     def payroll_cycle(self, payroll_cycle: int) -> "CalendarPeriodBuilder":
         self._calendar_period.payroll_cycle = payroll_cycle
         return self
+
     def time_zone(self, time_zone: str) -> "CalendarPeriodBuilder":
         self._calendar_period.time_zone = time_zone
         return self
+
     def pay_date(self, pay_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.pay_date = pay_date
         return self
+
     def payroll_calendar_id(self, payroll_calendar_id: str) -> "CalendarPeriodBuilder":
         self._calendar_period.payroll_calendar_id = payroll_calendar_id
         return self
+
     def cut_off_date(self, cut_off_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.cut_off_date = cut_off_date
         return self
+
     def taxable_period(self, taxable_period: str) -> "CalendarPeriodBuilder":
         self._calendar_period.taxable_period = taxable_period
         return self
+
     def manual_modified(self, manual_modified: bool) -> "CalendarPeriodBuilder":
         self._calendar_period.manual_modified = manual_modified
         return self
+
     def attendance_start_date(self, attendance_start_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.attendance_start_date = attendance_start_date
         return self
+
     def attendance_end_date(self, attendance_end_date: str) -> "CalendarPeriodBuilder":
         self._calendar_period.attendance_end_date = attendance_end_date
         return self
+
     def cut_off_date_for_paylist(self, cut_off_date_for_paylist: str) -> "CalendarPeriodBuilder":
         self._calendar_period.cut_off_date_for_paylist = cut_off_date_for_paylist
         return self
-    
+
     def build(self) -> "CalendarPeriod":
         return self._calendar_period

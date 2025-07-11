@@ -52,45 +52,60 @@ class SignatureTemplateInfoWithThumbnail(object):
 class SignatureTemplateInfoWithThumbnailBuilder(object):
     def __init__(self) -> None:
         self._signature_template_info_with_thumbnail = SignatureTemplateInfoWithThumbnail()
+
     def id(self, id: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.id = id
         return self
+
     def label(self, label: List[I18n]) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.label = label
         return self
+
     def category(self, category: Enum) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.category = category
         return self
+
     def usage(self, usage: Enum) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.usage = usage
         return self
+
     def create_time(self, create_time: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.create_time = create_time
         return self
+
     def modify_time(self, modify_time: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.modify_time = modify_time
         return self
+
     def created_by(self, created_by: SignatureUserInfo) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.created_by = created_by
         return self
+
     def updated_by(self, updated_by: SignatureUserInfo) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.updated_by = updated_by
         return self
+
     def thumbnail_url(self, thumbnail_url: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.thumbnail_url = thumbnail_url
         return self
-    def signatory_labels(self, signatory_labels: List[SignatureSignatoryLabel]) -> "SignatureTemplateInfoWithThumbnailBuilder":
+
+    def signatory_labels(self, signatory_labels: List[
+        SignatureSignatoryLabel]) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.signatory_labels = signatory_labels
         return self
+
     def template_code(self, template_code: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.template_code = template_code
         return self
+
     def template_desc(self, template_desc: str) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.template_desc = template_desc
         return self
-    def template_region_info(self, template_region_info: SignatureTemplateRegionInfo) -> "SignatureTemplateInfoWithThumbnailBuilder":
+
+    def template_region_info(self,
+                             template_region_info: SignatureTemplateRegionInfo) -> "SignatureTemplateInfoWithThumbnailBuilder":
         self._signature_template_info_with_thumbnail.template_region_info = template_region_info
         return self
-    
+
     def build(self) -> "SignatureTemplateInfoWithThumbnail":
         return self._signature_template_info_with_thumbnail

@@ -35,72 +35,71 @@ class ListAuditInfoRequestBuilder(object):
         list_audit_info_request.uri = "/open-apis/admin/v1/audit_infos"
         list_audit_info_request.token_types = {AccessTokenType.TENANT}
         self._list_audit_info_request: ListAuditInfoRequest = list_audit_info_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.user_id_type = user_id_type
         self._list_audit_info_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def latest(self, latest: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.latest = latest
         self._list_audit_info_request.add_query("latest", latest)
         return self
-    
+
     def oldest(self, oldest: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.oldest = oldest
         self._list_audit_info_request.add_query("oldest", oldest)
         return self
-    
+
     def event_name(self, event_name: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.event_name = event_name
         self._list_audit_info_request.add_query("event_name", event_name)
         return self
-    
+
     def operator_type(self, operator_type: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.operator_type = operator_type
         self._list_audit_info_request.add_query("operator_type", operator_type)
         return self
-    
+
     def operator_value(self, operator_value: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.operator_value = operator_value
         self._list_audit_info_request.add_query("operator_value", operator_value)
         return self
-    
+
     def event_module(self, event_module: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.event_module = event_module
         self._list_audit_info_request.add_query("event_module", event_module)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.page_token = page_token
         self._list_audit_info_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.page_size = page_size
         self._list_audit_info_request.add_query("page_size", page_size)
         return self
-    
+
     def user_type(self, user_type: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.user_type = user_type
         self._list_audit_info_request.add_query("user_type", user_type)
         return self
-    
+
     def object_type(self, object_type: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.object_type = object_type
         self._list_audit_info_request.add_query("object_type", object_type)
         return self
-    
+
     def object_value(self, object_value: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.object_value = object_value
         self._list_audit_info_request.add_query("object_value", object_value)
         return self
-    
+
     def ext_filter_object_by_ccm_token(self, ext_filter_object_by_ccm_token: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.ext_filter_object_by_ccm_token = ext_filter_object_by_ccm_token
         self._list_audit_info_request.add_query("ext_filter_object_by_ccm_token", ext_filter_object_by_ccm_token)
         return self
-    
 
     def build(self) -> ListAuditInfoRequest:
         return self._list_audit_info_request

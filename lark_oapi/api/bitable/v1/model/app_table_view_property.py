@@ -27,15 +27,18 @@ class AppTableViewProperty(object):
 class AppTableViewPropertyBuilder(object):
     def __init__(self) -> None:
         self._app_table_view_property = AppTableViewProperty()
+
     def filter_info(self, filter_info: AppTableViewPropertyFilterInfo) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.filter_info = filter_info
         return self
+
     def hidden_fields(self, hidden_fields: List[str]) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.hidden_fields = hidden_fields
         return self
+
     def hierarchy_config(self, hierarchy_config: AppTableViewPropertyHierarchyConfig) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.hierarchy_config = hierarchy_config
         return self
-    
+
     def build(self) -> "AppTableViewProperty":
         return self._app_table_view_property

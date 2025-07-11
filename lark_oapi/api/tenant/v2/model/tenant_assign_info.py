@@ -36,30 +36,38 @@ class TenantAssignInfo(object):
 class TenantAssignInfoBuilder(object):
     def __init__(self) -> None:
         self._tenant_assign_info = TenantAssignInfo()
+
     def subscription_id(self, subscription_id: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.subscription_id = subscription_id
         return self
+
     def license_plan_key(self, license_plan_key: str) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.license_plan_key = license_plan_key
         return self
+
     def product_name(self, product_name: str) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.product_name = product_name
         return self
+
     def i18n_name(self, i18n_name: ProductI18nName) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.i18n_name = i18n_name
         return self
+
     def total_seats(self, total_seats: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.total_seats = total_seats
         return self
+
     def assigned_seats(self, assigned_seats: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.assigned_seats = assigned_seats
         return self
+
     def start_time(self, start_time: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.end_time = end_time
         return self
-    
+
     def build(self) -> "TenantAssignInfo":
         return self._tenant_assign_info

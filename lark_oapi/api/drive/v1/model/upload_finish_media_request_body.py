@@ -23,12 +23,14 @@ class UploadFinishMediaRequestBody(object):
 class UploadFinishMediaRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_finish_media_request_body = UploadFinishMediaRequestBody()
+
     def upload_id(self, upload_id: str) -> "UploadFinishMediaRequestBodyBuilder":
         self._upload_finish_media_request_body.upload_id = upload_id
         return self
+
     def block_num(self, block_num: int) -> "UploadFinishMediaRequestBodyBuilder":
         self._upload_finish_media_request_body.block_num = block_num
         return self
-    
+
     def build(self) -> "UploadFinishMediaRequestBody":
         return self._upload_finish_media_request_body

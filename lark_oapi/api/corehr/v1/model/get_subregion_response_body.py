@@ -22,9 +22,10 @@ class GetSubregionResponseBody(object):
 class GetSubregionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_subregion_response_body = GetSubregionResponseBody()
+
     def subregion(self, subregion: Subregion) -> "GetSubregionResponseBodyBuilder":
         self._get_subregion_response_body.subregion = subregion
         return self
-    
+
     def build(self) -> "GetSubregionResponseBody":
         return self._get_subregion_response_body

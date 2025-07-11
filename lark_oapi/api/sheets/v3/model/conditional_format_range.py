@@ -29,21 +29,26 @@ class ConditionalFormatRange(object):
 class ConditionalFormatRangeBuilder(object):
     def __init__(self) -> None:
         self._conditional_format_range = ConditionalFormatRange()
+
     def sheet_id(self, sheet_id: str) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.sheet_id = sheet_id
         return self
+
     def start_row_index(self, start_row_index: int) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.start_row_index = start_row_index
         return self
+
     def end_row_index(self, end_row_index: int) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.end_row_index = end_row_index
         return self
+
     def start_column_index(self, start_column_index: int) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.start_column_index = start_column_index
         return self
+
     def end_column_index(self, end_column_index: int) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.end_column_index = end_column_index
         return self
-    
+
     def build(self) -> "ConditionalFormatRange":
         return self._conditional_format_range

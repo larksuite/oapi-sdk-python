@@ -27,18 +27,22 @@ class KeyresultData(object):
 class KeyresultDataBuilder(object):
     def __init__(self) -> None:
         self._keyresult_data = KeyresultData()
+
     def keyresult_id(self, keyresult_id: str) -> "KeyresultDataBuilder":
         self._keyresult_data.keyresult_id = keyresult_id
         return self
+
     def score(self, score: str) -> "KeyresultDataBuilder":
         self._keyresult_data.score = score
         return self
+
     def text(self, text: str) -> "KeyresultDataBuilder":
         self._keyresult_data.text = text
         return self
+
     def richtext(self, richtext: str) -> "KeyresultDataBuilder":
         self._keyresult_data.richtext = richtext
         return self
-    
+
     def build(self) -> "KeyresultData":
         return self._keyresult_data

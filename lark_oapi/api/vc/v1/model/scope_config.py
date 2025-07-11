@@ -26,15 +26,18 @@ class ScopeConfig(object):
 class ScopeConfigBuilder(object):
     def __init__(self) -> None:
         self._scope_config = ScopeConfig()
+
     def scope_type(self, scope_type: int) -> "ScopeConfigBuilder":
         self._scope_config.scope_type = scope_type
         return self
+
     def scope_id(self, scope_id: str) -> "ScopeConfigBuilder":
         self._scope_config.scope_id = scope_id
         return self
+
     def scope_config(self, scope_config: RoomConfig) -> "ScopeConfigBuilder":
         self._scope_config.scope_config = scope_config
         return self
-    
+
     def build(self) -> "ScopeConfig":
         return self._scope_config

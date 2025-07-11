@@ -3,7 +3,8 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_remove_authorization_application_record_permission_member_request_body import BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody
+from .batch_remove_authorization_application_record_permission_member_request_body import \
+    BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody
 
 
 class BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest(BaseRequest):
@@ -26,18 +27,22 @@ class BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder(ob
         batch_remove_authorization_application_record_permission_member_request.uri = "/open-apis/apaas/v1/applications/:namespace/record_permissions/:record_permission_api_name/member/batch_remove_authorization"
         batch_remove_authorization_application_record_permission_member_request.token_types = {AccessTokenType.TENANT}
         self._batch_remove_authorization_application_record_permission_member_request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest = batch_remove_authorization_application_record_permission_member_request
-    
+
     def namespace(self, namespace: str) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder":
         self._batch_remove_authorization_application_record_permission_member_request.namespace = namespace
-        self._batch_remove_authorization_application_record_permission_member_request.paths["namespace"] = str(namespace)
+        self._batch_remove_authorization_application_record_permission_member_request.paths["namespace"] = str(
+            namespace)
         return self
-    
-    def record_permission_api_name(self, record_permission_api_name: str) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder":
+
+    def record_permission_api_name(self,
+                                   record_permission_api_name: str) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder":
         self._batch_remove_authorization_application_record_permission_member_request.record_permission_api_name = record_permission_api_name
-        self._batch_remove_authorization_application_record_permission_member_request.paths["record_permission_api_name"] = str(record_permission_api_name)
+        self._batch_remove_authorization_application_record_permission_member_request.paths[
+            "record_permission_api_name"] = str(record_permission_api_name)
         return self
-    
-    def request_body(self, request_body: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBuilder":
         self._batch_remove_authorization_application_record_permission_member_request.request_body = request_body
         self._batch_remove_authorization_application_record_permission_member_request.body = request_body
         return self

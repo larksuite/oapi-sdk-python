@@ -43,39 +43,50 @@ class CostCenterVersion(object):
 class CostCenterVersionBuilder(object):
     def __init__(self) -> None:
         self._cost_center_version = CostCenterVersion()
+
     def cost_center_id(self, cost_center_id: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.cost_center_id = cost_center_id
         return self
+
     def version_id(self, version_id: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.version_id = version_id
         return self
+
     def name(self, name: List[I18n]) -> "CostCenterVersionBuilder":
         self._cost_center_version.name = name
         return self
+
     def code(self, code: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.code = code
         return self
+
     def parent_cost_center_id(self, parent_cost_center_id: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.parent_cost_center_id = parent_cost_center_id
         return self
+
     def managers(self, managers: List[str]) -> "CostCenterVersionBuilder":
         self._cost_center_version.managers = managers
         return self
+
     def description(self, description: List[I18n]) -> "CostCenterVersionBuilder":
         self._cost_center_version.description = description
         return self
+
     def effective_time(self, effective_time: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.expiration_time = expiration_time
         return self
+
     def active(self, active: bool) -> "CostCenterVersionBuilder":
         self._cost_center_version.active = active
         return self
+
     def operation_reason(self, operation_reason: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.operation_reason = operation_reason
         return self
-    
+
     def build(self) -> "CostCenterVersion":
         return self._cost_center_version

@@ -25,12 +25,12 @@ class ApplyReserveRequestBuilder(object):
         apply_reserve_request.uri = "/open-apis/vc/v1/reserves/apply"
         apply_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._apply_reserve_request: ApplyReserveRequest = apply_reserve_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ApplyReserveRequestBuilder":
         self._apply_reserve_request.user_id_type = user_id_type
         self._apply_reserve_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: ApplyReserveRequestBody) -> "ApplyReserveRequestBuilder":
         self._apply_reserve_request.request_body = request_body
         self._apply_reserve_request.body = request_body

@@ -5,72 +5,72 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchPreHireRequest = PatchPreHireRequest.builder() \
-		.pre_hire_id("7345005664477775411") \
-		.request_body(PrehireUpdate.builder()
-					  .basic_info_update(BasicInfoUpdate.builder().build())
-					  .offer_info_update(OfferInfoUpdate.builder().build())
-					  .standard_update_fields([])
-					  .custom_update_fields([])
-					  .person_custom_update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchPreHireRequest = PatchPreHireRequest.builder() \
+        .pre_hire_id("7345005664477775411") \
+        .request_body(PrehireUpdate.builder()
+                      .basic_info_update(BasicInfoUpdate.builder().build())
+                      .offer_info_update(OfferInfoUpdate.builder().build())
+                      .standard_update_fields([])
+                      .custom_update_fields([])
+                      .person_custom_update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchPreHireResponse = client.corehr.v2.pre_hire.patch(request)
+    # 发起请求
+    response: PatchPreHireResponse = client.corehr.v2.pre_hire.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.pre_hire.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.pre_hire.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchPreHireRequest = PatchPreHireRequest.builder() \
-		.pre_hire_id("7345005664477775411") \
-		.request_body(PrehireUpdate.builder()
-					  .basic_info_update(BasicInfoUpdate.builder().build())
-					  .offer_info_update(OfferInfoUpdate.builder().build())
-					  .standard_update_fields([])
-					  .custom_update_fields([])
-					  .person_custom_update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchPreHireRequest = PatchPreHireRequest.builder() \
+        .pre_hire_id("7345005664477775411") \
+        .request_body(PrehireUpdate.builder()
+                      .basic_info_update(BasicInfoUpdate.builder().build())
+                      .offer_info_update(OfferInfoUpdate.builder().build())
+                      .standard_update_fields([])
+                      .custom_update_fields([])
+                      .person_custom_update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchPreHireResponse = await client.corehr.v2.pre_hire.apatch(request)
+    # 发起请求
+    response: PatchPreHireResponse = await client.corehr.v2.pre_hire.apatch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.pre_hire.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.pre_hire.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

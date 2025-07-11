@@ -25,15 +25,18 @@ class BaseBilingualWithId(object):
 class BaseBilingualWithIdBuilder(object):
     def __init__(self) -> None:
         self._base_bilingual_with_id = BaseBilingualWithId()
+
     def id(self, id: str) -> "BaseBilingualWithIdBuilder":
         self._base_bilingual_with_id.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "BaseBilingualWithIdBuilder":
         self._base_bilingual_with_id.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "BaseBilingualWithIdBuilder":
         self._base_bilingual_with_id.en_name = en_name
         return self
-    
+
     def build(self) -> "BaseBilingualWithId":
         return self._base_bilingual_with_id

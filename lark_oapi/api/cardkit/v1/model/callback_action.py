@@ -37,33 +37,42 @@ class CallbackAction(object):
 class CallbackActionBuilder(object):
     def __init__(self) -> None:
         self._callback_action = CallbackAction()
+
     def value(self, value: Dict[str, str]) -> "CallbackActionBuilder":
         self._callback_action.value = value
         return self
+
     def tag(self, tag: str) -> "CallbackActionBuilder":
         self._callback_action.tag = tag
         return self
+
     def option(self, option: str) -> "CallbackActionBuilder":
         self._callback_action.option = option
         return self
+
     def options(self, options: List[str]) -> "CallbackActionBuilder":
         self._callback_action.options = options
         return self
+
     def timezone(self, timezone: str) -> "CallbackActionBuilder":
         self._callback_action.timezone = timezone
         return self
+
     def input_value(self, input_value: str) -> "CallbackActionBuilder":
         self._callback_action.input_value = input_value
         return self
+
     def form_value(self, form_value: Dict[str, str]) -> "CallbackActionBuilder":
         self._callback_action.form_value = form_value
         return self
+
     def name(self, name: str) -> "CallbackActionBuilder":
         self._callback_action.name = name
         return self
+
     def checked(self, checked: bool) -> "CallbackActionBuilder":
         self._callback_action.checked = checked
         return self
-    
+
     def build(self) -> "CallbackAction":
         return self._callback_action

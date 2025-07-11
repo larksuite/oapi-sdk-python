@@ -5,86 +5,86 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchLocationRequest = PatchLocationRequest.builder() \
-		.location_id("1616161616") \
-		.client_token("12454646") \
-		.request_body(LocationUpdate.builder()
-					  .parent_id("4719168654814483759")
-					  .names([])
-					  .active(True)
-					  .effective_time("2020-05-02")
-					  .code("12456")
-					  .descriptions([])
-					  .location_usages([])
-					  .working_hours_type_id("4690238309151997779")
-					  .locale(Enum.builder().build())
-					  .time_zone_id("123456789")
-					  .display_language_id("123456789")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchLocationRequest = PatchLocationRequest.builder() \
+        .location_id("1616161616") \
+        .client_token("12454646") \
+        .request_body(LocationUpdate.builder()
+                      .parent_id("4719168654814483759")
+                      .names([])
+                      .active(True)
+                      .effective_time("2020-05-02")
+                      .code("12456")
+                      .descriptions([])
+                      .location_usages([])
+                      .working_hours_type_id("4690238309151997779")
+                      .locale(Enum.builder().build())
+                      .time_zone_id("123456789")
+                      .display_language_id("123456789")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchLocationResponse = client.corehr.v2.location.patch(request)
+    # 发起请求
+    response: PatchLocationResponse = client.corehr.v2.location.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.location.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.location.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchLocationRequest = PatchLocationRequest.builder() \
-		.location_id("1616161616") \
-		.client_token("12454646") \
-		.request_body(LocationUpdate.builder()
-					  .parent_id("4719168654814483759")
-					  .names([])
-					  .active(True)
-					  .effective_time("2020-05-02")
-					  .code("12456")
-					  .descriptions([])
-					  .location_usages([])
-					  .working_hours_type_id("4690238309151997779")
-					  .locale(Enum.builder().build())
-					  .time_zone_id("123456789")
-					  .display_language_id("123456789")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchLocationRequest = PatchLocationRequest.builder() \
+        .location_id("1616161616") \
+        .client_token("12454646") \
+        .request_body(LocationUpdate.builder()
+                      .parent_id("4719168654814483759")
+                      .names([])
+                      .active(True)
+                      .effective_time("2020-05-02")
+                      .code("12456")
+                      .descriptions([])
+                      .location_usages([])
+                      .working_hours_type_id("4690238309151997779")
+                      .locale(Enum.builder().build())
+                      .time_zone_id("123456789")
+                      .display_language_id("123456789")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchLocationResponse = await client.corehr.v2.location.apatch(request)
+    # 发起请求
+    response: PatchLocationResponse = await client.corehr.v2.location.apatch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.location.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.location.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

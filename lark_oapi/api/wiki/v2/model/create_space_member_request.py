@@ -26,17 +26,17 @@ class CreateSpaceMemberRequestBuilder(object):
         create_space_member_request.uri = "/open-apis/wiki/v2/spaces/:space_id/members"
         create_space_member_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_space_member_request: CreateSpaceMemberRequest = create_space_member_request
-    
+
     def need_notification(self, need_notification: bool) -> "CreateSpaceMemberRequestBuilder":
         self._create_space_member_request.need_notification = need_notification
         self._create_space_member_request.add_query("need_notification", need_notification)
         return self
-    
+
     def space_id(self, space_id: str) -> "CreateSpaceMemberRequestBuilder":
         self._create_space_member_request.space_id = space_id
         self._create_space_member_request.paths["space_id"] = str(space_id)
         return self
-    
+
     def request_body(self, request_body: Member) -> "CreateSpaceMemberRequestBuilder":
         self._create_space_member_request.request_body = request_body
         self._create_space_member_request.body = request_body

@@ -22,9 +22,10 @@ class VehicleInvoice(object):
 class VehicleInvoiceBuilder(object):
     def __init__(self) -> None:
         self._vehicle_invoice = VehicleInvoice()
+
     def entities(self, entities: List[VehicleInvoiceEntity]) -> "VehicleInvoiceBuilder":
         self._vehicle_invoice.entities = entities
         return self
-    
+
     def build(self) -> "VehicleInvoice":
         return self._vehicle_invoice

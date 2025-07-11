@@ -27,15 +27,18 @@ class VerifFilterCondition(object):
 class VerifFilterConditionBuilder(object):
     def __init__(self) -> None:
         self._verif_filter_condition = VerifFilterCondition()
+
     def left_value(self, left_value: VerifFilterValue) -> "VerifFilterConditionBuilder":
         self._verif_filter_condition.left_value = left_value
         return self
+
     def operator_type(self, operator_type: int) -> "VerifFilterConditionBuilder":
         self._verif_filter_condition.operator_type = operator_type
         return self
+
     def right_values(self, right_values: List[VerifFilterValue]) -> "VerifFilterConditionBuilder":
         self._verif_filter_condition.right_values = right_values
         return self
-    
+
     def build(self) -> "VerifFilterCondition":
         return self._verif_filter_condition

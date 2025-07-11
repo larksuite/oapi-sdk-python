@@ -31,21 +31,26 @@ class InputTasklist(object):
 class InputTasklistBuilder(object):
     def __init__(self) -> None:
         self._input_tasklist = InputTasklist()
+
     def name(self, name: str) -> "InputTasklistBuilder":
         self._input_tasklist.name = name
         return self
+
     def client_token(self, client_token: str) -> "InputTasklistBuilder":
         self._input_tasklist.client_token = client_token
         return self
+
     def members(self, members: List[Member]) -> "InputTasklistBuilder":
         self._input_tasklist.members = members
         return self
+
     def owner(self, owner: Member) -> "InputTasklistBuilder":
         self._input_tasklist.owner = owner
         return self
+
     def archive_tasklist(self, archive_tasklist: bool) -> "InputTasklistBuilder":
         self._input_tasklist.archive_tasklist = archive_tasklist
         return self
-    
+
     def build(self) -> "InputTasklist":
         return self._input_tasklist

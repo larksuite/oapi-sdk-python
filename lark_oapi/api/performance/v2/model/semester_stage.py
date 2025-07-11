@@ -27,15 +27,18 @@ class SemesterStage(object):
 class SemesterStageBuilder(object):
     def __init__(self) -> None:
         self._semester_stage = SemesterStage()
+
     def id(self, id: str) -> "SemesterStageBuilder":
         self._semester_stage.id = id
         return self
+
     def name(self, name: I18n) -> "SemesterStageBuilder":
         self._semester_stage.name = name
         return self
+
     def stages(self, stages: List[TemplateStage]) -> "SemesterStageBuilder":
         self._semester_stage.stages = stages
         return self
-    
+
     def build(self) -> "SemesterStage":
         return self._semester_stage

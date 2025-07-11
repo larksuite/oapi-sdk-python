@@ -32,7 +32,7 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadFileResponse = DownloadFileResponse()
@@ -45,20 +45,18 @@ class File(object):
 
         response.raw = resp
         return response
-        
 
-    async def adownload(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
+    async def adownload(self, request: DownloadFileRequest,
+                        option: Optional[RequestOption] = None) -> DownloadFileResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadFileResponse = DownloadFileResponse()
@@ -71,7 +69,7 @@ class File(object):
 
         response.raw = resp
         return response
-        
+
     def upload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
         if option is None:
             option = RequestOption()
@@ -84,17 +82,15 @@ class File(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
-            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)
         response.raw = resp
 
         return response
-        
 
     async def aupload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
         if option is None:
@@ -103,17 +99,14 @@ class File(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)
         response.raw = resp
 
         return response
-        
-    

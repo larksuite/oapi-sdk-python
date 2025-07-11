@@ -26,17 +26,17 @@ class UpdateUserFaceRequestBuilder(object):
         update_user_face_request.uri = "/open-apis/acs/v1/users/:user_id/face"
         update_user_face_request.token_types = {AccessTokenType.TENANT}
         self._update_user_face_request: UpdateUserFaceRequest = update_user_face_request
-    
+
     def user_id_type(self, user_id_type: str) -> "UpdateUserFaceRequestBuilder":
         self._update_user_face_request.user_id_type = user_id_type
         self._update_user_face_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def user_id(self, user_id: str) -> "UpdateUserFaceRequestBuilder":
         self._update_user_face_request.user_id = user_id
         self._update_user_face_request.paths["user_id"] = str(user_id)
         return self
-    
+
     def request_body(self, request_body: File) -> "UpdateUserFaceRequestBuilder":
         self._update_user_face_request.request_body = request_body
         self._update_user_face_request.body = request_body

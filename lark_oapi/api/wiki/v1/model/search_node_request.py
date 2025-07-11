@@ -26,17 +26,17 @@ class SearchNodeRequestBuilder(object):
         search_node_request.uri = "/open-apis/wiki/v1/nodes/search"
         search_node_request.token_types = {AccessTokenType.USER}
         self._search_node_request: SearchNodeRequest = search_node_request
-    
+
     def page_token(self, page_token: str) -> "SearchNodeRequestBuilder":
         self._search_node_request.page_token = page_token
         self._search_node_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "SearchNodeRequestBuilder":
         self._search_node_request.page_size = page_size
         self._search_node_request.add_query("page_size", page_size)
         return self
-    
+
     def request_body(self, request_body: SearchNodeRequestBody) -> "SearchNodeRequestBuilder":
         self._search_node_request.request_body = request_body
         self._search_node_request.body = request_body

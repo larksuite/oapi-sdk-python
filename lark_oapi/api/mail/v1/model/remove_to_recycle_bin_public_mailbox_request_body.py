@@ -21,9 +21,10 @@ class RemoveToRecycleBinPublicMailboxRequestBody(object):
 class RemoveToRecycleBinPublicMailboxRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_to_recycle_bin_public_mailbox_request_body = RemoveToRecycleBinPublicMailboxRequestBody()
+
     def to_mail_address(self, to_mail_address: str) -> "RemoveToRecycleBinPublicMailboxRequestBodyBuilder":
         self._remove_to_recycle_bin_public_mailbox_request_body.to_mail_address = to_mail_address
         return self
-    
+
     def build(self) -> "RemoveToRecycleBinPublicMailboxRequestBody":
         return self._remove_to_recycle_bin_public_mailbox_request_body

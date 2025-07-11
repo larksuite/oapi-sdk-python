@@ -17,7 +17,8 @@ class AdditionalInformationsBatch(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteAdditionalInformationsBatchRequest, option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
+    def delete(self, request: DeleteAdditionalInformationsBatchRequest,
+               option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class AdditionalInformationsBatch(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAdditionalInformationsBatchResponse)
+        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             DeleteAdditionalInformationsBatchResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteAdditionalInformationsBatchRequest, option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
+    async def adelete(self, request: DeleteAdditionalInformationsBatchRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAdditionalInformationsBatchResponse)
+        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             DeleteAdditionalInformationsBatchResponse)
         response.raw = resp
 
         return response
-        
-    

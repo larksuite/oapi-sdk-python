@@ -26,15 +26,18 @@ class Statictics(object):
 class StaticticsBuilder(object):
     def __init__(self) -> None:
         self._statictics = Statictics()
+
     def user_view_count(self, user_view_count: str) -> "StaticticsBuilder":
         self._statictics.user_view_count = user_view_count
         return self
+
     def page_view_count(self, page_view_count: str) -> "StaticticsBuilder":
         self._statictics.page_view_count = page_view_count
         return self
+
     def user_view_list(self, user_view_list: List[UserViewDetail]) -> "StaticticsBuilder":
         self._statictics.user_view_list = user_view_list
         return self
-    
+
     def build(self) -> "Statictics":
         return self._statictics

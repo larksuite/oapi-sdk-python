@@ -21,9 +21,10 @@ class UpdateApplicationOwnerRequestBody(object):
 class UpdateApplicationOwnerRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_application_owner_request_body = UpdateApplicationOwnerRequestBody()
+
     def owner_id(self, owner_id: str) -> "UpdateApplicationOwnerRequestBodyBuilder":
         self._update_application_owner_request_body.owner_id = owner_id
         return self
-    
+
     def build(self) -> "UpdateApplicationOwnerRequestBody":
         return self._update_application_owner_request_body

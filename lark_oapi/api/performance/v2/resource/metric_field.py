@@ -17,7 +17,8 @@ class MetricField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryMetricFieldRequest, option: Optional[RequestOption] = None) -> QueryMetricFieldResponse:
+    def query(self, request: QueryMetricFieldRequest,
+              option: Optional[RequestOption] = None) -> QueryMetricFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class MetricField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryMetricFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricFieldResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QueryMetricFieldRequest, option: Optional[RequestOption] = None) -> QueryMetricFieldResponse:
+    async def aquery(self, request: QueryMetricFieldRequest,
+                     option: Optional[RequestOption] = None) -> QueryMetricFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryMetricFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricFieldResponse)
         response.raw = resp
 
         return response
-        
-    

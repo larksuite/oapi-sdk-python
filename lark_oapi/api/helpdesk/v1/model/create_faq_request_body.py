@@ -22,9 +22,10 @@ class CreateFaqRequestBody(object):
 class CreateFaqRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_faq_request_body = CreateFaqRequestBody()
+
     def faq(self, faq: FaqCreateInfo) -> "CreateFaqRequestBodyBuilder":
         self._create_faq_request_body.faq = faq
         return self
-    
+
     def build(self) -> "CreateFaqRequestBody":
         return self._create_faq_request_body

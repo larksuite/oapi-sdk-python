@@ -23,12 +23,11 @@ class DeleteFaqRequestBuilder(object):
         delete_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         delete_faq_request.token_types = {AccessTokenType.USER}
         self._delete_faq_request: DeleteFaqRequest = delete_faq_request
-    
+
     def id(self, id: str) -> "DeleteFaqRequestBuilder":
         self._delete_faq_request.id = id
         self._delete_faq_request.paths["id"] = str(id)
         return self
-    
 
     def build(self) -> DeleteFaqRequest:
         return self._delete_faq_request

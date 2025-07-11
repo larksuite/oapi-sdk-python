@@ -33,24 +33,32 @@ class PrehireSeniorityAdjustInformationQuery(object):
 class PrehireSeniorityAdjustInformationQueryBuilder(object):
     def __init__(self) -> None:
         self._prehire_seniority_adjust_information_query = PrehireSeniorityAdjustInformationQuery()
+
     def seniority_adjustment(self, seniority_adjustment: float) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.seniority_adjustment = seniority_adjustment
         return self
-    def seniority_adjustment_type(self, seniority_adjustment_type: Enum) -> "PrehireSeniorityAdjustInformationQueryBuilder":
+
+    def seniority_adjustment_type(self,
+                                  seniority_adjustment_type: Enum) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.seniority_adjustment_type = seniority_adjustment_type
         return self
-    def reasons_for_seniority_adjustment(self, reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationQueryBuilder":
+
+    def reasons_for_seniority_adjustment(self,
+                                         reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
         return self
+
     def start_date(self, start_date: str) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.end_date = end_date
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PrehireSeniorityAdjustInformationQueryBuilder":
         self._prehire_seniority_adjust_information_query.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "PrehireSeniorityAdjustInformationQuery":
         return self._prehire_seniority_adjust_information_query

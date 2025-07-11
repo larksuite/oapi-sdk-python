@@ -34,24 +34,30 @@ class UpsertObjective(object):
 class UpsertObjectiveBuilder(object):
     def __init__(self) -> None:
         self._upsert_objective = UpsertObjective()
+
     def content(self, content: str) -> "UpsertObjectiveBuilder":
         self._upsert_objective.content = content
         return self
+
     def mention_list(self, mention_list: List[str]) -> "UpsertObjectiveBuilder":
         self._upsert_objective.mention_list = mention_list
         return self
+
     def kr_list(self, kr_list: List[UpsertObjectiveKr]) -> "UpsertObjectiveBuilder":
         self._upsert_objective.kr_list = kr_list
         return self
+
     def progress_rate(self, progress_rate: ProgressRate) -> "UpsertObjectiveBuilder":
         self._upsert_objective.progress_rate = progress_rate
         return self
+
     def progress_list(self, progress_list: List[ProgressItem]) -> "UpsertObjectiveBuilder":
         self._upsert_objective.progress_list = progress_list
         return self
+
     def weight(self, weight: float) -> "UpsertObjectiveBuilder":
         self._upsert_objective.weight = weight
         return self
-    
+
     def build(self) -> "UpsertObjective":
         return self._upsert_objective

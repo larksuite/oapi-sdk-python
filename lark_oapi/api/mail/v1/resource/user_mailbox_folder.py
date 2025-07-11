@@ -23,7 +23,8 @@ class UserMailboxFolder(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> CreateUserMailboxFolderResponse:
+    def create(self, request: CreateUserMailboxFolderRequest,
+               option: Optional[RequestOption] = None) -> CreateUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class UserMailboxFolder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMailboxFolderResponse)
+        response: CreateUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> CreateUserMailboxFolderResponse:
+    async def acreate(self, request: CreateUserMailboxFolderRequest,
+                      option: Optional[RequestOption] = None) -> CreateUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMailboxFolderResponse)
+        response: CreateUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxFolderResponse:
+
+    def delete(self, request: DeleteUserMailboxFolderRequest,
+               option: Optional[RequestOption] = None) -> DeleteUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class UserMailboxFolder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxFolderResponse)
+        response: DeleteUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxFolderResponse:
+    async def adelete(self, request: DeleteUserMailboxFolderRequest,
+                      option: Optional[RequestOption] = None) -> DeleteUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxFolderResponse)
+        response: DeleteUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> ListUserMailboxFolderResponse:
+
+    def list(self, request: ListUserMailboxFolderRequest,
+             option: Optional[RequestOption] = None) -> ListUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class UserMailboxFolder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxFolderResponse)
+        response: ListUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 ListUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> ListUserMailboxFolderResponse:
+    async def alist(self, request: ListUserMailboxFolderRequest,
+                    option: Optional[RequestOption] = None) -> ListUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxFolderResponse)
+        response: ListUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 ListUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> PatchUserMailboxFolderResponse:
+
+    def patch(self, request: PatchUserMailboxFolderRequest,
+              option: Optional[RequestOption] = None) -> PatchUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class UserMailboxFolder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserMailboxFolderResponse)
+        response: PatchUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  PatchUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchUserMailboxFolderRequest, option: Optional[RequestOption] = None) -> PatchUserMailboxFolderResponse:
+    async def apatch(self, request: PatchUserMailboxFolderRequest,
+                     option: Optional[RequestOption] = None) -> PatchUserMailboxFolderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserMailboxFolderResponse)
+        response: PatchUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  PatchUserMailboxFolderResponse)
         response.raw = resp
 
         return response
-        
-    

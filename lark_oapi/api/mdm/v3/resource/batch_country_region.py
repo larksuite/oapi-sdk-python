@@ -17,7 +17,8 @@ class BatchCountryRegion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetBatchCountryRegionRequest, option: Optional[RequestOption] = None) -> GetBatchCountryRegionResponse:
+    def get(self, request: GetBatchCountryRegionRequest,
+            option: Optional[RequestOption] = None) -> GetBatchCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class BatchCountryRegion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetBatchCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBatchCountryRegionResponse)
+        response: GetBatchCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 GetBatchCountryRegionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetBatchCountryRegionRequest, option: Optional[RequestOption] = None) -> GetBatchCountryRegionResponse:
+    async def aget(self, request: GetBatchCountryRegionRequest,
+                   option: Optional[RequestOption] = None) -> GetBatchCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetBatchCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBatchCountryRegionResponse)
+        response: GetBatchCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 GetBatchCountryRegionResponse)
         response.raw = resp
 
         return response
-        
-    

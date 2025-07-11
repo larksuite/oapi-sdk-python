@@ -25,12 +25,12 @@ class MgetRoomRequestBuilder(object):
         mget_room_request.uri = "/open-apis/vc/v1/rooms/mget"
         mget_room_request.token_types = {AccessTokenType.TENANT}
         self._mget_room_request: MgetRoomRequest = mget_room_request
-    
+
     def user_id_type(self, user_id_type: str) -> "MgetRoomRequestBuilder":
         self._mget_room_request.user_id_type = user_id_type
         self._mget_room_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: MgetRoomRequestBody) -> "MgetRoomRequestBuilder":
         self._mget_room_request.request_body = request_body
         self._mget_room_request.body = request_body

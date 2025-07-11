@@ -24,12 +24,14 @@ class FieldVariableValueToEnum(object):
 class FieldVariableValueToEnumBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_enum = FieldVariableValueToEnum()
+
     def value(self, value: str) -> "FieldVariableValueToEnumBuilder":
         self._field_variable_value_to_enum.value = value
         return self
+
     def name(self, name: FieldVariableValueI18n) -> "FieldVariableValueToEnumBuilder":
         self._field_variable_value_to_enum.name = name
         return self
-    
+
     def build(self) -> "FieldVariableValueToEnum":
         return self._field_variable_value_to_enum

@@ -25,7 +25,8 @@ class Card(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update(self, request: BatchUpdateCardRequest, option: Optional[RequestOption] = None) -> BatchUpdateCardResponse:
+    def batch_update(self, request: BatchUpdateCardRequest,
+                     option: Optional[RequestOption] = None) -> BatchUpdateCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,32 +39,30 @@ class Card(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchUpdateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateCardResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_update(self, request: BatchUpdateCardRequest, option: Optional[RequestOption] = None) -> BatchUpdateCardResponse:
+    async def abatch_update(self, request: BatchUpdateCardRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateCardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchUpdateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateCardResponse)
         response.raw = resp
 
         return response
-        
+
     def create(self, request: CreateCardRequest, option: Optional[RequestOption] = None) -> CreateCardResponse:
         if option is None:
             option = RequestOption()
@@ -77,13 +76,12 @@ class Card(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCardResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateCardRequest, option: Optional[RequestOption] = None) -> CreateCardResponse:
         if option is None:
@@ -92,18 +90,17 @@ class Card(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCardResponse)
         response.raw = resp
 
         return response
-        
-    def id_convert(self, request: IdConvertCardRequest, option: Optional[RequestOption] = None) -> IdConvertCardResponse:
+
+    def id_convert(self, request: IdConvertCardRequest,
+                   option: Optional[RequestOption] = None) -> IdConvertCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,32 +113,30 @@ class Card(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: IdConvertCardResponse = JSON.unmarshal(str(resp.content, UTF_8), IdConvertCardResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aid_convert(self, request: IdConvertCardRequest, option: Optional[RequestOption] = None) -> IdConvertCardResponse:
+    async def aid_convert(self, request: IdConvertCardRequest,
+                          option: Optional[RequestOption] = None) -> IdConvertCardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: IdConvertCardResponse = JSON.unmarshal(str(resp.content, UTF_8), IdConvertCardResponse)
         response.raw = resp
 
         return response
-        
+
     def settings(self, request: SettingsCardRequest, option: Optional[RequestOption] = None) -> SettingsCardResponse:
         if option is None:
             option = RequestOption()
@@ -155,32 +150,30 @@ class Card(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SettingsCardResponse = JSON.unmarshal(str(resp.content, UTF_8), SettingsCardResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asettings(self, request: SettingsCardRequest, option: Optional[RequestOption] = None) -> SettingsCardResponse:
+    async def asettings(self, request: SettingsCardRequest,
+                        option: Optional[RequestOption] = None) -> SettingsCardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SettingsCardResponse = JSON.unmarshal(str(resp.content, UTF_8), SettingsCardResponse)
         response.raw = resp
 
         return response
-        
+
     def update(self, request: UpdateCardRequest, option: Optional[RequestOption] = None) -> UpdateCardResponse:
         if option is None:
             option = RequestOption()
@@ -194,13 +187,12 @@ class Card(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateCardResponse)
         response.raw = resp
 
         return response
-        
 
     async def aupdate(self, request: UpdateCardRequest, option: Optional[RequestOption] = None) -> UpdateCardResponse:
         if option is None:
@@ -209,15 +201,11 @@ class Card(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateCardResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateCardResponse)
         response.raw = resp
 
         return response
-        
-    

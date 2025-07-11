@@ -42,13 +42,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateRoomRequest, option: Optional[RequestOption] = None) -> CreateRoomResponse:
         if option is None:
@@ -57,17 +56,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteRoomRequest, option: Optional[RequestOption] = None) -> DeleteRoomResponse:
         if option is None:
             option = RequestOption()
@@ -81,13 +78,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def adelete(self, request: DeleteRoomRequest, option: Optional[RequestOption] = None) -> DeleteRoomResponse:
         if option is None:
@@ -96,17 +92,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetRoomRequest, option: Optional[RequestOption] = None) -> GetRoomResponse:
         if option is None:
             option = RequestOption()
@@ -120,13 +114,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetRoomRequest, option: Optional[RequestOption] = None) -> GetRoomResponse:
         if option is None:
@@ -135,17 +128,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListRoomRequest, option: Optional[RequestOption] = None) -> ListRoomResponse:
         if option is None:
             option = RequestOption()
@@ -159,13 +150,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListRoomRequest, option: Optional[RequestOption] = None) -> ListRoomResponse:
         if option is None:
@@ -174,17 +164,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def mget(self, request: MgetRoomRequest, option: Optional[RequestOption] = None) -> MgetRoomResponse:
         if option is None:
             option = RequestOption()
@@ -198,13 +186,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MgetRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def amget(self, request: MgetRoomRequest, option: Optional[RequestOption] = None) -> MgetRoomResponse:
         if option is None:
@@ -213,17 +200,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: MgetRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchRoomRequest, option: Optional[RequestOption] = None) -> PatchRoomResponse:
         if option is None:
             option = RequestOption()
@@ -237,13 +222,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def apatch(self, request: PatchRoomRequest, option: Optional[RequestOption] = None) -> PatchRoomResponse:
         if option is None:
@@ -252,17 +236,15 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchRoomResponse)
         response.raw = resp
 
         return response
-        
+
     def search(self, request: SearchRoomRequest, option: Optional[RequestOption] = None) -> SearchRoomResponse:
         if option is None:
             option = RequestOption()
@@ -276,13 +258,12 @@ class Room(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchRoomResponse)
         response.raw = resp
 
         return response
-        
 
     async def asearch(self, request: SearchRoomRequest, option: Optional[RequestOption] = None) -> SearchRoomResponse:
         if option is None:
@@ -291,15 +272,11 @@ class Room(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchRoomResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchRoomResponse)
         response.raw = resp
 
         return response
-        
-    

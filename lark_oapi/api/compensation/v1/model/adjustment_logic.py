@@ -24,12 +24,14 @@ class AdjustmentLogic(object):
 class AdjustmentLogicBuilder(object):
     def __init__(self) -> None:
         self._adjustment_logic = AdjustmentLogic()
+
     def fixed(self, fixed: str) -> "AdjustmentLogicBuilder":
         self._adjustment_logic.fixed = fixed
         return self
+
     def formula(self, formula: Formula) -> "AdjustmentLogicBuilder":
         self._adjustment_logic.formula = formula
         return self
-    
+
     def build(self) -> "AdjustmentLogic":
         return self._adjustment_logic

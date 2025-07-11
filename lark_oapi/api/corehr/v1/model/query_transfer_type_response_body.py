@@ -22,9 +22,10 @@ class QueryTransferTypeResponseBody(object):
 class QueryTransferTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_transfer_type_response_body = QueryTransferTypeResponseBody()
+
     def items(self, items: List[TransferType]) -> "QueryTransferTypeResponseBodyBuilder":
         self._query_transfer_type_response_body.items = items
         return self
-    
+
     def build(self) -> "QueryTransferTypeResponseBody":
         return self._query_transfer_type_response_body

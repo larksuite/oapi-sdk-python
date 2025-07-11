@@ -23,12 +23,14 @@ class LinkPreview(object):
 class LinkPreviewBuilder(object):
     def __init__(self) -> None:
         self._link_preview = LinkPreview()
+
     def url(self, url: str) -> "LinkPreviewBuilder":
         self._link_preview.url = url
         return self
+
     def url_type(self, url_type: str) -> "LinkPreviewBuilder":
         self._link_preview.url_type = url_type
         return self
-    
+
     def build(self) -> "LinkPreview":
         return self._link_preview

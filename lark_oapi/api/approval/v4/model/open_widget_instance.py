@@ -29,21 +29,26 @@ class OpenWidgetInstance(object):
 class OpenWidgetInstanceBuilder(object):
     def __init__(self) -> None:
         self._open_widget_instance = OpenWidgetInstance()
+
     def instance_code(self, instance_code: str) -> "OpenWidgetInstanceBuilder":
         self._open_widget_instance.instance_code = instance_code
         return self
+
     def status(self, status: str) -> "OpenWidgetInstanceBuilder":
         self._open_widget_instance.status = status
         return self
+
     def create_time(self, create_time: int) -> "OpenWidgetInstanceBuilder":
         self._open_widget_instance.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "OpenWidgetInstanceBuilder":
         self._open_widget_instance.update_time = update_time
         return self
+
     def form_content(self, form_content: str) -> "OpenWidgetInstanceBuilder":
         self._open_widget_instance.form_content = form_content
         return self
-    
+
     def build(self) -> "OpenWidgetInstance":
         return self._open_widget_instance

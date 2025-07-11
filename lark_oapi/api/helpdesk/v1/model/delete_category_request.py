@@ -23,12 +23,11 @@ class DeleteCategoryRequestBuilder(object):
         delete_category_request.uri = "/open-apis/helpdesk/v1/categories/:id"
         delete_category_request.token_types = {AccessTokenType.USER}
         self._delete_category_request: DeleteCategoryRequest = delete_category_request
-    
+
     def id(self, id: str) -> "DeleteCategoryRequestBuilder":
         self._delete_category_request.id = id
         self._delete_category_request.paths["id"] = str(id)
         return self
-    
 
     def build(self) -> DeleteCategoryRequest:
         return self._delete_category_request

@@ -23,12 +23,14 @@ class StartAppSkillResponseBody(object):
 class StartAppSkillResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._start_app_skill_response_body = StartAppSkillResponseBody()
+
     def output(self, output: str) -> "StartAppSkillResponseBodyBuilder":
         self._start_app_skill_response_body.output = output
         return self
+
     def status(self, status: str) -> "StartAppSkillResponseBodyBuilder":
         self._start_app_skill_response_body.status = status
         return self
-    
+
     def build(self) -> "StartAppSkillResponseBody":
         return self._start_app_skill_response_body

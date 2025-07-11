@@ -28,18 +28,22 @@ class IdCard(object):
 class IdCardBuilder(object):
     def __init__(self) -> None:
         self._id_card = IdCard()
+
     def entities(self, entities: List[IdEntity]) -> "IdCardBuilder":
         self._id_card.entities = entities
         return self
+
     def side(self, side: int) -> "IdCardBuilder":
         self._id_card.side = side
         return self
+
     def conners(self, conners: List[int]) -> "IdCardBuilder":
         self._id_card.conners = conners
         return self
+
     def face_conners(self, face_conners: List[int]) -> "IdCardBuilder":
         self._id_card.face_conners = face_conners
         return self
-    
+
     def build(self) -> "IdCard":
         return self._id_card

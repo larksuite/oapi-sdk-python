@@ -21,9 +21,10 @@ class CreateCardResponseBody(object):
 class CreateCardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_card_response_body = CreateCardResponseBody()
+
     def card_id(self, card_id: str) -> "CreateCardResponseBodyBuilder":
         self._create_card_response_body.card_id = card_id
         return self
-    
+
     def build(self) -> "CreateCardResponseBody":
         return self._create_card_response_body

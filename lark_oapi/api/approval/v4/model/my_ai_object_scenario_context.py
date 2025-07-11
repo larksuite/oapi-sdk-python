@@ -22,9 +22,10 @@ class MyAiObjectScenarioContext(object):
 class MyAiObjectScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_object_scenario_context = MyAiObjectScenarioContext()
+
     def object(self, object: ObjectContext) -> "MyAiObjectScenarioContextBuilder":
         self._my_ai_object_scenario_context.object = object
         return self
-    
+
     def build(self) -> "MyAiObjectScenarioContext":
         return self._my_ai_object_scenario_context

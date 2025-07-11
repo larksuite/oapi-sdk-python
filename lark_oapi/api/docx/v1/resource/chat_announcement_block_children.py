@@ -9,8 +9,10 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_delete_chat_announcement_block_children_request import BatchDeleteChatAnnouncementBlockChildrenRequest
-from ..model.batch_delete_chat_announcement_block_children_response import BatchDeleteChatAnnouncementBlockChildrenResponse
+from ..model.batch_delete_chat_announcement_block_children_request import \
+    BatchDeleteChatAnnouncementBlockChildrenRequest
+from ..model.batch_delete_chat_announcement_block_children_response import \
+    BatchDeleteChatAnnouncementBlockChildrenResponse
 from ..model.create_chat_announcement_block_children_request import CreateChatAnnouncementBlockChildrenRequest
 from ..model.create_chat_announcement_block_children_response import CreateChatAnnouncementBlockChildrenResponse
 from ..model.get_chat_announcement_block_children_request import GetChatAnnouncementBlockChildrenRequest
@@ -21,7 +23,8 @@ class ChatAnnouncementBlockChildren(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> BatchDeleteChatAnnouncementBlockChildrenResponse:
+    def batch_delete(self, request: BatchDeleteChatAnnouncementBlockChildrenRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +37,34 @@ class ChatAnnouncementBlockChildren(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteChatAnnouncementBlockChildrenResponse)
+        response: BatchDeleteChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                    BatchDeleteChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> BatchDeleteChatAnnouncementBlockChildrenResponse:
+    async def abatch_delete(self, request: BatchDeleteChatAnnouncementBlockChildrenRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteChatAnnouncementBlockChildrenResponse)
+        response: BatchDeleteChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                    BatchDeleteChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> CreateChatAnnouncementBlockChildrenResponse:
+
+    def create(self, request: CreateChatAnnouncementBlockChildrenRequest,
+               option: Optional[RequestOption] = None) -> CreateChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +77,34 @@ class ChatAnnouncementBlockChildren(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatAnnouncementBlockChildrenResponse)
+        response: CreateChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                               CreateChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> CreateChatAnnouncementBlockChildrenResponse:
+    async def acreate(self, request: CreateChatAnnouncementBlockChildrenRequest,
+                      option: Optional[RequestOption] = None) -> CreateChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatAnnouncementBlockChildrenResponse)
+        response: CreateChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                               CreateChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockChildrenResponse:
+
+    def get(self, request: GetChatAnnouncementBlockChildrenRequest,
+            option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +117,28 @@ class ChatAnnouncementBlockChildren(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatAnnouncementBlockChildrenResponse)
+        response: GetChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            GetChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetChatAnnouncementBlockChildrenRequest, option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockChildrenResponse:
+    async def aget(self, request: GetChatAnnouncementBlockChildrenRequest,
+                   option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockChildrenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatAnnouncementBlockChildrenResponse)
+        response: GetChatAnnouncementBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            GetChatAnnouncementBlockChildrenResponse)
         response.raw = resp
 
         return response
-        
-    

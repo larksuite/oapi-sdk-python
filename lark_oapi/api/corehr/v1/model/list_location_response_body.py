@@ -26,15 +26,18 @@ class ListLocationResponseBody(object):
 class ListLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_location_response_body = ListLocationResponseBody()
+
     def items(self, items: List[Location]) -> "ListLocationResponseBodyBuilder":
         self._list_location_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListLocationResponseBodyBuilder":
         self._list_location_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListLocationResponseBodyBuilder":
         self._list_location_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListLocationResponseBody":
         return self._list_location_response_body

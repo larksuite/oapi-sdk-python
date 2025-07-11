@@ -22,9 +22,10 @@ class UploadFileAppDataAssetResponseBody(object):
 class UploadFileAppDataAssetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_file_app_data_asset_response_body = UploadFileAppDataAssetResponseBody()
+
     def file_info(self, file_info: DataAssetFile) -> "UploadFileAppDataAssetResponseBodyBuilder":
         self._upload_file_app_data_asset_response_body.file_info = file_info
         return self
-    
+
     def build(self) -> "UploadFileAppDataAssetResponseBody":
         return self._upload_file_app_data_asset_response_body

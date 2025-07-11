@@ -24,12 +24,14 @@ class SourceSynced(object):
 class SourceSyncedBuilder(object):
     def __init__(self) -> None:
         self._source_synced = SourceSynced()
+
     def elements(self, elements: List[TextElement]) -> "SourceSyncedBuilder":
         self._source_synced.elements = elements
         return self
+
     def align(self, align: int) -> "SourceSyncedBuilder":
         self._source_synced.align = align
         return self
-    
+
     def build(self) -> "SourceSynced":
         return self._source_synced

@@ -30,21 +30,26 @@ class District(object):
 class DistrictBuilder(object):
     def __init__(self) -> None:
         self._district = District()
+
     def district_id(self, district_id: str) -> "DistrictBuilder":
         self._district.district_id = district_id
         return self
+
     def name(self, name: List[I18n]) -> "DistrictBuilder":
         self._district.name = name
         return self
+
     def city_id(self, city_id: str) -> "DistrictBuilder":
         self._district.city_id = city_id
         return self
+
     def subregion_code(self, subregion_code: str) -> "DistrictBuilder":
         self._district.subregion_code = subregion_code
         return self
+
     def status(self, status: int) -> "DistrictBuilder":
         self._district.status = status
         return self
-    
+
     def build(self) -> "District":
         return self._district

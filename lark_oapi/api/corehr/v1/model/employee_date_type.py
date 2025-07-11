@@ -23,12 +23,14 @@ class EmployeeDateType(object):
 class EmployeeDateTypeBuilder(object):
     def __init__(self) -> None:
         self._employee_date_type = EmployeeDateType()
+
     def date(self, date: str) -> "EmployeeDateTypeBuilder":
         self._employee_date_type.date = date
         return self
+
     def date_type(self, date_type: int) -> "EmployeeDateTypeBuilder":
         self._employee_date_type.date_type = date_type
         return self
-    
+
     def build(self) -> "EmployeeDateType":
         return self._employee_date_type

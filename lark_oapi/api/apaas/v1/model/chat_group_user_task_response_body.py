@@ -21,9 +21,10 @@ class ChatGroupUserTaskResponseBody(object):
 class ChatGroupUserTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._chat_group_user_task_response_body = ChatGroupUserTaskResponseBody()
+
     def chat_id(self, chat_id: str) -> "ChatGroupUserTaskResponseBodyBuilder":
         self._chat_group_user_task_response_body.chat_id = chat_id
         return self
-    
+
     def build(self) -> "ChatGroupUserTaskResponseBody":
         return self._chat_group_user_task_response_body

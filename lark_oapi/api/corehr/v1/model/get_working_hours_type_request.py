@@ -23,12 +23,11 @@ class GetWorkingHoursTypeRequestBuilder(object):
         get_working_hours_type_request.uri = "/open-apis/corehr/v1/working_hours_types/:working_hours_type_id"
         get_working_hours_type_request.token_types = {AccessTokenType.TENANT}
         self._get_working_hours_type_request: GetWorkingHoursTypeRequest = get_working_hours_type_request
-    
+
     def working_hours_type_id(self, working_hours_type_id: str) -> "GetWorkingHoursTypeRequestBuilder":
         self._get_working_hours_type_request.working_hours_type_id = working_hours_type_id
         self._get_working_hours_type_request.paths["working_hours_type_id"] = str(working_hours_type_id)
         return self
-    
 
     def build(self) -> GetWorkingHoursTypeRequest:
         return self._get_working_hours_type_request

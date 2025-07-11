@@ -35,30 +35,38 @@ class TalentNote(object):
 class TalentNoteBuilder(object):
     def __init__(self) -> None:
         self._talent_note = TalentNote()
+
     def id(self, id: str) -> "TalentNoteBuilder":
         self._talent_note.id = id
         return self
+
     def talent_id(self, talent_id: str) -> "TalentNoteBuilder":
         self._talent_note.talent_id = talent_id
         return self
+
     def application_id(self, application_id: str) -> "TalentNoteBuilder":
         self._talent_note.application_id = application_id
         return self
+
     def create_time(self, create_time: str) -> "TalentNoteBuilder":
         self._talent_note.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "TalentNoteBuilder":
         self._talent_note.update_time = update_time
         return self
+
     def creator_id(self, creator_id: str) -> "TalentNoteBuilder":
         self._talent_note.creator_id = creator_id
         return self
+
     def content(self, content: str) -> "TalentNoteBuilder":
         self._talent_note.content = content
         return self
+
     def privacy(self, privacy: int) -> "TalentNoteBuilder":
         self._talent_note.privacy = privacy
         return self
-    
+
     def build(self) -> "TalentNote":
         return self._talent_note

@@ -22,9 +22,10 @@ class BatchGetCompanyResponseBody(object):
 class BatchGetCompanyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_company_response_body = BatchGetCompanyResponseBody()
+
     def items(self, items: List[Company]) -> "BatchGetCompanyResponseBodyBuilder":
         self._batch_get_company_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchGetCompanyResponseBody":
         return self._batch_get_company_response_body

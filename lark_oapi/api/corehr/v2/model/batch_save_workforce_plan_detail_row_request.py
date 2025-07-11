@@ -24,7 +24,7 @@ class BatchSaveWorkforcePlanDetailRowRequestBuilder(object):
         batch_save_workforce_plan_detail_row_request.uri = "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave"
         batch_save_workforce_plan_detail_row_request.token_types = {AccessTokenType.TENANT}
         self._batch_save_workforce_plan_detail_row_request: BatchSaveWorkforcePlanDetailRowRequest = batch_save_workforce_plan_detail_row_request
-    
+
     def request_body(self, request_body: WorkforcePlanDetailReq) -> "BatchSaveWorkforcePlanDetailRowRequestBuilder":
         self._batch_save_workforce_plan_detail_row_request.request_body = request_body
         self._batch_save_workforce_plan_detail_row_request.body = request_body

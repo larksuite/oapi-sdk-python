@@ -24,7 +24,7 @@ class BatchDelUserFlowRequestBuilder(object):
         batch_del_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/batch_del"
         batch_del_user_flow_request.token_types = {AccessTokenType.TENANT}
         self._batch_del_user_flow_request: BatchDelUserFlowRequest = batch_del_user_flow_request
-    
+
     def request_body(self, request_body: BatchDelUserFlowRequestBody) -> "BatchDelUserFlowRequestBuilder":
         self._batch_del_user_flow_request.request_body = request_body
         self._batch_del_user_flow_request.body = request_body

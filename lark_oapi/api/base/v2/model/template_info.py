@@ -23,12 +23,14 @@ class TemplateInfo(object):
 class TemplateInfoBuilder(object):
     def __init__(self) -> None:
         self._template_info = TemplateInfo()
+
     def template_type(self, template_type: int) -> "TemplateInfoBuilder":
         self._template_info.template_type = template_type
         return self
+
     def publish_flag(self, publish_flag: int) -> "TemplateInfoBuilder":
         self._template_info.publish_flag = publish_flag
         return self
-    
+
     def build(self) -> "TemplateInfo":
         return self._template_info

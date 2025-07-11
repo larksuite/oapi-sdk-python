@@ -22,9 +22,10 @@ class GetTasklistResponseBody(object):
 class GetTasklistResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_tasklist_response_body = GetTasklistResponseBody()
+
     def tasklist(self, tasklist: Tasklist) -> "GetTasklistResponseBodyBuilder":
         self._get_tasklist_response_body.tasklist = tasklist
         return self
-    
+
     def build(self) -> "GetTasklistResponseBody":
         return self._get_tasklist_response_body

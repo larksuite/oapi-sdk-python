@@ -28,18 +28,22 @@ class CountryRegion(object):
 class CountryRegionBuilder(object):
     def __init__(self) -> None:
         self._country_region = CountryRegion()
+
     def id(self, id: str) -> "CountryRegionBuilder":
         self._country_region.id = id
         return self
+
     def name(self, name: List[I18n]) -> "CountryRegionBuilder":
         self._country_region.name = name
         return self
+
     def alpha_3_code(self, alpha_3_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_3_code = alpha_3_code
         return self
+
     def alpha_2_code(self, alpha_2_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_2_code = alpha_2_code
         return self
-    
+
     def build(self) -> "CountryRegion":
         return self._country_region

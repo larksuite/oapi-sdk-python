@@ -27,18 +27,22 @@ class BotMessage(object):
 class BotMessageBuilder(object):
     def __init__(self) -> None:
         self._bot_message = BotMessage()
+
     def msg_type(self, msg_type: str) -> "BotMessageBuilder":
         self._bot_message.msg_type = msg_type
         return self
+
     def content(self, content: str) -> "BotMessageBuilder":
         self._bot_message.content = content
         return self
+
     def receiver_id(self, receiver_id: str) -> "BotMessageBuilder":
         self._bot_message.receiver_id = receiver_id
         return self
+
     def receive_type(self, receive_type: str) -> "BotMessageBuilder":
         self._bot_message.receive_type = receive_type
         return self
-    
+
     def build(self) -> "BotMessage":
         return self._bot_message

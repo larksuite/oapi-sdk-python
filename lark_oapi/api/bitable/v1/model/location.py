@@ -33,27 +33,34 @@ class Location(object):
 class LocationBuilder(object):
     def __init__(self) -> None:
         self._location = Location()
+
     def location(self, location: str) -> "LocationBuilder":
         self._location.location = location
         return self
+
     def pname(self, pname: str) -> "LocationBuilder":
         self._location.pname = pname
         return self
+
     def cityname(self, cityname: str) -> "LocationBuilder":
         self._location.cityname = cityname
         return self
+
     def adname(self, adname: str) -> "LocationBuilder":
         self._location.adname = adname
         return self
+
     def address(self, address: str) -> "LocationBuilder":
         self._location.address = address
         return self
+
     def name(self, name: str) -> "LocationBuilder":
         self._location.name = name
         return self
+
     def full_address(self, full_address: str) -> "LocationBuilder":
         self._location.full_address = full_address
         return self
-    
+
     def build(self) -> "Location":
         return self._location

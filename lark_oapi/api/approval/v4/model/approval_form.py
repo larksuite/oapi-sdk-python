@@ -23,12 +23,14 @@ class ApprovalForm(object):
 class ApprovalFormBuilder(object):
     def __init__(self) -> None:
         self._approval_form = ApprovalForm()
+
     def form_content(self, form_content: str) -> "ApprovalFormBuilder":
         self._approval_form.form_content = form_content
         return self
+
     def widget_relation(self, widget_relation: str) -> "ApprovalFormBuilder":
         self._approval_form.widget_relation = widget_relation
         return self
-    
+
     def build(self) -> "ApprovalForm":
         return self._approval_form

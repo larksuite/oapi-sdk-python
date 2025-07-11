@@ -31,24 +31,30 @@ class DepartmentOverviewApplicationAppUsageRequestBody(object):
 class DepartmentOverviewApplicationAppUsageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._department_overview_application_app_usage_request_body = DepartmentOverviewApplicationAppUsageRequestBody()
+
     def date(self, date: str) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.date = date
         return self
+
     def cycle_type(self, cycle_type: int) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.cycle_type = cycle_type
         return self
+
     def department_id(self, department_id: str) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.department_id = department_id
         return self
+
     def recursion(self, recursion: int) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.recursion = recursion
         return self
+
     def page_size(self, page_size: int) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.page_size = page_size
         return self
+
     def page_token(self, page_token: str) -> "DepartmentOverviewApplicationAppUsageRequestBodyBuilder":
         self._department_overview_application_app_usage_request_body.page_token = page_token
         return self
-    
+
     def build(self) -> "DepartmentOverviewApplicationAppUsageRequestBody":
         return self._department_overview_application_app_usage_request_body

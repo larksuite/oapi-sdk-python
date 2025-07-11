@@ -34,67 +34,66 @@ class AuditLogListApplicationAuditLogRequestBuilder(object):
         audit_log_list_application_audit_log_request.uri = "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
         audit_log_list_application_audit_log_request.token_types = {AccessTokenType.USER}
         self._audit_log_list_application_audit_log_request: AuditLogListApplicationAuditLogRequest = audit_log_list_application_audit_log_request
-    
+
     def page_size(self, page_size: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.page_size = page_size
         self._audit_log_list_application_audit_log_request.add_query("page_size", page_size)
         return self
-    
+
     def offset(self, offset: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.offset = offset
         self._audit_log_list_application_audit_log_request.add_query("offset", offset)
         return self
-    
+
     def quick_query(self, quick_query: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.quick_query = quick_query
         self._audit_log_list_application_audit_log_request.add_query("quick_query", quick_query)
         return self
-    
+
     def from_(self, from_: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.from_ = from_
         self._audit_log_list_application_audit_log_request.add_query("from_", from_)
         return self
-    
+
     def to(self, to: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.to = to
         self._audit_log_list_application_audit_log_request.add_query("to", to)
         return self
-    
+
     def log_type(self, log_type: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.log_type = log_type
         self._audit_log_list_application_audit_log_request.add_query("log_type", log_type)
         return self
-    
+
     def filter(self, filter: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.filter = filter
         self._audit_log_list_application_audit_log_request.add_query("filter", filter)
         return self
-    
+
     def columns(self, columns: List[str]) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.columns = columns
         self._audit_log_list_application_audit_log_request.add_query("columns", columns)
         return self
-    
+
     def sort_by(self, sort_by: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.sort_by = sort_by
         self._audit_log_list_application_audit_log_request.add_query("sort_by", sort_by)
         return self
-    
+
     def sort_order(self, sort_order: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.sort_order = sort_order
         self._audit_log_list_application_audit_log_request.add_query("sort_order", sort_order)
         return self
-    
+
     def app_type(self, app_type: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.app_type = app_type
         self._audit_log_list_application_audit_log_request.add_query("app_type", app_type)
         return self
-    
+
     def namespace(self, namespace: str) -> "AuditLogListApplicationAuditLogRequestBuilder":
         self._audit_log_list_application_audit_log_request.namespace = namespace
         self._audit_log_list_application_audit_log_request.paths["namespace"] = str(namespace)
         return self
-    
 
     def build(self) -> AuditLogListApplicationAuditLogRequest:
         return self._audit_log_list_application_audit_log_request

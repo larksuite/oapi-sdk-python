@@ -23,12 +23,14 @@ class DatasetFieldType(object):
 class DatasetFieldTypeBuilder(object):
     def __init__(self) -> None:
         self._dataset_field_type = DatasetFieldType()
+
     def name(self, name: str) -> "DatasetFieldTypeBuilder":
         self._dataset_field_type.name = name
         return self
+
     def settings(self, settings: str) -> "DatasetFieldTypeBuilder":
         self._dataset_field_type.settings = settings
         return self
-    
+
     def build(self) -> "DatasetFieldType":
         return self._dataset_field_type

@@ -27,18 +27,22 @@ class SpaceHomePage(object):
 class SpaceHomePageBuilder(object):
     def __init__(self) -> None:
         self._space_home_page = SpaceHomePage()
+
     def node_id(self, node_id: str) -> "SpaceHomePageBuilder":
         self._space_home_page.node_id = node_id
         return self
+
     def obj_token(self, obj_token: str) -> "SpaceHomePageBuilder":
         self._space_home_page.obj_token = obj_token
         return self
+
     def obj_type(self, obj_type: int) -> "SpaceHomePageBuilder":
         self._space_home_page.obj_type = obj_type
         return self
+
     def url(self, url: str) -> "SpaceHomePageBuilder":
         self._space_home_page.url = url
         return self
-    
+
     def build(self) -> "SpaceHomePage":
         return self._space_home_page

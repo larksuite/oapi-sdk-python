@@ -27,18 +27,22 @@ class DataAssetKnowledgeChunkSetting(object):
 class DataAssetKnowledgeChunkSettingBuilder(object):
     def __init__(self) -> None:
         self._data_asset_knowledge_chunk_setting = DataAssetKnowledgeChunkSetting()
+
     def rule_type(self, rule_type: str) -> "DataAssetKnowledgeChunkSettingBuilder":
         self._data_asset_knowledge_chunk_setting.rule_type = rule_type
         return self
+
     def separate_type(self, separate_type: str) -> "DataAssetKnowledgeChunkSettingBuilder":
         self._data_asset_knowledge_chunk_setting.separate_type = separate_type
         return self
+
     def size(self, size: int) -> "DataAssetKnowledgeChunkSettingBuilder":
         self._data_asset_knowledge_chunk_setting.size = size
         return self
+
     def overlap(self, overlap: int) -> "DataAssetKnowledgeChunkSettingBuilder":
         self._data_asset_knowledge_chunk_setting.overlap = overlap
         return self
-    
+
     def build(self) -> "DataAssetKnowledgeChunkSetting":
         return self._data_asset_knowledge_chunk_setting

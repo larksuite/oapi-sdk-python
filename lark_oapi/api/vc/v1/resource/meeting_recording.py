@@ -23,7 +23,8 @@ class MeetingRecording(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMeetingRecordingRequest, option: Optional[RequestOption] = None) -> GetMeetingRecordingResponse:
+    def get(self, request: GetMeetingRecordingRequest,
+            option: Optional[RequestOption] = None) -> GetMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,32 @@ class MeetingRecording(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetMeetingRecordingRequest, option: Optional[RequestOption] = None) -> GetMeetingRecordingResponse:
+    async def aget(self, request: GetMeetingRecordingRequest,
+                   option: Optional[RequestOption] = None) -> GetMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
-    def set_permission(self, request: SetPermissionMeetingRecordingRequest, option: Optional[RequestOption] = None) -> SetPermissionMeetingRecordingResponse:
+
+    def set_permission(self, request: SetPermissionMeetingRecordingRequest,
+                       option: Optional[RequestOption] = None) -> SetPermissionMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +75,34 @@ class MeetingRecording(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: SetPermissionMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetPermissionMeetingRecordingResponse)
+        response: SetPermissionMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         SetPermissionMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aset_permission(self, request: SetPermissionMeetingRecordingRequest, option: Optional[RequestOption] = None) -> SetPermissionMeetingRecordingResponse:
+    async def aset_permission(self, request: SetPermissionMeetingRecordingRequest,
+                              option: Optional[RequestOption] = None) -> SetPermissionMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: SetPermissionMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetPermissionMeetingRecordingResponse)
+        response: SetPermissionMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         SetPermissionMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
-    def start(self, request: StartMeetingRecordingRequest, option: Optional[RequestOption] = None) -> StartMeetingRecordingResponse:
+
+    def start(self, request: StartMeetingRecordingRequest,
+              option: Optional[RequestOption] = None) -> StartMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +115,34 @@ class MeetingRecording(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: StartMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), StartMeetingRecordingResponse)
+        response: StartMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 StartMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def astart(self, request: StartMeetingRecordingRequest, option: Optional[RequestOption] = None) -> StartMeetingRecordingResponse:
+    async def astart(self, request: StartMeetingRecordingRequest,
+                     option: Optional[RequestOption] = None) -> StartMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: StartMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), StartMeetingRecordingResponse)
+        response: StartMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 StartMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
-    def stop(self, request: StopMeetingRecordingRequest, option: Optional[RequestOption] = None) -> StopMeetingRecordingResponse:
+
+    def stop(self, request: StopMeetingRecordingRequest,
+             option: Optional[RequestOption] = None) -> StopMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +155,26 @@ class MeetingRecording(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: StopMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), StopMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def astop(self, request: StopMeetingRecordingRequest, option: Optional[RequestOption] = None) -> StopMeetingRecordingResponse:
+    async def astop(self, request: StopMeetingRecordingRequest,
+                    option: Optional[RequestOption] = None) -> StopMeetingRecordingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: StopMeetingRecordingResponse = JSON.unmarshal(str(resp.content, UTF_8), StopMeetingRecordingResponse)
         response.raw = resp
 
         return response
-        
-    

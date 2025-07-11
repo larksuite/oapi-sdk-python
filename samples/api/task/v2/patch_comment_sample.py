@@ -5,68 +5,68 @@ from lark_oapi.api.task.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchCommentRequest = PatchCommentRequest.builder() \
-		.comment_id("7198104824246747156") \
-		.user_id_type("open_id") \
-		.request_body(PatchCommentRequestBody.builder()
-					  .comment(InputComment.builder().build())
-					  .update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchCommentRequest = PatchCommentRequest.builder() \
+        .comment_id("7198104824246747156") \
+        .user_id_type("open_id") \
+        .request_body(PatchCommentRequestBody.builder()
+                      .comment(InputComment.builder().build())
+                      .update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchCommentResponse = client.task.v2.comment.patch(request)
+    # 发起请求
+    response: PatchCommentResponse = client.task.v2.comment.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v2.comment.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v2.comment.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchCommentRequest = PatchCommentRequest.builder() \
-		.comment_id("7198104824246747156") \
-		.user_id_type("open_id") \
-		.request_body(PatchCommentRequestBody.builder()
-					  .comment(InputComment.builder().build())
-					  .update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchCommentRequest = PatchCommentRequest.builder() \
+        .comment_id("7198104824246747156") \
+        .user_id_type("open_id") \
+        .request_body(PatchCommentRequestBody.builder()
+                      .comment(InputComment.builder().build())
+                      .update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchCommentResponse = await client.task.v2.comment.apatch(request)
+    # 发起请求
+    response: PatchCommentResponse = await client.task.v2.comment.apatch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v2.comment.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v2.comment.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

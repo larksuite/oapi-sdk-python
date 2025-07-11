@@ -27,18 +27,22 @@ class ApplicationPrehireOptional(object):
 class ApplicationPrehireOptionalBuilder(object):
     def __init__(self) -> None:
         self._application_prehire_optional = ApplicationPrehireOptional()
+
     def with_talent_basic(self, with_talent_basic: bool) -> "ApplicationPrehireOptionalBuilder":
         self._application_prehire_optional.with_talent_basic = with_talent_basic
         return self
+
     def with_talent_extend(self, with_talent_extend: bool) -> "ApplicationPrehireOptionalBuilder":
         self._application_prehire_optional.with_talent_extend = with_talent_extend
         return self
+
     def with_job(self, with_job: bool) -> "ApplicationPrehireOptionalBuilder":
         self._application_prehire_optional.with_job = with_job
         return self
+
     def with_offer(self, with_offer: bool) -> "ApplicationPrehireOptionalBuilder":
         self._application_prehire_optional.with_offer = with_offer
         return self
-    
+
     def build(self) -> "ApplicationPrehireOptional":
         return self._application_prehire_optional

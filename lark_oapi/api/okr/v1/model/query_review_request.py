@@ -25,22 +25,21 @@ class QueryReviewRequestBuilder(object):
         query_review_request.uri = "/open-apis/okr/v1/reviews/query"
         query_review_request.token_types = {AccessTokenType.TENANT}
         self._query_review_request: QueryReviewRequest = query_review_request
-    
+
     def user_id_type(self, user_id_type: str) -> "QueryReviewRequestBuilder":
         self._query_review_request.user_id_type = user_id_type
         self._query_review_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def user_ids(self, user_ids: List[str]) -> "QueryReviewRequestBuilder":
         self._query_review_request.user_ids = user_ids
         self._query_review_request.add_query("user_ids", user_ids)
         return self
-    
+
     def period_ids(self, period_ids: List[str]) -> "QueryReviewRequestBuilder":
         self._query_review_request.period_ids = period_ids
         self._query_review_request.add_query("period_ids", period_ids)
         return self
-    
 
     def build(self) -> QueryReviewRequest:
         return self._query_review_request

@@ -25,15 +25,18 @@ class ExternalCommonAttachment(object):
 class ExternalCommonAttachmentBuilder(object):
     def __init__(self) -> None:
         self._external_common_attachment = ExternalCommonAttachment()
+
     def id(self, id: str) -> "ExternalCommonAttachmentBuilder":
         self._external_common_attachment.id = id
         return self
+
     def name(self, name: str) -> "ExternalCommonAttachmentBuilder":
         self._external_common_attachment.name = name
         return self
+
     def size(self, size: int) -> "ExternalCommonAttachmentBuilder":
         self._external_common_attachment.size = size
         return self
-    
+
     def build(self) -> "ExternalCommonAttachment":
         return self._external_common_attachment

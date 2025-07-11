@@ -26,15 +26,18 @@ class ListQuestionnaireResponseBody(object):
 class ListQuestionnaireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_questionnaire_response_body = ListQuestionnaireResponseBody()
+
     def has_more(self, has_more: bool) -> "ListQuestionnaireResponseBodyBuilder":
         self._list_questionnaire_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListQuestionnaireResponseBodyBuilder":
         self._list_questionnaire_response_body.page_token = page_token
         return self
+
     def items(self, items: List[Questionnaire]) -> "ListQuestionnaireResponseBodyBuilder":
         self._list_questionnaire_response_body.items = items
         return self
-    
+
     def build(self) -> "ListQuestionnaireResponseBody":
         return self._list_questionnaire_response_body

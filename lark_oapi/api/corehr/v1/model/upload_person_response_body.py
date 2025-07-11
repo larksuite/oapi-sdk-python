@@ -21,9 +21,10 @@ class UploadPersonResponseBody(object):
 class UploadPersonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_person_response_body = UploadPersonResponseBody()
+
     def id(self, id: str) -> "UploadPersonResponseBodyBuilder":
         self._upload_person_response_body.id = id
         return self
-    
+
     def build(self) -> "UploadPersonResponseBody":
         return self._upload_person_response_body

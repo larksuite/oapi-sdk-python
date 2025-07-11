@@ -31,21 +31,26 @@ class ChatTab(object):
 class ChatTabBuilder(object):
     def __init__(self) -> None:
         self._chat_tab = ChatTab()
+
     def tab_id(self, tab_id: str) -> "ChatTabBuilder":
         self._chat_tab.tab_id = tab_id
         return self
+
     def tab_name(self, tab_name: str) -> "ChatTabBuilder":
         self._chat_tab.tab_name = tab_name
         return self
+
     def tab_type(self, tab_type: str) -> "ChatTabBuilder":
         self._chat_tab.tab_type = tab_type
         return self
+
     def tab_content(self, tab_content: ChatTabContent) -> "ChatTabBuilder":
         self._chat_tab.tab_content = tab_content
         return self
+
     def tab_config(self, tab_config: ChatTabConfig) -> "ChatTabBuilder":
         self._chat_tab.tab_config = tab_config
         return self
-    
+
     def build(self) -> "ChatTab":
         return self._chat_tab

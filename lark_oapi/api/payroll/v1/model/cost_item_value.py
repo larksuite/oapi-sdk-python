@@ -23,12 +23,14 @@ class CostItemValue(object):
 class CostItemValueBuilder(object):
     def __init__(self) -> None:
         self._cost_item_value = CostItemValue()
+
     def id(self, id: str) -> "CostItemValueBuilder":
         self._cost_item_value.id = id
         return self
+
     def value(self, value: str) -> "CostItemValueBuilder":
         self._cost_item_value.value = value
         return self
-    
+
     def build(self) -> "CostItemValue":
         return self._cost_item_value

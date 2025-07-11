@@ -23,6 +23,10 @@ class Job(object):
         "effective_time": str,
         "expiration_time": str,
         "custom_fields": List[ObjectFieldData],
+        "created_by": str,
+        "created_time": str,
+        "updated_by": str,
+        "updated_time": str,
     }
 
     def __init__(self, d=None):
@@ -39,6 +43,10 @@ class Job(object):
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.created_by: Optional[str] = None
+        self.created_time: Optional[str] = None
+        self.updated_by: Optional[str] = None
+        self.updated_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,45 +57,74 @@ class Job(object):
 class JobBuilder(object):
     def __init__(self) -> None:
         self._job = Job()
+
     def id(self, id: str) -> "JobBuilder":
         self._job.id = id
         return self
+
     def code(self, code: str) -> "JobBuilder":
         self._job.code = code
         return self
+
     def name(self, name: List[I18n]) -> "JobBuilder":
         self._job.name = name
         return self
+
     def description(self, description: List[I18n]) -> "JobBuilder":
         self._job.description = description
         return self
+
     def active(self, active: bool) -> "JobBuilder":
         self._job.active = active
         return self
+
     def job_title(self, job_title: List[I18n]) -> "JobBuilder":
         self._job.job_title = job_title
         return self
+
     def pathway_id(self, pathway_id: str) -> "JobBuilder":
         self._job.pathway_id = pathway_id
         return self
+
     def job_family_id_list(self, job_family_id_list: List[str]) -> "JobBuilder":
         self._job.job_family_id_list = job_family_id_list
         return self
+
     def job_level_id_list(self, job_level_id_list: List[str]) -> "JobBuilder":
         self._job.job_level_id_list = job_level_id_list
         return self
+
     def working_hours_type_id(self, working_hours_type_id: str) -> "JobBuilder":
         self._job.working_hours_type_id = working_hours_type_id
         return self
+
     def effective_time(self, effective_time: str) -> "JobBuilder":
         self._job.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "JobBuilder":
         self._job.expiration_time = expiration_time
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobBuilder":
         self._job.custom_fields = custom_fields
         return self
-    
+
+    def created_by(self, created_by: str) -> "JobBuilder":
+        self._job.created_by = created_by
+        return self
+
+    def created_time(self, created_time: str) -> "JobBuilder":
+        self._job.created_time = created_time
+        return self
+
+    def updated_by(self, updated_by: str) -> "JobBuilder":
+        self._job.updated_by = updated_by
+        return self
+
+    def updated_time(self, updated_time: str) -> "JobBuilder":
+        self._job.updated_time = updated_time
+        return self
+
     def build(self) -> "Job":
         return self._job

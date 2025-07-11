@@ -17,7 +17,8 @@ class PaymentActivityDetail(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListPaymentActivityDetailRequest, option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
+    def list(self, request: ListPaymentActivityDetailRequest,
+             option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class PaymentActivityDetail(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaymentActivityDetailResponse)
+        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ListPaymentActivityDetailResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListPaymentActivityDetailRequest, option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
+    async def alist(self, request: ListPaymentActivityDetailRequest,
+                    option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaymentActivityDetailResponse)
+        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ListPaymentActivityDetailResponse)
         response.raw = resp
 
         return response
-        
-    

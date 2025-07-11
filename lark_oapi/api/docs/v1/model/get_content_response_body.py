@@ -21,9 +21,10 @@ class GetContentResponseBody(object):
 class GetContentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_content_response_body = GetContentResponseBody()
+
     def content(self, content: str) -> "GetContentResponseBodyBuilder":
         self._get_content_response_body.content = content
         return self
-    
+
     def build(self) -> "GetContentResponseBody":
         return self._get_content_response_body

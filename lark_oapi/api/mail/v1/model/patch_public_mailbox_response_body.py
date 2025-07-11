@@ -27,18 +27,22 @@ class PatchPublicMailboxResponseBody(object):
 class PatchPublicMailboxResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_public_mailbox_response_body = PatchPublicMailboxResponseBody()
+
     def public_mailbox_id(self, public_mailbox_id: str) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.public_mailbox_id = public_mailbox_id
         return self
+
     def email(self, email: str) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.email = email
         return self
+
     def name(self, name: str) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.name = name
         return self
+
     def geo(self, geo: str) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.geo = geo
         return self
-    
+
     def build(self) -> "PatchPublicMailboxResponseBody":
         return self._patch_public_mailbox_response_body

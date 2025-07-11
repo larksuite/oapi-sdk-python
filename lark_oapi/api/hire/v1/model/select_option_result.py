@@ -31,24 +31,30 @@ class SelectOptionResult(object):
 class SelectOptionResultBuilder(object):
     def __init__(self) -> None:
         self._select_option_result = SelectOptionResult()
+
     def option_id(self, option_id: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_id = option_id
         return self
+
     def option_name(self, option_name: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_name = option_name
         return self
+
     def option_en_name(self, option_en_name: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_en_name = option_en_name
         return self
+
     def option_desc(self, option_desc: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_desc = option_desc
         return self
+
     def option_en_desc(self, option_en_desc: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_en_desc = option_en_desc
         return self
+
     def is_selected(self, is_selected: bool) -> "SelectOptionResultBuilder":
         self._select_option_result.is_selected = is_selected
         return self
-    
+
     def build(self) -> "SelectOptionResult":
         return self._select_option_result

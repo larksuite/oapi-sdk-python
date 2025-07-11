@@ -5,64 +5,65 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchSaveWorkforcePlanDetailRowRequest = BatchSaveWorkforcePlanDetailRowRequest.builder() \
-		.request_body(WorkforcePlanDetailReq.builder()
-					  .workforce_plan_id("7430330781544564268")
-					  .items([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchSaveWorkforcePlanDetailRowRequest = BatchSaveWorkforcePlanDetailRowRequest.builder() \
+        .request_body(WorkforcePlanDetailReq.builder()
+                      .workforce_plan_id("7430330781544564268")
+                      .items([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchSaveWorkforcePlanDetailRowResponse = client.corehr.v2.workforce_plan_detail_row.batch_save(request)
+    # 发起请求
+    response: BatchSaveWorkforcePlanDetailRowResponse = client.corehr.v2.workforce_plan_detail_row.batch_save(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.workforce_plan_detail_row.batch_save failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.workforce_plan_detail_row.batch_save failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchSaveWorkforcePlanDetailRowRequest = BatchSaveWorkforcePlanDetailRowRequest.builder() \
-		.request_body(WorkforcePlanDetailReq.builder()
-					  .workforce_plan_id("7430330781544564268")
-					  .items([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchSaveWorkforcePlanDetailRowRequest = BatchSaveWorkforcePlanDetailRowRequest.builder() \
+        .request_body(WorkforcePlanDetailReq.builder()
+                      .workforce_plan_id("7430330781544564268")
+                      .items([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchSaveWorkforcePlanDetailRowResponse = await client.corehr.v2.workforce_plan_detail_row.abatch_save(request)
+    # 发起请求
+    response: BatchSaveWorkforcePlanDetailRowResponse = await client.corehr.v2.workforce_plan_detail_row.abatch_save(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.workforce_plan_detail_row.abatch_save failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.workforce_plan_detail_row.abatch_save failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

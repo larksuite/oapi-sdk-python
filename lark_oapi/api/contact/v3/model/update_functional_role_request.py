@@ -25,12 +25,12 @@ class UpdateFunctionalRoleRequestBuilder(object):
         update_functional_role_request.uri = "/open-apis/contact/v3/functional_roles/:role_id"
         update_functional_role_request.token_types = {AccessTokenType.TENANT}
         self._update_functional_role_request: UpdateFunctionalRoleRequest = update_functional_role_request
-    
+
     def role_id(self, role_id: str) -> "UpdateFunctionalRoleRequestBuilder":
         self._update_functional_role_request.role_id = role_id
         self._update_functional_role_request.paths["role_id"] = str(role_id)
         return self
-    
+
     def request_body(self, request_body: UpdateFunctionalRoleRequestBody) -> "UpdateFunctionalRoleRequestBuilder":
         self._update_functional_role_request.request_body = request_body
         self._update_functional_role_request.body = request_body

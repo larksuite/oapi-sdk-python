@@ -36,30 +36,38 @@ class VerifDatasourceItem(object):
 class VerifDatasourceItemBuilder(object):
     def __init__(self) -> None:
         self._verif_datasource_item = VerifDatasourceItem()
+
     def name(self, name: IdWithName) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.name = name
         return self
+
     def field_id(self, field_id: str) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.field_id = field_id
         return self
+
     def field_type(self, field_type: int) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.field_type = field_type
         return self
+
     def object_api_name(self, object_api_name: str) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.object_api_name = object_api_name
         return self
+
     def field_api_name(self, field_api_name: str) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.field_api_name = field_api_name
         return self
+
     def decimal_places(self, decimal_places: int) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.decimal_places = decimal_places
         return self
+
     def object_type(self, object_type: int) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.object_type = object_type
         return self
+
     def source_type(self, source_type: int) -> "VerifDatasourceItemBuilder":
         self._verif_datasource_item.source_type = source_type
         return self
-    
+
     def build(self) -> "VerifDatasourceItem":
         return self._verif_datasource_item

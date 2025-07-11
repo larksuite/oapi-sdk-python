@@ -37,27 +37,35 @@ class TalentCustomizedValue(object):
 class TalentCustomizedValueBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_value = TalentCustomizedValue()
+
     def content(self, content: str) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.content = content
         return self
+
     def option(self, option: TalentCustomizedOption) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.option = option
         return self
+
     def option_list(self, option_list: List[TalentCustomizedOption]) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.option_list = option_list
         return self
+
     def time_range(self, time_range: TalentCustomizedTimeRange) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.time_range = time_range
         return self
+
     def time(self, time: str) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.time = time
         return self
+
     def number(self, number: str) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.number = number
         return self
-    def customized_attachment(self, customized_attachment: List[TalentCustomizedAttachment]) -> "TalentCustomizedValueBuilder":
+
+    def customized_attachment(self, customized_attachment: List[
+        TalentCustomizedAttachment]) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.customized_attachment = customized_attachment
         return self
-    
+
     def build(self) -> "TalentCustomizedValue":
         return self._talent_customized_value

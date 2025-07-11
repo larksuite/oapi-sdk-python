@@ -39,33 +39,42 @@ class MyAiEventDetail(object):
 class MyAiEventDetailBuilder(object):
     def __init__(self) -> None:
         self._my_ai_event_detail = MyAiEventDetail()
+
     def event_id(self, event_id: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.event_id = event_id
         return self
+
     def summary(self, summary: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.summary = summary
         return self
+
     def start_time(self, start_time: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.end_time = end_time
         return self
+
     def timezone(self, timezone: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.timezone = timezone
         return self
+
     def recurrence_rule(self, recurrence_rule: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.recurrence_rule = recurrence_rule
         return self
+
     def participants(self, participants: List[UserMeta]) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.participants = participants
         return self
+
     def rooms(self, rooms: List[RoomMeta]) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.rooms = rooms
         return self
+
     def access_role(self, access_role: str) -> "MyAiEventDetailBuilder":
         self._my_ai_event_detail.access_role = access_role
         return self
-    
+
     def build(self) -> "MyAiEventDetail":
         return self._my_ai_event_detail

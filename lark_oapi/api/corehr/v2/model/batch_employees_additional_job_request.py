@@ -28,28 +28,29 @@ class BatchEmployeesAdditionalJobRequestBuilder(object):
         batch_employees_additional_job_request.uri = "/open-apis/corehr/v2/employees/additional_jobs/batch"
         batch_employees_additional_job_request.token_types = {AccessTokenType.TENANT}
         self._batch_employees_additional_job_request: BatchEmployeesAdditionalJobRequest = batch_employees_additional_job_request
-    
+
     def page_size(self, page_size: int) -> "BatchEmployeesAdditionalJobRequestBuilder":
         self._batch_employees_additional_job_request.page_size = page_size
         self._batch_employees_additional_job_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "BatchEmployeesAdditionalJobRequestBuilder":
         self._batch_employees_additional_job_request.page_token = page_token
         self._batch_employees_additional_job_request.add_query("page_token", page_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "BatchEmployeesAdditionalJobRequestBuilder":
         self._batch_employees_additional_job_request.user_id_type = user_id_type
         self._batch_employees_additional_job_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "BatchEmployeesAdditionalJobRequestBuilder":
         self._batch_employees_additional_job_request.department_id_type = department_id_type
         self._batch_employees_additional_job_request.add_query("department_id_type", department_id_type)
         return self
-    
-    def request_body(self, request_body: BatchEmployeesAdditionalJobRequestBody) -> "BatchEmployeesAdditionalJobRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchEmployeesAdditionalJobRequestBody) -> "BatchEmployeesAdditionalJobRequestBuilder":
         self._batch_employees_additional_job_request.request_body = request_body
         self._batch_employees_additional_job_request.body = request_body
         return self

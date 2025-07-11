@@ -23,12 +23,11 @@ class PreviewAttachmentRequestBuilder(object):
         preview_attachment_request.uri = "/open-apis/hire/v1/attachments/:attachment_id/preview"
         preview_attachment_request.token_types = {AccessTokenType.TENANT}
         self._preview_attachment_request: PreviewAttachmentRequest = preview_attachment_request
-    
+
     def attachment_id(self, attachment_id: str) -> "PreviewAttachmentRequestBuilder":
         self._preview_attachment_request.attachment_id = attachment_id
         self._preview_attachment_request.paths["attachment_id"] = str(attachment_id)
         return self
-    
 
     def build(self) -> PreviewAttachmentRequest:
         return self._preview_attachment_request

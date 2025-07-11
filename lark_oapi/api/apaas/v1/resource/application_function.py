@@ -17,7 +17,8 @@ class ApplicationFunction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def invoke(self, request: InvokeApplicationFunctionRequest, option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
+    def invoke(self, request: InvokeApplicationFunctionRequest,
+               option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class ApplicationFunction(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), InvokeApplicationFunctionResponse)
+        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     InvokeApplicationFunctionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def ainvoke(self, request: InvokeApplicationFunctionRequest, option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
+    async def ainvoke(self, request: InvokeApplicationFunctionRequest,
+                      option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), InvokeApplicationFunctionResponse)
+        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     InvokeApplicationFunctionResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -26,17 +26,17 @@ class WriteUserGroupUserRelRequestBuilder(object):
         write_user_group_user_rel_request.uri = "/open-apis/performance/v2/user_group_user_rels/write"
         write_user_group_user_rel_request.token_types = {AccessTokenType.TENANT}
         self._write_user_group_user_rel_request: WriteUserGroupUserRelRequest = write_user_group_user_rel_request
-    
+
     def client_token(self, client_token: str) -> "WriteUserGroupUserRelRequestBuilder":
         self._write_user_group_user_rel_request.client_token = client_token
         self._write_user_group_user_rel_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "WriteUserGroupUserRelRequestBuilder":
         self._write_user_group_user_rel_request.user_id_type = user_id_type
         self._write_user_group_user_rel_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: WriteUserGroupUserRelRequestBody) -> "WriteUserGroupUserRelRequestBuilder":
         self._write_user_group_user_rel_request.request_body = request_body
         self._write_user_group_user_rel_request.body = request_body

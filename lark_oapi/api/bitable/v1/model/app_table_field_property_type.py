@@ -26,15 +26,18 @@ class AppTableFieldPropertyType(object):
 class AppTableFieldPropertyTypeBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property_type = AppTableFieldPropertyType()
+
     def data_type(self, data_type: int) -> "AppTableFieldPropertyTypeBuilder":
         self._app_table_field_property_type.data_type = data_type
         return self
+
     def ui_property(self, ui_property: AppTableFieldPropertyTypeUiProperty) -> "AppTableFieldPropertyTypeBuilder":
         self._app_table_field_property_type.ui_property = ui_property
         return self
+
     def ui_type(self, ui_type: str) -> "AppTableFieldPropertyTypeBuilder":
         self._app_table_field_property_type.ui_type = ui_type
         return self
-    
+
     def build(self) -> "AppTableFieldPropertyType":
         return self._app_table_field_property_type

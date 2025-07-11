@@ -35,7 +35,8 @@ class Instance(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_sign(self, request: AddSignInstanceRequest, option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
+    def add_sign(self, request: AddSignInstanceRequest,
+                 option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,32 +49,30 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: AddSignInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), AddSignInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aadd_sign(self, request: AddSignInstanceRequest, option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
+    async def aadd_sign(self, request: AddSignInstanceRequest,
+                        option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: AddSignInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), AddSignInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def cancel(self, request: CancelInstanceRequest, option: Optional[RequestOption] = None) -> CancelInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -87,32 +86,30 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CancelInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acancel(self, request: CancelInstanceRequest, option: Optional[RequestOption] = None) -> CancelInstanceResponse:
+    async def acancel(self, request: CancelInstanceRequest,
+                      option: Optional[RequestOption] = None) -> CancelInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CancelInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def cc(self, request: CcInstanceRequest, option: Optional[RequestOption] = None) -> CcInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -126,13 +123,12 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CcInstanceResponse)
         response.raw = resp
 
         return response
-        
 
     async def acc(self, request: CcInstanceRequest, option: Optional[RequestOption] = None) -> CcInstanceResponse:
         if option is None:
@@ -141,17 +137,15 @@ class Instance(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CcInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def create(self, request: CreateInstanceRequest, option: Optional[RequestOption] = None) -> CreateInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -165,32 +159,30 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateInstanceRequest, option: Optional[RequestOption] = None) -> CreateInstanceResponse:
+    async def acreate(self, request: CreateInstanceRequest,
+                      option: Optional[RequestOption] = None) -> CreateInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetInstanceRequest, option: Optional[RequestOption] = None) -> GetInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -204,13 +196,12 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInstanceResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetInstanceRequest, option: Optional[RequestOption] = None) -> GetInstanceResponse:
         if option is None:
@@ -219,17 +210,15 @@ class Instance(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -243,13 +232,12 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
         if option is None:
@@ -258,18 +246,17 @@ class Instance(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
         response.raw = resp
 
         return response
-        
-    def preview(self, request: PreviewInstanceRequest, option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
+
+    def preview(self, request: PreviewInstanceRequest,
+                option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -282,32 +269,30 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PreviewInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), PreviewInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apreview(self, request: PreviewInstanceRequest, option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
+    async def apreview(self, request: PreviewInstanceRequest,
+                       option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PreviewInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), PreviewInstanceResponse)
         response.raw = resp
 
         return response
-        
+
     def query(self, request: QueryInstanceRequest, option: Optional[RequestOption] = None) -> QueryInstanceResponse:
         if option is None:
             option = RequestOption()
@@ -321,33 +306,32 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QueryInstanceRequest, option: Optional[RequestOption] = None) -> QueryInstanceResponse:
+    async def aquery(self, request: QueryInstanceRequest,
+                     option: Optional[RequestOption] = None) -> QueryInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryInstanceResponse)
         response.raw = resp
 
         return response
-        
-    def search_cc(self, request: SearchCcInstanceRequest, option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
+
+    def search_cc(self, request: SearchCcInstanceRequest,
+                  option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -360,33 +344,32 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchCcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCcInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch_cc(self, request: SearchCcInstanceRequest, option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
+    async def asearch_cc(self, request: SearchCcInstanceRequest,
+                         option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchCcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCcInstanceResponse)
         response.raw = resp
 
         return response
-        
-    def specified_rollback(self, request: SpecifiedRollbackInstanceRequest, option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
+
+    def specified_rollback(self, request: SpecifiedRollbackInstanceRequest,
+                           option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -399,30 +382,28 @@ class Instance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SpecifiedRollbackInstanceResponse)
+        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     SpecifiedRollbackInstanceResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aspecified_rollback(self, request: SpecifiedRollbackInstanceRequest, option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
+    async def aspecified_rollback(self, request: SpecifiedRollbackInstanceRequest,
+                                  option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SpecifiedRollbackInstanceResponse)
+        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     SpecifiedRollbackInstanceResponse)
         response.raw = resp
 
         return response
-        
-    

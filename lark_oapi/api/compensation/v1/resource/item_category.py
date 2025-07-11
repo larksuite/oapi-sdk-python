@@ -17,7 +17,8 @@ class ItemCategory(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListItemCategoryRequest, option: Optional[RequestOption] = None) -> ListItemCategoryResponse:
+    def list(self, request: ListItemCategoryRequest,
+             option: Optional[RequestOption] = None) -> ListItemCategoryResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class ItemCategory(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListItemCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemCategoryResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListItemCategoryRequest, option: Optional[RequestOption] = None) -> ListItemCategoryResponse:
+    async def alist(self, request: ListItemCategoryRequest,
+                    option: Optional[RequestOption] = None) -> ListItemCategoryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListItemCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemCategoryResponse)
         response.raw = resp
 
         return response
-        
-    

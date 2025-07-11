@@ -26,17 +26,17 @@ class CreateDraftRequestBuilder(object):
         create_draft_request.uri = "/open-apis/lingo/v1/drafts"
         create_draft_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_draft_request: CreateDraftRequest = create_draft_request
-    
+
     def repo_id(self, repo_id: int) -> "CreateDraftRequestBuilder":
         self._create_draft_request.repo_id = repo_id
         self._create_draft_request.add_query("repo_id", repo_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateDraftRequestBuilder":
         self._create_draft_request.user_id_type = user_id_type
         self._create_draft_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: Entity) -> "CreateDraftRequestBuilder":
         self._create_draft_request.request_body = request_body
         self._create_draft_request.body = request_body

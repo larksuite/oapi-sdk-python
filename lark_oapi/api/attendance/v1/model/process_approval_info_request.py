@@ -24,7 +24,7 @@ class ProcessApprovalInfoRequestBuilder(object):
         process_approval_info_request.uri = "/open-apis/attendance/v1/approval_infos/process"
         process_approval_info_request.token_types = {AccessTokenType.TENANT}
         self._process_approval_info_request: ProcessApprovalInfoRequest = process_approval_info_request
-    
+
     def request_body(self, request_body: ProcessApprovalInfoRequestBody) -> "ProcessApprovalInfoRequestBuilder":
         self._process_approval_info_request.request_body = request_body
         self._process_approval_info_request.body = request_body

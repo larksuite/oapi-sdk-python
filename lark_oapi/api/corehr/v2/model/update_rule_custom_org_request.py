@@ -24,7 +24,7 @@ class UpdateRuleCustomOrgRequestBuilder(object):
         update_rule_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs/update_rule"
         update_rule_custom_org_request.token_types = {AccessTokenType.TENANT}
         self._update_rule_custom_org_request: UpdateRuleCustomOrgRequest = update_rule_custom_org_request
-    
+
     def request_body(self, request_body: UpdateRuleCustomOrgRequestBody) -> "UpdateRuleCustomOrgRequestBuilder":
         self._update_rule_custom_org_request.request_body = request_body
         self._update_rule_custom_org_request.body = request_body

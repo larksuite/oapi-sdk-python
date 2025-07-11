@@ -25,15 +25,18 @@ class WriteUserGroupUserRelRequestBody(object):
 class WriteUserGroupUserRelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._write_user_group_user_rel_request_body = WriteUserGroupUserRelRequestBody()
+
     def group_id(self, group_id: str) -> "WriteUserGroupUserRelRequestBodyBuilder":
         self._write_user_group_user_rel_request_body.group_id = group_id
         return self
+
     def scope_visible_setting(self, scope_visible_setting: int) -> "WriteUserGroupUserRelRequestBodyBuilder":
         self._write_user_group_user_rel_request_body.scope_visible_setting = scope_visible_setting
         return self
+
     def user_ids(self, user_ids: List[str]) -> "WriteUserGroupUserRelRequestBodyBuilder":
         self._write_user_group_user_rel_request_body.user_ids = user_ids
         return self
-    
+
     def build(self) -> "WriteUserGroupUserRelRequestBody":
         return self._write_user_group_user_rel_request_body

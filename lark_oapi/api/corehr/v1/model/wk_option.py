@@ -28,18 +28,22 @@ class WkOption(object):
 class WkOptionBuilder(object):
     def __init__(self) -> None:
         self._wk_option = WkOption()
+
     def count(self, count: bool) -> "WkOptionBuilder":
         self._wk_option.count = count
         return self
+
     def offset(self, offset: int) -> "WkOptionBuilder":
         self._wk_option.offset = offset
         return self
+
     def limit(self, limit: int) -> "WkOptionBuilder":
         self._wk_option.limit = limit
         return self
+
     def sort_options(self, sort_options: List[SortOption]) -> "WkOptionBuilder":
         self._wk_option.sort_options = sort_options
         return self
-    
+
     def build(self) -> "WkOption":
         return self._wk_option

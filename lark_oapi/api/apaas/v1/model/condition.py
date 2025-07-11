@@ -29,18 +29,22 @@ class Condition(object):
 class ConditionBuilder(object):
     def __init__(self) -> None:
         self._condition = Condition()
+
     def index(self, index: str) -> "ConditionBuilder":
         self._condition.index = index
         return self
+
     def left(self, left: ConditionValue) -> "ConditionBuilder":
         self._condition.left = left
         return self
+
     def right(self, right: ConditionValue) -> "ConditionBuilder":
         self._condition.right = right
         return self
+
     def operator(self, operator: str) -> "ConditionBuilder":
         self._condition.operator = operator
         return self
-    
+
     def build(self) -> "Condition":
         return self._condition

@@ -52,54 +52,72 @@ class ProfileSettingEmploymentRecord(object):
 class ProfileSettingEmploymentRecordBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_employment_record = ProfileSettingEmploymentRecord()
+
     def employee_type(self, employee_type: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.employee_type = employee_type
         return self
+
     def department(self, department: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.department = department
         return self
+
     def direct_manager(self, direct_manager: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.direct_manager = direct_manager
         return self
+
     def working_hours_type(self, working_hours_type: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.working_hours_type = working_hours_type
         return self
+
     def cost_centers(self, cost_centers: List[ProfileSettingCostCenter]) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.cost_centers = cost_centers
         return self
-    def direct_manager_effective_time(self, direct_manager_effective_time: str) -> "ProfileSettingEmploymentRecordBuilder":
+
+    def direct_manager_effective_time(self,
+                                      direct_manager_effective_time: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.direct_manager_effective_time = direct_manager_effective_time
         return self
+
     def dotted_line_manager(self, dotted_line_manager: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.dotted_line_manager = dotted_line_manager
         return self
-    def dotted_line_manager_effective_time(self, dotted_line_manager_effective_time: str) -> "ProfileSettingEmploymentRecordBuilder":
+
+    def dotted_line_manager_effective_time(self,
+                                           dotted_line_manager_effective_time: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.dotted_line_manager_effective_time = dotted_line_manager_effective_time
         return self
+
     def job(self, job: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.job = job
         return self
+
     def job_family(self, job_family: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.job_family = job_family
         return self
+
     def job_level(self, job_level: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.job_level = job_level
         return self
+
     def job_grade(self, job_grade: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.job_grade = job_grade
         return self
+
     def work_location(self, work_location: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.work_location = work_location
         return self
+
     def weekly_working_hours(self, weekly_working_hours: int) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.weekly_working_hours = weekly_working_hours
         return self
+
     def position(self, position: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.position = position
         return self
+
     def pathway(self, pathway: str) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.pathway = pathway
         return self
-    
+
     def build(self) -> "ProfileSettingEmploymentRecord":
         return self._profile_setting_employment_record

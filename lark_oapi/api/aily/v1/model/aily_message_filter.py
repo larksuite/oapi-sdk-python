@@ -23,12 +23,14 @@ class AilyMessageFilter(object):
 class AilyMessageFilterBuilder(object):
     def __init__(self) -> None:
         self._aily_message_filter = AilyMessageFilter()
+
     def run_id(self, run_id: str) -> "AilyMessageFilterBuilder":
         self._aily_message_filter.run_id = run_id
         return self
+
     def with_partial_message(self, with_partial_message: bool) -> "AilyMessageFilterBuilder":
         self._aily_message_filter.with_partial_message = with_partial_message
         return self
-    
+
     def build(self) -> "AilyMessageFilter":
         return self._aily_message_filter

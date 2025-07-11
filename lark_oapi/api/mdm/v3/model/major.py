@@ -36,30 +36,38 @@ class Major(object):
 class MajorBuilder(object):
     def __init__(self) -> None:
         self._major = Major()
+
     def mdm_code(self, mdm_code: str) -> "MajorBuilder":
         self._major.mdm_code = mdm_code
         return self
+
     def name(self, name: I18nString) -> "MajorBuilder":
         self._major.name = name
         return self
+
     def superior_major(self, superior_major: str) -> "MajorBuilder":
         self._major.superior_major = superior_major
         return self
+
     def degree(self, degree: str) -> "MajorBuilder":
         self._major.degree = degree
         return self
+
     def level(self, level: str) -> "MajorBuilder":
         self._major.level = level
         return self
+
     def status(self, status: str) -> "MajorBuilder":
         self._major.status = status
         return self
+
     def remark(self, remark: str) -> "MajorBuilder":
         self._major.remark = remark
         return self
+
     def order_code(self, order_code: str) -> "MajorBuilder":
         self._major.order_code = order_code
         return self
-    
+
     def build(self) -> "Major":
         return self._major

@@ -32,24 +32,30 @@ class Tenant(object):
 class TenantBuilder(object):
     def __init__(self) -> None:
         self._tenant = Tenant()
+
     def name(self, name: str) -> "TenantBuilder":
         self._tenant.name = name
         return self
+
     def display_id(self, display_id: str) -> "TenantBuilder":
         self._tenant.display_id = display_id
         return self
+
     def tenant_tag(self, tenant_tag: int) -> "TenantBuilder":
         self._tenant.tenant_tag = tenant_tag
         return self
+
     def tenant_key(self, tenant_key: str) -> "TenantBuilder":
         self._tenant.tenant_key = tenant_key
         return self
+
     def avatar(self, avatar: Avatar) -> "TenantBuilder":
         self._tenant.avatar = avatar
         return self
+
     def domain(self, domain: str) -> "TenantBuilder":
         self._tenant.domain = domain
         return self
-    
+
     def build(self) -> "Tenant":
         return self._tenant

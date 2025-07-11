@@ -5,62 +5,62 @@ from lark_oapi.api.payroll.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ArchivePaymentActivityRequest = ArchivePaymentActivityRequest.builder() \
-		.request_body(ArchivePaymentActivityRequestBody.builder()
-					  .activity_id("111111")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ArchivePaymentActivityRequest = ArchivePaymentActivityRequest.builder() \
+        .request_body(ArchivePaymentActivityRequestBody.builder()
+                      .activity_id("111111")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ArchivePaymentActivityResponse = client.payroll.v1.payment_activity.archive(request)
+    # 发起请求
+    response: ArchivePaymentActivityResponse = client.payroll.v1.payment_activity.archive(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.payroll.v1.payment_activity.archive failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.payroll.v1.payment_activity.archive failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ArchivePaymentActivityRequest = ArchivePaymentActivityRequest.builder() \
-		.request_body(ArchivePaymentActivityRequestBody.builder()
-					  .activity_id("111111")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ArchivePaymentActivityRequest = ArchivePaymentActivityRequest.builder() \
+        .request_body(ArchivePaymentActivityRequestBody.builder()
+                      .activity_id("111111")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ArchivePaymentActivityResponse = await client.payroll.v1.payment_activity.aarchive(request)
+    # 发起请求
+    response: ArchivePaymentActivityResponse = await client.payroll.v1.payment_activity.aarchive(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.payroll.v1.payment_activity.aarchive failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.payroll.v1.payment_activity.aarchive failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

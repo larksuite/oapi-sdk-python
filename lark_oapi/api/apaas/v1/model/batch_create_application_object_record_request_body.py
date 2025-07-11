@@ -21,9 +21,10 @@ class BatchCreateApplicationObjectRecordRequestBody(object):
 class BatchCreateApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_application_object_record_request_body = BatchCreateApplicationObjectRecordRequestBody()
+
     def records(self, records: str) -> "BatchCreateApplicationObjectRecordRequestBodyBuilder":
         self._batch_create_application_object_record_request_body.records = records
         return self
-    
+
     def build(self) -> "BatchCreateApplicationObjectRecordRequestBody":
         return self._batch_create_application_object_record_request_body

@@ -27,18 +27,22 @@ class Board(object):
 class BoardBuilder(object):
     def __init__(self) -> None:
         self._board = Board()
+
     def token(self, token: str) -> "BoardBuilder":
         self._board.token = token
         return self
+
     def align(self, align: int) -> "BoardBuilder":
         self._board.align = align
         return self
+
     def width(self, width: int) -> "BoardBuilder":
         self._board.width = width
         return self
+
     def height(self, height: int) -> "BoardBuilder":
         self._board.height = height
         return self
-    
+
     def build(self) -> "Board":
         return self._board

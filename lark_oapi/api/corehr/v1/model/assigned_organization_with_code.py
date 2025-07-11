@@ -25,15 +25,18 @@ class AssignedOrganizationWithCode(object):
 class AssignedOrganizationWithCodeBuilder(object):
     def __init__(self) -> None:
         self._assigned_organization_with_code = AssignedOrganizationWithCode()
+
     def org_key(self, org_key: str) -> "AssignedOrganizationWithCodeBuilder":
         self._assigned_organization_with_code.org_key = org_key
         return self
+
     def org_ids(self, org_ids: List[str]) -> "AssignedOrganizationWithCodeBuilder":
         self._assigned_organization_with_code.org_ids = org_ids
         return self
+
     def org_codes(self, org_codes: List[str]) -> "AssignedOrganizationWithCodeBuilder":
         self._assigned_organization_with_code.org_codes = org_codes
         return self
-    
+
     def build(self) -> "AssignedOrganizationWithCode":
         return self._assigned_organization_with_code

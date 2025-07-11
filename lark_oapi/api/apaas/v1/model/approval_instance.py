@@ -37,30 +37,38 @@ class ApprovalInstance(object):
 class ApprovalInstanceBuilder(object):
     def __init__(self) -> None:
         self._approval_instance = ApprovalInstance()
+
     def id(self, id: str) -> "ApprovalInstanceBuilder":
         self._approval_instance.id = id
         return self
+
     def label(self, label: Dict[str, str]) -> "ApprovalInstanceBuilder":
         self._approval_instance.label = label
         return self
+
     def initiator(self, initiator: str) -> "ApprovalInstanceBuilder":
         self._approval_instance.initiator = initiator
         return self
+
     def instance_start_time(self, instance_start_time: str) -> "ApprovalInstanceBuilder":
         self._approval_instance.instance_start_time = instance_start_time
         return self
+
     def status(self, status: str) -> "ApprovalInstanceBuilder":
         self._approval_instance.status = status
         return self
+
     def tasks(self, tasks: List[ApprovalTask]) -> "ApprovalInstanceBuilder":
         self._approval_instance.tasks = tasks
         return self
+
     def comments(self, comments: List[ApprovalComment]) -> "ApprovalInstanceBuilder":
         self._approval_instance.comments = comments
         return self
+
     def api_id(self, api_id: str) -> "ApprovalInstanceBuilder":
         self._approval_instance.api_id = api_id
         return self
-    
+
     def build(self) -> "ApprovalInstance":
         return self._approval_instance

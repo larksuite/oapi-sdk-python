@@ -26,15 +26,18 @@ class IndicatorOption(object):
 class IndicatorOptionBuilder(object):
     def __init__(self) -> None:
         self._indicator_option = IndicatorOption()
+
     def id(self, id: str) -> "IndicatorOptionBuilder":
         self._indicator_option.id = id
         return self
+
     def name(self, name: I18n) -> "IndicatorOptionBuilder":
         self._indicator_option.name = name
         return self
+
     def lable(self, lable: str) -> "IndicatorOptionBuilder":
         self._indicator_option.lable = lable
         return self
-    
+
     def build(self) -> "IndicatorOption":
         return self._indicator_option

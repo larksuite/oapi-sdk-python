@@ -19,7 +19,8 @@ class ApplicationObject(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def oql_query(self, request: OqlQueryApplicationObjectRequest, option: Optional[RequestOption] = None) -> OqlQueryApplicationObjectResponse:
+    def oql_query(self, request: OqlQueryApplicationObjectRequest,
+                  option: Optional[RequestOption] = None) -> OqlQueryApplicationObjectResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,34 @@ class ApplicationObject(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: OqlQueryApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8), OqlQueryApplicationObjectResponse)
+        response: OqlQueryApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     OqlQueryApplicationObjectResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aoql_query(self, request: OqlQueryApplicationObjectRequest, option: Optional[RequestOption] = None) -> OqlQueryApplicationObjectResponse:
+    async def aoql_query(self, request: OqlQueryApplicationObjectRequest,
+                         option: Optional[RequestOption] = None) -> OqlQueryApplicationObjectResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: OqlQueryApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8), OqlQueryApplicationObjectResponse)
+        response: OqlQueryApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     OqlQueryApplicationObjectResponse)
         response.raw = resp
 
         return response
-        
-    def search(self, request: SearchApplicationObjectRequest, option: Optional[RequestOption] = None) -> SearchApplicationObjectResponse:
+
+    def search(self, request: SearchApplicationObjectRequest,
+               option: Optional[RequestOption] = None) -> SearchApplicationObjectResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +73,28 @@ class ApplicationObject(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchApplicationObjectResponse)
+        response: SearchApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   SearchApplicationObjectResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchApplicationObjectRequest, option: Optional[RequestOption] = None) -> SearchApplicationObjectResponse:
+    async def asearch(self, request: SearchApplicationObjectRequest,
+                      option: Optional[RequestOption] = None) -> SearchApplicationObjectResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchApplicationObjectResponse)
+        response: SearchApplicationObjectResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   SearchApplicationObjectResponse)
         response.raw = resp
 
         return response
-        
-    

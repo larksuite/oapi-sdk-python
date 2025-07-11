@@ -26,15 +26,18 @@ class ReviewUnit(object):
 class ReviewUnitBuilder(object):
     def __init__(self) -> None:
         self._review_unit = ReviewUnit()
+
     def unit_id(self, unit_id: str) -> "ReviewUnitBuilder":
         self._review_unit.unit_id = unit_id
         return self
+
     def is_unknown(self, is_unknown: bool) -> "ReviewUnitBuilder":
         self._review_unit.is_unknown = is_unknown
         return self
+
     def data(self, data: List[ReviewDetail]) -> "ReviewUnitBuilder":
         self._review_unit.data = data
         return self
-    
+
     def build(self) -> "ReviewUnit":
         return self._review_unit

@@ -46,36 +46,46 @@ class EmergencyContact(object):
 class EmergencyContactBuilder(object):
     def __init__(self) -> None:
         self._emergency_contact = EmergencyContact()
+
     def id(self, id: str) -> "EmergencyContactBuilder":
         self._emergency_contact.id = id
         return self
+
     def name(self, name: PersonName) -> "EmergencyContactBuilder":
         self._emergency_contact.name = name
         return self
+
     def relationship(self, relationship: Enum) -> "EmergencyContactBuilder":
         self._emergency_contact.relationship = relationship
         return self
+
     def phone_ist(self, phone_ist: List[Phone]) -> "EmergencyContactBuilder":
         self._emergency_contact.phone_ist = phone_ist
         return self
+
     def phone_list(self, phone_list: List[Phone]) -> "EmergencyContactBuilder":
         self._emergency_contact.phone_list = phone_list
         return self
+
     def legal_name(self, legal_name: str) -> "EmergencyContactBuilder":
         self._emergency_contact.legal_name = legal_name
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmergencyContactBuilder":
         self._emergency_contact.custom_fields = custom_fields
         return self
+
     def address(self, address: Address) -> "EmergencyContactBuilder":
         self._emergency_contact.address = address
         return self
+
     def email(self, email: Email) -> "EmergencyContactBuilder":
         self._emergency_contact.email = email
         return self
+
     def is_primary(self, is_primary: bool) -> "EmergencyContactBuilder":
         self._emergency_contact.is_primary = is_primary
         return self
-    
+
     def build(self) -> "EmergencyContact":
         return self._emergency_contact

@@ -35,30 +35,38 @@ class ResumeEducation(object):
 class ResumeEducationBuilder(object):
     def __init__(self) -> None:
         self._resume_education = ResumeEducation()
+
     def school(self, school: str) -> "ResumeEducationBuilder":
         self._resume_education.school = school
         return self
+
     def start_date(self, start_date: str) -> "ResumeEducationBuilder":
         self._resume_education.start_date = start_date
         return self
+
     def start_time(self, start_time: str) -> "ResumeEducationBuilder":
         self._resume_education.start_time = start_time
         return self
+
     def end_date(self, end_date: str) -> "ResumeEducationBuilder":
         self._resume_education.end_date = end_date
         return self
+
     def end_time(self, end_time: str) -> "ResumeEducationBuilder":
         self._resume_education.end_time = end_time
         return self
+
     def major(self, major: str) -> "ResumeEducationBuilder":
         self._resume_education.major = major
         return self
+
     def degree(self, degree: str) -> "ResumeEducationBuilder":
         self._resume_education.degree = degree
         return self
+
     def qualification(self, qualification: int) -> "ResumeEducationBuilder":
         self._resume_education.qualification = qualification
         return self
-    
+
     def build(self) -> "ResumeEducation":
         return self._resume_education

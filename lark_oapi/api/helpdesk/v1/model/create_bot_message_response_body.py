@@ -21,9 +21,10 @@ class CreateBotMessageResponseBody(object):
 class CreateBotMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_bot_message_response_body = CreateBotMessageResponseBody()
+
     def message_id(self, message_id: str) -> "CreateBotMessageResponseBodyBuilder":
         self._create_bot_message_response_body.message_id = message_id
         return self
-    
+
     def build(self) -> "CreateBotMessageResponseBody":
         return self._create_bot_message_response_body

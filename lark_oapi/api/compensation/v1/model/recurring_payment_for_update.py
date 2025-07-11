@@ -35,30 +35,38 @@ class RecurringPaymentForUpdate(object):
 class RecurringPaymentForUpdateBuilder(object):
     def __init__(self) -> None:
         self._recurring_payment_for_update = RecurringPaymentForUpdate()
+
     def id(self, id: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.id = id
         return self
+
     def each_amount(self, each_amount: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.each_amount = each_amount
         return self
+
     def start_date(self, start_date: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.end_date = end_date
         return self
+
     def currency_id(self, currency_id: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.currency_id = currency_id
         return self
+
     def issuance_type(self, issuance_type: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.issuance_type = issuance_type
         return self
+
     def remark(self, remark: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.remark = remark
         return self
+
     def issuance_country_region_id(self, issuance_country_region_id: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.issuance_country_region_id = issuance_country_region_id
         return self
-    
+
     def build(self) -> "RecurringPaymentForUpdate":
         return self._recurring_payment_for_update

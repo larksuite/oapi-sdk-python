@@ -38,30 +38,38 @@ class ReserveMeetingSetting(object):
 class ReserveMeetingSettingBuilder(object):
     def __init__(self) -> None:
         self._reserve_meeting_setting = ReserveMeetingSetting()
+
     def topic(self, topic: str) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.topic = topic
         return self
+
     def action_permissions(self, action_permissions: List[ReserveActionPermission]) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.action_permissions = action_permissions
         return self
+
     def meeting_initial_type(self, meeting_initial_type: int) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.meeting_initial_type = meeting_initial_type
         return self
+
     def meeting_connect(self, meeting_connect: bool) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.meeting_connect = meeting_connect
         return self
+
     def call_setting(self, call_setting: ReserveCallSetting) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.call_setting = call_setting
         return self
+
     def auto_record(self, auto_record: bool) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.auto_record = auto_record
         return self
+
     def assign_host_list(self, assign_host_list: List[ReserveAssignHost]) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.assign_host_list = assign_host_list
         return self
+
     def password(self, password: str) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.password = password
         return self
-    
+
     def build(self) -> "ReserveMeetingSetting":
         return self._reserve_meeting_setting

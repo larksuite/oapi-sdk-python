@@ -25,15 +25,18 @@ class OperateAgencyAccountAgencyRequestBody(object):
 class OperateAgencyAccountAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._operate_agency_account_agency_request_body = OperateAgencyAccountAgencyRequestBody()
+
     def option(self, option: int) -> "OperateAgencyAccountAgencyRequestBodyBuilder":
         self._operate_agency_account_agency_request_body.option = option
         return self
+
     def id(self, id: str) -> "OperateAgencyAccountAgencyRequestBodyBuilder":
         self._operate_agency_account_agency_request_body.id = id
         return self
+
     def reason(self, reason: str) -> "OperateAgencyAccountAgencyRequestBodyBuilder":
         self._operate_agency_account_agency_request_body.reason = reason
         return self
-    
+
     def build(self) -> "OperateAgencyAccountAgencyRequestBody":
         return self._operate_agency_account_agency_request_body

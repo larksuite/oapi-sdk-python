@@ -31,21 +31,28 @@ class SocialArchiveEventDetail(object):
 class SocialArchiveEventDetailBuilder(object):
     def __init__(self) -> None:
         self._social_archive_event_detail = SocialArchiveEventDetail()
+
     def insurance_type(self, insurance_type: str) -> "SocialArchiveEventDetailBuilder":
         self._social_archive_event_detail.insurance_type = insurance_type
         return self
+
     def operate_type(self, operate_type: str) -> "SocialArchiveEventDetailBuilder":
         self._social_archive_event_detail.operate_type = operate_type
         return self
+
     def source_type(self, source_type: str) -> "SocialArchiveEventDetailBuilder":
         self._social_archive_event_detail.source_type = source_type
         return self
-    def after_social_archive_detail(self, after_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
+
+    def after_social_archive_detail(self,
+                                    after_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
         self._social_archive_event_detail.after_social_archive_detail = after_social_archive_detail
         return self
-    def before_social_archive_detail(self, before_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
+
+    def before_social_archive_detail(self,
+                                     before_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
         self._social_archive_event_detail.before_social_archive_detail = before_social_archive_detail
         return self
-    
+
     def build(self) -> "SocialArchiveEventDetail":
         return self._social_archive_event_detail

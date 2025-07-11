@@ -51,51 +51,66 @@ class ArchiveDetail(object):
 class ArchiveDetailBuilder(object):
     def __init__(self) -> None:
         self._archive_detail = ArchiveDetail()
+
     def user_id(self, user_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.user_id = user_id
         return self
+
     def id(self, id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.id = id
         return self
+
     def tid(self, tid: str) -> "ArchiveDetailBuilder":
         self._archive_detail.tid = tid
         return self
+
     def plan_id(self, plan_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.plan_id = plan_id
         return self
+
     def plan_tid(self, plan_tid: str) -> "ArchiveDetailBuilder":
         self._archive_detail.plan_tid = plan_tid
         return self
+
     def currency_id(self, currency_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.currency_id = currency_id
         return self
+
     def change_reason_id(self, change_reason_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.change_reason_id = change_reason_id
         return self
+
     def change_description(self, change_description: str) -> "ArchiveDetailBuilder":
         self._archive_detail.change_description = change_description
         return self
+
     def effective_date(self, effective_date: str) -> "ArchiveDetailBuilder":
         self._archive_detail.effective_date = effective_date
         return self
+
     def expiration_date(self, expiration_date: str) -> "ArchiveDetailBuilder":
         self._archive_detail.expiration_date = expiration_date
         return self
+
     def salary_level_id(self, salary_level_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.salary_level_id = salary_level_id
         return self
+
     def created_time(self, created_time: str) -> "ArchiveDetailBuilder":
         self._archive_detail.created_time = created_time
         return self
+
     def updated_time(self, updated_time: str) -> "ArchiveDetailBuilder":
         self._archive_detail.updated_time = updated_time
         return self
+
     def archive_items(self, archive_items: List[ArchiveItem]) -> "ArchiveDetailBuilder":
         self._archive_detail.archive_items = archive_items
         return self
+
     def archive_indicators(self, archive_indicators: List[ArchiveIndicator]) -> "ArchiveDetailBuilder":
         self._archive_detail.archive_indicators = archive_indicators
         return self
-    
+
     def build(self) -> "ArchiveDetail":
         return self._archive_detail

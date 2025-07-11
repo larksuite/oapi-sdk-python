@@ -33,21 +33,28 @@ class PatchApplicationVisibilityRequestBody(object):
 class PatchApplicationVisibilityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_application_visibility_request_body = PatchApplicationVisibilityRequestBody()
+
     def add_visible_list(self, add_visible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
         self._patch_application_visibility_request_body.add_visible_list = add_visible_list
         return self
+
     def del_visible_list(self, del_visible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
         self._patch_application_visibility_request_body.del_visible_list = del_visible_list
         return self
-    def add_invisible_list(self, add_invisible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
+
+    def add_invisible_list(self,
+                           add_invisible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
         self._patch_application_visibility_request_body.add_invisible_list = add_invisible_list
         return self
-    def del_invisible_list(self, del_invisible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
+
+    def del_invisible_list(self,
+                           del_invisible_list: AppVisibilityIdList) -> "PatchApplicationVisibilityRequestBodyBuilder":
         self._patch_application_visibility_request_body.del_invisible_list = del_invisible_list
         return self
+
     def is_visible_to_all(self, is_visible_to_all: bool) -> "PatchApplicationVisibilityRequestBodyBuilder":
         self._patch_application_visibility_request_body.is_visible_to_all = is_visible_to_all
         return self
-    
+
     def build(self) -> "PatchApplicationVisibilityRequestBody":
         return self._patch_application_visibility_request_body

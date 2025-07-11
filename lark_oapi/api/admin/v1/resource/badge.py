@@ -36,13 +36,12 @@ class Badge(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateBadgeRequest, option: Optional[RequestOption] = None) -> CreateBadgeResponse:
         if option is None:
@@ -51,17 +50,15 @@ class Badge(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetBadgeRequest, option: Optional[RequestOption] = None) -> GetBadgeResponse:
         if option is None:
             option = RequestOption()
@@ -75,13 +72,12 @@ class Badge(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBadgeResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetBadgeRequest, option: Optional[RequestOption] = None) -> GetBadgeResponse:
         if option is None:
@@ -90,17 +86,15 @@ class Badge(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBadgeResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListBadgeRequest, option: Optional[RequestOption] = None) -> ListBadgeResponse:
         if option is None:
             option = RequestOption()
@@ -114,13 +108,12 @@ class Badge(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBadgeResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListBadgeRequest, option: Optional[RequestOption] = None) -> ListBadgeResponse:
         if option is None:
@@ -129,17 +122,15 @@ class Badge(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBadgeResponse)
         response.raw = resp
 
         return response
-        
+
     def update(self, request: UpdateBadgeRequest, option: Optional[RequestOption] = None) -> UpdateBadgeResponse:
         if option is None:
             option = RequestOption()
@@ -153,13 +144,12 @@ class Badge(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBadgeResponse)
         response.raw = resp
 
         return response
-        
 
     async def aupdate(self, request: UpdateBadgeRequest, option: Optional[RequestOption] = None) -> UpdateBadgeResponse:
         if option is None:
@@ -168,15 +158,11 @@ class Badge(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBadgeResponse)
         response.raw = resp
 
         return response
-        
-    

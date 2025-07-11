@@ -19,7 +19,8 @@ class ReportDetailRow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteReportDetailRowRequest, option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
+    def batch_delete(self, request: BatchDeleteReportDetailRowRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,34 @@ class ReportDetailRow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteReportDetailRowResponse)
+        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      BatchDeleteReportDetailRowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteReportDetailRowRequest, option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
+    async def abatch_delete(self, request: BatchDeleteReportDetailRowRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteReportDetailRowResponse)
+        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      BatchDeleteReportDetailRowResponse)
         response.raw = resp
 
         return response
-        
-    def batch_save(self, request: BatchSaveReportDetailRowRequest, option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
+
+    def batch_save(self, request: BatchSaveReportDetailRowRequest,
+                   option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +73,28 @@ class ReportDetailRow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchSaveReportDetailRowResponse)
+        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchSaveReportDetailRowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_save(self, request: BatchSaveReportDetailRowRequest, option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
+    async def abatch_save(self, request: BatchSaveReportDetailRowRequest,
+                          option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchSaveReportDetailRowResponse)
+        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchSaveReportDetailRowResponse)
         response.raw = resp
 
         return response
-        
-    

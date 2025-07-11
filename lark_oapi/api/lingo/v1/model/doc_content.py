@@ -55,45 +55,58 @@ class DocContent(object):
 class DocContentBuilder(object):
     def __init__(self) -> None:
         self._doc_content = DocContent()
+
     def id(self, id: str) -> "DocContentBuilder":
         self._doc_content.id = id
         return self
+
     def children(self, children: List[str]) -> "DocContentBuilder":
         self._doc_content.children = children
         return self
+
     def content_type(self, content_type: int) -> "DocContentBuilder":
         self._doc_content.content_type = content_type
         return self
+
     def text(self, text: DocText) -> "DocContentBuilder":
         self._doc_content.text = text
         return self
+
     def heading(self, heading: DocHeading) -> "DocContentBuilder":
         self._doc_content.heading = heading
         return self
+
     def bullet(self, bullet: DocBullet) -> "DocContentBuilder":
         self._doc_content.bullet = bullet
         return self
+
     def ordered(self, ordered: DocRodered) -> "DocContentBuilder":
         self._doc_content.ordered = ordered
         return self
+
     def code(self, code: DocCode) -> "DocContentBuilder":
         self._doc_content.code = code
         return self
+
     def link(self, link: DocLink) -> "DocContentBuilder":
         self._doc_content.link = link
         return self
+
     def image(self, image: DocImage) -> "DocContentBuilder":
         self._doc_content.image = image
         return self
+
     def user(self, user: DocUser) -> "DocContentBuilder":
         self._doc_content.user = user
         return self
+
     def divider(self, divider: DocDivider) -> "DocContentBuilder":
         self._doc_content.divider = divider
         return self
+
     def container(self, container: DocContainer) -> "DocContentBuilder":
         self._doc_content.container = container
         return self
-    
+
     def build(self) -> "DocContent":
         return self._doc_content

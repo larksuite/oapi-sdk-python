@@ -22,9 +22,10 @@ class QuerySpreadsheetSheetResponseBody(object):
 class QuerySpreadsheetSheetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_spreadsheet_sheet_response_body = QuerySpreadsheetSheetResponseBody()
+
     def sheets(self, sheets: List[Sheet]) -> "QuerySpreadsheetSheetResponseBodyBuilder":
         self._query_spreadsheet_sheet_response_body.sheets = sheets
         return self
-    
+
     def build(self) -> "QuerySpreadsheetSheetResponseBody":
         return self._query_spreadsheet_sheet_response_body

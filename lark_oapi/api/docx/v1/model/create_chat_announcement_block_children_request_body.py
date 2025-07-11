@@ -24,12 +24,14 @@ class CreateChatAnnouncementBlockChildrenRequestBody(object):
 class CreateChatAnnouncementBlockChildrenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_announcement_block_children_request_body = CreateChatAnnouncementBlockChildrenRequestBody()
+
     def children(self, children: List[Block]) -> "CreateChatAnnouncementBlockChildrenRequestBodyBuilder":
         self._create_chat_announcement_block_children_request_body.children = children
         return self
+
     def index(self, index: int) -> "CreateChatAnnouncementBlockChildrenRequestBodyBuilder":
         self._create_chat_announcement_block_children_request_body.index = index
         return self
-    
+
     def build(self) -> "CreateChatAnnouncementBlockChildrenRequestBody":
         return self._create_chat_announcement_block_children_request_body

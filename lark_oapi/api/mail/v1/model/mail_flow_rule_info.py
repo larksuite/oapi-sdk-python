@@ -25,15 +25,18 @@ class MailFlowRuleInfo(object):
 class MailFlowRuleInfoBuilder(object):
     def __init__(self) -> None:
         self._mail_flow_rule_info = MailFlowRuleInfo()
+
     def id(self, id: str) -> "MailFlowRuleInfoBuilder":
         self._mail_flow_rule_info.id = id
         return self
+
     def name(self, name: str) -> "MailFlowRuleInfoBuilder":
         self._mail_flow_rule_info.name = name
         return self
+
     def action_category(self, action_category: int) -> "MailFlowRuleInfoBuilder":
         self._mail_flow_rule_info.action_category = action_category
         return self
-    
+
     def build(self) -> "MailFlowRuleInfo":
         return self._mail_flow_rule_info

@@ -29,21 +29,26 @@ class InterviewMeetingRoom(object):
 class InterviewMeetingRoomBuilder(object):
     def __init__(self) -> None:
         self._interview_meeting_room = InterviewMeetingRoom()
+
     def room_id(self, room_id: str) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.room_id = room_id
         return self
+
     def room_name(self, room_name: str) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.room_name = room_name
         return self
+
     def building_name(self, building_name: str) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.building_name = building_name
         return self
+
     def reserved_status(self, reserved_status: int) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.reserved_status = reserved_status
         return self
+
     def floor_name(self, floor_name: str) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.floor_name = floor_name
         return self
-    
+
     def build(self) -> "InterviewMeetingRoom":
         return self._interview_meeting_room

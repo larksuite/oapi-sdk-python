@@ -23,12 +23,14 @@ class MetricGroup(object):
 class MetricGroupBuilder(object):
     def __init__(self) -> None:
         self._metric_group = MetricGroup()
+
     def group_id(self, group_id: int) -> "MetricGroupBuilder":
         self._metric_group.group_id = group_id
         return self
+
     def name(self, name: str) -> "MetricGroupBuilder":
         self._metric_group.name = name
         return self
-    
+
     def build(self) -> "MetricGroup":
         return self._metric_group

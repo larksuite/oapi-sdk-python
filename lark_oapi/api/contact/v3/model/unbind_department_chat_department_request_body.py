@@ -21,9 +21,10 @@ class UnbindDepartmentChatDepartmentRequestBody(object):
 class UnbindDepartmentChatDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._unbind_department_chat_department_request_body = UnbindDepartmentChatDepartmentRequestBody()
+
     def department_id(self, department_id: str) -> "UnbindDepartmentChatDepartmentRequestBodyBuilder":
         self._unbind_department_chat_department_request_body.department_id = department_id
         return self
-    
+
     def build(self) -> "UnbindDepartmentChatDepartmentRequestBody":
         return self._unbind_department_chat_department_request_body

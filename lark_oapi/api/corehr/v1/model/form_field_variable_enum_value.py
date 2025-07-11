@@ -27,15 +27,18 @@ class FormFieldVariableEnumValue(object):
 class FormFieldVariableEnumValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_enum_value = FormFieldVariableEnumValue()
+
     def value(self, value: str) -> "FormFieldVariableEnumValueBuilder":
         self._form_field_variable_enum_value.value = value
         return self
+
     def name(self, name: BpmDataengineI18n) -> "FormFieldVariableEnumValueBuilder":
         self._form_field_variable_enum_value.name = name
         return self
+
     def desc(self, desc: BpmDataengineI18n) -> "FormFieldVariableEnumValueBuilder":
         self._form_field_variable_enum_value.desc = desc
         return self
-    
+
     def build(self) -> "FormFieldVariableEnumValue":
         return self._form_field_variable_enum_value

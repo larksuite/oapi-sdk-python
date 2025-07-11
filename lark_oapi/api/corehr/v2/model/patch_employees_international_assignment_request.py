@@ -28,28 +28,31 @@ class PatchEmployeesInternationalAssignmentRequestBuilder(object):
         patch_employees_international_assignment_request.uri = "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
         patch_employees_international_assignment_request.token_types = {AccessTokenType.TENANT}
         self._patch_employees_international_assignment_request: PatchEmployeesInternationalAssignmentRequest = patch_employees_international_assignment_request
-    
+
     def client_token(self, client_token: str) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
         self._patch_employees_international_assignment_request.client_token = client_token
         self._patch_employees_international_assignment_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
         self._patch_employees_international_assignment_request.user_id_type = user_id_type
         self._patch_employees_international_assignment_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
         self._patch_employees_international_assignment_request.department_id_type = department_id_type
         self._patch_employees_international_assignment_request.add_query("department_id_type", department_id_type)
         return self
-    
-    def international_assignment_id(self, international_assignment_id: str) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
+
+    def international_assignment_id(self,
+                                    international_assignment_id: str) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
         self._patch_employees_international_assignment_request.international_assignment_id = international_assignment_id
-        self._patch_employees_international_assignment_request.paths["international_assignment_id"] = str(international_assignment_id)
+        self._patch_employees_international_assignment_request.paths["international_assignment_id"] = str(
+            international_assignment_id)
         return self
-    
-    def request_body(self, request_body: EmployeesInternationalAssignmentReq) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: EmployeesInternationalAssignmentReq) -> "PatchEmployeesInternationalAssignmentRequestBuilder":
         self._patch_employees_international_assignment_request.request_body = request_body
         self._patch_employees_international_assignment_request.body = request_body
         return self

@@ -27,18 +27,22 @@ class ApplicationTalentWorksInfo(object):
 class ApplicationTalentWorksInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_works_info = ApplicationTalentWorksInfo()
+
     def id(self, id: str) -> "ApplicationTalentWorksInfoBuilder":
         self._application_talent_works_info.id = id
         return self
+
     def link(self, link: str) -> "ApplicationTalentWorksInfoBuilder":
         self._application_talent_works_info.link = link
         return self
+
     def desc(self, desc: str) -> "ApplicationTalentWorksInfoBuilder":
         self._application_talent_works_info.desc = desc
         return self
+
     def name(self, name: str) -> "ApplicationTalentWorksInfoBuilder":
         self._application_talent_works_info.name = name
         return self
-    
+
     def build(self) -> "ApplicationTalentWorksInfo":
         return self._application_talent_works_info

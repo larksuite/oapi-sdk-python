@@ -23,12 +23,14 @@ class AppScopes(object):
 class AppScopesBuilder(object):
     def __init__(self) -> None:
         self._app_scopes = AppScopes()
+
     def high_level_scopes(self, high_level_scopes: List[str]) -> "AppScopesBuilder":
         self._app_scopes.high_level_scopes = high_level_scopes
         return self
+
     def low_level_scopes(self, low_level_scopes: List[str]) -> "AppScopesBuilder":
         self._app_scopes.low_level_scopes = low_level_scopes
         return self
-    
+
     def build(self) -> "AppScopes":
         return self._app_scopes

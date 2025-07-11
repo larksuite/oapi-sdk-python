@@ -17,7 +17,8 @@ class AppFeedCard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppFeedCardRequest, option: Optional[RequestOption] = None) -> CreateAppFeedCardResponse:
+    def create(self, request: CreateAppFeedCardRequest,
+               option: Optional[RequestOption] = None) -> CreateAppFeedCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class AppFeedCard(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppFeedCardResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateAppFeedCardRequest, option: Optional[RequestOption] = None) -> CreateAppFeedCardResponse:
+    async def acreate(self, request: CreateAppFeedCardRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppFeedCardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppFeedCardResponse)
         response.raw = resp
 
         return response
-        
-    

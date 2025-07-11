@@ -31,21 +31,26 @@ class SearchObjectParam(object):
 class SearchObjectParamBuilder(object):
     def __init__(self) -> None:
         self._search_object_param = SearchObjectParam()
+
     def api_name(self, api_name: str) -> "SearchObjectParamBuilder":
         self._search_object_param.api_name = api_name
         return self
+
     def search_fields(self, search_fields: List[str]) -> "SearchObjectParamBuilder":
         self._search_object_param.search_fields = search_fields
         return self
+
     def select(self, select: List[str]) -> "SearchObjectParamBuilder":
         self._search_object_param.select = select
         return self
+
     def filter(self, filter: Criterion) -> "SearchObjectParamBuilder":
         self._search_object_param.filter = filter
         return self
+
     def order_by(self, order_by: OrderCondition) -> "SearchObjectParamBuilder":
         self._search_object_param.order_by = order_by
         return self
-    
+
     def build(self) -> "SearchObjectParam":
         return self._search_object_param

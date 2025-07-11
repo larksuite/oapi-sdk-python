@@ -23,12 +23,14 @@ class JiraIssue(object):
 class JiraIssueBuilder(object):
     def __init__(self) -> None:
         self._jira_issue = JiraIssue()
+
     def id(self, id: str) -> "JiraIssueBuilder":
         self._jira_issue.id = id
         return self
+
     def key(self, key: str) -> "JiraIssueBuilder":
         self._jira_issue.key = key
         return self
-    
+
     def build(self) -> "JiraIssue":
         return self._jira_issue

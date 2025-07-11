@@ -32,24 +32,30 @@ class ExternalTaskList(object):
 class ExternalTaskListBuilder(object):
     def __init__(self) -> None:
         self._external_task_list = ExternalTaskList()
+
     def instance_id(self, instance_id: str) -> "ExternalTaskListBuilder":
         self._external_task_list.instance_id = instance_id
         return self
+
     def approval_id(self, approval_id: str) -> "ExternalTaskListBuilder":
         self._external_task_list.approval_id = approval_id
         return self
+
     def approval_code(self, approval_code: str) -> "ExternalTaskListBuilder":
         self._external_task_list.approval_code = approval_code
         return self
+
     def status(self, status: str) -> "ExternalTaskListBuilder":
         self._external_task_list.status = status
         return self
+
     def update_time(self, update_time: int) -> "ExternalTaskListBuilder":
         self._external_task_list.update_time = update_time
         return self
+
     def tasks(self, tasks: List[ExternalTaskItem]) -> "ExternalTaskListBuilder":
         self._external_task_list.tasks = tasks
         return self
-    
+
     def build(self) -> "ExternalTaskList":
         return self._external_task_list

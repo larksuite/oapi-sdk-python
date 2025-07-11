@@ -24,17 +24,16 @@ class GetInterviewRecordRequestBuilder(object):
         get_interview_record_request.uri = "/open-apis/hire/v2/interview_records/:interview_record_id"
         get_interview_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_interview_record_request: GetInterviewRecordRequest = get_interview_record_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetInterviewRecordRequestBuilder":
         self._get_interview_record_request.user_id_type = user_id_type
         self._get_interview_record_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def interview_record_id(self, interview_record_id: str) -> "GetInterviewRecordRequestBuilder":
         self._get_interview_record_request.interview_record_id = interview_record_id
         self._get_interview_record_request.paths["interview_record_id"] = str(interview_record_id)
         return self
-    
 
     def build(self) -> GetInterviewRecordRequest:
         return self._get_interview_record_request

@@ -27,18 +27,22 @@ class ReportMeetingDaily(object):
 class ReportMeetingDailyBuilder(object):
     def __init__(self) -> None:
         self._report_meeting_daily = ReportMeetingDaily()
+
     def date(self, date: int) -> "ReportMeetingDailyBuilder":
         self._report_meeting_daily.date = date
         return self
+
     def meeting_count(self, meeting_count: int) -> "ReportMeetingDailyBuilder":
         self._report_meeting_daily.meeting_count = meeting_count
         return self
+
     def meeting_duration(self, meeting_duration: int) -> "ReportMeetingDailyBuilder":
         self._report_meeting_daily.meeting_duration = meeting_duration
         return self
+
     def participant_count(self, participant_count: int) -> "ReportMeetingDailyBuilder":
         self._report_meeting_daily.participant_count = participant_count
         return self
-    
+
     def build(self) -> "ReportMeetingDaily":
         return self._report_meeting_daily

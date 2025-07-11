@@ -28,15 +28,18 @@ class AgencyInfo(object):
 class AgencyInfoBuilder(object):
     def __init__(self) -> None:
         self._agency_info = AgencyInfo()
+
     def basic_info(self, basic_info: AgencyBasicInfo) -> "AgencyInfoBuilder":
         self._agency_info.basic_info = basic_info
         return self
+
     def comment_info(self, comment_info: List[ReportCustomData]) -> "AgencyInfoBuilder":
         self._agency_info.comment_info = comment_info
         return self
+
     def salary_info(self, salary_info: List[ReportCustomData]) -> "AgencyInfoBuilder":
         self._agency_info.salary_info = salary_info
         return self
-    
+
     def build(self) -> "AgencyInfo":
         return self._agency_info

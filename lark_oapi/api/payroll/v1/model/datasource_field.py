@@ -33,24 +33,30 @@ class DatasourceField(object):
 class DatasourceFieldBuilder(object):
     def __init__(self) -> None:
         self._datasource_field = DatasourceField()
+
     def code(self, code: str) -> "DatasourceFieldBuilder":
         self._datasource_field.code = code
         return self
+
     def i18n_names(self, i18n_names: List[I18nContent]) -> "DatasourceFieldBuilder":
         self._datasource_field.i18n_names = i18n_names
         return self
+
     def field_type(self, field_type: int) -> "DatasourceFieldBuilder":
         self._datasource_field.field_type = field_type
         return self
+
     def active_status(self, active_status: int) -> "DatasourceFieldBuilder":
         self._datasource_field.active_status = active_status
         return self
+
     def i18n_description(self, i18n_description: List[I18nContent]) -> "DatasourceFieldBuilder":
         self._datasource_field.i18n_description = i18n_description
         return self
+
     def decimal_places(self, decimal_places: int) -> "DatasourceFieldBuilder":
         self._datasource_field.decimal_places = decimal_places
         return self
-    
+
     def build(self) -> "DatasourceField":
         return self._datasource_field

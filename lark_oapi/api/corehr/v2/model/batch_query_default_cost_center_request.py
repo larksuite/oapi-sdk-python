@@ -25,13 +25,14 @@ class BatchQueryDefaultCostCenterRequestBuilder(object):
         batch_query_default_cost_center_request.uri = "/open-apis/corehr/v2/default_cost_centers/batch_query"
         batch_query_default_cost_center_request.token_types = {AccessTokenType.TENANT}
         self._batch_query_default_cost_center_request: BatchQueryDefaultCostCenterRequest = batch_query_default_cost_center_request
-    
+
     def user_id_type(self, user_id_type: str) -> "BatchQueryDefaultCostCenterRequestBuilder":
         self._batch_query_default_cost_center_request.user_id_type = user_id_type
         self._batch_query_default_cost_center_request.add_query("user_id_type", user_id_type)
         return self
-    
-    def request_body(self, request_body: BatchQueryDefaultCostCenterRequestBody) -> "BatchQueryDefaultCostCenterRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchQueryDefaultCostCenterRequestBody) -> "BatchQueryDefaultCostCenterRequestBuilder":
         self._batch_query_default_cost_center_request.request_body = request_body
         self._batch_query_default_cost_center_request.body = request_body
         return self

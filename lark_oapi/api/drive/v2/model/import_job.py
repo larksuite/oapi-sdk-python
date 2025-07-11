@@ -38,33 +38,42 @@ class ImportJob(object):
 class ImportJobBuilder(object):
     def __init__(self) -> None:
         self._import_job = ImportJob()
+
     def file_extension(self, file_extension: str) -> "ImportJobBuilder":
         self._import_job.file_extension = file_extension
         return self
+
     def file_token(self, file_token: str) -> "ImportJobBuilder":
         self._import_job.file_token = file_token
         return self
+
     def type(self, type: str) -> "ImportJobBuilder":
         self._import_job.type = type
         return self
+
     def file_name(self, file_name: str) -> "ImportJobBuilder":
         self._import_job.file_name = file_name
         return self
+
     def point(self, point: ImportJobMountPoint) -> "ImportJobBuilder":
         self._import_job.point = point
         return self
+
     def job_status(self, job_status: int) -> "ImportJobBuilder":
         self._import_job.job_status = job_status
         return self
+
     def job_error_msg(self, job_error_msg: str) -> "ImportJobBuilder":
         self._import_job.job_error_msg = job_error_msg
         return self
+
     def token(self, token: str) -> "ImportJobBuilder":
         self._import_job.token = token
         return self
+
     def url(self, url: str) -> "ImportJobBuilder":
         self._import_job.url = url
         return self
-    
+
     def build(self) -> "ImportJob":
         return self._import_job

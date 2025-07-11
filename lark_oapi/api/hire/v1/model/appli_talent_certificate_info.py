@@ -25,15 +25,18 @@ class AppliTalentCertificateInfo(object):
 class AppliTalentCertificateInfoBuilder(object):
     def __init__(self) -> None:
         self._appli_talent_certificate_info = AppliTalentCertificateInfo()
+
     def id(self, id: str) -> "AppliTalentCertificateInfoBuilder":
         self._appli_talent_certificate_info.id = id
         return self
+
     def name(self, name: str) -> "AppliTalentCertificateInfoBuilder":
         self._appli_talent_certificate_info.name = name
         return self
+
     def desc(self, desc: str) -> "AppliTalentCertificateInfoBuilder":
         self._appli_talent_certificate_info.desc = desc
         return self
-    
+
     def build(self) -> "AppliTalentCertificateInfo":
         return self._appli_talent_certificate_info

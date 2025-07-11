@@ -26,15 +26,18 @@ class Config(object):
 class ConfigBuilder(object):
     def __init__(self) -> None:
         self._config = Config()
+
     def enable_forward(self, enable_forward: bool) -> "ConfigBuilder":
         self._config.enable_forward = enable_forward
         return self
+
     def streaming_mode(self, streaming_mode: bool) -> "ConfigBuilder":
         self._config.streaming_mode = streaming_mode
         return self
+
     def summary(self, summary: Summary) -> "ConfigBuilder":
         self._config.summary = summary
         return self
-    
+
     def build(self) -> "Config":
         return self._config

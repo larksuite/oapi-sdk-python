@@ -33,24 +33,32 @@ class ProfileSettingEmpBasicInfoForUpdate(object):
 class ProfileSettingEmpBasicInfoForUpdateBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_emp_basic_info_for_update = ProfileSettingEmpBasicInfoForUpdate()
+
     def employee_number(self, employee_number: str) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.employee_number = employee_number
         return self
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
+
+    def regular_employee_start_date(self,
+                                    regular_employee_start_date: str) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.regular_employee_start_date = regular_employee_start_date
         return self
+
     def seniority_date(self, seniority_date: str) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.seniority_date = seniority_date
         return self
+
     def work_email(self, work_email: str) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.work_email = work_email
         return self
+
     def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.phone = phone
         return self
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
+
+    def custom_fields(self,
+                      custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEmpBasicInfoForUpdateBuilder":
         self._profile_setting_emp_basic_info_for_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "ProfileSettingEmpBasicInfoForUpdate":
         return self._profile_setting_emp_basic_info_for_update

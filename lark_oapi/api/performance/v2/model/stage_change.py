@@ -25,15 +25,18 @@ class StageChange(object):
 class StageChangeBuilder(object):
     def __init__(self) -> None:
         self._stage_change = StageChange()
+
     def stage_id(self, stage_id: str) -> "StageChangeBuilder":
         self._stage_change.stage_id = stage_id
         return self
+
     def stage_type(self, stage_type: str) -> "StageChangeBuilder":
         self._stage_change.stage_type = stage_type
         return self
+
     def review_stage_role(self, review_stage_role: str) -> "StageChangeBuilder":
         self._stage_change.review_stage_role = review_stage_role
         return self
-    
+
     def build(self) -> "StageChange":
         return self._stage_change

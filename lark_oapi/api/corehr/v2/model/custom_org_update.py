@@ -41,33 +41,42 @@ class CustomOrgUpdate(object):
 class CustomOrgUpdateBuilder(object):
     def __init__(self) -> None:
         self._custom_org_update = CustomOrgUpdate()
+
     def object_api_name(self, object_api_name: str) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.object_api_name = object_api_name
         return self
+
     def names(self, names: List[I18n]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.names = names
         return self
+
     def code(self, code: str) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.code = code
         return self
+
     def parent_id(self, parent_id: str) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.parent_id = parent_id
         return self
+
     def manager_ids(self, manager_ids: List[str]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.manager_ids = manager_ids
         return self
+
     def description(self, description: List[I18n]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.description = description
         return self
+
     def effective_time(self, effective_time: str) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.effective_time = effective_time
         return self
+
     def org_roles(self, org_roles: List[OrgRoleUpdate]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.org_roles = org_roles
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "CustomOrgUpdate":
         return self._custom_org_update

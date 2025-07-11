@@ -23,12 +23,14 @@ class EnumObject(object):
 class EnumObjectBuilder(object):
     def __init__(self) -> None:
         self._enum_object = EnumObject()
+
     def enum_value_id(self, enum_value_id: str) -> "EnumObjectBuilder":
         self._enum_object.enum_value_id = enum_value_id
         return self
+
     def enum_key(self, enum_key: str) -> "EnumObjectBuilder":
         self._enum_object.enum_key = enum_key
         return self
-    
+
     def build(self) -> "EnumObject":
         return self._enum_object

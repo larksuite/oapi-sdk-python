@@ -25,12 +25,12 @@ class OpenJobRequestBuilder(object):
         open_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/open"
         open_job_request.token_types = {AccessTokenType.TENANT}
         self._open_job_request: OpenJobRequest = open_job_request
-    
+
     def job_id(self, job_id: str) -> "OpenJobRequestBuilder":
         self._open_job_request.job_id = job_id
         self._open_job_request.paths["job_id"] = str(job_id)
         return self
-    
+
     def request_body(self, request_body: OpenJobRequestBody) -> "OpenJobRequestBuilder":
         self._open_job_request.request_body = request_body
         self._open_job_request.body = request_body

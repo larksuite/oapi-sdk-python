@@ -44,39 +44,50 @@ class DatasetField(object):
 class DatasetFieldBuilder(object):
     def __init__(self) -> None:
         self._dataset_field = DatasetField()
+
     def api_id(self, api_id: str) -> "DatasetFieldBuilder":
         self._dataset_field.api_id = api_id
         return self
+
     def api_name(self, api_name: str) -> "DatasetFieldBuilder":
         self._dataset_field.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "DatasetFieldBuilder":
         self._dataset_field.label = label
         return self
+
     def dataset_api_id(self, dataset_api_id: str) -> "DatasetFieldBuilder":
         self._dataset_field.dataset_api_id = dataset_api_id
         return self
+
     def dataset_api_name(self, dataset_api_name: str) -> "DatasetFieldBuilder":
         self._dataset_field.dataset_api_name = dataset_api_name
         return self
+
     def type(self, type: DatasetFieldType) -> "DatasetFieldBuilder":
         self._dataset_field.type = type
         return self
+
     def encrypt_type(self, encrypt_type: str) -> "DatasetFieldBuilder":
         self._dataset_field.encrypt_type = encrypt_type
         return self
+
     def create_time(self, create_time: int) -> "DatasetFieldBuilder":
         self._dataset_field.create_time = create_time
         return self
+
     def created_by(self, created_by: DatasetLookupUser) -> "DatasetFieldBuilder":
         self._dataset_field.created_by = created_by
         return self
+
     def update_time(self, update_time: int) -> "DatasetFieldBuilder":
         self._dataset_field.update_time = update_time
         return self
+
     def updated_by(self, updated_by: DatasetLookupUser) -> "DatasetFieldBuilder":
         self._dataset_field.updated_by = updated_by
         return self
-    
+
     def build(self) -> "DatasetField":
         return self._dataset_field

@@ -24,12 +24,14 @@ class OfferApplyFormFormulaExtraMapInfo(object):
 class OfferApplyFormFormulaExtraMapInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_formula_extra_map_info = OfferApplyFormFormulaExtraMapInfo()
+
     def key(self, key: str) -> "OfferApplyFormFormulaExtraMapInfoBuilder":
         self._offer_apply_form_formula_extra_map_info.key = key
         return self
+
     def value(self, value: I18n) -> "OfferApplyFormFormulaExtraMapInfoBuilder":
         self._offer_apply_form_formula_extra_map_info.value = value
         return self
-    
+
     def build(self) -> "OfferApplyFormFormulaExtraMapInfo":
         return self._offer_apply_form_formula_extra_map_info

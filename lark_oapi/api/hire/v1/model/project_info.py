@@ -31,24 +31,30 @@ class ProjectInfo(object):
 class ProjectInfoBuilder(object):
     def __init__(self) -> None:
         self._project_info = ProjectInfo()
+
     def desc(self, desc: str) -> "ProjectInfoBuilder":
         self._project_info.desc = desc
         return self
+
     def end_time(self, end_time: int) -> "ProjectInfoBuilder":
         self._project_info.end_time = end_time
         return self
+
     def link(self, link: str) -> "ProjectInfoBuilder":
         self._project_info.link = link
         return self
+
     def name(self, name: str) -> "ProjectInfoBuilder":
         self._project_info.name = name
         return self
+
     def role(self, role: str) -> "ProjectInfoBuilder":
         self._project_info.role = role
         return self
+
     def start_time(self, start_time: int) -> "ProjectInfoBuilder":
         self._project_info.start_time = start_time
         return self
-    
+
     def build(self) -> "ProjectInfo":
         return self._project_info

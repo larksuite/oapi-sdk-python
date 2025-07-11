@@ -24,17 +24,16 @@ class DeleteDataSourceItemRequestBuilder(object):
         delete_data_source_item_request.uri = "/open-apis/search/v2/data_sources/:data_source_id/items/:item_id"
         delete_data_source_item_request.token_types = {AccessTokenType.TENANT}
         self._delete_data_source_item_request: DeleteDataSourceItemRequest = delete_data_source_item_request
-    
+
     def data_source_id(self, data_source_id: str) -> "DeleteDataSourceItemRequestBuilder":
         self._delete_data_source_item_request.data_source_id = data_source_id
         self._delete_data_source_item_request.paths["data_source_id"] = str(data_source_id)
         return self
-    
+
     def item_id(self, item_id: str) -> "DeleteDataSourceItemRequestBuilder":
         self._delete_data_source_item_request.item_id = item_id
         self._delete_data_source_item_request.paths["item_id"] = str(item_id)
         return self
-    
 
     def build(self) -> DeleteDataSourceItemRequest:
         return self._delete_data_source_item_request

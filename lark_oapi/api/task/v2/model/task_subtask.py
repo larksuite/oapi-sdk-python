@@ -19,6 +19,6 @@ class TaskSubtask(object):
 class TaskSubtaskBuilder(object):
     def __init__(self) -> None:
         self._task_subtask = TaskSubtask()
-    
+
     def build(self) -> "TaskSubtask":
         return self._task_subtask

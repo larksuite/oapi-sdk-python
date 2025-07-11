@@ -27,18 +27,22 @@ class PublicMailbox(object):
 class PublicMailboxBuilder(object):
     def __init__(self) -> None:
         self._public_mailbox = PublicMailbox()
+
     def public_mailbox_id(self, public_mailbox_id: str) -> "PublicMailboxBuilder":
         self._public_mailbox.public_mailbox_id = public_mailbox_id
         return self
+
     def email(self, email: str) -> "PublicMailboxBuilder":
         self._public_mailbox.email = email
         return self
+
     def name(self, name: str) -> "PublicMailboxBuilder":
         self._public_mailbox.name = name
         return self
+
     def geo(self, geo: str) -> "PublicMailboxBuilder":
         self._public_mailbox.geo = geo
         return self
-    
+
     def build(self) -> "PublicMailbox":
         return self._public_mailbox

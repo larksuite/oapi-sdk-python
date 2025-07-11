@@ -37,27 +37,34 @@ class ProtectedRange(object):
 class ProtectedRangeBuilder(object):
     def __init__(self) -> None:
         self._protected_range = ProtectedRange()
+
     def protected_id(self, protected_id: str) -> "ProtectedRangeBuilder":
         self._protected_range.protected_id = protected_id
         return self
+
     def description(self, description: str) -> "ProtectedRangeBuilder":
         self._protected_range.description = description
         return self
+
     def protected_dimension(self, protected_dimension: str) -> "ProtectedRangeBuilder":
         self._protected_range.protected_dimension = protected_dimension
         return self
+
     def protected_rows(self, protected_rows: ProtectedRows) -> "ProtectedRangeBuilder":
         self._protected_range.protected_rows = protected_rows
         return self
+
     def protected_columns(self, protected_columns: ProtectedColumns) -> "ProtectedRangeBuilder":
         self._protected_range.protected_columns = protected_columns
         return self
+
     def protected_sheet(self, protected_sheet: ProtectedSheet) -> "ProtectedRangeBuilder":
         self._protected_range.protected_sheet = protected_sheet
         return self
+
     def editors(self, editors: ProtectedRangeEditors) -> "ProtectedRangeBuilder":
         self._protected_range.editors = editors
         return self
-    
+
     def build(self) -> "ProtectedRange":
         return self._protected_range

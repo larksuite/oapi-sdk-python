@@ -23,12 +23,14 @@ class App(object):
 class AppBuilder(object):
     def __init__(self) -> None:
         self._app = App()
+
     def id(self, id: str) -> "AppBuilder":
         self._app.id = id
         return self
+
     def label(self, label: str) -> "AppBuilder":
         self._app.label = label
         return self
-    
+
     def build(self) -> "App":
         return self._app

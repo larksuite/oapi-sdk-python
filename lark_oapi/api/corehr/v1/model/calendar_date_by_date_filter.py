@@ -33,27 +33,34 @@ class CalendarDateByDateFilter(object):
 class CalendarDateByDateFilterBuilder(object):
     def __init__(self) -> None:
         self._calendar_date_by_date_filter = CalendarDateByDateFilter()
+
     def wk_calendar_ids(self, wk_calendar_ids: List[str]) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.wk_calendar_ids = wk_calendar_ids
         return self
+
     def dates(self, dates: List[str]) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.dates = dates
         return self
+
     def begin_date(self, begin_date: str) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.begin_date = begin_date
         return self
+
     def end_date(self, end_date: str) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.end_date = end_date
         return self
+
     def offset(self, offset: int) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.offset = offset
         return self
+
     def limit(self, limit: int) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.limit = limit
         return self
+
     def ids(self, ids: List[str]) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.ids = ids
         return self
-    
+
     def build(self) -> "CalendarDateByDateFilter":
         return self._calendar_date_by_date_filter

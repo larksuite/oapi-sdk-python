@@ -25,15 +25,18 @@ class ResumeAward(object):
 class ResumeAwardBuilder(object):
     def __init__(self) -> None:
         self._resume_award = ResumeAward()
+
     def award(self, award: str) -> "ResumeAwardBuilder":
         self._resume_award.award = award
         return self
+
     def date(self, date: str) -> "ResumeAwardBuilder":
         self._resume_award.date = date
         return self
+
     def description(self, description: str) -> "ResumeAwardBuilder":
         self._resume_award.description = description
         return self
-    
+
     def build(self) -> "ResumeAward":
         return self._resume_award

@@ -26,18 +26,19 @@ class CreateProbationAssessmentRequestBuilder(object):
         create_probation_assessment_request.uri = "/open-apis/corehr/v2/probation/assessments"
         create_probation_assessment_request.token_types = {AccessTokenType.TENANT}
         self._create_probation_assessment_request: CreateProbationAssessmentRequest = create_probation_assessment_request
-    
+
     def client_token(self, client_token: str) -> "CreateProbationAssessmentRequestBuilder":
         self._create_probation_assessment_request.client_token = client_token
         self._create_probation_assessment_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateProbationAssessmentRequestBuilder":
         self._create_probation_assessment_request.user_id_type = user_id_type
         self._create_probation_assessment_request.add_query("user_id_type", user_id_type)
         return self
-    
-    def request_body(self, request_body: CreateProbationAssessmentRequestBody) -> "CreateProbationAssessmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: CreateProbationAssessmentRequestBody) -> "CreateProbationAssessmentRequestBuilder":
         self._create_probation_assessment_request.request_body = request_body
         self._create_probation_assessment_request.body = request_body
         return self

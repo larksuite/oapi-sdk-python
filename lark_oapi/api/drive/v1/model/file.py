@@ -38,33 +38,42 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
+
     def token(self, token: str) -> "FileBuilder":
         self._file.token = token
         return self
+
     def name(self, name: str) -> "FileBuilder":
         self._file.name = name
         return self
+
     def type(self, type: str) -> "FileBuilder":
         self._file.type = type
         return self
+
     def parent_token(self, parent_token: str) -> "FileBuilder":
         self._file.parent_token = parent_token
         return self
+
     def url(self, url: str) -> "FileBuilder":
         self._file.url = url
         return self
+
     def shortcut_info(self, shortcut_info: ShortcutInfo) -> "FileBuilder":
         self._file.shortcut_info = shortcut_info
         return self
+
     def created_time(self, created_time: int) -> "FileBuilder":
         self._file.created_time = created_time
         return self
+
     def modified_time(self, modified_time: int) -> "FileBuilder":
         self._file.modified_time = modified_time
         return self
+
     def owner_id(self, owner_id: str) -> "FileBuilder":
         self._file.owner_id = owner_id
         return self
-    
+
     def build(self) -> "File":
         return self._file

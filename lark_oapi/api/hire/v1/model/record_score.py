@@ -23,12 +23,14 @@ class RecordScore(object):
 class RecordScoreBuilder(object):
     def __init__(self) -> None:
         self._record_score = RecordScore()
+
     def score(self, score: float) -> "RecordScoreBuilder":
         self._record_score.score = score
         return self
+
     def total_score(self, total_score: float) -> "RecordScoreBuilder":
         self._record_score.total_score = total_score
         return self
-    
+
     def build(self) -> "RecordScore":
         return self._record_score

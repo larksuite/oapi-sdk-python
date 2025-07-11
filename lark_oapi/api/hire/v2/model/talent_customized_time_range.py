@@ -23,12 +23,14 @@ class TalentCustomizedTimeRange(object):
 class TalentCustomizedTimeRangeBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_time_range = TalentCustomizedTimeRange()
+
     def start_time(self, start_time: str) -> "TalentCustomizedTimeRangeBuilder":
         self._talent_customized_time_range.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "TalentCustomizedTimeRangeBuilder":
         self._talent_customized_time_range.end_time = end_time
         return self
-    
+
     def build(self) -> "TalentCustomizedTimeRange":
         return self._talent_customized_time_range

@@ -26,15 +26,18 @@ class DmpTimelineField(object):
 class DmpTimelineFieldBuilder(object):
     def __init__(self) -> None:
         self._dmp_timeline_field = DmpTimelineField()
+
     def from_date(self, from_date: str) -> "DmpTimelineFieldBuilder":
         self._dmp_timeline_field.from_date = from_date
         return self
+
     def to_date(self, to_date: str) -> "DmpTimelineFieldBuilder":
         self._dmp_timeline_field.to_date = to_date
         return self
+
     def fields(self, fields: List[DmpField]) -> "DmpTimelineFieldBuilder":
         self._dmp_timeline_field.fields = fields
         return self
-    
+
     def build(self) -> "DmpTimelineField":
         return self._dmp_timeline_field

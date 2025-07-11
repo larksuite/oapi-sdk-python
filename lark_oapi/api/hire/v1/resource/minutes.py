@@ -30,13 +30,12 @@ class Minutes(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMinutesResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinutesResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetMinutesRequest, option: Optional[RequestOption] = None) -> GetMinutesResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Minutes(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMinutesResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinutesResponse)
         response.raw = resp
 
         return response
-        
-    

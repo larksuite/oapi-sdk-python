@@ -25,15 +25,18 @@ class InstanceCcUser(object):
 class InstanceCcUserBuilder(object):
     def __init__(self) -> None:
         self._instance_cc_user = InstanceCcUser()
+
     def user_id(self, user_id: str) -> "InstanceCcUserBuilder":
         self._instance_cc_user.user_id = user_id
         return self
+
     def cc_id(self, cc_id: str) -> "InstanceCcUserBuilder":
         self._instance_cc_user.cc_id = cc_id
         return self
+
     def open_id(self, open_id: str) -> "InstanceCcUserBuilder":
         self._instance_cc_user.open_id = open_id
         return self
-    
+
     def build(self) -> "InstanceCcUser":
         return self._instance_cc_user

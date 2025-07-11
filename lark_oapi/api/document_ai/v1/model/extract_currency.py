@@ -23,12 +23,14 @@ class ExtractCurrency(object):
 class ExtractCurrencyBuilder(object):
     def __init__(self) -> None:
         self._extract_currency = ExtractCurrency()
+
     def currency_name(self, currency_name: str) -> "ExtractCurrencyBuilder":
         self._extract_currency.currency_name = currency_name
         return self
+
     def currency_text(self, currency_text: str) -> "ExtractCurrencyBuilder":
         self._extract_currency.currency_text = currency_text
         return self
-    
+
     def build(self) -> "ExtractCurrency":
         return self._extract_currency

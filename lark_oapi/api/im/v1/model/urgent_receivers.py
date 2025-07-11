@@ -21,9 +21,10 @@ class UrgentReceivers(object):
 class UrgentReceiversBuilder(object):
     def __init__(self) -> None:
         self._urgent_receivers = UrgentReceivers()
+
     def user_id_list(self, user_id_list: List[str]) -> "UrgentReceiversBuilder":
         self._urgent_receivers.user_id_list = user_id_list
         return self
-    
+
     def build(self) -> "UrgentReceivers":
         return self._urgent_receivers

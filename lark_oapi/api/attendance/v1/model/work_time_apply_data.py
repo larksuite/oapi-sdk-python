@@ -32,24 +32,30 @@ class WorkTimeApplyData(object):
 class WorkTimeApplyDataBuilder(object):
     def __init__(self) -> None:
         self._work_time_apply_data = WorkTimeApplyData()
+
     def check_result(self, check_result: int) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.check_result = check_result
         return self
+
     def check_message(self, check_message: str) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.check_message = check_message
         return self
+
     def approval_record_id(self, approval_record_id: str) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.approval_record_id = approval_record_id
         return self
+
     def check_details(self, check_details: List[WorkTime]) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.check_details = check_details
         return self
+
     def time_zone(self, time_zone: str) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.time_zone = time_zone
         return self
+
     def reason(self, reason: str) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.reason = reason
         return self
-    
+
     def build(self) -> "WorkTimeApplyData":
         return self._work_time_apply_data

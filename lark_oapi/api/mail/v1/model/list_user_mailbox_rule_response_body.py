@@ -22,9 +22,10 @@ class ListUserMailboxRuleResponseBody(object):
 class ListUserMailboxRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_user_mailbox_rule_response_body = ListUserMailboxRuleResponseBody()
+
     def items(self, items: List[Rule]) -> "ListUserMailboxRuleResponseBodyBuilder":
         self._list_user_mailbox_rule_response_body.items = items
         return self
-    
+
     def build(self) -> "ListUserMailboxRuleResponseBody":
         return self._list_user_mailbox_rule_response_body

@@ -26,18 +26,19 @@ class BatchV2WorkforcePlanDetailRequestBuilder(object):
         batch_v2_workforce_plan_detail_request.uri = "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
         batch_v2_workforce_plan_detail_request.token_types = {AccessTokenType.TENANT}
         self._batch_v2_workforce_plan_detail_request: BatchV2WorkforcePlanDetailRequest = batch_v2_workforce_plan_detail_request
-    
+
     def page_token(self, page_token: str) -> "BatchV2WorkforcePlanDetailRequestBuilder":
         self._batch_v2_workforce_plan_detail_request.page_token = page_token
         self._batch_v2_workforce_plan_detail_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "BatchV2WorkforcePlanDetailRequestBuilder":
         self._batch_v2_workforce_plan_detail_request.page_size = page_size
         self._batch_v2_workforce_plan_detail_request.add_query("page_size", page_size)
         return self
-    
-    def request_body(self, request_body: BatchV2WorkforcePlanDetailRequestBody) -> "BatchV2WorkforcePlanDetailRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchV2WorkforcePlanDetailRequestBody) -> "BatchV2WorkforcePlanDetailRequestBuilder":
         self._batch_v2_workforce_plan_detail_request.request_body = request_body
         self._batch_v2_workforce_plan_detail_request.body = request_body
         return self

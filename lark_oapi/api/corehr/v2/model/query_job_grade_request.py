@@ -26,17 +26,17 @@ class QueryJobGradeRequestBuilder(object):
         query_job_grade_request.uri = "/open-apis/corehr/v2/job_grades/query"
         query_job_grade_request.token_types = {AccessTokenType.TENANT}
         self._query_job_grade_request: QueryJobGradeRequest = query_job_grade_request
-    
+
     def page_size(self, page_size: int) -> "QueryJobGradeRequestBuilder":
         self._query_job_grade_request.page_size = page_size
         self._query_job_grade_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "QueryJobGradeRequestBuilder":
         self._query_job_grade_request.page_token = page_token
         self._query_job_grade_request.add_query("page_token", page_token)
         return self
-    
+
     def request_body(self, request_body: QueryJobGradeRequestBody) -> "QueryJobGradeRequestBuilder":
         self._query_job_grade_request.request_body = request_body
         self._query_job_grade_request.body = request_body

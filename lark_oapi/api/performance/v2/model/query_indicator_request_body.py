@@ -21,9 +21,10 @@ class QueryIndicatorRequestBody(object):
 class QueryIndicatorRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_indicator_request_body = QueryIndicatorRequestBody()
+
     def indicator_ids(self, indicator_ids: List[int]) -> "QueryIndicatorRequestBodyBuilder":
         self._query_indicator_request_body.indicator_ids = indicator_ids
         return self
-    
+
     def build(self) -> "QueryIndicatorRequestBody":
         return self._query_indicator_request_body

@@ -19,6 +19,6 @@ class TableCell(object):
 class TableCellBuilder(object):
     def __init__(self) -> None:
         self._table_cell = TableCell()
-    
+
     def build(self) -> "TableCell":
         return self._table_cell

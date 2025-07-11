@@ -23,12 +23,14 @@ class BlockIdToImageUrl(object):
 class BlockIdToImageUrlBuilder(object):
     def __init__(self) -> None:
         self._block_id_to_image_url = BlockIdToImageUrl()
+
     def block_id(self, block_id: str) -> "BlockIdToImageUrlBuilder":
         self._block_id_to_image_url.block_id = block_id
         return self
+
     def image_url(self, image_url: str) -> "BlockIdToImageUrlBuilder":
         self._block_id_to_image_url.image_url = image_url
         return self
-    
+
     def build(self) -> "BlockIdToImageUrl":
         return self._block_id_to_image_url

@@ -26,15 +26,18 @@ class PaymentDetail(object):
 class PaymentDetailBuilder(object):
     def __init__(self) -> None:
         self._payment_detail = PaymentDetail()
+
     def employee_id(self, employee_id: str) -> "PaymentDetailBuilder":
         self._payment_detail.employee_id = employee_id
         return self
+
     def activity_id(self, activity_id: int) -> "PaymentDetailBuilder":
         self._payment_detail.activity_id = activity_id
         return self
+
     def payment_accounting_items(self, payment_accounting_items: List[PaymentAccountingItem]) -> "PaymentDetailBuilder":
         self._payment_detail.payment_accounting_items = payment_accounting_items
         return self
-    
+
     def build(self) -> "PaymentDetail":
         return self._payment_detail

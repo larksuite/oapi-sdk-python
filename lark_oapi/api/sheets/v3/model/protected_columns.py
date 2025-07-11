@@ -25,15 +25,18 @@ class ProtectedColumns(object):
 class ProtectedColumnsBuilder(object):
     def __init__(self) -> None:
         self._protected_columns = ProtectedColumns()
+
     def sheet_id(self, sheet_id: str) -> "ProtectedColumnsBuilder":
         self._protected_columns.sheet_id = sheet_id
         return self
+
     def start_index(self, start_index: int) -> "ProtectedColumnsBuilder":
         self._protected_columns.start_index = start_index
         return self
+
     def end_index(self, end_index: int) -> "ProtectedColumnsBuilder":
         self._protected_columns.end_index = end_index
         return self
-    
+
     def build(self) -> "ProtectedColumns":
         return self._protected_columns

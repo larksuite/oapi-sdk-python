@@ -31,18 +31,22 @@ class UserAnnualReport(object):
 class UserAnnualReportBuilder(object):
     def __init__(self) -> None:
         self._user_annual_report = UserAnnualReport()
+
     def year_2021(self, year_2021: UserReport2021) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2021 = year_2021
         return self
+
     def year_2022(self, year_2022: UserReport2022) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2022 = year_2022
         return self
+
     def year_2023(self, year_2023: UserReport2023) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2023 = year_2023
         return self
+
     def year_2024(self, year_2024: UserReport2024) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2024 = year_2024
         return self
-    
+
     def build(self) -> "UserAnnualReport":
         return self._user_annual_report

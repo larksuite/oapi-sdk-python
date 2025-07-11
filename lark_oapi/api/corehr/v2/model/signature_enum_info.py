@@ -26,15 +26,18 @@ class SignatureEnumInfo(object):
 class SignatureEnumInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_enum_info = SignatureEnumInfo()
+
     def label(self, label: SignatureEnumInfoLabel) -> "SignatureEnumInfoBuilder":
         self._signature_enum_info.label = label
         return self
+
     def apiname(self, apiname: str) -> "SignatureEnumInfoBuilder":
         self._signature_enum_info.apiname = apiname
         return self
+
     def active(self, active: bool) -> "SignatureEnumInfoBuilder":
         self._signature_enum_info.active = active
         return self
-    
+
     def build(self) -> "SignatureEnumInfo":
         return self._signature_enum_info

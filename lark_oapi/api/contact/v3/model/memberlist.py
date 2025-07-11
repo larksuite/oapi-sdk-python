@@ -25,15 +25,18 @@ class Memberlist(object):
 class MemberlistBuilder(object):
     def __init__(self) -> None:
         self._memberlist = Memberlist()
+
     def member_id(self, member_id: str) -> "MemberlistBuilder":
         self._memberlist.member_id = member_id
         return self
+
     def member_type(self, member_type: str) -> "MemberlistBuilder":
         self._memberlist.member_type = member_type
         return self
+
     def member_id_type(self, member_id_type: str) -> "MemberlistBuilder":
         self._memberlist.member_id_type = member_id_type
         return self
-    
+
     def build(self) -> "Memberlist":
         return self._memberlist

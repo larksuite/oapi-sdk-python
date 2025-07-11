@@ -29,18 +29,22 @@ class ConditionalFormat(object):
 class ConditionalFormatBuilder(object):
     def __init__(self) -> None:
         self._conditional_format = ConditionalFormat()
+
     def conditional_format_id(self, conditional_format_id: str) -> "ConditionalFormatBuilder":
         self._conditional_format.conditional_format_id = conditional_format_id
         return self
+
     def conditional_format_rule(self, conditional_format_rule: ConditionalFormatRule) -> "ConditionalFormatBuilder":
         self._conditional_format.conditional_format_rule = conditional_format_rule
         return self
+
     def index(self, index: int) -> "ConditionalFormatBuilder":
         self._conditional_format.index = index
         return self
+
     def ranges(self, ranges: ConditionalFormatRange) -> "ConditionalFormatBuilder":
         self._conditional_format.ranges = ranges
         return self
-    
+
     def build(self) -> "ConditionalFormat":
         return self._conditional_format

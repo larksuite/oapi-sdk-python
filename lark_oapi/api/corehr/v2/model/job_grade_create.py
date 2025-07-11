@@ -29,18 +29,22 @@ class JobGradeCreate(object):
 class JobGradeCreateBuilder(object):
     def __init__(self) -> None:
         self._job_grade_create = JobGradeCreate()
+
     def grade_order(self, grade_order: int) -> "JobGradeCreateBuilder":
         self._job_grade_create.grade_order = grade_order
         return self
+
     def code(self, code: str) -> "JobGradeCreateBuilder":
         self._job_grade_create.code = code
         return self
+
     def names(self, names: List[I18n]) -> "JobGradeCreateBuilder":
         self._job_grade_create.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "JobGradeCreateBuilder":
         self._job_grade_create.descriptions = descriptions
         return self
-    
+
     def build(self) -> "JobGradeCreate":
         return self._job_grade_create

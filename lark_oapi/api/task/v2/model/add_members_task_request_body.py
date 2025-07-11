@@ -24,12 +24,14 @@ class AddMembersTaskRequestBody(object):
 class AddMembersTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_members_task_request_body = AddMembersTaskRequestBody()
+
     def members(self, members: List[Member]) -> "AddMembersTaskRequestBodyBuilder":
         self._add_members_task_request_body.members = members
         return self
+
     def client_token(self, client_token: str) -> "AddMembersTaskRequestBodyBuilder":
         self._add_members_task_request_body.client_token = client_token
         return self
-    
+
     def build(self) -> "AddMembersTaskRequestBody":
         return self._add_members_task_request_body

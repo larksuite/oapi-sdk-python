@@ -32,21 +32,26 @@ class UserTask(object):
 class UserTaskBuilder(object):
     def __init__(self) -> None:
         self._user_task = UserTask()
+
     def task_id(self, task_id: str) -> "UserTaskBuilder":
         self._user_task.task_id = task_id
         return self
+
     def task_start_time(self, task_start_time: str) -> "UserTaskBuilder":
         self._user_task.task_start_time = task_start_time
         return self
+
     def workflow_instance(self, workflow_instance: UserTaskWfInstanceType) -> "UserTaskBuilder":
         self._user_task.workflow_instance = workflow_instance
         return self
+
     def initiator(self, initiator: User) -> "UserTaskBuilder":
         self._user_task.initiator = initiator
         return self
+
     def summarys(self, summarys: List[UserTaskSummaryType]) -> "UserTaskBuilder":
         self._user_task.summarys = summarys
         return self
-    
+
     def build(self) -> "UserTask":
         return self._user_task

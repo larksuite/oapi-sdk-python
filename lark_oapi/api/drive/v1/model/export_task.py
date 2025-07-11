@@ -37,33 +37,42 @@ class ExportTask(object):
 class ExportTaskBuilder(object):
     def __init__(self) -> None:
         self._export_task = ExportTask()
+
     def file_extension(self, file_extension: str) -> "ExportTaskBuilder":
         self._export_task.file_extension = file_extension
         return self
+
     def token(self, token: str) -> "ExportTaskBuilder":
         self._export_task.token = token
         return self
+
     def type(self, type: str) -> "ExportTaskBuilder":
         self._export_task.type = type
         return self
+
     def file_name(self, file_name: str) -> "ExportTaskBuilder":
         self._export_task.file_name = file_name
         return self
+
     def sub_id(self, sub_id: str) -> "ExportTaskBuilder":
         self._export_task.sub_id = sub_id
         return self
+
     def file_token(self, file_token: str) -> "ExportTaskBuilder":
         self._export_task.file_token = file_token
         return self
+
     def file_size(self, file_size: int) -> "ExportTaskBuilder":
         self._export_task.file_size = file_size
         return self
+
     def job_error_msg(self, job_error_msg: str) -> "ExportTaskBuilder":
         self._export_task.job_error_msg = job_error_msg
         return self
+
     def job_status(self, job_status: int) -> "ExportTaskBuilder":
         self._export_task.job_status = job_status
         return self
-    
+
     def build(self) -> "ExportTask":
         return self._export_task

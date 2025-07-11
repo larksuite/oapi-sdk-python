@@ -27,7 +27,8 @@ class MailgroupPermissionMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:
+    def batch_create(self, request: BatchCreateMailgroupPermissionMemberRequest,
+                     option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,33 +41,34 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateMailgroupPermissionMemberResponse)
+        response: BatchCreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchCreateMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_create(self, request: BatchCreateMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:
+    async def abatch_create(self, request: BatchCreateMailgroupPermissionMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateMailgroupPermissionMemberResponse)
+        response: BatchCreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchCreateMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    def batch_delete(self, request: BatchDeleteMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchDeleteMailgroupPermissionMemberResponse:
+
+    def batch_delete(self, request: BatchDeleteMailgroupPermissionMemberRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,33 +81,34 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteMailgroupPermissionMemberResponse)
+        response: BatchDeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchDeleteMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchDeleteMailgroupPermissionMemberResponse:
+    async def abatch_delete(self, request: BatchDeleteMailgroupPermissionMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteMailgroupPermissionMemberResponse)
+        response: BatchDeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchDeleteMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> CreateMailgroupPermissionMemberResponse:
+
+    def create(self, request: CreateMailgroupPermissionMemberRequest,
+               option: Optional[RequestOption] = None) -> CreateMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,33 +121,34 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupPermissionMemberResponse)
+        response: CreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           CreateMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> CreateMailgroupPermissionMemberResponse:
+    async def acreate(self, request: CreateMailgroupPermissionMemberRequest,
+                      option: Optional[RequestOption] = None) -> CreateMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupPermissionMemberResponse)
+        response: CreateMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           CreateMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> DeleteMailgroupPermissionMemberResponse:
+
+    def delete(self, request: DeleteMailgroupPermissionMemberRequest,
+               option: Optional[RequestOption] = None) -> DeleteMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,33 +161,34 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupPermissionMemberResponse)
+        response: DeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           DeleteMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> DeleteMailgroupPermissionMemberResponse:
+    async def adelete(self, request: DeleteMailgroupPermissionMemberRequest,
+                      option: Optional[RequestOption] = None) -> DeleteMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupPermissionMemberResponse)
+        response: DeleteMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           DeleteMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> GetMailgroupPermissionMemberResponse:
+
+    def get(self, request: GetMailgroupPermissionMemberRequest,
+            option: Optional[RequestOption] = None) -> GetMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -196,33 +201,34 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMailgroupPermissionMemberResponse)
+        response: GetMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        GetMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> GetMailgroupPermissionMemberResponse:
+    async def aget(self, request: GetMailgroupPermissionMemberRequest,
+                   option: Optional[RequestOption] = None) -> GetMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMailgroupPermissionMemberResponse)
+        response: GetMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        GetMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> ListMailgroupPermissionMemberResponse:
+
+    def list(self, request: ListMailgroupPermissionMemberRequest,
+             option: Optional[RequestOption] = None) -> ListMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -235,30 +241,28 @@ class MailgroupPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupPermissionMemberResponse)
+        response: ListMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ListMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListMailgroupPermissionMemberRequest, option: Optional[RequestOption] = None) -> ListMailgroupPermissionMemberResponse:
+    async def alist(self, request: ListMailgroupPermissionMemberRequest,
+                    option: Optional[RequestOption] = None) -> ListMailgroupPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupPermissionMemberResponse)
+        response: ListMailgroupPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ListMailgroupPermissionMemberResponse)
         response.raw = resp
 
         return response
-        
-    

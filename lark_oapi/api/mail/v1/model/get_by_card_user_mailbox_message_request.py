@@ -26,27 +26,26 @@ class GetByCardUserMailboxMessageRequestBuilder(object):
         get_by_card_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/get_by_card"
         get_by_card_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_by_card_user_mailbox_message_request: GetByCardUserMailboxMessageRequest = get_by_card_user_mailbox_message_request
-    
+
     def card_id(self, card_id: str) -> "GetByCardUserMailboxMessageRequestBuilder":
         self._get_by_card_user_mailbox_message_request.card_id = card_id
         self._get_by_card_user_mailbox_message_request.add_query("card_id", card_id)
         return self
-    
+
     def owner_id(self, owner_id: str) -> "GetByCardUserMailboxMessageRequestBuilder":
         self._get_by_card_user_mailbox_message_request.owner_id = owner_id
         self._get_by_card_user_mailbox_message_request.add_query("owner_id", owner_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetByCardUserMailboxMessageRequestBuilder":
         self._get_by_card_user_mailbox_message_request.user_id_type = user_id_type
         self._get_by_card_user_mailbox_message_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def user_mailbox_id(self, user_mailbox_id: str) -> "GetByCardUserMailboxMessageRequestBuilder":
         self._get_by_card_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
         self._get_by_card_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-    
 
     def build(self) -> GetByCardUserMailboxMessageRequest:
         return self._get_by_card_user_mailbox_message_request

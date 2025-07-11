@@ -17,7 +17,8 @@ class ApplicationFlow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def execute(self, request: ExecuteApplicationFlowRequest, option: Optional[RequestOption] = None) -> ExecuteApplicationFlowResponse:
+    def execute(self, request: ExecuteApplicationFlowRequest,
+                option: Optional[RequestOption] = None) -> ExecuteApplicationFlowResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class ApplicationFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ExecuteApplicationFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), ExecuteApplicationFlowResponse)
+        response: ExecuteApplicationFlowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  ExecuteApplicationFlowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aexecute(self, request: ExecuteApplicationFlowRequest, option: Optional[RequestOption] = None) -> ExecuteApplicationFlowResponse:
+    async def aexecute(self, request: ExecuteApplicationFlowRequest,
+                       option: Optional[RequestOption] = None) -> ExecuteApplicationFlowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ExecuteApplicationFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), ExecuteApplicationFlowResponse)
+        response: ExecuteApplicationFlowResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  ExecuteApplicationFlowResponse)
         response.raw = resp
 
         return response
-        
-    

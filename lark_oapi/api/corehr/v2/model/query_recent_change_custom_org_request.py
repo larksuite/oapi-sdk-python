@@ -27,32 +27,31 @@ class QueryRecentChangeCustomOrgRequestBuilder(object):
         query_recent_change_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs/query_recent_change"
         query_recent_change_custom_org_request.token_types = {AccessTokenType.TENANT}
         self._query_recent_change_custom_org_request: QueryRecentChangeCustomOrgRequest = query_recent_change_custom_org_request
-    
+
     def page_size(self, page_size: int) -> "QueryRecentChangeCustomOrgRequestBuilder":
         self._query_recent_change_custom_org_request.page_size = page_size
         self._query_recent_change_custom_org_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "QueryRecentChangeCustomOrgRequestBuilder":
         self._query_recent_change_custom_org_request.page_token = page_token
         self._query_recent_change_custom_org_request.add_query("page_token", page_token)
         return self
-    
+
     def object_api_name(self, object_api_name: str) -> "QueryRecentChangeCustomOrgRequestBuilder":
         self._query_recent_change_custom_org_request.object_api_name = object_api_name
         self._query_recent_change_custom_org_request.add_query("object_api_name", object_api_name)
         return self
-    
+
     def start_date(self, start_date: str) -> "QueryRecentChangeCustomOrgRequestBuilder":
         self._query_recent_change_custom_org_request.start_date = start_date
         self._query_recent_change_custom_org_request.add_query("start_date", start_date)
         return self
-    
+
     def end_date(self, end_date: str) -> "QueryRecentChangeCustomOrgRequestBuilder":
         self._query_recent_change_custom_org_request.end_date = end_date
         self._query_recent_change_custom_org_request.add_query("end_date", end_date)
         return self
-    
 
     def build(self) -> QueryRecentChangeCustomOrgRequest:
         return self._query_recent_change_custom_org_request

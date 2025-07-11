@@ -23,12 +23,14 @@ class NotificationChat(object):
 class NotificationChatBuilder(object):
     def __init__(self) -> None:
         self._notification_chat = NotificationChat()
+
     def chat_id(self, chat_id: str) -> "NotificationChatBuilder":
         self._notification_chat.chat_id = chat_id
         return self
+
     def name(self, name: str) -> "NotificationChatBuilder":
         self._notification_chat.name = name
         return self
-    
+
     def build(self) -> "NotificationChat":
         return self._notification_chat

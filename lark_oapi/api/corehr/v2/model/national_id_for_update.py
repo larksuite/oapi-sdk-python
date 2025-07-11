@@ -34,27 +34,34 @@ class NationalIdForUpdate(object):
 class NationalIdForUpdateBuilder(object):
     def __init__(self) -> None:
         self._national_id_for_update = NationalIdForUpdate()
+
     def country_region_id(self, country_region_id: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.country_region_id = country_region_id
         return self
+
     def national_id_type_id(self, national_id_type_id: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.national_id_type_id = national_id_type_id
         return self
+
     def national_id_number(self, national_id_number: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.national_id_number = national_id_number
         return self
+
     def issue_date(self, issue_date: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.issue_date = issue_date
         return self
+
     def expiration_date(self, expiration_date: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.expiration_date = expiration_date
         return self
+
     def issued_by(self, issued_by: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.issued_by = issued_by
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "NationalIdForUpdate":
         return self._national_id_for_update

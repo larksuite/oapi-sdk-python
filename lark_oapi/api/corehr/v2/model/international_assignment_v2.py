@@ -57,60 +57,81 @@ class InternationalAssignmentV2(object):
 class InternationalAssignmentV2Builder(object):
     def __init__(self) -> None:
         self._international_assignment_v2 = InternationalAssignmentV2()
+
     def id(self, id: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.id = id
         return self
+
     def employment_id(self, employment_id: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.employment_id = employment_id
         return self
+
     def created_by(self, created_by: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.created_by = created_by
         return self
+
     def created_at(self, created_at: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.created_at = created_at
         return self
+
     def effective_time(self, effective_time: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.effective_time = effective_time
         return self
-    def international_assignment_expected_end_date(self, international_assignment_expected_end_date: str) -> "InternationalAssignmentV2Builder":
+
+    def international_assignment_expected_end_date(self,
+                                                   international_assignment_expected_end_date: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.international_assignment_expected_end_date = international_assignment_expected_end_date
         return self
+
     def expiration_time(self, expiration_time: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.expiration_time = expiration_time
         return self
+
     def deleted_at(self, deleted_at: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.deleted_at = deleted_at
         return self
+
     def updated_at(self, updated_at: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.updated_at = updated_at
         return self
+
     def updated_by(self, updated_by: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.updated_by = updated_by
         return self
+
     def assignment_country(self, assignment_country: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.assignment_country = assignment_country
         return self
+
     def assignment_city(self, assignment_city: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.assignment_city = assignment_city
         return self
+
     def assignment_company(self, assignment_company: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.assignment_company = assignment_company
         return self
-    def international_assignment_status(self, international_assignment_status: Enum) -> "InternationalAssignmentV2Builder":
+
+    def international_assignment_status(self,
+                                        international_assignment_status: Enum) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.international_assignment_status = international_assignment_status
         return self
+
     def international_assignment_type(self, international_assignment_type: Enum) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.international_assignment_type = international_assignment_type
         return self
-    def international_assignment_allowance(self, international_assignment_allowance: bool) -> "InternationalAssignmentV2Builder":
+
+    def international_assignment_allowance(self,
+                                           international_assignment_allowance: bool) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.international_assignment_allowance = international_assignment_allowance
         return self
+
     def accommodation(self, accommodation: bool) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.accommodation = accommodation
         return self
+
     def description(self, description: str) -> "InternationalAssignmentV2Builder":
         self._international_assignment_v2.description = description
         return self
-    
+
     def build(self) -> "InternationalAssignmentV2":
         return self._international_assignment_v2

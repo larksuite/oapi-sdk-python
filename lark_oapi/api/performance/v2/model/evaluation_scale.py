@@ -24,12 +24,14 @@ class EvaluationScale(object):
 class EvaluationScaleBuilder(object):
     def __init__(self) -> None:
         self._evaluation_scale = EvaluationScale()
+
     def user_id(self, user_id: str) -> "EvaluationScaleBuilder":
         self._evaluation_scale.user_id = user_id
         return self
+
     def user_evaluation_scales(self, user_evaluation_scales: List[UserEvaluationScale]) -> "EvaluationScaleBuilder":
         self._evaluation_scale.user_evaluation_scales = user_evaluation_scales
         return self
-    
+
     def build(self) -> "EvaluationScale":
         return self._evaluation_scale

@@ -44,36 +44,46 @@ class MetricTemplate(object):
 class MetricTemplateBuilder(object):
     def __init__(self) -> None:
         self._metric_template = MetricTemplate()
+
     def id(self, id: int) -> "MetricTemplateBuilder":
         self._metric_template.id = id
         return self
+
     def name(self, name: I18n) -> "MetricTemplateBuilder":
         self._metric_template.name = name
         return self
+
     def description(self, description: I18n) -> "MetricTemplateBuilder":
         self._metric_template.description = description
         return self
+
     def status(self, status: str) -> "MetricTemplateBuilder":
         self._metric_template.status = status
         return self
+
     def is_set_by_group(self, is_set_by_group: bool) -> "MetricTemplateBuilder":
         self._metric_template.is_set_by_group = is_set_by_group
         return self
+
     def total_metric_score_method(self, total_metric_score_method: str) -> "MetricTemplateBuilder":
         self._metric_template.total_metric_score_method = total_metric_score_method
         return self
+
     def metric_weight_method(self, metric_weight_method: str) -> "MetricTemplateBuilder":
         self._metric_template.metric_weight_method = metric_weight_method
         return self
+
     def metric_dimensions(self, metric_dimensions: List[MetricDimension]) -> "MetricTemplateBuilder":
         self._metric_template.metric_dimensions = metric_dimensions
         return self
+
     def metrics(self, metrics: List[MetricInTemplate]) -> "MetricTemplateBuilder":
         self._metric_template.metrics = metrics
         return self
+
     def groups(self, groups: List[MetricGroup]) -> "MetricTemplateBuilder":
         self._metric_template.groups = groups
         return self
-    
+
     def build(self) -> "MetricTemplate":
         return self._metric_template

@@ -21,9 +21,10 @@ class BatchDelUserFlowRequestBody(object):
 class BatchDelUserFlowRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_del_user_flow_request_body = BatchDelUserFlowRequestBody()
+
     def record_ids(self, record_ids: List[str]) -> "BatchDelUserFlowRequestBodyBuilder":
         self._batch_del_user_flow_request_body.record_ids = record_ids
         return self
-    
+
     def build(self) -> "BatchDelUserFlowRequestBody":
         return self._batch_del_user_flow_request_body

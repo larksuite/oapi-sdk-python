@@ -26,15 +26,18 @@ class SearchBasicInfoDistrictResponseBody(object):
 class SearchBasicInfoDistrictResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_district_response_body = SearchBasicInfoDistrictResponseBody()
+
     def items(self, items: List[District]) -> "SearchBasicInfoDistrictResponseBodyBuilder":
         self._search_basic_info_district_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchBasicInfoDistrictResponseBodyBuilder":
         self._search_basic_info_district_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchBasicInfoDistrictResponseBodyBuilder":
         self._search_basic_info_district_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchBasicInfoDistrictResponseBody":
         return self._search_basic_info_district_response_body

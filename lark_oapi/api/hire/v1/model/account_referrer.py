@@ -28,18 +28,22 @@ class AccountReferrer(object):
 class AccountReferrerBuilder(object):
     def __init__(self) -> None:
         self._account_referrer = AccountReferrer()
+
     def id(self, id: str) -> "AccountReferrerBuilder":
         self._account_referrer.id = id
         return self
+
     def name(self, name: I18n) -> "AccountReferrerBuilder":
         self._account_referrer.name = name
         return self
+
     def email(self, email: str) -> "AccountReferrerBuilder":
         self._account_referrer.email = email
         return self
+
     def mobile(self, mobile: str) -> "AccountReferrerBuilder":
         self._account_referrer.mobile = mobile
         return self
-    
+
     def build(self) -> "AccountReferrer":
         return self._account_referrer

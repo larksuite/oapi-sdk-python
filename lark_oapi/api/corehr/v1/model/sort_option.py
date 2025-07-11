@@ -31,24 +31,30 @@ class SortOption(object):
 class SortOptionBuilder(object):
     def __init__(self) -> None:
         self._sort_option = SortOption()
+
     def sort_field(self, sort_field: str) -> "SortOptionBuilder":
         self._sort_option.sort_field = sort_field
         return self
+
     def sort_order(self, sort_order: int) -> "SortOptionBuilder":
         self._sort_option.sort_order = sort_order
         return self
+
     def sort_i18n(self, sort_i18n: int) -> "SortOptionBuilder":
         self._sort_option.sort_i18n = sort_i18n
         return self
+
     def sort_by_strand_length(self, sort_by_strand_length: bool) -> "SortOptionBuilder":
         self._sort_option.sort_by_strand_length = sort_by_strand_length
         return self
+
     def sort_by_pinyin(self, sort_by_pinyin: bool) -> "SortOptionBuilder":
         self._sort_option.sort_by_pinyin = sort_by_pinyin
         return self
+
     def sort_by_enum_value_order(self, sort_by_enum_value_order: bool) -> "SortOptionBuilder":
         self._sort_option.sort_by_enum_value_order = sort_by_enum_value_order
         return self
-    
+
     def build(self) -> "SortOption":
         return self._sort_option

@@ -40,33 +40,42 @@ class CollectionTemplate(object):
 class CollectionTemplateBuilder(object):
     def __init__(self) -> None:
         self._collection_template = CollectionTemplate()
+
     def template_id(self, template_id: str) -> "CollectionTemplateBuilder":
         self._collection_template.template_id = template_id
         return self
+
     def template_name(self, template_name: I18n) -> "CollectionTemplateBuilder":
         self._collection_template.template_name = template_name
         return self
+
     def version_id(self, version_id: str) -> "CollectionTemplateBuilder":
         self._collection_template.version_id = version_id
         return self
+
     def items(self, items: List[CollectionItem]) -> "CollectionTemplateBuilder":
         self._collection_template.items = items
         return self
+
     def country_regions(self, country_regions: List[CountryRegion]) -> "CollectionTemplateBuilder":
         self._collection_template.country_regions = country_regions
         return self
+
     def is_active(self, is_active: bool) -> "CollectionTemplateBuilder":
         self._collection_template.is_active = is_active
         return self
+
     def effective_date(self, effective_date: str) -> "CollectionTemplateBuilder":
         self._collection_template.effective_date = effective_date
         return self
+
     def created_time(self, created_time: str) -> "CollectionTemplateBuilder":
         self._collection_template.created_time = created_time
         return self
+
     def modified_time(self, modified_time: str) -> "CollectionTemplateBuilder":
         self._collection_template.modified_time = modified_time
         return self
-    
+
     def build(self) -> "CollectionTemplate":
         return self._collection_template

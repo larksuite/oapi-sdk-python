@@ -31,21 +31,26 @@ class GlobalOption(object):
 class GlobalOptionBuilder(object):
     def __init__(self) -> None:
         self._global_option = GlobalOption()
+
     def api_name(self, api_name: str) -> "GlobalOptionBuilder":
         self._global_option.api_name = api_name
         return self
+
     def label(self, label: GlobalOptionLabel) -> "GlobalOptionBuilder":
         self._global_option.label = label
         return self
+
     def options(self, options: List[GlobalOptionElement]) -> "GlobalOptionBuilder":
         self._global_option.options = options
         return self
+
     def created_at(self, created_at: int) -> "GlobalOptionBuilder":
         self._global_option.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "GlobalOptionBuilder":
         self._global_option.updated_at = updated_at
         return self
-    
+
     def build(self) -> "GlobalOption":
         return self._global_option

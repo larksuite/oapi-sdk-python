@@ -22,9 +22,10 @@ class RecognizeVatInvoiceResponseBody(object):
 class RecognizeVatInvoiceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_vat_invoice_response_body = RecognizeVatInvoiceResponseBody()
+
     def vat_invoices(self, vat_invoices: List[VatInvoice]) -> "RecognizeVatInvoiceResponseBodyBuilder":
         self._recognize_vat_invoice_response_body.vat_invoices = vat_invoices
         return self
-    
+
     def build(self) -> "RecognizeVatInvoiceResponseBody":
         return self._recognize_vat_invoice_response_body

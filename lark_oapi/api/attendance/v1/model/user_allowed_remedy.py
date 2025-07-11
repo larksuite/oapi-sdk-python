@@ -37,33 +37,42 @@ class UserAllowedRemedy(object):
 class UserAllowedRemedyBuilder(object):
     def __init__(self) -> None:
         self._user_allowed_remedy = UserAllowedRemedy()
+
     def user_id(self, user_id: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.user_id = user_id
         return self
+
     def remedy_date(self, remedy_date: int) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.remedy_date = remedy_date
         return self
+
     def is_free_punch(self, is_free_punch: bool) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.is_free_punch = is_free_punch
         return self
+
     def punch_no(self, punch_no: int) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.punch_no = punch_no
         return self
+
     def work_type(self, work_type: int) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.work_type = work_type
         return self
+
     def punch_status(self, punch_status: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.punch_status = punch_status
         return self
+
     def normal_punch_time(self, normal_punch_time: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.normal_punch_time = normal_punch_time
         return self
+
     def remedy_start_time(self, remedy_start_time: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.remedy_start_time = remedy_start_time
         return self
+
     def remedy_end_time(self, remedy_end_time: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.remedy_end_time = remedy_end_time
         return self
-    
+
     def build(self) -> "UserAllowedRemedy":
         return self._user_allowed_remedy

@@ -23,12 +23,14 @@ class EcoAccountCustomFieldEventData(object):
 class EcoAccountCustomFieldEventDataBuilder(object):
     def __init__(self) -> None:
         self._eco_account_custom_field_event_data = EcoAccountCustomFieldEventData()
+
     def key(self, key: str) -> "EcoAccountCustomFieldEventDataBuilder":
         self._eco_account_custom_field_event_data.key = key
         return self
+
     def value(self, value: str) -> "EcoAccountCustomFieldEventDataBuilder":
         self._eco_account_custom_field_event_data.value = value
         return self
-    
+
     def build(self) -> "EcoAccountCustomFieldEventData":
         return self._eco_account_custom_field_event_data

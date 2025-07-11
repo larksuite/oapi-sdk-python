@@ -24,12 +24,15 @@ class EmployeeInternationalAssignment(object):
 class EmployeeInternationalAssignmentBuilder(object):
     def __init__(self) -> None:
         self._employee_international_assignment = EmployeeInternationalAssignment()
+
     def employment_id(self, employment_id: str) -> "EmployeeInternationalAssignmentBuilder":
         self._employee_international_assignment.employment_id = employment_id
         return self
-    def international_assignments(self, international_assignments: List[InternationalAssignmentV2]) -> "EmployeeInternationalAssignmentBuilder":
+
+    def international_assignments(self, international_assignments: List[
+        InternationalAssignmentV2]) -> "EmployeeInternationalAssignmentBuilder":
         self._employee_international_assignment.international_assignments = international_assignments
         return self
-    
+
     def build(self) -> "EmployeeInternationalAssignment":
         return self._employee_international_assignment

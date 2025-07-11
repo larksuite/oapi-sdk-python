@@ -35,30 +35,38 @@ class ProcessExtra(object):
 class ProcessExtraBuilder(object):
     def __init__(self) -> None:
         self._process_extra = ProcessExtra()
+
     def operator(self, operator: str) -> "ProcessExtraBuilder":
         self._process_extra.operator = operator
         return self
+
     def node_id(self, node_id: str) -> "ProcessExtraBuilder":
         self._process_extra.node_id = node_id
         return self
+
     def approver_id(self, approver_id: str) -> "ProcessExtraBuilder":
         self._process_extra.approver_id = approver_id
         return self
+
     def extra_type(self, extra_type: int) -> "ProcessExtraBuilder":
         self._process_extra.extra_type = extra_type
         return self
+
     def approval_type(self, approval_type: int) -> "ProcessExtraBuilder":
         self._process_extra.approval_type = approval_type
         return self
+
     def extra_user_ids(self, extra_user_ids: List[str]) -> "ProcessExtraBuilder":
         self._process_extra.extra_user_ids = extra_user_ids
         return self
+
     def remark(self, remark: str) -> "ProcessExtraBuilder":
         self._process_extra.remark = remark
         return self
+
     def system_user(self, system_user: bool) -> "ProcessExtraBuilder":
         self._process_extra.system_user = system_user
         return self
-    
+
     def build(self) -> "ProcessExtra":
         return self._process_extra

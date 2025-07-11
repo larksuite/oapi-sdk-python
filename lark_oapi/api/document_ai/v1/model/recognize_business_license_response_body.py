@@ -22,9 +22,10 @@ class RecognizeBusinessLicenseResponseBody(object):
 class RecognizeBusinessLicenseResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_business_license_response_body = RecognizeBusinessLicenseResponseBody()
+
     def business_license(self, business_license: BusinessLicense) -> "RecognizeBusinessLicenseResponseBodyBuilder":
         self._recognize_business_license_response_body.business_license = business_license
         return self
-    
+
     def build(self) -> "RecognizeBusinessLicenseResponseBody":
         return self._recognize_business_license_response_body

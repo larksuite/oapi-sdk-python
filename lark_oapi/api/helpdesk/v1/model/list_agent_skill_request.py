@@ -22,7 +22,6 @@ class ListAgentSkillRequestBuilder(object):
         list_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills"
         list_agent_skill_request.token_types = {AccessTokenType.TENANT}
         self._list_agent_skill_request: ListAgentSkillRequest = list_agent_skill_request
-    
 
     def build(self) -> ListAgentSkillRequest:
         return self._list_agent_skill_request

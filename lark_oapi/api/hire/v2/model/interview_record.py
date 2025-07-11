@@ -39,30 +39,38 @@ class InterviewRecord(object):
 class InterviewRecordBuilder(object):
     def __init__(self) -> None:
         self._interview_record = InterviewRecord()
+
     def id(self, id: str) -> "InterviewRecordBuilder":
         self._interview_record.id = id
         return self
+
     def feedback_form_id(self, feedback_form_id: str) -> "InterviewRecordBuilder":
         self._interview_record.feedback_form_id = feedback_form_id
         return self
+
     def commit_status(self, commit_status: int) -> "InterviewRecordBuilder":
         self._interview_record.commit_status = commit_status
         return self
+
     def submit_time(self, submit_time: str) -> "InterviewRecordBuilder":
         self._interview_record.submit_time = submit_time
         return self
+
     def record_score(self, record_score: RecordScore) -> "InterviewRecordBuilder":
         self._interview_record.record_score = record_score
         return self
+
     def interviewer(self, interviewer: IdNameObject) -> "InterviewRecordBuilder":
         self._interview_record.interviewer = interviewer
         return self
+
     def attachments(self, attachments: List[Attachment]) -> "InterviewRecordBuilder":
         self._interview_record.attachments = attachments
         return self
+
     def module_assessments(self, module_assessments: List[ModuleAssessment]) -> "InterviewRecordBuilder":
         self._interview_record.module_assessments = module_assessments
         return self
-    
+
     def build(self) -> "InterviewRecord":
         return self._interview_record

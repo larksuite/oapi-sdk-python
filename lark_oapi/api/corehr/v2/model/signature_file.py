@@ -43,39 +43,50 @@ class SignatureFile(object):
 class SignatureFileBuilder(object):
     def __init__(self) -> None:
         self._signature_file = SignatureFile()
+
     def signature_file_id(self, signature_file_id: str) -> "SignatureFileBuilder":
         self._signature_file.signature_file_id = signature_file_id
         return self
+
     def names(self, names: List[I18n]) -> "SignatureFileBuilder":
         self._signature_file.names = names
         return self
+
     def create_time(self, create_time: str) -> "SignatureFileBuilder":
         self._signature_file.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "SignatureFileBuilder":
         self._signature_file.update_time = update_time
         return self
+
     def employment_id(self, employment_id: str) -> "SignatureFileBuilder":
         self._signature_file.employment_id = employment_id
         return self
+
     def pre_hire_id(self, pre_hire_id: str) -> "SignatureFileBuilder":
         self._signature_file.pre_hire_id = pre_hire_id
         return self
+
     def signature_file_state(self, signature_file_state: Enum) -> "SignatureFileBuilder":
         self._signature_file.signature_file_state = signature_file_state
         return self
+
     def contract_code(self, contract_code: str) -> "SignatureFileBuilder":
         self._signature_file.contract_code = contract_code
         return self
+
     def effective_date(self, effective_date: str) -> "SignatureFileBuilder":
         self._signature_file.effective_date = effective_date
         return self
+
     def template_id(self, template_id: str) -> "SignatureFileBuilder":
         self._signature_file.template_id = template_id
         return self
+
     def sign_url(self, sign_url: str) -> "SignatureFileBuilder":
         self._signature_file.sign_url = sign_url
         return self
-    
+
     def build(self) -> "SignatureFile":
         return self._signature_file

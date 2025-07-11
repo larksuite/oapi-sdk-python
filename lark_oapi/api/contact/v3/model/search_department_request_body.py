@@ -21,9 +21,10 @@ class SearchDepartmentRequestBody(object):
 class SearchDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_department_request_body = SearchDepartmentRequestBody()
+
     def query(self, query: str) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.query = query
         return self
-    
+
     def build(self) -> "SearchDepartmentRequestBody":
         return self._search_department_request_body

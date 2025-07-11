@@ -21,9 +21,10 @@ class ProtectSearchAgencyRequestBody(object):
 class ProtectSearchAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._protect_search_agency_request_body = ProtectSearchAgencyRequestBody()
+
     def talent_id(self, talent_id: str) -> "ProtectSearchAgencyRequestBodyBuilder":
         self._protect_search_agency_request_body.talent_id = talent_id
         return self
-    
+
     def build(self) -> "ProtectSearchAgencyRequestBody":
         return self._protect_search_agency_request_body

@@ -22,9 +22,10 @@ class PatchPersonResponseBody(object):
 class PatchPersonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_person_response_body = PatchPersonResponseBody()
+
     def person(self, person: Person) -> "PatchPersonResponseBodyBuilder":
         self._patch_person_response_body.person = person
         return self
-    
+
     def build(self) -> "PatchPersonResponseBody":
         return self._patch_person_response_body

@@ -28,18 +28,22 @@ class WorkhourSetting(object):
 class WorkhourSettingBuilder(object):
     def __init__(self) -> None:
         self._workhour_setting = WorkhourSetting()
+
     def timezone(self, timezone: str) -> "WorkhourSettingBuilder":
         self._workhour_setting.timezone = timezone
         return self
+
     def workhours(self, workhours: List[Workhour]) -> "WorkhourSettingBuilder":
         self._workhour_setting.workhours = workhours
         return self
+
     def enable_work_hour(self, enable_work_hour: bool) -> "WorkhourSettingBuilder":
         self._workhour_setting.enable_work_hour = enable_work_hour
         return self
+
     def user_id(self, user_id: str) -> "WorkhourSettingBuilder":
         self._workhour_setting.user_id = user_id
         return self
-    
+
     def build(self) -> "WorkhourSetting":
         return self._workhour_setting

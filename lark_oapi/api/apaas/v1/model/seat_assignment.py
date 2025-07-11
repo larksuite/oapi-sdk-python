@@ -25,15 +25,18 @@ class SeatAssignment(object):
 class SeatAssignmentBuilder(object):
     def __init__(self) -> None:
         self._seat_assignment = SeatAssignment()
+
     def user_id(self, user_id: int) -> "SeatAssignmentBuilder":
         self._seat_assignment.user_id = user_id
         return self
+
     def namespace(self, namespace: str) -> "SeatAssignmentBuilder":
         self._seat_assignment.namespace = namespace
         return self
+
     def status(self, status: str) -> "SeatAssignmentBuilder":
         self._seat_assignment.status = status
         return self
-    
+
     def build(self) -> "SeatAssignment":
         return self._seat_assignment

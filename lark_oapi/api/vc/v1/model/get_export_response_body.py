@@ -27,18 +27,22 @@ class GetExportResponseBody(object):
 class GetExportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_export_response_body = GetExportResponseBody()
+
     def status(self, status: int) -> "GetExportResponseBodyBuilder":
         self._get_export_response_body.status = status
         return self
+
     def url(self, url: str) -> "GetExportResponseBodyBuilder":
         self._get_export_response_body.url = url
         return self
+
     def file_token(self, file_token: str) -> "GetExportResponseBodyBuilder":
         self._get_export_response_body.file_token = file_token
         return self
+
     def fail_msg(self, fail_msg: str) -> "GetExportResponseBodyBuilder":
         self._get_export_response_body.fail_msg = fail_msg
         return self
-    
+
     def build(self) -> "GetExportResponseBody":
         return self._get_export_response_body

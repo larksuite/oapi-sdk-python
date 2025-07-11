@@ -23,12 +23,14 @@ class CustomAttrEvent(object):
 class CustomAttrEventBuilder(object):
     def __init__(self) -> None:
         self._custom_attr_event = CustomAttrEvent()
+
     def contact_field_key(self, contact_field_key: List[str]) -> "CustomAttrEventBuilder":
         self._custom_attr_event.contact_field_key = contact_field_key
         return self
+
     def allow_open_query(self, allow_open_query: bool) -> "CustomAttrEventBuilder":
         self._custom_attr_event.allow_open_query = allow_open_query
         return self
-    
+
     def build(self) -> "CustomAttrEvent":
         return self._custom_attr_event

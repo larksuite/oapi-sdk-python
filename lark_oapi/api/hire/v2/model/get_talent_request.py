@@ -24,17 +24,16 @@ class GetTalentRequestBuilder(object):
         get_talent_request.uri = "/open-apis/hire/v2/talents/:talent_id"
         get_talent_request.token_types = {AccessTokenType.TENANT}
         self._get_talent_request: GetTalentRequest = get_talent_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetTalentRequestBuilder":
         self._get_talent_request.user_id_type = user_id_type
         self._get_talent_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def talent_id(self, talent_id: str) -> "GetTalentRequestBuilder":
         self._get_talent_request.talent_id = talent_id
         self._get_talent_request.paths["talent_id"] = str(talent_id)
         return self
-    
 
     def build(self) -> GetTalentRequest:
         return self._get_talent_request

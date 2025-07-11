@@ -25,15 +25,18 @@ class DatasetLookupUser(object):
 class DatasetLookupUserBuilder(object):
     def __init__(self) -> None:
         self._dataset_lookup_user = DatasetLookupUser()
+
     def id(self, id: str) -> "DatasetLookupUserBuilder":
         self._dataset_lookup_user.id = id
         return self
+
     def name(self, name: str) -> "DatasetLookupUserBuilder":
         self._dataset_lookup_user.name = name
         return self
+
     def is_deleted(self, is_deleted: bool) -> "DatasetLookupUserBuilder":
         self._dataset_lookup_user.is_deleted = is_deleted
         return self
-    
+
     def build(self) -> "DatasetLookupUser":
         return self._dataset_lookup_user

@@ -24,12 +24,14 @@ class WorkCalendarLeaveResponseBody(object):
 class WorkCalendarLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._work_calendar_leave_response_body = WorkCalendarLeaveResponseBody()
+
     def work_calendars(self, work_calendars: List[WorkCalendarDetail]) -> "WorkCalendarLeaveResponseBodyBuilder":
         self._work_calendar_leave_response_body.work_calendars = work_calendars
         return self
+
     def count(self, count: int) -> "WorkCalendarLeaveResponseBodyBuilder":
         self._work_calendar_leave_response_body.count = count
         return self
-    
+
     def build(self) -> "WorkCalendarLeaveResponseBody":
         return self._work_calendar_leave_response_body

@@ -25,15 +25,18 @@ class JobBasicInfo(object):
 class JobBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._job_basic_info = JobBasicInfo()
+
     def id(self, id: str) -> "JobBasicInfoBuilder":
         self._job_basic_info.id = id
         return self
+
     def name(self, name: str) -> "JobBasicInfoBuilder":
         self._job_basic_info.name = name
         return self
+
     def code(self, code: str) -> "JobBasicInfoBuilder":
         self._job_basic_info.code = code
         return self
-    
+
     def build(self) -> "JobBasicInfo":
         return self._job_basic_info

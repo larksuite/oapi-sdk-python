@@ -47,42 +47,54 @@ class VerificationActivityRow(object):
 class VerificationActivityRowBuilder(object):
     def __init__(self) -> None:
         self._verification_activity_row = VerificationActivityRow()
+
     def row_id(self, row_id: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.row_id = row_id
         return self
+
     def employment_id(self, employment_id: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.employment_id = employment_id
         return self
+
     def activity_id(self, activity_id: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.activity_id = activity_id
         return self
+
     def employee_number(self, employee_number: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.employee_number = employee_number
         return self
+
     def employee_id(self, employee_id: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.employee_id = employee_id
         return self
+
     def working_hours_type(self, working_hours_type: IdWithName) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.working_hours_type = working_hours_type
         return self
+
     def pay_group(self, pay_group: IdWithName) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.pay_group = pay_group
         return self
+
     def start_date(self, start_date: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.end_date = end_date
         return self
+
     def cutoff_date(self, cutoff_date: str) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.cutoff_date = cutoff_date
         return self
+
     def item_values(self, item_values: List[VerifActItemValue]) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.item_values = item_values
         return self
+
     def prorations(self, prorations: List[VerifActProration]) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.prorations = prorations
         return self
-    
+
     def build(self) -> "VerificationActivityRow":
         return self._verification_activity_row

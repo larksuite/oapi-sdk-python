@@ -25,12 +25,12 @@ class MoveDocsToWikiSpaceNodeRequestBuilder(object):
         move_docs_to_wiki_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
         move_docs_to_wiki_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._move_docs_to_wiki_space_node_request: MoveDocsToWikiSpaceNodeRequest = move_docs_to_wiki_space_node_request
-    
+
     def space_id(self, space_id: str) -> "MoveDocsToWikiSpaceNodeRequestBuilder":
         self._move_docs_to_wiki_space_node_request.space_id = space_id
         self._move_docs_to_wiki_space_node_request.paths["space_id"] = str(space_id)
         return self
-    
+
     def request_body(self, request_body: MoveDocsToWikiSpaceNodeRequestBody) -> "MoveDocsToWikiSpaceNodeRequestBuilder":
         self._move_docs_to_wiki_space_node_request.request_body = request_body
         self._move_docs_to_wiki_space_node_request.body = request_body

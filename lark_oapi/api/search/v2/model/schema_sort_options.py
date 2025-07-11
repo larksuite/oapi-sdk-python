@@ -23,12 +23,14 @@ class SchemaSortOptions(object):
 class SchemaSortOptionsBuilder(object):
     def __init__(self) -> None:
         self._schema_sort_options = SchemaSortOptions()
+
     def priority(self, priority: int) -> "SchemaSortOptionsBuilder":
         self._schema_sort_options.priority = priority
         return self
+
     def order(self, order: str) -> "SchemaSortOptionsBuilder":
         self._schema_sort_options.order = order
         return self
-    
+
     def build(self) -> "SchemaSortOptions":
         return self._schema_sort_options

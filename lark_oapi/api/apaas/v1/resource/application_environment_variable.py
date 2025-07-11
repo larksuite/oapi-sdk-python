@@ -19,7 +19,8 @@ class ApplicationEnvironmentVariable(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetApplicationEnvironmentVariableRequest, option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
+    def get(self, request: GetApplicationEnvironmentVariableRequest,
+            option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,34 @@ class ApplicationEnvironmentVariable(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationEnvironmentVariableResponse)
+        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             GetApplicationEnvironmentVariableResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetApplicationEnvironmentVariableRequest, option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
+    async def aget(self, request: GetApplicationEnvironmentVariableRequest,
+                   option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationEnvironmentVariableResponse)
+        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             GetApplicationEnvironmentVariableResponse)
         response.raw = resp
 
         return response
-        
-    def query(self, request: QueryApplicationEnvironmentVariableRequest, option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
+
+    def query(self, request: QueryApplicationEnvironmentVariableRequest,
+              option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +73,28 @@ class ApplicationEnvironmentVariable(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryApplicationEnvironmentVariableResponse)
+        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                               QueryApplicationEnvironmentVariableResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QueryApplicationEnvironmentVariableRequest, option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
+    async def aquery(self, request: QueryApplicationEnvironmentVariableRequest,
+                     option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryApplicationEnvironmentVariableResponse)
+        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                               QueryApplicationEnvironmentVariableResponse)
         response.raw = resp
 
         return response
-        
-    

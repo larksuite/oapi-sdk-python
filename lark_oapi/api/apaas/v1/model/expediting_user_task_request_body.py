@@ -25,15 +25,18 @@ class ExpeditingUserTaskRequestBody(object):
 class ExpeditingUserTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._expediting_user_task_request_body = ExpeditingUserTaskRequestBody()
+
     def operator_user_id(self, operator_user_id: str) -> "ExpeditingUserTaskRequestBodyBuilder":
         self._expediting_user_task_request_body.operator_user_id = operator_user_id
         return self
+
     def expediting_user_ids(self, expediting_user_ids: List[str]) -> "ExpeditingUserTaskRequestBodyBuilder":
         self._expediting_user_task_request_body.expediting_user_ids = expediting_user_ids
         return self
+
     def opinion(self, opinion: str) -> "ExpeditingUserTaskRequestBodyBuilder":
         self._expediting_user_task_request_body.opinion = opinion
         return self
-    
+
     def build(self) -> "ExpeditingUserTaskRequestBody":
         return self._expediting_user_task_request_body

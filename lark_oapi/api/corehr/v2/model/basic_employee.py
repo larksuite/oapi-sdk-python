@@ -30,21 +30,26 @@ class BasicEmployee(object):
 class BasicEmployeeBuilder(object):
     def __init__(self) -> None:
         self._basic_employee = BasicEmployee()
+
     def employment_id(self, employment_id: str) -> "BasicEmployeeBuilder":
         self._basic_employee.employment_id = employment_id
         return self
+
     def employment_id_v2(self, employment_id_v2: str) -> "BasicEmployeeBuilder":
         self._basic_employee.employment_id_v2 = employment_id_v2
         return self
+
     def employee_number(self, employee_number: str) -> "BasicEmployeeBuilder":
         self._basic_employee.employee_number = employee_number
         return self
+
     def email_address(self, email_address: str) -> "BasicEmployeeBuilder":
         self._basic_employee.email_address = email_address
         return self
+
     def person_info(self, person_info: BasicPersonInfo) -> "BasicEmployeeBuilder":
         self._basic_employee.person_info = person_info
         return self
-    
+
     def build(self) -> "BasicEmployee":
         return self._basic_employee

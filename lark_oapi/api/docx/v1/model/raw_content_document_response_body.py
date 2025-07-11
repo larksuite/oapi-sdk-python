@@ -21,9 +21,10 @@ class RawContentDocumentResponseBody(object):
 class RawContentDocumentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._raw_content_document_response_body = RawContentDocumentResponseBody()
+
     def content(self, content: str) -> "RawContentDocumentResponseBodyBuilder":
         self._raw_content_document_response_body.content = content
         return self
-    
+
     def build(self) -> "RawContentDocumentResponseBody":
         return self._raw_content_document_response_body

@@ -3,7 +3,8 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .open_query_job_change_list_by_ids_approval_groups_response_body import OpenQueryJobChangeListByIdsApprovalGroupsResponseBody
+from .open_query_job_change_list_by_ids_approval_groups_response_body import \
+    OpenQueryJobChangeListByIdsApprovalGroupsResponseBody
 
 
 class OpenQueryJobChangeListByIdsApprovalGroupsResponse(BaseResponse):

@@ -31,24 +31,30 @@ class TokenInfo(object):
 class TokenInfoBuilder(object):
     def __init__(self) -> None:
         self._token_info = TokenInfo()
+
     def access_token(self, access_token: str) -> "TokenInfoBuilder":
         self._token_info.access_token = access_token
         return self
+
     def refresh_token(self, refresh_token: str) -> "TokenInfoBuilder":
         self._token_info.refresh_token = refresh_token
         return self
+
     def token_type(self, token_type: str) -> "TokenInfoBuilder":
         self._token_info.token_type = token_type
         return self
+
     def expires_in(self, expires_in: int) -> "TokenInfoBuilder":
         self._token_info.expires_in = expires_in
         return self
+
     def refresh_expires_in(self, refresh_expires_in: int) -> "TokenInfoBuilder":
         self._token_info.refresh_expires_in = refresh_expires_in
         return self
+
     def scope(self, scope: str) -> "TokenInfoBuilder":
         self._token_info.scope = scope
         return self
-    
+
     def build(self) -> "TokenInfo":
         return self._token_info

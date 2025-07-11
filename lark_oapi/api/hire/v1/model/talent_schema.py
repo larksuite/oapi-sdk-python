@@ -19,6 +19,6 @@ class TalentSchema(object):
 class TalentSchemaBuilder(object):
     def __init__(self) -> None:
         self._talent_schema = TalentSchema()
-    
+
     def build(self) -> "TalentSchema":
         return self._talent_schema

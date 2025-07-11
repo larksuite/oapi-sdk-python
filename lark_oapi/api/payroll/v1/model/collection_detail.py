@@ -24,12 +24,14 @@ class CollectionDetail(object):
 class CollectionDetailBuilder(object):
     def __init__(self) -> None:
         self._collection_detail = CollectionDetail()
+
     def employment_id(self, employment_id: str) -> "CollectionDetailBuilder":
         self._collection_detail.employment_id = employment_id
         return self
+
     def activities(self, activities: List[CollectionActivityDataWithDetails]) -> "CollectionDetailBuilder":
         self._collection_detail.activities = activities
         return self
-    
+
     def build(self) -> "CollectionDetail":
         return self._collection_detail

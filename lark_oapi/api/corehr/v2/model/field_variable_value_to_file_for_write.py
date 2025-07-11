@@ -25,15 +25,18 @@ class FieldVariableValueToFileForWrite(object):
 class FieldVariableValueToFileForWriteBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_file_for_write = FieldVariableValueToFileForWrite()
+
     def open_file_id(self, open_file_id: str) -> "FieldVariableValueToFileForWriteBuilder":
         self._field_variable_value_to_file_for_write.open_file_id = open_file_id
         return self
+
     def file_name(self, file_name: str) -> "FieldVariableValueToFileForWriteBuilder":
         self._field_variable_value_to_file_for_write.file_name = file_name
         return self
+
     def length(self, length: int) -> "FieldVariableValueToFileForWriteBuilder":
         self._field_variable_value_to_file_for_write.length = length
         return self
-    
+
     def build(self) -> "FieldVariableValueToFileForWrite":
         return self._field_variable_value_to_file_for_write

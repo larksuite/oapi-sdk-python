@@ -21,9 +21,10 @@ class TransitTaskPreHireResponseBody(object):
 class TransitTaskPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._transit_task_pre_hire_response_body = TransitTaskPreHireResponseBody()
+
     def success(self, success: bool) -> "TransitTaskPreHireResponseBodyBuilder":
         self._transit_task_pre_hire_response_body.success = success
         return self
-    
+
     def build(self) -> "TransitTaskPreHireResponseBody":
         return self._transit_task_pre_hire_response_body

@@ -29,18 +29,22 @@ class TalentCustomizedData(object):
 class TalentCustomizedDataBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_data = TalentCustomizedData()
+
     def object_id(self, object_id: str) -> "TalentCustomizedDataBuilder":
         self._talent_customized_data.object_id = object_id
         return self
+
     def name(self, name: I18n) -> "TalentCustomizedDataBuilder":
         self._talent_customized_data.name = name
         return self
+
     def object_type(self, object_type: int) -> "TalentCustomizedDataBuilder":
         self._talent_customized_data.object_type = object_type
         return self
+
     def children(self, children: List[TalentCustomizedDataChild]) -> "TalentCustomizedDataBuilder":
         self._talent_customized_data.children = children
         return self
-    
+
     def build(self) -> "TalentCustomizedData":
         return self._talent_customized_data

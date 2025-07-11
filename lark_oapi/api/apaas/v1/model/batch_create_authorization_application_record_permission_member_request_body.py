@@ -21,9 +21,11 @@ class BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBody(objec
 class BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_authorization_application_record_permission_member_request_body = BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBody()
-    def user_ids(self, user_ids: List[str]) -> "BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder":
+
+    def user_ids(self,
+                 user_ids: List[str]) -> "BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder":
         self._batch_create_authorization_application_record_permission_member_request_body.user_ids = user_ids
         return self
-    
+
     def build(self) -> "BatchCreateAuthorizationApplicationRecordPermissionMemberRequestBody":
         return self._batch_create_authorization_application_record_permission_member_request_body

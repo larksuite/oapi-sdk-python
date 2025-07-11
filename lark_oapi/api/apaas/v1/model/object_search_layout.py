@@ -21,9 +21,10 @@ class ObjectSearchLayout(object):
 class ObjectSearchLayoutBuilder(object):
     def __init__(self) -> None:
         self._object_search_layout = ObjectSearchLayout()
+
     def display_fields(self, display_fields: List[str]) -> "ObjectSearchLayoutBuilder":
         self._object_search_layout.display_fields = display_fields
         return self
-    
+
     def build(self) -> "ObjectSearchLayout":
         return self._object_search_layout

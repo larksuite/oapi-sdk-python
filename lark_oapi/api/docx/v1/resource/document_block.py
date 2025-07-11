@@ -23,7 +23,8 @@ class DocumentBlock(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update(self, request: BatchUpdateDocumentBlockRequest, option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:
+    def batch_update(self, request: BatchUpdateDocumentBlockRequest,
+                     option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,32 +37,32 @@ class DocumentBlock(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateDocumentBlockResponse)
+        response: BatchUpdateDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchUpdateDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_update(self, request: BatchUpdateDocumentBlockRequest, option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:
+    async def abatch_update(self, request: BatchUpdateDocumentBlockRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateDocumentBlockResponse)
+        response: BatchUpdateDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchUpdateDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetDocumentBlockRequest, option: Optional[RequestOption] = None) -> GetDocumentBlockResponse:
         if option is None:
             option = RequestOption()
@@ -75,33 +76,32 @@ class DocumentBlock(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetDocumentBlockRequest, option: Optional[RequestOption] = None) -> GetDocumentBlockResponse:
+    async def aget(self, request: GetDocumentBlockRequest,
+                   option: Optional[RequestOption] = None) -> GetDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListDocumentBlockRequest, option: Optional[RequestOption] = None) -> ListDocumentBlockResponse:
+
+    def list(self, request: ListDocumentBlockRequest,
+             option: Optional[RequestOption] = None) -> ListDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +114,32 @@ class DocumentBlock(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListDocumentBlockRequest, option: Optional[RequestOption] = None) -> ListDocumentBlockResponse:
+    async def alist(self, request: ListDocumentBlockRequest,
+                    option: Optional[RequestOption] = None) -> ListDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchDocumentBlockRequest, option: Optional[RequestOption] = None) -> PatchDocumentBlockResponse:
+
+    def patch(self, request: PatchDocumentBlockRequest,
+              option: Optional[RequestOption] = None) -> PatchDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +152,26 @@ class DocumentBlock(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchDocumentBlockRequest, option: Optional[RequestOption] = None) -> PatchDocumentBlockResponse:
+    async def apatch(self, request: PatchDocumentBlockRequest,
+                     option: Optional[RequestOption] = None) -> PatchDocumentBlockResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchDocumentBlockResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDocumentBlockResponse)
         response.raw = resp
 
         return response
-        
-    

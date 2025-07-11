@@ -31,24 +31,30 @@ class VerifFieldSourceConfig(object):
 class VerifFieldSourceConfigBuilder(object):
     def __init__(self) -> None:
         self._verif_field_source_config = VerifFieldSourceConfig()
+
     def formula_id(self, formula_id: str) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.formula_id = formula_id
         return self
+
     def formula_item_id(self, formula_item_id: str) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.formula_item_id = formula_item_id
         return self
+
     def formula_text(self, formula_text: str) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.formula_text = formula_text
         return self
+
     def api_name(self, api_name: str) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.api_name = api_name
         return self
+
     def source_aggregation_type(self, source_aggregation_type: int) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.source_aggregation_type = source_aggregation_type
         return self
+
     def ref_type(self, ref_type: int) -> "VerifFieldSourceConfigBuilder":
         self._verif_field_source_config.ref_type = ref_type
         return self
-    
+
     def build(self) -> "VerifFieldSourceConfig":
         return self._verif_field_source_config

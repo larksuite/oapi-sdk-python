@@ -21,9 +21,10 @@ class DeleteChatMembersRequestBody(object):
 class DeleteChatMembersRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_chat_members_request_body = DeleteChatMembersRequestBody()
+
     def id_list(self, id_list: List[str]) -> "DeleteChatMembersRequestBodyBuilder":
         self._delete_chat_members_request_body.id_list = id_list
         return self
-    
+
     def build(self) -> "DeleteChatMembersRequestBody":
         return self._delete_chat_members_request_body

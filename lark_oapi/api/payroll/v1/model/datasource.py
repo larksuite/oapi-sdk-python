@@ -34,24 +34,30 @@ class Datasource(object):
 class DatasourceBuilder(object):
     def __init__(self) -> None:
         self._datasource = Datasource()
+
     def code(self, code: str) -> "DatasourceBuilder":
         self._datasource.code = code
         return self
+
     def i18n_names(self, i18n_names: List[I18nContent]) -> "DatasourceBuilder":
         self._datasource.i18n_names = i18n_names
         return self
+
     def active_status(self, active_status: int) -> "DatasourceBuilder":
         self._datasource.active_status = active_status
         return self
+
     def fields(self, fields: List[DatasourceField]) -> "DatasourceBuilder":
         self._datasource.fields = fields
         return self
+
     def i18n_description(self, i18n_description: List[I18nContent]) -> "DatasourceBuilder":
         self._datasource.i18n_description = i18n_description
         return self
+
     def data_period_type(self, data_period_type: int) -> "DatasourceBuilder":
         self._datasource.data_period_type = data_period_type
         return self
-    
+
     def build(self) -> "Datasource":
         return self._datasource

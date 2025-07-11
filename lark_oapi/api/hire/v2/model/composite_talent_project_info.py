@@ -34,27 +34,35 @@ class CompositeTalentProjectInfo(object):
 class CompositeTalentProjectInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_project_info = CompositeTalentProjectInfo()
+
     def project_name(self, project_name: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.project_name = project_name
         return self
+
     def role(self, role: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.role = role
         return self
+
     def link(self, link: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.link = link
         return self
+
     def description(self, description: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.description = description
         return self
+
     def start_time(self, start_time: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.end_time = end_time
         return self
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentProjectInfoBuilder":
+
+    def customized_data_list(self, customized_data_list: List[
+        TalentCustomizedDataChild]) -> "CompositeTalentProjectInfoBuilder":
         self._composite_talent_project_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "CompositeTalentProjectInfo":
         return self._composite_talent_project_info

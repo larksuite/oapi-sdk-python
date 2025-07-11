@@ -32,21 +32,26 @@ class RoomConfig(object):
 class RoomConfigBuilder(object):
     def __init__(self) -> None:
         self._room_config = RoomConfig()
+
     def room_background(self, room_background: str) -> "RoomConfigBuilder":
         self._room_config.room_background = room_background
         return self
+
     def display_background(self, display_background: str) -> "RoomConfigBuilder":
         self._room_config.display_background = display_background
         return self
+
     def digital_signage(self, digital_signage: RoomDigitalSignage) -> "RoomConfigBuilder":
         self._room_config.digital_signage = digital_signage
         return self
+
     def room_box_digital_signage(self, room_box_digital_signage: RoomDigitalSignage) -> "RoomConfigBuilder":
         self._room_config.room_box_digital_signage = room_box_digital_signage
         return self
+
     def room_status(self, room_status: RoomStatus) -> "RoomConfigBuilder":
         self._room_config.room_status = room_status
         return self
-    
+
     def build(self) -> "RoomConfig":
         return self._room_config

@@ -23,12 +23,14 @@ class I18nV2(object):
 class I18nV2Builder(object):
     def __init__(self) -> None:
         self._i18n_v2 = I18nV2()
+
     def zh_cn(self, zh_cn: str) -> "I18nV2Builder":
         self._i18n_v2.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "I18nV2Builder":
         self._i18n_v2.en_us = en_us
         return self
-    
+
     def build(self) -> "I18nV2":
         return self._i18n_v2

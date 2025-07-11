@@ -28,18 +28,22 @@ class OpenResult(object):
 class OpenResultBuilder(object):
     def __init__(self) -> None:
         self._open_result = OpenResult()
+
     def user_id(self, user_id: UserId) -> "OpenResultBuilder":
         self._open_result.user_id = user_id
         return self
+
     def semester_id(self, semester_id: str) -> "OpenResultBuilder":
         self._open_result.semester_id = semester_id
         return self
+
     def activity_id(self, activity_id: str) -> "OpenResultBuilder":
         self._open_result.activity_id = activity_id
         return self
+
     def open_time(self, open_time: str) -> "OpenResultBuilder":
         self._open_result.open_time = open_time
         return self
-    
+
     def build(self) -> "OpenResult":
         return self._open_result

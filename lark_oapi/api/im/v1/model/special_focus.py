@@ -23,12 +23,14 @@ class SpecialFocus(object):
 class SpecialFocusBuilder(object):
     def __init__(self) -> None:
         self._special_focus = SpecialFocus()
+
     def id(self, id: str) -> "SpecialFocusBuilder":
         self._special_focus.id = id
         return self
+
     def id_type(self, id_type: str) -> "SpecialFocusBuilder":
         self._special_focus.id_type = id_type
         return self
-    
+
     def build(self) -> "SpecialFocus":
         return self._special_focus

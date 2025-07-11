@@ -29,18 +29,22 @@ class JobCustomizedData(object):
 class JobCustomizedDataBuilder(object):
     def __init__(self) -> None:
         self._job_customized_data = JobCustomizedData()
+
     def object_id(self, object_id: str) -> "JobCustomizedDataBuilder":
         self._job_customized_data.object_id = object_id
         return self
+
     def name(self, name: I18n) -> "JobCustomizedDataBuilder":
         self._job_customized_data.name = name
         return self
+
     def object_type(self, object_type: int) -> "JobCustomizedDataBuilder":
         self._job_customized_data.object_type = object_type
         return self
+
     def value(self, value: JobCustomizedValue) -> "JobCustomizedDataBuilder":
         self._job_customized_data.value = value
         return self
-    
+
     def build(self) -> "JobCustomizedData":
         return self._job_customized_data

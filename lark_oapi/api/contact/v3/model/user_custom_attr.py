@@ -26,15 +26,18 @@ class UserCustomAttr(object):
 class UserCustomAttrBuilder(object):
     def __init__(self) -> None:
         self._user_custom_attr = UserCustomAttr()
+
     def type(self, type: str) -> "UserCustomAttrBuilder":
         self._user_custom_attr.type = type
         return self
+
     def id(self, id: str) -> "UserCustomAttrBuilder":
         self._user_custom_attr.id = id
         return self
+
     def value(self, value: UserCustomAttrValue) -> "UserCustomAttrBuilder":
         self._user_custom_attr.value = value
         return self
-    
+
     def build(self) -> "UserCustomAttr":
         return self._user_custom_attr

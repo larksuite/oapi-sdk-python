@@ -21,9 +21,10 @@ class Abbreviation(object):
 class AbbreviationBuilder(object):
     def __init__(self) -> None:
         self._abbreviation = Abbreviation()
+
     def id(self, id: str) -> "AbbreviationBuilder":
         self._abbreviation.id = id
         return self
-    
+
     def build(self) -> "Abbreviation":
         return self._abbreviation

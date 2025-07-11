@@ -23,7 +23,8 @@ class WebsiteChannel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateWebsiteChannelRequest, option: Optional[RequestOption] = None) -> CreateWebsiteChannelResponse:
+    def create(self, request: CreateWebsiteChannelRequest,
+               option: Optional[RequestOption] = None) -> CreateWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,32 @@ class WebsiteChannel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateWebsiteChannelRequest, option: Optional[RequestOption] = None) -> CreateWebsiteChannelResponse:
+    async def acreate(self, request: CreateWebsiteChannelRequest,
+                      option: Optional[RequestOption] = None) -> CreateWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteWebsiteChannelRequest, option: Optional[RequestOption] = None) -> DeleteWebsiteChannelResponse:
+
+    def delete(self, request: DeleteWebsiteChannelRequest,
+               option: Optional[RequestOption] = None) -> DeleteWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +75,32 @@ class WebsiteChannel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteWebsiteChannelRequest, option: Optional[RequestOption] = None) -> DeleteWebsiteChannelResponse:
+    async def adelete(self, request: DeleteWebsiteChannelRequest,
+                      option: Optional[RequestOption] = None) -> DeleteWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListWebsiteChannelRequest, option: Optional[RequestOption] = None) -> ListWebsiteChannelResponse:
+
+    def list(self, request: ListWebsiteChannelRequest,
+             option: Optional[RequestOption] = None) -> ListWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +113,32 @@ class WebsiteChannel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListWebsiteChannelRequest, option: Optional[RequestOption] = None) -> ListWebsiteChannelResponse:
+    async def alist(self, request: ListWebsiteChannelRequest,
+                    option: Optional[RequestOption] = None) -> ListWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateWebsiteChannelRequest, option: Optional[RequestOption] = None) -> UpdateWebsiteChannelResponse:
+
+    def update(self, request: UpdateWebsiteChannelRequest,
+               option: Optional[RequestOption] = None) -> UpdateWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +151,26 @@ class WebsiteChannel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateWebsiteChannelRequest, option: Optional[RequestOption] = None) -> UpdateWebsiteChannelResponse:
+    async def aupdate(self, request: UpdateWebsiteChannelRequest,
+                      option: Optional[RequestOption] = None) -> UpdateWebsiteChannelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateWebsiteChannelResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateWebsiteChannelResponse)
         response.raw = resp
 
         return response
-        
-    

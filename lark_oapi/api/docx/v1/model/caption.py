@@ -21,9 +21,10 @@ class Caption(object):
 class CaptionBuilder(object):
     def __init__(self) -> None:
         self._caption = Caption()
+
     def content(self, content: str) -> "CaptionBuilder":
         self._caption.content = content
         return self
-    
+
     def build(self) -> "Caption":
         return self._caption

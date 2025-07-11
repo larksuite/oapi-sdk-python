@@ -24,12 +24,14 @@ class StandardDimension(object):
 class StandardDimensionBuilder(object):
     def __init__(self) -> None:
         self._standard_dimension = StandardDimension()
+
     def api_name(self, api_name: str) -> "StandardDimensionBuilder":
         self._standard_dimension.api_name = api_name
         return self
+
     def label(self, label: I18n) -> "StandardDimensionBuilder":
         self._standard_dimension.label = label
         return self
-    
+
     def build(self) -> "StandardDimension":
         return self._standard_dimension

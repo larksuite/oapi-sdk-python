@@ -34,27 +34,34 @@ class SignGroup(object):
 class SignGroupBuilder(object):
     def __init__(self) -> None:
         self._sign_group = SignGroup()
+
     def instance_code(self, instance_code: str) -> "SignGroupBuilder":
         self._sign_group.instance_code = instance_code
         return self
+
     def user_id(self, user_id: UserId) -> "SignGroupBuilder":
         self._sign_group.user_id = user_id
         return self
+
     def account_code(self, account_code: str) -> "SignGroupBuilder":
         self._sign_group.account_code = account_code
         return self
+
     def boilerplate_unique_code(self, boilerplate_unique_code: str) -> "SignGroupBuilder":
         self._sign_group.boilerplate_unique_code = boilerplate_unique_code
         return self
+
     def start_time(self, start_time: int) -> "SignGroupBuilder":
         self._sign_group.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "SignGroupBuilder":
         self._sign_group.end_time = end_time
         return self
+
     def type(self, type: str) -> "SignGroupBuilder":
         self._sign_group.type = type
         return self
-    
+
     def build(self) -> "SignGroup":
         return self._sign_group

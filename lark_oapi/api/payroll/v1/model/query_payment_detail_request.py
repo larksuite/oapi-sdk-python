@@ -24,7 +24,7 @@ class QueryPaymentDetailRequestBuilder(object):
         query_payment_detail_request.uri = "/open-apis/payroll/v1/payment_detail/query"
         query_payment_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._query_payment_detail_request: QueryPaymentDetailRequest = query_payment_detail_request
-    
+
     def request_body(self, request_body: QueryPaymentDetailRequestBody) -> "QueryPaymentDetailRequestBuilder":
         self._query_payment_detail_request.request_body = request_body
         self._query_payment_detail_request.body = request_body

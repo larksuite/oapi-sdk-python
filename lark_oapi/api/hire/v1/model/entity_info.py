@@ -24,12 +24,14 @@ class EntityInfo(object):
 class EntityInfoBuilder(object):
     def __init__(self) -> None:
         self._entity_info = EntityInfo()
+
     def code(self, code: str) -> "EntityInfoBuilder":
         self._entity_info.code = code
         return self
+
     def name(self, name: I18n) -> "EntityInfoBuilder":
         self._entity_info.name = name
         return self
-    
+
     def build(self) -> "EntityInfo":
         return self._entity_info

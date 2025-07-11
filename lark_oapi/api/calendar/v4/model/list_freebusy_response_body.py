@@ -22,9 +22,10 @@ class ListFreebusyResponseBody(object):
 class ListFreebusyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_freebusy_response_body = ListFreebusyResponseBody()
+
     def freebusy_list(self, freebusy_list: List[Freebusy]) -> "ListFreebusyResponseBodyBuilder":
         self._list_freebusy_response_body.freebusy_list = freebusy_list
         return self
-    
+
     def build(self) -> "ListFreebusyResponseBody":
         return self._list_freebusy_response_body

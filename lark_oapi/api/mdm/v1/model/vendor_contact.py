@@ -34,27 +34,34 @@ class VendorContact(object):
 class VendorContactBuilder(object):
     def __init__(self) -> None:
         self._vendor_contact = VendorContact()
+
     def id(self, id: int) -> "VendorContactBuilder":
         self._vendor_contact.id = id
         return self
+
     def name(self, name: str) -> "VendorContactBuilder":
         self._vendor_contact.name = name
         return self
+
     def position(self, position: str) -> "VendorContactBuilder":
         self._vendor_contact.position = position
         return self
+
     def email(self, email: str) -> "VendorContactBuilder":
         self._vendor_contact.email = email
         return self
+
     def phone(self, phone: str) -> "VendorContactBuilder":
         self._vendor_contact.phone = phone
         return self
+
     def remark(self, remark: str) -> "VendorContactBuilder":
         self._vendor_contact.remark = remark
         return self
+
     def extend_info(self, extend_info: List[ExtendField]) -> "VendorContactBuilder":
         self._vendor_contact.extend_info = extend_info
         return self
-    
+
     def build(self) -> "VendorContact":
         return self._vendor_contact

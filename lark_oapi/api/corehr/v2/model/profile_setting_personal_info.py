@@ -49,36 +49,49 @@ class ProfileSettingPersonalInfo(object):
 class ProfileSettingPersonalInfoBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_personal_info = ProfileSettingPersonalInfo()
-    def personal_basic_info(self, personal_basic_info: ProfileSettingPersonalBasicInfo) -> "ProfileSettingPersonalInfoBuilder":
+
+    def personal_basic_info(self,
+                            personal_basic_info: ProfileSettingPersonalBasicInfo) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.personal_basic_info = personal_basic_info
         return self
-    def emergency_contacts(self, emergency_contacts: List[ProfileSettingEmergencyContact]) -> "ProfileSettingPersonalInfoBuilder":
+
+    def emergency_contacts(self, emergency_contacts: List[
+        ProfileSettingEmergencyContact]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.emergency_contacts = emergency_contacts
         return self
+
     def bank_accounts(self, bank_accounts: List[ProfileSettingBankAccount]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.bank_accounts = bank_accounts
         return self
+
     def nationals(self, nationals: List[ProfileSettingNational]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.nationals = nationals
         return self
+
     def resident_taxes(self, resident_taxes: List[ProfileSettingResidentTax]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.resident_taxes = resident_taxes
         return self
+
     def dependents(self, dependents: List[ProfileSettingDependent]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.dependents = dependents
         return self
+
     def hukou(self, hukou: ProfileSettingHukou) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.hukou = hukou
         return self
+
     def contact_addresses(self, contact_addresses: List[ProfileSettingAddress]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.contact_addresses = contact_addresses
         return self
+
     def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.custom_groups = custom_groups
         return self
-    def citizenship_statuses(self, citizenship_statuses: List[ProfileSettingCitizenshipStatus]) -> "ProfileSettingPersonalInfoBuilder":
+
+    def citizenship_statuses(self, citizenship_statuses: List[
+        ProfileSettingCitizenshipStatus]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.citizenship_statuses = citizenship_statuses
         return self
-    
+
     def build(self) -> "ProfileSettingPersonalInfo":
         return self._profile_setting_personal_info

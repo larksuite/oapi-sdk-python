@@ -64,63 +64,82 @@ class AppTableFieldProperty(object):
 class AppTableFieldPropertyBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property = AppTableFieldProperty()
+
     def options(self, options: List[AppTableFieldPropertyOption]) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.options = options
         return self
+
     def formatter(self, formatter: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.formatter = formatter
         return self
+
     def date_formatter(self, date_formatter: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.date_formatter = date_formatter
         return self
+
     def auto_fill(self, auto_fill: bool) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.auto_fill = auto_fill
         return self
+
     def multiple(self, multiple: bool) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.multiple = multiple
         return self
+
     def table_id(self, table_id: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.table_id = table_id
         return self
+
     def table_name(self, table_name: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.table_name = table_name
         return self
+
     def back_field_name(self, back_field_name: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.back_field_name = back_field_name
         return self
+
     def auto_serial(self, auto_serial: AppFieldPropertyAutoSerial) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.auto_serial = auto_serial
         return self
+
     def location(self, location: AppFieldPropertyLocation) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.location = location
         return self
+
     def formula_expression(self, formula_expression: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.formula_expression = formula_expression
         return self
+
     def allowed_edit_modes(self, allowed_edit_modes: AllowedEditModes) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.allowed_edit_modes = allowed_edit_modes
         return self
+
     def min(self, min: float) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.min = min
         return self
+
     def max(self, max: float) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.max = max
         return self
+
     def range_customize(self, range_customize: bool) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.range_customize = range_customize
         return self
+
     def currency_code(self, currency_code: str) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.currency_code = currency_code
         return self
+
     def rating(self, rating: Rating) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.rating = rating
         return self
+
     def type(self, type: AppTableFieldPropertyType) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.type = type
         return self
+
     def filter_info(self, filter_info: AppTableFieldPropertyLookupFilter) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.filter_info = filter_info
         return self
-    
+
     def build(self) -> "AppTableFieldProperty":
         return self._app_table_field_property

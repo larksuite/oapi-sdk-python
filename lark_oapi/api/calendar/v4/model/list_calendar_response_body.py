@@ -28,18 +28,22 @@ class ListCalendarResponseBody(object):
 class ListCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_calendar_response_body = ListCalendarResponseBody()
+
     def has_more(self, has_more: bool) -> "ListCalendarResponseBodyBuilder":
         self._list_calendar_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListCalendarResponseBodyBuilder":
         self._list_calendar_response_body.page_token = page_token
         return self
+
     def sync_token(self, sync_token: str) -> "ListCalendarResponseBodyBuilder":
         self._list_calendar_response_body.sync_token = sync_token
         return self
+
     def calendar_list(self, calendar_list: List[Calendar]) -> "ListCalendarResponseBodyBuilder":
         self._list_calendar_response_body.calendar_list = calendar_list
         return self
-    
+
     def build(self) -> "ListCalendarResponseBody":
         return self._list_calendar_response_body

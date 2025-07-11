@@ -24,12 +24,14 @@ class SiteJobRecruitmentType(object):
 class SiteJobRecruitmentTypeBuilder(object):
     def __init__(self) -> None:
         self._site_job_recruitment_type = SiteJobRecruitmentType()
+
     def id(self, id: str) -> "SiteJobRecruitmentTypeBuilder":
         self._site_job_recruitment_type.id = id
         return self
+
     def name(self, name: SiteName) -> "SiteJobRecruitmentTypeBuilder":
         self._site_job_recruitment_type.name = name
         return self
-    
+
     def build(self) -> "SiteJobRecruitmentType":
         return self._site_job_recruitment_type

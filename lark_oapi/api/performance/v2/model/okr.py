@@ -31,21 +31,26 @@ class Okr(object):
 class OkrBuilder(object):
     def __init__(self) -> None:
         self._okr = Okr()
+
     def id(self, id: str) -> "OkrBuilder":
         self._okr.id = id
         return self
+
     def period_id(self, period_id: str) -> "OkrBuilder":
         self._okr.period_id = period_id
         return self
+
     def create_date(self, create_date: str) -> "OkrBuilder":
         self._okr.create_date = create_date
         return self
+
     def name(self, name: I18n) -> "OkrBuilder":
         self._okr.name = name
         return self
+
     def objectives(self, objectives: List[OkrObjective]) -> "OkrBuilder":
         self._okr.objectives = objectives
         return self
-    
+
     def build(self) -> "Okr":
         return self._okr

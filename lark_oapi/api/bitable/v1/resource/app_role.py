@@ -36,32 +36,30 @@ class AppRole(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppRoleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateAppRoleRequest, option: Optional[RequestOption] = None) -> CreateAppRoleResponse:
+    async def acreate(self, request: CreateAppRoleRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppRoleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppRoleResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteAppRoleRequest, option: Optional[RequestOption] = None) -> DeleteAppRoleResponse:
         if option is None:
             option = RequestOption()
@@ -75,32 +73,30 @@ class AppRole(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppRoleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteAppRoleRequest, option: Optional[RequestOption] = None) -> DeleteAppRoleResponse:
+    async def adelete(self, request: DeleteAppRoleRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAppRoleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppRoleResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListAppRoleRequest, option: Optional[RequestOption] = None) -> ListAppRoleResponse:
         if option is None:
             option = RequestOption()
@@ -114,13 +110,12 @@ class AppRole(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRoleResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListAppRoleRequest, option: Optional[RequestOption] = None) -> ListAppRoleResponse:
         if option is None:
@@ -129,17 +124,15 @@ class AppRole(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRoleResponse)
         response.raw = resp
 
         return response
-        
+
     def update(self, request: UpdateAppRoleRequest, option: Optional[RequestOption] = None) -> UpdateAppRoleResponse:
         if option is None:
             option = RequestOption()
@@ -153,30 +146,26 @@ class AppRole(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppRoleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateAppRoleRequest, option: Optional[RequestOption] = None) -> UpdateAppRoleResponse:
+    async def aupdate(self, request: UpdateAppRoleRequest,
+                      option: Optional[RequestOption] = None) -> UpdateAppRoleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppRoleResponse)
         response.raw = resp
 
         return response
-        
-    

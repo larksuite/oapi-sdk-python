@@ -27,32 +27,31 @@ class ListUserMailboxMessageRequestBuilder(object):
         list_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages"
         list_user_mailbox_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_user_mailbox_message_request: ListUserMailboxMessageRequest = list_user_mailbox_message_request
-    
+
     def page_size(self, page_size: int) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.page_size = page_size
         self._list_user_mailbox_message_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.page_token = page_token
         self._list_user_mailbox_message_request.add_query("page_token", page_token)
         return self
-    
+
     def folder_id(self, folder_id: str) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.folder_id = folder_id
         self._list_user_mailbox_message_request.add_query("folder_id", folder_id)
         return self
-    
+
     def only_unread(self, only_unread: bool) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.only_unread = only_unread
         self._list_user_mailbox_message_request.add_query("only_unread", only_unread)
         return self
-    
+
     def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
         self._list_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-    
 
     def build(self) -> ListUserMailboxMessageRequest:
         return self._list_user_mailbox_message_request

@@ -28,18 +28,24 @@ class ListEmployeesInternationalAssignmentResponseBody(object):
 class ListEmployeesInternationalAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_employees_international_assignment_response_body = ListEmployeesInternationalAssignmentResponseBody()
-    def items(self, items: List[EmployeesInternationalAssignment]) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
+
+    def items(self, items: List[
+        EmployeesInternationalAssignment]) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
         self._list_employees_international_assignment_response_body.items = items
         return self
-    def no_authority_ids(self, no_authority_ids: List[str]) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
+
+    def no_authority_ids(self,
+                         no_authority_ids: List[str]) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
         self._list_employees_international_assignment_response_body.no_authority_ids = no_authority_ids
         return self
+
     def page_token(self, page_token: str) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
         self._list_employees_international_assignment_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListEmployeesInternationalAssignmentResponseBodyBuilder":
         self._list_employees_international_assignment_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListEmployeesInternationalAssignmentResponseBody":
         return self._list_employees_international_assignment_response_body

@@ -23,12 +23,14 @@ class AlignmentStyle(object):
 class AlignmentStyleBuilder(object):
     def __init__(self) -> None:
         self._alignment_style = AlignmentStyle()
+
     def horizontal_alignment(self, horizontal_alignment: str) -> "AlignmentStyleBuilder":
         self._alignment_style.horizontal_alignment = horizontal_alignment
         return self
+
     def vertical_alignment(self, vertical_alignment: str) -> "AlignmentStyleBuilder":
         self._alignment_style.vertical_alignment = vertical_alignment
         return self
-    
+
     def build(self) -> "AlignmentStyle":
         return self._alignment_style

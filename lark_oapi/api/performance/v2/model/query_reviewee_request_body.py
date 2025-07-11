@@ -25,15 +25,18 @@ class QueryRevieweeRequestBody(object):
 class QueryRevieweeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_reviewee_request_body = QueryRevieweeRequestBody()
+
     def semester_id(self, semester_id: int) -> "QueryRevieweeRequestBodyBuilder":
         self._query_reviewee_request_body.semester_id = semester_id
         return self
+
     def user_ids(self, user_ids: List[str]) -> "QueryRevieweeRequestBodyBuilder":
         self._query_reviewee_request_body.user_ids = user_ids
         return self
+
     def activity_ids(self, activity_ids: List[str]) -> "QueryRevieweeRequestBodyBuilder":
         self._query_reviewee_request_body.activity_ids = activity_ids
         return self
-    
+
     def build(self) -> "QueryRevieweeRequestBody":
         return self._query_reviewee_request_body

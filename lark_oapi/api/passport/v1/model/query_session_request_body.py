@@ -21,9 +21,10 @@ class QuerySessionRequestBody(object):
 class QuerySessionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_session_request_body = QuerySessionRequestBody()
+
     def user_ids(self, user_ids: List[str]) -> "QuerySessionRequestBodyBuilder":
         self._query_session_request_body.user_ids = user_ids
         return self
-    
+
     def build(self) -> "QuerySessionRequestBody":
         return self._query_session_request_body

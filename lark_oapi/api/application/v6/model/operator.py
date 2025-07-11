@@ -24,12 +24,14 @@ class Operator(object):
 class OperatorBuilder(object):
     def __init__(self) -> None:
         self._operator = Operator()
+
     def operator_name(self, operator_name: str) -> "OperatorBuilder":
         self._operator.operator_name = operator_name
         return self
+
     def operator_id(self, operator_id: UserId) -> "OperatorBuilder":
         self._operator.operator_id = operator_id
         return self
-    
+
     def build(self) -> "Operator":
         return self._operator

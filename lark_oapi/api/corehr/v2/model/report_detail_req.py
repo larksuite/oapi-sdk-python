@@ -26,15 +26,18 @@ class ReportDetailReq(object):
 class ReportDetailReqBuilder(object):
     def __init__(self) -> None:
         self._report_detail_req = ReportDetailReq()
+
     def workforce_plan_id(self, workforce_plan_id: str) -> "ReportDetailReqBuilder":
         self._report_detail_req.workforce_plan_id = workforce_plan_id
         return self
+
     def centralized_reporting_project_id(self, centralized_reporting_project_id: str) -> "ReportDetailReqBuilder":
         self._report_detail_req.centralized_reporting_project_id = centralized_reporting_project_id
         return self
+
     def items(self, items: List[WorkforcePlanDetailRow]) -> "ReportDetailReqBuilder":
         self._report_detail_req.items = items
         return self
-    
+
     def build(self) -> "ReportDetailReq":
         return self._report_detail_req

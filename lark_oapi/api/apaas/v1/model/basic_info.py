@@ -33,27 +33,34 @@ class BasicInfo(object):
 class BasicInfoBuilder(object):
     def __init__(self) -> None:
         self._basic_info = BasicInfo()
+
     def log_type(self, log_type: str) -> "BasicInfoBuilder":
         self._basic_info.log_type = log_type
         return self
+
     def audit_scope(self, audit_scope: str) -> "BasicInfoBuilder":
         self._basic_info.audit_scope = audit_scope
         return self
+
     def env_type(self, env_type: str) -> "BasicInfoBuilder":
         self._basic_info.env_type = env_type
         return self
+
     def app_id(self, app_id: str) -> "BasicInfoBuilder":
         self._basic_info.app_id = app_id
         return self
+
     def module(self, module: str) -> "BasicInfoBuilder":
         self._basic_info.module = module
         return self
+
     def op_type(self, op_type: str) -> "BasicInfoBuilder":
         self._basic_info.op_type = op_type
         return self
+
     def app_name(self, app_name: Dict[str, str]) -> "BasicInfoBuilder":
         self._basic_info.app_name = app_name
         return self
-    
+
     def build(self) -> "BasicInfo":
         return self._basic_info

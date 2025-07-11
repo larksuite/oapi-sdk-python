@@ -22,9 +22,10 @@ class PatchSchemaResponseBody(object):
 class PatchSchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_schema_response_body = PatchSchemaResponseBody()
+
     def schema(self, schema: Schema) -> "PatchSchemaResponseBodyBuilder":
         self._patch_schema_response_body.schema = schema
         return self
-    
+
     def build(self) -> "PatchSchemaResponseBody":
         return self._patch_schema_response_body

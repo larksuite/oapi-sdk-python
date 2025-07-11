@@ -21,9 +21,10 @@ class ValueElement(object):
 class ValueElementBuilder(object):
     def __init__(self) -> None:
         self._value_element = ValueElement()
+
     def value(self, value: str) -> "ValueElementBuilder":
         self._value_element.value = value
         return self
-    
+
     def build(self) -> "ValueElement":
         return self._value_element

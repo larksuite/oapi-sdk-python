@@ -30,30 +30,26 @@ class Indicator(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryIndicatorResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryIndicatorResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QueryIndicatorRequest, option: Optional[RequestOption] = None) -> QueryIndicatorResponse:
+    async def aquery(self, request: QueryIndicatorRequest,
+                     option: Optional[RequestOption] = None) -> QueryIndicatorResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryIndicatorResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryIndicatorResponse)
         response.raw = resp
 
         return response
-        
-    

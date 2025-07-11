@@ -25,15 +25,18 @@ class OkrObjectiveAlignment(object):
 class OkrObjectiveAlignmentBuilder(object):
     def __init__(self) -> None:
         self._okr_objective_alignment = OkrObjectiveAlignment()
+
     def id(self, id: int) -> "OkrObjectiveAlignmentBuilder":
         self._okr_objective_alignment.id = id
         return self
+
     def to_id(self, to_id: int) -> "OkrObjectiveAlignmentBuilder":
         self._okr_objective_alignment.to_id = to_id
         return self
+
     def to_type(self, to_type: int) -> "OkrObjectiveAlignmentBuilder":
         self._okr_objective_alignment.to_type = to_type
         return self
-    
+
     def build(self) -> "OkrObjectiveAlignment":
         return self._okr_objective_alignment

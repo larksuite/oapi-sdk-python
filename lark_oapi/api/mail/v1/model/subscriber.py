@@ -22,9 +22,10 @@ class Subscriber(object):
 class SubscriberBuilder(object):
     def __init__(self) -> None:
         self._subscriber = Subscriber()
+
     def user_ids(self, user_ids: List[UserId]) -> "SubscriberBuilder":
         self._subscriber.user_ids = user_ids
         return self
-    
+
     def build(self) -> "Subscriber":
         return self._subscriber

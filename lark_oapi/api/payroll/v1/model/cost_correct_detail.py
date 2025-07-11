@@ -29,18 +29,22 @@ class CostCorrectDetail(object):
 class CostCorrectDetailBuilder(object):
     def __init__(self) -> None:
         self._cost_correct_detail = CostCorrectDetail()
+
     def employee_id(self, employee_id: str) -> "CostCorrectDetailBuilder":
         self._cost_correct_detail.employee_id = employee_id
         return self
+
     def active_status(self, active_status: int) -> "CostCorrectDetailBuilder":
         self._cost_correct_detail.active_status = active_status
         return self
+
     def dimensions(self, dimensions: List[DimensionValue]) -> "CostCorrectDetailBuilder":
         self._cost_correct_detail.dimensions = dimensions
         return self
+
     def cost_items(self, cost_items: List[CostItemValue]) -> "CostCorrectDetailBuilder":
         self._cost_correct_detail.cost_items = cost_items
         return self
-    
+
     def build(self) -> "CostCorrectDetail":
         return self._cost_correct_detail

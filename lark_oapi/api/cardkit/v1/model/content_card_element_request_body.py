@@ -25,15 +25,18 @@ class ContentCardElementRequestBody(object):
 class ContentCardElementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._content_card_element_request_body = ContentCardElementRequestBody()
+
     def uuid(self, uuid: str) -> "ContentCardElementRequestBodyBuilder":
         self._content_card_element_request_body.uuid = uuid
         return self
+
     def content(self, content: str) -> "ContentCardElementRequestBodyBuilder":
         self._content_card_element_request_body.content = content
         return self
+
     def sequence(self, sequence: int) -> "ContentCardElementRequestBodyBuilder":
         self._content_card_element_request_body.sequence = sequence
         return self
-    
+
     def build(self) -> "ContentCardElementRequestBody":
         return self._content_card_element_request_body

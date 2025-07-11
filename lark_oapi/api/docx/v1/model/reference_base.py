@@ -25,15 +25,18 @@ class ReferenceBase(object):
 class ReferenceBaseBuilder(object):
     def __init__(self) -> None:
         self._reference_base = ReferenceBase()
+
     def token(self, token: str) -> "ReferenceBaseBuilder":
         self._reference_base.token = token
         return self
+
     def view_id(self, view_id: str) -> "ReferenceBaseBuilder":
         self._reference_base.view_id = view_id
         return self
+
     def layout_mode(self, layout_mode: str) -> "ReferenceBaseBuilder":
         self._reference_base.layout_mode = layout_mode
         return self
-    
+
     def build(self) -> "ReferenceBase":
         return self._reference_base

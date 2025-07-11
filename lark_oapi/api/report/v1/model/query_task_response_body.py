@@ -26,15 +26,18 @@ class QueryTaskResponseBody(object):
 class QueryTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_task_response_body = QueryTaskResponseBody()
+
     def items(self, items: List[Task]) -> "QueryTaskResponseBodyBuilder":
         self._query_task_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "QueryTaskResponseBodyBuilder":
         self._query_task_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "QueryTaskResponseBodyBuilder":
         self._query_task_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "QueryTaskResponseBody":
         return self._query_task_response_body

@@ -24,12 +24,14 @@ class Filter(object):
 class FilterBuilder(object):
     def __init__(self) -> None:
         self._filter = Filter()
+
     def logic(self, logic: str) -> "FilterBuilder":
         self._filter.logic = logic
         return self
+
     def expressions(self, expressions: List[Expression]) -> "FilterBuilder":
         self._filter.expressions = expressions
         return self
-    
+
     def build(self) -> "Filter":
         return self._filter

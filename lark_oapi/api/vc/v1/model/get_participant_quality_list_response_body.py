@@ -26,15 +26,19 @@ class GetParticipantQualityListResponseBody(object):
 class GetParticipantQualityListResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_participant_quality_list_response_body = GetParticipantQualityListResponseBody()
-    def participant_quality_list(self, participant_quality_list: List[ParticipantQuality]) -> "GetParticipantQualityListResponseBodyBuilder":
+
+    def participant_quality_list(self, participant_quality_list: List[
+        ParticipantQuality]) -> "GetParticipantQualityListResponseBodyBuilder":
         self._get_participant_quality_list_response_body.participant_quality_list = participant_quality_list
         return self
+
     def page_token(self, page_token: str) -> "GetParticipantQualityListResponseBodyBuilder":
         self._get_participant_quality_list_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetParticipantQualityListResponseBodyBuilder":
         self._get_participant_quality_list_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "GetParticipantQualityListResponseBody":
         return self._get_participant_quality_list_response_body

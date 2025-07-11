@@ -22,9 +22,10 @@ class TaxiInvoice(object):
 class TaxiInvoiceBuilder(object):
     def __init__(self) -> None:
         self._taxi_invoice = TaxiInvoice()
+
     def entities(self, entities: List[TaxiEntity]) -> "TaxiInvoiceBuilder":
         self._taxi_invoice.entities = entities
         return self
-    
+
     def build(self) -> "TaxiInvoice":
         return self._taxi_invoice

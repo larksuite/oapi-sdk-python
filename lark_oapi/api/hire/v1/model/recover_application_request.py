@@ -23,12 +23,11 @@ class RecoverApplicationRequestBuilder(object):
         recover_application_request.uri = "/open-apis/hire/v1/applications/:application_id/recover"
         recover_application_request.token_types = {AccessTokenType.TENANT}
         self._recover_application_request: RecoverApplicationRequest = recover_application_request
-    
+
     def application_id(self, application_id: str) -> "RecoverApplicationRequestBuilder":
         self._recover_application_request.application_id = application_id
         self._recover_application_request.paths["application_id"] = str(application_id)
         return self
-    
 
     def build(self) -> RecoverApplicationRequest:
         return self._recover_application_request

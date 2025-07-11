@@ -83,81 +83,108 @@ class ReorganizationInfo(object):
 class ReorganizationInfoBuilder(object):
     def __init__(self) -> None:
         self._reorganization_info = ReorganizationInfo()
+
     def original_department_names(self, original_department_names: List[I18n]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_department_names = original_department_names
         return self
+
     def target_department_names(self, target_department_names: List[I18n]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_department_names = target_department_names
         return self
+
     def original_department_code(self, original_department_code: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_department_code = original_department_code
         return self
+
     def target_department_code(self, target_department_code: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_department_code = target_department_code
         return self
+
     def original_sub_type(self, original_sub_type: Enum) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_sub_type = original_sub_type
         return self
+
     def target_sub_type(self, target_sub_type: Enum) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_sub_type = target_sub_type
         return self
+
     def original_department_manager(self, original_department_manager: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_department_manager = original_department_manager
         return self
+
     def target_department_manager(self, target_department_manager: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_department_manager = target_department_manager
         return self
+
     def original_descriptions(self, original_descriptions: List[I18n]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_descriptions = original_descriptions
         return self
+
     def target_descriptions(self, target_descriptions: List[I18n]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_descriptions = target_descriptions
         return self
+
     def original_cost_center(self, original_cost_center: CostCenter) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_cost_center = original_cost_center
         return self
+
     def target_cost_center(self, target_cost_center: CostCenter) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_cost_center = target_cost_center
         return self
+
     def original_is_confidential(self, original_is_confidential: bool) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_is_confidential = original_is_confidential
         return self
+
     def target_is_confidential(self, target_is_confidential: bool) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_is_confidential = target_is_confidential
         return self
+
     def original_staffing_model(self, original_staffing_model: bool) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_staffing_model = original_staffing_model
         return self
+
     def target_staffing_model(self, target_staffing_model: bool) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_staffing_model = target_staffing_model
         return self
+
     def original_staffing_mode_option(self, original_staffing_mode_option: Enum) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_staffing_mode_option = original_staffing_mode_option
         return self
+
     def target_staffing_mode_option(self, target_staffing_mode_option: Enum) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_staffing_mode_option = target_staffing_mode_option
         return self
+
     def original_parent_department_id(self, original_parent_department_id: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_parent_department_id = original_parent_department_id
         return self
+
     def target_parent_department_id(self, target_parent_department_id: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_parent_department_id = target_parent_department_id
         return self
+
     def draft_target_parent_department_id(self, draft_target_parent_department_id: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.draft_target_parent_department_id = draft_target_parent_department_id
         return self
-    def original_department_id_path(self, original_department_id_path: List[OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+
+    def original_department_id_path(self, original_department_id_path: List[
+        OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.original_department_id_path = original_department_id_path
         return self
-    def target_department_id_path(self, target_department_id_path: List[OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+
+    def target_department_id_path(self,
+                                  target_department_id_path: List[OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_department_id_path = target_department_id_path
         return self
+
     def custom_fields(self, custom_fields: List[ChangeFieldPair]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.custom_fields = custom_fields
         return self
+
     def orgrole_infos(self, orgrole_infos: List[OrgroleInfo]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.orgrole_infos = orgrole_infos
         return self
-    
+
     def build(self) -> "ReorganizationInfo":
         return self._reorganization_info

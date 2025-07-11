@@ -25,15 +25,18 @@ class DatasourceRecordField(object):
 class DatasourceRecordFieldBuilder(object):
     def __init__(self) -> None:
         self._datasource_record_field = DatasourceRecordField()
+
     def field_code(self, field_code: str) -> "DatasourceRecordFieldBuilder":
         self._datasource_record_field.field_code = field_code
         return self
+
     def value(self, value: str) -> "DatasourceRecordFieldBuilder":
         self._datasource_record_field.value = value
         return self
+
     def field_type(self, field_type: int) -> "DatasourceRecordFieldBuilder":
         self._datasource_record_field.field_type = field_type
         return self
-    
+
     def build(self) -> "DatasourceRecordField":
         return self._datasource_record_field

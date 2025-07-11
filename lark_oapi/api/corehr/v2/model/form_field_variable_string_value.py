@@ -21,9 +21,10 @@ class FormFieldVariableStringValue(object):
 class FormFieldVariableStringValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_string_value = FormFieldVariableStringValue()
+
     def value(self, value: str) -> "FormFieldVariableStringValueBuilder":
         self._form_field_variable_string_value.value = value
         return self
-    
+
     def build(self) -> "FormFieldVariableStringValue":
         return self._form_field_variable_string_value

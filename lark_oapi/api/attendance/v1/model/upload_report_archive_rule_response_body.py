@@ -23,12 +23,14 @@ class UploadReportArchiveRuleResponseBody(object):
 class UploadReportArchiveRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_report_archive_rule_response_body = UploadReportArchiveRuleResponseBody()
+
     def invalid_code(self, invalid_code: List[str]) -> "UploadReportArchiveRuleResponseBodyBuilder":
         self._upload_report_archive_rule_response_body.invalid_code = invalid_code
         return self
+
     def invalid_member_id(self, invalid_member_id: List[str]) -> "UploadReportArchiveRuleResponseBodyBuilder":
         self._upload_report_archive_rule_response_body.invalid_member_id = invalid_member_id
         return self
-    
+
     def build(self) -> "UploadReportArchiveRuleResponseBody":
         return self._upload_report_archive_rule_response_body

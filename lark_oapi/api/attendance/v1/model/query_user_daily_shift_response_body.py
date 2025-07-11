@@ -22,9 +22,10 @@ class QueryUserDailyShiftResponseBody(object):
 class QueryUserDailyShiftResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_daily_shift_response_body = QueryUserDailyShiftResponseBody()
+
     def user_daily_shifts(self, user_daily_shifts: List[UserDailyShift]) -> "QueryUserDailyShiftResponseBodyBuilder":
         self._query_user_daily_shift_response_body.user_daily_shifts = user_daily_shifts
         return self
-    
+
     def build(self) -> "QueryUserDailyShiftResponseBody":
         return self._query_user_daily_shift_response_body

@@ -25,15 +25,18 @@ class SearchNodeRequestBody(object):
 class SearchNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_node_request_body = SearchNodeRequestBody()
+
     def query(self, query: str) -> "SearchNodeRequestBodyBuilder":
         self._search_node_request_body.query = query
         return self
+
     def space_id(self, space_id: str) -> "SearchNodeRequestBodyBuilder":
         self._search_node_request_body.space_id = space_id
         return self
+
     def node_id(self, node_id: str) -> "SearchNodeRequestBodyBuilder":
         self._search_node_request_body.node_id = node_id
         return self
-    
+
     def build(self) -> "SearchNodeRequestBody":
         return self._search_node_request_body

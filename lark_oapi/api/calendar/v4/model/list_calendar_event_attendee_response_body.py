@@ -26,15 +26,18 @@ class ListCalendarEventAttendeeResponseBody(object):
 class ListCalendarEventAttendeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_calendar_event_attendee_response_body = ListCalendarEventAttendeeResponseBody()
+
     def items(self, items: List[CalendarEventAttendee]) -> "ListCalendarEventAttendeeResponseBodyBuilder":
         self._list_calendar_event_attendee_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListCalendarEventAttendeeResponseBodyBuilder":
         self._list_calendar_event_attendee_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListCalendarEventAttendeeResponseBodyBuilder":
         self._list_calendar_event_attendee_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListCalendarEventAttendeeResponseBody":
         return self._list_calendar_event_attendee_response_body

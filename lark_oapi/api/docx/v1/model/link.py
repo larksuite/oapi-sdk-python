@@ -21,9 +21,10 @@ class Link(object):
 class LinkBuilder(object):
     def __init__(self) -> None:
         self._link = Link()
+
     def url(self, url: str) -> "LinkBuilder":
         self._link.url = url
         return self
-    
+
     def build(self) -> "Link":
         return self._link

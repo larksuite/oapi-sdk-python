@@ -27,18 +27,22 @@ class MoveDocsToWikiSpaceNodeRequestBody(object):
 class MoveDocsToWikiSpaceNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._move_docs_to_wiki_space_node_request_body = MoveDocsToWikiSpaceNodeRequestBody()
+
     def parent_wiki_token(self, parent_wiki_token: str) -> "MoveDocsToWikiSpaceNodeRequestBodyBuilder":
         self._move_docs_to_wiki_space_node_request_body.parent_wiki_token = parent_wiki_token
         return self
+
     def obj_type(self, obj_type: str) -> "MoveDocsToWikiSpaceNodeRequestBodyBuilder":
         self._move_docs_to_wiki_space_node_request_body.obj_type = obj_type
         return self
+
     def obj_token(self, obj_token: str) -> "MoveDocsToWikiSpaceNodeRequestBodyBuilder":
         self._move_docs_to_wiki_space_node_request_body.obj_token = obj_token
         return self
+
     def apply(self, apply: bool) -> "MoveDocsToWikiSpaceNodeRequestBodyBuilder":
         self._move_docs_to_wiki_space_node_request_body.apply = apply
         return self
-    
+
     def build(self) -> "MoveDocsToWikiSpaceNodeRequestBody":
         return self._move_docs_to_wiki_space_node_request_body

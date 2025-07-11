@@ -31,21 +31,26 @@ class Role(object):
 class RoleBuilder(object):
     def __init__(self) -> None:
         self._role = Role()
+
     def role_name(self, role_name: str) -> "RoleBuilder":
         self._role.role_name = role_name
         return self
+
     def table_roles(self, table_roles: List[TableRole]) -> "RoleBuilder":
         self._role.table_roles = table_roles
         return self
+
     def role_id(self, role_id: str) -> "RoleBuilder":
         self._role.role_id = role_id
         return self
+
     def block_roles(self, block_roles: List[BlockRole]) -> "RoleBuilder":
         self._role.block_roles = block_roles
         return self
+
     def base_rule(self, base_rule: Dict[str, int]) -> "RoleBuilder":
         self._role.base_rule = base_rule
         return self
-    
+
     def build(self) -> "Role":
         return self._role

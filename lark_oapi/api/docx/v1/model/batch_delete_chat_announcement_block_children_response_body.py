@@ -23,12 +23,14 @@ class BatchDeleteChatAnnouncementBlockChildrenResponseBody(object):
 class BatchDeleteChatAnnouncementBlockChildrenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_chat_announcement_block_children_response_body = BatchDeleteChatAnnouncementBlockChildrenResponseBody()
+
     def revision_id(self, revision_id: int) -> "BatchDeleteChatAnnouncementBlockChildrenResponseBodyBuilder":
         self._batch_delete_chat_announcement_block_children_response_body.revision_id = revision_id
         return self
+
     def client_token(self, client_token: str) -> "BatchDeleteChatAnnouncementBlockChildrenResponseBodyBuilder":
         self._batch_delete_chat_announcement_block_children_response_body.client_token = client_token
         return self
-    
+
     def build(self) -> "BatchDeleteChatAnnouncementBlockChildrenResponseBody":
         return self._batch_delete_chat_announcement_block_children_response_body

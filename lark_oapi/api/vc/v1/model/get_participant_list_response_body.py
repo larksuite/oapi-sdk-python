@@ -26,15 +26,18 @@ class GetParticipantListResponseBody(object):
 class GetParticipantListResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_participant_list_response_body = GetParticipantListResponseBody()
+
     def participants(self, participants: List[Participant]) -> "GetParticipantListResponseBodyBuilder":
         self._get_participant_list_response_body.participants = participants
         return self
+
     def page_token(self, page_token: str) -> "GetParticipantListResponseBodyBuilder":
         self._get_participant_list_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetParticipantListResponseBodyBuilder":
         self._get_participant_list_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "GetParticipantListResponseBody":
         return self._get_participant_list_response_body

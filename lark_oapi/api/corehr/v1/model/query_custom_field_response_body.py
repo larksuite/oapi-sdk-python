@@ -22,9 +22,10 @@ class QueryCustomFieldResponseBody(object):
 class QueryCustomFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_custom_field_response_body = QueryCustomFieldResponseBody()
+
     def items(self, items: List[CustomField]) -> "QueryCustomFieldResponseBodyBuilder":
         self._query_custom_field_response_body.items = items
         return self
-    
+
     def build(self) -> "QueryCustomFieldResponseBody":
         return self._query_custom_field_response_body

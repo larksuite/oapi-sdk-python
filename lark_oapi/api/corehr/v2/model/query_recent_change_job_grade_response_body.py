@@ -27,18 +27,22 @@ class QueryRecentChangeJobGradeResponseBody(object):
 class QueryRecentChangeJobGradeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_job_grade_response_body = QueryRecentChangeJobGradeResponseBody()
+
     def job_grade_ids(self, job_grade_ids: List[str]) -> "QueryRecentChangeJobGradeResponseBodyBuilder":
         self._query_recent_change_job_grade_response_body.job_grade_ids = job_grade_ids
         return self
+
     def page_token(self, page_token: str) -> "QueryRecentChangeJobGradeResponseBodyBuilder":
         self._query_recent_change_job_grade_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryRecentChangeJobGradeResponseBodyBuilder":
         self._query_recent_change_job_grade_response_body.has_more = has_more
         return self
+
     def deleted_job_grade_ids(self, deleted_job_grade_ids: List[str]) -> "QueryRecentChangeJobGradeResponseBodyBuilder":
         self._query_recent_change_job_grade_response_body.deleted_job_grade_ids = deleted_job_grade_ids
         return self
-    
+
     def build(self) -> "QueryRecentChangeJobGradeResponseBody":
         return self._query_recent_change_job_grade_response_body

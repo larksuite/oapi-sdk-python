@@ -29,18 +29,22 @@ class CommonSchemaOption(object):
 class CommonSchemaOptionBuilder(object):
     def __init__(self) -> None:
         self._common_schema_option = CommonSchemaOption()
+
     def api_name(self, api_name: str) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.api_name = api_name
         return self
+
     def name(self, name: Name) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.name = name
         return self
+
     def description(self, description: Name) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.description = description
         return self
+
     def is_open(self, is_open: bool) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.is_open = is_open
         return self
-    
+
     def build(self) -> "CommonSchemaOption":
         return self._common_schema_option

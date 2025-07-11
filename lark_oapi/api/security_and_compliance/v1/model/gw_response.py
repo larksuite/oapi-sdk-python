@@ -23,12 +23,14 @@ class GwResponse(object):
 class GwResponseBuilder(object):
     def __init__(self) -> None:
         self._gw_response = GwResponse()
+
     def status_code(self, status_code: int) -> "GwResponseBuilder":
         self._gw_response.status_code = status_code
         return self
+
     def header(self, header: str) -> "GwResponseBuilder":
         self._gw_response.header = header
         return self
-    
+
     def build(self) -> "GwResponse":
         return self._gw_response

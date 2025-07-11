@@ -22,9 +22,10 @@ class Kie(object):
 class KieBuilder(object):
     def __init__(self) -> None:
         self._kie = Kie()
+
     def kies(self, kies: List[KieEntity]) -> "KieBuilder":
         self._kie.kies = kies
         return self
-    
+
     def build(self) -> "Kie":
         return self._kie

@@ -23,12 +23,14 @@ class AttachmentFieldSetting(object):
 class AttachmentFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._attachment_field_setting = AttachmentFieldSetting()
+
     def is_multiple(self, is_multiple: bool) -> "AttachmentFieldSettingBuilder":
         self._attachment_field_setting.is_multiple = is_multiple
         return self
+
     def file_type(self, file_type: int) -> "AttachmentFieldSettingBuilder":
         self._attachment_field_setting.file_type = file_type
         return self
-    
+
     def build(self) -> "AttachmentFieldSetting":
         return self._attachment_field_setting

@@ -22,9 +22,10 @@ class ProfileSettingCustomGroupItem(object):
 class ProfileSettingCustomGroupItemBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_custom_group_item = ProfileSettingCustomGroupItem()
+
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingCustomGroupItemBuilder":
         self._profile_setting_custom_group_item.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "ProfileSettingCustomGroupItem":
         return self._profile_setting_custom_group_item

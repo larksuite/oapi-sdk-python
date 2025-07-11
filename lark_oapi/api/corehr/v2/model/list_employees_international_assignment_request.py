@@ -49,142 +49,164 @@ class ListEmployeesInternationalAssignmentRequestBuilder(object):
         list_employees_international_assignment_request.uri = "/open-apis/corehr/v2/employees/international_assignments"
         list_employees_international_assignment_request.token_types = {AccessTokenType.TENANT}
         self._list_employees_international_assignment_request: ListEmployeesInternationalAssignmentRequest = list_employees_international_assignment_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.user_id_type = user_id_type
         self._list_employees_international_assignment_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.department_id_type = department_id_type
         self._list_employees_international_assignment_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.page_size = page_size
         self._list_employees_international_assignment_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.page_token = page_token
         self._list_employees_international_assignment_request.add_query("page_token", page_token)
         return self
-    
+
     def employment_ids(self, employment_ids: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.employment_ids = employment_ids
         self._list_employees_international_assignment_request.add_query("employment_ids", employment_ids)
         return self
-    
-    def international_assignment_ids(self, international_assignment_ids: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def international_assignment_ids(self, international_assignment_ids: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.international_assignment_ids = international_assignment_ids
-        self._list_employees_international_assignment_request.add_query("international_assignment_ids", international_assignment_ids)
+        self._list_employees_international_assignment_request.add_query("international_assignment_ids",
+                                                                        international_assignment_ids)
         return self
-    
+
     def effective_time(self, effective_time: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.effective_time = effective_time
         self._list_employees_international_assignment_request.add_query("effective_time", effective_time)
         return self
-    
+
     def expiration_time(self, expiration_time: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.expiration_time = expiration_time
         self._list_employees_international_assignment_request.add_query("expiration_time", expiration_time)
         return self
-    
-    def employment_status_list(self, employment_status_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def employment_status_list(self, employment_status_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.employment_status_list = employment_status_list
-        self._list_employees_international_assignment_request.add_query("employment_status_list", employment_status_list)
+        self._list_employees_international_assignment_request.add_query("employment_status_list",
+                                                                        employment_status_list)
         return self
-    
-    def work_location_id_list(self, work_location_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def work_location_id_list(self,
+                              work_location_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.work_location_id_list = work_location_id_list
         self._list_employees_international_assignment_request.add_query("work_location_id_list", work_location_id_list)
         return self
-    
+
     def department_id_list(self, department_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.department_id_list = department_id_list
         self._list_employees_international_assignment_request.add_query("department_id_list", department_id_list)
         return self
-    
-    def direct_manager_id_list(self, direct_manager_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def direct_manager_id_list(self, direct_manager_id_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.direct_manager_id_list = direct_manager_id_list
-        self._list_employees_international_assignment_request.add_query("direct_manager_id_list", direct_manager_id_list)
+        self._list_employees_international_assignment_request.add_query("direct_manager_id_list",
+                                                                        direct_manager_id_list)
         return self
-    
-    def dotted_line_manager_id_list(self, dotted_line_manager_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def dotted_line_manager_id_list(self, dotted_line_manager_id_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.dotted_line_manager_id_list = dotted_line_manager_id_list
-        self._list_employees_international_assignment_request.add_query("dotted_line_manager_id_list", dotted_line_manager_id_list)
+        self._list_employees_international_assignment_request.add_query("dotted_line_manager_id_list",
+                                                                        dotted_line_manager_id_list)
         return self
-    
+
     def position_id_list(self, position_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.position_id_list = position_id_list
         self._list_employees_international_assignment_request.add_query("position_id_list", position_id_list)
         return self
-    
+
     def job_id_list(self, job_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.job_id_list = job_id_list
         self._list_employees_international_assignment_request.add_query("job_id_list", job_id_list)
         return self
-    
+
     def job_family_id_list(self, job_family_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.job_family_id_list = job_family_id_list
         self._list_employees_international_assignment_request.add_query("job_family_id_list", job_family_id_list)
         return self
-    
+
     def job_level_id_list(self, job_level_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.job_level_id_list = job_level_id_list
         self._list_employees_international_assignment_request.add_query("job_level_id_list", job_level_id_list)
         return self
-    
+
     def job_grade_id_list(self, job_grade_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.job_grade_id_list = job_grade_id_list
         self._list_employees_international_assignment_request.add_query("job_grade_id_list", job_grade_id_list)
         return self
-    
-    def working_hours_type_id_list(self, working_hours_type_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def working_hours_type_id_list(self, working_hours_type_id_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.working_hours_type_id_list = working_hours_type_id_list
-        self._list_employees_international_assignment_request.add_query("working_hours_type_id_list", working_hours_type_id_list)
+        self._list_employees_international_assignment_request.add_query("working_hours_type_id_list",
+                                                                        working_hours_type_id_list)
         return self
-    
-    def service_company_list(self, service_company_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def service_company_list(self,
+                             service_company_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.service_company_list = service_company_list
         self._list_employees_international_assignment_request.add_query("service_company_list", service_company_list)
         return self
-    
-    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def weekly_working_hours_v2(self,
+                                weekly_working_hours_v2: float) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.weekly_working_hours_v2 = weekly_working_hours_v2
-        self._list_employees_international_assignment_request.add_query("weekly_working_hours_v2", weekly_working_hours_v2)
+        self._list_employees_international_assignment_request.add_query("weekly_working_hours_v2",
+                                                                        weekly_working_hours_v2)
         return self
-    
+
     def work_shift_list(self, work_shift_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.work_shift_list = work_shift_list
         self._list_employees_international_assignment_request.add_query("work_shift_list", work_shift_list)
         return self
-    
-    def compensation_type_list(self, compensation_type_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def compensation_type_list(self, compensation_type_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.compensation_type_list = compensation_type_list
-        self._list_employees_international_assignment_request.add_query("compensation_type_list", compensation_type_list)
+        self._list_employees_international_assignment_request.add_query("compensation_type_list",
+                                                                        compensation_type_list)
         return self
-    
-    def international_assignment_expected_end_date(self, international_assignment_expected_end_date: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def international_assignment_expected_end_date(self,
+                                                   international_assignment_expected_end_date: str) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.international_assignment_expected_end_date = international_assignment_expected_end_date
-        self._list_employees_international_assignment_request.add_query("international_assignment_expected_end_date", international_assignment_expected_end_date)
+        self._list_employees_international_assignment_request.add_query("international_assignment_expected_end_date",
+                                                                        international_assignment_expected_end_date)
         return self
-    
-    def international_assignment_status_list(self, international_assignment_status_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def international_assignment_status_list(self, international_assignment_status_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.international_assignment_status_list = international_assignment_status_list
-        self._list_employees_international_assignment_request.add_query("international_assignment_status_list", international_assignment_status_list)
+        self._list_employees_international_assignment_request.add_query("international_assignment_status_list",
+                                                                        international_assignment_status_list)
         return self
-    
-    def international_assignment_type_list(self, international_assignment_type_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def international_assignment_type_list(self, international_assignment_type_list: List[
+        str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.international_assignment_type_list = international_assignment_type_list
-        self._list_employees_international_assignment_request.add_query("international_assignment_type_list", international_assignment_type_list)
+        self._list_employees_international_assignment_request.add_query("international_assignment_type_list",
+                                                                        international_assignment_type_list)
         return self
-    
-    def work_calendar_id_list(self, work_calendar_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
+
+    def work_calendar_id_list(self,
+                              work_calendar_id_list: List[str]) -> "ListEmployeesInternationalAssignmentRequestBuilder":
         self._list_employees_international_assignment_request.work_calendar_id_list = work_calendar_id_list
         self._list_employees_international_assignment_request.add_query("work_calendar_id_list", work_calendar_id_list)
         return self
-    
 
     def build(self) -> ListEmployeesInternationalAssignmentRequest:
         return self._list_employees_international_assignment_request

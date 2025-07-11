@@ -24,12 +24,15 @@ class KnowledgeQaSearchRequest(object):
 class KnowledgeQaSearchRequestBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_search_request = KnowledgeQaSearchRequest()
+
     def query(self, query: str) -> "KnowledgeQaSearchRequestBuilder":
         self._knowledge_qa_search_request.query = query
         return self
-    def enterprise_knowledge_source(self, enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaSearchRequestBuilder":
+
+    def enterprise_knowledge_source(self,
+                                    enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaSearchRequestBuilder":
         self._knowledge_qa_search_request.enterprise_knowledge_source = enterprise_knowledge_source
         return self
-    
+
     def build(self) -> "KnowledgeQaSearchRequest":
         return self._knowledge_qa_search_request

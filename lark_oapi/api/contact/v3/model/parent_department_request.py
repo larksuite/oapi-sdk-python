@@ -27,32 +27,31 @@ class ParentDepartmentRequestBuilder(object):
         parent_department_request.uri = "/open-apis/contact/v3/departments/parent"
         parent_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._parent_department_request: ParentDepartmentRequest = parent_department_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ParentDepartmentRequestBuilder":
         self._parent_department_request.user_id_type = user_id_type
         self._parent_department_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "ParentDepartmentRequestBuilder":
         self._parent_department_request.department_id_type = department_id_type
         self._parent_department_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def department_id(self, department_id: str) -> "ParentDepartmentRequestBuilder":
         self._parent_department_request.department_id = department_id
         self._parent_department_request.add_query("department_id", department_id)
         return self
-    
+
     def page_token(self, page_token: str) -> "ParentDepartmentRequestBuilder":
         self._parent_department_request.page_token = page_token
         self._parent_department_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ParentDepartmentRequestBuilder":
         self._parent_department_request.page_size = page_size
         self._parent_department_request.add_query("page_size", page_size)
         return self
-    
 
     def build(self) -> ParentDepartmentRequest:
         return self._parent_department_request

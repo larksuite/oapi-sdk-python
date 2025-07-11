@@ -26,15 +26,18 @@ class ListDocumentBlockResponseBody(object):
 class ListDocumentBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_document_block_response_body = ListDocumentBlockResponseBody()
+
     def items(self, items: List[Block]) -> "ListDocumentBlockResponseBodyBuilder":
         self._list_document_block_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListDocumentBlockResponseBodyBuilder":
         self._list_document_block_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListDocumentBlockResponseBodyBuilder":
         self._list_document_block_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListDocumentBlockResponseBody":
         return self._list_document_block_response_body

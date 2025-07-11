@@ -27,18 +27,22 @@ class DurationItem(object):
 class DurationItemBuilder(object):
     def __init__(self) -> None:
         self._duration_item = DurationItem()
+
     def date(self, date: str) -> "DurationItemBuilder":
         self._duration_item.date = date
         return self
+
     def duration(self, duration: float) -> "DurationItemBuilder":
         self._duration_item.duration = duration
         return self
+
     def unit(self, unit: int) -> "DurationItemBuilder":
         self._duration_item.unit = unit
         return self
+
     def settlement_type(self, settlement_type: int) -> "DurationItemBuilder":
         self._duration_item.settlement_type = settlement_type
         return self
-    
+
     def build(self) -> "DurationItem":
         return self._duration_item

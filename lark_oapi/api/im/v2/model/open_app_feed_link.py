@@ -21,9 +21,10 @@ class OpenAppFeedLink(object):
 class OpenAppFeedLinkBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_link = OpenAppFeedLink()
+
     def link(self, link: str) -> "OpenAppFeedLinkBuilder":
         self._open_app_feed_link.link = link
         return self
-    
+
     def build(self) -> "OpenAppFeedLink":
         return self._open_app_feed_link

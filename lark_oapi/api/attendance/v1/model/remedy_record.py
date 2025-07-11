@@ -27,18 +27,22 @@ class RemedyRecord(object):
 class RemedyRecordBuilder(object):
     def __init__(self) -> None:
         self._remedy_record = RemedyRecord()
+
     def remedy_date(self, remedy_date: str) -> "RemedyRecordBuilder":
         self._remedy_record.remedy_date = remedy_date
         return self
+
     def punch_no(self, punch_no: int) -> "RemedyRecordBuilder":
         self._remedy_record.punch_no = punch_no
         return self
+
     def work_type(self, work_type: int) -> "RemedyRecordBuilder":
         self._remedy_record.work_type = work_type
         return self
+
     def remedy_time(self, remedy_time: str) -> "RemedyRecordBuilder":
         self._remedy_record.remedy_time = remedy_time
         return self
-    
+
     def build(self) -> "RemedyRecord":
         return self._remedy_record

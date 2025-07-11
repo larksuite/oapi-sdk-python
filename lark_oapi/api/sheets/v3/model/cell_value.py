@@ -51,39 +51,50 @@ class CellValue(object):
 class CellValueBuilder(object):
     def __init__(self) -> None:
         self._cell_value = CellValue()
+
     def type(self, type: str) -> "CellValueBuilder":
         self._cell_value.type = type
         return self
+
     def text(self, text: Text) -> "CellValueBuilder":
         self._cell_value.text = text
         return self
+
     def mention_user(self, mention_user: MentionUser) -> "CellValueBuilder":
         self._cell_value.mention_user = mention_user
         return self
+
     def mention_document(self, mention_document: MentionDocument) -> "CellValueBuilder":
         self._cell_value.mention_document = mention_document
         return self
+
     def value(self, value: ValueElement) -> "CellValueBuilder":
         self._cell_value.value = value
         return self
+
     def date_time(self, date_time: DateTime) -> "CellValueBuilder":
         self._cell_value.date_time = date_time
         return self
+
     def file(self, file: File) -> "CellValueBuilder":
         self._cell_value.file = file
         return self
+
     def image(self, image: Image) -> "CellValueBuilder":
         self._cell_value.image = image
         return self
+
     def link(self, link: Link) -> "CellValueBuilder":
         self._cell_value.link = link
         return self
+
     def reminder(self, reminder: Reminder) -> "CellValueBuilder":
         self._cell_value.reminder = reminder
         return self
+
     def formula(self, formula: Formula) -> "CellValueBuilder":
         self._cell_value.formula = formula
         return self
-    
+
     def build(self) -> "CellValue":
         return self._cell_value

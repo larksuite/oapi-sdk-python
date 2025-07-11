@@ -5,56 +5,56 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryTalentObjectRequest = QueryTalentObjectRequest.builder() \
-		.build()
+    # 构造请求对象
+    request: QueryTalentObjectRequest = QueryTalentObjectRequest.builder() \
+        .build()
 
-	# 发起请求
-	response: QueryTalentObjectResponse = client.hire.v1.talent_object.query(request)
+    # 发起请求
+    response: QueryTalentObjectResponse = client.hire.v1.talent_object.query(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.talent_object.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.talent_object.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryTalentObjectRequest = QueryTalentObjectRequest.builder() \
-		.build()
+    # 构造请求对象
+    request: QueryTalentObjectRequest = QueryTalentObjectRequest.builder() \
+        .build()
 
-	# 发起请求
-	response: QueryTalentObjectResponse = await client.hire.v1.talent_object.aquery(request)
+    # 发起请求
+    response: QueryTalentObjectResponse = await client.hire.v1.talent_object.aquery(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.talent_object.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.talent_object.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

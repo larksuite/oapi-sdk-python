@@ -31,21 +31,26 @@ class ChatMenuItem(object):
 class ChatMenuItemBuilder(object):
     def __init__(self) -> None:
         self._chat_menu_item = ChatMenuItem()
+
     def action_type(self, action_type: str) -> "ChatMenuItemBuilder":
         self._chat_menu_item.action_type = action_type
         return self
+
     def redirect_link(self, redirect_link: ChatMenuItemRedirectLink) -> "ChatMenuItemBuilder":
         self._chat_menu_item.redirect_link = redirect_link
         return self
+
     def image_key(self, image_key: str) -> "ChatMenuItemBuilder":
         self._chat_menu_item.image_key = image_key
         return self
+
     def name(self, name: str) -> "ChatMenuItemBuilder":
         self._chat_menu_item.name = name
         return self
+
     def i18n_names(self, i18n_names: I18nNames) -> "ChatMenuItemBuilder":
         self._chat_menu_item.i18n_names = i18n_names
         return self
-    
+
     def build(self) -> "ChatMenuItem":
         return self._chat_menu_item

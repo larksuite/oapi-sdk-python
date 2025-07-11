@@ -32,21 +32,26 @@ class Item(object):
 class ItemBuilder(object):
     def __init__(self) -> None:
         self._item = Item()
+
     def id(self, id: str) -> "ItemBuilder":
         self._item.id = id
         return self
+
     def acl(self, acl: List[Acl]) -> "ItemBuilder":
         self._item.acl = acl
         return self
+
     def metadata(self, metadata: ItemMetadata) -> "ItemBuilder":
         self._item.metadata = metadata
         return self
+
     def structured_data(self, structured_data: str) -> "ItemBuilder":
         self._item.structured_data = structured_data
         return self
+
     def content(self, content: ItemContent) -> "ItemBuilder":
         self._item.content = content
         return self
-    
+
     def build(self) -> "Item":
         return self._item

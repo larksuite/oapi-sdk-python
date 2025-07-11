@@ -22,9 +22,10 @@ class PreviewInstanceResponseBody(object):
 class PreviewInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._preview_instance_response_body = PreviewInstanceResponseBody()
+
     def preview_nodes(self, preview_nodes: List[PreviewNode]) -> "PreviewInstanceResponseBodyBuilder":
         self._preview_instance_response_body.preview_nodes = preview_nodes
         return self
-    
+
     def build(self) -> "PreviewInstanceResponseBody":
         return self._preview_instance_response_body

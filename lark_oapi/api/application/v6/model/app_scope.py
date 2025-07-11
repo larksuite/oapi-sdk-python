@@ -27,18 +27,22 @@ class AppScope(object):
 class AppScopeBuilder(object):
     def __init__(self) -> None:
         self._app_scope = AppScope()
+
     def scope(self, scope: str) -> "AppScopeBuilder":
         self._app_scope.scope = scope
         return self
+
     def description(self, description: str) -> "AppScopeBuilder":
         self._app_scope.description = description
         return self
+
     def level(self, level: int) -> "AppScopeBuilder":
         self._app_scope.level = level
         return self
+
     def token_types(self, token_types: List[str]) -> "AppScopeBuilder":
         self._app_scope.token_types = token_types
         return self
-    
+
     def build(self) -> "AppScope":
         return self._app_scope

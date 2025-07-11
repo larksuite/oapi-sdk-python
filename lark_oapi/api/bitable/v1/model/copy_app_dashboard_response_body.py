@@ -23,12 +23,14 @@ class CopyAppDashboardResponseBody(object):
 class CopyAppDashboardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_app_dashboard_response_body = CopyAppDashboardResponseBody()
+
     def block_id(self, block_id: str) -> "CopyAppDashboardResponseBodyBuilder":
         self._copy_app_dashboard_response_body.block_id = block_id
         return self
+
     def name(self, name: str) -> "CopyAppDashboardResponseBodyBuilder":
         self._copy_app_dashboard_response_body.name = name
         return self
-    
+
     def build(self) -> "CopyAppDashboardResponseBody":
         return self._copy_app_dashboard_response_body

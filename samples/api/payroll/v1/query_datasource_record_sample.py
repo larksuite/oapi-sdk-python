@@ -5,70 +5,70 @@ from lark_oapi.api.payroll.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryDatasourceRecordRequest = QueryDatasourceRecordRequest.builder() \
-		.page_size(int) \
-		.page_token("str") \
-		.request_body(QueryDatasourceRecordRequestBody.builder()
-					  .source_code("test__c")
-					  .selected_fields([])
-					  .field_filters([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: QueryDatasourceRecordRequest = QueryDatasourceRecordRequest.builder() \
+        .page_size(int) \
+        .page_token("str") \
+        .request_body(QueryDatasourceRecordRequestBody.builder()
+                      .source_code("test__c")
+                      .selected_fields([])
+                      .field_filters([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: QueryDatasourceRecordResponse = client.payroll.v1.datasource_record.query(request)
+    # 发起请求
+    response: QueryDatasourceRecordResponse = client.payroll.v1.datasource_record.query(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.payroll.v1.datasource_record.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.payroll.v1.datasource_record.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryDatasourceRecordRequest = QueryDatasourceRecordRequest.builder() \
-		.page_size(int) \
-		.page_token("str") \
-		.request_body(QueryDatasourceRecordRequestBody.builder()
-					  .source_code("test__c")
-					  .selected_fields([])
-					  .field_filters([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: QueryDatasourceRecordRequest = QueryDatasourceRecordRequest.builder() \
+        .page_size(int) \
+        .page_token("str") \
+        .request_body(QueryDatasourceRecordRequestBody.builder()
+                      .source_code("test__c")
+                      .selected_fields([])
+                      .field_filters([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: QueryDatasourceRecordResponse = await client.payroll.v1.datasource_record.aquery(request)
+    # 发起请求
+    response: QueryDatasourceRecordResponse = await client.payroll.v1.datasource_record.aquery(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.payroll.v1.datasource_record.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.payroll.v1.datasource_record.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

@@ -21,9 +21,10 @@ class UploadFileRequestBody(object):
 class UploadFileRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_file_request_body = UploadFileRequestBody()
+
     def file(self, file: IO[Any]) -> "UploadFileRequestBodyBuilder":
         self._upload_file_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadFileRequestBody":
         return self._upload_file_request_body

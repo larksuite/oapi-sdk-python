@@ -25,15 +25,18 @@ class Scope(object):
 class ScopeBuilder(object):
     def __init__(self) -> None:
         self._scope = Scope()
+
     def scope_name(self, scope_name: str) -> "ScopeBuilder":
         self._scope.scope_name = scope_name
         return self
+
     def grant_status(self, grant_status: int) -> "ScopeBuilder":
         self._scope.grant_status = grant_status
         return self
+
     def scope_type(self, scope_type: str) -> "ScopeBuilder":
         self._scope.scope_type = scope_type
         return self
-    
+
     def build(self) -> "Scope":
         return self._scope

@@ -26,17 +26,17 @@ class PatchUserMailboxMailContactRequestBuilder(object):
         patch_user_mailbox_mail_contact_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/mail_contacts/:mail_contact_id"
         patch_user_mailbox_mail_contact_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_user_mailbox_mail_contact_request: PatchUserMailboxMailContactRequest = patch_user_mailbox_mail_contact_request
-    
+
     def user_mailbox_id(self, user_mailbox_id: str) -> "PatchUserMailboxMailContactRequestBuilder":
         self._patch_user_mailbox_mail_contact_request.user_mailbox_id = user_mailbox_id
         self._patch_user_mailbox_mail_contact_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-    
+
     def mail_contact_id(self, mail_contact_id: str) -> "PatchUserMailboxMailContactRequestBuilder":
         self._patch_user_mailbox_mail_contact_request.mail_contact_id = mail_contact_id
         self._patch_user_mailbox_mail_contact_request.paths["mail_contact_id"] = str(mail_contact_id)
         return self
-    
+
     def request_body(self, request_body: MailContact) -> "PatchUserMailboxMailContactRequestBuilder":
         self._patch_user_mailbox_mail_contact_request.request_body = request_body
         self._patch_user_mailbox_mail_contact_request.body = request_body

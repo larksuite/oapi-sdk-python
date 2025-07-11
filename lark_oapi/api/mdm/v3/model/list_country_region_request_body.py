@@ -25,12 +25,14 @@ class ListCountryRegionRequestBody(object):
 class ListCountryRegionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._list_country_region_request_body = ListCountryRegionRequestBody()
+
     def filter(self, filter: Filter) -> "ListCountryRegionRequestBodyBuilder":
         self._list_country_region_request_body.filter = filter
         return self
+
     def common(self, common: Common) -> "ListCountryRegionRequestBodyBuilder":
         self._list_country_region_request_body.common = common
         return self
-    
+
     def build(self) -> "ListCountryRegionRequestBody":
         return self._list_country_region_request_body

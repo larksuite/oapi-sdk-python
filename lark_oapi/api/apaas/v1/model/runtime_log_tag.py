@@ -29,21 +29,26 @@ class RuntimeLogTag(object):
 class RuntimeLogTagBuilder(object):
     def __init__(self) -> None:
         self._runtime_log_tag = RuntimeLogTag()
+
     def key(self, key: str) -> "RuntimeLogTagBuilder":
         self._runtime_log_tag.key = key
         return self
+
     def value(self, value: str) -> "RuntimeLogTagBuilder":
         self._runtime_log_tag.value = value
         return self
+
     def value_type(self, value_type: str) -> "RuntimeLogTagBuilder":
         self._runtime_log_tag.value_type = value_type
         return self
+
     def uri(self, uri: str) -> "RuntimeLogTagBuilder":
         self._runtime_log_tag.uri = uri
         return self
+
     def attachs(self, attachs: Dict[str, str]) -> "RuntimeLogTagBuilder":
         self._runtime_log_tag.attachs = attachs
         return self
-    
+
     def build(self) -> "RuntimeLogTag":
         return self._runtime_log_tag

@@ -28,37 +28,36 @@ class ListAttachmentRequestBuilder(object):
         list_attachment_request.uri = "/open-apis/task/v2/attachments"
         list_attachment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_attachment_request: ListAttachmentRequest = list_attachment_request
-    
+
     def page_size(self, page_size: int) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.page_size = page_size
         self._list_attachment_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.page_token = page_token
         self._list_attachment_request.add_query("page_token", page_token)
         return self
-    
+
     def resource_type(self, resource_type: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.resource_type = resource_type
         self._list_attachment_request.add_query("resource_type", resource_type)
         return self
-    
+
     def resource_id(self, resource_id: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.resource_id = resource_id
         self._list_attachment_request.add_query("resource_id", resource_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.user_id_type = user_id_type
         self._list_attachment_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def updated_mesc(self, updated_mesc: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.updated_mesc = updated_mesc
         self._list_attachment_request.add_query("updated_mesc", updated_mesc)
         return self
-    
 
     def build(self) -> ListAttachmentRequest:
         return self._list_attachment_request

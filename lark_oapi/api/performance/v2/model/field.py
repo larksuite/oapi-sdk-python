@@ -38,30 +38,38 @@ class Field(object):
 class FieldBuilder(object):
     def __init__(self) -> None:
         self._field = Field()
+
     def field_id(self, field_id: str) -> "FieldBuilder":
         self._field.field_id = field_id
         return self
+
     def name(self, name: I18n) -> "FieldBuilder":
         self._field.name = name
         return self
+
     def indicator_id(self, indicator_id: str) -> "FieldBuilder":
         self._field.indicator_id = indicator_id
         return self
+
     def tag_based_question_id(self, tag_based_question_id: str) -> "FieldBuilder":
         self._field.tag_based_question_id = tag_based_question_id
         return self
+
     def objective_text_qustion_title(self, objective_text_qustion_title: I18n) -> "FieldBuilder":
         self._field.objective_text_qustion_title = objective_text_qustion_title
         return self
+
     def keyresult_text_qustion_title(self, keyresult_text_qustion_title: I18n) -> "FieldBuilder":
         self._field.keyresult_text_qustion_title = keyresult_text_qustion_title
         return self
+
     def parent_field_id(self, parent_field_id: str) -> "FieldBuilder":
         self._field.parent_field_id = parent_field_id
         return self
+
     def kpi_template_id(self, kpi_template_id: str) -> "FieldBuilder":
         self._field.kpi_template_id = kpi_template_id
         return self
-    
+
     def build(self) -> "Field":
         return self._field

@@ -22,9 +22,11 @@ class BatchGetTmpDownloadUrlMediaResponseBody(object):
 class BatchGetTmpDownloadUrlMediaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_tmp_download_url_media_response_body = BatchGetTmpDownloadUrlMediaResponseBody()
-    def tmp_download_urls(self, tmp_download_urls: List[TmpDownloadUrl]) -> "BatchGetTmpDownloadUrlMediaResponseBodyBuilder":
+
+    def tmp_download_urls(self,
+                          tmp_download_urls: List[TmpDownloadUrl]) -> "BatchGetTmpDownloadUrlMediaResponseBodyBuilder":
         self._batch_get_tmp_download_url_media_response_body.tmp_download_urls = tmp_download_urls
         return self
-    
+
     def build(self) -> "BatchGetTmpDownloadUrlMediaResponseBody":
         return self._batch_get_tmp_download_url_media_response_body

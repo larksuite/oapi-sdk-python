@@ -23,12 +23,14 @@ class WriteUserGroupScopeFailUserData(object):
 class WriteUserGroupScopeFailUserDataBuilder(object):
     def __init__(self) -> None:
         self._write_user_group_scope_fail_user_data = WriteUserGroupScopeFailUserData()
+
     def user_id(self, user_id: str) -> "WriteUserGroupScopeFailUserDataBuilder":
         self._write_user_group_scope_fail_user_data.user_id = user_id
         return self
+
     def fail_code(self, fail_code: int) -> "WriteUserGroupScopeFailUserDataBuilder":
         self._write_user_group_scope_fail_user_data.fail_code = fail_code
         return self
-    
+
     def build(self) -> "WriteUserGroupScopeFailUserData":
         return self._write_user_group_scope_fail_user_data

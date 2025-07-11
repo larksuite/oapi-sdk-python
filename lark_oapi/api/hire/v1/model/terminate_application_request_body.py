@@ -37,33 +37,47 @@ class TerminateApplicationRequestBody(object):
 class TerminateApplicationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._terminate_application_request_body = TerminateApplicationRequestBody()
+
     def termination_type(self, termination_type: int) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.termination_type = termination_type
         return self
+
     def termination_reason_list(self, termination_reason_list: List[str]) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.termination_reason_list = termination_reason_list
         return self
+
     def termination_reason_note(self, termination_reason_note: str) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.termination_reason_note = termination_reason_note
         return self
+
     def need_terminate_offer(self, need_terminate_offer: bool) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.need_terminate_offer = need_terminate_offer
         return self
-    def terminate_offer_operate_type(self, terminate_offer_operate_type: int) -> "TerminateApplicationRequestBodyBuilder":
+
+    def terminate_offer_operate_type(self,
+                                     terminate_offer_operate_type: int) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.terminate_offer_operate_type = terminate_offer_operate_type
         return self
-    def cancel_offer_termination_type(self, cancel_offer_termination_type: int) -> "TerminateApplicationRequestBodyBuilder":
+
+    def cancel_offer_termination_type(self,
+                                      cancel_offer_termination_type: int) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.cancel_offer_termination_type = cancel_offer_termination_type
         return self
-    def cancel_offer_termination_reason_list(self, cancel_offer_termination_reason_list: List[str]) -> "TerminateApplicationRequestBodyBuilder":
+
+    def cancel_offer_termination_reason_list(self, cancel_offer_termination_reason_list: List[
+        str]) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.cancel_offer_termination_reason_list = cancel_offer_termination_reason_list
         return self
-    def candidate_reject_offer_termination_reason_list(self, candidate_reject_offer_termination_reason_list: List[str]) -> "TerminateApplicationRequestBodyBuilder":
+
+    def candidate_reject_offer_termination_reason_list(self, candidate_reject_offer_termination_reason_list: List[
+        str]) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.candidate_reject_offer_termination_reason_list = candidate_reject_offer_termination_reason_list
         return self
-    def need_withdraw_offer_approval(self, need_withdraw_offer_approval: bool) -> "TerminateApplicationRequestBodyBuilder":
+
+    def need_withdraw_offer_approval(self,
+                                     need_withdraw_offer_approval: bool) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.need_withdraw_offer_approval = need_withdraw_offer_approval
         return self
-    
+
     def build(self) -> "TerminateApplicationRequestBody":
         return self._terminate_application_request_body

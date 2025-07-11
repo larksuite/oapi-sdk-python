@@ -23,12 +23,14 @@ class BatchMessageRecallProgress(object):
 class BatchMessageRecallProgressBuilder(object):
     def __init__(self) -> None:
         self._batch_message_recall_progress = BatchMessageRecallProgress()
+
     def recall(self, recall: bool) -> "BatchMessageRecallProgressBuilder":
         self._batch_message_recall_progress.recall = recall
         return self
+
     def recall_count(self, recall_count: int) -> "BatchMessageRecallProgressBuilder":
         self._batch_message_recall_progress.recall_count = recall_count
         return self
-    
+
     def build(self) -> "BatchMessageRecallProgress":
         return self._batch_message_recall_progress

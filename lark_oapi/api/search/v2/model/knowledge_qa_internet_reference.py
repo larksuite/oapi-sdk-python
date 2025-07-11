@@ -25,15 +25,18 @@ class KnowledgeQaInternetReference(object):
 class KnowledgeQaInternetReferenceBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_internet_reference = KnowledgeQaInternetReference()
+
     def title(self, title: str) -> "KnowledgeQaInternetReferenceBuilder":
         self._knowledge_qa_internet_reference.title = title
         return self
+
     def summary(self, summary: str) -> "KnowledgeQaInternetReferenceBuilder":
         self._knowledge_qa_internet_reference.summary = summary
         return self
+
     def url(self, url: str) -> "KnowledgeQaInternetReferenceBuilder":
         self._knowledge_qa_internet_reference.url = url
         return self
-    
+
     def build(self) -> "KnowledgeQaInternetReference":
         return self._knowledge_qa_internet_reference

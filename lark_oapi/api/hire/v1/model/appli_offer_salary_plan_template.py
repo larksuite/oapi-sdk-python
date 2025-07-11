@@ -27,18 +27,22 @@ class AppliOfferSalaryPlanTemplate(object):
 class AppliOfferSalaryPlanTemplateBuilder(object):
     def __init__(self) -> None:
         self._appli_offer_salary_plan_template = AppliOfferSalaryPlanTemplate()
+
     def template_key(self, template_key: str) -> "AppliOfferSalaryPlanTemplateBuilder":
         self._appli_offer_salary_plan_template.template_key = template_key
         return self
+
     def total_amount(self, total_amount: str) -> "AppliOfferSalaryPlanTemplateBuilder":
         self._appli_offer_salary_plan_template.total_amount = total_amount
         return self
+
     def currency(self, currency: str) -> "AppliOfferSalaryPlanTemplateBuilder":
         self._appli_offer_salary_plan_template.currency = currency
         return self
+
     def salary_content(self, salary_content: str) -> "AppliOfferSalaryPlanTemplateBuilder":
         self._appli_offer_salary_plan_template.salary_content = salary_content
         return self
-    
+
     def build(self) -> "AppliOfferSalaryPlanTemplate":
         return self._appli_offer_salary_plan_template

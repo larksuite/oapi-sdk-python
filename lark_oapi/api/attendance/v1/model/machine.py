@@ -23,12 +23,14 @@ class Machine(object):
 class MachineBuilder(object):
     def __init__(self) -> None:
         self._machine = Machine()
+
     def machine_sn(self, machine_sn: str) -> "MachineBuilder":
         self._machine.machine_sn = machine_sn
         return self
+
     def machine_name(self, machine_name: str) -> "MachineBuilder":
         self._machine.machine_name = machine_name
         return self
-    
+
     def build(self) -> "Machine":
         return self._machine

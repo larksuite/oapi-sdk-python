@@ -27,18 +27,22 @@ class InputComment(object):
 class InputCommentBuilder(object):
     def __init__(self) -> None:
         self._input_comment = InputComment()
+
     def content(self, content: str) -> "InputCommentBuilder":
         self._input_comment.content = content
         return self
+
     def reply_to_comment_id(self, reply_to_comment_id: str) -> "InputCommentBuilder":
         self._input_comment.reply_to_comment_id = reply_to_comment_id
         return self
+
     def resource_type(self, resource_type: str) -> "InputCommentBuilder":
         self._input_comment.resource_type = resource_type
         return self
+
     def resource_id(self, resource_id: str) -> "InputCommentBuilder":
         self._input_comment.resource_id = resource_id
         return self
-    
+
     def build(self) -> "InputComment":
         return self._input_comment

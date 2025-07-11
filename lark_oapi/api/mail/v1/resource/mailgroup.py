@@ -27,7 +27,8 @@ class Mailgroup(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateMailgroupRequest, option: Optional[RequestOption] = None) -> CreateMailgroupResponse:
+    def create(self, request: CreateMailgroupRequest,
+               option: Optional[RequestOption] = None) -> CreateMailgroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,33 +41,32 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateMailgroupRequest, option: Optional[RequestOption] = None) -> CreateMailgroupResponse:
+    async def acreate(self, request: CreateMailgroupRequest,
+                      option: Optional[RequestOption] = None) -> CreateMailgroupResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteMailgroupRequest, option: Optional[RequestOption] = None) -> DeleteMailgroupResponse:
+
+    def delete(self, request: DeleteMailgroupRequest,
+               option: Optional[RequestOption] = None) -> DeleteMailgroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,32 +79,30 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteMailgroupRequest, option: Optional[RequestOption] = None) -> DeleteMailgroupResponse:
+    async def adelete(self, request: DeleteMailgroupRequest,
+                      option: Optional[RequestOption] = None) -> DeleteMailgroupResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetMailgroupRequest, option: Optional[RequestOption] = None) -> GetMailgroupResponse:
         if option is None:
             option = RequestOption()
@@ -118,13 +116,12 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetMailgroupRequest, option: Optional[RequestOption] = None) -> GetMailgroupResponse:
         if option is None:
@@ -133,17 +130,15 @@ class Mailgroup(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMailgroupResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListMailgroupRequest, option: Optional[RequestOption] = None) -> ListMailgroupResponse:
         if option is None:
             option = RequestOption()
@@ -157,32 +152,30 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListMailgroupRequest, option: Optional[RequestOption] = None) -> ListMailgroupResponse:
+    async def alist(self, request: ListMailgroupRequest,
+                    option: Optional[RequestOption] = None) -> ListMailgroupResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchMailgroupRequest, option: Optional[RequestOption] = None) -> PatchMailgroupResponse:
         if option is None:
             option = RequestOption()
@@ -196,33 +189,32 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchMailgroupRequest, option: Optional[RequestOption] = None) -> PatchMailgroupResponse:
+    async def apatch(self, request: PatchMailgroupRequest,
+                     option: Optional[RequestOption] = None) -> PatchMailgroupResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMailgroupResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateMailgroupRequest, option: Optional[RequestOption] = None) -> UpdateMailgroupResponse:
+
+    def update(self, request: UpdateMailgroupRequest,
+               option: Optional[RequestOption] = None) -> UpdateMailgroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -235,30 +227,26 @@ class Mailgroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateMailgroupResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateMailgroupRequest, option: Optional[RequestOption] = None) -> UpdateMailgroupResponse:
+    async def aupdate(self, request: UpdateMailgroupRequest,
+                      option: Optional[RequestOption] = None) -> UpdateMailgroupResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateMailgroupResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateMailgroupResponse)
         response.raw = resp
 
         return response
-        
-    

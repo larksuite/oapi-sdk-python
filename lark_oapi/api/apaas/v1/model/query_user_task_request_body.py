@@ -35,30 +35,38 @@ class QueryUserTaskRequestBody(object):
 class QueryUserTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_task_request_body = QueryUserTaskRequestBody()
+
     def type(self, type: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.type = type
         return self
+
     def source(self, source: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.source = source
         return self
+
     def limit(self, limit: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.limit = limit
         return self
+
     def offset(self, offset: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.offset = offset
         return self
+
     def start_time(self, start_time: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.end_time = end_time
         return self
+
     def api_ids(self, api_ids: List[str]) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.api_ids = api_ids
         return self
+
     def kunlun_user_id(self, kunlun_user_id: str) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.kunlun_user_id = kunlun_user_id
         return self
-    
+
     def build(self) -> "QueryUserTaskRequestBody":
         return self._query_user_task_request_body

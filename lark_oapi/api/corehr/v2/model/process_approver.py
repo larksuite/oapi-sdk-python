@@ -30,21 +30,26 @@ class ProcessApprover(object):
 class ProcessApproverBuilder(object):
     def __init__(self) -> None:
         self._process_approver = ProcessApprover()
+
     def status(self, status: int) -> "ProcessApproverBuilder":
         self._process_approver.status = status
         return self
+
     def user_id(self, user_id: str) -> "ProcessApproverBuilder":
         self._process_approver.user_id = user_id
         return self
+
     def system_approval(self, system_approval: bool) -> "ProcessApproverBuilder":
         self._process_approver.system_approval = system_approval
         return self
+
     def reason(self, reason: str) -> "ProcessApproverBuilder":
         self._process_approver.reason = reason
         return self
+
     def field_values_v2(self, field_values_v2: List[ProcessFormVariableV2]) -> "ProcessApproverBuilder":
         self._process_approver.field_values_v2 = field_values_v2
         return self
-    
+
     def build(self) -> "ProcessApprover":
         return self._process_approver

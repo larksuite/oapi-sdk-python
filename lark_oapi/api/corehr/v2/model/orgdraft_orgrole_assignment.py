@@ -24,12 +24,14 @@ class OrgdraftOrgroleAssignment(object):
 class OrgdraftOrgroleAssignmentBuilder(object):
     def __init__(self) -> None:
         self._orgdraft_orgrole_assignment = OrgdraftOrgroleAssignment()
+
     def grantee_id(self, grantee_id: str) -> "OrgdraftOrgroleAssignmentBuilder":
         self._orgdraft_orgrole_assignment.grantee_id = grantee_id
         return self
+
     def management_scopes(self, management_scopes: List[OrgroleAssignmentOrg]) -> "OrgdraftOrgroleAssignmentBuilder":
         self._orgdraft_orgrole_assignment.management_scopes = management_scopes
         return self
-    
+
     def build(self) -> "OrgdraftOrgroleAssignment":
         return self._orgdraft_orgrole_assignment

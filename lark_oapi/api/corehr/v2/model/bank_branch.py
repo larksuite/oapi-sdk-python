@@ -42,39 +42,50 @@ class BankBranch(object):
 class BankBranchBuilder(object):
     def __init__(self) -> None:
         self._bank_branch = BankBranch()
+
     def bank_branch_id(self, bank_branch_id: str) -> "BankBranchBuilder":
         self._bank_branch.bank_branch_id = bank_branch_id
         return self
+
     def bank_branch_name(self, bank_branch_name: List[I18n]) -> "BankBranchBuilder":
         self._bank_branch.bank_branch_name = bank_branch_name
         return self
+
     def bank_id(self, bank_id: str) -> "BankBranchBuilder":
         self._bank_branch.bank_id = bank_id
         return self
+
     def code(self, code: str) -> "BankBranchBuilder":
         self._bank_branch.code = code
         return self
+
     def swift_code(self, swift_code: str) -> "BankBranchBuilder":
         self._bank_branch.swift_code = swift_code
         return self
+
     def status(self, status: int) -> "BankBranchBuilder":
         self._bank_branch.status = status
         return self
+
     def bank_branch_code(self, bank_branch_code: str) -> "BankBranchBuilder":
         self._bank_branch.bank_branch_code = bank_branch_code
         return self
+
     def register_place(self, register_place: str) -> "BankBranchBuilder":
         self._bank_branch.register_place = register_place
         return self
+
     def bank_address(self, bank_address: str) -> "BankBranchBuilder":
         self._bank_branch.bank_address = bank_address
         return self
+
     def create_time(self, create_time: str) -> "BankBranchBuilder":
         self._bank_branch.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "BankBranchBuilder":
         self._bank_branch.update_time = update_time
         return self
-    
+
     def build(self) -> "BankBranch":
         return self._bank_branch

@@ -25,15 +25,18 @@ class DatasetSourceSetting(object):
 class DatasetSourceSettingBuilder(object):
     def __init__(self) -> None:
         self._dataset_source_setting = DatasetSourceSetting()
+
     def api_id(self, api_id: str) -> "DatasetSourceSettingBuilder":
         self._dataset_source_setting.api_id = api_id
         return self
+
     def api_name(self, api_name: str) -> "DatasetSourceSettingBuilder":
         self._dataset_source_setting.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "DatasetSourceSettingBuilder":
         self._dataset_source_setting.label = label
         return self
-    
+
     def build(self) -> "DatasetSourceSetting":
         return self._dataset_source_setting

@@ -29,18 +29,22 @@ class VerifDataSourceRule(object):
 class VerifDataSourceRuleBuilder(object):
     def __init__(self) -> None:
         self._verif_data_source_rule = VerifDataSourceRule()
+
     def api_name(self, api_name: str) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.api_name = api_name
         return self
+
     def datasource_name(self, datasource_name: IdWithName) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.datasource_name = datasource_name
         return self
+
     def object_type(self, object_type: int) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.object_type = object_type
         return self
+
     def datasource_items(self, datasource_items: List[VerifDatasourceItem]) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.datasource_items = datasource_items
         return self
-    
+
     def build(self) -> "VerifDataSourceRule":
         return self._verif_data_source_rule

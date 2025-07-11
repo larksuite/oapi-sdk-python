@@ -26,15 +26,18 @@ class ListUnitResponseBody(object):
 class ListUnitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_unit_response_body = ListUnitResponseBody()
+
     def unitlist(self, unitlist: List[Unit]) -> "ListUnitResponseBodyBuilder":
         self._list_unit_response_body.unitlist = unitlist
         return self
+
     def has_more(self, has_more: bool) -> "ListUnitResponseBodyBuilder":
         self._list_unit_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListUnitResponseBodyBuilder":
         self._list_unit_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListUnitResponseBody":
         return self._list_unit_response_body

@@ -22,9 +22,10 @@ class GetTalentResponseBody(object):
 class GetTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_talent_response_body = GetTalentResponseBody()
+
     def talent(self, talent: Talent) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent = talent
         return self
-    
+
     def build(self) -> "GetTalentResponseBody":
         return self._get_talent_response_body

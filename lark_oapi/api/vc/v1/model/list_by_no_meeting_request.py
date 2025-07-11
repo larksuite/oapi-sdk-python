@@ -27,32 +27,31 @@ class ListByNoMeetingRequestBuilder(object):
         list_by_no_meeting_request.uri = "/open-apis/vc/v1/meetings/list_by_no"
         list_by_no_meeting_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_by_no_meeting_request: ListByNoMeetingRequest = list_by_no_meeting_request
-    
+
     def meeting_no(self, meeting_no: str) -> "ListByNoMeetingRequestBuilder":
         self._list_by_no_meeting_request.meeting_no = meeting_no
         self._list_by_no_meeting_request.add_query("meeting_no", meeting_no)
         return self
-    
+
     def start_time(self, start_time: int) -> "ListByNoMeetingRequestBuilder":
         self._list_by_no_meeting_request.start_time = start_time
         self._list_by_no_meeting_request.add_query("start_time", start_time)
         return self
-    
+
     def end_time(self, end_time: int) -> "ListByNoMeetingRequestBuilder":
         self._list_by_no_meeting_request.end_time = end_time
         self._list_by_no_meeting_request.add_query("end_time", end_time)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListByNoMeetingRequestBuilder":
         self._list_by_no_meeting_request.page_token = page_token
         self._list_by_no_meeting_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListByNoMeetingRequestBuilder":
         self._list_by_no_meeting_request.page_size = page_size
         self._list_by_no_meeting_request.add_query("page_size", page_size)
         return self
-    
 
     def build(self) -> ListByNoMeetingRequest:
         return self._list_by_no_meeting_request

@@ -27,18 +27,22 @@ class AppAbilityWeb(object):
 class AppAbilityWebBuilder(object):
     def __init__(self) -> None:
         self._app_ability_web = AppAbilityWeb()
+
     def enable(self, enable: bool) -> "AppAbilityWebBuilder":
         self._app_ability_web.enable = enable
         return self
+
     def pc_url(self, pc_url: str) -> "AppAbilityWebBuilder":
         self._app_ability_web.pc_url = pc_url
         return self
+
     def pc_new_page_open_mode(self, pc_new_page_open_mode: str) -> "AppAbilityWebBuilder":
         self._app_ability_web.pc_new_page_open_mode = pc_new_page_open_mode
         return self
+
     def mobile_url(self, mobile_url: str) -> "AppAbilityWebBuilder":
         self._app_ability_web.mobile_url = mobile_url
         return self
-    
+
     def build(self) -> "AppAbilityWeb":
         return self._app_ability_web

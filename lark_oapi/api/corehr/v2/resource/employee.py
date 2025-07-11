@@ -21,7 +21,8 @@ class Employee(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetEmployeeRequest, option: Optional[RequestOption] = None) -> BatchGetEmployeeResponse:
+    def batch_get(self, request: BatchGetEmployeeRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,32 +35,30 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_get(self, request: BatchGetEmployeeRequest, option: Optional[RequestOption] = None) -> BatchGetEmployeeResponse:
+    async def abatch_get(self, request: BatchGetEmployeeRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetEmployeeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetEmployeeResponse)
         response.raw = resp
 
         return response
-        
+
     def create(self, request: CreateEmployeeRequest, option: Optional[RequestOption] = None) -> CreateEmployeeResponse:
         if option is None:
             option = RequestOption()
@@ -73,32 +72,30 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateEmployeeRequest, option: Optional[RequestOption] = None) -> CreateEmployeeResponse:
+    async def acreate(self, request: CreateEmployeeRequest,
+                      option: Optional[RequestOption] = None) -> CreateEmployeeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmployeeResponse)
         response.raw = resp
 
         return response
-        
+
     def search(self, request: SearchEmployeeRequest, option: Optional[RequestOption] = None) -> SearchEmployeeResponse:
         if option is None:
             option = RequestOption()
@@ -112,30 +109,26 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchEmployeeRequest, option: Optional[RequestOption] = None) -> SearchEmployeeResponse:
+    async def asearch(self, request: SearchEmployeeRequest,
+                      option: Optional[RequestOption] = None) -> SearchEmployeeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEmployeeResponse)
         response.raw = resp
 
         return response
-        
-    

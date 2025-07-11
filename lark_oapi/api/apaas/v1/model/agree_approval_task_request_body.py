@@ -23,12 +23,14 @@ class AgreeApprovalTaskRequestBody(object):
 class AgreeApprovalTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._agree_approval_task_request_body = AgreeApprovalTaskRequestBody()
+
     def user_id(self, user_id: str) -> "AgreeApprovalTaskRequestBodyBuilder":
         self._agree_approval_task_request_body.user_id = user_id
         return self
+
     def opinion(self, opinion: str) -> "AgreeApprovalTaskRequestBodyBuilder":
         self._agree_approval_task_request_body.opinion = opinion
         return self
-    
+
     def build(self) -> "AgreeApprovalTaskRequestBody":
         return self._agree_approval_task_request_body

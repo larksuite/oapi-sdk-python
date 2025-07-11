@@ -21,9 +21,10 @@ class WebsiteDeliveryWorksAttachment(object):
 class WebsiteDeliveryWorksAttachmentBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_works_attachment = WebsiteDeliveryWorksAttachment()
+
     def file_id(self, file_id: str) -> "WebsiteDeliveryWorksAttachmentBuilder":
         self._website_delivery_works_attachment.file_id = file_id
         return self
-    
+
     def build(self) -> "WebsiteDeliveryWorksAttachment":
         return self._website_delivery_works_attachment

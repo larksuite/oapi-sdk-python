@@ -22,9 +22,11 @@ class JobFamilyTimeline(object):
 class JobFamilyTimelineBuilder(object):
     def __init__(self) -> None:
         self._job_family_timeline = JobFamilyTimeline()
-    def job_family_version_data(self, job_family_version_data: List[JobFamilyVersionData]) -> "JobFamilyTimelineBuilder":
+
+    def job_family_version_data(self,
+                                job_family_version_data: List[JobFamilyVersionData]) -> "JobFamilyTimelineBuilder":
         self._job_family_timeline.job_family_version_data = job_family_version_data
         return self
-    
+
     def build(self) -> "JobFamilyTimeline":
         return self._job_family_timeline

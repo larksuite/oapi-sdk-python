@@ -37,30 +37,38 @@ class EmployeeJobFamily(object):
 class EmployeeJobFamilyBuilder(object):
     def __init__(self) -> None:
         self._employee_job_family = EmployeeJobFamily()
+
     def id(self, id: str) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.id = id
         return self
+
     def name(self, name: List[I18n]) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.name = name
         return self
+
     def active(self, active: bool) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.active = active
         return self
+
     def parent_id(self, parent_id: str) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.parent_id = parent_id
         return self
+
     def effective_time(self, effective_time: str) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.expiration_time = expiration_time
         return self
+
     def code(self, code: str) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.code = code
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "EmployeeJobFamily":
         return self._employee_job_family

@@ -33,24 +33,31 @@ class EmploymentCostAllocation(object):
 class EmploymentCostAllocationBuilder(object):
     def __init__(self) -> None:
         self._employment_cost_allocation = EmploymentCostAllocation()
+
     def wk_id(self, wk_id: str) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.wk_id = wk_id
         return self
+
     def effective_time(self, effective_time: str) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.expiration_time = expiration_time
         return self
-    def job_data_cost_center_id(self, job_data_cost_center_id: List[JobDataCostCenter]) -> "EmploymentCostAllocationBuilder":
+
+    def job_data_cost_center_id(self,
+                                job_data_cost_center_id: List[JobDataCostCenter]) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.job_data_cost_center_id = job_data_cost_center_id
         return self
+
     def job_data_id(self, job_data_id: JobDataId) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.job_data_id = job_data_id
         return self
+
     def reason(self, reason: str) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.reason = reason
         return self
-    
+
     def build(self) -> "EmploymentCostAllocation":
         return self._employment_cost_allocation

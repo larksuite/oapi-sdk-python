@@ -21,9 +21,10 @@ class RestoreFlowInstancePreHireResponseBody(object):
 class RestoreFlowInstancePreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._restore_flow_instance_pre_hire_response_body = RestoreFlowInstancePreHireResponseBody()
+
     def success(self, success: bool) -> "RestoreFlowInstancePreHireResponseBodyBuilder":
         self._restore_flow_instance_pre_hire_response_body.success = success
         return self
-    
+
     def build(self) -> "RestoreFlowInstancePreHireResponseBody":
         return self._restore_flow_instance_pre_hire_response_body

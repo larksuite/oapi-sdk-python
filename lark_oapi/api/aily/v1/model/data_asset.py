@@ -46,42 +46,54 @@ class DataAsset(object):
 class DataAssetBuilder(object):
     def __init__(self) -> None:
         self._data_asset = DataAsset()
+
     def data_asset_id(self, data_asset_id: str) -> "DataAssetBuilder":
         self._data_asset.data_asset_id = data_asset_id
         return self
+
     def label(self, label: Dict[str, str]) -> "DataAssetBuilder":
         self._data_asset.label = label
         return self
+
     def description(self, description: Dict[str, str]) -> "DataAssetBuilder":
         self._data_asset.description = description
         return self
+
     def data_source_type(self, data_source_type: str) -> "DataAssetBuilder":
         self._data_asset.data_source_type = data_source_type
         return self
+
     def connect_status(self, connect_status: str) -> "DataAssetBuilder":
         self._data_asset.connect_status = connect_status
         return self
+
     def tags(self, tags: List[DataAssetTag]) -> "DataAssetBuilder":
         self._data_asset.tags = tags
         return self
+
     def items(self, items: List[DataAssetItem]) -> "DataAssetBuilder":
         self._data_asset.items = items
         return self
+
     def connect_failed_reason(self, connect_failed_reason: str) -> "DataAssetBuilder":
         self._data_asset.connect_failed_reason = connect_failed_reason
         return self
+
     def import_knowledge_setting(self, import_knowledge_setting: DataAssetImportKnowledgeSetting) -> "DataAssetBuilder":
         self._data_asset.import_knowledge_setting = import_knowledge_setting
         return self
+
     def connect_type(self, connect_type: str) -> "DataAssetBuilder":
         self._data_asset.connect_type = connect_type
         return self
+
     def created_time(self, created_time: int) -> "DataAssetBuilder":
         self._data_asset.created_time = created_time
         return self
+
     def updated_time(self, updated_time: int) -> "DataAssetBuilder":
         self._data_asset.updated_time = updated_time
         return self
-    
+
     def build(self) -> "DataAsset":
         return self._data_asset

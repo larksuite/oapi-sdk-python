@@ -33,27 +33,34 @@ class DraftInfo(object):
 class DraftInfoBuilder(object):
     def __init__(self) -> None:
         self._draft_info = DraftInfo()
+
     def draft_id(self, draft_id: str) -> "DraftInfoBuilder":
         self._draft_info.draft_id = draft_id
         return self
+
     def topic(self, topic: str) -> "DraftInfoBuilder":
         self._draft_info.topic = topic
         return self
+
     def adjust_reason(self, adjust_reason: str) -> "DraftInfoBuilder":
         self._draft_info.adjust_reason = adjust_reason
         return self
+
     def effective_date(self, effective_date: str) -> "DraftInfoBuilder":
         self._draft_info.effective_date = effective_date
         return self
+
     def department_adjust_record_ids(self, department_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
         self._draft_info.department_adjust_record_ids = department_adjust_record_ids
         return self
+
     def job_change_adjust_record_ids(self, job_change_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
         self._draft_info.job_change_adjust_record_ids = job_change_adjust_record_ids
         return self
+
     def position_adjust_record_ids(self, position_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
         self._draft_info.position_adjust_record_ids = position_adjust_record_ids
         return self
-    
+
     def build(self) -> "DraftInfo":
         return self._draft_info

@@ -25,12 +25,12 @@ class SearchReferralRequestBuilder(object):
         search_referral_request.uri = "/open-apis/hire/v1/referrals/search"
         search_referral_request.token_types = {AccessTokenType.TENANT}
         self._search_referral_request: SearchReferralRequest = search_referral_request
-    
+
     def user_id_type(self, user_id_type: str) -> "SearchReferralRequestBuilder":
         self._search_referral_request.user_id_type = user_id_type
         self._search_referral_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: SearchReferralRequestBody) -> "SearchReferralRequestBuilder":
         self._search_referral_request.request_body = request_body
         self._search_referral_request.body = request_body

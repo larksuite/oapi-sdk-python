@@ -27,18 +27,23 @@ class QueryRecentChangeDepartmentResponseBody(object):
 class QueryRecentChangeDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_department_response_body = QueryRecentChangeDepartmentResponseBody()
+
     def department_ids(self, department_ids: List[str]) -> "QueryRecentChangeDepartmentResponseBodyBuilder":
         self._query_recent_change_department_response_body.department_ids = department_ids
         return self
-    def deleted_department_ids(self, deleted_department_ids: List[str]) -> "QueryRecentChangeDepartmentResponseBodyBuilder":
+
+    def deleted_department_ids(self,
+                               deleted_department_ids: List[str]) -> "QueryRecentChangeDepartmentResponseBodyBuilder":
         self._query_recent_change_department_response_body.deleted_department_ids = deleted_department_ids
         return self
+
     def page_token(self, page_token: str) -> "QueryRecentChangeDepartmentResponseBodyBuilder":
         self._query_recent_change_department_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryRecentChangeDepartmentResponseBodyBuilder":
         self._query_recent_change_department_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "QueryRecentChangeDepartmentResponseBody":
         return self._query_recent_change_department_response_body

@@ -27,18 +27,22 @@ class DefaultCostCenter(object):
 class DefaultCostCenterBuilder(object):
     def __init__(self) -> None:
         self._default_cost_center = DefaultCostCenter()
+
     def cost_center_id(self, cost_center_id: str) -> "DefaultCostCenterBuilder":
         self._default_cost_center.cost_center_id = cost_center_id
         return self
+
     def effective_time(self, effective_time: str) -> "DefaultCostCenterBuilder":
         self._default_cost_center.effective_time = effective_time
         return self
+
     def is_herit(self, is_herit: bool) -> "DefaultCostCenterBuilder":
         self._default_cost_center.is_herit = is_herit
         return self
+
     def inherit_source(self, inherit_source: str) -> "DefaultCostCenterBuilder":
         self._default_cost_center.inherit_source = inherit_source
         return self
-    
+
     def build(self) -> "DefaultCostCenter":
         return self._default_cost_center

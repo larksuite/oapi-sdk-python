@@ -23,12 +23,14 @@ class ChatTabConfig(object):
 class ChatTabConfigBuilder(object):
     def __init__(self) -> None:
         self._chat_tab_config = ChatTabConfig()
+
     def icon_key(self, icon_key: str) -> "ChatTabConfigBuilder":
         self._chat_tab_config.icon_key = icon_key
         return self
+
     def is_built_in(self, is_built_in: bool) -> "ChatTabConfigBuilder":
         self._chat_tab_config.is_built_in = is_built_in
         return self
-    
+
     def build(self) -> "ChatTabConfig":
         return self._chat_tab_config

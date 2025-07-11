@@ -26,15 +26,18 @@ class ListFileVersionResponseBody(object):
 class ListFileVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_file_version_response_body = ListFileVersionResponseBody()
+
     def items(self, items: List[Version]) -> "ListFileVersionResponseBodyBuilder":
         self._list_file_version_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListFileVersionResponseBodyBuilder":
         self._list_file_version_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListFileVersionResponseBodyBuilder":
         self._list_file_version_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListFileVersionResponseBody":
         return self._list_file_version_response_body

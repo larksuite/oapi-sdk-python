@@ -23,12 +23,14 @@ class BatchGetJobFamilyRequestBody(object):
 class BatchGetJobFamilyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_job_family_request_body = BatchGetJobFamilyRequestBody()
+
     def job_family_ids(self, job_family_ids: List[str]) -> "BatchGetJobFamilyRequestBodyBuilder":
         self._batch_get_job_family_request_body.job_family_ids = job_family_ids
         return self
+
     def job_family_codes(self, job_family_codes: List[str]) -> "BatchGetJobFamilyRequestBodyBuilder":
         self._batch_get_job_family_request_body.job_family_codes = job_family_codes
         return self
-    
+
     def build(self) -> "BatchGetJobFamilyRequestBody":
         return self._batch_get_job_family_request_body

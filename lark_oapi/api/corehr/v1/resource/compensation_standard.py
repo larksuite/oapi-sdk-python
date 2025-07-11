@@ -17,7 +17,8 @@ class CompensationStandard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def match(self, request: MatchCompensationStandardRequest, option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
+    def match(self, request: MatchCompensationStandardRequest,
+              option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class CompensationStandard(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8), MatchCompensationStandardResponse)
+        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     MatchCompensationStandardResponse)
         response.raw = resp
 
         return response
-        
 
-    async def amatch(self, request: MatchCompensationStandardRequest, option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
+    async def amatch(self, request: MatchCompensationStandardRequest,
+                     option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8), MatchCompensationStandardResponse)
+        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     MatchCompensationStandardResponse)
         response.raw = resp
 
         return response
-        
-    

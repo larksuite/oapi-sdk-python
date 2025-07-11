@@ -28,18 +28,22 @@ class SegmentValue(object):
 class SegmentValueBuilder(object):
     def __init__(self) -> None:
         self._segment_value = SegmentValue()
+
     def start_time(self, start_time: int) -> "SegmentValueBuilder":
         self._segment_value.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "SegmentValueBuilder":
         self._segment_value.end_time = end_time
         return self
+
     def reference_values(self, reference_values: List[I18nContent]) -> "SegmentValueBuilder":
         self._segment_value.reference_values = reference_values
         return self
+
     def original_value(self, original_value: str) -> "SegmentValueBuilder":
         self._segment_value.original_value = original_value
         return self
-    
+
     def build(self) -> "SegmentValue":
         return self._segment_value

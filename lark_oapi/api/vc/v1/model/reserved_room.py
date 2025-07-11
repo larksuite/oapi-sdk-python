@@ -23,12 +23,14 @@ class ReservedRoom(object):
 class ReservedRoomBuilder(object):
     def __init__(self) -> None:
         self._reserved_room = ReservedRoom()
+
     def room_id(self, room_id: str) -> "ReservedRoomBuilder":
         self._reserved_room.room_id = room_id
         return self
+
     def room_name(self, room_name: str) -> "ReservedRoomBuilder":
         self._reserved_room.room_name = room_name
         return self
-    
+
     def build(self) -> "ReservedRoom":
         return self._reserved_room

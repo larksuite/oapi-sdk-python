@@ -29,21 +29,26 @@ class StreamConfig(object):
 class StreamConfigBuilder(object):
     def __init__(self) -> None:
         self._stream_config = StreamConfig()
+
     def stream_id(self, stream_id: str) -> "StreamConfigBuilder":
         self._stream_config.stream_id = stream_id
         return self
+
     def sequence_id(self, sequence_id: int) -> "StreamConfigBuilder":
         self._stream_config.sequence_id = sequence_id
         return self
+
     def action(self, action: int) -> "StreamConfigBuilder":
         self._stream_config.action = action
         return self
+
     def format(self, format: str) -> "StreamConfigBuilder":
         self._stream_config.format = format
         return self
+
     def engine_type(self, engine_type: str) -> "StreamConfigBuilder":
         self._stream_config.engine_type = engine_type
         return self
-    
+
     def build(self) -> "StreamConfig":
         return self._stream_config

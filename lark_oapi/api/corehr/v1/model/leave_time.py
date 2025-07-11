@@ -25,15 +25,18 @@ class LeaveTime(object):
 class LeaveTimeBuilder(object):
     def __init__(self) -> None:
         self._leave_time = LeaveTime()
+
     def date(self, date: str) -> "LeaveTimeBuilder":
         self._leave_time.date = date
         return self
+
     def time(self, time: str) -> "LeaveTimeBuilder":
         self._leave_time.time = time
         return self
+
     def half_day(self, half_day: str) -> "LeaveTimeBuilder":
         self._leave_time.half_day = half_day
         return self
-    
+
     def build(self) -> "LeaveTime":
         return self._leave_time

@@ -64,69 +64,90 @@ class Position(object):
 class PositionBuilder(object):
     def __init__(self) -> None:
         self._position = Position()
+
     def position_id(self, position_id: str) -> "PositionBuilder":
         self._position.position_id = position_id
         return self
+
     def code(self, code: str) -> "PositionBuilder":
         self._position.code = code
         return self
+
     def names(self, names: List[I18n]) -> "PositionBuilder":
         self._position.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "PositionBuilder":
         self._position.descriptions = descriptions
         return self
+
     def active(self, active: bool) -> "PositionBuilder":
         self._position.active = active
         return self
+
     def job_family_id_list(self, job_family_id_list: List[str]) -> "PositionBuilder":
         self._position.job_family_id_list = job_family_id_list
         return self
+
     def cost_center_id(self, cost_center_id: str) -> "PositionBuilder":
         self._position.cost_center_id = cost_center_id
         return self
+
     def job_id(self, job_id: str) -> "PositionBuilder":
         self._position.job_id = job_id
         return self
+
     def job_level_id_list(self, job_level_id_list: List[str]) -> "PositionBuilder":
         self._position.job_level_id_list = job_level_id_list
         return self
+
     def employee_type_id_list(self, employee_type_id_list: List[str]) -> "PositionBuilder":
         self._position.employee_type_id_list = employee_type_id_list
         return self
+
     def job_grade_id_list(self, job_grade_id_list: List[str]) -> "PositionBuilder":
         self._position.job_grade_id_list = job_grade_id_list
         return self
+
     def work_location_id_list(self, work_location_id_list: List[str]) -> "PositionBuilder":
         self._position.work_location_id_list = work_location_id_list
         return self
+
     def working_hours_type_id(self, working_hours_type_id: str) -> "PositionBuilder":
         self._position.working_hours_type_id = working_hours_type_id
         return self
+
     def department_id(self, department_id: str) -> "PositionBuilder":
         self._position.department_id = department_id
         return self
+
     def direct_leader_id(self, direct_leader_id: str) -> "PositionBuilder":
         self._position.direct_leader_id = direct_leader_id
         return self
+
     def dotted_line_leader_id(self, dotted_line_leader_id: str) -> "PositionBuilder":
         self._position.dotted_line_leader_id = dotted_line_leader_id
         return self
+
     def is_key_position(self, is_key_position: bool) -> "PositionBuilder":
         self._position.is_key_position = is_key_position
         return self
+
     def effective_time(self, effective_time: str) -> "PositionBuilder":
         self._position.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "PositionBuilder":
         self._position.expiration_time = expiration_time
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PositionBuilder":
         self._position.custom_fields = custom_fields
         return self
+
     def created_by(self, created_by: str) -> "PositionBuilder":
         self._position.created_by = created_by
         return self
-    
+
     def build(self) -> "Position":
         return self._position

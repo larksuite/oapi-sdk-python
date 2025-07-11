@@ -5,74 +5,74 @@ from lark_oapi.api.apaas.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ExecuteApplicationFlowRequest = ExecuteApplicationFlowRequest.builder() \
-		.namespace("123") \
-		.flow_id("deleteObject_99c0b74799f") \
-		.request_body(ExecuteApplicationFlowRequestBody.builder()
-					  .is_async(True)
-					  .idempotent_key("123")
-					  .loop_masks([])
-					  .params("123")
-					  .operator("123")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ExecuteApplicationFlowRequest = ExecuteApplicationFlowRequest.builder() \
+        .namespace("123") \
+        .flow_id("deleteObject_99c0b74799f") \
+        .request_body(ExecuteApplicationFlowRequestBody.builder()
+                      .is_async(True)
+                      .idempotent_key("123")
+                      .loop_masks([])
+                      .params("123")
+                      .operator("123")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ExecuteApplicationFlowResponse = client.apaas.v1.application_flow.execute(request)
+    # 发起请求
+    response: ExecuteApplicationFlowResponse = client.apaas.v1.application_flow.execute(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_flow.execute failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_flow.execute failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ExecuteApplicationFlowRequest = ExecuteApplicationFlowRequest.builder() \
-		.namespace("123") \
-		.flow_id("deleteObject_99c0b74799f") \
-		.request_body(ExecuteApplicationFlowRequestBody.builder()
-					  .is_async(True)
-					  .idempotent_key("123")
-					  .loop_masks([])
-					  .params("123")
-					  .operator("123")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ExecuteApplicationFlowRequest = ExecuteApplicationFlowRequest.builder() \
+        .namespace("123") \
+        .flow_id("deleteObject_99c0b74799f") \
+        .request_body(ExecuteApplicationFlowRequestBody.builder()
+                      .is_async(True)
+                      .idempotent_key("123")
+                      .loop_masks([])
+                      .params("123")
+                      .operator("123")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ExecuteApplicationFlowResponse = await client.apaas.v1.application_flow.aexecute(request)
+    # 发起请求
+    response: ExecuteApplicationFlowResponse = await client.apaas.v1.application_flow.aexecute(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_flow.aexecute failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_flow.aexecute failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

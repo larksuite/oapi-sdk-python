@@ -27,15 +27,19 @@ class EcoBackgroundCheckPackage(object):
 class EcoBackgroundCheckPackageBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_package = EcoBackgroundCheckPackage()
+
     def account_id(self, account_id: str) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.account_id = account_id
         return self
+
     def package_list(self, package_list: List[EcoBackgroundCheckPackageData]) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.package_list = package_list
         return self
-    def additional_item_list(self, additional_item_list: List[EcoBackgroundCheckPackageAdditionalItem]) -> "EcoBackgroundCheckPackageBuilder":
+
+    def additional_item_list(self, additional_item_list: List[
+        EcoBackgroundCheckPackageAdditionalItem]) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.additional_item_list = additional_item_list
         return self
-    
+
     def build(self) -> "EcoBackgroundCheckPackage":
         return self._eco_background_check_package

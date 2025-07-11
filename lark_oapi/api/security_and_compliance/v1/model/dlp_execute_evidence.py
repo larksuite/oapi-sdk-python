@@ -25,15 +25,18 @@ class DlpExecuteEvidence(object):
 class DlpExecuteEvidenceBuilder(object):
     def __init__(self) -> None:
         self._dlp_execute_evidence = DlpExecuteEvidence()
+
     def keyword_hits(self, keyword_hits: List[str]) -> "DlpExecuteEvidenceBuilder":
         self._dlp_execute_evidence.keyword_hits = keyword_hits
         return self
+
     def regular_hits(self, regular_hits: List[str]) -> "DlpExecuteEvidenceBuilder":
         self._dlp_execute_evidence.regular_hits = regular_hits
         return self
+
     def sensitive_hits(self, sensitive_hits: List[str]) -> "DlpExecuteEvidenceBuilder":
         self._dlp_execute_evidence.sensitive_hits = sensitive_hits
         return self
-    
+
     def build(self) -> "DlpExecuteEvidence":
         return self._dlp_execute_evidence

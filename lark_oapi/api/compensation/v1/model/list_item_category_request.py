@@ -24,17 +24,16 @@ class ListItemCategoryRequestBuilder(object):
         list_item_category_request.uri = "/open-apis/compensation/v1/item_categories"
         list_item_category_request.token_types = {AccessTokenType.TENANT}
         self._list_item_category_request: ListItemCategoryRequest = list_item_category_request
-    
+
     def page_size(self, page_size: int) -> "ListItemCategoryRequestBuilder":
         self._list_item_category_request.page_size = page_size
         self._list_item_category_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListItemCategoryRequestBuilder":
         self._list_item_category_request.page_token = page_token
         self._list_item_category_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListItemCategoryRequest:
         return self._list_item_category_request

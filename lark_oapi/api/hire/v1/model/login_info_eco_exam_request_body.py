@@ -26,15 +26,18 @@ class LoginInfoEcoExamRequestBody(object):
 class LoginInfoEcoExamRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._login_info_eco_exam_request_body = LoginInfoEcoExamRequestBody()
+
     def result(self, result: int) -> "LoginInfoEcoExamRequestBodyBuilder":
         self._login_info_eco_exam_request_body.result = result
         return self
+
     def msg(self, msg: str) -> "LoginInfoEcoExamRequestBodyBuilder":
         self._login_info_eco_exam_request_body.msg = msg
         return self
+
     def exam_login_info(self, exam_login_info: EcoExamLoginInfo) -> "LoginInfoEcoExamRequestBodyBuilder":
         self._login_info_eco_exam_request_body.exam_login_info = exam_login_info
         return self
-    
+
     def build(self) -> "LoginInfoEcoExamRequestBody":
         return self._login_info_eco_exam_request_body

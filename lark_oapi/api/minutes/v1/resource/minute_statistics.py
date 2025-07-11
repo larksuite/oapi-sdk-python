@@ -17,7 +17,8 @@ class MinuteStatistics(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMinuteStatisticsRequest, option: Optional[RequestOption] = None) -> GetMinuteStatisticsResponse:
+    def get(self, request: GetMinuteStatisticsRequest,
+            option: Optional[RequestOption] = None) -> GetMinuteStatisticsResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class MinuteStatistics(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMinuteStatisticsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteStatisticsResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetMinuteStatisticsRequest, option: Optional[RequestOption] = None) -> GetMinuteStatisticsResponse:
+    async def aget(self, request: GetMinuteStatisticsRequest,
+                   option: Optional[RequestOption] = None) -> GetMinuteStatisticsResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMinuteStatisticsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteStatisticsResponse)
         response.raw = resp
 
         return response
-        
-    

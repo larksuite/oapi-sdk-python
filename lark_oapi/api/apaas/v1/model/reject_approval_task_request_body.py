@@ -23,12 +23,14 @@ class RejectApprovalTaskRequestBody(object):
 class RejectApprovalTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._reject_approval_task_request_body = RejectApprovalTaskRequestBody()
+
     def user_id(self, user_id: str) -> "RejectApprovalTaskRequestBodyBuilder":
         self._reject_approval_task_request_body.user_id = user_id
         return self
+
     def opinion(self, opinion: str) -> "RejectApprovalTaskRequestBodyBuilder":
         self._reject_approval_task_request_body.opinion = opinion
         return self
-    
+
     def build(self) -> "RejectApprovalTaskRequestBody":
         return self._reject_approval_task_request_body

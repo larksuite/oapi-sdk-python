@@ -25,15 +25,18 @@ class MessagePushOverviewApplicationAppUsageRequestBody(object):
 class MessagePushOverviewApplicationAppUsageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._message_push_overview_application_app_usage_request_body = MessagePushOverviewApplicationAppUsageRequestBody()
+
     def date(self, date: str) -> "MessagePushOverviewApplicationAppUsageRequestBodyBuilder":
         self._message_push_overview_application_app_usage_request_body.date = date
         return self
+
     def cycle_type(self, cycle_type: int) -> "MessagePushOverviewApplicationAppUsageRequestBodyBuilder":
         self._message_push_overview_application_app_usage_request_body.cycle_type = cycle_type
         return self
+
     def department_id(self, department_id: str) -> "MessagePushOverviewApplicationAppUsageRequestBodyBuilder":
         self._message_push_overview_application_app_usage_request_body.department_id = department_id
         return self
-    
+
     def build(self) -> "MessagePushOverviewApplicationAppUsageRequestBody":
         return self._message_push_overview_application_app_usage_request_body

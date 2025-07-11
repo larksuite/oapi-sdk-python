@@ -21,9 +21,10 @@ class UpdateSpreadsheetProperties(object):
 class UpdateSpreadsheetPropertiesBuilder(object):
     def __init__(self) -> None:
         self._update_spreadsheet_properties = UpdateSpreadsheetProperties()
+
     def title(self, title: str) -> "UpdateSpreadsheetPropertiesBuilder":
         self._update_spreadsheet_properties.title = title
         return self
-    
+
     def build(self) -> "UpdateSpreadsheetProperties":
         return self._update_spreadsheet_properties

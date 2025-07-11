@@ -25,15 +25,18 @@ class TargetMajorInfo(object):
 class TargetMajorInfoBuilder(object):
     def __init__(self) -> None:
         self._target_major_info = TargetMajorInfo()
+
     def id(self, id: str) -> "TargetMajorInfoBuilder":
         self._target_major_info.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "TargetMajorInfoBuilder":
         self._target_major_info.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "TargetMajorInfoBuilder":
         self._target_major_info.en_name = en_name
         return self
-    
+
     def build(self) -> "TargetMajorInfo":
         return self._target_major_info

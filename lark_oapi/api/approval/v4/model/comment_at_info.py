@@ -25,15 +25,18 @@ class CommentAtInfo(object):
 class CommentAtInfoBuilder(object):
     def __init__(self) -> None:
         self._comment_at_info = CommentAtInfo()
+
     def user_id(self, user_id: int) -> "CommentAtInfoBuilder":
         self._comment_at_info.user_id = user_id
         return self
+
     def name(self, name: str) -> "CommentAtInfoBuilder":
         self._comment_at_info.name = name
         return self
+
     def offset(self, offset: int) -> "CommentAtInfoBuilder":
         self._comment_at_info.offset = offset
         return self
-    
+
     def build(self) -> "CommentAtInfo":
         return self._comment_at_info

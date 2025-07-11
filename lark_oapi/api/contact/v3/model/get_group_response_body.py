@@ -22,9 +22,10 @@ class GetGroupResponseBody(object):
 class GetGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_group_response_body = GetGroupResponseBody()
+
     def group(self, group: Group) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.group = group
         return self
-    
+
     def build(self) -> "GetGroupResponseBody":
         return self._get_group_response_body

@@ -23,12 +23,14 @@ class IdEntity(object):
 class IdEntityBuilder(object):
     def __init__(self) -> None:
         self._id_entity = IdEntity()
+
     def type(self, type: str) -> "IdEntityBuilder":
         self._id_entity.type = type
         return self
+
     def value(self, value: str) -> "IdEntityBuilder":
         self._id_entity.value = value
         return self
-    
+
     def build(self) -> "IdEntity":
         return self._id_entity

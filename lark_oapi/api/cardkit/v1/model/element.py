@@ -23,12 +23,14 @@ class Element(object):
 class ElementBuilder(object):
     def __init__(self) -> None:
         self._element = Element()
+
     def tag(self, tag: str) -> "ElementBuilder":
         self._element.tag = tag
         return self
+
     def element_id(self, element_id: str) -> "ElementBuilder":
         self._element.element_id = element_id
         return self
-    
+
     def build(self) -> "Element":
         return self._element

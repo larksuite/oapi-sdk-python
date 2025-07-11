@@ -26,15 +26,18 @@ class ListMetricTagResponseBody(object):
 class ListMetricTagResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_metric_tag_response_body = ListMetricTagResponseBody()
+
     def items(self, items: List[MetricTag]) -> "ListMetricTagResponseBodyBuilder":
         self._list_metric_tag_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListMetricTagResponseBodyBuilder":
         self._list_metric_tag_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListMetricTagResponseBodyBuilder":
         self._list_metric_tag_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListMetricTagResponseBody":
         return self._list_metric_tag_response_body

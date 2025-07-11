@@ -24,12 +24,15 @@ class DlpPolicyHitProof(object):
 class DlpPolicyHitProofBuilder(object):
     def __init__(self) -> None:
         self._dlp_policy_hit_proof = DlpPolicyHitProof()
+
     def policy_id(self, policy_id: int) -> "DlpPolicyHitProofBuilder":
         self._dlp_policy_hit_proof.policy_id = policy_id
         return self
-    def detect_mode_proof_contexts(self, detect_mode_proof_contexts: List[DlpDetectModeProofContext]) -> "DlpPolicyHitProofBuilder":
+
+    def detect_mode_proof_contexts(self, detect_mode_proof_contexts: List[
+        DlpDetectModeProofContext]) -> "DlpPolicyHitProofBuilder":
         self._dlp_policy_hit_proof.detect_mode_proof_contexts = detect_mode_proof_contexts
         return self
-    
+
     def build(self) -> "DlpPolicyHitProof":
         return self._dlp_policy_hit_proof

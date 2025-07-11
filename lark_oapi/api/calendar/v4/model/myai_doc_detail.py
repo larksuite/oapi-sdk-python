@@ -29,21 +29,26 @@ class MyaiDocDetail(object):
 class MyaiDocDetailBuilder(object):
     def __init__(self) -> None:
         self._myai_doc_detail = MyaiDocDetail()
+
     def title(self, title: str) -> "MyaiDocDetailBuilder":
         self._myai_doc_detail.title = title
         return self
+
     def url(self, url: str) -> "MyaiDocDetailBuilder":
         self._myai_doc_detail.url = url
         return self
+
     def token(self, token: str) -> "MyaiDocDetailBuilder":
         self._myai_doc_detail.token = token
         return self
+
     def doc_type(self, doc_type: str) -> "MyaiDocDetailBuilder":
         self._myai_doc_detail.doc_type = doc_type
         return self
+
     def extra(self, extra: str) -> "MyaiDocDetailBuilder":
         self._myai_doc_detail.extra = extra
         return self
-    
+
     def build(self) -> "MyaiDocDetail":
         return self._myai_doc_detail

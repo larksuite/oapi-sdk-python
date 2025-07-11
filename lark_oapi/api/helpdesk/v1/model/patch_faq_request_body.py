@@ -22,9 +22,10 @@ class PatchFaqRequestBody(object):
 class PatchFaqRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_faq_request_body = PatchFaqRequestBody()
+
     def faq(self, faq: FaqUpdateInfo) -> "PatchFaqRequestBodyBuilder":
         self._patch_faq_request_body.faq = faq
         return self
-    
+
     def build(self) -> "PatchFaqRequestBody":
         return self._patch_faq_request_body

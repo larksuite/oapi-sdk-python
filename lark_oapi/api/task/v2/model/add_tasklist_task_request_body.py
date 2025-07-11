@@ -23,12 +23,14 @@ class AddTasklistTaskRequestBody(object):
 class AddTasklistTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_tasklist_task_request_body = AddTasklistTaskRequestBody()
+
     def tasklist_guid(self, tasklist_guid: str) -> "AddTasklistTaskRequestBodyBuilder":
         self._add_tasklist_task_request_body.tasklist_guid = tasklist_guid
         return self
+
     def section_guid(self, section_guid: str) -> "AddTasklistTaskRequestBodyBuilder":
         self._add_tasklist_task_request_body.section_guid = section_guid
         return self
-    
+
     def build(self) -> "AddTasklistTaskRequestBody":
         return self._add_tasklist_task_request_body

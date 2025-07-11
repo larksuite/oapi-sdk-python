@@ -25,7 +25,8 @@ class BadgeGrant(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateBadgeGrantRequest, option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:
+    def create(self, request: CreateBadgeGrantRequest,
+               option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,33 +39,32 @@ class BadgeGrant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateBadgeGrantRequest, option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:
+    async def acreate(self, request: CreateBadgeGrantRequest,
+                      option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteBadgeGrantRequest, option: Optional[RequestOption] = None) -> DeleteBadgeGrantResponse:
+
+    def delete(self, request: DeleteBadgeGrantRequest,
+               option: Optional[RequestOption] = None) -> DeleteBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,32 +77,30 @@ class BadgeGrant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteBadgeGrantRequest, option: Optional[RequestOption] = None) -> DeleteBadgeGrantResponse:
+    async def adelete(self, request: DeleteBadgeGrantRequest,
+                      option: Optional[RequestOption] = None) -> DeleteBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetBadgeGrantRequest, option: Optional[RequestOption] = None) -> GetBadgeGrantResponse:
         if option is None:
             option = RequestOption()
@@ -116,32 +114,30 @@ class BadgeGrant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetBadgeGrantRequest, option: Optional[RequestOption] = None) -> GetBadgeGrantResponse:
+    async def aget(self, request: GetBadgeGrantRequest,
+                   option: Optional[RequestOption] = None) -> GetBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListBadgeGrantRequest, option: Optional[RequestOption] = None) -> ListBadgeGrantResponse:
         if option is None:
             option = RequestOption()
@@ -155,33 +151,32 @@ class BadgeGrant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListBadgeGrantRequest, option: Optional[RequestOption] = None) -> ListBadgeGrantResponse:
+    async def alist(self, request: ListBadgeGrantRequest,
+                    option: Optional[RequestOption] = None) -> ListBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateBadgeGrantRequest, option: Optional[RequestOption] = None) -> UpdateBadgeGrantResponse:
+
+    def update(self, request: UpdateBadgeGrantRequest,
+               option: Optional[RequestOption] = None) -> UpdateBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,30 +189,26 @@ class BadgeGrant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateBadgeGrantRequest, option: Optional[RequestOption] = None) -> UpdateBadgeGrantResponse:
+    async def aupdate(self, request: UpdateBadgeGrantRequest,
+                      option: Optional[RequestOption] = None) -> UpdateBadgeGrantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateBadgeGrantResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBadgeGrantResponse)
         response.raw = resp
 
         return response
-        
-    

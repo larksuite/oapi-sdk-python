@@ -21,9 +21,10 @@ class RecognizeVehicleInvoiceRequestBody(object):
 class RecognizeVehicleInvoiceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_vehicle_invoice_request_body = RecognizeVehicleInvoiceRequestBody()
+
     def file(self, file: IO[Any]) -> "RecognizeVehicleInvoiceRequestBodyBuilder":
         self._recognize_vehicle_invoice_request_body.file = file
         return self
-    
+
     def build(self) -> "RecognizeVehicleInvoiceRequestBody":
         return self._recognize_vehicle_invoice_request_body

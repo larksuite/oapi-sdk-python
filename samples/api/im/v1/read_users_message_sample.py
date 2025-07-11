@@ -5,64 +5,64 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ReadUsersMessageRequest = ReadUsersMessageRequest.builder() \
-		.message_id("om_dc13264520392913993dd051dba21dcf") \
-		.user_id_type("user_id") \
-		.page_size(20) \
-		.page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
-		.build()
+    # 构造请求对象
+    request: ReadUsersMessageRequest = ReadUsersMessageRequest.builder() \
+        .message_id("om_dc13264520392913993dd051dba21dcf") \
+        .user_id_type("user_id") \
+        .page_size(20) \
+        .page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
+        .build()
 
-	# 发起请求
-	response: ReadUsersMessageResponse = client.im.v1.message.read_users(request)
+    # 发起请求
+    response: ReadUsersMessageResponse = client.im.v1.message.read_users(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.im.v1.message.read_users failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.im.v1.message.read_users failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ReadUsersMessageRequest = ReadUsersMessageRequest.builder() \
-		.message_id("om_dc13264520392913993dd051dba21dcf") \
-		.user_id_type("user_id") \
-		.page_size(20) \
-		.page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
-		.build()
+    # 构造请求对象
+    request: ReadUsersMessageRequest = ReadUsersMessageRequest.builder() \
+        .message_id("om_dc13264520392913993dd051dba21dcf") \
+        .user_id_type("user_id") \
+        .page_size(20) \
+        .page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
+        .build()
 
-	# 发起请求
-	response: ReadUsersMessageResponse = await client.im.v1.message.aread_users(request)
+    # 发起请求
+    response: ReadUsersMessageResponse = await client.im.v1.message.aread_users(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.im.v1.message.aread_users failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.im.v1.message.aread_users failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

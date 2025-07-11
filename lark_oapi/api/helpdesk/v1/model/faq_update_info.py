@@ -30,21 +30,26 @@ class FaqUpdateInfo(object):
 class FaqUpdateInfoBuilder(object):
     def __init__(self) -> None:
         self._faq_update_info = FaqUpdateInfo()
+
     def category_id(self, category_id: str) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.category_id = category_id
         return self
+
     def question(self, question: str) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.question = question
         return self
+
     def answer(self, answer: str) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.answer = answer
         return self
+
     def answer_richtext(self, answer_richtext: List[Richtext]) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.answer_richtext = answer_richtext
         return self
+
     def tags(self, tags: List[str]) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.tags = tags
         return self
-    
+
     def build(self) -> "FaqUpdateInfo":
         return self._faq_update_info

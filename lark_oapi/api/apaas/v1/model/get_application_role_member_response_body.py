@@ -22,9 +22,10 @@ class GetApplicationRoleMemberResponseBody(object):
 class GetApplicationRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_application_role_member_response_body = GetApplicationRoleMemberResponseBody()
+
     def role_member(self, role_member: RoleMember) -> "GetApplicationRoleMemberResponseBodyBuilder":
         self._get_application_role_member_response_body.role_member = role_member
         return self
-    
+
     def build(self) -> "GetApplicationRoleMemberResponseBody":
         return self._get_application_role_member_response_body

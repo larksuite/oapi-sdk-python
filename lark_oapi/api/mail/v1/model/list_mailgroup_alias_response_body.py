@@ -22,9 +22,10 @@ class ListMailgroupAliasResponseBody(object):
 class ListMailgroupAliasResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_mailgroup_alias_response_body = ListMailgroupAliasResponseBody()
+
     def items(self, items: List[EmailAlias]) -> "ListMailgroupAliasResponseBodyBuilder":
         self._list_mailgroup_alias_response_body.items = items
         return self
-    
+
     def build(self) -> "ListMailgroupAliasResponseBody":
         return self._list_mailgroup_alias_response_body

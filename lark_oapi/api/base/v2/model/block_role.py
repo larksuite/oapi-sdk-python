@@ -25,15 +25,18 @@ class BlockRole(object):
 class BlockRoleBuilder(object):
     def __init__(self) -> None:
         self._block_role = BlockRole()
+
     def block_id(self, block_id: str) -> "BlockRoleBuilder":
         self._block_role.block_id = block_id
         return self
+
     def block_perm(self, block_perm: int) -> "BlockRoleBuilder":
         self._block_role.block_perm = block_perm
         return self
+
     def block_type(self, block_type: str) -> "BlockRoleBuilder":
         self._block_role.block_type = block_type
         return self
-    
+
     def build(self) -> "BlockRole":
         return self._block_role

@@ -27,22 +27,22 @@ class PatchCustomOrgRequestBuilder(object):
         patch_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs/:org_id"
         patch_custom_org_request.token_types = {AccessTokenType.TENANT}
         self._patch_custom_org_request: PatchCustomOrgRequest = patch_custom_org_request
-    
+
     def client_token(self, client_token: str) -> "PatchCustomOrgRequestBuilder":
         self._patch_custom_org_request.client_token = client_token
         self._patch_custom_org_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "PatchCustomOrgRequestBuilder":
         self._patch_custom_org_request.user_id_type = user_id_type
         self._patch_custom_org_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def org_id(self, org_id: str) -> "PatchCustomOrgRequestBuilder":
         self._patch_custom_org_request.org_id = org_id
         self._patch_custom_org_request.paths["org_id"] = str(org_id)
         return self
-    
+
     def request_body(self, request_body: CustomOrgUpdate) -> "PatchCustomOrgRequestBuilder":
         self._patch_custom_org_request.request_body = request_body
         self._patch_custom_org_request.body = request_body

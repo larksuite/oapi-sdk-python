@@ -27,18 +27,22 @@ class RecurringPaymentOperateResult(object):
 class RecurringPaymentOperateResultBuilder(object):
     def __init__(self) -> None:
         self._recurring_payment_operate_result = RecurringPaymentOperateResult()
+
     def id(self, id: str) -> "RecurringPaymentOperateResultBuilder":
         self._recurring_payment_operate_result.id = id
         return self
+
     def unique_id(self, unique_id: str) -> "RecurringPaymentOperateResultBuilder":
         self._recurring_payment_operate_result.unique_id = unique_id
         return self
+
     def code(self, code: int) -> "RecurringPaymentOperateResultBuilder":
         self._recurring_payment_operate_result.code = code
         return self
+
     def message(self, message: str) -> "RecurringPaymentOperateResultBuilder":
         self._recurring_payment_operate_result.message = message
         return self
-    
+
     def build(self) -> "RecurringPaymentOperateResult":
         return self._recurring_payment_operate_result

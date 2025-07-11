@@ -31,21 +31,26 @@ class UserWithAvatar(object):
 class UserWithAvatarBuilder(object):
     def __init__(self) -> None:
         self._user_with_avatar = UserWithAvatar()
+
     def id(self, id: str) -> "UserWithAvatarBuilder":
         self._user_with_avatar.id = id
         return self
+
     def name(self, name: str) -> "UserWithAvatarBuilder":
         self._user_with_avatar.name = name
         return self
+
     def is_deleted(self, is_deleted: bool) -> "UserWithAvatarBuilder":
         self._user_with_avatar.is_deleted = is_deleted
         return self
+
     def i18n_name(self, i18n_name: List[I18n]) -> "UserWithAvatarBuilder":
         self._user_with_avatar.i18n_name = i18n_name
         return self
+
     def avatar(self, avatar: Avatar) -> "UserWithAvatarBuilder":
         self._user_with_avatar.avatar = avatar
         return self
-    
+
     def build(self) -> "UserWithAvatar":
         return self._user_with_avatar

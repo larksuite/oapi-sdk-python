@@ -25,15 +25,18 @@ class WorkEmailInfoList(object):
 class WorkEmailInfoListBuilder(object):
     def __init__(self) -> None:
         self._work_email_info_list = WorkEmailInfoList()
+
     def work_email(self, work_email: str) -> "WorkEmailInfoListBuilder":
         self._work_email_info_list.work_email = work_email
         return self
+
     def country_region_alpha_3_code(self, country_region_alpha_3_code: str) -> "WorkEmailInfoListBuilder":
         self._work_email_info_list.country_region_alpha_3_code = country_region_alpha_3_code
         return self
+
     def pinyin(self, pinyin: str) -> "WorkEmailInfoListBuilder":
         self._work_email_info_list.pinyin = pinyin
         return self
-    
+
     def build(self) -> "WorkEmailInfoList":
         return self._work_email_info_list

@@ -28,18 +28,22 @@ class NoticePeriodDetail(object):
 class NoticePeriodDetailBuilder(object):
     def __init__(self) -> None:
         self._notice_period_detail = NoticePeriodDetail()
+
     def wk_id(self, wk_id: str) -> "NoticePeriodDetailBuilder":
         self._notice_period_detail.wk_id = wk_id
         return self
+
     def value(self, value: int) -> "NoticePeriodDetailBuilder":
         self._notice_period_detail.value = value
         return self
+
     def value_unit(self, value_unit: str) -> "NoticePeriodDetailBuilder":
         self._notice_period_detail.value_unit = value_unit
         return self
+
     def name(self, name: I18n) -> "NoticePeriodDetailBuilder":
         self._notice_period_detail.name = name
         return self
-    
+
     def build(self) -> "NoticePeriodDetail":
         return self._notice_period_detail

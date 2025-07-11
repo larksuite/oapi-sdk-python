@@ -22,9 +22,11 @@ class UserStatsFieldsQueryArchiveRuleResponseBody(object):
 class UserStatsFieldsQueryArchiveRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._user_stats_fields_query_archive_rule_response_body = UserStatsFieldsQueryArchiveRuleResponseBody()
-    def archive_report_fields(self, archive_report_fields: List[ArchiveField]) -> "UserStatsFieldsQueryArchiveRuleResponseBodyBuilder":
+
+    def archive_report_fields(self, archive_report_fields: List[
+        ArchiveField]) -> "UserStatsFieldsQueryArchiveRuleResponseBodyBuilder":
         self._user_stats_fields_query_archive_rule_response_body.archive_report_fields = archive_report_fields
         return self
-    
+
     def build(self) -> "UserStatsFieldsQueryArchiveRuleResponseBody":
         return self._user_stats_fields_query_archive_rule_response_body

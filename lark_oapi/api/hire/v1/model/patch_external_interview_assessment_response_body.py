@@ -22,9 +22,11 @@ class PatchExternalInterviewAssessmentResponseBody(object):
 class PatchExternalInterviewAssessmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_external_interview_assessment_response_body = PatchExternalInterviewAssessmentResponseBody()
-    def external_interview_assessment(self, external_interview_assessment: ExternalInterviewAssessment) -> "PatchExternalInterviewAssessmentResponseBodyBuilder":
+
+    def external_interview_assessment(self,
+                                      external_interview_assessment: ExternalInterviewAssessment) -> "PatchExternalInterviewAssessmentResponseBodyBuilder":
         self._patch_external_interview_assessment_response_body.external_interview_assessment = external_interview_assessment
         return self
-    
+
     def build(self) -> "PatchExternalInterviewAssessmentResponseBody":
         return self._patch_external_interview_assessment_response_body

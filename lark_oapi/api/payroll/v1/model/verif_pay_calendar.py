@@ -27,18 +27,22 @@ class VerifPayCalendar(object):
 class VerifPayCalendarBuilder(object):
     def __init__(self) -> None:
         self._verif_pay_calendar = VerifPayCalendar()
+
     def id(self, id: str) -> "VerifPayCalendarBuilder":
         self._verif_pay_calendar.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "VerifPayCalendarBuilder":
         self._verif_pay_calendar.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "VerifPayCalendarBuilder":
         self._verif_pay_calendar.en_name = en_name
         return self
+
     def calendar_source(self, calendar_source: int) -> "VerifPayCalendarBuilder":
         self._verif_pay_calendar.calendar_source = calendar_source
         return self
-    
+
     def build(self) -> "VerifPayCalendar":
         return self._verif_pay_calendar

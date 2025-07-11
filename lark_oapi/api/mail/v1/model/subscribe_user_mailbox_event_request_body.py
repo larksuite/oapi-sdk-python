@@ -21,9 +21,10 @@ class SubscribeUserMailboxEventRequestBody(object):
 class SubscribeUserMailboxEventRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._subscribe_user_mailbox_event_request_body = SubscribeUserMailboxEventRequestBody()
+
     def event_type(self, event_type: int) -> "SubscribeUserMailboxEventRequestBodyBuilder":
         self._subscribe_user_mailbox_event_request_body.event_type = event_type
         return self
-    
+
     def build(self) -> "SubscribeUserMailboxEventRequestBody":
         return self._subscribe_user_mailbox_event_request_body

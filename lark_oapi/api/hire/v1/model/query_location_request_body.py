@@ -23,12 +23,14 @@ class QueryLocationRequestBody(object):
 class QueryLocationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_location_request_body = QueryLocationRequestBody()
+
     def code_list(self, code_list: List[str]) -> "QueryLocationRequestBodyBuilder":
         self._query_location_request_body.code_list = code_list
         return self
+
     def location_type(self, location_type: int) -> "QueryLocationRequestBodyBuilder":
         self._query_location_request_body.location_type = location_type
         return self
-    
+
     def build(self) -> "QueryLocationRequestBody":
         return self._query_location_request_body

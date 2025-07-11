@@ -27,18 +27,22 @@ class DynamicGroupExpression(object):
 class DynamicGroupExpressionBuilder(object):
     def __init__(self) -> None:
         self._dynamic_group_expression = DynamicGroupExpression()
+
     def field(self, field: str) -> "DynamicGroupExpressionBuilder":
         self._dynamic_group_expression.field = field
         return self
+
     def operator(self, operator: str) -> "DynamicGroupExpressionBuilder":
         self._dynamic_group_expression.operator = operator
         return self
+
     def value(self, value: str) -> "DynamicGroupExpressionBuilder":
         self._dynamic_group_expression.value = value
         return self
+
     def values(self, values: List[str]) -> "DynamicGroupExpressionBuilder":
         self._dynamic_group_expression.values = values
         return self
-    
+
     def build(self) -> "DynamicGroupExpression":
         return self._dynamic_group_expression

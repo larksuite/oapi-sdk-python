@@ -24,12 +24,14 @@ class QueryPaymentDetailResponseBody(object):
 class QueryPaymentDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_payment_detail_response_body = QueryPaymentDetailResponseBody()
+
     def payment_details(self, payment_details: List[PaymentDetail]) -> "QueryPaymentDetailResponseBodyBuilder":
         self._query_payment_detail_response_body.payment_details = payment_details
         return self
+
     def total(self, total: int) -> "QueryPaymentDetailResponseBodyBuilder":
         self._query_payment_detail_response_body.total = total
         return self
-    
+
     def build(self) -> "QueryPaymentDetailResponseBody":
         return self._query_payment_detail_response_body

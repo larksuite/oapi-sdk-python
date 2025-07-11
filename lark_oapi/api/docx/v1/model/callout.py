@@ -27,18 +27,22 @@ class Callout(object):
 class CalloutBuilder(object):
     def __init__(self) -> None:
         self._callout = Callout()
+
     def background_color(self, background_color: int) -> "CalloutBuilder":
         self._callout.background_color = background_color
         return self
+
     def border_color(self, border_color: int) -> "CalloutBuilder":
         self._callout.border_color = border_color
         return self
+
     def text_color(self, text_color: int) -> "CalloutBuilder":
         self._callout.text_color = text_color
         return self
+
     def emoji_id(self, emoji_id: str) -> "CalloutBuilder":
         self._callout.emoji_id = emoji_id
         return self
-    
+
     def build(self) -> "Callout":
         return self._callout

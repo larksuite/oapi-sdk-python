@@ -22,9 +22,10 @@ class PreHireAbnormalReason(object):
 class PreHireAbnormalReasonBuilder(object):
     def __init__(self) -> None:
         self._pre_hire_abnormal_reason = PreHireAbnormalReason()
+
     def descriptions(self, descriptions: List[I18n]) -> "PreHireAbnormalReasonBuilder":
         self._pre_hire_abnormal_reason.descriptions = descriptions
         return self
-    
+
     def build(self) -> "PreHireAbnormalReason":
         return self._pre_hire_abnormal_reason

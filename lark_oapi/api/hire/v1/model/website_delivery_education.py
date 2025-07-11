@@ -38,33 +38,43 @@ class WebsiteDeliveryEducation(object):
 class WebsiteDeliveryEducationBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_education = WebsiteDeliveryEducation()
+
     def education_type(self, education_type: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.education_type = education_type
         return self
+
     def end_time(self, end_time: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.end_time = end_time
         return self
+
     def end_time_v2(self, end_time_v2: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.end_time_v2 = end_time_v2
         return self
+
     def field_of_study(self, field_of_study: str) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.field_of_study = field_of_study
         return self
+
     def school(self, school: str) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.school = school
         return self
+
     def start_time(self, start_time: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.start_time = start_time
         return self
+
     def academic_ranking(self, academic_ranking: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.academic_ranking = academic_ranking
         return self
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryEducationBuilder":
+
+    def customized_data(self,
+                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.customized_data = customized_data
         return self
+
     def degree(self, degree: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.degree = degree
         return self
-    
+
     def build(self) -> "WebsiteDeliveryEducation":
         return self._website_delivery_education

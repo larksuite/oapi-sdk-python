@@ -24,7 +24,7 @@ class UploadPrepareMediaRequestBuilder(object):
         upload_prepare_media_request.uri = "/open-apis/drive/v1/medias/upload_prepare"
         upload_prepare_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._upload_prepare_media_request: UploadPrepareMediaRequest = upload_prepare_media_request
-    
+
     def request_body(self, request_body: MediaUploadInfo) -> "UploadPrepareMediaRequestBuilder":
         self._upload_prepare_media_request.request_body = request_body
         self._upload_prepare_media_request.body = request_body

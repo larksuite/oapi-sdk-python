@@ -29,42 +29,41 @@ class QueryAuthorizationRequestBuilder(object):
         query_authorization_request.uri = "/open-apis/corehr/v1/authorizations/query"
         query_authorization_request.token_types = {AccessTokenType.TENANT}
         self._query_authorization_request: QueryAuthorizationRequest = query_authorization_request
-    
+
     def employment_id_list(self, employment_id_list: List[str]) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.employment_id_list = employment_id_list
         self._query_authorization_request.add_query("employment_id_list", employment_id_list)
         return self
-    
+
     def role_id_list(self, role_id_list: List[str]) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.role_id_list = role_id_list
         self._query_authorization_request.add_query("role_id_list", role_id_list)
         return self
-    
+
     def page_token(self, page_token: str) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.page_token = page_token
         self._query_authorization_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: str) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.page_size = page_size
         self._query_authorization_request.add_query("page_size", page_size)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.user_id_type = user_id_type
         self._query_authorization_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def updated_at_gte(self, updated_at_gte: str) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.updated_at_gte = updated_at_gte
         self._query_authorization_request.add_query("updated_at_gte", updated_at_gte)
         return self
-    
+
     def updated_at_lte(self, updated_at_lte: str) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.updated_at_lte = updated_at_lte
         self._query_authorization_request.add_query("updated_at_lte", updated_at_lte)
         return self
-    
 
     def build(self) -> QueryAuthorizationRequest:
         return self._query_authorization_request

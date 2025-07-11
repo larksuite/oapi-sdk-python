@@ -5,76 +5,76 @@ from lark_oapi.api.performance.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryMetricLibRequest = QueryMetricLibRequest.builder() \
-		.user_id_type("open_id") \
-		.page_token("str") \
-		.page_size(20) \
-		.request_body(QueryMetricLibRequestBody.builder()
-					  .is_active(bool)
-					  .tag_ids([])
-					  .type_ids([])
-					  .range_of_availability("admins_and_reviewees")
-					  .scoring_setting_type("score_manually")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: QueryMetricLibRequest = QueryMetricLibRequest.builder() \
+        .user_id_type("open_id") \
+        .page_token("str") \
+        .page_size(20) \
+        .request_body(QueryMetricLibRequestBody.builder()
+                      .is_active(bool)
+                      .tag_ids([])
+                      .type_ids([])
+                      .range_of_availability("admins_and_reviewees")
+                      .scoring_setting_type("score_manually")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: QueryMetricLibResponse = client.performance.v2.metric_lib.query(request)
+    # 发起请求
+    response: QueryMetricLibResponse = client.performance.v2.metric_lib.query(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.performance.v2.metric_lib.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.performance.v2.metric_lib.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: QueryMetricLibRequest = QueryMetricLibRequest.builder() \
-		.user_id_type("open_id") \
-		.page_token("str") \
-		.page_size(20) \
-		.request_body(QueryMetricLibRequestBody.builder()
-					  .is_active(bool)
-					  .tag_ids([])
-					  .type_ids([])
-					  .range_of_availability("admins_and_reviewees")
-					  .scoring_setting_type("score_manually")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: QueryMetricLibRequest = QueryMetricLibRequest.builder() \
+        .user_id_type("open_id") \
+        .page_token("str") \
+        .page_size(20) \
+        .request_body(QueryMetricLibRequestBody.builder()
+                      .is_active(bool)
+                      .tag_ids([])
+                      .type_ids([])
+                      .range_of_availability("admins_and_reviewees")
+                      .scoring_setting_type("score_manually")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: QueryMetricLibResponse = await client.performance.v2.metric_lib.aquery(request)
+    # 发起请求
+    response: QueryMetricLibResponse = await client.performance.v2.metric_lib.aquery(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.performance.v2.metric_lib.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.performance.v2.metric_lib.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

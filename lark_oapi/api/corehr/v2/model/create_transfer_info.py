@@ -97,120 +97,160 @@ class CreateTransferInfo(object):
 class CreateTransferInfoBuilder(object):
     def __init__(self) -> None:
         self._create_transfer_info = CreateTransferInfo()
+
     def remark(self, remark: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.remark = remark
         return self
+
     def offer_info(self, offer_info: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.offer_info = offer_info
         return self
+
     def target_dotted_manager_clean(self, target_dotted_manager_clean: bool) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_dotted_manager_clean = target_dotted_manager_clean
         return self
+
     def probation_exist(self, probation_exist: bool) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.probation_exist = probation_exist
         return self
+
     def target_department(self, target_department: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_department = target_department
         return self
+
     def target_work_location(self, target_work_location: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_work_location = target_work_location
         return self
+
     def target_direct_manager(self, target_direct_manager: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_direct_manager = target_direct_manager
         return self
+
     def target_dotted_manager(self, target_dotted_manager: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_dotted_manager = target_dotted_manager
         return self
+
     def target_job(self, target_job: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_job = target_job
         return self
+
     def target_job_family(self, target_job_family: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_job_family = target_job_family
         return self
+
     def target_job_level(self, target_job_level: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_job_level = target_job_level
         return self
+
     def target_workforce_type(self, target_workforce_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_workforce_type = target_workforce_type
         return self
+
     def target_employee_subtype(self, target_employee_subtype: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_employee_subtype = target_employee_subtype
         return self
+
     def target_company(self, target_company: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_company = target_company
         return self
+
     def target_contract_number(self, target_contract_number: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_contract_number = target_contract_number
         return self
+
     def target_contract_type(self, target_contract_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_contract_type = target_contract_type
         return self
+
     def target_duration_type(self, target_duration_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_duration_type = target_duration_type
         return self
+
     def target_signing_type(self, target_signing_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_signing_type = target_signing_type
         return self
+
     def target_contract_start_date(self, target_contract_start_date: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_contract_start_date = target_contract_start_date
         return self
+
     def target_contract_end_date(self, target_contract_end_date: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_contract_end_date = target_contract_end_date
         return self
+
     def target_working_hours_type(self, target_working_hours_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_working_hours_type = target_working_hours_type
         return self
+
     def target_working_calendar(self, target_working_calendar: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_working_calendar = target_working_calendar
         return self
+
     def target_probation_end_date(self, target_probation_end_date: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_probation_end_date = target_probation_end_date
         return self
+
     def target_weekly_working_hours(self, target_weekly_working_hours: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_weekly_working_hours = target_weekly_working_hours
         return self
+
     def target_work_shift(self, target_work_shift: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_work_shift = target_work_shift
         return self
-    def target_cost_center_rates(self, target_cost_center_rates: List[JobDataCostCenter]) -> "CreateTransferInfoBuilder":
+
+    def target_cost_center_rates(self,
+                                 target_cost_center_rates: List[JobDataCostCenter]) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_cost_center_rates = target_cost_center_rates
         return self
+
     def target_employment_change(self, target_employment_change: TranferEmploymentInfo) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_employment_change = target_employment_change
         return self
+
     def target_job_grade(self, target_job_grade: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_job_grade = target_job_grade
         return self
+
     def target_compensation_type(self, target_compensation_type: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_compensation_type = target_compensation_type
         return self
+
     def target_service_company(self, target_service_company: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_service_company = target_service_company
         return self
+
     def target_position(self, target_position: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_position = target_position
         return self
+
     def target_social_security_city(self, target_social_security_city: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_social_security_city = target_social_security_city
         return self
+
     def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.is_transfer_with_workforce = is_transfer_with_workforce
         return self
+
     def target_pathway(self, target_pathway: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_pathway = target_pathway
         return self
+
     def target_allocation_effective_time(self, target_allocation_effective_time: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_allocation_effective_time = target_allocation_effective_time
         return self
+
     def target_allocation_expiration_time(self, target_allocation_expiration_time: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_allocation_expiration_time = target_allocation_expiration_time
         return self
+
     def target_default_cost_center(self, target_default_cost_center: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_default_cost_center = target_default_cost_center
         return self
-    def target_is_default_cost_center_inherited(self, target_is_default_cost_center_inherited: bool) -> "CreateTransferInfoBuilder":
+
+    def target_is_default_cost_center_inherited(self,
+                                                target_is_default_cost_center_inherited: bool) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_is_default_cost_center_inherited = target_is_default_cost_center_inherited
         return self
-    
+
     def build(self) -> "CreateTransferInfo":
         return self._create_transfer_info

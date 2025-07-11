@@ -25,15 +25,18 @@ class OrgTruncation(object):
 class OrgTruncationBuilder(object):
     def __init__(self) -> None:
         self._org_truncation = OrgTruncation()
+
     def org_key(self, org_key: str) -> "OrgTruncationBuilder":
         self._org_truncation.org_key = org_key
         return self
+
     def type(self, type: int) -> "OrgTruncationBuilder":
         self._org_truncation.type = type
         return self
+
     def depth(self, depth: int) -> "OrgTruncationBuilder":
         self._org_truncation.depth = depth
         return self
-    
+
     def build(self) -> "OrgTruncation":
         return self._org_truncation

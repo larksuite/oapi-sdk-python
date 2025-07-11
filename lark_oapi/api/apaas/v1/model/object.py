@@ -28,18 +28,22 @@ class Object(object):
 class ObjectBuilder(object):
     def __init__(self) -> None:
         self._object = Object()
+
     def id(self, id: int) -> "ObjectBuilder":
         self._object.id = id
         return self
+
     def api_name(self, api_name: str) -> "ObjectBuilder":
         self._object.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "ObjectBuilder":
         self._object.label = label
         return self
+
     def settings(self, settings: ObjectSettings) -> "ObjectBuilder":
         self._object.settings = settings
         return self
-    
+
     def build(self) -> "Object":
         return self._object

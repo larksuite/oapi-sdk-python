@@ -30,21 +30,26 @@ class UserTmpDailyShift(object):
 class UserTmpDailyShiftBuilder(object):
     def __init__(self) -> None:
         self._user_tmp_daily_shift = UserTmpDailyShift()
+
     def group_id(self, group_id: str) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.group_id = group_id
         return self
+
     def user_id(self, user_id: str) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.user_id = user_id
         return self
+
     def date(self, date: int) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.date = date
         return self
+
     def shift_name(self, shift_name: str) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.shift_name = shift_name
         return self
+
     def punch_time_simple_rules(self, punch_time_simple_rules: List[PunchTimeSimpleRule]) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.punch_time_simple_rules = punch_time_simple_rules
         return self
-    
+
     def build(self) -> "UserTmpDailyShift":
         return self._user_tmp_daily_shift

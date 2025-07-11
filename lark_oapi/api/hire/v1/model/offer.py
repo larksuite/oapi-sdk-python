@@ -46,39 +46,50 @@ class Offer(object):
 class OfferBuilder(object):
     def __init__(self) -> None:
         self._offer = Offer()
+
     def id(self, id: str) -> "OfferBuilder":
         self._offer.id = id
         return self
+
     def application_id(self, application_id: str) -> "OfferBuilder":
         self._offer.application_id = application_id
         return self
+
     def basic_info(self, basic_info: ApplicationOfferBasicInfo) -> "OfferBuilder":
         self._offer.basic_info = basic_info
         return self
+
     def salary_plan(self, salary_plan: ApplicationOfferSalaryPlan) -> "OfferBuilder":
         self._offer.salary_plan = salary_plan
         return self
+
     def schema_id(self, schema_id: str) -> "OfferBuilder":
         self._offer.schema_id = schema_id
         return self
+
     def offer_status(self, offer_status: int) -> "OfferBuilder":
         self._offer.offer_status = offer_status
         return self
+
     def offer_type(self, offer_type: int) -> "OfferBuilder":
         self._offer.offer_type = offer_type
         return self
+
     def job_info(self, job_info: OfferJobInfo) -> "OfferBuilder":
         self._offer.job_info = job_info
         return self
+
     def customized_module_list(self, customized_module_list: List[ApplicationOfferCustomModule]) -> "OfferBuilder":
         self._offer.customized_module_list = customized_module_list
         return self
+
     def job_requirement_id(self, job_requirement_id: str) -> "OfferBuilder":
         self._offer.job_requirement_id = job_requirement_id
         return self
+
     def offer_send_record_list(self, offer_send_record_list: List[OfferSendRecord]) -> "OfferBuilder":
         self._offer.offer_send_record_list = offer_send_record_list
         return self
-    
+
     def build(self) -> "Offer":
         return self._offer

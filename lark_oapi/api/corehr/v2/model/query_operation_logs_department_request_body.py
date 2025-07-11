@@ -25,15 +25,18 @@ class QueryOperationLogsDepartmentRequestBody(object):
 class QueryOperationLogsDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_operation_logs_department_request_body = QueryOperationLogsDepartmentRequestBody()
+
     def department_ids(self, department_ids: List[str]) -> "QueryOperationLogsDepartmentRequestBodyBuilder":
         self._query_operation_logs_department_request_body.department_ids = department_ids
         return self
+
     def start_date(self, start_date: str) -> "QueryOperationLogsDepartmentRequestBodyBuilder":
         self._query_operation_logs_department_request_body.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "QueryOperationLogsDepartmentRequestBodyBuilder":
         self._query_operation_logs_department_request_body.end_date = end_date
         return self
-    
+
     def build(self) -> "QueryOperationLogsDepartmentRequestBody":
         return self._query_operation_logs_department_request_body

@@ -25,15 +25,18 @@ class FreeTimeSlot(object):
 class FreeTimeSlotBuilder(object):
     def __init__(self) -> None:
         self._free_time_slot = FreeTimeSlot()
+
     def start_time(self, start_time: str) -> "FreeTimeSlotBuilder":
         self._free_time_slot.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "FreeTimeSlotBuilder":
         self._free_time_slot.end_time = end_time
         return self
+
     def length(self, length: int) -> "FreeTimeSlotBuilder":
         self._free_time_slot.length = length
         return self
-    
+
     def build(self) -> "FreeTimeSlot":
         return self._free_time_slot

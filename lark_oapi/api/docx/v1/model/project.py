@@ -27,18 +27,22 @@ class Project(object):
 class ProjectBuilder(object):
     def __init__(self) -> None:
         self._project = Project()
+
     def title(self, title: str) -> "ProjectBuilder":
         self._project.title = title
         return self
+
     def url(self, url: str) -> "ProjectBuilder":
         self._project.url = url
         return self
+
     def sub_type(self, sub_type: str) -> "ProjectBuilder":
         self._project.sub_type = sub_type
         return self
+
     def view_type(self, view_type: str) -> "ProjectBuilder":
         self._project.view_type = view_type
         return self
-    
+
     def build(self) -> "Project":
         return self._project

@@ -34,27 +34,34 @@ class ActivityRecord(object):
 class ActivityRecordBuilder(object):
     def __init__(self) -> None:
         self._activity_record = ActivityRecord()
+
     def key(self, key: int) -> "ActivityRecordBuilder":
         self._activity_record.key = key
         return self
+
     def content(self, content: str) -> "ActivityRecordBuilder":
         self._activity_record.content = content
         return self
+
     def created_at(self, created_at: str) -> "ActivityRecordBuilder":
         self._activity_record.created_at = created_at
         return self
+
     def op_user(self, op_user: Member) -> "ActivityRecordBuilder":
         self._activity_record.op_user = op_user
         return self
+
     def key_name(self, key_name: str) -> "ActivityRecordBuilder":
         self._activity_record.key_name = key_name
         return self
+
     def target_task_guid(self, target_task_guid: str) -> "ActivityRecordBuilder":
         self._activity_record.target_task_guid = target_task_guid
         return self
+
     def target_task_name(self, target_task_name: str) -> "ActivityRecordBuilder":
         self._activity_record.target_task_name = target_task_name
         return self
-    
+
     def build(self) -> "ActivityRecord":
         return self._activity_record

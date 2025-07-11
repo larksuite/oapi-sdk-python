@@ -34,27 +34,34 @@ class Message(object):
 class MessageBuilder(object):
     def __init__(self) -> None:
         self._message = Message()
+
     def open_message_id(self, open_message_id: str) -> "MessageBuilder":
         self._message.open_message_id = open_message_id
         return self
+
     def text(self, text: str) -> "MessageBuilder":
         self._message.text = text
         return self
+
     def open_chat_id(self, open_chat_id: str) -> "MessageBuilder":
         self._message.open_chat_id = open_chat_id
         return self
+
     def chat_name(self, chat_name: str) -> "MessageBuilder":
         self._message.chat_name = chat_name
         return self
+
     def chat_type(self, chat_type: int) -> "MessageBuilder":
         self._message.chat_type = chat_type
         return self
+
     def owner(self, owner: User) -> "MessageBuilder":
         self._message.owner = owner
         return self
+
     def create_time(self, create_time: int) -> "MessageBuilder":
         self._message.create_time = create_time
         return self
-    
+
     def build(self) -> "Message":
         return self._message

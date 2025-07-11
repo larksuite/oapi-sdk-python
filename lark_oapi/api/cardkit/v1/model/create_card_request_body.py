@@ -23,12 +23,14 @@ class CreateCardRequestBody(object):
 class CreateCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_card_request_body = CreateCardRequestBody()
+
     def type(self, type: str) -> "CreateCardRequestBodyBuilder":
         self._create_card_request_body.type = type
         return self
+
     def data(self, data: str) -> "CreateCardRequestBodyBuilder":
         self._create_card_request_body.data = data
         return self
-    
+
     def build(self) -> "CreateCardRequestBody":
         return self._create_card_request_body

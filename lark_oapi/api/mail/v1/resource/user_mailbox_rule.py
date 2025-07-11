@@ -25,7 +25,8 @@ class UserMailboxRule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> CreateUserMailboxRuleResponse:
+    def create(self, request: CreateUserMailboxRuleRequest,
+               option: Optional[RequestOption] = None) -> CreateUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,33 +39,34 @@ class UserMailboxRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMailboxRuleResponse)
+        response: CreateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> CreateUserMailboxRuleResponse:
+    async def acreate(self, request: CreateUserMailboxRuleRequest,
+                      option: Optional[RequestOption] = None) -> CreateUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMailboxRuleResponse)
+        response: CreateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxRuleResponse:
+
+    def delete(self, request: DeleteUserMailboxRuleRequest,
+               option: Optional[RequestOption] = None) -> DeleteUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,33 +79,34 @@ class UserMailboxRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxRuleResponse)
+        response: DeleteUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxRuleResponse:
+    async def adelete(self, request: DeleteUserMailboxRuleRequest,
+                      option: Optional[RequestOption] = None) -> DeleteUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxRuleResponse)
+        response: DeleteUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> ListUserMailboxRuleResponse:
+
+    def list(self, request: ListUserMailboxRuleRequest,
+             option: Optional[RequestOption] = None) -> ListUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,33 +119,32 @@ class UserMailboxRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> ListUserMailboxRuleResponse:
+    async def alist(self, request: ListUserMailboxRuleRequest,
+                    option: Optional[RequestOption] = None) -> ListUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
-    def reorder(self, request: ReorderUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> ReorderUserMailboxRuleResponse:
+
+    def reorder(self, request: ReorderUserMailboxRuleRequest,
+                option: Optional[RequestOption] = None) -> ReorderUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,33 +157,34 @@ class UserMailboxRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ReorderUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ReorderUserMailboxRuleResponse)
+        response: ReorderUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  ReorderUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def areorder(self, request: ReorderUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> ReorderUserMailboxRuleResponse:
+    async def areorder(self, request: ReorderUserMailboxRuleRequest,
+                       option: Optional[RequestOption] = None) -> ReorderUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ReorderUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ReorderUserMailboxRuleResponse)
+        response: ReorderUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  ReorderUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> UpdateUserMailboxRuleResponse:
+
+    def update(self, request: UpdateUserMailboxRuleRequest,
+               option: Optional[RequestOption] = None) -> UpdateUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,30 +197,28 @@ class UserMailboxRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserMailboxRuleResponse)
+        response: UpdateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateUserMailboxRuleRequest, option: Optional[RequestOption] = None) -> UpdateUserMailboxRuleResponse:
+    async def aupdate(self, request: UpdateUserMailboxRuleRequest,
+                      option: Optional[RequestOption] = None) -> UpdateUserMailboxRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserMailboxRuleResponse)
+        response: UpdateUserMailboxRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateUserMailboxRuleResponse)
         response.raw = resp
 
         return response
-        
-    

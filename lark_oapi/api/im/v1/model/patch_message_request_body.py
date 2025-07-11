@@ -21,9 +21,10 @@ class PatchMessageRequestBody(object):
 class PatchMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_message_request_body = PatchMessageRequestBody()
+
     def content(self, content: str) -> "PatchMessageRequestBodyBuilder":
         self._patch_message_request_body.content = content
         return self
-    
+
     def build(self) -> "PatchMessageRequestBody":
         return self._patch_message_request_body

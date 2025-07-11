@@ -81,84 +81,110 @@ class CalendarEvent(object):
 class CalendarEventBuilder(object):
     def __init__(self) -> None:
         self._calendar_event = CalendarEvent()
+
     def event_id(self, event_id: str) -> "CalendarEventBuilder":
         self._calendar_event.event_id = event_id
         return self
+
     def organizer_calendar_id(self, organizer_calendar_id: str) -> "CalendarEventBuilder":
         self._calendar_event.organizer_calendar_id = organizer_calendar_id
         return self
+
     def summary(self, summary: str) -> "CalendarEventBuilder":
         self._calendar_event.summary = summary
         return self
+
     def description(self, description: str) -> "CalendarEventBuilder":
         self._calendar_event.description = description
         return self
+
     def need_notification(self, need_notification: bool) -> "CalendarEventBuilder":
         self._calendar_event.need_notification = need_notification
         return self
+
     def start_time(self, start_time: TimeInfo) -> "CalendarEventBuilder":
         self._calendar_event.start_time = start_time
         return self
+
     def end_time(self, end_time: TimeInfo) -> "CalendarEventBuilder":
         self._calendar_event.end_time = end_time
         return self
+
     def vchat(self, vchat: Vchat) -> "CalendarEventBuilder":
         self._calendar_event.vchat = vchat
         return self
+
     def visibility(self, visibility: str) -> "CalendarEventBuilder":
         self._calendar_event.visibility = visibility
         return self
+
     def attendee_ability(self, attendee_ability: str) -> "CalendarEventBuilder":
         self._calendar_event.attendee_ability = attendee_ability
         return self
+
     def free_busy_status(self, free_busy_status: str) -> "CalendarEventBuilder":
         self._calendar_event.free_busy_status = free_busy_status
         return self
+
     def location(self, location: EventLocation) -> "CalendarEventBuilder":
         self._calendar_event.location = location
         return self
+
     def color(self, color: int) -> "CalendarEventBuilder":
         self._calendar_event.color = color
         return self
+
     def reminders(self, reminders: List[Reminder]) -> "CalendarEventBuilder":
         self._calendar_event.reminders = reminders
         return self
+
     def recurrence(self, recurrence: str) -> "CalendarEventBuilder":
         self._calendar_event.recurrence = recurrence
         return self
+
     def status(self, status: str) -> "CalendarEventBuilder":
         self._calendar_event.status = status
         return self
+
     def is_exception(self, is_exception: bool) -> "CalendarEventBuilder":
         self._calendar_event.is_exception = is_exception
         return self
+
     def recurring_event_id(self, recurring_event_id: str) -> "CalendarEventBuilder":
         self._calendar_event.recurring_event_id = recurring_event_id
         return self
+
     def create_time(self, create_time: str) -> "CalendarEventBuilder":
         self._calendar_event.create_time = create_time
         return self
+
     def schemas(self, schemas: List[Schema]) -> "CalendarEventBuilder":
         self._calendar_event.schemas = schemas
         return self
+
     def event_organizer(self, event_organizer: EventOrganizer) -> "CalendarEventBuilder":
         self._calendar_event.event_organizer = event_organizer
         return self
+
     def app_link(self, app_link: str) -> "CalendarEventBuilder":
         self._calendar_event.app_link = app_link
         return self
+
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "CalendarEventBuilder":
         self._calendar_event.attendees = attendees
         return self
+
     def has_more_attendee(self, has_more_attendee: bool) -> "CalendarEventBuilder":
         self._calendar_event.has_more_attendee = has_more_attendee
         return self
+
     def attachments(self, attachments: List[Attachment]) -> "CalendarEventBuilder":
         self._calendar_event.attachments = attachments
         return self
+
     def event_check_in(self, event_check_in: EventCheckIn) -> "CalendarEventBuilder":
         self._calendar_event.event_check_in = event_check_in
         return self
-    
+
     def build(self) -> "CalendarEvent":
         return self._calendar_event

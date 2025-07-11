@@ -21,9 +21,10 @@ class Header(object):
 class HeaderBuilder(object):
     def __init__(self) -> None:
         self._header = Header()
+
     def title(self, title: str) -> "HeaderBuilder":
         self._header.title = title
         return self
-    
+
     def build(self) -> "Header":
         return self._header

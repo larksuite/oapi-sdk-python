@@ -25,15 +25,18 @@ class Common(object):
 class CommonBuilder(object):
     def __init__(self) -> None:
         self._common = Common()
+
     def tenant_id(self, tenant_id: str) -> "CommonBuilder":
         self._common.tenant_id = tenant_id
         return self
+
     def languages(self, languages: List[str]) -> "CommonBuilder":
         self._common.languages = languages
         return self
+
     def custom_executors(self, custom_executors: Dict[str, str]) -> "CommonBuilder":
         self._common.custom_executors = custom_executors
         return self
-    
+
     def build(self) -> "Common":
         return self._common

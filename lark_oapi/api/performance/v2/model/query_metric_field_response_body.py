@@ -22,9 +22,10 @@ class QueryMetricFieldResponseBody(object):
 class QueryMetricFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_field_response_body = QueryMetricFieldResponseBody()
+
     def items(self, items: List[MetricField]) -> "QueryMetricFieldResponseBodyBuilder":
         self._query_metric_field_response_body.items = items
         return self
-    
+
     def build(self) -> "QueryMetricFieldResponseBody":
         return self._query_metric_field_response_body

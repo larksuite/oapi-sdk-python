@@ -33,24 +33,30 @@ class Subject(object):
 class SubjectBuilder(object):
     def __init__(self) -> None:
         self._subject = Subject()
+
     def id(self, id: str) -> "SubjectBuilder":
         self._subject.id = id
         return self
+
     def name(self, name: I18n) -> "SubjectBuilder":
         self._subject.name = name
         return self
+
     def create_time(self, create_time: str) -> "SubjectBuilder":
         self._subject.create_time = create_time
         return self
+
     def active_status(self, active_status: int) -> "SubjectBuilder":
         self._subject.active_status = active_status
         return self
+
     def application_limit(self, application_limit: int) -> "SubjectBuilder":
         self._subject.application_limit = application_limit
         return self
+
     def creator(self, creator: IdNameObject) -> "SubjectBuilder":
         self._subject.creator = creator
         return self
-    
+
     def build(self) -> "Subject":
         return self._subject

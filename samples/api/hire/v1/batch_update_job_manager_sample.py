@@ -5,74 +5,74 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchUpdateJobManagerRequest = BatchUpdateJobManagerRequest.builder() \
-		.job_id("7096318853365369132") \
-		.user_id_type("open_id") \
-		.request_body(BatchUpdateJobManagerRequestBody.builder()
-					  .recruiter_id("ou_e6139117c300506837def50545420c6a")
-					  .assistant_id_list([])
-					  .hiring_manager_id_list([])
-					  .update_option_list([])
-					  .creator_id("ou_efk39117c300506837def50545420c6a")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchUpdateJobManagerRequest = BatchUpdateJobManagerRequest.builder() \
+        .job_id("7096318853365369132") \
+        .user_id_type("open_id") \
+        .request_body(BatchUpdateJobManagerRequestBody.builder()
+                      .recruiter_id("ou_e6139117c300506837def50545420c6a")
+                      .assistant_id_list([])
+                      .hiring_manager_id_list([])
+                      .update_option_list([])
+                      .creator_id("ou_efk39117c300506837def50545420c6a")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchUpdateJobManagerResponse = client.hire.v1.job_manager.batch_update(request)
+    # 发起请求
+    response: BatchUpdateJobManagerResponse = client.hire.v1.job_manager.batch_update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.job_manager.batch_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.job_manager.batch_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchUpdateJobManagerRequest = BatchUpdateJobManagerRequest.builder() \
-		.job_id("7096318853365369132") \
-		.user_id_type("open_id") \
-		.request_body(BatchUpdateJobManagerRequestBody.builder()
-					  .recruiter_id("ou_e6139117c300506837def50545420c6a")
-					  .assistant_id_list([])
-					  .hiring_manager_id_list([])
-					  .update_option_list([])
-					  .creator_id("ou_efk39117c300506837def50545420c6a")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchUpdateJobManagerRequest = BatchUpdateJobManagerRequest.builder() \
+        .job_id("7096318853365369132") \
+        .user_id_type("open_id") \
+        .request_body(BatchUpdateJobManagerRequestBody.builder()
+                      .recruiter_id("ou_e6139117c300506837def50545420c6a")
+                      .assistant_id_list([])
+                      .hiring_manager_id_list([])
+                      .update_option_list([])
+                      .creator_id("ou_efk39117c300506837def50545420c6a")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchUpdateJobManagerResponse = await client.hire.v1.job_manager.abatch_update(request)
+    # 发起请求
+    response: BatchUpdateJobManagerResponse = await client.hire.v1.job_manager.abatch_update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.job_manager.abatch_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.job_manager.abatch_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

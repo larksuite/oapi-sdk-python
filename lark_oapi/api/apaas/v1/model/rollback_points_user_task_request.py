@@ -25,12 +25,12 @@ class RollbackPointsUserTaskRequestBuilder(object):
         rollback_points_user_task_request.uri = "/open-apis/apaas/v1/user_tasks/:task_id/rollback_points"
         rollback_points_user_task_request.token_types = {AccessTokenType.TENANT}
         self._rollback_points_user_task_request: RollbackPointsUserTaskRequest = rollback_points_user_task_request
-    
+
     def task_id(self, task_id: str) -> "RollbackPointsUserTaskRequestBuilder":
         self._rollback_points_user_task_request.task_id = task_id
         self._rollback_points_user_task_request.paths["task_id"] = str(task_id)
         return self
-    
+
     def request_body(self, request_body: RollbackPointsUserTaskRequestBody) -> "RollbackPointsUserTaskRequestBuilder":
         self._rollback_points_user_task_request.request_body = request_body
         self._rollback_points_user_task_request.body = request_body

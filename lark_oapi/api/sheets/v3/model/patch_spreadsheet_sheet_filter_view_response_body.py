@@ -22,9 +22,10 @@ class PatchSpreadsheetSheetFilterViewResponseBody(object):
 class PatchSpreadsheetSheetFilterViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_spreadsheet_sheet_filter_view_response_body = PatchSpreadsheetSheetFilterViewResponseBody()
+
     def filter_view(self, filter_view: FilterView) -> "PatchSpreadsheetSheetFilterViewResponseBodyBuilder":
         self._patch_spreadsheet_sheet_filter_view_response_body.filter_view = filter_view
         return self
-    
+
     def build(self) -> "PatchSpreadsheetSheetFilterViewResponseBody":
         return self._patch_spreadsheet_sheet_filter_view_response_body

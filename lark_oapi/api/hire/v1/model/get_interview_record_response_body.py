@@ -22,9 +22,10 @@ class GetInterviewRecordResponseBody(object):
 class GetInterviewRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_interview_record_response_body = GetInterviewRecordResponseBody()
+
     def interview_record(self, interview_record: InterviewRecord) -> "GetInterviewRecordResponseBodyBuilder":
         self._get_interview_record_response_body.interview_record = interview_record
         return self
-    
+
     def build(self) -> "GetInterviewRecordResponseBody":
         return self._get_interview_record_response_body

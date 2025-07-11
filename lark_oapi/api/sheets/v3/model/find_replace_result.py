@@ -25,15 +25,18 @@ class FindReplaceResult(object):
 class FindReplaceResultBuilder(object):
     def __init__(self) -> None:
         self._find_replace_result = FindReplaceResult()
+
     def matched_cells(self, matched_cells: List[str]) -> "FindReplaceResultBuilder":
         self._find_replace_result.matched_cells = matched_cells
         return self
+
     def matched_formula_cells(self, matched_formula_cells: List[str]) -> "FindReplaceResultBuilder":
         self._find_replace_result.matched_formula_cells = matched_formula_cells
         return self
+
     def rows_count(self, rows_count: int) -> "FindReplaceResultBuilder":
         self._find_replace_result.rows_count = rows_count
         return self
-    
+
     def build(self) -> "FindReplaceResult":
         return self._find_replace_result

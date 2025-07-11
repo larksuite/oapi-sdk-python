@@ -22,9 +22,10 @@ class GetByTalentInterviewResponseBody(object):
 class GetByTalentInterviewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_by_talent_interview_response_body = GetByTalentInterviewResponseBody()
+
     def items(self, items: List[TalentInterview]) -> "GetByTalentInterviewResponseBodyBuilder":
         self._get_by_talent_interview_response_body.items = items
         return self
-    
+
     def build(self) -> "GetByTalentInterviewResponseBody":
         return self._get_by_talent_interview_response_body

@@ -22,9 +22,10 @@ class BatchAddGroupMemberResponseBody(object):
 class BatchAddGroupMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_add_group_member_response_body = BatchAddGroupMemberResponseBody()
+
     def results(self, results: List[MemberResult]) -> "BatchAddGroupMemberResponseBodyBuilder":
         self._batch_add_group_member_response_body.results = results
         return self
-    
+
     def build(self) -> "BatchAddGroupMemberResponseBody":
         return self._batch_add_group_member_response_body

@@ -23,12 +23,14 @@ class AddToFolderTalentRequestBody(object):
 class AddToFolderTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_to_folder_talent_request_body = AddToFolderTalentRequestBody()
+
     def talent_id_list(self, talent_id_list: List[str]) -> "AddToFolderTalentRequestBodyBuilder":
         self._add_to_folder_talent_request_body.talent_id_list = talent_id_list
         return self
+
     def folder_id(self, folder_id: str) -> "AddToFolderTalentRequestBodyBuilder":
         self._add_to_folder_talent_request_body.folder_id = folder_id
         return self
-    
+
     def build(self) -> "AddToFolderTalentRequestBody":
         return self._add_to_folder_talent_request_body

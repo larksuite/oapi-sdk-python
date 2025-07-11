@@ -31,24 +31,30 @@ class AuditLogNetInfo(object):
 class AuditLogNetInfoBuilder(object):
     def __init__(self) -> None:
         self._audit_log_net_info = AuditLogNetInfo()
+
     def client_ip(self, client_ip: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.client_ip = client_ip
         return self
+
     def ip_loc(self, ip_loc: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.ip_loc = ip_loc
         return self
+
     def ip_provider(self, ip_provider: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.ip_provider = ip_provider
         return self
+
     def referer(self, referer: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.referer = referer
         return self
+
     def origin(self, origin: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.origin = origin
         return self
+
     def user_agent(self, user_agent: str) -> "AuditLogNetInfoBuilder":
         self._audit_log_net_info.user_agent = user_agent
         return self
-    
+
     def build(self) -> "AuditLogNetInfo":
         return self._audit_log_net_info

@@ -33,27 +33,34 @@ class AppConnector(object):
 class AppConnectorBuilder(object):
     def __init__(self) -> None:
         self._app_connector = AppConnector()
+
     def token(self, token: str) -> "AppConnectorBuilder":
         self._app_connector.token = token
         return self
+
     def table_id(self, table_id: str) -> "AppConnectorBuilder":
         self._app_connector.table_id = table_id
         return self
+
     def src_table_path(self, src_table_path: str) -> "AppConnectorBuilder":
         self._app_connector.src_table_path = src_table_path
         return self
+
     def source_type(self, source_type: int) -> "AppConnectorBuilder":
         self._app_connector.source_type = source_type
         return self
+
     def sync_type(self, sync_type: int) -> "AppConnectorBuilder":
         self._app_connector.sync_type = sync_type
         return self
+
     def field_sync_type(self, field_sync_type: int) -> "AppConnectorBuilder":
         self._app_connector.field_sync_type = field_sync_type
         return self
+
     def sync_fields(self, sync_fields: List[str]) -> "AppConnectorBuilder":
         self._app_connector.sync_fields = sync_fields
         return self
-    
+
     def build(self) -> "AppConnector":
         return self._app_connector

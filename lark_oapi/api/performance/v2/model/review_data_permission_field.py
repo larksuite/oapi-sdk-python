@@ -25,15 +25,18 @@ class ReviewDataPermissionField(object):
 class ReviewDataPermissionFieldBuilder(object):
     def __init__(self) -> None:
         self._review_data_permission_field = ReviewDataPermissionField()
+
     def field_id(self, field_id: str) -> "ReviewDataPermissionFieldBuilder":
         self._review_data_permission_field.field_id = field_id
         return self
+
     def indicator_id(self, indicator_id: str) -> "ReviewDataPermissionFieldBuilder":
         self._review_data_permission_field.indicator_id = indicator_id
         return self
+
     def action(self, action: List[str]) -> "ReviewDataPermissionFieldBuilder":
         self._review_data_permission_field.action = action
         return self
-    
+
     def build(self) -> "ReviewDataPermissionField":
         return self._review_data_permission_field

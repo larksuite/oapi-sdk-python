@@ -23,12 +23,14 @@ class CpstBandWidth(object):
 class CpstBandWidthBuilder(object):
     def __init__(self) -> None:
         self._cpst_band_width = CpstBandWidth()
+
     def upper_limit(self, upper_limit: str) -> "CpstBandWidthBuilder":
         self._cpst_band_width.upper_limit = upper_limit
         return self
+
     def lower_limit(self, lower_limit: str) -> "CpstBandWidthBuilder":
         self._cpst_band_width.lower_limit = lower_limit
         return self
-    
+
     def build(self) -> "CpstBandWidth":
         return self._cpst_band_width

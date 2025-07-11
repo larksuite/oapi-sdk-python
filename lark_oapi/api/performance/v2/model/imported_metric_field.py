@@ -25,15 +25,18 @@ class ImportedMetricField(object):
 class ImportedMetricFieldBuilder(object):
     def __init__(self) -> None:
         self._imported_metric_field = ImportedMetricField()
+
     def field_id(self, field_id: int) -> "ImportedMetricFieldBuilder":
         self._imported_metric_field.field_id = field_id
         return self
+
     def field_value(self, field_value: str) -> "ImportedMetricFieldBuilder":
         self._imported_metric_field.field_value = field_value
         return self
+
     def field_value_person(self, field_value_person: str) -> "ImportedMetricFieldBuilder":
         self._imported_metric_field.field_value_person = field_value_person
         return self
-    
+
     def build(self) -> "ImportedMetricField":
         return self._imported_metric_field

@@ -25,15 +25,18 @@ class AppTableFieldPropertyOption(object):
 class AppTableFieldPropertyOptionBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property_option = AppTableFieldPropertyOption()
+
     def name(self, name: str) -> "AppTableFieldPropertyOptionBuilder":
         self._app_table_field_property_option.name = name
         return self
+
     def id(self, id: str) -> "AppTableFieldPropertyOptionBuilder":
         self._app_table_field_property_option.id = id
         return self
+
     def color(self, color: int) -> "AppTableFieldPropertyOptionBuilder":
         self._app_table_field_property_option.color = color
         return self
-    
+
     def build(self) -> "AppTableFieldPropertyOption":
         return self._app_table_field_property_option

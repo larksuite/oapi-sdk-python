@@ -25,15 +25,18 @@ class AppWorkflow(object):
 class AppWorkflowBuilder(object):
     def __init__(self) -> None:
         self._app_workflow = AppWorkflow()
+
     def workflow_id(self, workflow_id: str) -> "AppWorkflowBuilder":
         self._app_workflow.workflow_id = workflow_id
         return self
+
     def status(self, status: str) -> "AppWorkflowBuilder":
         self._app_workflow.status = status
         return self
+
     def title(self, title: str) -> "AppWorkflowBuilder":
         self._app_workflow.title = title
         return self
-    
+
     def build(self) -> "AppWorkflow":
         return self._app_workflow

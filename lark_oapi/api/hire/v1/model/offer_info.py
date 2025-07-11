@@ -36,27 +36,34 @@ class OfferInfo(object):
 class OfferInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_info = OfferInfo()
+
     def offer_id(self, offer_id: str) -> "OfferInfoBuilder":
         self._offer_info.offer_id = offer_id
         return self
+
     def application_id(self, application_id: str) -> "OfferInfoBuilder":
         self._offer_info.application_id = application_id
         return self
+
     def schema_id(self, schema_id: str) -> "OfferInfoBuilder":
         self._offer_info.schema_id = schema_id
         return self
+
     def offer_type(self, offer_type: int) -> "OfferInfoBuilder":
         self._offer_info.offer_type = offer_type
         return self
+
     def basic_info(self, basic_info: OfferBasicInfo) -> "OfferInfoBuilder":
         self._offer_info.basic_info = basic_info
         return self
+
     def salary_info(self, salary_info: OfferSalaryInfo) -> "OfferInfoBuilder":
         self._offer_info.salary_info = salary_info
         return self
+
     def customized_info_list(self, customized_info_list: List[OfferCustomizedInfo]) -> "OfferInfoBuilder":
         self._offer_info.customized_info_list = customized_info_list
         return self
-    
+
     def build(self) -> "OfferInfo":
         return self._offer_info

@@ -23,12 +23,15 @@ class DeleteAdditionalInformationsBatchRequestBody(object):
 class DeleteAdditionalInformationsBatchRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_additional_informations_batch_request_body = DeleteAdditionalInformationsBatchRequestBody()
+
     def semester_id(self, semester_id: str) -> "DeleteAdditionalInformationsBatchRequestBodyBuilder":
         self._delete_additional_informations_batch_request_body.semester_id = semester_id
         return self
-    def additional_informations(self, additional_informations: List[int]) -> "DeleteAdditionalInformationsBatchRequestBodyBuilder":
+
+    def additional_informations(self, additional_informations: List[
+        int]) -> "DeleteAdditionalInformationsBatchRequestBodyBuilder":
         self._delete_additional_informations_batch_request_body.additional_informations = additional_informations
         return self
-    
+
     def build(self) -> "DeleteAdditionalInformationsBatchRequestBody":
         return self._delete_additional_informations_batch_request_body

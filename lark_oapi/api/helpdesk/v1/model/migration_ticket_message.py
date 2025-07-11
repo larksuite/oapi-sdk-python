@@ -30,21 +30,26 @@ class MigrationTicketMessage(object):
 class MigrationTicketMessageBuilder(object):
     def __init__(self) -> None:
         self._migration_ticket_message = MigrationTicketMessage()
+
     def uuid(self, uuid: str) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.uuid = uuid
         return self
+
     def user_id(self, user_id: str) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.user_id = user_id
         return self
+
     def message_type(self, message_type: str) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.message_type = message_type
         return self
+
     def content(self, content: ExportTicketMessageContent) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.content = content
         return self
+
     def created_at_ms(self, created_at_ms: str) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.created_at_ms = created_at_ms
         return self
-    
+
     def build(self) -> "MigrationTicketMessage":
         return self._migration_ticket_message

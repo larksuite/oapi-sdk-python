@@ -25,12 +25,12 @@ class AddDependenciesTaskRequestBuilder(object):
         add_dependencies_task_request.uri = "/open-apis/task/v2/tasks/:task_guid/add_dependencies"
         add_dependencies_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._add_dependencies_task_request: AddDependenciesTaskRequest = add_dependencies_task_request
-    
+
     def task_guid(self, task_guid: str) -> "AddDependenciesTaskRequestBuilder":
         self._add_dependencies_task_request.task_guid = task_guid
         self._add_dependencies_task_request.paths["task_guid"] = str(task_guid)
         return self
-    
+
     def request_body(self, request_body: AddDependenciesTaskRequestBody) -> "AddDependenciesTaskRequestBuilder":
         self._add_dependencies_task_request.request_body = request_body
         self._add_dependencies_task_request.body = request_body

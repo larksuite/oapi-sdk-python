@@ -19,7 +19,8 @@ class JobFamily(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobFamilyRequest, option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
+    def batch_get(self, request: BatchGetJobFamilyRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,32 @@ class JobFamily(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobFamilyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_get(self, request: BatchGetJobFamilyRequest, option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
+    async def abatch_get(self, request: BatchGetJobFamilyRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobFamilyResponse)
         response.raw = resp
 
         return response
-        
-    def query_recent_change(self, request: QueryRecentChangeJobFamilyRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
+
+    def query_recent_change(self, request: QueryRecentChangeJobFamilyRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +71,28 @@ class JobFamily(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobFamilyResponse)
+        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryRecentChangeJobFamilyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobFamilyRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
+    async def aquery_recent_change(self, request: QueryRecentChangeJobFamilyRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobFamilyResponse)
+        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryRecentChangeJobFamilyResponse)
         response.raw = resp
 
         return response
-        
-    

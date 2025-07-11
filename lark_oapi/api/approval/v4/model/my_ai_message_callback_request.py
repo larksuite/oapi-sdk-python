@@ -23,12 +23,14 @@ class MyAiMessageCallbackRequest(object):
 class MyAiMessageCallbackRequestBuilder(object):
     def __init__(self) -> None:
         self._my_ai_message_callback_request = MyAiMessageCallbackRequest()
+
     def message_id(self, message_id: str) -> "MyAiMessageCallbackRequestBuilder":
         self._my_ai_message_callback_request.message_id = message_id
         return self
+
     def callback_info(self, callback_info: str) -> "MyAiMessageCallbackRequestBuilder":
         self._my_ai_message_callback_request.callback_info = callback_info
         return self
-    
+
     def build(self) -> "MyAiMessageCallbackRequest":
         return self._my_ai_message_callback_request

@@ -33,27 +33,34 @@ class DocumentDisplaySetting(object):
 class DocumentDisplaySettingBuilder(object):
     def __init__(self) -> None:
         self._document_display_setting = DocumentDisplaySetting()
+
     def show_authors(self, show_authors: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_authors = show_authors
         return self
+
     def show_create_time(self, show_create_time: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_create_time = show_create_time
         return self
+
     def show_pv(self, show_pv: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_pv = show_pv
         return self
+
     def show_uv(self, show_uv: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_uv = show_uv
         return self
+
     def show_like_count(self, show_like_count: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_like_count = show_like_count
         return self
+
     def show_comment_count(self, show_comment_count: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_comment_count = show_comment_count
         return self
+
     def show_related_matters(self, show_related_matters: bool) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_related_matters = show_related_matters
         return self
-    
+
     def build(self) -> "DocumentDisplaySetting":
         return self._document_display_setting

@@ -26,15 +26,18 @@ class TalentSchemaOption(object):
 class TalentSchemaOptionBuilder(object):
     def __init__(self) -> None:
         self._talent_schema_option = TalentSchemaOption()
+
     def active_status(self, active_status: int) -> "TalentSchemaOptionBuilder":
         self._talent_schema_option.active_status = active_status
         return self
+
     def value(self, value: str) -> "TalentSchemaOptionBuilder":
         self._talent_schema_option.value = value
         return self
+
     def name(self, name: I18n) -> "TalentSchemaOptionBuilder":
         self._talent_schema_option.name = name
         return self
-    
+
     def build(self) -> "TalentSchemaOption":
         return self._talent_schema_option

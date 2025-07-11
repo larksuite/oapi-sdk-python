@@ -22,9 +22,10 @@ class PatchContractResponseBody(object):
 class PatchContractResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_contract_response_body = PatchContractResponseBody()
+
     def contract(self, contract: Contract) -> "PatchContractResponseBodyBuilder":
         self._patch_contract_response_body.contract = contract
         return self
-    
+
     def build(self) -> "PatchContractResponseBody":
         return self._patch_contract_response_body

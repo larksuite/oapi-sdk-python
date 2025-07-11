@@ -22,9 +22,10 @@ class CreateTaskCollaboratorResponseBody(object):
 class CreateTaskCollaboratorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_task_collaborator_response_body = CreateTaskCollaboratorResponseBody()
+
     def collaborator(self, collaborator: Collaborator) -> "CreateTaskCollaboratorResponseBodyBuilder":
         self._create_task_collaborator_response_body.collaborator = collaborator
         return self
-    
+
     def build(self) -> "CreateTaskCollaboratorResponseBody":
         return self._create_task_collaborator_response_body

@@ -5,80 +5,81 @@ from lark_oapi.api.apaas.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: AuditLogListApplicationAuditLogRequest = AuditLogListApplicationAuditLogRequest.builder() \
-		.namespace("package_aa_bb") \
-		.page_size("10") \
-		.offset("0") \
-		.quick_query("Intel Mac OS") \
-		.from_("1723691857002") \
-		.to("1724296657002") \
-		.log_type("10000") \
-		.filter("") \
-		.columns([]) \
-		.sort_by("opTime") \
-		.sort_order("asc") \
-		.app_type("0") \
-		.build()
+    # 构造请求对象
+    request: AuditLogListApplicationAuditLogRequest = AuditLogListApplicationAuditLogRequest.builder() \
+        .namespace("package_aa_bb") \
+        .page_size("10") \
+        .offset("0") \
+        .quick_query("Intel Mac OS") \
+        .from_("1723691857002") \
+        .to("1724296657002") \
+        .log_type("10000") \
+        .filter("") \
+        .columns([]) \
+        .sort_by("opTime") \
+        .sort_order("asc") \
+        .app_type("0") \
+        .build()
 
-	# 发起请求
-	response: AuditLogListApplicationAuditLogResponse = client.apaas.v1.application_audit_log.audit_log_list(request)
+    # 发起请求
+    response: AuditLogListApplicationAuditLogResponse = client.apaas.v1.application_audit_log.audit_log_list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_audit_log.audit_log_list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_audit_log.audit_log_list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: AuditLogListApplicationAuditLogRequest = AuditLogListApplicationAuditLogRequest.builder() \
-		.namespace("package_aa_bb") \
-		.page_size("10") \
-		.offset("0") \
-		.quick_query("Intel Mac OS") \
-		.from_("1723691857002") \
-		.to("1724296657002") \
-		.log_type("10000") \
-		.filter("") \
-		.columns([]) \
-		.sort_by("opTime") \
-		.sort_order("asc") \
-		.app_type("0") \
-		.build()
+    # 构造请求对象
+    request: AuditLogListApplicationAuditLogRequest = AuditLogListApplicationAuditLogRequest.builder() \
+        .namespace("package_aa_bb") \
+        .page_size("10") \
+        .offset("0") \
+        .quick_query("Intel Mac OS") \
+        .from_("1723691857002") \
+        .to("1724296657002") \
+        .log_type("10000") \
+        .filter("") \
+        .columns([]) \
+        .sort_by("opTime") \
+        .sort_order("asc") \
+        .app_type("0") \
+        .build()
 
-	# 发起请求
-	response: AuditLogListApplicationAuditLogResponse = await client.apaas.v1.application_audit_log.aaudit_log_list(request)
+    # 发起请求
+    response: AuditLogListApplicationAuditLogResponse = await client.apaas.v1.application_audit_log.aaudit_log_list(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.apaas.v1.application_audit_log.aaudit_log_list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.apaas.v1.application_audit_log.aaudit_log_list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

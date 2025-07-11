@@ -23,12 +23,11 @@ class GetContractRequestBuilder(object):
         get_contract_request.uri = "/open-apis/corehr/v1/contracts/:contract_id"
         get_contract_request.token_types = {AccessTokenType.TENANT}
         self._get_contract_request: GetContractRequest = get_contract_request
-    
+
     def contract_id(self, contract_id: str) -> "GetContractRequestBuilder":
         self._get_contract_request.contract_id = contract_id
         self._get_contract_request.paths["contract_id"] = str(contract_id)
         return self
-    
 
     def build(self) -> GetContractRequest:
         return self._get_contract_request

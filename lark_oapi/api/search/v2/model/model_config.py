@@ -21,9 +21,10 @@ class ModelConfig(object):
 class ModelConfigBuilder(object):
     def __init__(self) -> None:
         self._model_config = ModelConfig()
+
     def model_name(self, model_name: str) -> "ModelConfigBuilder":
         self._model_config.model_name = model_name
         return self
-    
+
     def build(self) -> "ModelConfig":
         return self._model_config

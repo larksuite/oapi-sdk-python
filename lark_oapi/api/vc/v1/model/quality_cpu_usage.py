@@ -29,21 +29,26 @@ class QualityCpuUsage(object):
 class QualityCpuUsageBuilder(object):
     def __init__(self) -> None:
         self._quality_cpu_usage = QualityCpuUsage()
+
     def time(self, time: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.time = time
         return self
+
     def client_avg_cpu_usage(self, client_avg_cpu_usage: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.client_avg_cpu_usage = client_avg_cpu_usage
         return self
+
     def client_max_cpu_usage(self, client_max_cpu_usage: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.client_max_cpu_usage = client_max_cpu_usage
         return self
+
     def system_avg_cpu_usage(self, system_avg_cpu_usage: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.system_avg_cpu_usage = system_avg_cpu_usage
         return self
+
     def system_max_cpu_usage(self, system_max_cpu_usage: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.system_max_cpu_usage = system_max_cpu_usage
         return self
-    
+
     def build(self) -> "QualityCpuUsage":
         return self._quality_cpu_usage

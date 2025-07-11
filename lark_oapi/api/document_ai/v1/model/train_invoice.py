@@ -22,9 +22,10 @@ class TrainInvoice(object):
 class TrainInvoiceBuilder(object):
     def __init__(self) -> None:
         self._train_invoice = TrainInvoice()
+
     def entities(self, entities: List[TrainEntity]) -> "TrainInvoiceBuilder":
         self._train_invoice.entities = entities
         return self
-    
+
     def build(self) -> "TrainInvoice":
         return self._train_invoice

@@ -26,15 +26,18 @@ class CostAllocation(object):
 class CostAllocationBuilder(object):
     def __init__(self) -> None:
         self._cost_allocation = CostAllocation()
+
     def effective_time(self, effective_time: str) -> "CostAllocationBuilder":
         self._cost_allocation.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "CostAllocationBuilder":
         self._cost_allocation.expiration_time = expiration_time
         return self
+
     def cost_center_rates(self, cost_center_rates: List[JobDataCostCenter]) -> "CostAllocationBuilder":
         self._cost_allocation.cost_center_rates = cost_center_rates
         return self
-    
+
     def build(self) -> "CostAllocation":
         return self._cost_allocation

@@ -21,9 +21,10 @@ class View(object):
 class ViewBuilder(object):
     def __init__(self) -> None:
         self._view = View()
+
     def view_type(self, view_type: int) -> "ViewBuilder":
         self._view.view_type = view_type
         return self
-    
+
     def build(self) -> "View":
         return self._view

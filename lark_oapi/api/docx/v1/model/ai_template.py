@@ -19,6 +19,6 @@ class AiTemplate(object):
 class AiTemplateBuilder(object):
     def __init__(self) -> None:
         self._ai_template = AiTemplate()
-    
+
     def build(self) -> "AiTemplate":
         return self._ai_template

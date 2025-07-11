@@ -34,24 +34,30 @@ class JobRequirementCustomizedValue(object):
 class JobRequirementCustomizedValueBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_customized_value = JobRequirementCustomizedValue()
+
     def content(self, content: str) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.content = content
         return self
+
     def option(self, option: JobRequirementCustomizedOption) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.option = option
         return self
+
     def option_list(self, option_list: List[JobRequirementCustomizedOption]) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.option_list = option_list
         return self
+
     def time_range(self, time_range: JobRequirementCustomizedTimeRange) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.time_range = time_range
         return self
+
     def time(self, time: str) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.time = time
         return self
+
     def number(self, number: str) -> "JobRequirementCustomizedValueBuilder":
         self._job_requirement_customized_value.number = number
         return self
-    
+
     def build(self) -> "JobRequirementCustomizedValue":
         return self._job_requirement_customized_value

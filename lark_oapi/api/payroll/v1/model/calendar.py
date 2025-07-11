@@ -42,39 +42,50 @@ class Calendar(object):
 class CalendarBuilder(object):
     def __init__(self) -> None:
         self._calendar = Calendar()
+
     def id(self, id: str) -> "CalendarBuilder":
         self._calendar.id = id
         return self
+
     def names(self, names: List[I18nContent]) -> "CalendarBuilder":
         self._calendar.names = names
         return self
+
     def region(self, region: str) -> "CalendarBuilder":
         self._calendar.region = region
         return self
+
     def work_calendar(self, work_calendar: str) -> "CalendarBuilder":
         self._calendar.work_calendar = work_calendar
         return self
+
     def time_zone(self, time_zone: str) -> "CalendarBuilder":
         self._calendar.time_zone = time_zone
         return self
+
     def payroll_cycle(self, payroll_cycle: int) -> "CalendarBuilder":
         self._calendar.payroll_cycle = payroll_cycle
         return self
+
     def status(self, status: int) -> "CalendarBuilder":
         self._calendar.status = status
         return self
+
     def creator_id(self, creator_id: str) -> "CalendarBuilder":
         self._calendar.creator_id = creator_id
         return self
+
     def create_time(self, create_time: str) -> "CalendarBuilder":
         self._calendar.create_time = create_time
         return self
+
     def effective_date(self, effective_date: str) -> "CalendarBuilder":
         self._calendar.effective_date = effective_date
         return self
+
     def period_years(self, period_years: List[str]) -> "CalendarBuilder":
         self._calendar.period_years = period_years
         return self
-    
+
     def build(self) -> "Calendar":
         return self._calendar

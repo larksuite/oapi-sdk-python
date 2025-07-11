@@ -23,12 +23,11 @@ class GetExportRequestBuilder(object):
         get_export_request.uri = "/open-apis/vc/v1/exports/:task_id"
         get_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_export_request: GetExportRequest = get_export_request
-    
+
     def task_id(self, task_id: str) -> "GetExportRequestBuilder":
         self._get_export_request.task_id = task_id
         self._get_export_request.paths["task_id"] = str(task_id)
         return self
-    
 
     def build(self) -> GetExportRequest:
         return self._get_export_request

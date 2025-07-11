@@ -25,15 +25,18 @@ class FreeTime(object):
 class FreeTimeBuilder(object):
     def __init__(self) -> None:
         self._free_time = FreeTime()
+
     def free_time_start(self, free_time_start: str) -> "FreeTimeBuilder":
         self._free_time.free_time_start = free_time_start
         return self
+
     def free_time_end(self, free_time_end: str) -> "FreeTimeBuilder":
         self._free_time.free_time_end = free_time_end
         return self
+
     def free_time_list(self, free_time_list: str) -> "FreeTimeBuilder":
         self._free_time.free_time_list = free_time_list
         return self
-    
+
     def build(self) -> "FreeTime":
         return self._free_time

@@ -24,8 +24,9 @@ class BatchDeleteEcoAccountCustomFieldRequestBuilder(object):
         batch_delete_eco_account_custom_field_request.uri = "/open-apis/hire/v1/eco_account_custom_fields/batch_delete"
         batch_delete_eco_account_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._batch_delete_eco_account_custom_field_request: BatchDeleteEcoAccountCustomFieldRequest = batch_delete_eco_account_custom_field_request
-    
-    def request_body(self, request_body: BatchDeleteEcoAccountCustomFieldRequestBody) -> "BatchDeleteEcoAccountCustomFieldRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchDeleteEcoAccountCustomFieldRequestBody) -> "BatchDeleteEcoAccountCustomFieldRequestBuilder":
         self._batch_delete_eco_account_custom_field_request.request_body = request_body
         self._batch_delete_eco_account_custom_field_request.body = request_body
         return self

@@ -63,63 +63,82 @@ class VerificationPlan(object):
 class VerificationPlanBuilder(object):
     def __init__(self) -> None:
         self._verification_plan = VerificationPlan()
+
     def plan_id(self, plan_id: str) -> "VerificationPlanBuilder":
         self._verification_plan.plan_id = plan_id
         return self
+
     def version_id(self, version_id: str) -> "VerificationPlanBuilder":
         self._verification_plan.version_id = version_id
         return self
+
     def time_zone(self, time_zone: str) -> "VerificationPlanBuilder":
         self._verification_plan.time_zone = time_zone
         return self
+
     def is_active(self, is_active: bool) -> "VerificationPlanBuilder":
         self._verification_plan.is_active = is_active
         return self
+
     def effective_period_seq(self, effective_period_seq: str) -> "VerificationPlanBuilder":
         self._verification_plan.effective_period_seq = effective_period_seq
         return self
+
     def name(self, name: IdWithName) -> "VerificationPlanBuilder":
         self._verification_plan.name = name
         return self
+
     def country_region_id(self, country_region_id: IdWithName) -> "VerificationPlanBuilder":
         self._verification_plan.country_region_id = country_region_id
         return self
+
     def currency_id(self, currency_id: IdWithName) -> "VerificationPlanBuilder":
         self._verification_plan.currency_id = currency_id
         return self
+
     def calendar_type(self, calendar_type: int) -> "VerificationPlanBuilder":
         self._verification_plan.calendar_type = calendar_type
         return self
+
     def pay_calendars(self, pay_calendars: List[VerifPayCalendar]) -> "VerificationPlanBuilder":
         self._verification_plan.pay_calendars = pay_calendars
         return self
+
     def scope_type(self, scope_type: int) -> "VerificationPlanBuilder":
         self._verification_plan.scope_type = scope_type
         return self
+
     def pay_groups(self, pay_groups: List[IdWithName]) -> "VerificationPlanBuilder":
         self._verification_plan.pay_groups = pay_groups
         return self
+
     def datasource_config(self, datasource_config: VerifDatasourceConfig) -> "VerificationPlanBuilder":
         self._verification_plan.datasource_config = datasource_config
         return self
+
     def approval_type(self, approval_type: int) -> "VerificationPlanBuilder":
         self._verification_plan.approval_type = approval_type
         return self
+
     def ovbservers(self, ovbservers: List[str]) -> "VerificationPlanBuilder":
         self._verification_plan.ovbservers = ovbservers
         return self
+
     def admins(self, admins: List[str]) -> "VerificationPlanBuilder":
         self._verification_plan.admins = admins
         return self
+
     def reviewers(self, reviewers: List[str]) -> "VerificationPlanBuilder":
         self._verification_plan.reviewers = reviewers
         return self
+
     def plan_type(self, plan_type: int) -> "VerificationPlanBuilder":
         self._verification_plan.plan_type = plan_type
         return self
+
     def update_time(self, update_time: int) -> "VerificationPlanBuilder":
         self._verification_plan.update_time = update_time
         return self
-    
+
     def build(self) -> "VerificationPlan":
         return self._verification_plan

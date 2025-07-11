@@ -26,17 +26,17 @@ class RevokeJobChangeRequestBuilder(object):
         revoke_job_change_request.uri = "/open-apis/corehr/v2/job_changes/:job_change_id/revoke"
         revoke_job_change_request.token_types = {AccessTokenType.TENANT}
         self._revoke_job_change_request: RevokeJobChangeRequest = revoke_job_change_request
-    
+
     def user_id_type(self, user_id_type: str) -> "RevokeJobChangeRequestBuilder":
         self._revoke_job_change_request.user_id_type = user_id_type
         self._revoke_job_change_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def job_change_id(self, job_change_id: str) -> "RevokeJobChangeRequestBuilder":
         self._revoke_job_change_request.job_change_id = job_change_id
         self._revoke_job_change_request.paths["job_change_id"] = str(job_change_id)
         return self
-    
+
     def request_body(self, request_body: RevokeJobChangeRequestBody) -> "RevokeJobChangeRequestBuilder":
         self._revoke_job_change_request.request_body = request_body
         self._revoke_job_change_request.body = request_body

@@ -26,27 +26,26 @@ class GetChatAnnouncementBlockRequestBuilder(object):
         get_chat_announcement_block_request.uri = "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id"
         get_chat_announcement_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_chat_announcement_block_request: GetChatAnnouncementBlockRequest = get_chat_announcement_block_request
-    
+
     def revision_id(self, revision_id: int) -> "GetChatAnnouncementBlockRequestBuilder":
         self._get_chat_announcement_block_request.revision_id = revision_id
         self._get_chat_announcement_block_request.add_query("revision_id", revision_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetChatAnnouncementBlockRequestBuilder":
         self._get_chat_announcement_block_request.user_id_type = user_id_type
         self._get_chat_announcement_block_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def chat_id(self, chat_id: str) -> "GetChatAnnouncementBlockRequestBuilder":
         self._get_chat_announcement_block_request.chat_id = chat_id
         self._get_chat_announcement_block_request.paths["chat_id"] = str(chat_id)
         return self
-    
+
     def block_id(self, block_id: str) -> "GetChatAnnouncementBlockRequestBuilder":
         self._get_chat_announcement_block_request.block_id = block_id
         self._get_chat_announcement_block_request.paths["block_id"] = str(block_id)
         return self
-    
 
     def build(self) -> GetChatAnnouncementBlockRequest:
         return self._get_chat_announcement_block_request

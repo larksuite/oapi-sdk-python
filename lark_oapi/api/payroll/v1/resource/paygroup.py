@@ -30,13 +30,12 @@ class Paygroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListPaygroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaygroupResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListPaygroupRequest, option: Optional[RequestOption] = None) -> ListPaygroupResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Paygroup(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListPaygroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaygroupResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -25,15 +25,18 @@ class QrCodeValue(object):
 class QrCodeValueBuilder(object):
     def __init__(self) -> None:
         self._qr_code_value = QrCodeValue()
+
     def select_value(self, select_value: str) -> "QrCodeValueBuilder":
         self._qr_code_value.select_value = select_value
         return self
+
     def multi_select_value(self, multi_select_value: List[str]) -> "QrCodeValueBuilder":
         self._qr_code_value.multi_select_value = multi_select_value
         return self
+
     def bool_value(self, bool_value: bool) -> "QrCodeValueBuilder":
         self._qr_code_value.bool_value = bool_value
         return self
-    
+
     def build(self) -> "QrCodeValue":
         return self._qr_code_value

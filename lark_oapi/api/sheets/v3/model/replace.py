@@ -26,15 +26,18 @@ class Replace(object):
 class ReplaceBuilder(object):
     def __init__(self) -> None:
         self._replace = Replace()
+
     def find_condition(self, find_condition: FindCondition) -> "ReplaceBuilder":
         self._replace.find_condition = find_condition
         return self
+
     def find(self, find: str) -> "ReplaceBuilder":
         self._replace.find = find
         return self
+
     def replacement(self, replacement: str) -> "ReplaceBuilder":
         self._replace.replacement = replacement
         return self
-    
+
     def build(self) -> "Replace":
         return self._replace

@@ -23,12 +23,14 @@ class MetricData(object):
 class MetricDataBuilder(object):
     def __init__(self) -> None:
         self._metric_data = MetricData()
+
     def id(self, id: str) -> "MetricDataBuilder":
         self._metric_data.id = id
         return self
+
     def score(self, score: str) -> "MetricDataBuilder":
         self._metric_data.score = score
         return self
-    
+
     def build(self) -> "MetricData":
         return self._metric_data

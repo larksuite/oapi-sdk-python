@@ -27,15 +27,18 @@ class EnterpriseKnowledgeSourceMessageParam(object):
 class EnterpriseKnowledgeSourceMessageParamBuilder(object):
     def __init__(self) -> None:
         self._enterprise_knowledge_source_message_param = EnterpriseKnowledgeSourceMessageParam()
+
     def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceMessageParamBuilder":
         self._enterprise_knowledge_source_message_param.searchable = searchable
         return self
+
     def filter(self, filter: KnowledgeSourceMessageFilter) -> "EnterpriseKnowledgeSourceMessageParamBuilder":
         self._enterprise_knowledge_source_message_param.filter = filter
         return self
+
     def reject(self, reject: KnowledgeSourceMessageReject) -> "EnterpriseKnowledgeSourceMessageParamBuilder":
         self._enterprise_knowledge_source_message_param.reject = reject
         return self
-    
+
     def build(self) -> "EnterpriseKnowledgeSourceMessageParam":
         return self._enterprise_knowledge_source_message_param

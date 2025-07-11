@@ -22,9 +22,11 @@ class CreateEmployeesInternationalAssignmentResponseBody(object):
 class CreateEmployeesInternationalAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_employees_international_assignment_response_body = CreateEmployeesInternationalAssignmentResponseBody()
-    def international_assignment(self, international_assignment: EmployeesInternationalAssignmentResp) -> "CreateEmployeesInternationalAssignmentResponseBodyBuilder":
+
+    def international_assignment(self,
+                                 international_assignment: EmployeesInternationalAssignmentResp) -> "CreateEmployeesInternationalAssignmentResponseBodyBuilder":
         self._create_employees_international_assignment_response_body.international_assignment = international_assignment
         return self
-    
+
     def build(self) -> "CreateEmployeesInternationalAssignmentResponseBody":
         return self._create_employees_international_assignment_response_body

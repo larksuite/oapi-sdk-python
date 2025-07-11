@@ -27,18 +27,22 @@ class UserMailEntity(object):
 class UserMailEntityBuilder(object):
     def __init__(self) -> None:
         self._user_mail_entity = UserMailEntity()
+
     def type(self, type: int) -> "UserMailEntityBuilder":
         self._user_mail_entity.type = type
         return self
+
     def email_address(self, email_address: str) -> "UserMailEntityBuilder":
         self._user_mail_entity.email_address = email_address
         return self
+
     def entity_id(self, entity_id: str) -> "UserMailEntityBuilder":
         self._user_mail_entity.entity_id = entity_id
         return self
+
     def user_id(self, user_id: str) -> "UserMailEntityBuilder":
         self._user_mail_entity.user_id = user_id
         return self
-    
+
     def build(self) -> "UserMailEntity":
         return self._user_mail_entity

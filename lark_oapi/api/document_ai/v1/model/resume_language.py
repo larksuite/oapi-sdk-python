@@ -23,12 +23,14 @@ class ResumeLanguage(object):
 class ResumeLanguageBuilder(object):
     def __init__(self) -> None:
         self._resume_language = ResumeLanguage()
+
     def level(self, level: int) -> "ResumeLanguageBuilder":
         self._resume_language.level = level
         return self
+
     def description(self, description: str) -> "ResumeLanguageBuilder":
         self._resume_language.description = description
         return self
-    
+
     def build(self) -> "ResumeLanguage":
         return self._resume_language

@@ -27,15 +27,18 @@ class ContentBlockElement(object):
 class ContentBlockElementBuilder(object):
     def __init__(self) -> None:
         self._content_block_element = ContentBlockElement()
+
     def type(self, type: str) -> "ContentBlockElementBuilder":
         self._content_block_element.type = type
         return self
+
     def paragraph(self, paragraph: ContentParagraph) -> "ContentBlockElementBuilder":
         self._content_block_element.paragraph = paragraph
         return self
+
     def gallery(self, gallery: ContentGallery) -> "ContentBlockElementBuilder":
         self._content_block_element.gallery = gallery
         return self
-    
+
     def build(self) -> "ContentBlockElement":
         return self._content_block_element

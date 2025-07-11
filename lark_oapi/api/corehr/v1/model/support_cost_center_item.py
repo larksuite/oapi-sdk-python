@@ -23,12 +23,14 @@ class SupportCostCenterItem(object):
 class SupportCostCenterItemBuilder(object):
     def __init__(self) -> None:
         self._support_cost_center_item = SupportCostCenterItem()
+
     def cost_center_id(self, cost_center_id: str) -> "SupportCostCenterItemBuilder":
         self._support_cost_center_item.cost_center_id = cost_center_id
         return self
+
     def rate(self, rate: int) -> "SupportCostCenterItemBuilder":
         self._support_cost_center_item.rate = rate
         return self
-    
+
     def build(self) -> "SupportCostCenterItem":
         return self._support_cost_center_item

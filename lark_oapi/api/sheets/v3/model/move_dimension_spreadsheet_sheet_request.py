@@ -26,17 +26,17 @@ class MoveDimensionSpreadsheetSheetRequestBuilder(object):
         move_dimension_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
         move_dimension_spreadsheet_sheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._move_dimension_spreadsheet_sheet_request: MoveDimensionSpreadsheetSheetRequest = move_dimension_spreadsheet_sheet_request
-    
+
     def spreadsheet_token(self, spreadsheet_token: str) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
         self._move_dimension_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
         self._move_dimension_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
-    
+
     def sheet_id(self, sheet_id: str) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
         self._move_dimension_spreadsheet_sheet_request.sheet_id = sheet_id
         self._move_dimension_spreadsheet_sheet_request.paths["sheet_id"] = str(sheet_id)
         return self
-    
+
     def request_body(self, request_body: MoveDimension) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
         self._move_dimension_spreadsheet_sheet_request.request_body = request_body
         self._move_dimension_spreadsheet_sheet_request.body = request_body

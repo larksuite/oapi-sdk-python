@@ -21,9 +21,10 @@ class CreateIdentityResponseBody(object):
 class CreateIdentityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_identity_response_body = CreateIdentityResponseBody()
+
     def verify_uid(self, verify_uid: str) -> "CreateIdentityResponseBodyBuilder":
         self._create_identity_response_body.verify_uid = verify_uid
         return self
-    
+
     def build(self) -> "CreateIdentityResponseBody":
         return self._create_identity_response_body

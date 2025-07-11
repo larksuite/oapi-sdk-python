@@ -22,9 +22,10 @@ class MessagePushOverviewApplicationAppUsageResponseBody(object):
 class MessagePushOverviewApplicationAppUsageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._message_push_overview_application_app_usage_response_body = MessagePushOverviewApplicationAppUsageResponseBody()
+
     def items(self, items: List[ApplicationAppUsage]) -> "MessagePushOverviewApplicationAppUsageResponseBodyBuilder":
         self._message_push_overview_application_app_usage_response_body.items = items
         return self
-    
+
     def build(self) -> "MessagePushOverviewApplicationAppUsageResponseBody":
         return self._message_push_overview_application_app_usage_response_body

@@ -29,21 +29,26 @@ class SpaceCoverInfo(object):
 class SpaceCoverInfoBuilder(object):
     def __init__(self) -> None:
         self._space_cover_info = SpaceCoverInfo()
+
     def origin(self, origin: str) -> "SpaceCoverInfoBuilder":
         self._space_cover_info.origin = origin
         return self
+
     def thumbnail(self, thumbnail: str) -> "SpaceCoverInfoBuilder":
         self._space_cover_info.thumbnail = thumbnail
         return self
+
     def name(self, name: str) -> "SpaceCoverInfoBuilder":
         self._space_cover_info.name = name
         return self
+
     def is_graph_dark(self, is_graph_dark: bool) -> "SpaceCoverInfoBuilder":
         self._space_cover_info.is_graph_dark = is_graph_dark
         return self
+
     def color(self, color: str) -> "SpaceCoverInfoBuilder":
         self._space_cover_info.color = color
         return self
-    
+
     def build(self) -> "SpaceCoverInfo":
         return self._space_cover_info

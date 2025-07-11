@@ -24,12 +24,14 @@ class TagItem(object):
 class TagItemBuilder(object):
     def __init__(self) -> None:
         self._tag_item = TagItem()
+
     def id(self, id: str) -> "TagItemBuilder":
         self._tag_item.id = id
         return self
+
     def name(self, name: I18n) -> "TagItemBuilder":
         self._tag_item.name = name
         return self
-    
+
     def build(self) -> "TagItem":
         return self._tag_item

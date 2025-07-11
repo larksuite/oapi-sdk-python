@@ -19,6 +19,6 @@ class Attachment(object):
 class AttachmentBuilder(object):
     def __init__(self) -> None:
         self._attachment = Attachment()
-    
+
     def build(self) -> "Attachment":
         return self._attachment

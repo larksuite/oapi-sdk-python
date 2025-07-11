@@ -27,18 +27,22 @@ class QueryRecentChangeLocationResponseBody(object):
 class QueryRecentChangeLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_location_response_body = QueryRecentChangeLocationResponseBody()
+
     def location_ids(self, location_ids: List[str]) -> "QueryRecentChangeLocationResponseBodyBuilder":
         self._query_recent_change_location_response_body.location_ids = location_ids
         return self
+
     def page_token(self, page_token: str) -> "QueryRecentChangeLocationResponseBodyBuilder":
         self._query_recent_change_location_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryRecentChangeLocationResponseBodyBuilder":
         self._query_recent_change_location_response_body.has_more = has_more
         return self
+
     def deleted_location_ids(self, deleted_location_ids: List[str]) -> "QueryRecentChangeLocationResponseBodyBuilder":
         self._query_recent_change_location_response_body.deleted_location_ids = deleted_location_ids
         return self
-    
+
     def build(self) -> "QueryRecentChangeLocationResponseBody":
         return self._query_recent_change_location_response_body

@@ -30,21 +30,26 @@ class OkrObjectiveKr(object):
 class OkrObjectiveKrBuilder(object):
     def __init__(self) -> None:
         self._okr_objective_kr = OkrObjectiveKr()
+
     def id(self, id: str) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.id = id
         return self
+
     def content(self, content: str) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.content = content
         return self
+
     def score(self, score: int) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.score = score
         return self
+
     def weight(self, weight: float) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.weight = weight
         return self
+
     def progress_rate(self, progress_rate: OkrProgressRate) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.progress_rate = progress_rate
         return self
-    
+
     def build(self) -> "OkrObjectiveKr":
         return self._okr_objective_kr

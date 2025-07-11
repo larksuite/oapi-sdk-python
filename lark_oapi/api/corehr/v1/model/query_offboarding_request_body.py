@@ -23,12 +23,15 @@ class QueryOffboardingRequestBody(object):
 class QueryOffboardingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_offboarding_request_body = QueryOffboardingRequestBody()
+
     def active(self, active: bool) -> "QueryOffboardingRequestBodyBuilder":
         self._query_offboarding_request_body.active = active
         return self
-    def offboarding_reason_unique_identifier(self, offboarding_reason_unique_identifier: List[str]) -> "QueryOffboardingRequestBodyBuilder":
+
+    def offboarding_reason_unique_identifier(self, offboarding_reason_unique_identifier: List[
+        str]) -> "QueryOffboardingRequestBodyBuilder":
         self._query_offboarding_request_body.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
         return self
-    
+
     def build(self) -> "QueryOffboardingRequestBody":
         return self._query_offboarding_request_body

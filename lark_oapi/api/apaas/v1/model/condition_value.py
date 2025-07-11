@@ -25,15 +25,18 @@ class ConditionValue(object):
 class ConditionValueBuilder(object):
     def __init__(self) -> None:
         self._condition_value = ConditionValue()
+
     def type(self, type: str) -> "ConditionValueBuilder":
         self._condition_value.type = type
         return self
+
     def settings(self, settings: str) -> "ConditionValueBuilder":
         self._condition_value.settings = settings
         return self
+
     def display_names(self, display_names: List[str]) -> "ConditionValueBuilder":
         self._condition_value.display_names = display_names
         return self
-    
+
     def build(self) -> "ConditionValue":
         return self._condition_value

@@ -23,12 +23,14 @@ class FailInfo(object):
 class FailInfoBuilder(object):
     def __init__(self) -> None:
         self._fail_info = FailInfo()
+
     def idx(self, idx: int) -> "FailInfoBuilder":
         self._fail_info.idx = idx
         return self
+
     def error_code(self, error_code: int) -> "FailInfoBuilder":
         self._fail_info.error_code = error_code
         return self
-    
+
     def build(self) -> "FailInfo":
         return self._fail_info

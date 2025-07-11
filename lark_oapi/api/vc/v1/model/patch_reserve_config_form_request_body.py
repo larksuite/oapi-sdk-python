@@ -24,12 +24,14 @@ class PatchReserveConfigFormRequestBody(object):
 class PatchReserveConfigFormRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_reserve_config_form_request_body = PatchReserveConfigFormRequestBody()
+
     def scope_type(self, scope_type: int) -> "PatchReserveConfigFormRequestBodyBuilder":
         self._patch_reserve_config_form_request_body.scope_type = scope_type
         return self
+
     def reserve_form_config(self, reserve_form_config: ReserveFormConfig) -> "PatchReserveConfigFormRequestBodyBuilder":
         self._patch_reserve_config_form_request_body.reserve_form_config = reserve_form_config
         return self
-    
+
     def build(self) -> "PatchReserveConfigFormRequestBody":
         return self._patch_reserve_config_form_request_body

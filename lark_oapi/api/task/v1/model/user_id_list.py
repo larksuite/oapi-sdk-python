@@ -22,9 +22,10 @@ class UserIdList(object):
 class UserIdListBuilder(object):
     def __init__(self) -> None:
         self._user_id_list = UserIdList()
+
     def user_id_list(self, user_id_list: List[UserId]) -> "UserIdListBuilder":
         self._user_id_list.user_id_list = user_id_list
         return self
-    
+
     def build(self) -> "UserIdList":
         return self._user_id_list

@@ -31,21 +31,26 @@ class Pathway(object):
 class PathwayBuilder(object):
     def __init__(self) -> None:
         self._pathway = Pathway()
+
     def pathway_id(self, pathway_id: str) -> "PathwayBuilder":
         self._pathway.pathway_id = pathway_id
         return self
+
     def code(self, code: str) -> "PathwayBuilder":
         self._pathway.code = code
         return self
+
     def names(self, names: List[I18n]) -> "PathwayBuilder":
         self._pathway.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "PathwayBuilder":
         self._pathway.descriptions = descriptions
         return self
+
     def active(self, active: bool) -> "PathwayBuilder":
         self._pathway.active = active
         return self
-    
+
     def build(self) -> "Pathway":
         return self._pathway

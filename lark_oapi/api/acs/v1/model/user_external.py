@@ -29,21 +29,26 @@ class UserExternal(object):
 class UserExternalBuilder(object):
     def __init__(self) -> None:
         self._user_external = UserExternal()
+
     def user_type(self, user_type: int) -> "UserExternalBuilder":
         self._user_external.user_type = user_type
         return self
+
     def user_id(self, user_id: int) -> "UserExternalBuilder":
         self._user_external.user_id = user_id
         return self
+
     def user_name(self, user_name: str) -> "UserExternalBuilder":
         self._user_external.user_name = user_name
         return self
+
     def phone_num(self, phone_num: str) -> "UserExternalBuilder":
         self._user_external.phone_num = phone_num
         return self
+
     def department_id(self, department_id: int) -> "UserExternalBuilder":
         self._user_external.department_id = department_id
         return self
-    
+
     def build(self) -> "UserExternal":
         return self._user_external

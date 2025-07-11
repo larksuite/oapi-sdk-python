@@ -22,9 +22,10 @@ class PatchSpreadsheetSheetFloatImageResponseBody(object):
 class PatchSpreadsheetSheetFloatImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_spreadsheet_sheet_float_image_response_body = PatchSpreadsheetSheetFloatImageResponseBody()
+
     def float_image(self, float_image: FloatImage) -> "PatchSpreadsheetSheetFloatImageResponseBodyBuilder":
         self._patch_spreadsheet_sheet_float_image_response_body.float_image = float_image
         return self
-    
+
     def build(self) -> "PatchSpreadsheetSheetFloatImageResponseBody":
         return self._patch_spreadsheet_sheet_float_image_response_body

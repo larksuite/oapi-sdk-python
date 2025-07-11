@@ -33,21 +33,26 @@ class ApplicationDepartmentAppUsage(object):
 class ApplicationDepartmentAppUsageBuilder(object):
     def __init__(self) -> None:
         self._application_department_app_usage = ApplicationDepartmentAppUsage()
+
     def department_id(self, department_id: str) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.department_id = department_id
         return self
+
     def app(self, app: List[ApplicationAppUsage]) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.app = app
         return self
+
     def gadget(self, gadget: List[ApplicationAppUsage]) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.gadget = gadget
         return self
+
     def webapp(self, webapp: List[ApplicationAppUsage]) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.webapp = webapp
         return self
+
     def bot(self, bot: List[ApplicationAppUsage]) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.bot = bot
         return self
-    
+
     def build(self) -> "ApplicationDepartmentAppUsage":
         return self._application_department_app_usage

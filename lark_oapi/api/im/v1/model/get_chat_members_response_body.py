@@ -28,18 +28,22 @@ class GetChatMembersResponseBody(object):
 class GetChatMembersResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_chat_members_response_body = GetChatMembersResponseBody()
+
     def items(self, items: List[ListMember]) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.has_more = has_more
         return self
+
     def member_total(self, member_total: int) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.member_total = member_total
         return self
-    
+
     def build(self) -> "GetChatMembersResponseBody":
         return self._get_chat_members_response_body

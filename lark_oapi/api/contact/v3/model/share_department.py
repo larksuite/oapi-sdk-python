@@ -28,18 +28,22 @@ class ShareDepartment(object):
 class ShareDepartmentBuilder(object):
     def __init__(self) -> None:
         self._share_department = ShareDepartment()
+
     def open_id(self, open_id: str) -> "ShareDepartmentBuilder":
         self._share_department.open_id = open_id
         return self
+
     def name(self, name: str) -> "ShareDepartmentBuilder":
         self._share_department.name = name
         return self
+
     def i18n_name(self, i18n_name: DepartmentI18nName) -> "ShareDepartmentBuilder":
         self._share_department.i18n_name = i18n_name
         return self
+
     def order(self, order: str) -> "ShareDepartmentBuilder":
         self._share_department.order = order
         return self
-    
+
     def build(self) -> "ShareDepartment":
         return self._share_department

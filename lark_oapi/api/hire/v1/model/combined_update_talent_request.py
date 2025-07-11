@@ -25,12 +25,12 @@ class CombinedUpdateTalentRequestBuilder(object):
         combined_update_talent_request.uri = "/open-apis/hire/v1/talents/combined_update"
         combined_update_talent_request.token_types = {AccessTokenType.TENANT}
         self._combined_update_talent_request: CombinedUpdateTalentRequest = combined_update_talent_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CombinedUpdateTalentRequestBuilder":
         self._combined_update_talent_request.user_id_type = user_id_type
         self._combined_update_talent_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: CombinedUpdateTalentRequestBody) -> "CombinedUpdateTalentRequestBuilder":
         self._combined_update_talent_request.request_body = request_body
         self._combined_update_talent_request.body = request_body

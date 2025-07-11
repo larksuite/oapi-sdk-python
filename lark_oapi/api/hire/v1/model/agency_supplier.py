@@ -47,42 +47,54 @@ class AgencySupplier(object):
 class AgencySupplierBuilder(object):
     def __init__(self) -> None:
         self._agency_supplier = AgencySupplier()
+
     def id(self, id: str) -> "AgencySupplierBuilder":
         self._agency_supplier.id = id
         return self
+
     def name(self, name: str) -> "AgencySupplierBuilder":
         self._agency_supplier.name = name
         return self
+
     def label_list(self, label_list: List[AgencySupplierLabel]) -> "AgencySupplierBuilder":
         self._agency_supplier.label_list = label_list
         return self
+
     def admin_list(self, admin_list: List[AgencySupplierAdmin]) -> "AgencySupplierBuilder":
         self._agency_supplier.admin_list = admin_list
         return self
+
     def agency_protect_time(self, agency_protect_time: AgencySupplierProtectTime) -> "AgencySupplierBuilder":
         self._agency_supplier.agency_protect_time = agency_protect_time
         return self
+
     def cooperation_create_time(self, cooperation_create_time: str) -> "AgencySupplierBuilder":
         self._agency_supplier.cooperation_create_time = cooperation_create_time
         return self
+
     def cooperation_start_time(self, cooperation_start_time: str) -> "AgencySupplierBuilder":
         self._agency_supplier.cooperation_start_time = cooperation_start_time
         return self
+
     def cooperation_end_time(self, cooperation_end_time: str) -> "AgencySupplierBuilder":
         self._agency_supplier.cooperation_end_time = cooperation_end_time
         return self
+
     def cooperation_status(self, cooperation_status: int) -> "AgencySupplierBuilder":
         self._agency_supplier.cooperation_status = cooperation_status
         return self
+
     def invite_email(self, invite_email: str) -> "AgencySupplierBuilder":
         self._agency_supplier.invite_email = invite_email
         return self
+
     def supplier_area(self, supplier_area: int) -> "AgencySupplierBuilder":
         self._agency_supplier.supplier_area = supplier_area
         return self
+
     def talent_protect_time(self, talent_protect_time: AgencySupplierTalentProtectTime) -> "AgencySupplierBuilder":
         self._agency_supplier.talent_protect_time = talent_protect_time
         return self
-    
+
     def build(self) -> "AgencySupplier":
         return self._agency_supplier

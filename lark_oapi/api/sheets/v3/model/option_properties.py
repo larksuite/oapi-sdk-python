@@ -21,9 +21,10 @@ class OptionProperties(object):
 class OptionPropertiesBuilder(object):
     def __init__(self) -> None:
         self._option_properties = OptionProperties()
+
     def show_dropdown_icon(self, show_dropdown_icon: bool) -> "OptionPropertiesBuilder":
         self._option_properties.show_dropdown_icon = show_dropdown_icon
         return self
-    
+
     def build(self) -> "OptionProperties":
         return self._option_properties

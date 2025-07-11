@@ -23,12 +23,14 @@ class OpenDisplayFeedRule(object):
 class OpenDisplayFeedRuleBuilder(object):
     def __init__(self) -> None:
         self._open_display_feed_rule = OpenDisplayFeedRule()
+
     def main_rule(self, main_rule: str) -> "OpenDisplayFeedRuleBuilder":
         self._open_display_feed_rule.main_rule = main_rule
         return self
+
     def msg_types(self, msg_types: List[str]) -> "OpenDisplayFeedRuleBuilder":
         self._open_display_feed_rule.msg_types = msg_types
         return self
-    
+
     def build(self) -> "OpenDisplayFeedRule":
         return self._open_display_feed_rule

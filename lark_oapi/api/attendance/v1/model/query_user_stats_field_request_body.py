@@ -27,18 +27,22 @@ class QueryUserStatsFieldRequestBody(object):
 class QueryUserStatsFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_stats_field_request_body = QueryUserStatsFieldRequestBody()
+
     def locale(self, locale: str) -> "QueryUserStatsFieldRequestBodyBuilder":
         self._query_user_stats_field_request_body.locale = locale
         return self
+
     def stats_type(self, stats_type: str) -> "QueryUserStatsFieldRequestBodyBuilder":
         self._query_user_stats_field_request_body.stats_type = stats_type
         return self
+
     def start_date(self, start_date: int) -> "QueryUserStatsFieldRequestBodyBuilder":
         self._query_user_stats_field_request_body.start_date = start_date
         return self
+
     def end_date(self, end_date: int) -> "QueryUserStatsFieldRequestBodyBuilder":
         self._query_user_stats_field_request_body.end_date = end_date
         return self
-    
+
     def build(self) -> "QueryUserStatsFieldRequestBody":
         return self._query_user_stats_field_request_body

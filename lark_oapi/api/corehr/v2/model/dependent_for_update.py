@@ -52,48 +52,64 @@ class DependentForUpdate(object):
 class DependentForUpdateBuilder(object):
     def __init__(self) -> None:
         self._dependent_for_update = DependentForUpdate()
+
     def relationship(self, relationship: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.relationship = relationship
         return self
+
     def gender(self, gender: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.gender = gender
         return self
+
     def date_of_birth(self, date_of_birth: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.date_of_birth = date_of_birth
         return self
+
     def national_ids(self, national_ids: List[NationalIdForUpdate]) -> "DependentForUpdateBuilder":
         self._dependent_for_update.national_ids = national_ids
         return self
+
     def spouses_working_status(self, spouses_working_status: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.spouses_working_status = spouses_working_status
         return self
-    def is_this_person_covered_by_health_insurance(self, is_this_person_covered_by_health_insurance: bool) -> "DependentForUpdateBuilder":
+
+    def is_this_person_covered_by_health_insurance(self,
+                                                   is_this_person_covered_by_health_insurance: bool) -> "DependentForUpdateBuilder":
         self._dependent_for_update.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
         return self
-    def is_this_person_allowed_for_tax_deduction(self, is_this_person_allowed_for_tax_deduction: bool) -> "DependentForUpdateBuilder":
+
+    def is_this_person_allowed_for_tax_deduction(self,
+                                                 is_this_person_allowed_for_tax_deduction: bool) -> "DependentForUpdateBuilder":
         self._dependent_for_update.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
         return self
+
     def dependent_name(self, dependent_name: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.dependent_name = dependent_name
         return self
+
     def employer(self, employer: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.employer = employer
         return self
+
     def job(self, job: str) -> "DependentForUpdateBuilder":
         self._dependent_for_update.job = job
         return self
+
     def phone(self, phone: PhoneForUpdate) -> "DependentForUpdateBuilder":
         self._dependent_for_update.phone = phone
         return self
+
     def address(self, address: AddressForUpdate) -> "DependentForUpdateBuilder":
         self._dependent_for_update.address = address
         return self
+
     def birth_certificate_of_children(self, birth_certificate_of_children: List[File]) -> "DependentForUpdateBuilder":
         self._dependent_for_update.birth_certificate_of_children = birth_certificate_of_children
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DependentForUpdateBuilder":
         self._dependent_for_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "DependentForUpdate":
         return self._dependent_for_update

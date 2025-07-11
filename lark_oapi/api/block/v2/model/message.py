@@ -29,21 +29,26 @@ class Message(object):
 class MessageBuilder(object):
     def __init__(self) -> None:
         self._message = Message()
+
     def body(self, body: str) -> "MessageBuilder":
         self._message.body = body
         return self
+
     def version(self, version: int) -> "MessageBuilder":
         self._message.version = version
         return self
+
     def block_id(self, block_id: str) -> "MessageBuilder":
         self._message.block_id = block_id
         return self
+
     def resource(self, resource: str) -> "MessageBuilder":
         self._message.resource = resource
         return self
+
     def open_ids(self, open_ids: List[str]) -> "MessageBuilder":
         self._message.open_ids = open_ids
         return self
-    
+
     def build(self) -> "Message":
         return self._message

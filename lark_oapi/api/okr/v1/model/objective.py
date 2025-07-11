@@ -48,42 +48,54 @@ class Objective(object):
 class ObjectiveBuilder(object):
     def __init__(self) -> None:
         self._objective = Objective()
+
     def id(self, id: str) -> "ObjectiveBuilder":
         self._objective.id = id
         return self
+
     def okr_id(self, okr_id: str) -> "ObjectiveBuilder":
         self._objective.okr_id = okr_id
         return self
+
     def user_id(self, user_id: str) -> "ObjectiveBuilder":
         self._objective.user_id = user_id
         return self
+
     def pos(self, pos: str) -> "ObjectiveBuilder":
         self._objective.pos = pos
         return self
+
     def score(self, score: str) -> "ObjectiveBuilder":
         self._objective.score = score
         return self
+
     def name(self, name: ObjectiveName) -> "ObjectiveBuilder":
         self._objective.name = name
         return self
+
     def progress(self, progress: ObjectiveProgress) -> "ObjectiveBuilder":
         self._objective.progress = progress
         return self
+
     def create_time(self, create_time: int) -> "ObjectiveBuilder":
         self._objective.create_time = create_time
         return self
+
     def modify_time(self, modify_time: int) -> "ObjectiveBuilder":
         self._objective.modify_time = modify_time
         return self
+
     def kr_list(self, kr_list: List[Kr]) -> "ObjectiveBuilder":
         self._objective.kr_list = kr_list
         return self
+
     def aligning_objective_list(self, aligning_objective_list: List[AlignObjective]) -> "ObjectiveBuilder":
         self._objective.aligning_objective_list = aligning_objective_list
         return self
+
     def aligned_objective_list(self, aligned_objective_list: List[AlignObjective]) -> "ObjectiveBuilder":
         self._objective.aligned_objective_list = aligned_objective_list
         return self
-    
+
     def build(self) -> "Objective":
         return self._objective

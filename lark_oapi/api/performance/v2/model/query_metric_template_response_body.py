@@ -26,15 +26,18 @@ class QueryMetricTemplateResponseBody(object):
 class QueryMetricTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_template_response_body = QueryMetricTemplateResponseBody()
+
     def items(self, items: List[MetricTemplate]) -> "QueryMetricTemplateResponseBodyBuilder":
         self._query_metric_template_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "QueryMetricTemplateResponseBodyBuilder":
         self._query_metric_template_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "QueryMetricTemplateResponseBodyBuilder":
         self._query_metric_template_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "QueryMetricTemplateResponseBody":
         return self._query_metric_template_response_body

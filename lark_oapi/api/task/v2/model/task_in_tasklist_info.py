@@ -23,12 +23,14 @@ class TaskInTasklistInfo(object):
 class TaskInTasklistInfoBuilder(object):
     def __init__(self) -> None:
         self._task_in_tasklist_info = TaskInTasklistInfo()
+
     def tasklist_guid(self, tasklist_guid: str) -> "TaskInTasklistInfoBuilder":
         self._task_in_tasklist_info.tasklist_guid = tasklist_guid
         return self
+
     def section_guid(self, section_guid: str) -> "TaskInTasklistInfoBuilder":
         self._task_in_tasklist_info.section_guid = section_guid
         return self
-    
+
     def build(self) -> "TaskInTasklistInfo":
         return self._task_in_tasklist_info

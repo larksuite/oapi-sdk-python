@@ -26,15 +26,18 @@ class LlmDetail(object):
 class LlmDetailBuilder(object):
     def __init__(self) -> None:
         self._llm_detail = LlmDetail()
+
     def query_id(self, query_id: int) -> "LlmDetailBuilder":
         self._llm_detail.query_id = query_id
         return self
+
     def usage(self, usage: LlmUsage) -> "LlmDetailBuilder":
         self._llm_detail.usage = usage
         return self
+
     def finish_reason(self, finish_reason: str) -> "LlmDetailBuilder":
         self._llm_detail.finish_reason = finish_reason
         return self
-    
+
     def build(self) -> "LlmDetail":
         return self._llm_detail

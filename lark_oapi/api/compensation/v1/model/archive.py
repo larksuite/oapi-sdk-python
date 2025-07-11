@@ -30,21 +30,26 @@ class Archive(object):
 class ArchiveBuilder(object):
     def __init__(self) -> None:
         self._archive = Archive()
+
     def archive_id(self, archive_id: str) -> "ArchiveBuilder":
         self._archive.archive_id = archive_id
         return self
+
     def archive_tid(self, archive_tid: str) -> "ArchiveBuilder":
         self._archive.archive_tid = archive_tid
         return self
+
     def user_id(self, user_id: str) -> "ArchiveBuilder":
         self._archive.user_id = user_id
         return self
+
     def plan(self, plan: Plan) -> "ArchiveBuilder":
         self._archive.plan = plan
         return self
+
     def effective_date(self, effective_date: str) -> "ArchiveBuilder":
         self._archive.effective_date = effective_date
         return self
-    
+
     def build(self) -> "Archive":
         return self._archive

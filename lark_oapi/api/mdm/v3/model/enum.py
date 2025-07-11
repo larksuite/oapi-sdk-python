@@ -23,12 +23,14 @@ class Enum(object):
 class EnumBuilder(object):
     def __init__(self) -> None:
         self._enum = Enum()
+
     def value(self, value: str) -> "EnumBuilder":
         self._enum.value = value
         return self
+
     def multilingual_name(self, multilingual_name: Dict[str, str]) -> "EnumBuilder":
         self._enum.multilingual_name = multilingual_name
         return self
-    
+
     def build(self) -> "Enum":
         return self._enum

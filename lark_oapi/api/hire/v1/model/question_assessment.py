@@ -32,21 +32,26 @@ class QuestionAssessment(object):
 class QuestionAssessmentBuilder(object):
     def __init__(self) -> None:
         self._question_assessment = QuestionAssessment()
+
     def question_type(self, question_type: int) -> "QuestionAssessmentBuilder":
         self._question_assessment.question_type = question_type
         return self
+
     def title(self, title: I18n) -> "QuestionAssessmentBuilder":
         self._question_assessment.title = title
         return self
+
     def description(self, description: I18n) -> "QuestionAssessmentBuilder":
         self._question_assessment.description = description
         return self
+
     def content(self, content: str) -> "QuestionAssessmentBuilder":
         self._question_assessment.content = content
         return self
+
     def abilities(self, abilities: List[Ability]) -> "QuestionAssessmentBuilder":
         self._question_assessment.abilities = abilities
         return self
-    
+
     def build(self) -> "QuestionAssessment":
         return self._question_assessment

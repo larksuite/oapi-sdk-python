@@ -23,12 +23,14 @@ class ResumeCompetition(object):
 class ResumeCompetitionBuilder(object):
     def __init__(self) -> None:
         self._resume_competition = ResumeCompetition()
+
     def name(self, name: str) -> "ResumeCompetitionBuilder":
         self._resume_competition.name = name
         return self
+
     def desc(self, desc: str) -> "ResumeCompetitionBuilder":
         self._resume_competition.desc = desc
         return self
-    
+
     def build(self) -> "ResumeCompetition":
         return self._resume_competition

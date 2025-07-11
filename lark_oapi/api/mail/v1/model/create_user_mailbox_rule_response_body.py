@@ -22,9 +22,10 @@ class CreateUserMailboxRuleResponseBody(object):
 class CreateUserMailboxRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_mailbox_rule_response_body = CreateUserMailboxRuleResponseBody()
+
     def rule(self, rule: Rule) -> "CreateUserMailboxRuleResponseBodyBuilder":
         self._create_user_mailbox_rule_response_body.rule = rule
         return self
-    
+
     def build(self) -> "CreateUserMailboxRuleResponseBody":
         return self._create_user_mailbox_rule_response_body

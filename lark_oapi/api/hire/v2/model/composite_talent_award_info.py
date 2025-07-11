@@ -28,18 +28,23 @@ class CompositeTalentAwardInfo(object):
 class CompositeTalentAwardInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_award_info = CompositeTalentAwardInfo()
+
     def award_name(self, award_name: str) -> "CompositeTalentAwardInfoBuilder":
         self._composite_talent_award_info.award_name = award_name
         return self
+
     def award_time(self, award_time: str) -> "CompositeTalentAwardInfoBuilder":
         self._composite_talent_award_info.award_time = award_time
         return self
+
     def description(self, description: str) -> "CompositeTalentAwardInfoBuilder":
         self._composite_talent_award_info.description = description
         return self
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentAwardInfoBuilder":
+
+    def customized_data_list(self, customized_data_list: List[
+        TalentCustomizedDataChild]) -> "CompositeTalentAwardInfoBuilder":
         self._composite_talent_award_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "CompositeTalentAwardInfo":
         return self._composite_talent_award_info

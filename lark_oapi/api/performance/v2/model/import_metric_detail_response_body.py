@@ -21,9 +21,10 @@ class ImportMetricDetailResponseBody(object):
 class ImportMetricDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._import_metric_detail_response_body = ImportMetricDetailResponseBody()
+
     def import_record_id(self, import_record_id: int) -> "ImportMetricDetailResponseBodyBuilder":
         self._import_metric_detail_response_body.import_record_id = import_record_id
         return self
-    
+
     def build(self) -> "ImportMetricDetailResponseBody":
         return self._import_metric_detail_response_body

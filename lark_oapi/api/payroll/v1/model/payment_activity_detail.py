@@ -24,12 +24,14 @@ class PaymentActivityDetail(object):
 class PaymentActivityDetailBuilder(object):
     def __init__(self) -> None:
         self._payment_activity_detail = PaymentActivityDetail()
+
     def employee_id(self, employee_id: str) -> "PaymentActivityDetailBuilder":
         self._payment_activity_detail.employee_id = employee_id
         return self
+
     def payment_details(self, payment_details: List[PaymentAccountingItem]) -> "PaymentActivityDetailBuilder":
         self._payment_activity_detail.payment_details = payment_details
         return self
-    
+
     def build(self) -> "PaymentActivityDetail":
         return self._payment_activity_detail

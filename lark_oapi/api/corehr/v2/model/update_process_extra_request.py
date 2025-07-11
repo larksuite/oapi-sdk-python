@@ -26,17 +26,17 @@ class UpdateProcessExtraRequestBuilder(object):
         update_process_extra_request.uri = "/open-apis/corehr/v2/processes/:process_id/extra"
         update_process_extra_request.token_types = {AccessTokenType.TENANT}
         self._update_process_extra_request: UpdateProcessExtraRequest = update_process_extra_request
-    
+
     def user_id_type(self, user_id_type: str) -> "UpdateProcessExtraRequestBuilder":
         self._update_process_extra_request.user_id_type = user_id_type
         self._update_process_extra_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def process_id(self, process_id: str) -> "UpdateProcessExtraRequestBuilder":
         self._update_process_extra_request.process_id = process_id
         self._update_process_extra_request.paths["process_id"] = str(process_id)
         return self
-    
+
     def request_body(self, request_body: ProcessExtra) -> "UpdateProcessExtraRequestBuilder":
         self._update_process_extra_request.request_body = request_body
         self._update_process_extra_request.body = request_body

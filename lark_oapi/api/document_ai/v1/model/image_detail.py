@@ -25,15 +25,18 @@ class ImageDetail(object):
 class ImageDetailBuilder(object):
     def __init__(self) -> None:
         self._image_detail = ImageDetail()
+
     def base64(self, base64: str) -> "ImageDetailBuilder":
         self._image_detail.base64 = base64
         return self
+
     def caption(self, caption: str) -> "ImageDetailBuilder":
         self._image_detail.caption = caption
         return self
+
     def links(self, links: List[str]) -> "ImageDetailBuilder":
         self._image_detail.links = links
         return self
-    
+
     def build(self) -> "ImageDetail":
         return self._image_detail

@@ -25,15 +25,18 @@ class Options(object):
 class OptionsBuilder(object):
     def __init__(self) -> None:
         self._options = Options()
+
     def text(self, text: str) -> "OptionsBuilder":
         self._options.text = text
         return self
+
     def key(self, key: str) -> "OptionsBuilder":
         self._options.key = key
         return self
+
     def is_other(self, is_other: bool) -> "OptionsBuilder":
         self._options.is_other = is_other
         return self
-    
+
     def build(self) -> "Options":
         return self._options

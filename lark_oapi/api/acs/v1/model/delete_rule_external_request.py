@@ -23,12 +23,11 @@ class DeleteRuleExternalRequestBuilder(object):
         delete_rule_external_request.uri = "/open-apis/acs/v1/rule_external"
         delete_rule_external_request.token_types = {AccessTokenType.USER}
         self._delete_rule_external_request: DeleteRuleExternalRequest = delete_rule_external_request
-    
+
     def rule_id(self, rule_id: int) -> "DeleteRuleExternalRequestBuilder":
         self._delete_rule_external_request.rule_id = rule_id
         self._delete_rule_external_request.add_query("rule_id", rule_id)
         return self
-    
 
     def build(self) -> DeleteRuleExternalRequest:
         return self._delete_rule_external_request

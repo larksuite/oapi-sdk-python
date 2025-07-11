@@ -25,15 +25,18 @@ class ExportArchiveUserRecordReq(object):
 class ExportArchiveUserRecordReqBuilder(object):
     def __init__(self) -> None:
         self._export_archive_user_record_req = ExportArchiveUserRecordReq()
+
     def start_date(self, start_date: str) -> "ExportArchiveUserRecordReqBuilder":
         self._export_archive_user_record_req.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "ExportArchiveUserRecordReqBuilder":
         self._export_archive_user_record_req.end_date = end_date
         return self
+
     def user_ids(self, user_ids: List[str]) -> "ExportArchiveUserRecordReqBuilder":
         self._export_archive_user_record_req.user_ids = user_ids
         return self
-    
+
     def build(self) -> "ExportArchiveUserRecordReq":
         return self._export_archive_user_record_req

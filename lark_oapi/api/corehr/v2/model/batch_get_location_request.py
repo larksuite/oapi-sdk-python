@@ -24,7 +24,7 @@ class BatchGetLocationRequestBuilder(object):
         batch_get_location_request.uri = "/open-apis/corehr/v2/locations/batch_get"
         batch_get_location_request.token_types = {AccessTokenType.TENANT}
         self._batch_get_location_request: BatchGetLocationRequest = batch_get_location_request
-    
+
     def request_body(self, request_body: BatchGetLocationRequestBody) -> "BatchGetLocationRequestBuilder":
         self._batch_get_location_request.request_body = request_body
         self._batch_get_location_request.body = request_body

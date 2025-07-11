@@ -21,7 +21,8 @@ class TaskReminder(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTaskReminderRequest, option: Optional[RequestOption] = None) -> CreateTaskReminderResponse:
+    def create(self, request: CreateTaskReminderRequest,
+               option: Optional[RequestOption] = None) -> CreateTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,32 @@ class TaskReminder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskReminderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateTaskReminderRequest, option: Optional[RequestOption] = None) -> CreateTaskReminderResponse:
+    async def acreate(self, request: CreateTaskReminderRequest,
+                      option: Optional[RequestOption] = None) -> CreateTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskReminderResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteTaskReminderRequest, option: Optional[RequestOption] = None) -> DeleteTaskReminderResponse:
+
+    def delete(self, request: DeleteTaskReminderRequest,
+               option: Optional[RequestOption] = None) -> DeleteTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +73,32 @@ class TaskReminder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskReminderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteTaskReminderRequest, option: Optional[RequestOption] = None) -> DeleteTaskReminderResponse:
+    async def adelete(self, request: DeleteTaskReminderRequest,
+                      option: Optional[RequestOption] = None) -> DeleteTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskReminderResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListTaskReminderRequest, option: Optional[RequestOption] = None) -> ListTaskReminderResponse:
+
+    def list(self, request: ListTaskReminderRequest,
+             option: Optional[RequestOption] = None) -> ListTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +111,26 @@ class TaskReminder(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskReminderResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListTaskReminderRequest, option: Optional[RequestOption] = None) -> ListTaskReminderResponse:
+    async def alist(self, request: ListTaskReminderRequest,
+                    option: Optional[RequestOption] = None) -> ListTaskReminderResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTaskReminderResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskReminderResponse)
         response.raw = resp
 
         return response
-        
-    

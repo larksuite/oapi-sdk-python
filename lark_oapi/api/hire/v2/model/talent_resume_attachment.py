@@ -27,18 +27,22 @@ class TalentResumeAttachment(object):
 class TalentResumeAttachmentBuilder(object):
     def __init__(self) -> None:
         self._talent_resume_attachment = TalentResumeAttachment()
+
     def id(self, id: str) -> "TalentResumeAttachmentBuilder":
         self._talent_resume_attachment.id = id
         return self
+
     def name(self, name: str) -> "TalentResumeAttachmentBuilder":
         self._talent_resume_attachment.name = name
         return self
+
     def mime(self, mime: str) -> "TalentResumeAttachmentBuilder":
         self._talent_resume_attachment.mime = mime
         return self
+
     def create_time(self, create_time: str) -> "TalentResumeAttachmentBuilder":
         self._talent_resume_attachment.create_time = create_time
         return self
-    
+
     def build(self) -> "TalentResumeAttachment":
         return self._talent_resume_attachment

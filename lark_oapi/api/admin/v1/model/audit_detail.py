@@ -27,18 +27,22 @@ class AuditDetail(object):
 class AuditDetailBuilder(object):
     def __init__(self) -> None:
         self._audit_detail = AuditDetail()
+
     def mc(self, mc: str) -> "AuditDetailBuilder":
         self._audit_detail.mc = mc
         return self
+
     def device_model(self, device_model: str) -> "AuditDetailBuilder":
         self._audit_detail.device_model = device_model
         return self
+
     def os(self, os: str) -> "AuditDetailBuilder":
         self._audit_detail.os = os
         return self
+
     def city(self, city: str) -> "AuditDetailBuilder":
         self._audit_detail.city = city
         return self
-    
+
     def build(self) -> "AuditDetail":
         return self._audit_detail

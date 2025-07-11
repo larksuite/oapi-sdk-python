@@ -31,21 +31,26 @@ class ReviewProfile(object):
 class ReviewProfileBuilder(object):
     def __init__(self) -> None:
         self._review_profile = ReviewProfile()
+
     def user_id(self, user_id: User) -> "ReviewProfileBuilder":
         self._review_profile.user_id = user_id
         return self
+
     def semester_id(self, semester_id: str) -> "ReviewProfileBuilder":
         self._review_profile.semester_id = semester_id
         return self
+
     def activity_id(self, activity_id: str) -> "ReviewProfileBuilder":
         self._review_profile.activity_id = activity_id
         return self
+
     def review_template_id(self, review_template_id: str) -> "ReviewProfileBuilder":
         self._review_profile.review_template_id = review_template_id
         return self
+
     def stages(self, stages: List[ReviewStage]) -> "ReviewProfileBuilder":
         self._review_profile.stages = stages
         return self
-    
+
     def build(self) -> "ReviewProfile":
         return self._review_profile

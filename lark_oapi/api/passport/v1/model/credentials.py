@@ -25,15 +25,18 @@ class Credentials(object):
 class CredentialsBuilder(object):
     def __init__(self) -> None:
         self._credentials = Credentials()
+
     def email(self, email: str) -> "CredentialsBuilder":
         self._credentials.email = email
         return self
+
     def mobile(self, mobile: str) -> "CredentialsBuilder":
         self._credentials.mobile = mobile
         return self
+
     def user_id(self, user_id: str) -> "CredentialsBuilder":
         self._credentials.user_id = user_id
         return self
-    
+
     def build(self) -> "Credentials":
         return self._credentials

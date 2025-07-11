@@ -22,9 +22,10 @@ class PatchInterviewerRequestBody(object):
 class PatchInterviewerRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_interviewer_request_body = PatchInterviewerRequestBody()
+
     def interviewer(self, interviewer: Interviewer) -> "PatchInterviewerRequestBodyBuilder":
         self._patch_interviewer_request_body.interviewer = interviewer
         return self
-    
+
     def build(self) -> "PatchInterviewerRequestBody":
         return self._patch_interviewer_request_body

@@ -30,18 +30,22 @@ class Data(object):
 class DataBuilder(object):
     def __init__(self) -> None:
         self._data = Data()
+
     def schema(self, schema: str) -> "DataBuilder":
         self._data.schema = schema
         return self
+
     def body(self, body: Element) -> "DataBuilder":
         self._data.body = body
         return self
+
     def header(self, header: Header) -> "DataBuilder":
         self._data.header = header
         return self
+
     def card_link(self, card_link: CardLink) -> "DataBuilder":
         self._data.card_link = card_link
         return self
-    
+
     def build(self) -> "Data":
         return self._data

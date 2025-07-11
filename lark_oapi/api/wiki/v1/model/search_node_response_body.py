@@ -26,15 +26,18 @@ class SearchNodeResponseBody(object):
 class SearchNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_node_response_body = SearchNodeResponseBody()
+
     def items(self, items: List[Node]) -> "SearchNodeResponseBodyBuilder":
         self._search_node_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchNodeResponseBodyBuilder":
         self._search_node_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchNodeResponseBodyBuilder":
         self._search_node_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchNodeResponseBody":
         return self._search_node_response_body

@@ -24,7 +24,7 @@ class RecognizeTrainInvoiceRequestBuilder(object):
         recognize_train_invoice_request.uri = "/open-apis/document_ai/v1/train_invoice/recognize"
         recognize_train_invoice_request.token_types = {AccessTokenType.TENANT}
         self._recognize_train_invoice_request: RecognizeTrainInvoiceRequest = recognize_train_invoice_request
-    
+
     def request_body(self, request_body: RecognizeTrainInvoiceRequestBody) -> "RecognizeTrainInvoiceRequestBuilder":
         self._recognize_train_invoice_request.request_body = request_body
         self._recognize_train_invoice_request.body = request_body

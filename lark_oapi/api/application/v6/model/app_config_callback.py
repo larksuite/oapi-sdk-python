@@ -27,18 +27,22 @@ class AppConfigCallback(object):
 class AppConfigCallbackBuilder(object):
     def __init__(self) -> None:
         self._app_config_callback = AppConfigCallback()
+
     def callback_type(self, callback_type: str) -> "AppConfigCallbackBuilder":
         self._app_config_callback.callback_type = callback_type
         return self
+
     def request_url(self, request_url: str) -> "AppConfigCallbackBuilder":
         self._app_config_callback.request_url = request_url
         return self
+
     def add_callbacks(self, add_callbacks: List[str]) -> "AppConfigCallbackBuilder":
         self._app_config_callback.add_callbacks = add_callbacks
         return self
+
     def remove_callbacks(self, remove_callbacks: List[str]) -> "AppConfigCallbackBuilder":
         self._app_config_callback.remove_callbacks = remove_callbacks
         return self
-    
+
     def build(self) -> "AppConfigCallback":
         return self._app_config_callback

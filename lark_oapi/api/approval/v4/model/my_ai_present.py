@@ -38,33 +38,42 @@ class MyAiPresent(object):
 class MyAiPresentBuilder(object):
     def __init__(self) -> None:
         self._my_ai_present = MyAiPresent()
+
     def type(self, type: str) -> "MyAiPresentBuilder":
         self._my_ai_present.type = type
         return self
+
     def body(self, body: str) -> "MyAiPresentBuilder":
         self._my_ai_present.body = body
         return self
+
     def callback_url(self, callback_url: str) -> "MyAiPresentBuilder":
         self._my_ai_present.callback_url = callback_url
         return self
+
     def callback_info(self, callback_info: str) -> "MyAiPresentBuilder":
         self._my_ai_present.callback_info = callback_info
         return self
+
     def card_template_id(self, card_template_id: str) -> "MyAiPresentBuilder":
         self._my_ai_present.card_template_id = card_template_id
         return self
+
     def card_variables(self, card_variables: MyAiPresentCardVariables) -> "MyAiPresentBuilder":
         self._my_ai_present.card_variables = card_variables
         return self
+
     def interactable(self, interactable: bool) -> "MyAiPresentBuilder":
         self._my_ai_present.interactable = interactable
         return self
+
     def operation_type(self, operation_type: str) -> "MyAiPresentBuilder":
         self._my_ai_present.operation_type = operation_type
         return self
+
     def operation_url(self, operation_url: str) -> "MyAiPresentBuilder":
         self._my_ai_present.operation_url = operation_url
         return self
-    
+
     def build(self) -> "MyAiPresent":
         return self._my_ai_present

@@ -36,27 +36,34 @@ class VerifDatasourceConfig(object):
 class VerifDatasourceConfigBuilder(object):
     def __init__(self) -> None:
         self._verif_datasource_config = VerifDatasourceConfig()
+
     def filter_type(self, filter_type: int) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.filter_type = filter_type
         return self
+
     def filter_rule(self, filter_rule: VerifFilterRule) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.filter_rule = filter_rule
         return self
+
     def is_collect(self, is_collect: bool) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.is_collect = is_collect
         return self
+
     def is_proration(self, is_proration: bool) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.is_proration = is_proration
         return self
+
     def is_retro(self, is_retro: bool) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.is_retro = is_retro
         return self
+
     def items(self, items: List[VerifItem]) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.items = items
         return self
+
     def data_source_rule(self, data_source_rule: VerifDataSourceRule) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.data_source_rule = data_source_rule
         return self
-    
+
     def build(self) -> "VerifDatasourceConfig":
         return self._verif_datasource_config

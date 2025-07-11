@@ -26,15 +26,18 @@ class AuditRecipientEntity(object):
 class AuditRecipientEntityBuilder(object):
     def __init__(self) -> None:
         self._audit_recipient_entity = AuditRecipientEntity()
+
     def recipient_type(self, recipient_type: str) -> "AuditRecipientEntityBuilder":
         self._audit_recipient_entity.recipient_type = recipient_type
         return self
+
     def recipient_value(self, recipient_value: str) -> "AuditRecipientEntityBuilder":
         self._audit_recipient_entity.recipient_value = recipient_value
         return self
+
     def recipient_detail(self, recipient_detail: AuditRecipientDetail) -> "AuditRecipientEntityBuilder":
         self._audit_recipient_entity.recipient_detail = recipient_detail
         return self
-    
+
     def build(self) -> "AuditRecipientEntity":
         return self._audit_recipient_entity

@@ -5,76 +5,76 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchV2WorkforcePlanDetailRequest = BatchV2WorkforcePlanDetailRequest.builder() \
-		.page_token("") \
-		.page_size(100) \
-		.request_body(BatchV2WorkforcePlanDetailRequestBody.builder()
-					  .workforce_plan_id("781234834512")
-					  .is_centralized_reporting_project(False)
-					  .centralized_reporting_project_id("7140964208476371111")
-					  .dimension_id_in_datas([])
-					  .include_missing_dimension_rows(False)
-					  .filter_all_zero_value_rows(False)
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchV2WorkforcePlanDetailRequest = BatchV2WorkforcePlanDetailRequest.builder() \
+        .page_token("") \
+        .page_size(100) \
+        .request_body(BatchV2WorkforcePlanDetailRequestBody.builder()
+                      .workforce_plan_id("781234834512")
+                      .is_centralized_reporting_project(False)
+                      .centralized_reporting_project_id("7140964208476371111")
+                      .dimension_id_in_datas([])
+                      .include_missing_dimension_rows(False)
+                      .filter_all_zero_value_rows(False)
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchV2WorkforcePlanDetailResponse = client.corehr.v2.workforce_plan_detail.batch_v2(request)
+    # 发起请求
+    response: BatchV2WorkforcePlanDetailResponse = client.corehr.v2.workforce_plan_detail.batch_v2(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.workforce_plan_detail.batch_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.workforce_plan_detail.batch_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchV2WorkforcePlanDetailRequest = BatchV2WorkforcePlanDetailRequest.builder() \
-		.page_token("") \
-		.page_size(100) \
-		.request_body(BatchV2WorkforcePlanDetailRequestBody.builder()
-					  .workforce_plan_id("781234834512")
-					  .is_centralized_reporting_project(False)
-					  .centralized_reporting_project_id("7140964208476371111")
-					  .dimension_id_in_datas([])
-					  .include_missing_dimension_rows(False)
-					  .filter_all_zero_value_rows(False)
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchV2WorkforcePlanDetailRequest = BatchV2WorkforcePlanDetailRequest.builder() \
+        .page_token("") \
+        .page_size(100) \
+        .request_body(BatchV2WorkforcePlanDetailRequestBody.builder()
+                      .workforce_plan_id("781234834512")
+                      .is_centralized_reporting_project(False)
+                      .centralized_reporting_project_id("7140964208476371111")
+                      .dimension_id_in_datas([])
+                      .include_missing_dimension_rows(False)
+                      .filter_all_zero_value_rows(False)
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchV2WorkforcePlanDetailResponse = await client.corehr.v2.workforce_plan_detail.abatch_v2(request)
+    # 发起请求
+    response: BatchV2WorkforcePlanDetailResponse = await client.corehr.v2.workforce_plan_detail.abatch_v2(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.workforce_plan_detail.abatch_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.workforce_plan_detail.abatch_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

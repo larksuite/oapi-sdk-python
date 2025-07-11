@@ -25,12 +25,12 @@ class ConvertDocumentRequestBuilder(object):
         convert_document_request.uri = "/open-apis/docx/v1/documents/blocks/convert"
         convert_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._convert_document_request: ConvertDocumentRequest = convert_document_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ConvertDocumentRequestBuilder":
         self._convert_document_request.user_id_type = user_id_type
         self._convert_document_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: ConvertDocumentRequestBody) -> "ConvertDocumentRequestBuilder":
         self._convert_document_request.request_body = request_body
         self._convert_document_request.body = request_body

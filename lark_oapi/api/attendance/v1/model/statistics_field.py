@@ -27,18 +27,22 @@ class StatisticsField(object):
 class StatisticsFieldBuilder(object):
     def __init__(self) -> None:
         self._statistics_field = StatisticsField()
+
     def field_id(self, field_id: str) -> "StatisticsFieldBuilder":
         self._statistics_field.field_id = field_id
         return self
+
     def field_content(self, field_content: str) -> "StatisticsFieldBuilder":
         self._statistics_field.field_content = field_content
         return self
+
     def title(self, title: str) -> "StatisticsFieldBuilder":
         self._statistics_field.title = title
         return self
+
     def field_desc(self, field_desc: str) -> "StatisticsFieldBuilder":
         self._statistics_field.field_desc = field_desc
         return self
-    
+
     def build(self) -> "StatisticsField":
         return self._statistics_field

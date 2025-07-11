@@ -37,33 +37,42 @@ class BankEntity(object):
 class BankEntityBuilder(object):
     def __init__(self) -> None:
         self._bank_entity = BankEntity()
+
     def account_name(self, account_name: str) -> "BankEntityBuilder":
         self._bank_entity.account_name = account_name
         return self
+
     def bank_name(self, bank_name: str) -> "BankEntityBuilder":
         self._bank_entity.bank_name = bank_name
         return self
+
     def account_number(self, account_number: str) -> "BankEntityBuilder":
         self._bank_entity.account_number = account_number
         return self
+
     def phone(self, phone: str) -> "BankEntityBuilder":
         self._bank_entity.phone = phone
         return self
+
     def contacts(self, contacts: str) -> "BankEntityBuilder":
         self._bank_entity.contacts = contacts
         return self
+
     def tax_number(self, tax_number: str) -> "BankEntityBuilder":
         self._bank_entity.tax_number = tax_number
         return self
+
     def address(self, address: str) -> "BankEntityBuilder":
         self._bank_entity.address = address
         return self
+
     def id_number(self, id_number: str) -> "BankEntityBuilder":
         self._bank_entity.id_number = id_number
         return self
+
     def email(self, email: str) -> "BankEntityBuilder":
         self._bank_entity.email = email
         return self
-    
+
     def build(self) -> "BankEntity":
         return self._bank_entity

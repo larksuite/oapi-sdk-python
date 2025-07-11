@@ -23,12 +23,14 @@ class OpeningTimePeriodExternal(object):
 class OpeningTimePeriodExternalBuilder(object):
     def __init__(self) -> None:
         self._opening_time_period_external = OpeningTimePeriodExternal()
+
     def start_hhmm(self, start_hhmm: int) -> "OpeningTimePeriodExternalBuilder":
         self._opening_time_period_external.start_hhmm = start_hhmm
         return self
+
     def end_hhmm(self, end_hhmm: int) -> "OpeningTimePeriodExternalBuilder":
         self._opening_time_period_external.end_hhmm = end_hhmm
         return self
-    
+
     def build(self) -> "OpeningTimePeriodExternal":
         return self._opening_time_period_external

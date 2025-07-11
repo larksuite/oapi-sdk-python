@@ -30,13 +30,12 @@ class UserOkr(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserOkrResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListUserOkrRequest, option: Optional[RequestOption] = None) -> ListUserOkrResponse:
         if option is None:
@@ -45,15 +44,11 @@ class UserOkr(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserOkrResponse)
         response.raw = resp
 
         return response
-        
-    

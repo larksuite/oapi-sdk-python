@@ -33,27 +33,34 @@ class ScenarioContextExtra(object):
 class ScenarioContextExtraBuilder(object):
     def __init__(self) -> None:
         self._scenario_context_extra = ScenarioContextExtra()
+
     def grounding_id(self, grounding_id: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.grounding_id = grounding_id
         return self
+
     def model_key(self, model_key: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.model_key = model_key
         return self
+
     def specified_obj_ids(self, specified_obj_ids: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.specified_obj_ids = specified_obj_ids
         return self
+
     def suggest_query_id(self, suggest_query_id: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.suggest_query_id = suggest_query_id
         return self
+
     def button_send_message_info(self, button_send_message_info: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.button_send_message_info = button_send_message_info
         return self
+
     def button_regenerate_message(self, button_regenerate_message: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.button_regenerate_message = button_regenerate_message
         return self
+
     def enterprise_qa_channel_info(self, enterprise_qa_channel_info: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.enterprise_qa_channel_info = enterprise_qa_channel_info
         return self
-    
+
     def build(self) -> "ScenarioContextExtra":
         return self._scenario_context_extra

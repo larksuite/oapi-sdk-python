@@ -21,9 +21,10 @@ class GlobalOptionFilter(object):
 class GlobalOptionFilterBuilder(object):
     def __init__(self) -> None:
         self._global_option_filter = GlobalOptionFilter()
+
     def quick_query(self, quick_query: str) -> "GlobalOptionFilterBuilder":
         self._global_option_filter.quick_query = quick_query
         return self
-    
+
     def build(self) -> "GlobalOptionFilter":
         return self._global_option_filter

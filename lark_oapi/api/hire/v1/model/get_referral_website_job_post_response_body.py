@@ -22,9 +22,10 @@ class GetReferralWebsiteJobPostResponseBody(object):
 class GetReferralWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_referral_website_job_post_response_body = GetReferralWebsiteJobPostResponseBody()
+
     def job_post(self, job_post: PortalJobPost) -> "GetReferralWebsiteJobPostResponseBodyBuilder":
         self._get_referral_website_job_post_response_body.job_post = job_post
         return self
-    
+
     def build(self) -> "GetReferralWebsiteJobPostResponseBody":
         return self._get_referral_website_job_post_response_body

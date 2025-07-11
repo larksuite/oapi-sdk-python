@@ -23,12 +23,11 @@ class GetTicketRequestBuilder(object):
         get_ticket_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id"
         get_ticket_request.token_types = {AccessTokenType.TENANT}
         self._get_ticket_request: GetTicketRequest = get_ticket_request
-    
+
     def ticket_id(self, ticket_id: str) -> "GetTicketRequestBuilder":
         self._get_ticket_request.ticket_id = ticket_id
         self._get_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
-    
 
     def build(self) -> GetTicketRequest:
         return self._get_ticket_request

@@ -25,15 +25,18 @@ class SubscribedEvent(object):
 class SubscribedEventBuilder(object):
     def __init__(self) -> None:
         self._subscribed_event = SubscribedEvent()
+
     def subscription_type(self, subscription_type: str) -> "SubscribedEventBuilder":
         self._subscribed_event.subscription_type = subscription_type
         return self
+
     def request_url(self, request_url: str) -> "SubscribedEventBuilder":
         self._subscribed_event.request_url = request_url
         return self
+
     def subscribed_events(self, subscribed_events: List[str]) -> "SubscribedEventBuilder":
         self._subscribed_event.subscribed_events = subscribed_events
         return self
-    
+
     def build(self) -> "SubscribedEvent":
         return self._subscribed_event

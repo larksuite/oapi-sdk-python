@@ -26,15 +26,18 @@ class FeedCardDisplayRuleUpdater(object):
 class FeedCardDisplayRuleUpdaterBuilder(object):
     def __init__(self) -> None:
         self._feed_card_display_rule_updater = FeedCardDisplayRuleUpdater()
+
     def id(self, id: str) -> "FeedCardDisplayRuleUpdaterBuilder":
         self._feed_card_display_rule_updater.id = id
         return self
+
     def display_feed_rule(self, display_feed_rule: OpenDisplayFeedRule) -> "FeedCardDisplayRuleUpdaterBuilder":
         self._feed_card_display_rule_updater.display_feed_rule = display_feed_rule
         return self
+
     def display_feed_rule_update_type(self, display_feed_rule_update_type: str) -> "FeedCardDisplayRuleUpdaterBuilder":
         self._feed_card_display_rule_updater.display_feed_rule_update_type = display_feed_rule_update_type
         return self
-    
+
     def build(self) -> "FeedCardDisplayRuleUpdater":
         return self._feed_card_display_rule_updater

@@ -29,21 +29,26 @@ class DirectoryItems(object):
 class DirectoryItemsBuilder(object):
     def __init__(self) -> None:
         self._directory_items = DirectoryItems()
+
     def entity_id(self, entity_id: str) -> "DirectoryItemsBuilder":
         self._directory_items.entity_id = entity_id
         return self
+
     def mail_address(self, mail_address: str) -> "DirectoryItemsBuilder":
         self._directory_items.mail_address = mail_address
         return self
+
     def entity_location(self, entity_location: str) -> "DirectoryItemsBuilder":
         self._directory_items.entity_location = entity_location
         return self
+
     def entity_create_time(self, entity_create_time: str) -> "DirectoryItemsBuilder":
         self._directory_items.entity_create_time = entity_create_time
         return self
+
     def entity_type(self, entity_type: str) -> "DirectoryItemsBuilder":
         self._directory_items.entity_type = entity_type
         return self
-    
+
     def build(self) -> "DirectoryItems":
         return self._directory_items

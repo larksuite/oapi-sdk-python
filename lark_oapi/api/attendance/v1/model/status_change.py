@@ -31,24 +31,30 @@ class StatusChange(object):
 class StatusChangeBuilder(object):
     def __init__(self) -> None:
         self._status_change = StatusChange()
+
     def index(self, index: int) -> "StatusChangeBuilder":
         self._status_change.index = index
         return self
+
     def before_status(self, before_status: str) -> "StatusChangeBuilder":
         self._status_change.before_status = before_status
         return self
+
     def current_status(self, current_status: str) -> "StatusChangeBuilder":
         self._status_change.current_status = current_status
         return self
+
     def before_supplement(self, before_supplement: str) -> "StatusChangeBuilder":
         self._status_change.before_supplement = before_supplement
         return self
+
     def current_supplement(self, current_supplement: str) -> "StatusChangeBuilder":
         self._status_change.current_supplement = current_supplement
         return self
+
     def work_type(self, work_type: str) -> "StatusChangeBuilder":
         self._status_change.work_type = work_type
         return self
-    
+
     def build(self) -> "StatusChange":
         return self._status_change

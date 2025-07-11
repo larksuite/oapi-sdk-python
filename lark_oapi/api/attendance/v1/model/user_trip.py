@@ -51,51 +51,66 @@ class UserTrip(object):
 class UserTripBuilder(object):
     def __init__(self) -> None:
         self._user_trip = UserTrip()
+
     def approval_id(self, approval_id: str) -> "UserTripBuilder":
         self._user_trip.approval_id = approval_id
         return self
+
     def start_time(self, start_time: str) -> "UserTripBuilder":
         self._user_trip.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "UserTripBuilder":
         self._user_trip.end_time = end_time
         return self
+
     def reason(self, reason: str) -> "UserTripBuilder":
         self._user_trip.reason = reason
         return self
+
     def approve_pass_time(self, approve_pass_time: str) -> "UserTripBuilder":
         self._user_trip.approve_pass_time = approve_pass_time
         return self
+
     def approve_apply_time(self, approve_apply_time: str) -> "UserTripBuilder":
         self._user_trip.approve_apply_time = approve_apply_time
         return self
+
     def idempotent_id(self, idempotent_id: str) -> "UserTripBuilder":
         self._user_trip.idempotent_id = idempotent_id
         return self
+
     def correct_process_id(self, correct_process_id: List[str]) -> "UserTripBuilder":
         self._user_trip.correct_process_id = correct_process_id
         return self
+
     def cancel_process_id(self, cancel_process_id: List[str]) -> "UserTripBuilder":
         self._user_trip.cancel_process_id = cancel_process_id
         return self
+
     def process_id(self, process_id: List[str]) -> "UserTripBuilder":
         self._user_trip.process_id = process_id
         return self
+
     def departure(self, departure: RegionPlace) -> "UserTripBuilder":
         self._user_trip.departure = departure
         return self
+
     def destinations(self, destinations: List[RegionPlace]) -> "UserTripBuilder":
         self._user_trip.destinations = destinations
         return self
+
     def transportation(self, transportation: List[int]) -> "UserTripBuilder":
         self._user_trip.transportation = transportation
         return self
+
     def trip_type(self, trip_type: int) -> "UserTripBuilder":
         self._user_trip.trip_type = trip_type
         return self
+
     def remarks(self, remarks: str) -> "UserTripBuilder":
         self._user_trip.remarks = remarks
         return self
-    
+
     def build(self) -> "UserTrip":
         return self._user_trip

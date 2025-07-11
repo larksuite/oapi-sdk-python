@@ -24,12 +24,15 @@ class WriteUserGroupScopeData(object):
 class WriteUserGroupScopeDataBuilder(object):
     def __init__(self) -> None:
         self._write_user_group_scope_data = WriteUserGroupScopeData()
+
     def success_user_ids(self, success_user_ids: List[str]) -> "WriteUserGroupScopeDataBuilder":
         self._write_user_group_scope_data.success_user_ids = success_user_ids
         return self
-    def fail_user_datas(self, fail_user_datas: List[WriteUserGroupScopeFailUserData]) -> "WriteUserGroupScopeDataBuilder":
+
+    def fail_user_datas(self,
+                        fail_user_datas: List[WriteUserGroupScopeFailUserData]) -> "WriteUserGroupScopeDataBuilder":
         self._write_user_group_scope_data.fail_user_datas = fail_user_datas
         return self
-    
+
     def build(self) -> "WriteUserGroupScopeData":
         return self._write_user_group_scope_data

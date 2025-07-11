@@ -23,12 +23,14 @@ class WorkLocation(object):
 class WorkLocationBuilder(object):
     def __init__(self) -> None:
         self._work_location = WorkLocation()
+
     def id(self, id: int) -> "WorkLocationBuilder":
         self._work_location.id = id
         return self
+
     def name(self, name: str) -> "WorkLocationBuilder":
         self._work_location.name = name
         return self
-    
+
     def build(self) -> "WorkLocation":
         return self._work_location

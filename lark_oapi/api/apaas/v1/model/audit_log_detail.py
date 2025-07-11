@@ -36,24 +36,30 @@ class AuditLogDetail(object):
 class AuditLogDetailBuilder(object):
     def __init__(self) -> None:
         self._audit_log_detail = AuditLogDetail()
+
     def log_id(self, log_id: str) -> "AuditLogDetailBuilder":
         self._audit_log_detail.log_id = log_id
         return self
+
     def basic_info(self, basic_info: BasicInfo) -> "AuditLogDetailBuilder":
         self._audit_log_detail.basic_info = basic_info
         return self
+
     def op_info(self, op_info: AuditLogOpInfo) -> "AuditLogDetailBuilder":
         self._audit_log_detail.op_info = op_info
         return self
+
     def login_info(self, login_info: AuditLogLoginInfo) -> "AuditLogDetailBuilder":
         self._audit_log_detail.login_info = login_info
         return self
+
     def device_info(self, device_info: AuditLogDeviceInfo) -> "AuditLogDetailBuilder":
         self._audit_log_detail.device_info = device_info
         return self
+
     def net_info(self, net_info: AuditLogNetInfo) -> "AuditLogDetailBuilder":
         self._audit_log_detail.net_info = net_info
         return self
-    
+
     def build(self) -> "AuditLogDetail":
         return self._audit_log_detail

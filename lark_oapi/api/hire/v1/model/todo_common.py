@@ -27,18 +27,22 @@ class TodoCommon(object):
 class TodoCommonBuilder(object):
     def __init__(self) -> None:
         self._todo_common = TodoCommon()
+
     def talent_id(self, talent_id: str) -> "TodoCommonBuilder":
         self._todo_common.talent_id = talent_id
         return self
+
     def job_id(self, job_id: str) -> "TodoCommonBuilder":
         self._todo_common.job_id = job_id
         return self
+
     def application_id(self, application_id: str) -> "TodoCommonBuilder":
         self._todo_common.application_id = application_id
         return self
+
     def id(self, id: str) -> "TodoCommonBuilder":
         self._todo_common.id = id
         return self
-    
+
     def build(self) -> "TodoCommon":
         return self._todo_common

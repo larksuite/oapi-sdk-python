@@ -27,15 +27,19 @@ class ConvertDocumentResponseBody(object):
 class ConvertDocumentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._convert_document_response_body = ConvertDocumentResponseBody()
+
     def first_level_block_ids(self, first_level_block_ids: List[str]) -> "ConvertDocumentResponseBodyBuilder":
         self._convert_document_response_body.first_level_block_ids = first_level_block_ids
         return self
+
     def blocks(self, blocks: List[Block]) -> "ConvertDocumentResponseBodyBuilder":
         self._convert_document_response_body.blocks = blocks
         return self
-    def block_id_to_image_urls(self, block_id_to_image_urls: List[BlockIdToImageUrl]) -> "ConvertDocumentResponseBodyBuilder":
+
+    def block_id_to_image_urls(self,
+                               block_id_to_image_urls: List[BlockIdToImageUrl]) -> "ConvertDocumentResponseBodyBuilder":
         self._convert_document_response_body.block_id_to_image_urls = block_id_to_image_urls
         return self
-    
+
     def build(self) -> "ConvertDocumentResponseBody":
         return self._convert_document_response_body

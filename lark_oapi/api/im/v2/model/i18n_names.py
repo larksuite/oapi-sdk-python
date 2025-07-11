@@ -25,15 +25,18 @@ class I18nNames(object):
 class I18nNamesBuilder(object):
     def __init__(self) -> None:
         self._i18n_names = I18nNames()
+
     def zh_cn(self, zh_cn: str) -> "I18nNamesBuilder":
         self._i18n_names.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "I18nNamesBuilder":
         self._i18n_names.en_us = en_us
         return self
+
     def ja_jp(self, ja_jp: str) -> "I18nNamesBuilder":
         self._i18n_names.ja_jp = ja_jp
         return self
-    
+
     def build(self) -> "I18nNames":
         return self._i18n_names

@@ -24,17 +24,16 @@ class GetMinuteStatisticsRequestBuilder(object):
         get_minute_statistics_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/statistics"
         get_minute_statistics_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_minute_statistics_request: GetMinuteStatisticsRequest = get_minute_statistics_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetMinuteStatisticsRequestBuilder":
         self._get_minute_statistics_request.user_id_type = user_id_type
         self._get_minute_statistics_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def minute_token(self, minute_token: str) -> "GetMinuteStatisticsRequestBuilder":
         self._get_minute_statistics_request.minute_token = minute_token
         self._get_minute_statistics_request.paths["minute_token"] = str(minute_token)
         return self
-    
 
     def build(self) -> GetMinuteStatisticsRequest:
         return self._get_minute_statistics_request

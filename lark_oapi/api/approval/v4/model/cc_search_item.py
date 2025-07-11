@@ -31,18 +31,22 @@ class CcSearchItem(object):
 class CcSearchItemBuilder(object):
     def __init__(self) -> None:
         self._cc_search_item = CcSearchItem()
+
     def approval(self, approval: InstanceSearchApproval) -> "CcSearchItemBuilder":
         self._cc_search_item.approval = approval
         return self
+
     def group(self, group: InstanceSearchGroup) -> "CcSearchItemBuilder":
         self._cc_search_item.group = group
         return self
+
     def instance(self, instance: InstanceSearchNode) -> "CcSearchItemBuilder":
         self._cc_search_item.instance = instance
         return self
+
     def cc(self, cc: CcSearchNode) -> "CcSearchItemBuilder":
         self._cc_search_item.cc = cc
         return self
-    
+
     def build(self) -> "CcSearchItem":
         return self._cc_search_item

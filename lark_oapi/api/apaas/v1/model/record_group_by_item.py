@@ -21,9 +21,10 @@ class RecordGroupByItem(object):
 class RecordGroupByItemBuilder(object):
     def __init__(self) -> None:
         self._record_group_by_item = RecordGroupByItem()
+
     def field(self, field: str) -> "RecordGroupByItemBuilder":
         self._record_group_by_item.field = field
         return self
-    
+
     def build(self) -> "RecordGroupByItem":
         return self._record_group_by_item

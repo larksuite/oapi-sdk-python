@@ -24,12 +24,14 @@ class QueryUserTaskResponseBody(object):
 class QueryUserTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_task_response_body = QueryUserTaskResponseBody()
+
     def count(self, count: str) -> "QueryUserTaskResponseBodyBuilder":
         self._query_user_task_response_body.count = count
         return self
+
     def tasks(self, tasks: List[UserTask]) -> "QueryUserTaskResponseBodyBuilder":
         self._query_user_task_response_body.tasks = tasks
         return self
-    
+
     def build(self) -> "QueryUserTaskResponseBody":
         return self._query_user_task_response_body

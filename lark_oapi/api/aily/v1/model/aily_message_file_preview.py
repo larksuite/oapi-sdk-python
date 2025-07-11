@@ -23,12 +23,14 @@ class AilyMessageFilePreview(object):
 class AilyMessageFilePreviewBuilder(object):
     def __init__(self) -> None:
         self._aily_message_file_preview = AilyMessageFilePreview()
+
     def url(self, url: str) -> "AilyMessageFilePreviewBuilder":
         self._aily_message_file_preview.url = url
         return self
+
     def expired_at(self, expired_at: int) -> "AilyMessageFilePreviewBuilder":
         self._aily_message_file_preview.expired_at = expired_at
         return self
-    
+
     def build(self) -> "AilyMessageFilePreview":
         return self._aily_message_file_preview

@@ -35,7 +35,8 @@ class AppTableRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:
+    def batch_create(self, request: BatchCreateAppTableRecordRequest,
+                     option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,33 +49,34 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAppTableRecordResponse)
+        response: BatchCreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchCreateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_create(self, request: BatchCreateAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:
+    async def abatch_create(self, request: BatchCreateAppTableRecordRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAppTableRecordResponse)
+        response: BatchCreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchCreateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def batch_delete(self, request: BatchDeleteAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchDeleteAppTableRecordResponse:
+
+    def batch_delete(self, request: BatchDeleteAppTableRecordRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,33 +89,34 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteAppTableRecordResponse)
+        response: BatchDeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchDeleteAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchDeleteAppTableRecordResponse:
+    async def abatch_delete(self, request: BatchDeleteAppTableRecordRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteAppTableRecordResponse)
+        response: BatchDeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchDeleteAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def batch_get(self, request: BatchGetAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
+
+    def batch_get(self, request: BatchGetAppTableRecordRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -126,33 +129,34 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetAppTableRecordResponse)
+        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  BatchGetAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_get(self, request: BatchGetAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
+    async def abatch_get(self, request: BatchGetAppTableRecordRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetAppTableRecordResponse)
+        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  BatchGetAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def batch_update(self, request: BatchUpdateAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchUpdateAppTableRecordResponse:
+
+    def batch_update(self, request: BatchUpdateAppTableRecordRequest,
+                     option: Optional[RequestOption] = None) -> BatchUpdateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -165,33 +169,34 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateAppTableRecordResponse)
+        response: BatchUpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchUpdateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_update(self, request: BatchUpdateAppTableRecordRequest, option: Optional[RequestOption] = None) -> BatchUpdateAppTableRecordResponse:
+    async def abatch_update(self, request: BatchUpdateAppTableRecordRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateAppTableRecordResponse)
+        response: BatchUpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchUpdateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateAppTableRecordRequest, option: Optional[RequestOption] = None) -> CreateAppTableRecordResponse:
+
+    def create(self, request: CreateAppTableRecordRequest,
+               option: Optional[RequestOption] = None) -> CreateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -204,33 +209,32 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateAppTableRecordRequest, option: Optional[RequestOption] = None) -> CreateAppTableRecordResponse:
+    async def acreate(self, request: CreateAppTableRecordRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteAppTableRecordRequest, option: Optional[RequestOption] = None) -> DeleteAppTableRecordResponse:
+
+    def delete(self, request: DeleteAppTableRecordRequest,
+               option: Optional[RequestOption] = None) -> DeleteAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,33 +247,32 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteAppTableRecordRequest, option: Optional[RequestOption] = None) -> DeleteAppTableRecordResponse:
+    async def adelete(self, request: DeleteAppTableRecordRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetAppTableRecordRequest, option: Optional[RequestOption] = None) -> GetAppTableRecordResponse:
+
+    def get(self, request: GetAppTableRecordRequest,
+            option: Optional[RequestOption] = None) -> GetAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -282,33 +285,32 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetAppTableRecordRequest, option: Optional[RequestOption] = None) -> GetAppTableRecordResponse:
+    async def aget(self, request: GetAppTableRecordRequest,
+                   option: Optional[RequestOption] = None) -> GetAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListAppTableRecordRequest, option: Optional[RequestOption] = None) -> ListAppTableRecordResponse:
+
+    def list(self, request: ListAppTableRecordRequest,
+             option: Optional[RequestOption] = None) -> ListAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -321,33 +323,32 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListAppTableRecordRequest, option: Optional[RequestOption] = None) -> ListAppTableRecordResponse:
+    async def alist(self, request: ListAppTableRecordRequest,
+                    option: Optional[RequestOption] = None) -> ListAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def search(self, request: SearchAppTableRecordRequest, option: Optional[RequestOption] = None) -> SearchAppTableRecordResponse:
+
+    def search(self, request: SearchAppTableRecordRequest,
+               option: Optional[RequestOption] = None) -> SearchAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -360,33 +361,32 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchAppTableRecordRequest, option: Optional[RequestOption] = None) -> SearchAppTableRecordResponse:
+    async def asearch(self, request: SearchAppTableRecordRequest,
+                      option: Optional[RequestOption] = None) -> SearchAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateAppTableRecordRequest, option: Optional[RequestOption] = None) -> UpdateAppTableRecordResponse:
+
+    def update(self, request: UpdateAppTableRecordRequest,
+               option: Optional[RequestOption] = None) -> UpdateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -399,30 +399,26 @@ class AppTableRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateAppTableRecordRequest, option: Optional[RequestOption] = None) -> UpdateAppTableRecordResponse:
+    async def aupdate(self, request: UpdateAppTableRecordRequest,
+                      option: Optional[RequestOption] = None) -> UpdateAppTableRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppTableRecordResponse)
         response.raw = resp
 
         return response
-        
-    

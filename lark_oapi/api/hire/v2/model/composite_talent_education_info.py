@@ -38,33 +38,43 @@ class CompositeTalentEducationInfo(object):
 class CompositeTalentEducationInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_education_info = CompositeTalentEducationInfo()
+
     def degree(self, degree: int) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.degree = degree
         return self
+
     def school_name(self, school_name: str) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.school_name = school_name
         return self
+
     def major(self, major: str) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.major = major
         return self
+
     def start_time(self, start_time: str) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.end_time = end_time
         return self
+
     def education_type(self, education_type: int) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.education_type = education_type
         return self
+
     def academic_ranking(self, academic_ranking: int) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.academic_ranking = academic_ranking
         return self
+
     def tag_list(self, tag_list: List[int]) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.tag_list = tag_list
         return self
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentEducationInfoBuilder":
+
+    def customized_data_list(self, customized_data_list: List[
+        TalentCustomizedDataChild]) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "CompositeTalentEducationInfo":
         return self._composite_talent_education_info

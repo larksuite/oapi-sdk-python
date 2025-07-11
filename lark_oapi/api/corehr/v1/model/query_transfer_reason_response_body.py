@@ -22,9 +22,10 @@ class QueryTransferReasonResponseBody(object):
 class QueryTransferReasonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_transfer_reason_response_body = QueryTransferReasonResponseBody()
+
     def items(self, items: List[TransferReason]) -> "QueryTransferReasonResponseBodyBuilder":
         self._query_transfer_reason_response_body.items = items
         return self
-    
+
     def build(self) -> "QueryTransferReasonResponseBody":
         return self._query_transfer_reason_response_body

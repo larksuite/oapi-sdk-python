@@ -26,15 +26,18 @@ class ListJobFunctionResponseBody(object):
 class ListJobFunctionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_job_function_response_body = ListJobFunctionResponseBody()
+
     def has_more(self, has_more: bool) -> "ListJobFunctionResponseBodyBuilder":
         self._list_job_function_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListJobFunctionResponseBodyBuilder":
         self._list_job_function_response_body.page_token = page_token
         return self
+
     def items(self, items: List[JobFunction]) -> "ListJobFunctionResponseBodyBuilder":
         self._list_job_function_response_body.items = items
         return self
-    
+
     def build(self) -> "ListJobFunctionResponseBody":
         return self._list_job_function_response_body

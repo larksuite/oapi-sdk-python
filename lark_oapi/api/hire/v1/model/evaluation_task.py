@@ -29,21 +29,26 @@ class EvaluationTask(object):
 class EvaluationTaskBuilder(object):
     def __init__(self) -> None:
         self._evaluation_task = EvaluationTask()
+
     def id(self, id: str) -> "EvaluationTaskBuilder":
         self._evaluation_task.id = id
         return self
+
     def job_id(self, job_id: str) -> "EvaluationTaskBuilder":
         self._evaluation_task.job_id = job_id
         return self
+
     def talent_id(self, talent_id: str) -> "EvaluationTaskBuilder":
         self._evaluation_task.talent_id = talent_id
         return self
+
     def application_id(self, application_id: str) -> "EvaluationTaskBuilder":
         self._evaluation_task.application_id = application_id
         return self
+
     def activity_status(self, activity_status: int) -> "EvaluationTaskBuilder":
         self._evaluation_task.activity_status = activity_status
         return self
-    
+
     def build(self) -> "EvaluationTask":
         return self._evaluation_task

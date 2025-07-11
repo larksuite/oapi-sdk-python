@@ -25,12 +25,14 @@ class ObjectMeta(object):
 class ObjectMetaBuilder(object):
     def __init__(self) -> None:
         self._object_meta = ObjectMeta()
+
     def object(self, object: Object) -> "ObjectMetaBuilder":
         self._object_meta.object = object
         return self
+
     def fields(self, fields: List[ObjectField]) -> "ObjectMetaBuilder":
         self._object_meta.fields = fields
         return self
-    
+
     def build(self) -> "ObjectMeta":
         return self._object_meta

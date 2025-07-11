@@ -24,12 +24,14 @@ class JobDetailHighlight(object):
 class JobDetailHighlightBuilder(object):
     def __init__(self) -> None:
         self._job_detail_highlight = JobDetailHighlight()
+
     def id(self, id: str) -> "JobDetailHighlightBuilder":
         self._job_detail_highlight.id = id
         return self
+
     def name(self, name: I18n) -> "JobDetailHighlightBuilder":
         self._job_detail_highlight.name = name
         return self
-    
+
     def build(self) -> "JobDetailHighlight":
         return self._job_detail_highlight

@@ -23,12 +23,14 @@ class TalentSimilar(object):
 class TalentSimilarBuilder(object):
     def __init__(self) -> None:
         self._talent_similar = TalentSimilar()
+
     def is_similar_talent(self, is_similar_talent: bool) -> "TalentSimilarBuilder":
         self._talent_similar.is_similar_talent = is_similar_talent
         return self
+
     def similar_talent_id_list(self, similar_talent_id_list: List[str]) -> "TalentSimilarBuilder":
         self._talent_similar.similar_talent_id_list = similar_talent_id_list
         return self
-    
+
     def build(self) -> "TalentSimilar":
         return self._talent_similar

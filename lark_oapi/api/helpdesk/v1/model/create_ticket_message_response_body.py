@@ -21,9 +21,10 @@ class CreateTicketMessageResponseBody(object):
 class CreateTicketMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_ticket_message_response_body = CreateTicketMessageResponseBody()
+
     def message_id(self, message_id: str) -> "CreateTicketMessageResponseBodyBuilder":
         self._create_ticket_message_response_body.message_id = message_id
         return self
-    
+
     def build(self) -> "CreateTicketMessageResponseBody":
         return self._create_ticket_message_response_body

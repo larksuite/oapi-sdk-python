@@ -24,12 +24,14 @@ class MergeCell(object):
 class MergeCellBuilder(object):
     def __init__(self) -> None:
         self._merge_cell = MergeCell()
+
     def range(self, range: MergeRange) -> "MergeCellBuilder":
         self._merge_cell.range = range
         return self
+
     def merge_type(self, merge_type: str) -> "MergeCellBuilder":
         self._merge_cell.merge_type = merge_type
         return self
-    
+
     def build(self) -> "MergeCell":
         return self._merge_cell

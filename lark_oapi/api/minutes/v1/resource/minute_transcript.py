@@ -17,7 +17,8 @@ class MinuteTranscript(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMinuteTranscriptRequest, option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
+    def get(self, request: GetMinuteTranscriptRequest,
+            option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,7 +31,7 @@ class MinuteTranscript(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetMinuteTranscriptResponse = GetMinuteTranscriptResponse()
@@ -43,20 +44,18 @@ class MinuteTranscript(object):
 
         response.raw = resp
         return response
-        
 
-    async def aget(self, request: GetMinuteTranscriptRequest, option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
+    async def aget(self, request: GetMinuteTranscriptRequest,
+                   option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetMinuteTranscriptResponse = GetMinuteTranscriptResponse()
@@ -69,5 +68,3 @@ class MinuteTranscript(object):
 
         response.raw = resp
         return response
-        
-    

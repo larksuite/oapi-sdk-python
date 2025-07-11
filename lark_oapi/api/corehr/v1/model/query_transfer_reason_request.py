@@ -24,17 +24,18 @@ class QueryTransferReasonRequestBuilder(object):
         query_transfer_reason_request.uri = "/open-apis/corehr/v1/transfer_reasons/query"
         query_transfer_reason_request.token_types = {AccessTokenType.TENANT}
         self._query_transfer_reason_request: QueryTransferReasonRequest = query_transfer_reason_request
-    
+
     def active(self, active: bool) -> "QueryTransferReasonRequestBuilder":
         self._query_transfer_reason_request.active = active
         self._query_transfer_reason_request.add_query("active", active)
         return self
-    
-    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: List[str]) -> "QueryTransferReasonRequestBuilder":
+
+    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: List[
+        str]) -> "QueryTransferReasonRequestBuilder":
         self._query_transfer_reason_request.transfer_reason_unique_identifier = transfer_reason_unique_identifier
-        self._query_transfer_reason_request.add_query("transfer_reason_unique_identifier", transfer_reason_unique_identifier)
+        self._query_transfer_reason_request.add_query("transfer_reason_unique_identifier",
+                                                      transfer_reason_unique_identifier)
         return self
-    
 
     def build(self) -> QueryTransferReasonRequest:
         return self._query_transfer_reason_request

@@ -43,36 +43,46 @@ class Standard(object):
 class StandardBuilder(object):
     def __init__(self) -> None:
         self._standard = Standard()
+
     def id(self, id: str) -> "StandardBuilder":
         self._standard.id = id
         return self
+
     def name(self, name: I18n) -> "StandardBuilder":
         self._standard.name = name
         return self
+
     def updated_by(self, updated_by: str) -> "StandardBuilder":
         self._standard.updated_by = updated_by
         return self
+
     def updated_at(self, updated_at: str) -> "StandardBuilder":
         self._standard.updated_at = updated_at
         return self
+
     def created_by(self, created_by: str) -> "StandardBuilder":
         self._standard.created_by = created_by
         return self
+
     def created_at(self, created_at: str) -> "StandardBuilder":
         self._standard.created_at = created_at
         return self
+
     def automatic_backfill_standard_value(self, automatic_backfill_standard_value: bool) -> "StandardBuilder":
         self._standard.automatic_backfill_standard_value = automatic_backfill_standard_value
         return self
+
     def scope(self, scope: StandardScope) -> "StandardBuilder":
         self._standard.scope = scope
         return self
+
     def dimensions(self, dimensions: List[StandardDimension]) -> "StandardBuilder":
         self._standard.dimensions = dimensions
         return self
+
     def reference_objects(self, reference_objects: List[StandardReferenceObject]) -> "StandardBuilder":
         self._standard.reference_objects = reference_objects
         return self
-    
+
     def build(self) -> "Standard":
         return self._standard

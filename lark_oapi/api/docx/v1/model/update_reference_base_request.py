@@ -23,12 +23,14 @@ class UpdateReferenceBaseRequest(object):
 class UpdateReferenceBaseRequestBuilder(object):
     def __init__(self) -> None:
         self._update_reference_base_request = UpdateReferenceBaseRequest()
+
     def token(self, token: str) -> "UpdateReferenceBaseRequestBuilder":
         self._update_reference_base_request.token = token
         return self
+
     def view_id(self, view_id: str) -> "UpdateReferenceBaseRequestBuilder":
         self._update_reference_base_request.view_id = view_id
         return self
-    
+
     def build(self) -> "UpdateReferenceBaseRequest":
         return self._update_reference_base_request

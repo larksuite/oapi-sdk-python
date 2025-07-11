@@ -24,12 +24,14 @@ class CallbackAction(object):
 class CallbackActionBuilder(object):
     def __init__(self) -> None:
         self._callback_action = CallbackAction()
+
     def tag(self, tag: str) -> "CallbackActionBuilder":
         self._callback_action.tag = tag
         return self
+
     def value(self, value: CallbackActionValue) -> "CallbackActionBuilder":
         self._callback_action.value = value
         return self
-    
+
     def build(self) -> "CallbackAction":
         return self._callback_action

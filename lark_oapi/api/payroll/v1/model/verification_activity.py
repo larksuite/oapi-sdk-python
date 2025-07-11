@@ -41,36 +41,46 @@ class VerificationActivity(object):
 class VerificationActivityBuilder(object):
     def __init__(self) -> None:
         self._verification_activity = VerificationActivity()
+
     def activity_id(self, activity_id: str) -> "VerificationActivityBuilder":
         self._verification_activity.activity_id = activity_id
         return self
+
     def plan_id(self, plan_id: str) -> "VerificationActivityBuilder":
         self._verification_activity.plan_id = plan_id
         return self
+
     def version_id(self, version_id: str) -> "VerificationActivityBuilder":
         self._verification_activity.version_id = version_id
         return self
+
     def name(self, name: IdWithName) -> "VerificationActivityBuilder":
         self._verification_activity.name = name
         return self
+
     def activity_status(self, activity_status: int) -> "VerificationActivityBuilder":
         self._verification_activity.activity_status = activity_status
         return self
+
     def pay_period_seq(self, pay_period_seq: str) -> "VerificationActivityBuilder":
         self._verification_activity.pay_period_seq = pay_period_seq
         return self
+
     def retro_period_seq(self, retro_period_seq: str) -> "VerificationActivityBuilder":
         self._verification_activity.retro_period_seq = retro_period_seq
         return self
+
     def plan_snapshot(self, plan_snapshot: VerifPlanSnapshot) -> "VerificationActivityBuilder":
         self._verification_activity.plan_snapshot = plan_snapshot
         return self
+
     def update_time(self, update_time: int) -> "VerificationActivityBuilder":
         self._verification_activity.update_time = update_time
         return self
+
     def approve_time(self, approve_time: int) -> "VerificationActivityBuilder":
         self._verification_activity.approve_time = approve_time
         return self
-    
+
     def build(self) -> "VerificationActivity":
         return self._verification_activity

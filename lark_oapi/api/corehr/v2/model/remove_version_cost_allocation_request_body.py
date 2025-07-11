@@ -24,12 +24,15 @@ class RemoveVersionCostAllocationRequestBody(object):
 class RemoveVersionCostAllocationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_version_cost_allocation_request_body = RemoveVersionCostAllocationRequestBody()
+
     def employment_id(self, employment_id: str) -> "RemoveVersionCostAllocationRequestBodyBuilder":
         self._remove_version_cost_allocation_request_body.employment_id = employment_id
         return self
-    def cost_allocation(self, cost_allocation: EmploymentCostAllocation) -> "RemoveVersionCostAllocationRequestBodyBuilder":
+
+    def cost_allocation(self,
+                        cost_allocation: EmploymentCostAllocation) -> "RemoveVersionCostAllocationRequestBodyBuilder":
         self._remove_version_cost_allocation_request_body.cost_allocation = cost_allocation
         return self
-    
+
     def build(self) -> "RemoveVersionCostAllocationRequestBody":
         return self._remove_version_cost_allocation_request_body

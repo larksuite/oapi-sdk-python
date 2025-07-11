@@ -5,80 +5,80 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListAppTableRecordRequest = ListAppTableRecordRequest.builder() \
-		.app_token("bascnCMII2ORej2RItqpZZUNMIe") \
-		.table_id("tblxI2tWaxP5dG7p") \
-		.view_id("vewqhz51lk") \
-		.filter("AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)") \
-		.sort("") \
-		.field_names("") \
-		.text_field_as_array(True) \
-		.user_id_type("user_id") \
-		.display_formula_ref(True) \
-		.automatic_fields(True) \
-		.page_token("recn0hoyXL") \
-		.page_size(20) \
-		.build()
+    # 构造请求对象
+    request: ListAppTableRecordRequest = ListAppTableRecordRequest.builder() \
+        .app_token("bascnCMII2ORej2RItqpZZUNMIe") \
+        .table_id("tblxI2tWaxP5dG7p") \
+        .view_id("vewqhz51lk") \
+        .filter("AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)") \
+        .sort("") \
+        .field_names("") \
+        .text_field_as_array(True) \
+        .user_id_type("user_id") \
+        .display_formula_ref(True) \
+        .automatic_fields(True) \
+        .page_token("recn0hoyXL") \
+        .page_size(20) \
+        .build()
 
-	# 发起请求
-	response: ListAppTableRecordResponse = client.bitable.v1.app_table_record.list(request)
+    # 发起请求
+    response: ListAppTableRecordResponse = client.bitable.v1.app_table_record.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.bitable.v1.app_table_record.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.bitable.v1.app_table_record.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListAppTableRecordRequest = ListAppTableRecordRequest.builder() \
-		.app_token("bascnCMII2ORej2RItqpZZUNMIe") \
-		.table_id("tblxI2tWaxP5dG7p") \
-		.view_id("vewqhz51lk") \
-		.filter("AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)") \
-		.sort("") \
-		.field_names("") \
-		.text_field_as_array(True) \
-		.user_id_type("user_id") \
-		.display_formula_ref(True) \
-		.automatic_fields(True) \
-		.page_token("recn0hoyXL") \
-		.page_size(20) \
-		.build()
+    # 构造请求对象
+    request: ListAppTableRecordRequest = ListAppTableRecordRequest.builder() \
+        .app_token("bascnCMII2ORej2RItqpZZUNMIe") \
+        .table_id("tblxI2tWaxP5dG7p") \
+        .view_id("vewqhz51lk") \
+        .filter("AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)") \
+        .sort("") \
+        .field_names("") \
+        .text_field_as_array(True) \
+        .user_id_type("user_id") \
+        .display_formula_ref(True) \
+        .automatic_fields(True) \
+        .page_token("recn0hoyXL") \
+        .page_size(20) \
+        .build()
 
-	# 发起请求
-	response: ListAppTableRecordResponse = await client.bitable.v1.app_table_record.alist(request)
+    # 发起请求
+    response: ListAppTableRecordResponse = await client.bitable.v1.app_table_record.alist(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.bitable.v1.app_table_record.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.bitable.v1.app_table_record.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

@@ -25,15 +25,18 @@ class AppContactsRangeIdList(object):
 class AppContactsRangeIdListBuilder(object):
     def __init__(self) -> None:
         self._app_contacts_range_id_list = AppContactsRangeIdList()
+
     def user_ids(self, user_ids: List[str]) -> "AppContactsRangeIdListBuilder":
         self._app_contacts_range_id_list.user_ids = user_ids
         return self
+
     def department_ids(self, department_ids: List[str]) -> "AppContactsRangeIdListBuilder":
         self._app_contacts_range_id_list.department_ids = department_ids
         return self
+
     def group_ids(self, group_ids: List[str]) -> "AppContactsRangeIdListBuilder":
         self._app_contacts_range_id_list.group_ids = group_ids
         return self
-    
+
     def build(self) -> "AppContactsRangeIdList":
         return self._app_contacts_range_id_list

@@ -32,33 +32,32 @@ class AppWorkflow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppWorkflowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListAppWorkflowRequest, option: Optional[RequestOption] = None) -> ListAppWorkflowResponse:
+    async def alist(self, request: ListAppWorkflowRequest,
+                    option: Optional[RequestOption] = None) -> ListAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppWorkflowResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateAppWorkflowRequest, option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
+
+    def update(self, request: UpdateAppWorkflowRequest,
+               option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +70,26 @@ class AppWorkflow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppWorkflowResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateAppWorkflowRequest, option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
+    async def aupdate(self, request: UpdateAppWorkflowRequest,
+                      option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppWorkflowResponse)
         response.raw = resp
 
         return response
-        
-    

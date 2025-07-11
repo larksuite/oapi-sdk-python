@@ -26,15 +26,18 @@ class ListUserMailboxMailContactResponseBody(object):
 class ListUserMailboxMailContactResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_user_mailbox_mail_contact_response_body = ListUserMailboxMailContactResponseBody()
+
     def items(self, items: List[MailContact]) -> "ListUserMailboxMailContactResponseBodyBuilder":
         self._list_user_mailbox_mail_contact_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListUserMailboxMailContactResponseBodyBuilder":
         self._list_user_mailbox_mail_contact_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListUserMailboxMailContactResponseBodyBuilder":
         self._list_user_mailbox_mail_contact_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListUserMailboxMailContactResponseBody":
         return self._list_user_mailbox_mail_contact_response_body

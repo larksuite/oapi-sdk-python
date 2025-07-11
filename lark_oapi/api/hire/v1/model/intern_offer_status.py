@@ -29,18 +29,22 @@ class InternOfferStatus(object):
 class InternOfferStatusBuilder(object):
     def __init__(self) -> None:
         self._intern_offer_status = InternOfferStatus()
+
     def offer_id(self, offer_id: str) -> "InternOfferStatusBuilder":
         self._intern_offer_status.offer_id = offer_id
         return self
+
     def operation(self, operation: str) -> "InternOfferStatusBuilder":
         self._intern_offer_status.operation = operation
         return self
+
     def onboarding_info(self, onboarding_info: InternOfferOnboardingInfo) -> "InternOfferStatusBuilder":
         self._intern_offer_status.onboarding_info = onboarding_info
         return self
+
     def offboarding_info(self, offboarding_info: InternOfferOffboardingInfo) -> "InternOfferStatusBuilder":
         self._intern_offer_status.offboarding_info = offboarding_info
         return self
-    
+
     def build(self) -> "InternOfferStatus":
         return self._intern_offer_status

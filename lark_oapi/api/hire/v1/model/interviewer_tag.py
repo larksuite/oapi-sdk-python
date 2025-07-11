@@ -34,27 +34,34 @@ class InterviewerTag(object):
 class InterviewerTagBuilder(object):
     def __init__(self) -> None:
         self._interviewer_tag = InterviewerTag()
+
     def id(self, id: str) -> "InterviewerTagBuilder":
         self._interviewer_tag.id = id
         return self
+
     def name(self, name: I18n) -> "InterviewerTagBuilder":
         self._interviewer_tag.name = name
         return self
+
     def active_status(self, active_status: int) -> "InterviewerTagBuilder":
         self._interviewer_tag.active_status = active_status
         return self
+
     def creator_id(self, creator_id: str) -> "InterviewerTagBuilder":
         self._interviewer_tag.creator_id = creator_id
         return self
+
     def updater_id(self, updater_id: str) -> "InterviewerTagBuilder":
         self._interviewer_tag.updater_id = updater_id
         return self
+
     def create_time(self, create_time: str) -> "InterviewerTagBuilder":
         self._interviewer_tag.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "InterviewerTagBuilder":
         self._interviewer_tag.update_time = update_time
         return self
-    
+
     def build(self) -> "InterviewerTag":
         return self._interviewer_tag

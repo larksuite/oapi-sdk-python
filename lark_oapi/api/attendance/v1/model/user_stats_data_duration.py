@@ -29,21 +29,26 @@ class UserStatsDataDuration(object):
 class UserStatsDataDurationBuilder(object):
     def __init__(self) -> None:
         self._user_stats_data_duration = UserStatsDataDuration()
+
     def day(self, day: str) -> "UserStatsDataDurationBuilder":
         self._user_stats_data_duration.day = day
         return self
+
     def half_day(self, half_day: str) -> "UserStatsDataDurationBuilder":
         self._user_stats_data_duration.half_day = half_day
         return self
+
     def hour(self, hour: str) -> "UserStatsDataDurationBuilder":
         self._user_stats_data_duration.hour = hour
         return self
+
     def half_hour(self, half_hour: str) -> "UserStatsDataDurationBuilder":
         self._user_stats_data_duration.half_hour = half_hour
         return self
+
     def minute(self, minute: str) -> "UserStatsDataDurationBuilder":
         self._user_stats_data_duration.minute = minute
         return self
-    
+
     def build(self) -> "UserStatsDataDuration":
         return self._user_stats_data_duration

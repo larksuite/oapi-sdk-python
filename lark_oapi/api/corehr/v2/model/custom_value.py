@@ -23,12 +23,14 @@ class CustomValue(object):
 class CustomValueBuilder(object):
     def __init__(self) -> None:
         self._custom_value = CustomValue()
+
     def value_boolean(self, value_boolean: bool) -> "CustomValueBuilder":
         self._custom_value.value_boolean = value_boolean
         return self
+
     def value_enum_id(self, value_enum_id: str) -> "CustomValueBuilder":
         self._custom_value.value_enum_id = value_enum_id
         return self
-    
+
     def build(self) -> "CustomValue":
         return self._custom_value

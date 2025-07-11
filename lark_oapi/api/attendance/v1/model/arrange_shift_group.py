@@ -25,15 +25,18 @@ class ArrangeShiftGroup(object):
 class ArrangeShiftGroupBuilder(object):
     def __init__(self) -> None:
         self._arrange_shift_group = ArrangeShiftGroup()
+
     def shift_group_id(self, shift_group_id: int) -> "ArrangeShiftGroupBuilder":
         self._arrange_shift_group.shift_group_id = shift_group_id
         return self
+
     def group_id(self, group_id: int) -> "ArrangeShiftGroupBuilder":
         self._arrange_shift_group.group_id = group_id
         return self
+
     def shift_group_name(self, shift_group_name: str) -> "ArrangeShiftGroupBuilder":
         self._arrange_shift_group.shift_group_name = shift_group_name
         return self
-    
+
     def build(self) -> "ArrangeShiftGroup":
         return self._arrange_shift_group

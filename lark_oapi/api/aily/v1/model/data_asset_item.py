@@ -30,21 +30,26 @@ class DataAssetItem(object):
 class DataAssetItemBuilder(object):
     def __init__(self) -> None:
         self._data_asset_item = DataAssetItem()
+
     def data_asset_item_id(self, data_asset_item_id: str) -> "DataAssetItemBuilder":
         self._data_asset_item.data_asset_item_id = data_asset_item_id
         return self
+
     def api_name(self, api_name: str) -> "DataAssetItemBuilder":
         self._data_asset_item.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "DataAssetItemBuilder":
         self._data_asset_item.label = label
         return self
+
     def description(self, description: Dict[str, str]) -> "DataAssetItemBuilder":
         self._data_asset_item.description = description
         return self
+
     def resources(self, resources: List[DataAssetResource]) -> "DataAssetItemBuilder":
         self._data_asset_item.resources = resources
         return self
-    
+
     def build(self) -> "DataAssetItem":
         return self._data_asset_item

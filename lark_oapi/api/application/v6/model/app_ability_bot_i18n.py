@@ -23,12 +23,14 @@ class AppAbilityBotI18n(object):
 class AppAbilityBotI18nBuilder(object):
     def __init__(self) -> None:
         self._app_ability_bot_i18n = AppAbilityBotI18n()
+
     def i18n_key(self, i18n_key: str) -> "AppAbilityBotI18nBuilder":
         self._app_ability_bot_i18n.i18n_key = i18n_key
         return self
+
     def get_started_desc(self, get_started_desc: str) -> "AppAbilityBotI18nBuilder":
         self._app_ability_bot_i18n.get_started_desc = get_started_desc
         return self
-    
+
     def build(self) -> "AppAbilityBotI18n":
         return self._app_ability_bot_i18n

@@ -34,27 +34,34 @@ class WorkExperienceForUpdate(object):
 class WorkExperienceForUpdateBuilder(object):
     def __init__(self) -> None:
         self._work_experience_for_update = WorkExperienceForUpdate()
+
     def company_name(self, company_name: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.company_name = company_name
         return self
+
     def start_time(self, start_time: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.end_time = end_time
         return self
+
     def job_title(self, job_title: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.job_title = job_title
         return self
+
     def description(self, description: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.description = description
         return self
+
     def department(self, department: str) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.department = department
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "WorkExperienceForUpdateBuilder":
         self._work_experience_for_update.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "WorkExperienceForUpdate":
         return self._work_experience_for_update

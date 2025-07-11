@@ -24,12 +24,14 @@ class QueryMetricDetailResponseBody(object):
 class QueryMetricDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_detail_response_body = QueryMetricDetailResponseBody()
+
     def semester_id(self, semester_id: str) -> "QueryMetricDetailResponseBodyBuilder":
         self._query_metric_detail_response_body.semester_id = semester_id
         return self
+
     def reviewee_metrics(self, reviewee_metrics: List[RevieweeMetric]) -> "QueryMetricDetailResponseBodyBuilder":
         self._query_metric_detail_response_body.reviewee_metrics = reviewee_metrics
         return self
-    
+
     def build(self) -> "QueryMetricDetailResponseBody":
         return self._query_metric_detail_response_body

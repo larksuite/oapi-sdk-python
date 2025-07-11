@@ -37,27 +37,34 @@ class BaseAddress(object):
 class BaseAddressBuilder(object):
     def __init__(self) -> None:
         self._base_address = BaseAddress()
+
     def id(self, id: str) -> "BaseAddressBuilder":
         self._base_address.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "BaseAddressBuilder":
         self._base_address.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "BaseAddressBuilder":
         self._base_address.en_name = en_name
         return self
+
     def district(self, district: BaseDistrict) -> "BaseAddressBuilder":
         self._base_address.district = district
         return self
+
     def city(self, city: BaseCity) -> "BaseAddressBuilder":
         self._base_address.city = city
         return self
+
     def state(self, state: BaseCity) -> "BaseAddressBuilder":
         self._base_address.state = state
         return self
+
     def country(self, country: BaseCountry) -> "BaseAddressBuilder":
         self._base_address.country = country
         return self
-    
+
     def build(self) -> "BaseAddress":
         return self._base_address

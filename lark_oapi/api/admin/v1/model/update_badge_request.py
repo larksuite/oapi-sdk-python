@@ -25,12 +25,12 @@ class UpdateBadgeRequestBuilder(object):
         update_badge_request.uri = "/open-apis/admin/v1/badges/:badge_id"
         update_badge_request.token_types = {AccessTokenType.TENANT}
         self._update_badge_request: UpdateBadgeRequest = update_badge_request
-    
+
     def badge_id(self, badge_id: str) -> "UpdateBadgeRequestBuilder":
         self._update_badge_request.badge_id = badge_id
         self._update_badge_request.paths["badge_id"] = str(badge_id)
         return self
-    
+
     def request_body(self, request_body: Badge) -> "UpdateBadgeRequestBuilder":
         self._update_badge_request.request_body = request_body
         self._update_badge_request.body = request_body

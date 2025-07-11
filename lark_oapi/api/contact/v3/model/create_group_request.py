@@ -26,17 +26,17 @@ class CreateGroupRequestBuilder(object):
         create_group_request.uri = "/open-apis/contact/v3/group"
         create_group_request.token_types = {AccessTokenType.TENANT}
         self._create_group_request: CreateGroupRequest = create_group_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.user_id_type = user_id_type
         self._create_group_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.department_id_type = department_id_type
         self._create_group_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def request_body(self, request_body: Group) -> "CreateGroupRequestBuilder":
         self._create_group_request.request_body = request_body
         self._create_group_request.body = request_body

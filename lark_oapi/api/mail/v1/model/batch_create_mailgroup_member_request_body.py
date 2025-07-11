@@ -22,9 +22,10 @@ class BatchCreateMailgroupMemberRequestBody(object):
 class BatchCreateMailgroupMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_mailgroup_member_request_body = BatchCreateMailgroupMemberRequestBody()
+
     def items(self, items: List[MailgroupMember]) -> "BatchCreateMailgroupMemberRequestBodyBuilder":
         self._batch_create_mailgroup_member_request_body.items = items
         return self
-    
+
     def build(self) -> "BatchCreateMailgroupMemberRequestBody":
         return self._batch_create_mailgroup_member_request_body

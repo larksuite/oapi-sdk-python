@@ -21,9 +21,10 @@ class BatchDeleteApplicationObjectRecordRequestBody(object):
 class BatchDeleteApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_application_object_record_request_body = BatchDeleteApplicationObjectRecordRequestBody()
+
     def ids(self, ids: List[str]) -> "BatchDeleteApplicationObjectRecordRequestBodyBuilder":
         self._batch_delete_application_object_record_request_body.ids = ids
         return self
-    
+
     def build(self) -> "BatchDeleteApplicationObjectRecordRequestBody":
         return self._batch_delete_application_object_record_request_body

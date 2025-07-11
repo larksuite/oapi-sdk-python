@@ -22,9 +22,10 @@ class BatchQueryDefaultCostCenterResponseBody(object):
 class BatchQueryDefaultCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_default_cost_center_response_body = BatchQueryDefaultCostCenterResponseBody()
+
     def items(self, items: List[EmployeeDefaultCostCenter]) -> "BatchQueryDefaultCostCenterResponseBodyBuilder":
         self._batch_query_default_cost_center_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchQueryDefaultCostCenterResponseBody":
         return self._batch_query_default_cost_center_response_body

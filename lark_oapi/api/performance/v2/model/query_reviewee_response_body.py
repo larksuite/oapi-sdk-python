@@ -28,18 +28,22 @@ class QueryRevieweeResponseBody(object):
 class QueryRevieweeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_reviewee_response_body = QueryRevieweeResponseBody()
+
     def semester_id(self, semester_id: str) -> "QueryRevieweeResponseBodyBuilder":
         self._query_reviewee_response_body.semester_id = semester_id
         return self
+
     def reviewees(self, reviewees: List[Reviewee]) -> "QueryRevieweeResponseBodyBuilder":
         self._query_reviewee_response_body.reviewees = reviewees
         return self
+
     def has_more(self, has_more: bool) -> "QueryRevieweeResponseBodyBuilder":
         self._query_reviewee_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "QueryRevieweeResponseBodyBuilder":
         self._query_reviewee_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "QueryRevieweeResponseBody":
         return self._query_reviewee_response_body

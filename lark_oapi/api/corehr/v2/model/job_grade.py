@@ -33,24 +33,30 @@ class JobGrade(object):
 class JobGradeBuilder(object):
     def __init__(self) -> None:
         self._job_grade = JobGrade()
+
     def job_grade_id(self, job_grade_id: str) -> "JobGradeBuilder":
         self._job_grade.job_grade_id = job_grade_id
         return self
+
     def grade_order(self, grade_order: int) -> "JobGradeBuilder":
         self._job_grade.grade_order = grade_order
         return self
+
     def code(self, code: str) -> "JobGradeBuilder":
         self._job_grade.code = code
         return self
+
     def names(self, names: List[I18n]) -> "JobGradeBuilder":
         self._job_grade.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "JobGradeBuilder":
         self._job_grade.descriptions = descriptions
         return self
+
     def active(self, active: bool) -> "JobGradeBuilder":
         self._job_grade.active = active
         return self
-    
+
     def build(self) -> "JobGrade":
         return self._job_grade

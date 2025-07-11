@@ -24,12 +24,14 @@ class TalentCustomizedOption(object):
 class TalentCustomizedOptionBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_option = TalentCustomizedOption()
+
     def key(self, key: str) -> "TalentCustomizedOptionBuilder":
         self._talent_customized_option.key = key
         return self
+
     def name(self, name: I18n) -> "TalentCustomizedOptionBuilder":
         self._talent_customized_option.name = name
         return self
-    
+
     def build(self) -> "TalentCustomizedOption":
         return self._talent_customized_option

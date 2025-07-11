@@ -25,15 +25,18 @@ class ReportRow(object):
 class ReportRowBuilder(object):
     def __init__(self) -> None:
         self._report_row = ReportRow()
+
     def name(self, name: str) -> "ReportRowBuilder":
         self._report_row.name = name
         return self
+
     def user_id(self, user_id: str) -> "ReportRowBuilder":
         self._report_row.user_id = user_id
         return self
+
     def column_map(self, column_map: str) -> "ReportRowBuilder":
         self._report_row.column_map = column_map
         return self
-    
+
     def build(self) -> "ReportRow":
         return self._report_row

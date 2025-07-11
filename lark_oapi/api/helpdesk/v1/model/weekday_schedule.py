@@ -25,15 +25,18 @@ class WeekdaySchedule(object):
 class WeekdayScheduleBuilder(object):
     def __init__(self) -> None:
         self._weekday_schedule = WeekdaySchedule()
+
     def start_time(self, start_time: str) -> "WeekdayScheduleBuilder":
         self._weekday_schedule.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "WeekdayScheduleBuilder":
         self._weekday_schedule.end_time = end_time
         return self
+
     def weekday(self, weekday: int) -> "WeekdayScheduleBuilder":
         self._weekday_schedule.weekday = weekday
         return self
-    
+
     def build(self) -> "WeekdaySchedule":
         return self._weekday_schedule

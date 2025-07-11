@@ -24,7 +24,7 @@ class InternalAppAccessTokenRequestBuilder(object):
         internal_app_access_token_request.uri = "/open-apis/auth/v3/app_access_token/internal"
         internal_app_access_token_request.token_types = {}
         self._internal_app_access_token_request: InternalAppAccessTokenRequest = internal_app_access_token_request
-    
+
     def request_body(self, request_body: InternalAppAccessTokenRequestBody) -> "InternalAppAccessTokenRequestBuilder":
         self._internal_app_access_token_request.request_body = request_body
         self._internal_app_access_token_request.body = request_body

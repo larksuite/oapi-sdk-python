@@ -25,15 +25,18 @@ class UserInfo(object):
 class UserInfoBuilder(object):
     def __init__(self) -> None:
         self._user_info = UserInfo()
+
     def type(self, type: str) -> "UserInfoBuilder":
         self._user_info.type = type
         return self
+
     def owner_user_id(self, owner_user_id: str) -> "UserInfoBuilder":
         self._user_info.owner_user_id = owner_user_id
         return self
+
     def public_mailbox_id(self, public_mailbox_id: str) -> "UserInfoBuilder":
         self._user_info.public_mailbox_id = public_mailbox_id
         return self
-    
+
     def build(self) -> "UserInfo":
         return self._user_info

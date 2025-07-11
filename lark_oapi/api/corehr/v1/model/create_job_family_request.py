@@ -25,12 +25,12 @@ class CreateJobFamilyRequestBuilder(object):
         create_job_family_request.uri = "/open-apis/corehr/v1/job_families"
         create_job_family_request.token_types = {AccessTokenType.TENANT}
         self._create_job_family_request: CreateJobFamilyRequest = create_job_family_request
-    
+
     def client_token(self, client_token: str) -> "CreateJobFamilyRequestBuilder":
         self._create_job_family_request.client_token = client_token
         self._create_job_family_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: JobFamily) -> "CreateJobFamilyRequestBuilder":
         self._create_job_family_request.request_body = request_body
         self._create_job_family_request.body = request_body

@@ -43,39 +43,50 @@ class RuntimeLog(object):
 class RuntimeLogBuilder(object):
     def __init__(self) -> None:
         self._runtime_log = RuntimeLog()
+
     def title(self, title: str) -> "RuntimeLogBuilder":
         self._runtime_log.title = title
         return self
+
     def level(self, level: str) -> "RuntimeLogBuilder":
         self._runtime_log.level = level
         return self
+
     def tags(self, tags: List[RuntimeLogTag]) -> "RuntimeLogBuilder":
         self._runtime_log.tags = tags
         return self
+
     def timestamp(self, timestamp: str) -> "RuntimeLogBuilder":
         self._runtime_log.timestamp = timestamp
         return self
+
     def node_api_name(self, node_api_name: str) -> "RuntimeLogBuilder":
         self._runtime_log.node_api_name = node_api_name
         return self
+
     def basic_log(self, basic_log: str) -> "RuntimeLogBuilder":
         self._runtime_log.basic_log = basic_log
         return self
+
     def basic_log_to_show(self, basic_log_to_show: str) -> "RuntimeLogBuilder":
         self._runtime_log.basic_log_to_show = basic_log_to_show
         return self
+
     def json_log(self, json_log: str) -> "RuntimeLogBuilder":
         self._runtime_log.json_log = json_log
         return self
+
     def json_log_to_show(self, json_log_to_show: str) -> "RuntimeLogBuilder":
         self._runtime_log.json_log_to_show = json_log_to_show
         return self
+
     def uri(self, uri: str) -> "RuntimeLogBuilder":
         self._runtime_log.uri = uri
         return self
+
     def uri_labels(self, uri_labels: List[I18n]) -> "RuntimeLogBuilder":
         self._runtime_log.uri_labels = uri_labels
         return self
-    
+
     def build(self) -> "RuntimeLog":
         return self._runtime_log

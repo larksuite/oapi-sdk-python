@@ -25,15 +25,18 @@ class MyAiSipImageProperty(object):
 class MyAiSipImagePropertyBuilder(object):
     def __init__(self) -> None:
         self._my_ai_sip_image_property = MyAiSipImageProperty()
+
     def theme(self, theme: str) -> "MyAiSipImagePropertyBuilder":
         self._my_ai_sip_image_property.theme = theme
         return self
+
     def number(self, number: int) -> "MyAiSipImagePropertyBuilder":
         self._my_ai_sip_image_property.number = number
         return self
+
     def size(self, size: str) -> "MyAiSipImagePropertyBuilder":
         self._my_ai_sip_image_property.size = size
         return self
-    
+
     def build(self) -> "MyAiSipImageProperty":
         return self._my_ai_sip_image_property

@@ -25,15 +25,18 @@ class BindDepartmentUnitRequestBody(object):
 class BindDepartmentUnitRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._bind_department_unit_request_body = BindDepartmentUnitRequestBody()
+
     def unit_id(self, unit_id: str) -> "BindDepartmentUnitRequestBodyBuilder":
         self._bind_department_unit_request_body.unit_id = unit_id
         return self
+
     def department_id(self, department_id: str) -> "BindDepartmentUnitRequestBodyBuilder":
         self._bind_department_unit_request_body.department_id = department_id
         return self
+
     def department_id_type(self, department_id_type: str) -> "BindDepartmentUnitRequestBodyBuilder":
         self._bind_department_unit_request_body.department_id_type = department_id_type
         return self
-    
+
     def build(self) -> "BindDepartmentUnitRequestBody":
         return self._bind_department_unit_request_body

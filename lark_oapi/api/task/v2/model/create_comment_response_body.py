@@ -22,9 +22,10 @@ class CreateCommentResponseBody(object):
 class CreateCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_comment_response_body = CreateCommentResponseBody()
+
     def comment(self, comment: Comment) -> "CreateCommentResponseBodyBuilder":
         self._create_comment_response_body.comment = comment
         return self
-    
+
     def build(self) -> "CreateCommentResponseBody":
         return self._create_comment_response_body

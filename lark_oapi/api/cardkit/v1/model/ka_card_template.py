@@ -39,36 +39,46 @@ class KaCardTemplate(object):
 class KaCardTemplateBuilder(object):
     def __init__(self) -> None:
         self._ka_card_template = KaCardTemplate()
+
     def template_id(self, template_id: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_id = template_id
         return self
+
     def template_name(self, template_name: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_name = template_name
         return self
+
     def template_owner(self, template_owner: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_owner = template_owner
         return self
+
     def template_version_name(self, template_version_name: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_version_name = template_version_name
         return self
+
     def status(self, status: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.status = status
         return self
+
     def create_time(self, create_time: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.update_time = update_time
         return self
+
     def host_config(self, host_config: str) -> "KaCardTemplateBuilder":
         self._ka_card_template.host_config = host_config
         return self
+
     def template_versions(self, template_versions: List[str]) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_versions = template_versions
         return self
+
     def bind_apps(self, bind_apps: List[str]) -> "KaCardTemplateBuilder":
         self._ka_card_template.bind_apps = bind_apps
         return self
-    
+
     def build(self) -> "KaCardTemplate":
         return self._ka_card_template

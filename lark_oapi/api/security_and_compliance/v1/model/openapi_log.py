@@ -32,24 +32,30 @@ class OpenapiLog(object):
 class OpenapiLogBuilder(object):
     def __init__(self) -> None:
         self._openapi_log = OpenapiLog()
+
     def id(self, id: int) -> "OpenapiLogBuilder":
         self._openapi_log.id = id
         return self
+
     def api_key(self, api_key: str) -> "OpenapiLogBuilder":
         self._openapi_log.api_key = api_key
         return self
+
     def event_time(self, event_time: int) -> "OpenapiLogBuilder":
         self._openapi_log.event_time = event_time
         return self
+
     def app_id(self, app_id: str) -> "OpenapiLogBuilder":
         self._openapi_log.app_id = app_id
         return self
+
     def ip(self, ip: str) -> "OpenapiLogBuilder":
         self._openapi_log.ip = ip
         return self
+
     def log_detail(self, log_detail: OpenapiLogDetail) -> "OpenapiLogBuilder":
         self._openapi_log.log_detail = log_detail
         return self
-    
+
     def build(self) -> "OpenapiLog":
         return self._openapi_log

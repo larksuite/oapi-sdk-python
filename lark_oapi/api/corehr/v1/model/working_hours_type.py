@@ -35,27 +35,34 @@ class WorkingHoursType(object):
 class WorkingHoursTypeBuilder(object):
     def __init__(self) -> None:
         self._working_hours_type = WorkingHoursType()
+
     def id(self, id: str) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.id = id
         return self
+
     def code(self, code: str) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.code = code
         return self
+
     def name(self, name: List[I18n]) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.name = name
         return self
+
     def country_region_id_list(self, country_region_id_list: List[str]) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.country_region_id_list = country_region_id_list
         return self
+
     def default_for_job(self, default_for_job: bool) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.default_for_job = default_for_job
         return self
+
     def active(self, active: bool) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.active = active
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "WorkingHoursType":
         return self._working_hours_type

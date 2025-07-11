@@ -49,45 +49,58 @@ class FieldVariableValueToForReview(object):
 class FieldVariableValueToForReviewBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_for_review = FieldVariableValueToForReview()
+
     def text_value(self, text_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.text_value = text_value
         return self
+
     def bool_value(self, bool_value: bool) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.bool_value = bool_value
         return self
+
     def number_value(self, number_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.number_value = number_value
         return self
+
     def enum_value(self, enum_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.enum_value = enum_value
         return self
+
     def date_value(self, date_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.date_value = date_value
         return self
+
     def date_time_value(self, date_time_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.date_time_value = date_time_value
         return self
+
     def i18n_value(self, i18n_value: FieldVariableValueI18n) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.i18n_value = i18n_value
         return self
+
     def object_value(self, object_value: FieldVariableValueToObject) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.object_value = object_value
         return self
+
     def department_value(self, department_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.department_value = department_value
         return self
+
     def employment_value(self, employment_value: str) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.employment_value = employment_value
         return self
+
     def list_values(self, list_values: List[str]) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.list_values = list_values
         return self
+
     def file_value(self, file_value: FieldVariableValueToFileForWrite) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.file_value = file_value
         return self
+
     def record_values(self, record_values: List[FieldVariableValueToRecord]) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.record_values = record_values
         return self
-    
+
     def build(self) -> "FieldVariableValueToForReview":
         return self._field_variable_value_to_for_review

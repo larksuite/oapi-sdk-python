@@ -21,7 +21,8 @@ class ProbationAssessment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateProbationAssessmentRequest, option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
+    def create(self, request: CreateProbationAssessmentRequest,
+               option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,34 @@ class ProbationAssessment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateProbationAssessmentResponse)
+        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CreateProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateProbationAssessmentRequest, option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
+    async def acreate(self, request: CreateProbationAssessmentRequest,
+                      option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateProbationAssessmentResponse)
+        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CreateProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteProbationAssessmentRequest, option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
+
+    def delete(self, request: DeleteProbationAssessmentRequest,
+               option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +75,34 @@ class ProbationAssessment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteProbationAssessmentResponse)
+        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeleteProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteProbationAssessmentRequest, option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
+    async def adelete(self, request: DeleteProbationAssessmentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteProbationAssessmentResponse)
+        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeleteProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchProbationAssessmentRequest, option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
+
+    def patch(self, request: PatchProbationAssessmentRequest,
+              option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +115,28 @@ class ProbationAssessment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchProbationAssessmentResponse)
+        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    PatchProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchProbationAssessmentRequest, option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
+    async def apatch(self, request: PatchProbationAssessmentRequest,
+                     option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchProbationAssessmentResponse)
+        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    PatchProbationAssessmentResponse)
         response.raw = resp
 
         return response
-        
-    

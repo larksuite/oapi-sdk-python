@@ -27,15 +27,18 @@ class LocationSetting(object):
 class LocationSettingBuilder(object):
     def __init__(self) -> None:
         self._location_setting = LocationSetting()
+
     def location(self, location: LocationInfo) -> "LocationSettingBuilder":
         self._location_setting.location = location
         return self
+
     def wifi(self, wifi: WifiInfo) -> "LocationSettingBuilder":
         self._location_setting.wifi = wifi
         return self
+
     def user_id(self, user_id: str) -> "LocationSettingBuilder":
         self._location_setting.user_id = user_id
         return self
-    
+
     def build(self) -> "LocationSetting":
         return self._location_setting

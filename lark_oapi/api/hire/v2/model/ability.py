@@ -25,12 +25,14 @@ class Ability(object):
 class AbilityBuilder(object):
     def __init__(self) -> None:
         self._ability = Ability()
+
     def name(self, name: I18n) -> "AbilityBuilder":
         self._ability.name = name
         return self
+
     def description(self, description: I18n) -> "AbilityBuilder":
         self._ability.description = description
         return self
-    
+
     def build(self) -> "Ability":
         return self._ability

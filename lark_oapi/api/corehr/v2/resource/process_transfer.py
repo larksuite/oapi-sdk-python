@@ -17,7 +17,8 @@ class ProcessTransfer(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateProcessTransferRequest, option: Optional[RequestOption] = None) -> UpdateProcessTransferResponse:
+    def update(self, request: UpdateProcessTransferRequest,
+               option: Optional[RequestOption] = None) -> UpdateProcessTransferResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class ProcessTransfer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateProcessTransferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessTransferResponse)
+        response: UpdateProcessTransferResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateProcessTransferResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateProcessTransferRequest, option: Optional[RequestOption] = None) -> UpdateProcessTransferResponse:
+    async def aupdate(self, request: UpdateProcessTransferRequest,
+                      option: Optional[RequestOption] = None) -> UpdateProcessTransferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateProcessTransferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessTransferResponse)
+        response: UpdateProcessTransferResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateProcessTransferResponse)
         response.raw = resp
 
         return response
-        
-    

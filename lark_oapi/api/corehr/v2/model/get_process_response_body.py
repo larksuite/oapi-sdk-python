@@ -72,69 +72,91 @@ class GetProcessResponseBody(object):
 class GetProcessResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_process_response_body = GetProcessResponseBody()
+
     def process_id(self, process_id: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.process_id = process_id
         return self
+
     def status(self, status: int) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.status = status
         return self
+
     def flow_template_id(self, flow_template_id: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_template_id = flow_template_id
         return self
+
     def flow_template_name(self, flow_template_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_template_name = flow_template_name
         return self
+
     def flow_definition_id(self, flow_definition_id: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_definition_id = flow_definition_id
         return self
+
     def flow_definition_name(self, flow_definition_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_definition_name = flow_definition_name
         return self
+
     def initiator_id(self, initiator_id: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.initiator_id = initiator_id
         return self
+
     def initiator_name(self, initiator_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.initiator_name = initiator_name
         return self
+
     def create_time(self, create_time: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.create_time = create_time
         return self
+
     def complete_time(self, complete_time: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.complete_time = complete_time
         return self
+
     def start_links(self, start_links: ProcessLink) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.start_links = start_links
         return self
+
     def abstracts(self, abstracts: List[ProcessAbstractItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.abstracts = abstracts
         return self
+
     def todos(self, todos: List[ProcessTodoItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.todos = todos
         return self
+
     def cc_list(self, cc_list: List[ProcessCcItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.cc_list = cc_list
         return self
+
     def done_list(self, done_list: List[ProcessDoneItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.done_list = done_list
         return self
+
     def properties(self, properties: int) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.properties = properties
         return self
+
     def system_todos(self, system_todos: List[ProcessSystemTodoItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.system_todos = system_todos
         return self
+
     def system_done_list(self, system_done_list: List[ProcessSystemDoneItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.system_done_list = system_done_list
         return self
+
     def comment_infos(self, comment_infos: List[ProcessCommentInfo]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.comment_infos = comment_infos
         return self
+
     def original_process_id(self, original_process_id: str) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.original_process_id = original_process_id
         return self
-    def is_last_completed_correct_process(self, is_last_completed_correct_process: bool) -> "GetProcessResponseBodyBuilder":
+
+    def is_last_completed_correct_process(self,
+                                          is_last_completed_correct_process: bool) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.is_last_completed_correct_process = is_last_completed_correct_process
         return self
-    
+
     def build(self) -> "GetProcessResponseBody":
         return self._get_process_response_body

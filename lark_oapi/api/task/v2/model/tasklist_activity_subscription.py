@@ -30,21 +30,26 @@ class TasklistActivitySubscription(object):
 class TasklistActivitySubscriptionBuilder(object):
     def __init__(self) -> None:
         self._tasklist_activity_subscription = TasklistActivitySubscription()
+
     def guid(self, guid: str) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.guid = guid
         return self
+
     def name(self, name: str) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.name = name
         return self
+
     def subscribers(self, subscribers: List[Member]) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.subscribers = subscribers
         return self
+
     def include_keys(self, include_keys: List[int]) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.include_keys = include_keys
         return self
+
     def disabled(self, disabled: bool) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.disabled = disabled
         return self
-    
+
     def build(self) -> "TasklistActivitySubscription":
         return self._tasklist_activity_subscription

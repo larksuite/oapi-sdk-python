@@ -21,9 +21,10 @@ class AgentEmailAgentResponseBody(object):
 class AgentEmailAgentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._agent_email_agent_response_body = AgentEmailAgentResponseBody()
+
     def agents(self, agents: str) -> "AgentEmailAgentResponseBodyBuilder":
         self._agent_email_agent_response_body.agents = agents
         return self
-    
+
     def build(self) -> "AgentEmailAgentResponseBody":
         return self._agent_email_agent_response_body

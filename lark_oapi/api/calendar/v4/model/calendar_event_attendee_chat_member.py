@@ -31,24 +31,30 @@ class CalendarEventAttendeeChatMember(object):
 class CalendarEventAttendeeChatMemberBuilder(object):
     def __init__(self) -> None:
         self._calendar_event_attendee_chat_member = CalendarEventAttendeeChatMember()
+
     def rsvp_status(self, rsvp_status: str) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.rsvp_status = rsvp_status
         return self
+
     def is_optional(self, is_optional: bool) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.is_optional = is_optional
         return self
+
     def display_name(self, display_name: str) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.display_name = display_name
         return self
+
     def open_id(self, open_id: str) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.open_id = open_id
         return self
+
     def is_organizer(self, is_organizer: bool) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.is_organizer = is_organizer
         return self
+
     def is_external(self, is_external: bool) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.is_external = is_external
         return self
-    
+
     def build(self) -> "CalendarEventAttendeeChatMember":
         return self._calendar_event_attendee_chat_member

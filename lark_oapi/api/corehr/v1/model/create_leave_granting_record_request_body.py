@@ -38,33 +38,42 @@ class CreateLeaveGrantingRecordRequestBody(object):
 class CreateLeaveGrantingRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_leave_granting_record_request_body = CreateLeaveGrantingRecordRequestBody()
+
     def leave_type_id(self, leave_type_id: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.leave_type_id = leave_type_id
         return self
+
     def employment_id(self, employment_id: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.employment_id = employment_id
         return self
+
     def granting_quantity(self, granting_quantity: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.granting_quantity = granting_quantity
         return self
+
     def granting_unit(self, granting_unit: int) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.granting_unit = granting_unit
         return self
+
     def effective_date(self, effective_date: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.effective_date = effective_date
         return self
+
     def expiration_date(self, expiration_date: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.expiration_date = expiration_date
         return self
+
     def section_type(self, section_type: int) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.section_type = section_type
         return self
+
     def reason(self, reason: List[I18n]) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.reason = reason
         return self
+
     def external_id(self, external_id: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.external_id = external_id
         return self
-    
+
     def build(self) -> "CreateLeaveGrantingRecordRequestBody":
         return self._create_leave_granting_record_request_body

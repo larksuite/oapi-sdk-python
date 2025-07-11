@@ -24,7 +24,7 @@ class CreateFaqRequestBuilder(object):
         create_faq_request.uri = "/open-apis/helpdesk/v1/faqs"
         create_faq_request.token_types = {AccessTokenType.USER}
         self._create_faq_request: CreateFaqRequest = create_faq_request
-    
+
     def request_body(self, request_body: CreateFaqRequestBody) -> "CreateFaqRequestBuilder":
         self._create_faq_request.request_body = request_body
         self._create_faq_request.body = request_body

@@ -28,18 +28,22 @@ class ReferralInfo(object):
 class ReferralInfoBuilder(object):
     def __init__(self) -> None:
         self._referral_info = ReferralInfo()
+
     def id(self, id: str) -> "ReferralInfoBuilder":
         self._referral_info.id = id
         return self
+
     def application_ids(self, application_ids: List[str]) -> "ReferralInfoBuilder":
         self._referral_info.application_ids = application_ids
         return self
+
     def create_time(self, create_time: str) -> "ReferralInfoBuilder":
         self._referral_info.create_time = create_time
         return self
+
     def referral_user(self, referral_user: IdNameObject) -> "ReferralInfoBuilder":
         self._referral_info.referral_user = referral_user
         return self
-    
+
     def build(self) -> "ReferralInfo":
         return self._referral_info

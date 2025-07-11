@@ -23,12 +23,14 @@ class DimensionEntity(object):
 class DimensionEntityBuilder(object):
     def __init__(self) -> None:
         self._dimension_entity = DimensionEntity()
+
     def dimension_key(self, dimension_key: str) -> "DimensionEntityBuilder":
         self._dimension_entity.dimension_key = dimension_key
         return self
+
     def dimension_value(self, dimension_value: str) -> "DimensionEntityBuilder":
         self._dimension_entity.dimension_value = dimension_value
         return self
-    
+
     def build(self) -> "DimensionEntity":
         return self._dimension_entity

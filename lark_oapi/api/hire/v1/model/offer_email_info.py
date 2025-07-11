@@ -25,15 +25,18 @@ class OfferEmailInfo(object):
 class OfferEmailInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_email_info = OfferEmailInfo()
+
     def cc_email_list(self, cc_email_list: List[str]) -> "OfferEmailInfoBuilder":
         self._offer_email_info.cc_email_list = cc_email_list
         return self
+
     def receiver_email_list(self, receiver_email_list: List[str]) -> "OfferEmailInfoBuilder":
         self._offer_email_info.receiver_email_list = receiver_email_list
         return self
+
     def content(self, content: str) -> "OfferEmailInfoBuilder":
         self._offer_email_info.content = content
         return self
-    
+
     def build(self) -> "OfferEmailInfo":
         return self._offer_email_info

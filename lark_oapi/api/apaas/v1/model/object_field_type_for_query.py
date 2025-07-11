@@ -23,12 +23,14 @@ class ObjectFieldTypeForQuery(object):
 class ObjectFieldTypeForQueryBuilder(object):
     def __init__(self) -> None:
         self._object_field_type_for_query = ObjectFieldTypeForQuery()
+
     def name(self, name: str) -> "ObjectFieldTypeForQueryBuilder":
         self._object_field_type_for_query.name = name
         return self
+
     def settings(self, settings: str) -> "ObjectFieldTypeForQueryBuilder":
         self._object_field_type_for_query.settings = settings
         return self
-    
+
     def build(self) -> "ObjectFieldTypeForQuery":
         return self._object_field_type_for_query

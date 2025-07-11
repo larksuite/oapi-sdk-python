@@ -26,15 +26,18 @@ class SkillGlobalVariable(object):
 class SkillGlobalVariableBuilder(object):
     def __init__(self) -> None:
         self._skill_global_variable = SkillGlobalVariable()
+
     def query(self, query: str) -> "SkillGlobalVariableBuilder":
         self._skill_global_variable.query = query
         return self
+
     def files(self, files: List[str]) -> "SkillGlobalVariableBuilder":
         self._skill_global_variable.files = files
         return self
+
     def channel(self, channel: Channel) -> "SkillGlobalVariableBuilder":
         self._skill_global_variable.channel = channel
         return self
-    
+
     def build(self) -> "SkillGlobalVariable":
         return self._skill_global_variable

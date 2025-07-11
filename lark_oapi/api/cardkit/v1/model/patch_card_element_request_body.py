@@ -25,15 +25,18 @@ class PatchCardElementRequestBody(object):
 class PatchCardElementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_card_element_request_body = PatchCardElementRequestBody()
+
     def partial_element(self, partial_element: str) -> "PatchCardElementRequestBodyBuilder":
         self._patch_card_element_request_body.partial_element = partial_element
         return self
+
     def uuid(self, uuid: str) -> "PatchCardElementRequestBodyBuilder":
         self._patch_card_element_request_body.uuid = uuid
         return self
+
     def sequence(self, sequence: int) -> "PatchCardElementRequestBodyBuilder":
         self._patch_card_element_request_body.sequence = sequence
         return self
-    
+
     def build(self) -> "PatchCardElementRequestBody":
         return self._patch_card_element_request_body

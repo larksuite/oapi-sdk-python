@@ -28,18 +28,22 @@ class EmployeeInfo(object):
 class EmployeeInfoBuilder(object):
     def __init__(self) -> None:
         self._employee_info = EmployeeInfo()
+
     def user_id(self, user_id: str) -> "EmployeeInfoBuilder":
         self._employee_info.user_id = user_id
         return self
+
     def name(self, name: I18n) -> "EmployeeInfoBuilder":
         self._employee_info.name = name
         return self
+
     def employee_number(self, employee_number: str) -> "EmployeeInfoBuilder":
         self._employee_info.employee_number = employee_number
         return self
+
     def employee_id(self, employee_id: str) -> "EmployeeInfoBuilder":
         self._employee_info.employee_id = employee_id
         return self
-    
+
     def build(self) -> "EmployeeInfo":
         return self._employee_info

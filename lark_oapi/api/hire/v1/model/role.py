@@ -35,27 +35,34 @@ class Role(object):
 class RoleBuilder(object):
     def __init__(self) -> None:
         self._role = Role()
+
     def id(self, id: str) -> "RoleBuilder":
         self._role.id = id
         return self
+
     def name(self, name: I18n) -> "RoleBuilder":
         self._role.name = name
         return self
+
     def description(self, description: I18n) -> "RoleBuilder":
         self._role.description = description
         return self
+
     def scope_of_application(self, scope_of_application: int) -> "RoleBuilder":
         self._role.scope_of_application = scope_of_application
         return self
+
     def modify_time(self, modify_time: str) -> "RoleBuilder":
         self._role.modify_time = modify_time
         return self
+
     def role_status(self, role_status: int) -> "RoleBuilder":
         self._role.role_status = role_status
         return self
+
     def role_type(self, role_type: int) -> "RoleBuilder":
         self._role.role_type = role_type
         return self
-    
+
     def build(self) -> "Role":
         return self._role

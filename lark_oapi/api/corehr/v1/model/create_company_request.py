@@ -25,12 +25,12 @@ class CreateCompanyRequestBuilder(object):
         create_company_request.uri = "/open-apis/corehr/v1/companies"
         create_company_request.token_types = {AccessTokenType.TENANT}
         self._create_company_request: CreateCompanyRequest = create_company_request
-    
+
     def client_token(self, client_token: str) -> "CreateCompanyRequestBuilder":
         self._create_company_request.client_token = client_token
         self._create_company_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: Company) -> "CreateCompanyRequestBuilder":
         self._create_company_request.request_body = request_body
         self._create_company_request.body = request_body

@@ -30,13 +30,12 @@ class Post(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPostResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetPostRequest, option: Optional[RequestOption] = None) -> GetPostResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Post(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPostResponse)
         response.raw = resp
 
         return response
-        
-    

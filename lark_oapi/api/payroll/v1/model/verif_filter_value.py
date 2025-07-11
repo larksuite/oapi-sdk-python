@@ -30,21 +30,26 @@ class VerifFilterValue(object):
 class VerifFilterValueBuilder(object):
     def __init__(self) -> None:
         self._verif_filter_value = VerifFilterValue()
+
     def api_name(self, api_name: str) -> "VerifFilterValueBuilder":
         self._verif_filter_value.api_name = api_name
         return self
+
     def field_type(self, field_type: int) -> "VerifFilterValueBuilder":
         self._verif_filter_value.field_type = field_type
         return self
+
     def value(self, value: str) -> "VerifFilterValueBuilder":
         self._verif_filter_value.value = value
         return self
+
     def ref_id(self, ref_id: str) -> "VerifFilterValueBuilder":
         self._verif_filter_value.ref_id = ref_id
         return self
+
     def currency(self, currency: IdWithName) -> "VerifFilterValueBuilder":
         self._verif_filter_value.currency = currency
         return self
-    
+
     def build(self) -> "VerifFilterValue":
         return self._verif_filter_value

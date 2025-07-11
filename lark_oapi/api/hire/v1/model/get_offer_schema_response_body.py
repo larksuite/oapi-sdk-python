@@ -28,18 +28,22 @@ class GetOfferSchemaResponseBody(object):
 class GetOfferSchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_offer_schema_response_body = GetOfferSchemaResponseBody()
+
     def id(self, id: str) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.id = id
         return self
+
     def scenario(self, scenario: int) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.scenario = scenario
         return self
+
     def version(self, version: int) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.version = version
         return self
+
     def object_list(self, object_list: List[OfferSchemaDetail]) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.object_list = object_list
         return self
-    
+
     def build(self) -> "GetOfferSchemaResponseBody":
         return self._get_offer_schema_response_body

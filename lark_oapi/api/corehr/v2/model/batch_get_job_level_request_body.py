@@ -23,12 +23,14 @@ class BatchGetJobLevelRequestBody(object):
 class BatchGetJobLevelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_job_level_request_body = BatchGetJobLevelRequestBody()
+
     def job_level_ids(self, job_level_ids: List[str]) -> "BatchGetJobLevelRequestBodyBuilder":
         self._batch_get_job_level_request_body.job_level_ids = job_level_ids
         return self
+
     def job_level_codes(self, job_level_codes: List[str]) -> "BatchGetJobLevelRequestBodyBuilder":
         self._batch_get_job_level_request_body.job_level_codes = job_level_codes
         return self
-    
+
     def build(self) -> "BatchGetJobLevelRequestBody":
         return self._batch_get_job_level_request_body

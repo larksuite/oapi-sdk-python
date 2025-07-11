@@ -33,7 +33,8 @@ class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest, option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:
+    def batch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest,
+                                  option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -46,33 +47,34 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteCollaboratorTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteCollaboratorTaskResponse)
+        response: BatchDeleteCollaboratorTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchDeleteCollaboratorTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest, option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:
+    async def abatch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest,
+                                         option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteCollaboratorTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteCollaboratorTaskResponse)
+        response: BatchDeleteCollaboratorTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchDeleteCollaboratorTaskResponse)
         response.raw = resp
 
         return response
-        
-    def batch_delete_follower(self, request: BatchDeleteFollowerTaskRequest, option: Optional[RequestOption] = None) -> BatchDeleteFollowerTaskResponse:
+
+    def batch_delete_follower(self, request: BatchDeleteFollowerTaskRequest,
+                              option: Optional[RequestOption] = None) -> BatchDeleteFollowerTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -85,32 +87,32 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteFollowerTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteFollowerTaskResponse)
+        response: BatchDeleteFollowerTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchDeleteFollowerTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete_follower(self, request: BatchDeleteFollowerTaskRequest, option: Optional[RequestOption] = None) -> BatchDeleteFollowerTaskResponse:
+    async def abatch_delete_follower(self, request: BatchDeleteFollowerTaskRequest,
+                                     option: Optional[RequestOption] = None) -> BatchDeleteFollowerTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteFollowerTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteFollowerTaskResponse)
+        response: BatchDeleteFollowerTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchDeleteFollowerTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def complete(self, request: CompleteTaskRequest, option: Optional[RequestOption] = None) -> CompleteTaskResponse:
         if option is None:
             option = RequestOption()
@@ -124,32 +126,30 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CompleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CompleteTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acomplete(self, request: CompleteTaskRequest, option: Optional[RequestOption] = None) -> CompleteTaskResponse:
+    async def acomplete(self, request: CompleteTaskRequest,
+                        option: Optional[RequestOption] = None) -> CompleteTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CompleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CompleteTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def create(self, request: CreateTaskRequest, option: Optional[RequestOption] = None) -> CreateTaskResponse:
         if option is None:
             option = RequestOption()
@@ -163,13 +163,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateTaskRequest, option: Optional[RequestOption] = None) -> CreateTaskResponse:
         if option is None:
@@ -178,17 +177,15 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteTaskRequest, option: Optional[RequestOption] = None) -> DeleteTaskResponse:
         if option is None:
             option = RequestOption()
@@ -202,13 +199,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def adelete(self, request: DeleteTaskRequest, option: Optional[RequestOption] = None) -> DeleteTaskResponse:
         if option is None:
@@ -217,17 +213,15 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
         if option is None:
             option = RequestOption()
@@ -241,13 +235,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
         if option is None:
@@ -256,17 +249,15 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListTaskRequest, option: Optional[RequestOption] = None) -> ListTaskResponse:
         if option is None:
             option = RequestOption()
@@ -280,13 +271,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListTaskRequest, option: Optional[RequestOption] = None) -> ListTaskResponse:
         if option is None:
@@ -295,17 +285,15 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchTaskRequest, option: Optional[RequestOption] = None) -> PatchTaskResponse:
         if option is None:
             option = RequestOption()
@@ -319,13 +307,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def apatch(self, request: PatchTaskRequest, option: Optional[RequestOption] = None) -> PatchTaskResponse:
         if option is None:
@@ -334,18 +321,17 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTaskResponse)
         response.raw = resp
 
         return response
-        
-    def uncomplete(self, request: UncompleteTaskRequest, option: Optional[RequestOption] = None) -> UncompleteTaskResponse:
+
+    def uncomplete(self, request: UncompleteTaskRequest,
+                   option: Optional[RequestOption] = None) -> UncompleteTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -358,30 +344,26 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UncompleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), UncompleteTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def auncomplete(self, request: UncompleteTaskRequest, option: Optional[RequestOption] = None) -> UncompleteTaskResponse:
+    async def auncomplete(self, request: UncompleteTaskRequest,
+                          option: Optional[RequestOption] = None) -> UncompleteTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UncompleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), UncompleteTaskResponse)
         response.raw = resp
 
         return response
-        
-    

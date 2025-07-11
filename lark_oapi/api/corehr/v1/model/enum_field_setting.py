@@ -24,12 +24,14 @@ class EnumFieldSetting(object):
 class EnumFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._enum_field_setting = EnumFieldSetting()
+
     def enum_field_option_list(self, enum_field_option_list: List[CommonSchemaOption]) -> "EnumFieldSettingBuilder":
         self._enum_field_setting.enum_field_option_list = enum_field_option_list
         return self
+
     def is_multiple(self, is_multiple: bool) -> "EnumFieldSettingBuilder":
         self._enum_field_setting.is_multiple = is_multiple
         return self
-    
+
     def build(self) -> "EnumFieldSetting":
         return self._enum_field_setting

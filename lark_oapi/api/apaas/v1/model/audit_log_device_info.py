@@ -29,21 +29,26 @@ class AuditLogDeviceInfo(object):
 class AuditLogDeviceInfoBuilder(object):
     def __init__(self) -> None:
         self._audit_log_device_info = AuditLogDeviceInfo()
+
     def device_id(self, device_id: str) -> "AuditLogDeviceInfoBuilder":
         self._audit_log_device_info.device_id = device_id
         return self
+
     def web_device_id(self, web_device_id: str) -> "AuditLogDeviceInfoBuilder":
         self._audit_log_device_info.web_device_id = web_device_id
         return self
+
     def terminal_type(self, terminal_type: str) -> "AuditLogDeviceInfoBuilder":
         self._audit_log_device_info.terminal_type = terminal_type
         return self
+
     def os_type(self, os_type: str) -> "AuditLogDeviceInfoBuilder":
         self._audit_log_device_info.os_type = os_type
         return self
+
     def os_version(self, os_version: str) -> "AuditLogDeviceInfoBuilder":
         self._audit_log_device_info.os_version = os_version
         return self
-    
+
     def build(self) -> "AuditLogDeviceInfo":
         return self._audit_log_device_info

@@ -21,9 +21,10 @@ class CreateVersionCostAllocationResponseBody(object):
 class CreateVersionCostAllocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_version_cost_allocation_response_body = CreateVersionCostAllocationResponseBody()
+
     def cost_allocation_id(self, cost_allocation_id: str) -> "CreateVersionCostAllocationResponseBodyBuilder":
         self._create_version_cost_allocation_response_body.cost_allocation_id = cost_allocation_id
         return self
-    
+
     def build(self) -> "CreateVersionCostAllocationResponseBody":
         return self._create_version_cost_allocation_response_body

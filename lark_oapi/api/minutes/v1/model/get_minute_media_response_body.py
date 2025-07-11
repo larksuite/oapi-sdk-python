@@ -21,9 +21,10 @@ class GetMinuteMediaResponseBody(object):
 class GetMinuteMediaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_minute_media_response_body = GetMinuteMediaResponseBody()
+
     def download_url(self, download_url: str) -> "GetMinuteMediaResponseBodyBuilder":
         self._get_minute_media_response_body.download_url = download_url
         return self
-    
+
     def build(self) -> "GetMinuteMediaResponseBody":
         return self._get_minute_media_response_body

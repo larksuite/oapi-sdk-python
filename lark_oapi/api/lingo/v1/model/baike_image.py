@@ -21,9 +21,10 @@ class BaikeImage(object):
 class BaikeImageBuilder(object):
     def __init__(self) -> None:
         self._baike_image = BaikeImage()
+
     def token(self, token: str) -> "BaikeImageBuilder":
         self._baike_image.token = token
         return self
-    
+
     def build(self) -> "BaikeImage":
         return self._baike_image

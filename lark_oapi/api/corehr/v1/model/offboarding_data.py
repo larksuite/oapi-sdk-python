@@ -31,24 +31,31 @@ class OffboardingData(object):
 class OffboardingDataBuilder(object):
     def __init__(self) -> None:
         self._offboarding_data = OffboardingData()
+
     def offboarding_id(self, offboarding_id: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_id = offboarding_id
         return self
+
     def employment_id(self, employment_id: str) -> "OffboardingDataBuilder":
         self._offboarding_data.employment_id = employment_id
         return self
-    def offboarding_reason_unique_identifier(self, offboarding_reason_unique_identifier: str) -> "OffboardingDataBuilder":
+
+    def offboarding_reason_unique_identifier(self,
+                                             offboarding_reason_unique_identifier: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
         return self
+
     def offboarding_date(self, offboarding_date: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_date = offboarding_date
         return self
+
     def offboarding_reason_explanation(self, offboarding_reason_explanation: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_reason_explanation = offboarding_reason_explanation
         return self
+
     def created_time(self, created_time: str) -> "OffboardingDataBuilder":
         self._offboarding_data.created_time = created_time
         return self
-    
+
     def build(self) -> "OffboardingData":
         return self._offboarding_data

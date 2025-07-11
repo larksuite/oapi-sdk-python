@@ -24,12 +24,14 @@ class CommonCityInfo(object):
 class CommonCityInfoBuilder(object):
     def __init__(self) -> None:
         self._common_city_info = CommonCityInfo()
+
     def city_code(self, city_code: str) -> "CommonCityInfoBuilder":
         self._common_city_info.city_code = city_code
         return self
+
     def name(self, name: I18n) -> "CommonCityInfoBuilder":
         self._common_city_info.name = name
         return self
-    
+
     def build(self) -> "CommonCityInfo":
         return self._common_city_info

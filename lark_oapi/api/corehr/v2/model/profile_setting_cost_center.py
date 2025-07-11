@@ -23,12 +23,14 @@ class ProfileSettingCostCenter(object):
 class ProfileSettingCostCenterBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_cost_center = ProfileSettingCostCenter()
+
     def id(self, id: str) -> "ProfileSettingCostCenterBuilder":
         self._profile_setting_cost_center.id = id
         return self
+
     def rate(self, rate: int) -> "ProfileSettingCostCenterBuilder":
         self._profile_setting_cost_center.rate = rate
         return self
-    
+
     def build(self) -> "ProfileSettingCostCenter":
         return self._profile_setting_cost_center

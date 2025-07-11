@@ -26,15 +26,18 @@ class ListMailgroupResponseBody(object):
 class ListMailgroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_mailgroup_response_body = ListMailgroupResponseBody()
+
     def has_more(self, has_more: bool) -> "ListMailgroupResponseBodyBuilder":
         self._list_mailgroup_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListMailgroupResponseBodyBuilder":
         self._list_mailgroup_response_body.page_token = page_token
         return self
+
     def items(self, items: List[Mailgroup]) -> "ListMailgroupResponseBodyBuilder":
         self._list_mailgroup_response_body.items = items
         return self
-    
+
     def build(self) -> "ListMailgroupResponseBody":
         return self._list_mailgroup_response_body

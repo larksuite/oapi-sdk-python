@@ -35,30 +35,38 @@ class ApprovalSetting(object):
 class ApprovalSettingBuilder(object):
     def __init__(self) -> None:
         self._approval_setting = ApprovalSetting()
+
     def revert_interval(self, revert_interval: int) -> "ApprovalSettingBuilder":
         self._approval_setting.revert_interval = revert_interval
         return self
+
     def revert_option(self, revert_option: int) -> "ApprovalSettingBuilder":
         self._approval_setting.revert_option = revert_option
         return self
+
     def reject_option(self, reject_option: int) -> "ApprovalSettingBuilder":
         self._approval_setting.reject_option = reject_option
         return self
+
     def quick_approval_option(self, quick_approval_option: int) -> "ApprovalSettingBuilder":
         self._approval_setting.quick_approval_option = quick_approval_option
         return self
+
     def overtime_disable(self, overtime_disable: bool) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_disable = overtime_disable
         return self
+
     def overtime_notice_time(self, overtime_notice_time: int) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_notice_time = overtime_notice_time
         return self
+
     def overtime_close_time(self, overtime_close_time: int) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_close_time = overtime_close_time
         return self
+
     def overtime_recover_time(self, overtime_recover_time: int) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_recover_time = overtime_recover_time
         return self
-    
+
     def build(self) -> "ApprovalSetting":
         return self._approval_setting

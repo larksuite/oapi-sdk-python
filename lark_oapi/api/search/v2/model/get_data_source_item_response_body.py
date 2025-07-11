@@ -22,9 +22,10 @@ class GetDataSourceItemResponseBody(object):
 class GetDataSourceItemResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_data_source_item_response_body = GetDataSourceItemResponseBody()
+
     def item(self, item: Item) -> "GetDataSourceItemResponseBodyBuilder":
         self._get_data_source_item_response_body.item = item
         return self
-    
+
     def build(self) -> "GetDataSourceItemResponseBody":
         return self._get_data_source_item_response_body

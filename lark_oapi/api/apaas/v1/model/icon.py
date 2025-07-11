@@ -27,18 +27,22 @@ class Icon(object):
 class IconBuilder(object):
     def __init__(self) -> None:
         self._icon = Icon()
+
     def source(self, source: str) -> "IconBuilder":
         self._icon.source = source
         return self
+
     def color(self, color: str) -> "IconBuilder":
         self._icon.color = color
         return self
+
     def color_id(self, color_id: str) -> "IconBuilder":
         self._icon.color_id = color_id
         return self
+
     def icon(self, icon: str) -> "IconBuilder":
         self._icon.icon = icon
         return self
-    
+
     def build(self) -> "Icon":
         return self._icon

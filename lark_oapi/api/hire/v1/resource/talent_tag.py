@@ -30,30 +30,26 @@ class TalentTag(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTalentTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentTagResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListTalentTagRequest, option: Optional[RequestOption] = None) -> ListTalentTagResponse:
+    async def alist(self, request: ListTalentTagRequest,
+                    option: Optional[RequestOption] = None) -> ListTalentTagResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTalentTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentTagResponse)
         response.raw = resp
 
         return response
-        
-    

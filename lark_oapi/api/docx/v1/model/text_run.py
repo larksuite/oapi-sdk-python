@@ -24,12 +24,14 @@ class TextRun(object):
 class TextRunBuilder(object):
     def __init__(self) -> None:
         self._text_run = TextRun()
+
     def content(self, content: str) -> "TextRunBuilder":
         self._text_run.content = content
         return self
+
     def text_element_style(self, text_element_style: TextElementStyle) -> "TextRunBuilder":
         self._text_run.text_element_style = text_element_style
         return self
-    
+
     def build(self) -> "TextRun":
         return self._text_run

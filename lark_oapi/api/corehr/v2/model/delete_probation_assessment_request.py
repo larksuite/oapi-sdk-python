@@ -23,12 +23,11 @@ class DeleteProbationAssessmentRequestBuilder(object):
         delete_probation_assessment_request.uri = "/open-apis/corehr/v2/probation/assessments/:assessment_id"
         delete_probation_assessment_request.token_types = {AccessTokenType.TENANT}
         self._delete_probation_assessment_request: DeleteProbationAssessmentRequest = delete_probation_assessment_request
-    
+
     def assessment_id(self, assessment_id: str) -> "DeleteProbationAssessmentRequestBuilder":
         self._delete_probation_assessment_request.assessment_id = assessment_id
         self._delete_probation_assessment_request.paths["assessment_id"] = str(assessment_id)
         return self
-    
 
     def build(self) -> DeleteProbationAssessmentRequest:
         return self._delete_probation_assessment_request

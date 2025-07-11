@@ -21,7 +21,8 @@ class BizEntityTagRelation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> CreateBizEntityTagRelationResponse:
+    def create(self, request: CreateBizEntityTagRelationRequest,
+               option: Optional[RequestOption] = None) -> CreateBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,34 @@ class BizEntityTagRelation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBizEntityTagRelationResponse)
+        response: CreateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      CreateBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> CreateBizEntityTagRelationResponse:
+    async def acreate(self, request: CreateBizEntityTagRelationRequest,
+                      option: Optional[RequestOption] = None) -> CreateBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBizEntityTagRelationResponse)
+        response: CreateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      CreateBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> GetBizEntityTagRelationResponse:
+
+    def get(self, request: GetBizEntityTagRelationRequest,
+            option: Optional[RequestOption] = None) -> GetBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +75,34 @@ class BizEntityTagRelation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBizEntityTagRelationResponse)
+        response: GetBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   GetBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> GetBizEntityTagRelationResponse:
+    async def aget(self, request: GetBizEntityTagRelationRequest,
+                   option: Optional[RequestOption] = None) -> GetBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetBizEntityTagRelationResponse)
+        response: GetBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   GetBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> UpdateBizEntityTagRelationResponse:
+
+    def update(self, request: UpdateBizEntityTagRelationRequest,
+               option: Optional[RequestOption] = None) -> UpdateBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +115,28 @@ class BizEntityTagRelation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBizEntityTagRelationResponse)
+        response: UpdateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      UpdateBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateBizEntityTagRelationRequest, option: Optional[RequestOption] = None) -> UpdateBizEntityTagRelationResponse:
+    async def aupdate(self, request: UpdateBizEntityTagRelationRequest,
+                      option: Optional[RequestOption] = None) -> UpdateBizEntityTagRelationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateBizEntityTagRelationResponse)
+        response: UpdateBizEntityTagRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      UpdateBizEntityTagRelationResponse)
         response.raw = resp
 
         return response
-        
-    

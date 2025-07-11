@@ -35,30 +35,38 @@ class TextStyle(object):
 class TextStyleBuilder(object):
     def __init__(self) -> None:
         self._text_style = TextStyle()
+
     def align(self, align: int) -> "TextStyleBuilder":
         self._text_style.align = align
         return self
+
     def done(self, done: bool) -> "TextStyleBuilder":
         self._text_style.done = done
         return self
+
     def folded(self, folded: bool) -> "TextStyleBuilder":
         self._text_style.folded = folded
         return self
+
     def language(self, language: int) -> "TextStyleBuilder":
         self._text_style.language = language
         return self
+
     def wrap(self, wrap: bool) -> "TextStyleBuilder":
         self._text_style.wrap = wrap
         return self
+
     def background_color(self, background_color: str) -> "TextStyleBuilder":
         self._text_style.background_color = background_color
         return self
+
     def indentation_level(self, indentation_level: str) -> "TextStyleBuilder":
         self._text_style.indentation_level = indentation_level
         return self
+
     def sequence(self, sequence: str) -> "TextStyleBuilder":
         self._text_style.sequence = sequence
         return self
-    
+
     def build(self) -> "TextStyle":
         return self._text_style

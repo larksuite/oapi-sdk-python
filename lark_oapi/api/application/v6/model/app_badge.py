@@ -31,21 +31,26 @@ class AppBadge(object):
 class AppBadgeBuilder(object):
     def __init__(self) -> None:
         self._app_badge = AppBadge()
+
     def user_id(self, user_id: int) -> "AppBadgeBuilder":
         self._app_badge.user_id = user_id
         return self
+
     def version(self, version: int) -> "AppBadgeBuilder":
         self._app_badge.version = version
         return self
+
     def extra(self, extra: str) -> "AppBadgeBuilder":
         self._app_badge.extra = extra
         return self
+
     def pc(self, pc: ClientBadgeNum) -> "AppBadgeBuilder":
         self._app_badge.pc = pc
         return self
+
     def mobile(self, mobile: ClientBadgeNum) -> "AppBadgeBuilder":
         self._app_badge.mobile = mobile
         return self
-    
+
     def build(self) -> "AppBadge":
         return self._app_badge

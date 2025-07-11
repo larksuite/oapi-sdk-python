@@ -24,8 +24,9 @@ class BatchUpdateEcoBackgroundCheckCustomFieldRequestBuilder(object):
         batch_update_eco_background_check_custom_field_request.uri = "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
         batch_update_eco_background_check_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_eco_background_check_custom_field_request: BatchUpdateEcoBackgroundCheckCustomFieldRequest = batch_update_eco_background_check_custom_field_request
-    
-    def request_body(self, request_body: EcoBackgroundCheckCustomField) -> "BatchUpdateEcoBackgroundCheckCustomFieldRequestBuilder":
+
+    def request_body(self,
+                     request_body: EcoBackgroundCheckCustomField) -> "BatchUpdateEcoBackgroundCheckCustomFieldRequestBuilder":
         self._batch_update_eco_background_check_custom_field_request.request_body = request_body
         self._batch_update_eco_background_check_custom_field_request.body = request_body
         return self

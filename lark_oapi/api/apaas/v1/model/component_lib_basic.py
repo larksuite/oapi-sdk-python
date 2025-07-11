@@ -62,60 +62,78 @@ class ComponentLibBasic(object):
 class ComponentLibBasicBuilder(object):
     def __init__(self) -> None:
         self._component_lib_basic = ComponentLibBasic()
+
     def lib_id(self, lib_id: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.lib_id = lib_id
         return self
+
     def namespace(self, namespace: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.namespace = namespace
         return self
+
     def names(self, names: List[I18n]) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.descriptions = descriptions
         return self
+
     def logo(self, logo: Icon) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.logo = logo
         return self
+
     def lib_type(self, lib_type: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.lib_type = lib_type
         return self
+
     def owner(self, owner: LookupWithAvatar) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.owner = owner
         return self
+
     def install_task_info(self, install_task_info: TaskInfo) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.install_task_info = install_task_info
         return self
+
     def sandbox_tenant_name(self, sandbox_tenant_name: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.sandbox_tenant_name = sandbox_tenant_name
         return self
+
     def status(self, status: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.status = status
         return self
+
     def i_s_v_market_version(self, i_s_v_market_version: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.i_s_v_market_version = i_s_v_market_version
         return self
+
     def i_s_v_customer_count(self, i_s_v_customer_count: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.i_s_v_customer_count = i_s_v_customer_count
         return self
+
     def created_at(self, created_at: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.created_at = created_at
         return self
+
     def created_by(self, created_by: LookupWithAvatar) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.created_by = created_by
         return self
+
     def updated_at(self, updated_at: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.updated_at = updated_at
         return self
+
     def updated_by(self, updated_by: LookupWithAvatar) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.updated_by = updated_by
         return self
+
     def lib_status(self, lib_status: str) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.lib_status = lib_status
         return self
+
     def on_top(self, on_top: bool) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.on_top = on_top
         return self
-    
+
     def build(self) -> "ComponentLibBasic":
         return self._component_lib_basic

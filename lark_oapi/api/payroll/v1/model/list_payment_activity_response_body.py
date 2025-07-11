@@ -26,15 +26,18 @@ class ListPaymentActivityResponseBody(object):
 class ListPaymentActivityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_payment_activity_response_body = ListPaymentActivityResponseBody()
+
     def payment_activitys(self, payment_activitys: List[PaymentActivity]) -> "ListPaymentActivityResponseBodyBuilder":
         self._list_payment_activity_response_body.payment_activitys = payment_activitys
         return self
+
     def page_token(self, page_token: str) -> "ListPaymentActivityResponseBodyBuilder":
         self._list_payment_activity_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListPaymentActivityResponseBodyBuilder":
         self._list_payment_activity_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListPaymentActivityResponseBody":
         return self._list_payment_activity_response_body

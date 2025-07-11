@@ -24,12 +24,14 @@ class JobLevel(object):
 class JobLevelBuilder(object):
     def __init__(self) -> None:
         self._job_level = JobLevel()
+
     def id(self, id: str) -> "JobLevelBuilder":
         self._job_level.id = id
         return self
+
     def name(self, name: I18n) -> "JobLevelBuilder":
         self._job_level.name = name
         return self
-    
+
     def build(self) -> "JobLevel":
         return self._job_level

@@ -22,9 +22,11 @@ class RecognizeFoodProduceLicenseResponseBody(object):
 class RecognizeFoodProduceLicenseResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_food_produce_license_response_body = RecognizeFoodProduceLicenseResponseBody()
-    def food_produce_license(self, food_produce_license: FoodProduceLicense) -> "RecognizeFoodProduceLicenseResponseBodyBuilder":
+
+    def food_produce_license(self,
+                             food_produce_license: FoodProduceLicense) -> "RecognizeFoodProduceLicenseResponseBodyBuilder":
         self._recognize_food_produce_license_response_body.food_produce_license = food_produce_license
         return self
-    
+
     def build(self) -> "RecognizeFoodProduceLicenseResponseBody":
         return self._recognize_food_produce_license_response_body

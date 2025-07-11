@@ -28,37 +28,36 @@ class GetOfferRequestBuilder(object):
         get_offer_request.uri = "/open-apis/hire/v1/offers/:offer_id"
         get_offer_request.token_types = {AccessTokenType.TENANT}
         self._get_offer_request: GetOfferRequest = get_offer_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.user_id_type = user_id_type
         self._get_offer_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.department_id_type = department_id_type
         self._get_offer_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def job_level_id_type(self, job_level_id_type: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.job_level_id_type = job_level_id_type
         self._get_offer_request.add_query("job_level_id_type", job_level_id_type)
         return self
-    
+
     def job_family_id_type(self, job_family_id_type: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.job_family_id_type = job_family_id_type
         self._get_offer_request.add_query("job_family_id_type", job_family_id_type)
         return self
-    
+
     def employee_type_id_type(self, employee_type_id_type: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.employee_type_id_type = employee_type_id_type
         self._get_offer_request.add_query("employee_type_id_type", employee_type_id_type)
         return self
-    
+
     def offer_id(self, offer_id: str) -> "GetOfferRequestBuilder":
         self._get_offer_request.offer_id = offer_id
         self._get_offer_request.paths["offer_id"] = str(offer_id)
         return self
-    
 
     def build(self) -> GetOfferRequest:
         return self._get_offer_request

@@ -25,15 +25,18 @@ class TaskInfo(object):
 class TaskInfoBuilder(object):
     def __init__(self) -> None:
         self._task_info = TaskInfo()
+
     def task_id(self, task_id: str) -> "TaskInfoBuilder":
         self._task_info.task_id = task_id
         return self
+
     def task_progress(self, task_progress: str) -> "TaskInfoBuilder":
         self._task_info.task_progress = task_progress
         return self
+
     def task_status(self, task_status: str) -> "TaskInfoBuilder":
         self._task_info.task_status = task_status
         return self
-    
+
     def build(self) -> "TaskInfo":
         return self._task_info

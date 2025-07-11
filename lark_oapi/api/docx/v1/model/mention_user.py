@@ -24,12 +24,14 @@ class MentionUser(object):
 class MentionUserBuilder(object):
     def __init__(self) -> None:
         self._mention_user = MentionUser()
+
     def user_id(self, user_id: str) -> "MentionUserBuilder":
         self._mention_user.user_id = user_id
         return self
+
     def text_element_style(self, text_element_style: TextElementStyle) -> "MentionUserBuilder":
         self._mention_user.text_element_style = text_element_style
         return self
-    
+
     def build(self) -> "MentionUser":
         return self._mention_user

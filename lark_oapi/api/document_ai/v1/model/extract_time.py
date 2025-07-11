@@ -36,30 +36,38 @@ class ExtractTime(object):
 class ExtractTimeBuilder(object):
     def __init__(self) -> None:
         self._extract_time = ExtractTime()
+
     def time_start(self, time_start: str) -> "ExtractTimeBuilder":
         self._extract_time.time_start = time_start
         return self
+
     def time_end(self, time_end: str) -> "ExtractTimeBuilder":
         self._extract_time.time_end = time_end
         return self
+
     def original_time_start(self, original_time_start: str) -> "ExtractTimeBuilder":
         self._extract_time.original_time_start = original_time_start
         return self
+
     def original_time_end(self, original_time_end: str) -> "ExtractTimeBuilder":
         self._extract_time.original_time_end = original_time_end
         return self
+
     def text_start(self, text_start: str) -> "ExtractTimeBuilder":
         self._extract_time.text_start = text_start
         return self
+
     def text_end(self, text_end: str) -> "ExtractTimeBuilder":
         self._extract_time.text_end = text_end
         return self
+
     def initial_term(self, initial_term: ExtractTerm) -> "ExtractTimeBuilder":
         self._extract_time.initial_term = initial_term
         return self
+
     def text_initial_term(self, text_initial_term: str) -> "ExtractTimeBuilder":
         self._extract_time.text_initial_term = text_initial_term
         return self
-    
+
     def build(self) -> "ExtractTime":
         return self._extract_time

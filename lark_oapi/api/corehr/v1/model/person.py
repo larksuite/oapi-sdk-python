@@ -94,93 +94,122 @@ class Person(object):
 class PersonBuilder(object):
     def __init__(self) -> None:
         self._person = Person()
+
     def phone_number(self, phone_number: str) -> "PersonBuilder":
         self._person.phone_number = phone_number
         return self
+
     def legal_name(self, legal_name: str) -> "PersonBuilder":
         self._person.legal_name = legal_name
         return self
+
     def preferred_name(self, preferred_name: str) -> "PersonBuilder":
         self._person.preferred_name = preferred_name
         return self
+
     def id(self, id: str) -> "PersonBuilder":
         self._person.id = id
         return self
+
     def name_list(self, name_list: List[PersonName]) -> "PersonBuilder":
         self._person.name_list = name_list
         return self
+
     def gender(self, gender: Enum) -> "PersonBuilder":
         self._person.gender = gender
         return self
+
     def date_of_birth(self, date_of_birth: str) -> "PersonBuilder":
         self._person.date_of_birth = date_of_birth
         return self
+
     def nationality_id(self, nationality_id: str) -> "PersonBuilder":
         self._person.nationality_id = nationality_id
         return self
+
     def nationality_id_v2(self, nationality_id_v2: str) -> "PersonBuilder":
         self._person.nationality_id_v2 = nationality_id_v2
         return self
+
     def race(self, race: Enum) -> "PersonBuilder":
         self._person.race = race
         return self
+
     def marital_status(self, marital_status: Enum) -> "PersonBuilder":
         self._person.marital_status = marital_status
         return self
+
     def phone_list(self, phone_list: List[Phone]) -> "PersonBuilder":
         self._person.phone_list = phone_list
         return self
+
     def address_list(self, address_list: List[Address]) -> "PersonBuilder":
         self._person.address_list = address_list
         return self
+
     def email_list(self, email_list: List[Email]) -> "PersonBuilder":
         self._person.email_list = email_list
         return self
+
     def work_experience_list(self, work_experience_list: List[WorkExperience]) -> "PersonBuilder":
         self._person.work_experience_list = work_experience_list
         return self
+
     def education_list(self, education_list: List[Education]) -> "PersonBuilder":
         self._person.education_list = education_list
         return self
+
     def bank_account_list(self, bank_account_list: List[BankAccount]) -> "PersonBuilder":
         self._person.bank_account_list = bank_account_list
         return self
+
     def national_id_list(self, national_id_list: List[NationalId]) -> "PersonBuilder":
         self._person.national_id_list = national_id_list
         return self
+
     def dependent_list(self, dependent_list: List[Dependent]) -> "PersonBuilder":
         self._person.dependent_list = dependent_list
         return self
+
     def emergency_contact_list(self, emergency_contact_list: List[EmergencyContact]) -> "PersonBuilder":
         self._person.emergency_contact_list = emergency_contact_list
         return self
+
     def date_entered_workforce(self, date_entered_workforce: str) -> "PersonBuilder":
         self._person.date_entered_workforce = date_entered_workforce
         return self
+
     def profile_image_id(self, profile_image_id: str) -> "PersonBuilder":
         self._person.profile_image_id = profile_image_id
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PersonBuilder":
         self._person.custom_fields = custom_fields
         return self
+
     def email_address(self, email_address: str) -> "PersonBuilder":
         self._person.email_address = email_address
         return self
+
     def resident_tax_id_list(self, resident_tax_id_list: List[str]) -> "PersonBuilder":
         self._person.resident_tax_id_list = resident_tax_id_list
         return self
+
     def age(self, age: int) -> "PersonBuilder":
         self._person.age = age
         return self
+
     def highest_level_of_education(self, highest_level_of_education: Education) -> "PersonBuilder":
         self._person.highest_level_of_education = highest_level_of_education
         return self
+
     def highest_degree_of_education(self, highest_degree_of_education: Education) -> "PersonBuilder":
         self._person.highest_degree_of_education = highest_degree_of_education
         return self
+
     def personal_profile(self, personal_profile: List[PersonalProfile]) -> "PersonBuilder":
         self._person.personal_profile = personal_profile
         return self
-    
+
     def build(self) -> "Person":
         return self._person

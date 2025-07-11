@@ -30,21 +30,27 @@ class UpdateResultEcoBackgroundCheckRequestBody(object):
 class UpdateResultEcoBackgroundCheckRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_result_eco_background_check_request_body = UpdateResultEcoBackgroundCheckRequestBody()
+
     def background_check_id(self, background_check_id: str) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
         self._update_result_eco_background_check_request_body.background_check_id = background_check_id
         return self
+
     def result(self, result: str) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
         self._update_result_eco_background_check_request_body.result = result
         return self
+
     def result_time(self, result_time: str) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
         self._update_result_eco_background_check_request_body.result_time = result_time
         return self
+
     def operator_role(self, operator_role: int) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
         self._update_result_eco_background_check_request_body.operator_role = operator_role
         return self
-    def report_file_list(self, report_file_list: List[EcoBackgroundCheckReportFile]) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
+
+    def report_file_list(self, report_file_list: List[
+        EcoBackgroundCheckReportFile]) -> "UpdateResultEcoBackgroundCheckRequestBodyBuilder":
         self._update_result_eco_background_check_request_body.report_file_list = report_file_list
         return self
-    
+
     def build(self) -> "UpdateResultEcoBackgroundCheckRequestBody":
         return self._update_result_eco_background_check_request_body

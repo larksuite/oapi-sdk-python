@@ -27,18 +27,22 @@ class BatchQueryApplicationObjectRecordResponseBody(object):
 class BatchQueryApplicationObjectRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_application_object_record_response_body = BatchQueryApplicationObjectRecordResponseBody()
+
     def items(self, items: str) -> "BatchQueryApplicationObjectRecordResponseBodyBuilder":
         self._batch_query_application_object_record_response_body.items = items
         return self
+
     def total(self, total: int) -> "BatchQueryApplicationObjectRecordResponseBodyBuilder":
         self._batch_query_application_object_record_response_body.total = total
         return self
+
     def next_page_token(self, next_page_token: str) -> "BatchQueryApplicationObjectRecordResponseBodyBuilder":
         self._batch_query_application_object_record_response_body.next_page_token = next_page_token
         return self
+
     def has_more(self, has_more: bool) -> "BatchQueryApplicationObjectRecordResponseBodyBuilder":
         self._batch_query_application_object_record_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "BatchQueryApplicationObjectRecordResponseBody":
         return self._batch_query_application_object_record_response_body

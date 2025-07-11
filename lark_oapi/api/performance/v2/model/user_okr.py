@@ -25,12 +25,14 @@ class UserOkr(object):
 class UserOkrBuilder(object):
     def __init__(self) -> None:
         self._user_okr = UserOkr()
+
     def reviewee_user_id(self, reviewee_user_id: User) -> "UserOkrBuilder":
         self._user_okr.reviewee_user_id = reviewee_user_id
         return self
+
     def okrs(self, okrs: List[Okr]) -> "UserOkrBuilder":
         self._user_okr.okrs = okrs
         return self
-    
+
     def build(self) -> "UserOkr":
         return self._user_okr

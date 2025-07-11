@@ -24,12 +24,14 @@ class BasicUserInfo(object):
 class BasicUserInfoBuilder(object):
     def __init__(self) -> None:
         self._basic_user_info = BasicUserInfo()
+
     def id(self, id: str) -> "BasicUserInfoBuilder":
         self._basic_user_info.id = id
         return self
+
     def name(self, name: I18n) -> "BasicUserInfoBuilder":
         self._basic_user_info.name = name
         return self
-    
+
     def build(self) -> "BasicUserInfo":
         return self._basic_user_info

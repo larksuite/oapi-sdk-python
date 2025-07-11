@@ -21,9 +21,11 @@ class BatchQueryExternalInterviewRequestBody(object):
 class BatchQueryExternalInterviewRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_external_interview_request_body = BatchQueryExternalInterviewRequestBody()
-    def external_interview_id_list(self, external_interview_id_list: List[str]) -> "BatchQueryExternalInterviewRequestBodyBuilder":
+
+    def external_interview_id_list(self, external_interview_id_list: List[
+        str]) -> "BatchQueryExternalInterviewRequestBodyBuilder":
         self._batch_query_external_interview_request_body.external_interview_id_list = external_interview_id_list
         return self
-    
+
     def build(self) -> "BatchQueryExternalInterviewRequestBody":
         return self._batch_query_external_interview_request_body

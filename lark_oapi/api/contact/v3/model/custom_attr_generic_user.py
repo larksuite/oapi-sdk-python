@@ -23,12 +23,14 @@ class CustomAttrGenericUser(object):
 class CustomAttrGenericUserBuilder(object):
     def __init__(self) -> None:
         self._custom_attr_generic_user = CustomAttrGenericUser()
+
     def id(self, id: str) -> "CustomAttrGenericUserBuilder":
         self._custom_attr_generic_user.id = id
         return self
+
     def type(self, type: int) -> "CustomAttrGenericUserBuilder":
         self._custom_attr_generic_user.type = type
         return self
-    
+
     def build(self) -> "CustomAttrGenericUser":
         return self._custom_attr_generic_user

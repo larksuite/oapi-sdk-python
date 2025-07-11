@@ -29,21 +29,26 @@ class ChatMenuItemRedirectLink(object):
 class ChatMenuItemRedirectLinkBuilder(object):
     def __init__(self) -> None:
         self._chat_menu_item_redirect_link = ChatMenuItemRedirectLink()
+
     def common_url(self, common_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.common_url = common_url
         return self
+
     def ios_url(self, ios_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.ios_url = ios_url
         return self
+
     def android_url(self, android_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.android_url = android_url
         return self
+
     def pc_url(self, pc_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.pc_url = pc_url
         return self
+
     def web_url(self, web_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.web_url = web_url
         return self
-    
+
     def build(self) -> "ChatMenuItemRedirectLink":
         return self._chat_menu_item_redirect_link

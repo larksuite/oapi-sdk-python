@@ -23,12 +23,14 @@ class ReferenceSynced(object):
 class ReferenceSyncedBuilder(object):
     def __init__(self) -> None:
         self._reference_synced = ReferenceSynced()
+
     def source_document_id(self, source_document_id: str) -> "ReferenceSyncedBuilder":
         self._reference_synced.source_document_id = source_document_id
         return self
+
     def source_block_id(self, source_block_id: str) -> "ReferenceSyncedBuilder":
         self._reference_synced.source_block_id = source_block_id
         return self
-    
+
     def build(self) -> "ReferenceSynced":
         return self._reference_synced

@@ -36,32 +36,30 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateLocationResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateLocationRequest, option: Optional[RequestOption] = None) -> CreateLocationResponse:
+    async def acreate(self, request: CreateLocationRequest,
+                      option: Optional[RequestOption] = None) -> CreateLocationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateLocationResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteLocationRequest, option: Optional[RequestOption] = None) -> DeleteLocationResponse:
         if option is None:
             option = RequestOption()
@@ -75,32 +73,30 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteLocationResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteLocationRequest, option: Optional[RequestOption] = None) -> DeleteLocationResponse:
+    async def adelete(self, request: DeleteLocationRequest,
+                      option: Optional[RequestOption] = None) -> DeleteLocationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteLocationResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetLocationRequest, option: Optional[RequestOption] = None) -> GetLocationResponse:
         if option is None:
             option = RequestOption()
@@ -114,13 +110,12 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetLocationResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetLocationRequest, option: Optional[RequestOption] = None) -> GetLocationResponse:
         if option is None:
@@ -129,17 +124,15 @@ class Location(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetLocationResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListLocationRequest, option: Optional[RequestOption] = None) -> ListLocationResponse:
         if option is None:
             option = RequestOption()
@@ -153,13 +146,12 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListLocationRequest, option: Optional[RequestOption] = None) -> ListLocationResponse:
         if option is None:
@@ -168,15 +160,11 @@ class Location(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
         response.raw = resp
 
         return response
-        
-    

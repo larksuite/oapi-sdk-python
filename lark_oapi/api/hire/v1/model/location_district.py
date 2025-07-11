@@ -30,21 +30,26 @@ class LocationDistrict(object):
 class LocationDistrictBuilder(object):
     def __init__(self) -> None:
         self._location_district = LocationDistrict()
+
     def district_code(self, district_code: str) -> "LocationDistrictBuilder":
         self._location_district.district_code = district_code
         return self
+
     def city_code(self, city_code: str) -> "LocationDistrictBuilder":
         self._location_district.city_code = city_code
         return self
+
     def state_code(self, state_code: str) -> "LocationDistrictBuilder":
         self._location_district.state_code = state_code
         return self
+
     def country_code(self, country_code: str) -> "LocationDistrictBuilder":
         self._location_district.country_code = country_code
         return self
+
     def district_name_info(self, district_name_info: LocationNameInfo) -> "LocationDistrictBuilder":
         self._location_district.district_name_info = district_name_info
         return self
-    
+
     def build(self) -> "LocationDistrict":
         return self._location_district

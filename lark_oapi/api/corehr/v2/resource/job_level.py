@@ -19,7 +19,8 @@ class JobLevel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobLevelRequest, option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
+    def batch_get(self, request: BatchGetJobLevelRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,32 @@ class JobLevel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobLevelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_get(self, request: BatchGetJobLevelRequest, option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
+    async def abatch_get(self, request: BatchGetJobLevelRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchGetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobLevelResponse)
         response.raw = resp
 
         return response
-        
-    def query_recent_change(self, request: QueryRecentChangeJobLevelRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
+
+    def query_recent_change(self, request: QueryRecentChangeJobLevelRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +71,28 @@ class JobLevel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobLevelResponse)
+        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryRecentChangeJobLevelResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobLevelRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
+    async def aquery_recent_change(self, request: QueryRecentChangeJobLevelRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobLevelResponse)
+        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryRecentChangeJobLevelResponse)
         response.raw = resp
 
         return response
-        
-    

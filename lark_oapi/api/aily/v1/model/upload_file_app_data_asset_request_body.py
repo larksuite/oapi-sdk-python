@@ -21,9 +21,10 @@ class UploadFileAppDataAssetRequestBody(object):
 class UploadFileAppDataAssetRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_file_app_data_asset_request_body = UploadFileAppDataAssetRequestBody()
+
     def file(self, file: IO[Any]) -> "UploadFileAppDataAssetRequestBodyBuilder":
         self._upload_file_app_data_asset_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadFileAppDataAssetRequestBody":
         return self._upload_file_app_data_asset_request_body

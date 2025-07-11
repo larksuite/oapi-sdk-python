@@ -25,15 +25,18 @@ class JobHighlight(object):
 class JobHighlightBuilder(object):
     def __init__(self) -> None:
         self._job_highlight = JobHighlight()
+
     def id(self, id: str) -> "JobHighlightBuilder":
         self._job_highlight.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "JobHighlightBuilder":
         self._job_highlight.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "JobHighlightBuilder":
         self._job_highlight.en_name = en_name
         return self
-    
+
     def build(self) -> "JobHighlight":
         return self._job_highlight

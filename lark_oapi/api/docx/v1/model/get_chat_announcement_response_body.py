@@ -39,36 +39,46 @@ class GetChatAnnouncementResponseBody(object):
 class GetChatAnnouncementResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_chat_announcement_response_body = GetChatAnnouncementResponseBody()
+
     def revision_id(self, revision_id: int) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.revision_id = revision_id
         return self
+
     def create_time(self, create_time: int) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.update_time = update_time
         return self
+
     def owner_id(self, owner_id: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.owner_id = owner_id
         return self
+
     def owner_id_type(self, owner_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.owner_id_type = owner_id_type
         return self
+
     def modifier_id(self, modifier_id: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.modifier_id = modifier_id
         return self
+
     def modifier_id_type(self, modifier_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.modifier_id_type = modifier_id_type
         return self
+
     def announcement_type(self, announcement_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.announcement_type = announcement_type
         return self
+
     def create_time_v2(self, create_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.create_time_v2 = create_time_v2
         return self
+
     def update_time_v2(self, update_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.update_time_v2 = update_time_v2
         return self
-    
+
     def build(self) -> "GetChatAnnouncementResponseBody":
         return self._get_chat_announcement_response_body

@@ -24,7 +24,7 @@ class QueryUserTaskRequestBuilder(object):
         query_user_task_request.uri = "/open-apis/apaas/v1/user_task/query"
         query_user_task_request.token_types = {AccessTokenType.TENANT}
         self._query_user_task_request: QueryUserTaskRequest = query_user_task_request
-    
+
     def request_body(self, request_body: QueryUserTaskRequestBody) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.request_body = request_body
         self._query_user_task_request.body = request_body

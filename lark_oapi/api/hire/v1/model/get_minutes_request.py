@@ -25,22 +25,21 @@ class GetMinutesRequestBuilder(object):
         get_minutes_request.uri = "/open-apis/hire/v1/minutes"
         get_minutes_request.token_types = {AccessTokenType.TENANT}
         self._get_minutes_request: GetMinutesRequest = get_minutes_request
-    
+
     def interview_id(self, interview_id: str) -> "GetMinutesRequestBuilder":
         self._get_minutes_request.interview_id = interview_id
         self._get_minutes_request.add_query("interview_id", interview_id)
         return self
-    
+
     def page_token(self, page_token: str) -> "GetMinutesRequestBuilder":
         self._get_minutes_request.page_token = page_token
         self._get_minutes_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "GetMinutesRequestBuilder":
         self._get_minutes_request.page_size = page_size
         self._get_minutes_request.add_query("page_size", page_size)
         return self
-    
 
     def build(self) -> GetMinutesRequest:
         return self._get_minutes_request

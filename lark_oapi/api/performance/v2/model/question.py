@@ -27,15 +27,18 @@ class Question(object):
 class QuestionBuilder(object):
     def __init__(self) -> None:
         self._question = Question()
+
     def question_id(self, question_id: str) -> "QuestionBuilder":
         self._question.question_id = question_id
         return self
+
     def name(self, name: I18n) -> "QuestionBuilder":
         self._question.name = name
         return self
+
     def tag_items(self, tag_items: List[TagItem]) -> "QuestionBuilder":
         self._question.tag_items = tag_items
         return self
-    
+
     def build(self) -> "Question":
         return self._question

@@ -24,12 +24,14 @@ class SaveDatasourceRecordRequestBody(object):
 class SaveDatasourceRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._save_datasource_record_request_body = SaveDatasourceRecordRequestBody()
+
     def source_code(self, source_code: str) -> "SaveDatasourceRecordRequestBodyBuilder":
         self._save_datasource_record_request_body.source_code = source_code
         return self
+
     def records(self, records: List[DatasourceRecord]) -> "SaveDatasourceRecordRequestBodyBuilder":
         self._save_datasource_record_request_body.records = records
         return self
-    
+
     def build(self) -> "SaveDatasourceRecordRequestBody":
         return self._save_datasource_record_request_body

@@ -27,23 +27,24 @@ class QueryApplicationObjectRecordRequestBuilder(object):
         query_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id/query"
         query_application_object_record_request.token_types = {AccessTokenType.TENANT}
         self._query_application_object_record_request: QueryApplicationObjectRecordRequest = query_application_object_record_request
-    
+
     def namespace(self, namespace: str) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.namespace = namespace
         self._query_application_object_record_request.paths["namespace"] = str(namespace)
         return self
-    
+
     def object_api_name(self, object_api_name: str) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.object_api_name = object_api_name
         self._query_application_object_record_request.paths["object_api_name"] = str(object_api_name)
         return self
-    
+
     def id(self, id: str) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.id = id
         self._query_application_object_record_request.paths["id"] = str(id)
         return self
-    
-    def request_body(self, request_body: QueryApplicationObjectRecordRequestBody) -> "QueryApplicationObjectRecordRequestBuilder":
+
+    def request_body(self,
+                     request_body: QueryApplicationObjectRecordRequestBody) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.request_body = request_body
         self._query_application_object_record_request.body = request_body
         return self

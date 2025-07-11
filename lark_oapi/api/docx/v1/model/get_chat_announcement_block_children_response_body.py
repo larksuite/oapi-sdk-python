@@ -26,15 +26,18 @@ class GetChatAnnouncementBlockChildrenResponseBody(object):
 class GetChatAnnouncementBlockChildrenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_chat_announcement_block_children_response_body = GetChatAnnouncementBlockChildrenResponseBody()
+
     def items(self, items: List[Block]) -> "GetChatAnnouncementBlockChildrenResponseBodyBuilder":
         self._get_chat_announcement_block_children_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "GetChatAnnouncementBlockChildrenResponseBodyBuilder":
         self._get_chat_announcement_block_children_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetChatAnnouncementBlockChildrenResponseBodyBuilder":
         self._get_chat_announcement_block_children_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "GetChatAnnouncementBlockChildrenResponseBody":
         return self._get_chat_announcement_block_children_response_body

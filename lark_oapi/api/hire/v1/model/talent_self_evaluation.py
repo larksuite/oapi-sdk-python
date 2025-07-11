@@ -26,15 +26,18 @@ class TalentSelfEvaluation(object):
 class TalentSelfEvaluationBuilder(object):
     def __init__(self) -> None:
         self._talent_self_evaluation = TalentSelfEvaluation()
+
     def id(self, id: str) -> "TalentSelfEvaluationBuilder":
         self._talent_self_evaluation.id = id
         return self
+
     def content(self, content: str) -> "TalentSelfEvaluationBuilder":
         self._talent_self_evaluation.content = content
         return self
+
     def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentSelfEvaluationBuilder":
         self._talent_self_evaluation.customized_data = customized_data
         return self
-    
+
     def build(self) -> "TalentSelfEvaluation":
         return self._talent_self_evaluation

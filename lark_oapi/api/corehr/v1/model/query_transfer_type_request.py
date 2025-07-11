@@ -24,17 +24,17 @@ class QueryTransferTypeRequestBuilder(object):
         query_transfer_type_request.uri = "/open-apis/corehr/v1/transfer_types/query"
         query_transfer_type_request.token_types = {AccessTokenType.TENANT}
         self._query_transfer_type_request: QueryTransferTypeRequest = query_transfer_type_request
-    
+
     def active(self, active: bool) -> "QueryTransferTypeRequestBuilder":
         self._query_transfer_type_request.active = active
         self._query_transfer_type_request.add_query("active", active)
         return self
-    
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: List[str]) -> "QueryTransferTypeRequestBuilder":
+
+    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: List[
+        str]) -> "QueryTransferTypeRequestBuilder":
         self._query_transfer_type_request.transfer_type_unique_identifier = transfer_type_unique_identifier
         self._query_transfer_type_request.add_query("transfer_type_unique_identifier", transfer_type_unique_identifier)
         return self
-    
 
     def build(self) -> QueryTransferTypeRequest:
         return self._query_transfer_type_request

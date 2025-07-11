@@ -23,12 +23,14 @@ class BlockI18nInfo(object):
 class BlockI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._block_i18n_info = BlockI18nInfo()
+
     def i18n_key(self, i18n_key: str) -> "BlockI18nInfoBuilder":
         self._block_i18n_info.i18n_key = i18n_key
         return self
+
     def name(self, name: str) -> "BlockI18nInfoBuilder":
         self._block_i18n_info.name = name
         return self
-    
+
     def build(self) -> "BlockI18nInfo":
         return self._block_i18n_info

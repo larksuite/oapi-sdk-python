@@ -24,12 +24,14 @@ class PatchAppTableViewRequestBody(object):
 class PatchAppTableViewRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_view_request_body = PatchAppTableViewRequestBody()
+
     def view_name(self, view_name: str) -> "PatchAppTableViewRequestBodyBuilder":
         self._patch_app_table_view_request_body.view_name = view_name
         return self
+
     def property(self, property: AppTableViewProperty) -> "PatchAppTableViewRequestBodyBuilder":
         self._patch_app_table_view_request_body.property = property
         return self
-    
+
     def build(self) -> "PatchAppTableViewRequestBody":
         return self._patch_app_table_view_request_body

@@ -23,12 +23,14 @@ class BackgroundCheckCountry(object):
 class BackgroundCheckCountryBuilder(object):
     def __init__(self) -> None:
         self._background_check_country = BackgroundCheckCountry()
+
     def zh_cn(self, zh_cn: str) -> "BackgroundCheckCountryBuilder":
         self._background_check_country.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "BackgroundCheckCountryBuilder":
         self._background_check_country.en_us = en_us
         return self
-    
+
     def build(self) -> "BackgroundCheckCountry":
         return self._background_check_country

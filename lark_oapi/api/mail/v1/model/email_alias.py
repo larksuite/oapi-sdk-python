@@ -23,12 +23,14 @@ class EmailAlias(object):
 class EmailAliasBuilder(object):
     def __init__(self) -> None:
         self._email_alias = EmailAlias()
+
     def primary_email(self, primary_email: str) -> "EmailAliasBuilder":
         self._email_alias.primary_email = primary_email
         return self
+
     def email_alias(self, email_alias: str) -> "EmailAliasBuilder":
         self._email_alias.email_alias = email_alias
         return self
-    
+
     def build(self) -> "EmailAlias":
         return self._email_alias

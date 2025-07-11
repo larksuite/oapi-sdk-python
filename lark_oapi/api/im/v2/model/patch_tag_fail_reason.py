@@ -21,9 +21,10 @@ class PatchTagFailReason(object):
 class PatchTagFailReasonBuilder(object):
     def __init__(self) -> None:
         self._patch_tag_fail_reason = PatchTagFailReason()
+
     def duplicate_id(self, duplicate_id: str) -> "PatchTagFailReasonBuilder":
         self._patch_tag_fail_reason.duplicate_id = duplicate_id
         return self
-    
+
     def build(self) -> "PatchTagFailReason":
         return self._patch_tag_fail_reason

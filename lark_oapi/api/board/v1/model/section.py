@@ -21,9 +21,10 @@ class Section(object):
 class SectionBuilder(object):
     def __init__(self) -> None:
         self._section = Section()
+
     def title(self, title: str) -> "SectionBuilder":
         self._section.title = title
         return self
-    
+
     def build(self) -> "Section":
         return self._section

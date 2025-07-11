@@ -23,12 +23,14 @@ class GroupEvent(object):
 class GroupEventBuilder(object):
     def __init__(self) -> None:
         self._group_event = GroupEvent()
+
     def user_group_id(self, user_group_id: str) -> "GroupEventBuilder":
         self._group_event.user_group_id = user_group_id
         return self
+
     def name(self, name: str) -> "GroupEventBuilder":
         self._group_event.name = name
         return self
-    
+
     def build(self) -> "GroupEvent":
         return self._group_event

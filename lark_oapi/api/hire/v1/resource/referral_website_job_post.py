@@ -19,7 +19,8 @@ class ReferralWebsiteJobPost(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetReferralWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> GetReferralWebsiteJobPostResponse:
+    def get(self, request: GetReferralWebsiteJobPostRequest,
+            option: Optional[RequestOption] = None) -> GetReferralWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,34 @@ class ReferralWebsiteJobPost(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReferralWebsiteJobPostResponse)
+        response: GetReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     GetReferralWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetReferralWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> GetReferralWebsiteJobPostResponse:
+    async def aget(self, request: GetReferralWebsiteJobPostRequest,
+                   option: Optional[RequestOption] = None) -> GetReferralWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReferralWebsiteJobPostResponse)
+        response: GetReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     GetReferralWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListReferralWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> ListReferralWebsiteJobPostResponse:
+
+    def list(self, request: ListReferralWebsiteJobPostRequest,
+             option: Optional[RequestOption] = None) -> ListReferralWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +73,28 @@ class ReferralWebsiteJobPost(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), ListReferralWebsiteJobPostResponse)
+        response: ListReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      ListReferralWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListReferralWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> ListReferralWebsiteJobPostResponse:
+    async def alist(self, request: ListReferralWebsiteJobPostRequest,
+                    option: Optional[RequestOption] = None) -> ListReferralWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), ListReferralWebsiteJobPostResponse)
+        response: ListReferralWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      ListReferralWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-        
-    

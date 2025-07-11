@@ -27,32 +27,31 @@ class ListCostAllocationReportRequestBuilder(object):
         list_cost_allocation_report_request.uri = "/open-apis/payroll/v1/cost_allocation_reports"
         list_cost_allocation_report_request.token_types = {AccessTokenType.TENANT}
         self._list_cost_allocation_report_request: ListCostAllocationReportRequest = list_cost_allocation_report_request
-    
+
     def page_size(self, page_size: int) -> "ListCostAllocationReportRequestBuilder":
         self._list_cost_allocation_report_request.page_size = page_size
         self._list_cost_allocation_report_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListCostAllocationReportRequestBuilder":
         self._list_cost_allocation_report_request.page_token = page_token
         self._list_cost_allocation_report_request.add_query("page_token", page_token)
         return self
-    
+
     def cost_allocation_plan_id(self, cost_allocation_plan_id: int) -> "ListCostAllocationReportRequestBuilder":
         self._list_cost_allocation_report_request.cost_allocation_plan_id = cost_allocation_plan_id
         self._list_cost_allocation_report_request.add_query("cost_allocation_plan_id", cost_allocation_plan_id)
         return self
-    
+
     def pay_period(self, pay_period: str) -> "ListCostAllocationReportRequestBuilder":
         self._list_cost_allocation_report_request.pay_period = pay_period
         self._list_cost_allocation_report_request.add_query("pay_period", pay_period)
         return self
-    
+
     def report_type(self, report_type: int) -> "ListCostAllocationReportRequestBuilder":
         self._list_cost_allocation_report_request.report_type = report_type
         self._list_cost_allocation_report_request.add_query("report_type", report_type)
         return self
-    
 
     def build(self) -> ListCostAllocationReportRequest:
         return self._list_cost_allocation_report_request

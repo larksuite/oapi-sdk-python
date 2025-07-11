@@ -29,18 +29,22 @@ class TalentPool(object):
 class TalentPoolBuilder(object):
     def __init__(self) -> None:
         self._talent_pool = TalentPool()
+
     def id(self, id: str) -> "TalentPoolBuilder":
         self._talent_pool.id = id
         return self
+
     def name(self, name: I18n) -> "TalentPoolBuilder":
         self._talent_pool.name = name
         return self
+
     def description(self, description: I18n) -> "TalentPoolBuilder":
         self._talent_pool.description = description
         return self
+
     def add_time(self, add_time: str) -> "TalentPoolBuilder":
         self._talent_pool.add_time = add_time
         return self
-    
+
     def build(self) -> "TalentPool":
         return self._talent_pool

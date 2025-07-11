@@ -24,12 +24,14 @@ class ProviderIdNameObject(object):
 class ProviderIdNameObjectBuilder(object):
     def __init__(self) -> None:
         self._provider_id_name_object = ProviderIdNameObject()
+
     def provider_id(self, provider_id: str) -> "ProviderIdNameObjectBuilder":
         self._provider_id_name_object.provider_id = provider_id
         return self
+
     def provider_name(self, provider_name: I18n) -> "ProviderIdNameObjectBuilder":
         self._provider_id_name_object.provider_name = provider_name
         return self
-    
+
     def build(self) -> "ProviderIdNameObject":
         return self._provider_id_name_object

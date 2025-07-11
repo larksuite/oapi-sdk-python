@@ -22,9 +22,10 @@ class PatchCostCenterResponseBody(object):
 class PatchCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_cost_center_response_body = PatchCostCenterResponseBody()
+
     def cost_center(self, cost_center: CostCenter) -> "PatchCostCenterResponseBodyBuilder":
         self._patch_cost_center_response_body.cost_center = cost_center
         return self
-    
+
     def build(self) -> "PatchCostCenterResponseBody":
         return self._patch_cost_center_response_body

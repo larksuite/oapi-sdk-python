@@ -62,69 +62,90 @@ class Rule(object):
 class RuleBuilder(object):
     def __init__(self) -> None:
         self._rule = Rule()
+
     def rule_id(self, rule_id: int) -> "RuleBuilder":
         self._rule.rule_id = rule_id
         return self
+
     def name(self, name: str) -> "RuleBuilder":
         self._rule.name = name
         return self
+
     def icon_name(self, icon_name: str) -> "RuleBuilder":
         self._rule.icon_name = icon_name
         return self
+
     def created_at(self, created_at: int) -> "RuleBuilder":
         self._rule.created_at = created_at
         return self
+
     def creator_user_id(self, creator_user_id: str) -> "RuleBuilder":
         self._rule.creator_user_id = creator_user_id
         return self
+
     def creator_user_name(self, creator_user_name: str) -> "RuleBuilder":
         self._rule.creator_user_name = creator_user_name
         return self
+
     def owner_user_id(self, owner_user_id: str) -> "RuleBuilder":
         self._rule.owner_user_id = owner_user_id
         return self
+
     def owner_user_name(self, owner_user_name: str) -> "RuleBuilder":
         self._rule.owner_user_name = owner_user_name
         return self
+
     def form_schema(self, form_schema: List[FormField]) -> "RuleBuilder":
         self._rule.form_schema = form_schema
         return self
+
     def is_deleted(self, is_deleted: int) -> "RuleBuilder":
         self._rule.is_deleted = is_deleted
         return self
+
     def need_report_user_ids(self, need_report_user_ids: List[str]) -> "RuleBuilder":
         self._rule.need_report_user_ids = need_report_user_ids
         return self
+
     def need_report_department_ids(self, need_report_department_ids: List[str]) -> "RuleBuilder":
         self._rule.need_report_department_ids = need_report_department_ids
         return self
+
     def need_report_chat_ids(self, need_report_chat_ids: List[str]) -> "RuleBuilder":
         self._rule.need_report_chat_ids = need_report_chat_ids
         return self
+
     def cc_user_ids(self, cc_user_ids: List[str]) -> "RuleBuilder":
         self._rule.cc_user_ids = cc_user_ids
         return self
+
     def cc_department_ids(self, cc_department_ids: List[str]) -> "RuleBuilder":
         self._rule.cc_department_ids = cc_department_ids
         return self
+
     def to_user_ids(self, to_user_ids: List[str]) -> "RuleBuilder":
         self._rule.to_user_ids = to_user_ids
         return self
+
     def to_chat_ids(self, to_chat_ids: List[str]) -> "RuleBuilder":
         self._rule.to_chat_ids = to_chat_ids
         return self
+
     def to_leaders(self, to_leaders: List[int]) -> "RuleBuilder":
         self._rule.to_leaders = to_leaders
         return self
+
     def to_department_owners(self, to_department_owners: List[int]) -> "RuleBuilder":
         self._rule.to_department_owners = to_department_owners
         return self
+
     def manager_user_ids(self, manager_user_ids: List[str]) -> "RuleBuilder":
         self._rule.manager_user_ids = manager_user_ids
         return self
+
     def cc_chat_ids(self, cc_chat_ids: List[str]) -> "RuleBuilder":
         self._rule.cc_chat_ids = cc_chat_ids
         return self
-    
+
     def build(self) -> "Rule":
         return self._rule

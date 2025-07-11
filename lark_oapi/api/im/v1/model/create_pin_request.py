@@ -24,7 +24,7 @@ class CreatePinRequestBuilder(object):
         create_pin_request.uri = "/open-apis/im/v1/pins"
         create_pin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_pin_request: CreatePinRequest = create_pin_request
-    
+
     def request_body(self, request_body: CreatePinRequestBody) -> "CreatePinRequestBuilder":
         self._create_pin_request.request_body = request_body
         self._create_pin_request.body = request_body

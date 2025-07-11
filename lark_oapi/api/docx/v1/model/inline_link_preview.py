@@ -28,18 +28,22 @@ class InlineLinkPreview(object):
 class InlineLinkPreviewBuilder(object):
     def __init__(self) -> None:
         self._inline_link_preview = InlineLinkPreview()
+
     def title(self, title: str) -> "InlineLinkPreviewBuilder":
         self._inline_link_preview.title = title
         return self
+
     def url(self, url: str) -> "InlineLinkPreviewBuilder":
         self._inline_link_preview.url = url
         return self
+
     def url_type(self, url_type: str) -> "InlineLinkPreviewBuilder":
         self._inline_link_preview.url_type = url_type
         return self
+
     def text_element_style(self, text_element_style: TextElementStyle) -> "InlineLinkPreviewBuilder":
         self._inline_link_preview.text_element_style = text_element_style
         return self
-    
+
     def build(self) -> "InlineLinkPreview":
         return self._inline_link_preview

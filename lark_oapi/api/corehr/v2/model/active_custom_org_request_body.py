@@ -27,18 +27,22 @@ class ActiveCustomOrgRequestBody(object):
 class ActiveCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._active_custom_org_request_body = ActiveCustomOrgRequestBody()
+
     def org_id(self, org_id: str) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.org_id = org_id
         return self
+
     def object_api_name(self, object_api_name: str) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.object_api_name = object_api_name
         return self
+
     def active(self, active: bool) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.active = active
         return self
+
     def effective_time(self, effective_time: str) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.effective_time = effective_time
         return self
-    
+
     def build(self) -> "ActiveCustomOrgRequestBody":
         return self._active_custom_org_request_body

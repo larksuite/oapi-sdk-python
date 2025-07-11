@@ -24,12 +24,15 @@ class PatchTasklistActivitySubscriptionRequestBody(object):
 class PatchTasklistActivitySubscriptionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_tasklist_activity_subscription_request_body = PatchTasklistActivitySubscriptionRequestBody()
-    def activity_subscription(self, activity_subscription: TasklistActivitySubscription) -> "PatchTasklistActivitySubscriptionRequestBodyBuilder":
+
+    def activity_subscription(self,
+                              activity_subscription: TasklistActivitySubscription) -> "PatchTasklistActivitySubscriptionRequestBodyBuilder":
         self._patch_tasklist_activity_subscription_request_body.activity_subscription = activity_subscription
         return self
+
     def update_fields(self, update_fields: List[str]) -> "PatchTasklistActivitySubscriptionRequestBodyBuilder":
         self._patch_tasklist_activity_subscription_request_body.update_fields = update_fields
         return self
-    
+
     def build(self) -> "PatchTasklistActivitySubscriptionRequestBody":
         return self._patch_tasklist_activity_subscription_request_body

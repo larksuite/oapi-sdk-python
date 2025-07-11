@@ -21,9 +21,10 @@ class SignatureUserInfo(object):
 class SignatureUserInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_user_info = SignatureUserInfo()
+
     def id(self, id: str) -> "SignatureUserInfoBuilder":
         self._signature_user_info.id = id
         return self
-    
+
     def build(self) -> "SignatureUserInfo":
         return self._signature_user_info

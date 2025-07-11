@@ -26,15 +26,18 @@ class SearchAssignedUserResponseBody(object):
 class SearchAssignedUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_assigned_user_response_body = SearchAssignedUserResponseBody()
+
     def items(self, items: List[RoleAuthorization]) -> "SearchAssignedUserResponseBodyBuilder":
         self._search_assigned_user_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "SearchAssignedUserResponseBodyBuilder":
         self._search_assigned_user_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "SearchAssignedUserResponseBodyBuilder":
         self._search_assigned_user_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "SearchAssignedUserResponseBody":
         return self._search_assigned_user_response_body

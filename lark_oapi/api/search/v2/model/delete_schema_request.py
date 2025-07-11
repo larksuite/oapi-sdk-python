@@ -23,12 +23,11 @@ class DeleteSchemaRequestBuilder(object):
         delete_schema_request.uri = "/open-apis/search/v2/schemas/:schema_id"
         delete_schema_request.token_types = {AccessTokenType.TENANT}
         self._delete_schema_request: DeleteSchemaRequest = delete_schema_request
-    
+
     def schema_id(self, schema_id: str) -> "DeleteSchemaRequestBuilder":
         self._delete_schema_request.schema_id = schema_id
         self._delete_schema_request.paths["schema_id"] = str(schema_id)
         return self
-    
 
     def build(self) -> DeleteSchemaRequest:
         return self._delete_schema_request

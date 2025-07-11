@@ -28,18 +28,22 @@ class GradeStandardValue(object):
 class GradeStandardValueBuilder(object):
     def __init__(self) -> None:
         self._grade_standard_value = GradeStandardValue()
+
     def standard_value(self, standard_value: str) -> "GradeStandardValueBuilder":
         self._grade_standard_value.standard_value = standard_value
         return self
+
     def reference_object(self, reference_object: StandardReferenceObject) -> "GradeStandardValueBuilder":
         self._grade_standard_value.reference_object = reference_object
         return self
+
     def upper_limit(self, upper_limit: str) -> "GradeStandardValueBuilder":
         self._grade_standard_value.upper_limit = upper_limit
         return self
+
     def lower_limit(self, lower_limit: str) -> "GradeStandardValueBuilder":
         self._grade_standard_value.lower_limit = lower_limit
         return self
-    
+
     def build(self) -> "GradeStandardValue":
         return self._grade_standard_value

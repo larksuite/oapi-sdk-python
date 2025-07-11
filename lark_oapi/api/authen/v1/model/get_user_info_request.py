@@ -22,7 +22,6 @@ class GetUserInfoRequestBuilder(object):
         get_user_info_request.uri = "/open-apis/authen/v1/user_info"
         get_user_info_request.token_types = {AccessTokenType.USER}
         self._get_user_info_request: GetUserInfoRequest = get_user_info_request
-    
 
     def build(self) -> GetUserInfoRequest:
         return self._get_user_info_request

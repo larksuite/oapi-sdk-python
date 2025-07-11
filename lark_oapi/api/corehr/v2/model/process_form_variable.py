@@ -24,12 +24,14 @@ class ProcessFormVariable(object):
 class ProcessFormVariableBuilder(object):
     def __init__(self) -> None:
         self._process_form_variable = ProcessFormVariable()
+
     def variable_api_name(self, variable_api_name: str) -> "ProcessFormVariableBuilder":
         self._process_form_variable.variable_api_name = variable_api_name
         return self
+
     def variable_value(self, variable_value: FormVariableValueInfo) -> "ProcessFormVariableBuilder":
         self._process_form_variable.variable_value = variable_value
         return self
-    
+
     def build(self) -> "ProcessFormVariable":
         return self._process_form_variable

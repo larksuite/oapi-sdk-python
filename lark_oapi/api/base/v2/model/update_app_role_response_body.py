@@ -22,9 +22,10 @@ class UpdateAppRoleResponseBody(object):
 class UpdateAppRoleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_role_response_body = UpdateAppRoleResponseBody()
+
     def role(self, role: Role) -> "UpdateAppRoleResponseBodyBuilder":
         self._update_app_role_response_body.role = role
         return self
-    
+
     def build(self) -> "UpdateAppRoleResponseBody":
         return self._update_app_role_response_body

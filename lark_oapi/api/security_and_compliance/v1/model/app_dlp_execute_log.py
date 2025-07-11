@@ -34,27 +34,34 @@ class AppDlpExecuteLog(object):
 class AppDlpExecuteLogBuilder(object):
     def __init__(self) -> None:
         self._app_dlp_execute_log = AppDlpExecuteLog()
+
     def event_name(self, event_name: str) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.event_name = event_name
         return self
+
     def user_id(self, user_id: str) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.user_id = user_id
         return self
+
     def execute_time(self, execute_time: int) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.execute_time = execute_time
         return self
+
     def action_name(self, action_name: str) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.action_name = action_name
         return self
+
     def hit_policies(self, hit_policies: List[str]) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.hit_policies = hit_policies
         return self
+
     def entity_id(self, entity_id: str) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.entity_id = entity_id
         return self
+
     def evidences(self, evidences: DlpExecuteEvidence) -> "AppDlpExecuteLogBuilder":
         self._app_dlp_execute_log.evidences = evidences
         return self
-    
+
     def build(self) -> "AppDlpExecuteLog":
         return self._app_dlp_execute_log

@@ -40,36 +40,46 @@ class AuditLogOpInfo(object):
 class AuditLogOpInfoBuilder(object):
     def __init__(self) -> None:
         self._audit_log_op_info = AuditLogOpInfo()
+
     def operator(self, operator: LookupWithAvatar) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.operator = operator
         return self
+
     def outsider(self, outsider: bool) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.outsider = outsider
         return self
+
     def op_detail(self, op_detail: Dict[str, str]) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.op_detail = op_detail
         return self
+
     def status(self, status: str) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.status = status
         return self
+
     def failed_reason(self, failed_reason: str) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.failed_reason = failed_reason
         return self
+
     def failed_reason_i18n(self, failed_reason_i18n: Dict[str, str]) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.failed_reason_i18n = failed_reason_i18n
         return self
+
     def op_time(self, op_time: str) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.op_time = op_time
         return self
+
     def data_object(self, data_object: str) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.data_object = data_object
         return self
+
     def op_source(self, op_source: str) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.op_source = op_source
         return self
+
     def data_changes(self, data_changes: List[str]) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.data_changes = data_changes
         return self
-    
+
     def build(self) -> "AuditLogOpInfo":
         return self._audit_log_op_info

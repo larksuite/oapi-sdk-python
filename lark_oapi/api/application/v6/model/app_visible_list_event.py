@@ -24,12 +24,14 @@ class AppVisibleListEvent(object):
 class AppVisibleListEventBuilder(object):
     def __init__(self) -> None:
         self._app_visible_list_event = AppVisibleListEvent()
+
     def open_ids(self, open_ids: List[UserId]) -> "AppVisibleListEventBuilder":
         self._app_visible_list_event.open_ids = open_ids
         return self
+
     def department_ids(self, department_ids: List[str]) -> "AppVisibleListEventBuilder":
         self._app_visible_list_event.department_ids = department_ids
         return self
-    
+
     def build(self) -> "AppVisibleListEvent":
         return self._app_visible_list_event

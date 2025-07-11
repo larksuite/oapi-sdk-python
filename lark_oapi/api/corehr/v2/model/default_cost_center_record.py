@@ -26,15 +26,18 @@ class DefaultCostCenterRecord(object):
 class DefaultCostCenterRecordBuilder(object):
     def __init__(self) -> None:
         self._default_cost_center_record = DefaultCostCenterRecord()
+
     def reason(self, reason: str) -> "DefaultCostCenterRecordBuilder":
         self._default_cost_center_record.reason = reason
         return self
+
     def is_inherit(self, is_inherit: bool) -> "DefaultCostCenterRecordBuilder":
         self._default_cost_center_record.is_inherit = is_inherit
         return self
+
     def cost_center_id(self, cost_center_id: CostCenterId) -> "DefaultCostCenterRecordBuilder":
         self._default_cost_center_record.cost_center_id = cost_center_id
         return self
-    
+
     def build(self) -> "DefaultCostCenterRecord":
         return self._default_cost_center_record

@@ -23,12 +23,14 @@ class LateOffLateOnRule(object):
 class LateOffLateOnRuleBuilder(object):
     def __init__(self) -> None:
         self._late_off_late_on_rule = LateOffLateOnRule()
+
     def late_off_minutes(self, late_off_minutes: int) -> "LateOffLateOnRuleBuilder":
         self._late_off_late_on_rule.late_off_minutes = late_off_minutes
         return self
+
     def late_on_minutes(self, late_on_minutes: int) -> "LateOffLateOnRuleBuilder":
         self._late_off_late_on_rule.late_on_minutes = late_on_minutes
         return self
-    
+
     def build(self) -> "LateOffLateOnRule":
         return self._late_off_late_on_rule

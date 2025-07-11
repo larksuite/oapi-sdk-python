@@ -25,15 +25,18 @@ class OnboardStatusTalentRequestBody(object):
 class OnboardStatusTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._onboard_status_talent_request_body = OnboardStatusTalentRequestBody()
+
     def operation(self, operation: int) -> "OnboardStatusTalentRequestBodyBuilder":
         self._onboard_status_talent_request_body.operation = operation
         return self
+
     def onboard_time(self, onboard_time: str) -> "OnboardStatusTalentRequestBodyBuilder":
         self._onboard_status_talent_request_body.onboard_time = onboard_time
         return self
+
     def overboard_time(self, overboard_time: str) -> "OnboardStatusTalentRequestBodyBuilder":
         self._onboard_status_talent_request_body.overboard_time = overboard_time
         return self
-    
+
     def build(self) -> "OnboardStatusTalentRequestBody":
         return self._onboard_status_talent_request_body

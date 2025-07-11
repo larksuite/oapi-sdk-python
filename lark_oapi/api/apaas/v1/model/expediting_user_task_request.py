@@ -25,12 +25,12 @@ class ExpeditingUserTaskRequestBuilder(object):
         expediting_user_task_request.uri = "/open-apis/apaas/v1/user_tasks/:task_id/expediting"
         expediting_user_task_request.token_types = {AccessTokenType.TENANT}
         self._expediting_user_task_request: ExpeditingUserTaskRequest = expediting_user_task_request
-    
+
     def task_id(self, task_id: str) -> "ExpeditingUserTaskRequestBuilder":
         self._expediting_user_task_request.task_id = task_id
         self._expediting_user_task_request.paths["task_id"] = str(task_id)
         return self
-    
+
     def request_body(self, request_body: ExpeditingUserTaskRequestBody) -> "ExpeditingUserTaskRequestBuilder":
         self._expediting_user_task_request.request_body = request_body
         self._expediting_user_task_request.body = request_body

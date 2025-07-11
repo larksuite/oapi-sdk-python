@@ -22,9 +22,10 @@ class QueryReviewDataResponseBody(object):
 class QueryReviewDataResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_data_response_body = QueryReviewDataResponseBody()
+
     def datas(self, datas: List[ReviewProfile]) -> "QueryReviewDataResponseBodyBuilder":
         self._query_review_data_response_body.datas = datas
         return self
-    
+
     def build(self) -> "QueryReviewDataResponseBody":
         return self._query_review_data_response_body

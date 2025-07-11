@@ -33,27 +33,34 @@ class App(object):
 class AppBuilder(object):
     def __init__(self) -> None:
         self._app = App()
+
     def app_token(self, app_token: str) -> "AppBuilder":
         self._app.app_token = app_token
         return self
+
     def name(self, name: str) -> "AppBuilder":
         self._app.name = name
         return self
+
     def revision(self, revision: int) -> "AppBuilder":
         self._app.revision = revision
         return self
+
     def folder_token(self, folder_token: str) -> "AppBuilder":
         self._app.folder_token = folder_token
         return self
+
     def url(self, url: str) -> "AppBuilder":
         self._app.url = url
         return self
+
     def default_table_id(self, default_table_id: str) -> "AppBuilder":
         self._app.default_table_id = default_table_id
         return self
+
     def time_zone(self, time_zone: str) -> "AppBuilder":
         self._app.time_zone = time_zone
         return self
-    
+
     def build(self) -> "App":
         return self._app

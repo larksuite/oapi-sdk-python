@@ -32,24 +32,35 @@ class BatchV2WorkforcePlanDetailRequestBody(object):
 class BatchV2WorkforcePlanDetailRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_v2_workforce_plan_detail_request_body = BatchV2WorkforcePlanDetailRequestBody()
+
     def workforce_plan_id(self, workforce_plan_id: str) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.workforce_plan_id = workforce_plan_id
         return self
-    def is_centralized_reporting_project(self, is_centralized_reporting_project: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+
+    def is_centralized_reporting_project(self,
+                                         is_centralized_reporting_project: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.is_centralized_reporting_project = is_centralized_reporting_project
         return self
-    def centralized_reporting_project_id(self, centralized_reporting_project_id: str) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+
+    def centralized_reporting_project_id(self,
+                                         centralized_reporting_project_id: str) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.centralized_reporting_project_id = centralized_reporting_project_id
         return self
-    def dimension_id_in_datas(self, dimension_id_in_datas: List[DimensionIdInData]) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+
+    def dimension_id_in_datas(self, dimension_id_in_datas: List[
+        DimensionIdInData]) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.dimension_id_in_datas = dimension_id_in_datas
         return self
-    def include_missing_dimension_rows(self, include_missing_dimension_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+
+    def include_missing_dimension_rows(self,
+                                       include_missing_dimension_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.include_missing_dimension_rows = include_missing_dimension_rows
         return self
-    def filter_all_zero_value_rows(self, filter_all_zero_value_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+
+    def filter_all_zero_value_rows(self,
+                                   filter_all_zero_value_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.filter_all_zero_value_rows = filter_all_zero_value_rows
         return self
-    
+
     def build(self) -> "BatchV2WorkforcePlanDetailRequestBody":
         return self._batch_v2_workforce_plan_detail_request_body

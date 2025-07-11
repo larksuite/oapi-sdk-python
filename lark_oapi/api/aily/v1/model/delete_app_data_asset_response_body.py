@@ -22,9 +22,10 @@ class DeleteAppDataAssetResponseBody(object):
 class DeleteAppDataAssetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_app_data_asset_response_body = DeleteAppDataAssetResponseBody()
+
     def data_asset(self, data_asset: DataAsset) -> "DeleteAppDataAssetResponseBodyBuilder":
         self._delete_app_data_asset_response_body.data_asset = data_asset
         return self
-    
+
     def build(self) -> "DeleteAppDataAssetResponseBody":
         return self._delete_app_data_asset_response_body

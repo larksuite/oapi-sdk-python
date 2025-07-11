@@ -25,12 +25,12 @@ class ApproveTaskRequestBuilder(object):
         approve_task_request.uri = "/open-apis/approval/v4/tasks/approve"
         approve_task_request.token_types = {AccessTokenType.TENANT}
         self._approve_task_request: ApproveTaskRequest = approve_task_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ApproveTaskRequestBuilder":
         self._approve_task_request.user_id_type = user_id_type
         self._approve_task_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: TaskApprove) -> "ApproveTaskRequestBuilder":
         self._approve_task_request.request_body = request_body
         self._approve_task_request.body = request_body

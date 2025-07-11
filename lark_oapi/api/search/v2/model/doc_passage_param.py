@@ -39,36 +39,46 @@ class DocPassageParam(object):
 class DocPassageParamBuilder(object):
     def __init__(self) -> None:
         self._doc_passage_param = DocPassageParam()
+
     def searchable(self, searchable: bool) -> "DocPassageParamBuilder":
         self._doc_passage_param.searchable = searchable
         return self
+
     def doc_tokens(self, doc_tokens: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.doc_tokens = doc_tokens
         return self
+
     def folder_tokens(self, folder_tokens: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.folder_tokens = folder_tokens
         return self
+
     def obj_ids(self, obj_ids: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.obj_ids = obj_ids
         return self
+
     def disable_search_link(self, disable_search_link: bool) -> "DocPassageParamBuilder":
         self._doc_passage_param.disable_search_link = disable_search_link
         return self
+
     def excluded_obj_ids(self, excluded_obj_ids: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.excluded_obj_ids = excluded_obj_ids
         return self
+
     def excluded_doc_tokens(self, excluded_doc_tokens: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.excluded_doc_tokens = excluded_doc_tokens
         return self
+
     def excluded_folder_tokens(self, excluded_folder_tokens: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.excluded_folder_tokens = excluded_folder_tokens
         return self
+
     def enable_cross_tenant(self, enable_cross_tenant: bool) -> "DocPassageParamBuilder":
         self._doc_passage_param.enable_cross_tenant = enable_cross_tenant
         return self
+
     def only_search_public(self, only_search_public: bool) -> "DocPassageParamBuilder":
         self._doc_passage_param.only_search_public = only_search_public
         return self
-    
+
     def build(self) -> "DocPassageParam":
         return self._doc_passage_param

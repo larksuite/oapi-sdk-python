@@ -76,81 +76,106 @@ class Resume(object):
 class ResumeBuilder(object):
     def __init__(self) -> None:
         self._resume = Resume()
+
     def file_md5(self, file_md5: str) -> "ResumeBuilder":
         self._resume.file_md5 = file_md5
         return self
+
     def content(self, content: str) -> "ResumeBuilder":
         self._resume.content = content
         return self
+
     def new_content(self, new_content: str) -> "ResumeBuilder":
         self._resume.new_content = new_content
         return self
+
     def name(self, name: str) -> "ResumeBuilder":
         self._resume.name = name
         return self
+
     def email(self, email: str) -> "ResumeBuilder":
         self._resume.email = email
         return self
+
     def mobile(self, mobile: str) -> "ResumeBuilder":
         self._resume.mobile = mobile
         return self
+
     def mobile_is_virtual(self, mobile_is_virtual: bool) -> "ResumeBuilder":
         self._resume.mobile_is_virtual = mobile_is_virtual
         return self
+
     def country_code(self, country_code: str) -> "ResumeBuilder":
         self._resume.country_code = country_code
         return self
+
     def educations(self, educations: List[ResumeEducation]) -> "ResumeBuilder":
         self._resume.educations = educations
         return self
+
     def careers(self, careers: List[ResumeCareer]) -> "ResumeBuilder":
         self._resume.careers = careers
         return self
+
     def projects(self, projects: List[ResumeProject]) -> "ResumeBuilder":
         self._resume.projects = projects
         return self
+
     def work_year(self, work_year: int) -> "ResumeBuilder":
         self._resume.work_year = work_year
         return self
+
     def date_of_birth(self, date_of_birth: str) -> "ResumeBuilder":
         self._resume.date_of_birth = date_of_birth
         return self
+
     def gender(self, gender: int) -> "ResumeBuilder":
         self._resume.gender = gender
         return self
+
     def willing_positions(self, willing_positions: List[str]) -> "ResumeBuilder":
         self._resume.willing_positions = willing_positions
         return self
+
     def current_location(self, current_location: str) -> "ResumeBuilder":
         self._resume.current_location = current_location
         return self
+
     def willing_locations(self, willing_locations: List[str]) -> "ResumeBuilder":
         self._resume.willing_locations = willing_locations
         return self
+
     def home_location(self, home_location: str) -> "ResumeBuilder":
         self._resume.home_location = home_location
         return self
+
     def languages(self, languages: List[ResumeLanguage]) -> "ResumeBuilder":
         self._resume.languages = languages
         return self
+
     def awards(self, awards: List[ResumeAward]) -> "ResumeBuilder":
         self._resume.awards = awards
         return self
+
     def certificates(self, certificates: List[ResumeCertificate]) -> "ResumeBuilder":
         self._resume.certificates = certificates
         return self
+
     def competitions(self, competitions: List[ResumeCompetition]) -> "ResumeBuilder":
         self._resume.competitions = competitions
         return self
+
     def self_evaluation(self, self_evaluation: str) -> "ResumeBuilder":
         self._resume.self_evaluation = self_evaluation
         return self
+
     def urls(self, urls: List[str]) -> "ResumeBuilder":
         self._resume.urls = urls
         return self
+
     def social_links(self, social_links: List[str]) -> "ResumeBuilder":
         self._resume.social_links = social_links
         return self
-    
+
     def build(self) -> "Resume":
         return self._resume

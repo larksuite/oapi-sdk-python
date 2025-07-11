@@ -79,93 +79,122 @@ class MigrationTicket(object):
 class MigrationTicketBuilder(object):
     def __init__(self) -> None:
         self._migration_ticket = MigrationTicket()
+
     def guest_id(self, guest_id: int) -> "MigrationTicketBuilder":
         self._migration_ticket.guest_id = guest_id
         return self
+
     def close_by(self, close_by: int) -> "MigrationTicketBuilder":
         self._migration_ticket.close_by = close_by
         return self
+
     def creator_id(self, creator_id: int) -> "MigrationTicketBuilder":
         self._migration_ticket.creator_id = creator_id
         return self
+
     def owner_agent_id(self, owner_agent_id: int) -> "MigrationTicketBuilder":
         self._migration_ticket.owner_agent_id = owner_agent_id
         return self
+
     def create_at_ms(self, create_at_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.create_at_ms = create_at_ms
         return self
+
     def close_at_ms(self, close_at_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.close_at_ms = close_at_ms
         return self
+
     def update_at_ms(self, update_at_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.update_at_ms = update_at_ms
         return self
+
     def queued_at_ms(self, queued_at_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.queued_at_ms = queued_at_ms
         return self
+
     def first_response_ms(self, first_response_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.first_response_ms = first_response_ms
         return self
+
     def last_response_ms(self, last_response_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.last_response_ms = last_response_ms
         return self
+
     def stage(self, stage: int) -> "MigrationTicketBuilder":
         self._migration_ticket.stage = stage
         return self
+
     def status(self, status: int) -> "MigrationTicketBuilder":
         self._migration_ticket.status = status
         return self
+
     def score(self, score: int) -> "MigrationTicketBuilder":
         self._migration_ticket.score = score
         return self
+
     def channel(self, channel: int) -> "MigrationTicketBuilder":
         self._migration_ticket.channel = channel
         return self
+
     def agent_entry_time_ms(self, agent_entry_time_ms: str) -> "MigrationTicketBuilder":
         self._migration_ticket.agent_entry_time_ms = agent_entry_time_ms
         return self
+
     def comments(self, comments: List[MigrationTicketComment]) -> "MigrationTicketBuilder":
         self._migration_ticket.comments = comments
         return self
+
     def dissatisfaction_reasons(self, dissatisfaction_reasons: List[I18n]) -> "MigrationTicketBuilder":
         self._migration_ticket.dissatisfaction_reasons = dissatisfaction_reasons
         return self
+
     def actual_processing_time(self, actual_processing_time: str) -> "MigrationTicketBuilder":
         self._migration_ticket.actual_processing_time = actual_processing_time
         return self
+
     def language(self, language: str) -> "MigrationTicketBuilder":
         self._migration_ticket.language = language
         return self
+
     def first_agent_entry_chat_time(self, first_agent_entry_chat_time: str) -> "MigrationTicketBuilder":
         self._migration_ticket.first_agent_entry_chat_time = first_agent_entry_chat_time
         return self
+
     def guest_country(self, guest_country: str) -> "MigrationTicketBuilder":
         self._migration_ticket.guest_country = guest_country
         return self
+
     def guest_city(self, guest_city: str) -> "MigrationTicketBuilder":
         self._migration_ticket.guest_city = guest_city
         return self
+
     def agent_group_name(self, agent_group_name: str) -> "MigrationTicketBuilder":
         self._migration_ticket.agent_group_name = agent_group_name
         return self
+
     def transfer_comment(self, transfer_comment: str) -> "MigrationTicketBuilder":
         self._migration_ticket.transfer_comment = transfer_comment
         return self
+
     def description(self, description: str) -> "MigrationTicketBuilder":
         self._migration_ticket.description = description
         return self
+
     def close_way(self, close_way: int) -> "MigrationTicketBuilder":
         self._migration_ticket.close_way = close_way
         return self
+
     def collaborators(self, collaborators: List[str]) -> "MigrationTicketBuilder":
         self._migration_ticket.collaborators = collaborators
         return self
+
     def agent_ids(self, agent_ids: List[str]) -> "MigrationTicketBuilder":
         self._migration_ticket.agent_ids = agent_ids
         return self
+
     def id(self, id: str) -> "MigrationTicketBuilder":
         self._migration_ticket.id = id
         return self
-    
+
     def build(self) -> "MigrationTicket":
         return self._migration_ticket

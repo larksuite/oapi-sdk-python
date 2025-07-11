@@ -24,12 +24,14 @@ class AppTableFieldPropertyLookupFilter(object):
 class AppTableFieldPropertyLookupFilterBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property_lookup_filter = AppTableFieldPropertyLookupFilter()
+
     def target_table(self, target_table: str) -> "AppTableFieldPropertyLookupFilterBuilder":
         self._app_table_field_property_lookup_filter.target_table = target_table
         return self
+
     def filter_info(self, filter_info: AppTableFieldPropertyFilterInfo) -> "AppTableFieldPropertyLookupFilterBuilder":
         self._app_table_field_property_lookup_filter.filter_info = filter_info
         return self
-    
+
     def build(self) -> "AppTableFieldPropertyLookupFilter":
         return self._app_table_field_property_lookup_filter

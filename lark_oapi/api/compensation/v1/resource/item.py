@@ -30,13 +30,12 @@ class Item(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListItemRequest, option: Optional[RequestOption] = None) -> ListItemResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Item(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemResponse)
         response.raw = resp
 
         return response
-        
-    

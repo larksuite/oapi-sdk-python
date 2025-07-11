@@ -24,17 +24,16 @@ class ListPaygroupRequestBuilder(object):
         list_paygroup_request.uri = "/open-apis/payroll/v1/paygroups"
         list_paygroup_request.token_types = {AccessTokenType.TENANT}
         self._list_paygroup_request: ListPaygroupRequest = list_paygroup_request
-    
+
     def page_size(self, page_size: int) -> "ListPaygroupRequestBuilder":
         self._list_paygroup_request.page_size = page_size
         self._list_paygroup_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListPaygroupRequestBuilder":
         self._list_paygroup_request.page_token = page_token
         self._list_paygroup_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListPaygroupRequest:
         return self._list_paygroup_request

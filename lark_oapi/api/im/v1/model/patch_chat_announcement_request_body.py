@@ -23,12 +23,14 @@ class PatchChatAnnouncementRequestBody(object):
 class PatchChatAnnouncementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_chat_announcement_request_body = PatchChatAnnouncementRequestBody()
+
     def revision(self, revision: str) -> "PatchChatAnnouncementRequestBodyBuilder":
         self._patch_chat_announcement_request_body.revision = revision
         return self
+
     def requests(self, requests: List[str]) -> "PatchChatAnnouncementRequestBodyBuilder":
         self._patch_chat_announcement_request_body.requests = requests
         return self
-    
+
     def build(self) -> "PatchChatAnnouncementRequestBody":
         return self._patch_chat_announcement_request_body

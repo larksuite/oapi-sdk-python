@@ -21,9 +21,10 @@ class Grid(object):
 class GridBuilder(object):
     def __init__(self) -> None:
         self._grid = Grid()
+
     def column_size(self, column_size: int) -> "GridBuilder":
         self._grid.column_size = column_size
         return self
-    
+
     def build(self) -> "Grid":
         return self._grid

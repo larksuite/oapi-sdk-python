@@ -23,12 +23,14 @@ class PatchFeedCardRequestBody(object):
 class PatchFeedCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_feed_card_request_body = PatchFeedCardRequestBody()
+
     def time_sensitive(self, time_sensitive: bool) -> "PatchFeedCardRequestBodyBuilder":
         self._patch_feed_card_request_body.time_sensitive = time_sensitive
         return self
+
     def user_ids(self, user_ids: List[str]) -> "PatchFeedCardRequestBodyBuilder":
         self._patch_feed_card_request_body.user_ids = user_ids
         return self
-    
+
     def build(self) -> "PatchFeedCardRequestBody":
         return self._patch_feed_card_request_body

@@ -27,18 +27,22 @@ class JobManager(object):
 class JobManagerBuilder(object):
     def __init__(self) -> None:
         self._job_manager = JobManager()
+
     def id(self, id: str) -> "JobManagerBuilder":
         self._job_manager.id = id
         return self
+
     def recruiter_id(self, recruiter_id: str) -> "JobManagerBuilder":
         self._job_manager.recruiter_id = recruiter_id
         return self
+
     def hiring_manager_id_list(self, hiring_manager_id_list: List[str]) -> "JobManagerBuilder":
         self._job_manager.hiring_manager_id_list = hiring_manager_id_list
         return self
+
     def assistant_id_list(self, assistant_id_list: List[str]) -> "JobManagerBuilder":
         self._job_manager.assistant_id_list = assistant_id_list
         return self
-    
+
     def build(self) -> "JobManager":
         return self._job_manager

@@ -24,17 +24,16 @@ class FaqImageFaqRequestBuilder(object):
         faq_image_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
         faq_image_faq_request.token_types = {AccessTokenType.TENANT}
         self._faq_image_faq_request: FaqImageFaqRequest = faq_image_faq_request
-    
+
     def id(self, id: str) -> "FaqImageFaqRequestBuilder":
         self._faq_image_faq_request.id = id
         self._faq_image_faq_request.paths["id"] = str(id)
         return self
-    
+
     def image_key(self, image_key: str) -> "FaqImageFaqRequestBuilder":
         self._faq_image_faq_request.image_key = image_key
         self._faq_image_faq_request.paths["image_key"] = str(image_key)
         return self
-    
 
     def build(self) -> FaqImageFaqRequest:
         return self._faq_image_faq_request

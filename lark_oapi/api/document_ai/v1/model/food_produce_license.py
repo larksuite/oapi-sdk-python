@@ -22,9 +22,10 @@ class FoodProduceLicense(object):
 class FoodProduceLicenseBuilder(object):
     def __init__(self) -> None:
         self._food_produce_license = FoodProduceLicense()
+
     def entities(self, entities: List[FoodProduceEntity]) -> "FoodProduceLicenseBuilder":
         self._food_produce_license.entities = entities
         return self
-    
+
     def build(self) -> "FoodProduceLicense":
         return self._food_produce_license

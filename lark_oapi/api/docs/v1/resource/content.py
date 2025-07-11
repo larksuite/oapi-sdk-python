@@ -30,13 +30,12 @@ class Content(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetContentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContentResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetContentRequest, option: Optional[RequestOption] = None) -> GetContentResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Content(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetContentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContentResponse)
         response.raw = resp
 
         return response
-        
-    

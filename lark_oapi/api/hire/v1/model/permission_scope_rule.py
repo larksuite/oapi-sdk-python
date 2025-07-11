@@ -21,9 +21,10 @@ class PermissionScopeRule(object):
 class PermissionScopeRuleBuilder(object):
     def __init__(self) -> None:
         self._permission_scope_rule = PermissionScopeRule()
+
     def rule_type(self, rule_type: int) -> "PermissionScopeRuleBuilder":
         self._permission_scope_rule.rule_type = rule_type
         return self
-    
+
     def build(self) -> "PermissionScopeRule":
         return self._permission_scope_rule

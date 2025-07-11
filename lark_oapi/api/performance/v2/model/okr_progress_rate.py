@@ -23,12 +23,14 @@ class OkrProgressRate(object):
 class OkrProgressRateBuilder(object):
     def __init__(self) -> None:
         self._okr_progress_rate = OkrProgressRate()
+
     def percent(self, percent: int) -> "OkrProgressRateBuilder":
         self._okr_progress_rate.percent = percent
         return self
+
     def status(self, status: str) -> "OkrProgressRateBuilder":
         self._okr_progress_rate.status = status
         return self
-    
+
     def build(self) -> "OkrProgressRate":
         return self._okr_progress_rate

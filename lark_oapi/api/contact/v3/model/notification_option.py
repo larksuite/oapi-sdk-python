@@ -23,12 +23,14 @@ class NotificationOption(object):
 class NotificationOptionBuilder(object):
     def __init__(self) -> None:
         self._notification_option = NotificationOption()
+
     def channels(self, channels: List[str]) -> "NotificationOptionBuilder":
         self._notification_option.channels = channels
         return self
+
     def language(self, language: str) -> "NotificationOptionBuilder":
         self._notification_option.language = language
         return self
-    
+
     def build(self) -> "NotificationOption":
         return self._notification_option

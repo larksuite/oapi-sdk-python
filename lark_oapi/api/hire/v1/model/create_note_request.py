@@ -25,12 +25,12 @@ class CreateNoteRequestBuilder(object):
         create_note_request.uri = "/open-apis/hire/v1/notes"
         create_note_request.token_types = {AccessTokenType.TENANT}
         self._create_note_request: CreateNoteRequest = create_note_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateNoteRequestBuilder":
         self._create_note_request.user_id_type = user_id_type
         self._create_note_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: Note) -> "CreateNoteRequestBuilder":
         self._create_note_request.request_body = request_body
         self._create_note_request.body = request_body

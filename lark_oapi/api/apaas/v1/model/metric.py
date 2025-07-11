@@ -29,21 +29,26 @@ class Metric(object):
 class MetricBuilder(object):
     def __init__(self) -> None:
         self._metric = Metric()
+
     def name(self, name: str) -> "MetricBuilder":
         self._metric.name = name
         return self
+
     def type(self, type: str) -> "MetricBuilder":
         self._metric.type = type
         return self
+
     def value(self, value: float) -> "MetricBuilder":
         self._metric.value = value
         return self
+
     def attributes(self, attributes: str) -> "MetricBuilder":
         self._metric.attributes = attributes
         return self
+
     def timestamp(self, timestamp: int) -> "MetricBuilder":
         self._metric.timestamp = timestamp
         return self
-    
+
     def build(self) -> "Metric":
         return self._metric

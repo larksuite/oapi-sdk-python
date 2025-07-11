@@ -25,15 +25,18 @@ class UsageTrendItem(object):
 class UsageTrendItemBuilder(object):
     def __init__(self) -> None:
         self._usage_trend_item = UsageTrendItem()
+
     def timestamp(self, timestamp: int) -> "UsageTrendItemBuilder":
         self._usage_trend_item.timestamp = timestamp
         return self
+
     def page_view(self, page_view: int) -> "UsageTrendItemBuilder":
         self._usage_trend_item.page_view = page_view
         return self
+
     def unique_visitor(self, unique_visitor: int) -> "UsageTrendItemBuilder":
         self._usage_trend_item.unique_visitor = unique_visitor
         return self
-    
+
     def build(self) -> "UsageTrendItem":
         return self._usage_trend_item

@@ -23,12 +23,14 @@ class CalendarFailItem(object):
 class CalendarFailItemBuilder(object):
     def __init__(self) -> None:
         self._calendar_fail_item = CalendarFailItem()
+
     def id(self, id: str) -> "CalendarFailItemBuilder":
         self._calendar_fail_item.id = id
         return self
+
     def fail_reason(self, fail_reason: str) -> "CalendarFailItemBuilder":
         self._calendar_fail_item.fail_reason = fail_reason
         return self
-    
+
     def build(self) -> "CalendarFailItem":
         return self._calendar_fail_item

@@ -61,57 +61,74 @@ class WhiteboardNode(object):
 class WhiteboardNodeBuilder(object):
     def __init__(self) -> None:
         self._whiteboard_node = WhiteboardNode()
+
     def id(self, id: str) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.id = id
         return self
+
     def type(self, type: str) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.type = type
         return self
+
     def parent_id(self, parent_id: str) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.parent_id = parent_id
         return self
+
     def children(self, children: List[str]) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.children = children
         return self
+
     def x(self, x: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.x = x
         return self
+
     def y(self, y: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.y = y
         return self
+
     def angle(self, angle: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.angle = angle
         return self
+
     def width(self, width: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.width = width
         return self
+
     def height(self, height: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.height = height
         return self
+
     def text(self, text: Text) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.text = text
         return self
+
     def style(self, style: Style) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.style = style
         return self
+
     def image(self, image: Image) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.image = image
         return self
+
     def composite_shape(self, composite_shape: CompositeShape) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.composite_shape = composite_shape
         return self
+
     def connector(self, connector: Connector) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.connector = connector
         return self
+
     def section(self, section: Section) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.section = section
         return self
+
     def table(self, table: Table) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.table = table
         return self
+
     def mind_map(self, mind_map: MindMap) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.mind_map = mind_map
         return self
-    
+
     def build(self) -> "WhiteboardNode":
         return self._whiteboard_node

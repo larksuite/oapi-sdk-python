@@ -25,12 +25,14 @@ class SchemaTypeDefinitions(object):
 class SchemaTypeDefinitionsBuilder(object):
     def __init__(self) -> None:
         self._schema_type_definitions = SchemaTypeDefinitions()
+
     def tag(self, tag: List[SchemaTagOptions]) -> "SchemaTypeDefinitionsBuilder":
         self._schema_type_definitions.tag = tag
         return self
+
     def user_ids(self, user_ids: SchemaUserIdsOption) -> "SchemaTypeDefinitionsBuilder":
         self._schema_type_definitions.user_ids = user_ids
         return self
-    
+
     def build(self) -> "SchemaTypeDefinitions":
         return self._schema_type_definitions

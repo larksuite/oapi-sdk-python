@@ -23,12 +23,14 @@ class SchemaDisplayFieldMapping(object):
 class SchemaDisplayFieldMappingBuilder(object):
     def __init__(self) -> None:
         self._schema_display_field_mapping = SchemaDisplayFieldMapping()
+
     def display_field(self, display_field: str) -> "SchemaDisplayFieldMappingBuilder":
         self._schema_display_field_mapping.display_field = display_field
         return self
+
     def data_field(self, data_field: str) -> "SchemaDisplayFieldMappingBuilder":
         self._schema_display_field_mapping.data_field = data_field
         return self
-    
+
     def build(self) -> "SchemaDisplayFieldMapping":
         return self._schema_display_field_mapping

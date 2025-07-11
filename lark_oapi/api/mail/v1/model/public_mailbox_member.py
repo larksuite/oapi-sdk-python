@@ -25,15 +25,18 @@ class PublicMailboxMember(object):
 class PublicMailboxMemberBuilder(object):
     def __init__(self) -> None:
         self._public_mailbox_member = PublicMailboxMember()
+
     def member_id(self, member_id: str) -> "PublicMailboxMemberBuilder":
         self._public_mailbox_member.member_id = member_id
         return self
+
     def user_id(self, user_id: str) -> "PublicMailboxMemberBuilder":
         self._public_mailbox_member.user_id = user_id
         return self
+
     def type(self, type: str) -> "PublicMailboxMemberBuilder":
         self._public_mailbox_member.type = type
         return self
-    
+
     def build(self) -> "PublicMailboxMember":
         return self._public_mailbox_member

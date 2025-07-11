@@ -21,9 +21,10 @@ class QueryMetricFieldRequestBody(object):
 class QueryMetricFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_field_request_body = QueryMetricFieldRequestBody()
+
     def field_ids(self, field_ids: List[int]) -> "QueryMetricFieldRequestBodyBuilder":
         self._query_metric_field_request_body.field_ids = field_ids
         return self
-    
+
     def build(self) -> "QueryMetricFieldRequestBody":
         return self._query_metric_field_request_body

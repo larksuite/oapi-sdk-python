@@ -29,7 +29,8 @@ class CustomOrg(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def active(self, request: ActiveCustomOrgRequest, option: Optional[RequestOption] = None) -> ActiveCustomOrgResponse:
+    def active(self, request: ActiveCustomOrgRequest,
+               option: Optional[RequestOption] = None) -> ActiveCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,33 +43,32 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ActiveCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aactive(self, request: ActiveCustomOrgRequest, option: Optional[RequestOption] = None) -> ActiveCustomOrgResponse:
+    async def aactive(self, request: ActiveCustomOrgRequest,
+                      option: Optional[RequestOption] = None) -> ActiveCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ActiveCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCustomOrgResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateCustomOrgRequest, option: Optional[RequestOption] = None) -> CreateCustomOrgResponse:
+
+    def create(self, request: CreateCustomOrgRequest,
+               option: Optional[RequestOption] = None) -> CreateCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,33 +81,32 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateCustomOrgRequest, option: Optional[RequestOption] = None) -> CreateCustomOrgResponse:
+    async def acreate(self, request: CreateCustomOrgRequest,
+                      option: Optional[RequestOption] = None) -> CreateCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCustomOrgResponse)
         response.raw = resp
 
         return response
-        
-    def delete_org(self, request: DeleteOrgCustomOrgRequest, option: Optional[RequestOption] = None) -> DeleteOrgCustomOrgResponse:
+
+    def delete_org(self, request: DeleteOrgCustomOrgRequest,
+                   option: Optional[RequestOption] = None) -> DeleteOrgCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,32 +119,30 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteOrgCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteOrgCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete_org(self, request: DeleteOrgCustomOrgRequest, option: Optional[RequestOption] = None) -> DeleteOrgCustomOrgResponse:
+    async def adelete_org(self, request: DeleteOrgCustomOrgRequest,
+                          option: Optional[RequestOption] = None) -> DeleteOrgCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteOrgCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteOrgCustomOrgResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchCustomOrgRequest, option: Optional[RequestOption] = None) -> PatchCustomOrgResponse:
         if option is None:
             option = RequestOption()
@@ -159,32 +156,30 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchCustomOrgRequest, option: Optional[RequestOption] = None) -> PatchCustomOrgResponse:
+    async def apatch(self, request: PatchCustomOrgRequest,
+                     option: Optional[RequestOption] = None) -> PatchCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCustomOrgResponse)
         response.raw = resp
 
         return response
-        
+
     def query(self, request: QueryCustomOrgRequest, option: Optional[RequestOption] = None) -> QueryCustomOrgResponse:
         if option is None:
             option = RequestOption()
@@ -198,33 +193,32 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QueryCustomOrgRequest, option: Optional[RequestOption] = None) -> QueryCustomOrgResponse:
+    async def aquery(self, request: QueryCustomOrgRequest,
+                     option: Optional[RequestOption] = None) -> QueryCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomOrgResponse)
         response.raw = resp
 
         return response
-        
-    def query_recent_change(self, request: QueryRecentChangeCustomOrgRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeCustomOrgResponse:
+
+    def query_recent_change(self, request: QueryRecentChangeCustomOrgRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -237,33 +231,34 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeCustomOrgResponse)
+        response: QueryRecentChangeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryRecentChangeCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery_recent_change(self, request: QueryRecentChangeCustomOrgRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeCustomOrgResponse:
+    async def aquery_recent_change(self, request: QueryRecentChangeCustomOrgRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QueryRecentChangeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeCustomOrgResponse)
+        response: QueryRecentChangeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryRecentChangeCustomOrgResponse)
         response.raw = resp
 
         return response
-        
-    def update_rule(self, request: UpdateRuleCustomOrgRequest, option: Optional[RequestOption] = None) -> UpdateRuleCustomOrgResponse:
+
+    def update_rule(self, request: UpdateRuleCustomOrgRequest,
+                    option: Optional[RequestOption] = None) -> UpdateRuleCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -276,30 +271,26 @@ class CustomOrg(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateRuleCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateRuleCustomOrgResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate_rule(self, request: UpdateRuleCustomOrgRequest, option: Optional[RequestOption] = None) -> UpdateRuleCustomOrgResponse:
+    async def aupdate_rule(self, request: UpdateRuleCustomOrgRequest,
+                           option: Optional[RequestOption] = None) -> UpdateRuleCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateRuleCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateRuleCustomOrgResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -25,12 +25,12 @@ class UpdateAppRequestBuilder(object):
         update_app_request.uri = "/open-apis/bitable/v1/apps/:app_token"
         update_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._update_app_request: UpdateAppRequest = update_app_request
-    
+
     def app_token(self, app_token: str) -> "UpdateAppRequestBuilder":
         self._update_app_request.app_token = app_token
         self._update_app_request.paths["app_token"] = str(app_token)
         return self
-    
+
     def request_body(self, request_body: UpdateAppRequestBody) -> "UpdateAppRequestBuilder":
         self._update_app_request.request_body = request_body
         self._update_app_request.body = request_body

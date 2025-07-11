@@ -25,22 +25,21 @@ class DeleteApplicationObjectRecordRequestBuilder(object):
         delete_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/:id"
         delete_application_object_record_request.token_types = {AccessTokenType.TENANT}
         self._delete_application_object_record_request: DeleteApplicationObjectRecordRequest = delete_application_object_record_request
-    
+
     def namespace(self, namespace: str) -> "DeleteApplicationObjectRecordRequestBuilder":
         self._delete_application_object_record_request.namespace = namespace
         self._delete_application_object_record_request.paths["namespace"] = str(namespace)
         return self
-    
+
     def object_api_name(self, object_api_name: str) -> "DeleteApplicationObjectRecordRequestBuilder":
         self._delete_application_object_record_request.object_api_name = object_api_name
         self._delete_application_object_record_request.paths["object_api_name"] = str(object_api_name)
         return self
-    
+
     def id(self, id: str) -> "DeleteApplicationObjectRecordRequestBuilder":
         self._delete_application_object_record_request.id = id
         self._delete_application_object_record_request.paths["id"] = str(id)
         return self
-    
 
     def build(self) -> DeleteApplicationObjectRecordRequest:
         return self._delete_application_object_record_request

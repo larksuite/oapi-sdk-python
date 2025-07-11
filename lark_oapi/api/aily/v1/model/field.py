@@ -32,24 +32,30 @@ class Field(object):
 class FieldBuilder(object):
     def __init__(self) -> None:
         self._field = Field()
+
     def api_name(self, api_name: str) -> "FieldBuilder":
         self._field.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "FieldBuilder":
         self._field.label = label
         return self
+
     def ai_description(self, ai_description: str) -> "FieldBuilder":
         self._field.ai_description = ai_description
         return self
+
     def access_items(self, access_items: List[str]) -> "FieldBuilder":
         self._field.access_items = access_items
         return self
+
     def type_name(self, type_name: str) -> "FieldBuilder":
         self._field.type_name = type_name
         return self
+
     def field_setting(self, field_setting: FieldSetting) -> "FieldBuilder":
         self._field.field_setting = field_setting
         return self
-    
+
     def build(self) -> "Field":
         return self._field

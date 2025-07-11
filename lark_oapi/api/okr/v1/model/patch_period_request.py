@@ -25,12 +25,12 @@ class PatchPeriodRequestBuilder(object):
         patch_period_request.uri = "/open-apis/okr/v1/periods/:period_id"
         patch_period_request.token_types = {AccessTokenType.TENANT}
         self._patch_period_request: PatchPeriodRequest = patch_period_request
-    
+
     def period_id(self, period_id: str) -> "PatchPeriodRequestBuilder":
         self._patch_period_request.period_id = period_id
         self._patch_period_request.paths["period_id"] = str(period_id)
         return self
-    
+
     def request_body(self, request_body: PatchPeriodRequestBody) -> "PatchPeriodRequestBuilder":
         self._patch_period_request.request_body = request_body
         self._patch_period_request.body = request_body

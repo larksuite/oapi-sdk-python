@@ -33,27 +33,34 @@ class ExportTicketMessageContent(object):
 class ExportTicketMessageContentBuilder(object):
     def __init__(self) -> None:
         self._export_ticket_message_content = ExportTicketMessageContent()
+
     def content(self, content: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.content = content
         return self
+
     def msg_type(self, msg_type: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.msg_type = msg_type
         return self
+
     def image_keys(self, image_keys: List[str]) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.image_keys = image_keys
         return self
+
     def image_key(self, image_key: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.image_key = image_key
         return self
+
     def audio_key(self, audio_key: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.audio_key = audio_key
         return self
+
     def media_key(self, media_key: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.media_key = media_key
         return self
+
     def file_key(self, file_key: str) -> "ExportTicketMessageContentBuilder":
         self._export_ticket_message_content.file_key = file_key
         return self
-    
+
     def build(self) -> "ExportTicketMessageContent":
         return self._export_ticket_message_content

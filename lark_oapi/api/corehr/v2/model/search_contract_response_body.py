@@ -26,15 +26,18 @@ class SearchContractResponseBody(object):
 class SearchContractResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_contract_response_body = SearchContractResponseBody()
+
     def items(self, items: List[Contract]) -> "SearchContractResponseBodyBuilder":
         self._search_contract_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchContractResponseBodyBuilder":
         self._search_contract_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchContractResponseBodyBuilder":
         self._search_contract_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchContractResponseBody":
         return self._search_contract_response_body

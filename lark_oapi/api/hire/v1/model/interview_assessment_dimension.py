@@ -38,30 +38,38 @@ class InterviewAssessmentDimension(object):
 class InterviewAssessmentDimensionBuilder(object):
     def __init__(self) -> None:
         self._interview_assessment_dimension = InterviewAssessmentDimension()
+
     def id(self, id: str) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.id = id
         return self
+
     def name(self, name: I18n) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.name = name
         return self
+
     def description(self, description: I18n) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.description = description
         return self
+
     def enabled(self, enabled: bool) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.enabled = enabled
         return self
+
     def seq(self, seq: int) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.seq = seq
         return self
+
     def required(self, required: bool) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.required = required
         return self
+
     def dimension_type(self, dimension_type: int) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.dimension_type = dimension_type
         return self
+
     def args(self, args: InterviewAssessmentDimensionArgs) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.args = args
         return self
-    
+
     def build(self) -> "InterviewAssessmentDimension":
         return self._interview_assessment_dimension

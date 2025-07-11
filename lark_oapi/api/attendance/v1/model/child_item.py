@@ -33,27 +33,34 @@ class ChildItem(object):
 class ChildItemBuilder(object):
     def __init__(self) -> None:
         self._child_item = ChildItem()
+
     def code(self, code: str) -> "ChildItemBuilder":
         self._child_item.code = code
         return self
+
     def value(self, value: str) -> "ChildItemBuilder":
         self._child_item.value = value
         return self
+
     def title(self, title: str) -> "ChildItemBuilder":
         self._child_item.title = title
         return self
+
     def column_type(self, column_type: int) -> "ChildItemBuilder":
         self._child_item.column_type = column_type
         return self
+
     def read_only(self, read_only: bool) -> "ChildItemBuilder":
         self._child_item.read_only = read_only
         return self
+
     def min_value(self, min_value: str) -> "ChildItemBuilder":
         self._child_item.min_value = min_value
         return self
+
     def max_value(self, max_value: str) -> "ChildItemBuilder":
         self._child_item.max_value = max_value
         return self
-    
+
     def build(self) -> "ChildItem":
         return self._child_item

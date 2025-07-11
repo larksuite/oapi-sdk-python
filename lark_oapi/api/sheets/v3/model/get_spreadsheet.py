@@ -27,18 +27,22 @@ class GetSpreadsheet(object):
 class GetSpreadsheetBuilder(object):
     def __init__(self) -> None:
         self._get_spreadsheet = GetSpreadsheet()
+
     def title(self, title: str) -> "GetSpreadsheetBuilder":
         self._get_spreadsheet.title = title
         return self
+
     def owner_id(self, owner_id: str) -> "GetSpreadsheetBuilder":
         self._get_spreadsheet.owner_id = owner_id
         return self
+
     def token(self, token: str) -> "GetSpreadsheetBuilder":
         self._get_spreadsheet.token = token
         return self
+
     def url(self, url: str) -> "GetSpreadsheetBuilder":
         self._get_spreadsheet.url = url
         return self
-    
+
     def build(self) -> "GetSpreadsheet":
         return self._get_spreadsheet

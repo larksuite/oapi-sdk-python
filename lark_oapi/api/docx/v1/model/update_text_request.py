@@ -27,15 +27,18 @@ class UpdateTextRequest(object):
 class UpdateTextRequestBuilder(object):
     def __init__(self) -> None:
         self._update_text_request = UpdateTextRequest()
+
     def elements(self, elements: List[TextElement]) -> "UpdateTextRequestBuilder":
         self._update_text_request.elements = elements
         return self
+
     def style(self, style: TextStyle) -> "UpdateTextRequestBuilder":
         self._update_text_request.style = style
         return self
+
     def fields(self, fields: List[int]) -> "UpdateTextRequestBuilder":
         self._update_text_request.fields = fields
         return self
-    
+
     def build(self) -> "UpdateTextRequest":
         return self._update_text_request

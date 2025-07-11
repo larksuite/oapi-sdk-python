@@ -26,15 +26,18 @@ class StandardScope(object):
 class StandardScopeBuilder(object):
     def __init__(self) -> None:
         self._standard_scope = StandardScope()
+
     def all(self, all: bool) -> "StandardScopeBuilder":
         self._standard_scope.all = all
         return self
+
     def define_expression(self, define_expression: str) -> "StandardScopeBuilder":
         self._standard_scope.define_expression = define_expression
         return self
+
     def expressions(self, expressions: List[StandardScopeExpression]) -> "StandardScopeBuilder":
         self._standard_scope.expressions = expressions
         return self
-    
+
     def build(self) -> "StandardScope":
         return self._standard_scope

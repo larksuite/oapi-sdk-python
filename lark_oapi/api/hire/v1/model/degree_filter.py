@@ -23,12 +23,14 @@ class DegreeFilter(object):
 class DegreeFilterBuilder(object):
     def __init__(self) -> None:
         self._degree_filter = DegreeFilter()
+
     def hide_option(self, hide_option: int) -> "DegreeFilterBuilder":
         self._degree_filter.hide_option = hide_option
         return self
+
     def degree(self, degree: List[str]) -> "DegreeFilterBuilder":
         self._degree_filter.degree = degree
         return self
-    
+
     def build(self) -> "DegreeFilter":
         return self._degree_filter

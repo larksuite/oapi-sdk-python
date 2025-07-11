@@ -22,9 +22,10 @@ class CreateJobFamilyResponseBody(object):
 class CreateJobFamilyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_job_family_response_body = CreateJobFamilyResponseBody()
+
     def job_family(self, job_family: JobFamily) -> "CreateJobFamilyResponseBodyBuilder":
         self._create_job_family_response_body.job_family = job_family
         return self
-    
+
     def build(self) -> "CreateJobFamilyResponseBody":
         return self._create_job_family_response_body

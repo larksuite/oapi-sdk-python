@@ -23,12 +23,14 @@ class Role(object):
 class RoleBuilder(object):
     def __init__(self) -> None:
         self._role = Role()
+
     def api_id(self, api_id: str) -> "RoleBuilder":
         self._role.api_id = api_id
         return self
+
     def api_name(self, api_name: str) -> "RoleBuilder":
         self._role.api_name = api_name
         return self
-    
+
     def build(self) -> "Role":
         return self._role

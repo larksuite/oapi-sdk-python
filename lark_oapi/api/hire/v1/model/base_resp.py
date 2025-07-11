@@ -23,12 +23,14 @@ class BaseResp(object):
 class BaseRespBuilder(object):
     def __init__(self) -> None:
         self._base_resp = BaseResp()
+
     def status_message(self, status_message: str) -> "BaseRespBuilder":
         self._base_resp.status_message = status_message
         return self
+
     def status_code(self, status_code: int) -> "BaseRespBuilder":
         self._base_resp.status_code = status_code
         return self
-    
+
     def build(self) -> "BaseResp":
         return self._base_resp

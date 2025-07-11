@@ -36,27 +36,34 @@ class TaskSummary(object):
 class TaskSummaryBuilder(object):
     def __init__(self) -> None:
         self._task_summary = TaskSummary()
+
     def guid(self, guid: str) -> "TaskSummaryBuilder":
         self._task_summary.guid = guid
         return self
+
     def summary(self, summary: str) -> "TaskSummaryBuilder":
         self._task_summary.summary = summary
         return self
+
     def completed_at(self, completed_at: int) -> "TaskSummaryBuilder":
         self._task_summary.completed_at = completed_at
         return self
+
     def start(self, start: Start) -> "TaskSummaryBuilder":
         self._task_summary.start = start
         return self
+
     def due(self, due: Due) -> "TaskSummaryBuilder":
         self._task_summary.due = due
         return self
+
     def members(self, members: List[Member]) -> "TaskSummaryBuilder":
         self._task_summary.members = members
         return self
+
     def subtask_count(self, subtask_count: int) -> "TaskSummaryBuilder":
         self._task_summary.subtask_count = subtask_count
         return self
-    
+
     def build(self) -> "TaskSummary":
         return self._task_summary

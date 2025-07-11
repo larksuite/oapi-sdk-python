@@ -22,9 +22,10 @@ class SortChatMenuTreeResponseBody(object):
 class SortChatMenuTreeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._sort_chat_menu_tree_response_body = SortChatMenuTreeResponseBody()
+
     def menu_tree(self, menu_tree: ChatMenuTree) -> "SortChatMenuTreeResponseBodyBuilder":
         self._sort_chat_menu_tree_response_body.menu_tree = menu_tree
         return self
-    
+
     def build(self) -> "SortChatMenuTreeResponseBody":
         return self._sort_chat_menu_tree_response_body

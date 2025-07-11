@@ -33,27 +33,34 @@ class EducationInfo(object):
 class EducationInfoBuilder(object):
     def __init__(self) -> None:
         self._education_info = EducationInfo()
+
     def degree(self, degree: int) -> "EducationInfoBuilder":
         self._education_info.degree = degree
         return self
+
     def end_time(self, end_time: int) -> "EducationInfoBuilder":
         self._education_info.end_time = end_time
         return self
+
     def field_of_study(self, field_of_study: str) -> "EducationInfoBuilder":
         self._education_info.field_of_study = field_of_study
         return self
+
     def school(self, school: str) -> "EducationInfoBuilder":
         self._education_info.school = school
         return self
+
     def start_time(self, start_time: int) -> "EducationInfoBuilder":
         self._education_info.start_time = start_time
         return self
+
     def education_type(self, education_type: int) -> "EducationInfoBuilder":
         self._education_info.education_type = education_type
         return self
+
     def academic_ranking(self, academic_ranking: int) -> "EducationInfoBuilder":
         self._education_info.academic_ranking = academic_ranking
         return self
-    
+
     def build(self) -> "EducationInfo":
         return self._education_info

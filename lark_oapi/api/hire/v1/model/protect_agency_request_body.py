@@ -35,30 +35,38 @@ class ProtectAgencyRequestBody(object):
 class ProtectAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._protect_agency_request_body = ProtectAgencyRequestBody()
+
     def talent_id(self, talent_id: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.talent_id = talent_id
         return self
+
     def supplier_id(self, supplier_id: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.supplier_id = supplier_id
         return self
+
     def consultant_id(self, consultant_id: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.consultant_id = consultant_id
         return self
+
     def protect_create_time(self, protect_create_time: int) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.protect_create_time = protect_create_time
         return self
+
     def protect_expire_time(self, protect_expire_time: int) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.protect_expire_time = protect_expire_time
         return self
+
     def comment(self, comment: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.comment = comment
         return self
+
     def current_salary(self, current_salary: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.current_salary = current_salary
         return self
+
     def expected_salary(self, expected_salary: str) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.expected_salary = expected_salary
         return self
-    
+
     def build(self) -> "ProtectAgencyRequestBody":
         return self._protect_agency_request_body

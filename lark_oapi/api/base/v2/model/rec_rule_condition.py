@@ -27,18 +27,22 @@ class RecRuleCondition(object):
 class RecRuleConditionBuilder(object):
     def __init__(self) -> None:
         self._rec_rule_condition = RecRuleCondition()
+
     def field_name(self, field_name: str) -> "RecRuleConditionBuilder":
         self._rec_rule_condition.field_name = field_name
         return self
+
     def operator(self, operator: str) -> "RecRuleConditionBuilder":
         self._rec_rule_condition.operator = operator
         return self
+
     def value(self, value: List[str]) -> "RecRuleConditionBuilder":
         self._rec_rule_condition.value = value
         return self
+
     def field_type(self, field_type: int) -> "RecRuleConditionBuilder":
         self._rec_rule_condition.field_type = field_type
         return self
-    
+
     def build(self) -> "RecRuleCondition":
         return self._rec_rule_condition

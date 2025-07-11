@@ -26,15 +26,18 @@ class QueryAuthorizationResponseBody(object):
 class QueryAuthorizationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_authorization_response_body = QueryAuthorizationResponseBody()
+
     def items(self, items: List[RoleAuthorization]) -> "QueryAuthorizationResponseBodyBuilder":
         self._query_authorization_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "QueryAuthorizationResponseBodyBuilder":
         self._query_authorization_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "QueryAuthorizationResponseBodyBuilder":
         self._query_authorization_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "QueryAuthorizationResponseBody":
         return self._query_authorization_response_body

@@ -36,30 +36,38 @@ class TagInfo(object):
 class TagInfoBuilder(object):
     def __init__(self) -> None:
         self._tag_info = TagInfo()
+
     def id(self, id: str) -> "TagInfoBuilder":
         self._tag_info.id = id
         return self
+
     def tenant_id(self, tenant_id: str) -> "TagInfoBuilder":
         self._tag_info.tenant_id = tenant_id
         return self
+
     def tag_type(self, tag_type: str) -> "TagInfoBuilder":
         self._tag_info.tag_type = tag_type
         return self
+
     def name(self, name: str) -> "TagInfoBuilder":
         self._tag_info.name = name
         return self
+
     def i18n_names(self, i18n_names: List[TagI18nName]) -> "TagInfoBuilder":
         self._tag_info.i18n_names = i18n_names
         return self
+
     def creator_id(self, creator_id: str) -> "TagInfoBuilder":
         self._tag_info.creator_id = creator_id
         return self
+
     def create_time(self, create_time: str) -> "TagInfoBuilder":
         self._tag_info.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "TagInfoBuilder":
         self._tag_info.update_time = update_time
         return self
-    
+
     def build(self) -> "TagInfo":
         return self._tag_info

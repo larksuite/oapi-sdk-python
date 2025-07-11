@@ -23,12 +23,14 @@ class BlockIdRelation(object):
 class BlockIdRelationBuilder(object):
     def __init__(self) -> None:
         self._block_id_relation = BlockIdRelation()
+
     def temporary_block_id(self, temporary_block_id: str) -> "BlockIdRelationBuilder":
         self._block_id_relation.temporary_block_id = temporary_block_id
         return self
+
     def block_id(self, block_id: str) -> "BlockIdRelationBuilder":
         self._block_id_relation.block_id = block_id
         return self
-    
+
     def build(self) -> "BlockIdRelation":
         return self._block_id_relation

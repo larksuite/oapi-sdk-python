@@ -21,9 +21,10 @@ class BatchDeleteFollowerTaskResponseBody(object):
 class BatchDeleteFollowerTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_follower_task_response_body = BatchDeleteFollowerTaskResponseBody()
+
     def followers(self, followers: List[str]) -> "BatchDeleteFollowerTaskResponseBodyBuilder":
         self._batch_delete_follower_task_response_body.followers = followers
         return self
-    
+
     def build(self) -> "BatchDeleteFollowerTaskResponseBody":
         return self._batch_delete_follower_task_response_body

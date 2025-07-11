@@ -27,7 +27,8 @@ class Leave(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def calendar_by_scope(self, request: CalendarByScopeLeaveRequest, option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
+    def calendar_by_scope(self, request: CalendarByScopeLeaveRequest,
+                          option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,33 +41,32 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CalendarByScopeLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), CalendarByScopeLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acalendar_by_scope(self, request: CalendarByScopeLeaveRequest, option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
+    async def acalendar_by_scope(self, request: CalendarByScopeLeaveRequest,
+                                 option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CalendarByScopeLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), CalendarByScopeLeaveResponse)
         response.raw = resp
 
         return response
-        
-    def leave_balances(self, request: LeaveBalancesLeaveRequest, option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
+
+    def leave_balances(self, request: LeaveBalancesLeaveRequest,
+                       option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,33 +79,32 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: LeaveBalancesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveBalancesLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aleave_balances(self, request: LeaveBalancesLeaveRequest, option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
+    async def aleave_balances(self, request: LeaveBalancesLeaveRequest,
+                              option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: LeaveBalancesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveBalancesLeaveResponse)
         response.raw = resp
 
         return response
-        
-    def leave_request_history(self, request: LeaveRequestHistoryLeaveRequest, option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
+
+    def leave_request_history(self, request: LeaveRequestHistoryLeaveRequest,
+                              option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,33 +117,34 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: LeaveRequestHistoryLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveRequestHistoryLeaveResponse)
+        response: LeaveRequestHistoryLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    LeaveRequestHistoryLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aleave_request_history(self, request: LeaveRequestHistoryLeaveRequest, option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
+    async def aleave_request_history(self, request: LeaveRequestHistoryLeaveRequest,
+                                     option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: LeaveRequestHistoryLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveRequestHistoryLeaveResponse)
+        response: LeaveRequestHistoryLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    LeaveRequestHistoryLeaveResponse)
         response.raw = resp
 
         return response
-        
-    def leave_types(self, request: LeaveTypesLeaveRequest, option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
+
+    def leave_types(self, request: LeaveTypesLeaveRequest,
+                    option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,33 +157,32 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: LeaveTypesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveTypesLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aleave_types(self, request: LeaveTypesLeaveRequest, option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
+    async def aleave_types(self, request: LeaveTypesLeaveRequest,
+                           option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: LeaveTypesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveTypesLeaveResponse)
         response.raw = resp
 
         return response
-        
-    def work_calendar(self, request: WorkCalendarLeaveRequest, option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
+
+    def work_calendar(self, request: WorkCalendarLeaveRequest,
+                      option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -196,33 +195,32 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: WorkCalendarLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def awork_calendar(self, request: WorkCalendarLeaveRequest, option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
+    async def awork_calendar(self, request: WorkCalendarLeaveRequest,
+                             option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: WorkCalendarLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarLeaveResponse)
         response.raw = resp
 
         return response
-        
-    def work_calendar_date(self, request: WorkCalendarDateLeaveRequest, option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
+
+    def work_calendar_date(self, request: WorkCalendarDateLeaveRequest,
+                           option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
         if option is None:
             option = RequestOption()
 
@@ -235,30 +233,28 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarDateLeaveResponse)
+        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 WorkCalendarDateLeaveResponse)
         response.raw = resp
 
         return response
-        
 
-    async def awork_calendar_date(self, request: WorkCalendarDateLeaveRequest, option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
+    async def awork_calendar_date(self, request: WorkCalendarDateLeaveRequest,
+                                  option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarDateLeaveResponse)
+        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 WorkCalendarDateLeaveResponse)
         response.raw = resp
 
         return response
-        
-    

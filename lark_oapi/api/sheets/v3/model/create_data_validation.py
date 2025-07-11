@@ -24,12 +24,14 @@ class CreateDataValidation(object):
 class CreateDataValidationBuilder(object):
     def __init__(self) -> None:
         self._create_data_validation = CreateDataValidation()
+
     def range(self, range: str) -> "CreateDataValidationBuilder":
         self._create_data_validation.range = range
         return self
+
     def rule(self, rule: DataValidation) -> "CreateDataValidationBuilder":
         self._create_data_validation.rule = rule
         return self
-    
+
     def build(self) -> "CreateDataValidation":
         return self._create_data_validation

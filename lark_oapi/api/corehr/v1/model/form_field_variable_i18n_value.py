@@ -22,9 +22,10 @@ class FormFieldVariableI18nValue(object):
 class FormFieldVariableI18nValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_i18n_value = FormFieldVariableI18nValue()
+
     def value(self, value: BpmDataengineI18n) -> "FormFieldVariableI18nValueBuilder":
         self._form_field_variable_i18n_value.value = value
         return self
-    
+
     def build(self) -> "FormFieldVariableI18nValue":
         return self._form_field_variable_i18n_value

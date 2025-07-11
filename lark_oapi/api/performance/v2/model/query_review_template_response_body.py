@@ -26,15 +26,18 @@ class QueryReviewTemplateResponseBody(object):
 class QueryReviewTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_template_response_body = QueryReviewTemplateResponseBody()
+
     def review_templates(self, review_templates: List[ReviewTemplate]) -> "QueryReviewTemplateResponseBodyBuilder":
         self._query_review_template_response_body.review_templates = review_templates
         return self
+
     def has_more(self, has_more: bool) -> "QueryReviewTemplateResponseBodyBuilder":
         self._query_review_template_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "QueryReviewTemplateResponseBodyBuilder":
         self._query_review_template_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "QueryReviewTemplateResponseBody":
         return self._query_review_template_response_body

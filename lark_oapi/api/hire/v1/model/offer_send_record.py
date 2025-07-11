@@ -39,30 +39,38 @@ class OfferSendRecord(object):
 class OfferSendRecordBuilder(object):
     def __init__(self) -> None:
         self._offer_send_record = OfferSendRecord()
+
     def offer_send_record_id(self, offer_send_record_id: str) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_send_record_id = offer_send_record_id
         return self
+
     def operator_user_id(self, operator_user_id: str) -> "OfferSendRecordBuilder":
         self._offer_send_record.operator_user_id = operator_user_id
         return self
+
     def send_time(self, send_time: str) -> "OfferSendRecordBuilder":
         self._offer_send_record.send_time = send_time
         return self
+
     def offer_letter_status(self, offer_letter_status: int) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_letter_status = offer_letter_status
         return self
+
     def email_info(self, email_info: OfferEmailInfo) -> "OfferSendRecordBuilder":
         self._offer_send_record.email_info = email_info
         return self
+
     def acceptance_list(self, acceptance_list: List[Acceptance]) -> "OfferSendRecordBuilder":
         self._offer_send_record.acceptance_list = acceptance_list
         return self
+
     def offer_file_list(self, offer_file_list: List[OfferFile]) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_file_list = offer_file_list
         return self
+
     def offer_signature_info(self, offer_signature_info: OfferSignatureInfo) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_signature_info = offer_signature_info
         return self
-    
+
     def build(self) -> "OfferSendRecord":
         return self._offer_send_record

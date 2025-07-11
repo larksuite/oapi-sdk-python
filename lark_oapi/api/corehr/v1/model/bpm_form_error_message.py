@@ -23,12 +23,14 @@ class BpmFormErrorMessage(object):
 class BpmFormErrorMessageBuilder(object):
     def __init__(self) -> None:
         self._bpm_form_error_message = BpmFormErrorMessage()
+
     def code(self, code: int) -> "BpmFormErrorMessageBuilder":
         self._bpm_form_error_message.code = code
         return self
+
     def message(self, message: str) -> "BpmFormErrorMessageBuilder":
         self._bpm_form_error_message.message = message
         return self
-    
+
     def build(self) -> "BpmFormErrorMessage":
         return self._bpm_form_error_message

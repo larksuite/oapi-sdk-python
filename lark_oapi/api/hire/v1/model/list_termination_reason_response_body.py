@@ -26,15 +26,18 @@ class ListTerminationReasonResponseBody(object):
 class ListTerminationReasonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_termination_reason_response_body = ListTerminationReasonResponseBody()
+
     def items(self, items: List[TerminationReason]) -> "ListTerminationReasonResponseBodyBuilder":
         self._list_termination_reason_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListTerminationReasonResponseBodyBuilder":
         self._list_termination_reason_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListTerminationReasonResponseBodyBuilder":
         self._list_termination_reason_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListTerminationReasonResponseBody":
         return self._list_termination_reason_response_body

@@ -22,9 +22,11 @@ class FormFieldVariableRecordValueExample(object):
 class FormFieldVariableRecordValueExampleBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_record_value_example = FormFieldVariableRecordValueExample()
-    def country_region(self, country_region: FormVariableValueInfoExample) -> "FormFieldVariableRecordValueExampleBuilder":
+
+    def country_region(self,
+                       country_region: FormVariableValueInfoExample) -> "FormFieldVariableRecordValueExampleBuilder":
         self._form_field_variable_record_value_example.country_region = country_region
         return self
-    
+
     def build(self) -> "FormFieldVariableRecordValueExample":
         return self._form_field_variable_record_value_example

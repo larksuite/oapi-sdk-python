@@ -36,30 +36,38 @@ class RoomStatusEvent(object):
 class RoomStatusEventBuilder(object):
     def __init__(self) -> None:
         self._room_status_event = RoomStatusEvent()
+
     def status(self, status: bool) -> "RoomStatusEventBuilder":
         self._room_status_event.status = status
         return self
+
     def schedule_status(self, schedule_status: bool) -> "RoomStatusEventBuilder":
         self._room_status_event.schedule_status = schedule_status
         return self
+
     def disable_start_time(self, disable_start_time: int) -> "RoomStatusEventBuilder":
         self._room_status_event.disable_start_time = disable_start_time
         return self
+
     def disable_end_time(self, disable_end_time: int) -> "RoomStatusEventBuilder":
         self._room_status_event.disable_end_time = disable_end_time
         return self
+
     def disable_reason(self, disable_reason: str) -> "RoomStatusEventBuilder":
         self._room_status_event.disable_reason = disable_reason
         return self
+
     def contact_ids(self, contact_ids: List[UserId]) -> "RoomStatusEventBuilder":
         self._room_status_event.contact_ids = contact_ids
         return self
+
     def disable_notice(self, disable_notice: bool) -> "RoomStatusEventBuilder":
         self._room_status_event.disable_notice = disable_notice
         return self
+
     def resume_notice(self, resume_notice: bool) -> "RoomStatusEventBuilder":
         self._room_status_event.resume_notice = resume_notice
         return self
-    
+
     def build(self) -> "RoomStatusEvent":
         return self._room_status_event

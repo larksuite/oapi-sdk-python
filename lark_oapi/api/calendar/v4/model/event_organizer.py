@@ -23,12 +23,14 @@ class EventOrganizer(object):
 class EventOrganizerBuilder(object):
     def __init__(self) -> None:
         self._event_organizer = EventOrganizer()
+
     def user_id(self, user_id: str) -> "EventOrganizerBuilder":
         self._event_organizer.user_id = user_id
         return self
+
     def display_name(self, display_name: str) -> "EventOrganizerBuilder":
         self._event_organizer.display_name = display_name
         return self
-    
+
     def build(self) -> "EventOrganizer":
         return self._event_organizer

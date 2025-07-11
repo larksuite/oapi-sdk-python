@@ -17,7 +17,8 @@ class BadgeImage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateBadgeImageRequest, option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
+    def create(self, request: CreateBadgeImageRequest,
+               option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -29,36 +30,32 @@ class BadgeImage(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
-            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateBadgeImageRequest, option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
+    async def acreate(self, request: CreateBadgeImageRequest,
+                      option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateBadgeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeImageResponse)
         response.raw = resp
 
         return response
-        
-    

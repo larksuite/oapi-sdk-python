@@ -48,45 +48,58 @@ class AilyMessage(object):
 class AilyMessageBuilder(object):
     def __init__(self) -> None:
         self._aily_message = AilyMessage()
+
     def id(self, id: str) -> "AilyMessageBuilder":
         self._aily_message.id = id
         return self
+
     def session_id(self, session_id: str) -> "AilyMessageBuilder":
         self._aily_message.session_id = session_id
         return self
+
     def run_id(self, run_id: str) -> "AilyMessageBuilder":
         self._aily_message.run_id = run_id
         return self
+
     def content_type(self, content_type: str) -> "AilyMessageBuilder":
         self._aily_message.content_type = content_type
         return self
+
     def content(self, content: str) -> "AilyMessageBuilder":
         self._aily_message.content = content
         return self
+
     def files(self, files: List[AilyMessageFile]) -> "AilyMessageBuilder":
         self._aily_message.files = files
         return self
+
     def quote_message_id(self, quote_message_id: str) -> "AilyMessageBuilder":
         self._aily_message.quote_message_id = quote_message_id
         return self
+
     def sender(self, sender: AilySender) -> "AilyMessageBuilder":
         self._aily_message.sender = sender
         return self
+
     def mentions(self, mentions: List[AilyMention]) -> "AilyMessageBuilder":
         self._aily_message.mentions = mentions
         return self
+
     def plain_text(self, plain_text: str) -> "AilyMessageBuilder":
         self._aily_message.plain_text = plain_text
         return self
+
     def created_at(self, created_at: int) -> "AilyMessageBuilder":
         self._aily_message.created_at = created_at
         return self
+
     def status(self, status: str) -> "AilyMessageBuilder":
         self._aily_message.status = status
         return self
+
     def reasoning_content(self, reasoning_content: str) -> "AilyMessageBuilder":
         self._aily_message.reasoning_content = reasoning_content
         return self
-    
+
     def build(self) -> "AilyMessage":
         return self._aily_message

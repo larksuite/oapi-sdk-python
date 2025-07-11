@@ -25,15 +25,18 @@ class ListInstanceResponseBody(object):
 class ListInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_instance_response_body = ListInstanceResponseBody()
+
     def instance_code_list(self, instance_code_list: List[str]) -> "ListInstanceResponseBodyBuilder":
         self._list_instance_response_body.instance_code_list = instance_code_list
         return self
+
     def page_token(self, page_token: str) -> "ListInstanceResponseBodyBuilder":
         self._list_instance_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListInstanceResponseBodyBuilder":
         self._list_instance_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListInstanceResponseBody":
         return self._list_instance_response_body

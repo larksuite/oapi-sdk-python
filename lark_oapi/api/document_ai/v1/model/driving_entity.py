@@ -23,12 +23,14 @@ class DrivingEntity(object):
 class DrivingEntityBuilder(object):
     def __init__(self) -> None:
         self._driving_entity = DrivingEntity()
+
     def type(self, type: str) -> "DrivingEntityBuilder":
         self._driving_entity.type = type
         return self
+
     def value(self, value: str) -> "DrivingEntityBuilder":
         self._driving_entity.value = value
         return self
-    
+
     def build(self) -> "DrivingEntity":
         return self._driving_entity

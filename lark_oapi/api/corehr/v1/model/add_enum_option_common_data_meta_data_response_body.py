@@ -24,12 +24,15 @@ class AddEnumOptionCommonDataMetaDataResponseBody(object):
 class AddEnumOptionCommonDataMetaDataResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._add_enum_option_common_data_meta_data_response_body = AddEnumOptionCommonDataMetaDataResponseBody()
+
     def enum_field_api_name(self, enum_field_api_name: str) -> "AddEnumOptionCommonDataMetaDataResponseBodyBuilder":
         self._add_enum_option_common_data_meta_data_response_body.enum_field_api_name = enum_field_api_name
         return self
-    def enum_field_options(self, enum_field_options: List[EnumFieldOption]) -> "AddEnumOptionCommonDataMetaDataResponseBodyBuilder":
+
+    def enum_field_options(self, enum_field_options: List[
+        EnumFieldOption]) -> "AddEnumOptionCommonDataMetaDataResponseBodyBuilder":
         self._add_enum_option_common_data_meta_data_response_body.enum_field_options = enum_field_options
         return self
-    
+
     def build(self) -> "AddEnumOptionCommonDataMetaDataResponseBody":
         return self._add_enum_option_common_data_meta_data_response_body

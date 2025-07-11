@@ -22,9 +22,10 @@ class BatchGetIdUserResponseBody(object):
 class BatchGetIdUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_id_user_response_body = BatchGetIdUserResponseBody()
+
     def user_list(self, user_list: List[UserContactInfo]) -> "BatchGetIdUserResponseBodyBuilder":
         self._batch_get_id_user_response_body.user_list = user_list
         return self
-    
+
     def build(self) -> "BatchGetIdUserResponseBody":
         return self._batch_get_id_user_response_body

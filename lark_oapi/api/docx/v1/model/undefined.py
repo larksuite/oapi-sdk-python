@@ -19,6 +19,6 @@ class Undefined(object):
 class UndefinedBuilder(object):
     def __init__(self) -> None:
         self._undefined = Undefined()
-    
+
     def build(self) -> "Undefined":
         return self._undefined

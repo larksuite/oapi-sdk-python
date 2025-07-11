@@ -33,27 +33,34 @@ class Minute(object):
 class MinuteBuilder(object):
     def __init__(self) -> None:
         self._minute = Minute()
+
     def token(self, token: str) -> "MinuteBuilder":
         self._minute.token = token
         return self
+
     def owner_id(self, owner_id: str) -> "MinuteBuilder":
         self._minute.owner_id = owner_id
         return self
+
     def create_time(self, create_time: str) -> "MinuteBuilder":
         self._minute.create_time = create_time
         return self
+
     def title(self, title: str) -> "MinuteBuilder":
         self._minute.title = title
         return self
+
     def cover(self, cover: str) -> "MinuteBuilder":
         self._minute.cover = cover
         return self
+
     def duration(self, duration: str) -> "MinuteBuilder":
         self._minute.duration = duration
         return self
+
     def url(self, url: str) -> "MinuteBuilder":
         self._minute.url = url
         return self
-    
+
     def build(self) -> "Minute":
         return self._minute

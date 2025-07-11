@@ -36,30 +36,38 @@ class Comment(object):
 class CommentBuilder(object):
     def __init__(self) -> None:
         self._comment = Comment()
+
     def id(self, id: int) -> "CommentBuilder":
         self._comment.id = id
         return self
+
     def content(self, content: str) -> "CommentBuilder":
         self._comment.content = content
         return self
+
     def creator(self, creator: Member) -> "CommentBuilder":
         self._comment.creator = creator
         return self
+
     def reply_to_comment_id(self, reply_to_comment_id: int) -> "CommentBuilder":
         self._comment.reply_to_comment_id = reply_to_comment_id
         return self
+
     def created_at(self, created_at: int) -> "CommentBuilder":
         self._comment.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "CommentBuilder":
         self._comment.updated_at = updated_at
         return self
+
     def resource_type(self, resource_type: str) -> "CommentBuilder":
         self._comment.resource_type = resource_type
         return self
+
     def resource_id(self, resource_id: str) -> "CommentBuilder":
         self._comment.resource_id = resource_id
         return self
-    
+
     def build(self) -> "Comment":
         return self._comment

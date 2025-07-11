@@ -25,12 +25,12 @@ class CreateJobGradeRequestBuilder(object):
         create_job_grade_request.uri = "/open-apis/corehr/v2/job_grades"
         create_job_grade_request.token_types = {AccessTokenType.TENANT}
         self._create_job_grade_request: CreateJobGradeRequest = create_job_grade_request
-    
+
     def client_token(self, client_token: str) -> "CreateJobGradeRequestBuilder":
         self._create_job_grade_request.client_token = client_token
         self._create_job_grade_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: JobGradeCreate) -> "CreateJobGradeRequestBuilder":
         self._create_job_grade_request.request_body = request_body
         self._create_job_grade_request.body = request_body

@@ -33,21 +33,26 @@ class CooperationProject(object):
 class CooperationProjectBuilder(object):
     def __init__(self) -> None:
         self._cooperation_project = CooperationProject()
+
     def id(self, id: str) -> "CooperationProjectBuilder":
         self._cooperation_project.id = id
         return self
+
     def name(self, name: I18n) -> "CooperationProjectBuilder":
         self._cooperation_project.name = name
         return self
+
     def roles(self, roles: List[CooperationRole]) -> "CooperationProjectBuilder":
         self._cooperation_project.roles = roles
         return self
+
     def user_roles(self, user_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
         self._cooperation_project.user_roles = user_roles
         return self
+
     def underling_roles(self, underling_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
         self._cooperation_project.underling_roles = underling_roles
         return self
-    
+
     def build(self) -> "CooperationProject":
         return self._cooperation_project

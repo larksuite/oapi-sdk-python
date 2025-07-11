@@ -23,12 +23,11 @@ class ReadUserBatchMessageRequestBuilder(object):
         read_user_batch_message_request.uri = "/open-apis/im/v1/batch_messages/:batch_message_id/read_user"
         read_user_batch_message_request.token_types = {AccessTokenType.TENANT}
         self._read_user_batch_message_request: ReadUserBatchMessageRequest = read_user_batch_message_request
-    
+
     def batch_message_id(self, batch_message_id: str) -> "ReadUserBatchMessageRequestBuilder":
         self._read_user_batch_message_request.batch_message_id = batch_message_id
         self._read_user_batch_message_request.paths["batch_message_id"] = str(batch_message_id)
         return self
-    
 
     def build(self) -> ReadUserBatchMessageRequest:
         return self._read_user_batch_message_request

@@ -23,12 +23,14 @@ class Href(object):
 class HrefBuilder(object):
     def __init__(self) -> None:
         self._href = Href()
+
     def url(self, url: str) -> "HrefBuilder":
         self._href.url = url
         return self
+
     def title(self, title: str) -> "HrefBuilder":
         self._href.title = title
         return self
-    
+
     def build(self) -> "Href":
         return self._href

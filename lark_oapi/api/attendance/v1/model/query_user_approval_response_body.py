@@ -22,9 +22,10 @@ class QueryUserApprovalResponseBody(object):
 class QueryUserApprovalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_approval_response_body = QueryUserApprovalResponseBody()
+
     def user_approvals(self, user_approvals: List[UserApproval]) -> "QueryUserApprovalResponseBodyBuilder":
         self._query_user_approval_response_body.user_approvals = user_approvals
         return self
-    
+
     def build(self) -> "QueryUserApprovalResponseBody":
         return self._query_user_approval_response_body

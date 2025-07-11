@@ -28,18 +28,22 @@ class SearchAppTableRecordResponseBody(object):
 class SearchAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_app_table_record_response_body = SearchAppTableRecordResponseBody()
+
     def items(self, items: List[AppTableRecord]) -> "SearchAppTableRecordResponseBodyBuilder":
         self._search_app_table_record_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "SearchAppTableRecordResponseBodyBuilder":
         self._search_app_table_record_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "SearchAppTableRecordResponseBodyBuilder":
         self._search_app_table_record_response_body.page_token = page_token
         return self
+
     def total(self, total: int) -> "SearchAppTableRecordResponseBodyBuilder":
         self._search_app_table_record_response_body.total = total
         return self
-    
+
     def build(self) -> "SearchAppTableRecordResponseBody":
         return self._search_app_table_record_response_body

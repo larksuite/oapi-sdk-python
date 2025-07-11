@@ -23,12 +23,11 @@ class GetUnitRequestBuilder(object):
         get_unit_request.uri = "/open-apis/contact/v3/unit/:unit_id"
         get_unit_request.token_types = {AccessTokenType.TENANT}
         self._get_unit_request: GetUnitRequest = get_unit_request
-    
+
     def unit_id(self, unit_id: str) -> "GetUnitRequestBuilder":
         self._get_unit_request.unit_id = unit_id
         self._get_unit_request.paths["unit_id"] = str(unit_id)
         return self
-    
 
     def build(self) -> GetUnitRequest:
         return self._get_unit_request

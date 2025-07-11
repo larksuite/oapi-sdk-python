@@ -22,9 +22,10 @@ class BatchQueryCostAllocationResponseBody(object):
 class BatchQueryCostAllocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_cost_allocation_response_body = BatchQueryCostAllocationResponseBody()
+
     def items(self, items: List[EmployeeCostAllocation]) -> "BatchQueryCostAllocationResponseBodyBuilder":
         self._batch_query_cost_allocation_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchQueryCostAllocationResponseBody":
         return self._batch_query_cost_allocation_response_body

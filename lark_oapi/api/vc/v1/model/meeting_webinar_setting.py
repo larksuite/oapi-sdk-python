@@ -21,9 +21,10 @@ class MeetingWebinarSetting(object):
 class MeetingWebinarSettingBuilder(object):
     def __init__(self) -> None:
         self._meeting_webinar_setting = MeetingWebinarSetting()
+
     def webinar_type(self, webinar_type: int) -> "MeetingWebinarSettingBuilder":
         self._meeting_webinar_setting.webinar_type = webinar_type
         return self
-    
+
     def build(self) -> "MeetingWebinarSetting":
         return self._meeting_webinar_setting

@@ -7,12 +7,11 @@ from .model.p2_mail_user_mailbox_event_message_received_v1 import P2MailUserMail
 
 
 class P2MailUserMailboxEventMessageReceivedV1Processor(IEventProcessor[P2MailUserMailboxEventMessageReceivedV1]):
-	def __init__(self, f: Callable[[P2MailUserMailboxEventMessageReceivedV1], None]):
-		self.f = f
+    def __init__(self, f: Callable[[P2MailUserMailboxEventMessageReceivedV1], None]):
+        self.f = f
 
-	def type(self) -> Type[P2MailUserMailboxEventMessageReceivedV1]:
-		return P2MailUserMailboxEventMessageReceivedV1
+    def type(self) -> Type[P2MailUserMailboxEventMessageReceivedV1]:
+        return P2MailUserMailboxEventMessageReceivedV1
 
-	def do(self, data: P2MailUserMailboxEventMessageReceivedV1) -> None:
-		self.f(data)
-
+    def do(self, data: P2MailUserMailboxEventMessageReceivedV1) -> None:
+        self.f(data)

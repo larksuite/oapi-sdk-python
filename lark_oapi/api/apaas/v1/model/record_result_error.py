@@ -27,18 +27,22 @@ class RecordResultError(object):
 class RecordResultErrorBuilder(object):
     def __init__(self) -> None:
         self._record_result_error = RecordResultError()
+
     def code(self, code: str) -> "RecordResultErrorBuilder":
         self._record_result_error.code = code
         return self
+
     def message(self, message: str) -> "RecordResultErrorBuilder":
         self._record_result_error.message = message
         return self
+
     def sub_code(self, sub_code: str) -> "RecordResultErrorBuilder":
         self._record_result_error.sub_code = sub_code
         return self
+
     def fields(self, fields: List[str]) -> "RecordResultErrorBuilder":
         self._record_result_error.fields = fields
         return self
-    
+
     def build(self) -> "RecordResultError":
         return self._record_result_error

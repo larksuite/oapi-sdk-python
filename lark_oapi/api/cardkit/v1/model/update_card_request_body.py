@@ -26,15 +26,18 @@ class UpdateCardRequestBody(object):
 class UpdateCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_card_request_body = UpdateCardRequestBody()
+
     def card(self, card: Card) -> "UpdateCardRequestBodyBuilder":
         self._update_card_request_body.card = card
         return self
+
     def uuid(self, uuid: str) -> "UpdateCardRequestBodyBuilder":
         self._update_card_request_body.uuid = uuid
         return self
+
     def sequence(self, sequence: int) -> "UpdateCardRequestBodyBuilder":
         self._update_card_request_body.sequence = sequence
         return self
-    
+
     def build(self) -> "UpdateCardRequestBody":
         return self._update_card_request_body

@@ -23,12 +23,14 @@ class MyAiCardValue(object):
 class MyAiCardValueBuilder(object):
     def __init__(self) -> None:
         self._my_ai_card_value = MyAiCardValue()
+
     def body(self, body: str) -> "MyAiCardValueBuilder":
         self._my_ai_card_value.body = body
         return self
+
     def handle(self, handle: str) -> "MyAiCardValueBuilder":
         self._my_ai_card_value.handle = handle
         return self
-    
+
     def build(self) -> "MyAiCardValue":
         return self._my_ai_card_value

@@ -25,12 +25,12 @@ class CreateCardElementRequestBuilder(object):
         create_card_element_request.uri = "/open-apis/cardkit/v1/cards/:card_id/elements"
         create_card_element_request.token_types = {AccessTokenType.TENANT}
         self._create_card_element_request: CreateCardElementRequest = create_card_element_request
-    
+
     def card_id(self, card_id: str) -> "CreateCardElementRequestBuilder":
         self._create_card_element_request.card_id = card_id
         self._create_card_element_request.paths["card_id"] = str(card_id)
         return self
-    
+
     def request_body(self, request_body: CreateCardElementRequestBody) -> "CreateCardElementRequestBuilder":
         self._create_card_element_request.request_body = request_body
         self._create_card_element_request.body = request_body

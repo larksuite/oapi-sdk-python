@@ -23,12 +23,14 @@ class ListByIdJobRequirementRequestBody(object):
 class ListByIdJobRequirementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._list_by_id_job_requirement_request_body = ListByIdJobRequirementRequestBody()
+
     def id_list(self, id_list: List[str]) -> "ListByIdJobRequirementRequestBodyBuilder":
         self._list_by_id_job_requirement_request_body.id_list = id_list
         return self
+
     def short_code_list(self, short_code_list: List[str]) -> "ListByIdJobRequirementRequestBodyBuilder":
         self._list_by_id_job_requirement_request_body.short_code_list = short_code_list
         return self
-    
+
     def build(self) -> "ListByIdJobRequirementRequestBody":
         return self._list_by_id_job_requirement_request_body

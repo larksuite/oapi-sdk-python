@@ -23,12 +23,14 @@ class UserMeta(object):
 class UserMetaBuilder(object):
     def __init__(self) -> None:
         self._user_meta = UserMeta()
+
     def name(self, name: str) -> "UserMetaBuilder":
         self._user_meta.name = name
         return self
+
     def user_id(self, user_id: str) -> "UserMetaBuilder":
         self._user_meta.user_id = user_id
         return self
-    
+
     def build(self) -> "UserMeta":
         return self._user_meta

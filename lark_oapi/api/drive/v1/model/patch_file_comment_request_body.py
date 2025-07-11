@@ -21,9 +21,10 @@ class PatchFileCommentRequestBody(object):
 class PatchFileCommentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_file_comment_request_body = PatchFileCommentRequestBody()
+
     def is_solved(self, is_solved: bool) -> "PatchFileCommentRequestBodyBuilder":
         self._patch_file_comment_request_body.is_solved = is_solved
         return self
-    
+
     def build(self) -> "PatchFileCommentRequestBody":
         return self._patch_file_comment_request_body

@@ -37,33 +37,42 @@ class Session(object):
 class SessionBuilder(object):
     def __init__(self) -> None:
         self._session = Session()
+
     def id(self, id: int) -> "SessionBuilder":
         self._session.id = id
         return self
+
     def created_at(self, created_at: int) -> "SessionBuilder":
         self._session.created_at = created_at
         return self
+
     def effected_at(self, effected_at: int) -> "SessionBuilder":
         self._session.effected_at = effected_at
         return self
+
     def type(self, type: str) -> "SessionBuilder":
         self._session.type = type
         return self
+
     def status(self, status: str) -> "SessionBuilder":
         self._session.status = status
         return self
+
     def active_intent_id(self, active_intent_id: int) -> "SessionBuilder":
         self._session.active_intent_id = active_intent_id
         return self
+
     def channel_type(self, channel_type: str) -> "SessionBuilder":
         self._session.channel_type = channel_type
         return self
+
     def enable_debug(self, enable_debug: bool) -> "SessionBuilder":
         self._session.enable_debug = enable_debug
         return self
+
     def kvs(self, kvs: str) -> "SessionBuilder":
         self._session.kvs = kvs
         return self
-    
+
     def build(self) -> "Session":
         return self._session

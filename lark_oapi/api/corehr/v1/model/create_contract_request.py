@@ -25,12 +25,12 @@ class CreateContractRequestBuilder(object):
         create_contract_request.uri = "/open-apis/corehr/v1/contracts"
         create_contract_request.token_types = {AccessTokenType.TENANT}
         self._create_contract_request: CreateContractRequest = create_contract_request
-    
+
     def client_token(self, client_token: str) -> "CreateContractRequestBuilder":
         self._create_contract_request.client_token = client_token
         self._create_contract_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: Contract) -> "CreateContractRequestBuilder":
         self._create_contract_request.request_body = request_body
         self._create_contract_request.body = request_body

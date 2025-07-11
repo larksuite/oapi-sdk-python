@@ -23,12 +23,11 @@ class DeleteCompanyRequestBuilder(object):
         delete_company_request.uri = "/open-apis/corehr/v1/companies/:company_id"
         delete_company_request.token_types = {AccessTokenType.TENANT}
         self._delete_company_request: DeleteCompanyRequest = delete_company_request
-    
+
     def company_id(self, company_id: str) -> "DeleteCompanyRequestBuilder":
         self._delete_company_request.company_id = company_id
         self._delete_company_request.paths["company_id"] = str(company_id)
         return self
-    
 
     def build(self) -> DeleteCompanyRequest:
         return self._delete_company_request

@@ -21,9 +21,10 @@ class MyAiInstanceDetailExtra(object):
 class MyAiInstanceDetailExtraBuilder(object):
     def __init__(self) -> None:
         self._my_ai_instance_detail_extra = MyAiInstanceDetailExtra()
+
     def instance_id(self, instance_id: str) -> "MyAiInstanceDetailExtraBuilder":
         self._my_ai_instance_detail_extra.instance_id = instance_id
         return self
-    
+
     def build(self) -> "MyAiInstanceDetailExtra":
         return self._my_ai_instance_detail_extra

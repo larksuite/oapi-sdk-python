@@ -27,22 +27,22 @@ class CreateUserRequestBuilder(object):
         create_user_request.uri = "/open-apis/contact/v3/users"
         create_user_request.token_types = {AccessTokenType.TENANT}
         self._create_user_request: CreateUserRequest = create_user_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateUserRequestBuilder":
         self._create_user_request.user_id_type = user_id_type
         self._create_user_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "CreateUserRequestBuilder":
         self._create_user_request.department_id_type = department_id_type
         self._create_user_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def client_token(self, client_token: str) -> "CreateUserRequestBuilder":
         self._create_user_request.client_token = client_token
         self._create_user_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: User) -> "CreateUserRequestBuilder":
         self._create_user_request.request_body = request_body
         self._create_user_request.body = request_body

@@ -60,60 +60,78 @@ class ReviewDetail(object):
 class ReviewDetailBuilder(object):
     def __init__(self) -> None:
         self._review_detail = ReviewDetail()
+
     def field_id(self, field_id: str) -> "ReviewDetailBuilder":
         self._review_detail.field_id = field_id
         return self
+
     def reviewer_user_id(self, reviewer_user_id: User) -> "ReviewDetailBuilder":
         self._review_detail.reviewer_user_id = reviewer_user_id
         return self
+
     def submit_time(self, submit_time: int) -> "ReviewDetailBuilder":
         self._review_detail.submit_time = submit_time
         return self
+
     def indicator_id(self, indicator_id: str) -> "ReviewDetailBuilder":
         self._review_detail.indicator_id = indicator_id
         return self
+
     def option_id(self, option_id: int) -> "ReviewDetailBuilder":
         self._review_detail.option_id = option_id
         return self
+
     def score(self, score: str) -> "ReviewDetailBuilder":
         self._review_detail.score = score
         return self
+
     def text(self, text: str) -> "ReviewDetailBuilder":
         self._review_detail.text = text
         return self
+
     def tag_based_question_id(self, tag_based_question_id: str) -> "ReviewDetailBuilder":
         self._review_detail.tag_based_question_id = tag_based_question_id
         return self
+
     def tag_text_item_data(self, tag_text_item_data: List[TagText]) -> "ReviewDetailBuilder":
         self._review_detail.tag_text_item_data = tag_text_item_data
         return self
+
     def perf_coefficient_value(self, perf_coefficient_value: str) -> "ReviewDetailBuilder":
         self._review_detail.perf_coefficient_value = perf_coefficient_value
         return self
+
     def sub_indicator_data(self, sub_indicator_data: List[SubIndicator]) -> "ReviewDetailBuilder":
         self._review_detail.sub_indicator_data = sub_indicator_data
         return self
+
     def objective_data(self, objective_data: List[ObjectiveData]) -> "ReviewDetailBuilder":
         self._review_detail.objective_data = objective_data
         return self
+
     def metric_data(self, metric_data: List[MetricData]) -> "ReviewDetailBuilder":
         self._review_detail.metric_data = metric_data
         return self
+
     def leader_review_data_source(self, leader_review_data_source: str) -> "ReviewDetailBuilder":
         self._review_detail.leader_review_data_source = leader_review_data_source
         return self
+
     def multi_texts(self, multi_texts: List[str]) -> "ReviewDetailBuilder":
         self._review_detail.multi_texts = multi_texts
         return self
+
     def richtext(self, richtext: str) -> "ReviewDetailBuilder":
         self._review_detail.richtext = richtext
         return self
+
     def multi_richtexts(self, multi_richtexts: List[str]) -> "ReviewDetailBuilder":
         self._review_detail.multi_richtexts = multi_richtexts
         return self
+
     def is_principal_review_item(self, is_principal_review_item: bool) -> "ReviewDetailBuilder":
         self._review_detail.is_principal_review_item = is_principal_review_item
         return self
-    
+
     def build(self) -> "ReviewDetail":
         return self._review_detail

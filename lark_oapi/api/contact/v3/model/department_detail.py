@@ -27,15 +27,18 @@ class DepartmentDetail(object):
 class DepartmentDetailBuilder(object):
     def __init__(self) -> None:
         self._department_detail = DepartmentDetail()
+
     def department_id(self, department_id: int) -> "DepartmentDetailBuilder":
         self._department_detail.department_id = department_id
         return self
+
     def department_name(self, department_name: DepartmentPathName) -> "DepartmentDetailBuilder":
         self._department_detail.department_name = department_name
         return self
+
     def department_path(self, department_path: DepartmentPath) -> "DepartmentDetailBuilder":
         self._department_detail.department_path = department_path
         return self
-    
+
     def build(self) -> "DepartmentDetail":
         return self._department_detail

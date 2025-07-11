@@ -25,12 +25,12 @@ class DeleteAppFeedCardBatchRequestBuilder(object):
         delete_app_feed_card_batch_request.uri = "/open-apis/im/v2/app_feed_card/batch"
         delete_app_feed_card_batch_request.token_types = {AccessTokenType.TENANT}
         self._delete_app_feed_card_batch_request: DeleteAppFeedCardBatchRequest = delete_app_feed_card_batch_request
-    
+
     def user_id_type(self, user_id_type: str) -> "DeleteAppFeedCardBatchRequestBuilder":
         self._delete_app_feed_card_batch_request.user_id_type = user_id_type
         self._delete_app_feed_card_batch_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: DeleteAppFeedCardBatchRequestBody) -> "DeleteAppFeedCardBatchRequestBuilder":
         self._delete_app_feed_card_batch_request.request_body = request_body
         self._delete_app_feed_card_batch_request.body = request_body

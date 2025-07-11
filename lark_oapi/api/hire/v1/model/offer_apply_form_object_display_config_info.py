@@ -24,12 +24,15 @@ class OfferApplyFormObjectDisplayConfigInfo(object):
 class OfferApplyFormObjectDisplayConfigInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_object_display_config_info = OfferApplyFormObjectDisplayConfigInfo()
+
     def display_condition(self, display_condition: int) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
         self._offer_apply_form_object_display_config_info.display_condition = display_condition
         return self
-    def pre_object_config_list(self, pre_object_config_list: List[OfferApplyFormPreObjectConfigInfo]) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
+
+    def pre_object_config_list(self, pre_object_config_list: List[
+        OfferApplyFormPreObjectConfigInfo]) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
         self._offer_apply_form_object_display_config_info.pre_object_config_list = pre_object_config_list
         return self
-    
+
     def build(self) -> "OfferApplyFormObjectDisplayConfigInfo":
         return self._offer_apply_form_object_display_config_info

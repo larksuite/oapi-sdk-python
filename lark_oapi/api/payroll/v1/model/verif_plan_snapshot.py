@@ -54,48 +54,62 @@ class VerifPlanSnapshot(object):
 class VerifPlanSnapshotBuilder(object):
     def __init__(self) -> None:
         self._verif_plan_snapshot = VerifPlanSnapshot()
+
     def is_retro(self, is_retro: bool) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.is_retro = is_retro
         return self
+
     def is_collect(self, is_collect: bool) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.is_collect = is_collect
         return self
+
     def is_proration(self, is_proration: bool) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.is_proration = is_proration
         return self
+
     def country_region(self, country_region: IdWithName) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.country_region = country_region
         return self
+
     def currency(self, currency: IdWithName) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.currency = currency
         return self
+
     def calendar_type(self, calendar_type: int) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.calendar_type = calendar_type
         return self
+
     def pay_calendars(self, pay_calendars: List[VerifPayCalendar]) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.pay_calendars = pay_calendars
         return self
+
     def scope_type(self, scope_type: int) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.scope_type = scope_type
         return self
+
     def pay_groups(self, pay_groups: List[IdWithName]) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.pay_groups = pay_groups
         return self
+
     def filter_type(self, filter_type: int) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.filter_type = filter_type
         return self
+
     def filter_rule(self, filter_rule: VerifFilterRule) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.filter_rule = filter_rule
         return self
+
     def approval_type(self, approval_type: int) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.approval_type = approval_type
         return self
+
     def items(self, items: List[VerifItem]) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.items = items
         return self
+
     def data_source_rule(self, data_source_rule: VerifDataSourceRule) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.data_source_rule = data_source_rule
         return self
-    
+
     def build(self) -> "VerifPlanSnapshot":
         return self._verif_plan_snapshot

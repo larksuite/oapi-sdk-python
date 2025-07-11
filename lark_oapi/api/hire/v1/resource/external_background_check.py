@@ -23,7 +23,8 @@ class ExternalBackgroundCheck(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalBackgroundCheckResponse:
+    def batch_query(self, request: BatchQueryExternalBackgroundCheckRequest,
+                    option: Optional[RequestOption] = None) -> BatchQueryExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class ExternalBackgroundCheck(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalBackgroundCheckResponse)
+        response: BatchQueryExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             BatchQueryExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_query(self, request: BatchQueryExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalBackgroundCheckResponse:
+    async def abatch_query(self, request: BatchQueryExternalBackgroundCheckRequest,
+                           option: Optional[RequestOption] = None) -> BatchQueryExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalBackgroundCheckResponse)
+        response: BatchQueryExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             BatchQueryExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
+
+    def create(self, request: CreateExternalBackgroundCheckRequest,
+               option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class ExternalBackgroundCheck(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalBackgroundCheckResponse)
+        response: CreateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         CreateExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
+    async def acreate(self, request: CreateExternalBackgroundCheckRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalBackgroundCheckResponse)
+        response: CreateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         CreateExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> DeleteExternalBackgroundCheckResponse:
+
+    def delete(self, request: DeleteExternalBackgroundCheckRequest,
+               option: Optional[RequestOption] = None) -> DeleteExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class ExternalBackgroundCheck(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalBackgroundCheckResponse)
+        response: DeleteExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         DeleteExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> DeleteExternalBackgroundCheckResponse:
+    async def adelete(self, request: DeleteExternalBackgroundCheckRequest,
+                      option: Optional[RequestOption] = None) -> DeleteExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalBackgroundCheckResponse)
+        response: DeleteExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         DeleteExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> UpdateExternalBackgroundCheckResponse:
+
+    def update(self, request: UpdateExternalBackgroundCheckRequest,
+               option: Optional[RequestOption] = None) -> UpdateExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class ExternalBackgroundCheck(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalBackgroundCheckResponse)
+        response: UpdateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         UpdateExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateExternalBackgroundCheckRequest, option: Optional[RequestOption] = None) -> UpdateExternalBackgroundCheckResponse:
+    async def aupdate(self, request: UpdateExternalBackgroundCheckRequest,
+                      option: Optional[RequestOption] = None) -> UpdateExternalBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalBackgroundCheckResponse)
+        response: UpdateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         UpdateExternalBackgroundCheckResponse)
         response.raw = resp
 
         return response
-        
-    

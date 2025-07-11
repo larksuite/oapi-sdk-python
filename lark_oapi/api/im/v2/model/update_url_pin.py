@@ -27,15 +27,18 @@ class UpdateUrlPin(object):
 class UpdateUrlPinBuilder(object):
     def __init__(self) -> None:
         self._update_url_pin = UpdateUrlPin()
+
     def icon(self, icon: ChatPinIcon) -> "UpdateUrlPinBuilder":
         self._update_url_pin.icon = icon
         return self
+
     def title(self, title: str) -> "UpdateUrlPinBuilder":
         self._update_url_pin.title = title
         return self
+
     def i18n_title(self, i18n_title: I18nNames) -> "UpdateUrlPinBuilder":
         self._update_url_pin.i18n_title = i18n_title
         return self
-    
+
     def build(self) -> "UpdateUrlPin":
         return self._update_url_pin

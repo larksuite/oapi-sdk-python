@@ -22,9 +22,10 @@ class ListPermissionMemberResponseBody(object):
 class ListPermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_permission_member_response_body = ListPermissionMemberResponseBody()
+
     def items(self, items: List[Member]) -> "ListPermissionMemberResponseBodyBuilder":
         self._list_permission_member_response_body.items = items
         return self
-    
+
     def build(self) -> "ListPermissionMemberResponseBody":
         return self._list_permission_member_response_body

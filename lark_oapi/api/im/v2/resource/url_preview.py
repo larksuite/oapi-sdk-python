@@ -17,7 +17,8 @@ class UrlPreview(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update(self, request: BatchUpdateUrlPreviewRequest, option: Optional[RequestOption] = None) -> BatchUpdateUrlPreviewResponse:
+    def batch_update(self, request: BatchUpdateUrlPreviewRequest,
+                     option: Optional[RequestOption] = None) -> BatchUpdateUrlPreviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class UrlPreview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateUrlPreviewResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateUrlPreviewResponse)
+        response: BatchUpdateUrlPreviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 BatchUpdateUrlPreviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_update(self, request: BatchUpdateUrlPreviewRequest, option: Optional[RequestOption] = None) -> BatchUpdateUrlPreviewResponse:
+    async def abatch_update(self, request: BatchUpdateUrlPreviewRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateUrlPreviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchUpdateUrlPreviewResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateUrlPreviewResponse)
+        response: BatchUpdateUrlPreviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 BatchUpdateUrlPreviewResponse)
         response.raw = resp
 
         return response
-        
-    

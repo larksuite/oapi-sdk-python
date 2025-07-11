@@ -23,12 +23,14 @@ class MyAiObjectContext(object):
 class MyAiObjectContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_object_context = MyAiObjectContext()
+
     def type(self, type: str) -> "MyAiObjectContextBuilder":
         self._my_ai_object_context.type = type
         return self
+
     def biz_id(self, biz_id: str) -> "MyAiObjectContextBuilder":
         self._my_ai_object_context.biz_id = biz_id
         return self
-    
+
     def build(self) -> "MyAiObjectContext":
         return self._my_ai_object_context

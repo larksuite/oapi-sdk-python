@@ -34,21 +34,26 @@ class UserInfo(object):
 class UserInfoBuilder(object):
     def __init__(self) -> None:
         self._user_info = UserInfo()
+
     def user_id(self, user_id: User) -> "UserInfoBuilder":
         self._user_info.user_id = user_id
         return self
+
     def direct_leader_user_id(self, direct_leader_user_id: User) -> "UserInfoBuilder":
         self._user_info.direct_leader_user_id = direct_leader_user_id
         return self
+
     def department(self, department: Department) -> "UserInfoBuilder":
         self._user_info.department = department
         return self
+
     def job_family(self, job_family: JobFamily) -> "UserInfoBuilder":
         self._user_info.job_family = job_family
         return self
+
     def job_level(self, job_level: JobLevel) -> "UserInfoBuilder":
         self._user_info.job_level = job_level
         return self
-    
+
     def build(self) -> "UserInfo":
         return self._user_info

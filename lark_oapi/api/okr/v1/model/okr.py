@@ -37,30 +37,38 @@ class Okr(object):
 class OkrBuilder(object):
     def __init__(self) -> None:
         self._okr = Okr()
+
     def okr_id(self, okr_id: int) -> "OkrBuilder":
         self._okr.okr_id = okr_id
         return self
+
     def period_id(self, period_id: int) -> "OkrBuilder":
         self._okr.period_id = period_id
         return self
+
     def period_type(self, period_type: str) -> "OkrBuilder":
         self._okr.period_type = period_type
         return self
+
     def name(self, name: OkrName) -> "OkrBuilder":
         self._okr.name = name
         return self
+
     def create_time(self, create_time: int) -> "OkrBuilder":
         self._okr.create_time = create_time
         return self
+
     def modify_time(self, modify_time: int) -> "OkrBuilder":
         self._okr.modify_time = modify_time
         return self
+
     def objective_list(self, objective_list: List[OkrDetailObjective]) -> "OkrBuilder":
         self._okr.objective_list = objective_list
         return self
+
     def okr_score(self, okr_score: int) -> "OkrBuilder":
         self._okr.okr_score = okr_score
         return self
-    
+
     def build(self) -> "Okr":
         return self._okr

@@ -55,60 +55,78 @@ class GetUserFlowResponseBody(object):
 class GetUserFlowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_user_flow_response_body = GetUserFlowResponseBody()
+
     def user_id(self, user_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.user_id = user_id
         return self
+
     def creator_id(self, creator_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.creator_id = creator_id
         return self
+
     def location_name(self, location_name: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.location_name = location_name
         return self
+
     def check_time(self, check_time: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.check_time = check_time
         return self
+
     def comment(self, comment: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.comment = comment
         return self
+
     def record_id(self, record_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.record_id = record_id
         return self
+
     def longitude(self, longitude: float) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.longitude = longitude
         return self
+
     def latitude(self, latitude: float) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.latitude = latitude
         return self
+
     def ssid(self, ssid: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.ssid = ssid
         return self
+
     def bssid(self, bssid: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.bssid = bssid
         return self
+
     def is_field(self, is_field: bool) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.is_field = is_field
         return self
+
     def is_wifi(self, is_wifi: bool) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.is_wifi = is_wifi
         return self
+
     def type(self, type: int) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.type = type
         return self
+
     def photo_urls(self, photo_urls: List[str]) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.photo_urls = photo_urls
         return self
+
     def device_id(self, device_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.device_id = device_id
         return self
+
     def check_result(self, check_result: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.check_result = check_result
         return self
+
     def external_id(self, external_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.external_id = external_id
         return self
+
     def idempotent_id(self, idempotent_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.idempotent_id = idempotent_id
         return self
-    
+
     def build(self) -> "GetUserFlowResponseBody":
         return self._get_user_flow_response_body

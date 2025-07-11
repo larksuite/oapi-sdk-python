@@ -28,18 +28,22 @@ class VerifActProration(object):
 class VerifActProrationBuilder(object):
     def __init__(self) -> None:
         self._verif_act_proration = VerifActProration()
+
     def start_date(self, start_date: str) -> "VerifActProrationBuilder":
         self._verif_act_proration.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "VerifActProrationBuilder":
         self._verif_act_proration.end_date = end_date
         return self
+
     def cutoff_date(self, cutoff_date: str) -> "VerifActProrationBuilder":
         self._verif_act_proration.cutoff_date = cutoff_date
         return self
+
     def item_values(self, item_values: List[VerifActItemValue]) -> "VerifActProrationBuilder":
         self._verif_act_proration.item_values = item_values
         return self
-    
+
     def build(self) -> "VerifActProration":
         return self._verif_act_proration

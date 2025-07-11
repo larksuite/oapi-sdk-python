@@ -25,15 +25,18 @@ class Schema(object):
 class SchemaBuilder(object):
     def __init__(self) -> None:
         self._schema = Schema()
+
     def ui_name(self, ui_name: str) -> "SchemaBuilder":
         self._schema.ui_name = ui_name
         return self
+
     def ui_status(self, ui_status: str) -> "SchemaBuilder":
         self._schema.ui_status = ui_status
         return self
+
     def app_link(self, app_link: str) -> "SchemaBuilder":
         self._schema.app_link = app_link
         return self
-    
+
     def build(self) -> "Schema":
         return self._schema

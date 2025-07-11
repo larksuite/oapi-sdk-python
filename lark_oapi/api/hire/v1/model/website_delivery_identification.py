@@ -23,12 +23,14 @@ class WebsiteDeliveryIdentification(object):
 class WebsiteDeliveryIdentificationBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_identification = WebsiteDeliveryIdentification()
+
     def identification_number(self, identification_number: str) -> "WebsiteDeliveryIdentificationBuilder":
         self._website_delivery_identification.identification_number = identification_number
         return self
+
     def identification_type(self, identification_type: int) -> "WebsiteDeliveryIdentificationBuilder":
         self._website_delivery_identification.identification_type = identification_type
         return self
-    
+
     def build(self) -> "WebsiteDeliveryIdentification":
         return self._website_delivery_identification

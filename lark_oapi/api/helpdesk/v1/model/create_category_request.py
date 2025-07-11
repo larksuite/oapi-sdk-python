@@ -24,7 +24,7 @@ class CreateCategoryRequestBuilder(object):
         create_category_request.uri = "/open-apis/helpdesk/v1/categories"
         create_category_request.token_types = {AccessTokenType.USER}
         self._create_category_request: CreateCategoryRequest = create_category_request
-    
+
     def request_body(self, request_body: Category) -> "CreateCategoryRequestBuilder":
         self._create_category_request.request_body = request_body
         self._create_category_request.body = request_body

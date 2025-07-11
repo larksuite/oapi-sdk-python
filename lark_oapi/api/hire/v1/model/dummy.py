@@ -21,9 +21,10 @@ class Dummy(object):
 class DummyBuilder(object):
     def __init__(self) -> None:
         self._dummy = Dummy()
+
     def id(self, id: str) -> "DummyBuilder":
         self._dummy.id = id
         return self
-    
+
     def build(self) -> "Dummy":
         return self._dummy

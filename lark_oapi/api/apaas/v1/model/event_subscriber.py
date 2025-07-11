@@ -35,30 +35,38 @@ class EventSubscriber(object):
 class EventSubscriberBuilder(object):
     def __init__(self) -> None:
         self._event_subscriber = EventSubscriber()
+
     def namespace(self, namespace: str) -> "EventSubscriberBuilder":
         self._event_subscriber.namespace = namespace
         return self
+
     def auth_type(self, auth_type: str) -> "EventSubscriberBuilder":
         self._event_subscriber.auth_type = auth_type
         return self
+
     def token(self, token: str) -> "EventSubscriberBuilder":
         self._event_subscriber.token = token
         return self
+
     def token_client_id(self, token_client_id: str) -> "EventSubscriberBuilder":
         self._event_subscriber.token_client_id = token_client_id
         return self
+
     def token_url(self, token_url: str) -> "EventSubscriberBuilder":
         self._event_subscriber.token_url = token_url
         return self
+
     def token_client_secret(self, token_client_secret: str) -> "EventSubscriberBuilder":
         self._event_subscriber.token_client_secret = token_client_secret
         return self
+
     def webhook_url(self, webhook_url: str) -> "EventSubscriberBuilder":
         self._event_subscriber.webhook_url = webhook_url
         return self
+
     def id(self, id: str) -> "EventSubscriberBuilder":
         self._event_subscriber.id = id
         return self
-    
+
     def build(self) -> "EventSubscriber":
         return self._event_subscriber

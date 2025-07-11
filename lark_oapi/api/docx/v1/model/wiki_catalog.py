@@ -21,9 +21,10 @@ class WikiCatalog(object):
 class WikiCatalogBuilder(object):
     def __init__(self) -> None:
         self._wiki_catalog = WikiCatalog()
+
     def wiki_token(self, wiki_token: str) -> "WikiCatalogBuilder":
         self._wiki_catalog.wiki_token = wiki_token
         return self
-    
+
     def build(self) -> "WikiCatalog":
         return self._wiki_catalog

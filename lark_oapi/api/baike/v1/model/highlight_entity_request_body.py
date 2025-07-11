@@ -21,9 +21,10 @@ class HighlightEntityRequestBody(object):
 class HighlightEntityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._highlight_entity_request_body = HighlightEntityRequestBody()
+
     def text(self, text: str) -> "HighlightEntityRequestBodyBuilder":
         self._highlight_entity_request_body.text = text
         return self
-    
+
     def build(self) -> "HighlightEntityRequestBody":
         return self._highlight_entity_request_body

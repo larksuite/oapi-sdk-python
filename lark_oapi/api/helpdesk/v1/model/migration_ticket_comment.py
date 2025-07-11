@@ -25,15 +25,18 @@ class MigrationTicketComment(object):
 class MigrationTicketCommentBuilder(object):
     def __init__(self) -> None:
         self._migration_ticket_comment = MigrationTicketComment()
+
     def user_id(self, user_id: int) -> "MigrationTicketCommentBuilder":
         self._migration_ticket_comment.user_id = user_id
         return self
+
     def create_at_ms(self, create_at_ms: str) -> "MigrationTicketCommentBuilder":
         self._migration_ticket_comment.create_at_ms = create_at_ms
         return self
+
     def content(self, content: str) -> "MigrationTicketCommentBuilder":
         self._migration_ticket_comment.content = content
         return self
-    
+
     def build(self) -> "MigrationTicketComment":
         return self._migration_ticket_comment

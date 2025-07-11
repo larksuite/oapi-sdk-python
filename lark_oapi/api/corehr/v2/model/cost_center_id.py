@@ -21,9 +21,10 @@ class CostCenterId(object):
 class CostCenterIdBuilder(object):
     def __init__(self) -> None:
         self._cost_center_id = CostCenterId()
+
     def wk_id(self, wk_id: str) -> "CostCenterIdBuilder":
         self._cost_center_id.wk_id = wk_id
         return self
-    
+
     def build(self) -> "CostCenterId":
         return self._cost_center_id

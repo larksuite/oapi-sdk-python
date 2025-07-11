@@ -23,12 +23,14 @@ class Suggestion(object):
 class SuggestionBuilder(object):
     def __init__(self) -> None:
         self._suggestion = Suggestion()
+
     def content(self, content: str) -> "SuggestionBuilder":
         self._suggestion.content = content
         return self
+
     def skill_id(self, skill_id: str) -> "SuggestionBuilder":
         self._suggestion.skill_id = skill_id
         return self
-    
+
     def build(self) -> "Suggestion":
         return self._suggestion

@@ -22,9 +22,10 @@ class SetHostMeetingResponseBody(object):
 class SetHostMeetingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._set_host_meeting_response_body = SetHostMeetingResponseBody()
+
     def host_user(self, host_user: MeetingUser) -> "SetHostMeetingResponseBodyBuilder":
         self._set_host_meeting_response_body.host_user = host_user
         return self
-    
+
     def build(self) -> "SetHostMeetingResponseBody":
         return self._set_host_meeting_response_body

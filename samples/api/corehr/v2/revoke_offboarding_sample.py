@@ -5,66 +5,66 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: RevokeOffboardingRequest = RevokeOffboardingRequest.builder() \
-		.user_id_type("people_corehr_id") \
-		.request_body(RevokeOffboardingRequestBody.builder()
-					  .offboarding_id("7095671727698478604")
-					  .operator_id("6982509313466189341")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: RevokeOffboardingRequest = RevokeOffboardingRequest.builder() \
+        .user_id_type("people_corehr_id") \
+        .request_body(RevokeOffboardingRequestBody.builder()
+                      .offboarding_id("7095671727698478604")
+                      .operator_id("6982509313466189341")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: RevokeOffboardingResponse = client.corehr.v2.offboarding.revoke(request)
+    # 发起请求
+    response: RevokeOffboardingResponse = client.corehr.v2.offboarding.revoke(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.offboarding.revoke failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.offboarding.revoke failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: RevokeOffboardingRequest = RevokeOffboardingRequest.builder() \
-		.user_id_type("people_corehr_id") \
-		.request_body(RevokeOffboardingRequestBody.builder()
-					  .offboarding_id("7095671727698478604")
-					  .operator_id("6982509313466189341")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: RevokeOffboardingRequest = RevokeOffboardingRequest.builder() \
+        .user_id_type("people_corehr_id") \
+        .request_body(RevokeOffboardingRequestBody.builder()
+                      .offboarding_id("7095671727698478604")
+                      .operator_id("6982509313466189341")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: RevokeOffboardingResponse = await client.corehr.v2.offboarding.arevoke(request)
+    # 发起请求
+    response: RevokeOffboardingResponse = await client.corehr.v2.offboarding.arevoke(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.offboarding.arevoke failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.offboarding.arevoke failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

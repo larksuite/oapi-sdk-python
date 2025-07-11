@@ -23,12 +23,14 @@ class DataAssetTag(object):
 class DataAssetTagBuilder(object):
     def __init__(self) -> None:
         self._data_asset_tag = DataAssetTag()
+
     def data_asset_tag_id(self, data_asset_tag_id: str) -> "DataAssetTagBuilder":
         self._data_asset_tag.data_asset_tag_id = data_asset_tag_id
         return self
+
     def name(self, name: str) -> "DataAssetTagBuilder":
         self._data_asset_tag.name = name
         return self
-    
+
     def build(self) -> "DataAssetTag":
         return self._data_asset_tag

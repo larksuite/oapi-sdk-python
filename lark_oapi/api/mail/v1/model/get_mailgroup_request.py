@@ -23,12 +23,11 @@ class GetMailgroupRequestBuilder(object):
         get_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id"
         get_mailgroup_request.token_types = {AccessTokenType.TENANT}
         self._get_mailgroup_request: GetMailgroupRequest = get_mailgroup_request
-    
+
     def mailgroup_id(self, mailgroup_id: str) -> "GetMailgroupRequestBuilder":
         self._get_mailgroup_request.mailgroup_id = mailgroup_id
         self._get_mailgroup_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
-    
 
     def build(self) -> GetMailgroupRequest:
         return self._get_mailgroup_request

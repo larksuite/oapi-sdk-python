@@ -21,7 +21,8 @@ class CostCenterVersion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCostCenterVersionRequest, option: Optional[RequestOption] = None) -> CreateCostCenterVersionResponse:
+    def create(self, request: CreateCostCenterVersionRequest,
+               option: Optional[RequestOption] = None) -> CreateCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,34 @@ class CostCenterVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterVersionResponse)
+        response: CreateCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateCostCenterVersionRequest, option: Optional[RequestOption] = None) -> CreateCostCenterVersionResponse:
+    async def acreate(self, request: CreateCostCenterVersionRequest,
+                      option: Optional[RequestOption] = None) -> CreateCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterVersionResponse)
+        response: CreateCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteCostCenterVersionRequest, option: Optional[RequestOption] = None) -> DeleteCostCenterVersionResponse:
+
+    def delete(self, request: DeleteCostCenterVersionRequest,
+               option: Optional[RequestOption] = None) -> DeleteCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +75,34 @@ class CostCenterVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterVersionResponse)
+        response: DeleteCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteCostCenterVersionRequest, option: Optional[RequestOption] = None) -> DeleteCostCenterVersionResponse:
+    async def adelete(self, request: DeleteCostCenterVersionRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterVersionResponse)
+        response: DeleteCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchCostCenterVersionRequest, option: Optional[RequestOption] = None) -> PatchCostCenterVersionResponse:
+
+    def patch(self, request: PatchCostCenterVersionRequest,
+              option: Optional[RequestOption] = None) -> PatchCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +115,28 @@ class CostCenterVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterVersionResponse)
+        response: PatchCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  PatchCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchCostCenterVersionRequest, option: Optional[RequestOption] = None) -> PatchCostCenterVersionResponse:
+    async def apatch(self, request: PatchCostCenterVersionRequest,
+                     option: Optional[RequestOption] = None) -> PatchCostCenterVersionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterVersionResponse)
+        response: PatchCostCenterVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  PatchCostCenterVersionResponse)
         response.raw = resp
 
         return response
-        
-    

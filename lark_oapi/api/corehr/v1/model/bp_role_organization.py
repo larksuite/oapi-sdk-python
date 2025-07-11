@@ -25,15 +25,18 @@ class BpRoleOrganization(object):
 class BpRoleOrganizationBuilder(object):
     def __init__(self) -> None:
         self._bp_role_organization = BpRoleOrganization()
+
     def role_key(self, role_key: str) -> "BpRoleOrganizationBuilder":
         self._bp_role_organization.role_key = role_key
         return self
+
     def department_id(self, department_id: str) -> "BpRoleOrganizationBuilder":
         self._bp_role_organization.department_id = department_id
         return self
+
     def work_location_id(self, work_location_id: str) -> "BpRoleOrganizationBuilder":
         self._bp_role_organization.work_location_id = work_location_id
         return self
-    
+
     def build(self) -> "BpRoleOrganization":
         return self._bp_role_organization

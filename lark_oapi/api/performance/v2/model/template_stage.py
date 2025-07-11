@@ -32,24 +32,30 @@ class TemplateStage(object):
 class TemplateStageBuilder(object):
     def __init__(self) -> None:
         self._template_stage = TemplateStage()
+
     def id(self, id: str) -> "TemplateStageBuilder":
         self._template_stage.id = id
         return self
+
     def name(self, name: I18n) -> "TemplateStageBuilder":
         self._template_stage.name = name
         return self
+
     def template_group_id(self, template_group_id: str) -> "TemplateStageBuilder":
         self._template_stage.template_group_id = template_group_id
         return self
+
     def stage_type(self, stage_type: str) -> "TemplateStageBuilder":
         self._template_stage.stage_type = stage_type
         return self
+
     def perform_role(self, perform_role: str) -> "TemplateStageBuilder":
         self._template_stage.perform_role = perform_role
         return self
+
     def as_final_result(self, as_final_result: bool) -> "TemplateStageBuilder":
         self._template_stage.as_final_result = as_final_result
         return self
-    
+
     def build(self) -> "TemplateStage":
         return self._template_stage

@@ -23,12 +23,14 @@ class RecordPermission(object):
 class RecordPermissionBuilder(object):
     def __init__(self) -> None:
         self._record_permission = RecordPermission()
+
     def api_id(self, api_id: str) -> "RecordPermissionBuilder":
         self._record_permission.api_id = api_id
         return self
+
     def api_name(self, api_name: str) -> "RecordPermissionBuilder":
         self._record_permission.api_name = api_name
         return self
-    
+
     def build(self) -> "RecordPermission":
         return self._record_permission

@@ -21,9 +21,10 @@ class CancelEcoBackgroundCheckRequestBody(object):
 class CancelEcoBackgroundCheckRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._cancel_eco_background_check_request_body = CancelEcoBackgroundCheckRequestBody()
+
     def background_check_id(self, background_check_id: str) -> "CancelEcoBackgroundCheckRequestBodyBuilder":
         self._cancel_eco_background_check_request_body.background_check_id = background_check_id
         return self
-    
+
     def build(self) -> "CancelEcoBackgroundCheckRequestBody":
         return self._cancel_eco_background_check_request_body

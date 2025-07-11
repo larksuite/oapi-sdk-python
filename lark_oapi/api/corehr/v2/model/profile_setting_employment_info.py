@@ -46,33 +46,46 @@ class ProfileSettingEmploymentInfo(object):
 class ProfileSettingEmploymentInfoBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_employment_info = ProfileSettingEmploymentInfo()
+
     def basic_info(self, basic_info: ProfileSettingEmploymentBasicInfo) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.basic_info = basic_info
         return self
+
     def probation_info(self, probation_info: ProfileSettingProbationInfo) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.probation_info = probation_info
         return self
-    def employment_record(self, employment_record: ProfileSettingEmploymentRecord) -> "ProfileSettingEmploymentInfoBuilder":
+
+    def employment_record(self,
+                          employment_record: ProfileSettingEmploymentRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.employment_record = employment_record
         return self
-    def emp_contract_record(self, emp_contract_record: ProfileSettingEmpContractRecord) -> "ProfileSettingEmploymentInfoBuilder":
+
+    def emp_contract_record(self,
+                            emp_contract_record: ProfileSettingEmpContractRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.emp_contract_record = emp_contract_record
         return self
+
     def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.custom_groups = custom_groups
         return self
+
     def custom_org_groups(self, custom_org_groups: List[JobDataCustomOrg]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.custom_org_groups = custom_org_groups
         return self
-    def seniority_adjust_informations(self, seniority_adjust_informations: List[SeniorityAdjustInformationEdit]) -> "ProfileSettingEmploymentInfoBuilder":
+
+    def seniority_adjust_informations(self, seniority_adjust_informations: List[
+        SeniorityAdjustInformationEdit]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.seniority_adjust_informations = seniority_adjust_informations
         return self
-    def default_cost_center(self, default_cost_center: DefaultCostCenterRecord) -> "ProfileSettingEmploymentInfoBuilder":
+
+    def default_cost_center(self,
+                            default_cost_center: DefaultCostCenterRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.default_cost_center = default_cost_center
         return self
+
     def cost_allocation(self, cost_allocation: CostAllocation) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.cost_allocation = cost_allocation
         return self
-    
+
     def build(self) -> "ProfileSettingEmploymentInfo":
         return self._profile_setting_employment_info

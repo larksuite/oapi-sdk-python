@@ -25,15 +25,18 @@ class InputAttachment(object):
 class InputAttachmentBuilder(object):
     def __init__(self) -> None:
         self._input_attachment = InputAttachment()
+
     def resource_type(self, resource_type: str) -> "InputAttachmentBuilder":
         self._input_attachment.resource_type = resource_type
         return self
+
     def resource_id(self, resource_id: str) -> "InputAttachmentBuilder":
         self._input_attachment.resource_id = resource_id
         return self
+
     def file(self, file: IO[Any]) -> "InputAttachmentBuilder":
         self._input_attachment.file = file
         return self
-    
+
     def build(self) -> "InputAttachment":
         return self._input_attachment

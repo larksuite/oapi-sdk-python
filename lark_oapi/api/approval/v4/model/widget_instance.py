@@ -31,24 +31,30 @@ class WidgetInstance(object):
 class WidgetInstanceBuilder(object):
     def __init__(self) -> None:
         self._widget_instance = WidgetInstance()
+
     def instance_code(self, instance_code: str) -> "WidgetInstanceBuilder":
         self._widget_instance.instance_code = instance_code
         return self
+
     def status(self, status: str) -> "WidgetInstanceBuilder":
         self._widget_instance.status = status
         return self
+
     def instance_operate_time(self, instance_operate_time: str) -> "WidgetInstanceBuilder":
         self._widget_instance.instance_operate_time = instance_operate_time
         return self
+
     def is_revert_approval(self, is_revert_approval: bool) -> "WidgetInstanceBuilder":
         self._widget_instance.is_revert_approval = is_revert_approval
         return self
+
     def form_content(self, form_content: str) -> "WidgetInstanceBuilder":
         self._widget_instance.form_content = form_content
         return self
+
     def serial_id(self, serial_id: str) -> "WidgetInstanceBuilder":
         self._widget_instance.serial_id = serial_id
         return self
-    
+
     def build(self) -> "WidgetInstance":
         return self._widget_instance

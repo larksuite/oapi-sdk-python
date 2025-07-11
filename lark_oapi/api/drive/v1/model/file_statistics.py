@@ -33,27 +33,34 @@ class FileStatistics(object):
 class FileStatisticsBuilder(object):
     def __init__(self) -> None:
         self._file_statistics = FileStatistics()
+
     def uv(self, uv: int) -> "FileStatisticsBuilder":
         self._file_statistics.uv = uv
         return self
+
     def pv(self, pv: int) -> "FileStatisticsBuilder":
         self._file_statistics.pv = pv
         return self
+
     def like_count(self, like_count: int) -> "FileStatisticsBuilder":
         self._file_statistics.like_count = like_count
         return self
+
     def timestamp(self, timestamp: int) -> "FileStatisticsBuilder":
         self._file_statistics.timestamp = timestamp
         return self
+
     def uv_today(self, uv_today: int) -> "FileStatisticsBuilder":
         self._file_statistics.uv_today = uv_today
         return self
+
     def pv_today(self, pv_today: int) -> "FileStatisticsBuilder":
         self._file_statistics.pv_today = pv_today
         return self
+
     def like_count_today(self, like_count_today: int) -> "FileStatisticsBuilder":
         self._file_statistics.like_count_today = like_count_today
         return self
-    
+
     def build(self) -> "FileStatistics":
         return self._file_statistics

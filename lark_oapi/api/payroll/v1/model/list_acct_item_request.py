@@ -24,17 +24,16 @@ class ListAcctItemRequestBuilder(object):
         list_acct_item_request.uri = "/open-apis/payroll/v1/acct_items"
         list_acct_item_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_acct_item_request: ListAcctItemRequest = list_acct_item_request
-    
+
     def page_size(self, page_size: int) -> "ListAcctItemRequestBuilder":
         self._list_acct_item_request.page_size = page_size
         self._list_acct_item_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListAcctItemRequestBuilder":
         self._list_acct_item_request.page_token = page_token
         self._list_acct_item_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListAcctItemRequest:
         return self._list_acct_item_request

@@ -22,9 +22,10 @@ class SubscribeEventRequestBody(object):
 class SubscribeEventRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._subscribe_event_request_body = SubscribeEventRequestBody()
+
     def events(self, events: List[Event]) -> "SubscribeEventRequestBodyBuilder":
         self._subscribe_event_request_body.events = events
         return self
-    
+
     def build(self) -> "SubscribeEventRequestBody":
         return self._subscribe_event_request_body

@@ -23,12 +23,14 @@ class PatchPeriodResponseBody(object):
 class PatchPeriodResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_period_response_body = PatchPeriodResponseBody()
+
     def period_id(self, period_id: str) -> "PatchPeriodResponseBodyBuilder":
         self._patch_period_response_body.period_id = period_id
         return self
+
     def status(self, status: int) -> "PatchPeriodResponseBodyBuilder":
         self._patch_period_response_body.status = status
         return self
-    
+
     def build(self) -> "PatchPeriodResponseBody":
         return self._patch_period_response_body

@@ -24,12 +24,14 @@ class KnowledgeSourceMessageFilter(object):
 class KnowledgeSourceMessageFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_message_filter = KnowledgeSourceMessageFilter()
+
     def chat_ids(self, chat_ids: List[str]) -> "KnowledgeSourceMessageFilterBuilder":
         self._knowledge_source_message_filter.chat_ids = chat_ids
         return self
+
     def time_range(self, time_range: TimeRange) -> "KnowledgeSourceMessageFilterBuilder":
         self._knowledge_source_message_filter.time_range = time_range
         return self
-    
+
     def build(self) -> "KnowledgeSourceMessageFilter":
         return self._knowledge_source_message_filter

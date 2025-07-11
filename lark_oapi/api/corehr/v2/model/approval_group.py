@@ -45,45 +45,58 @@ class ApprovalGroup(object):
 class ApprovalGroupBuilder(object):
     def __init__(self) -> None:
         self._approval_group = ApprovalGroup()
+
     def approval_group_id(self, approval_group_id: str) -> "ApprovalGroupBuilder":
         self._approval_group.approval_group_id = approval_group_id
         return self
+
     def process_id(self, process_id: str) -> "ApprovalGroupBuilder":
         self._approval_group.process_id = process_id
         return self
+
     def approval_group_status(self, approval_group_status: str) -> "ApprovalGroupBuilder":
         self._approval_group.approval_group_status = approval_group_status
         return self
+
     def approval_group_status_v2(self, approval_group_status_v2: int) -> "ApprovalGroupBuilder":
         self._approval_group.approval_group_status_v2 = approval_group_status_v2
         return self
+
     def topic(self, topic: str) -> "ApprovalGroupBuilder":
         self._approval_group.topic = topic
         return self
+
     def adjust_reason(self, adjust_reason: str) -> "ApprovalGroupBuilder":
         self._approval_group.adjust_reason = adjust_reason
         return self
+
     def effective_date(self, effective_date: str) -> "ApprovalGroupBuilder":
         self._approval_group.effective_date = effective_date
         return self
+
     def created_by(self, created_by: str) -> "ApprovalGroupBuilder":
         self._approval_group.created_by = created_by
         return self
+
     def draft_id(self, draft_id: str) -> "ApprovalGroupBuilder":
         self._approval_group.draft_id = draft_id
         return self
+
     def draft_status(self, draft_status: str) -> "ApprovalGroupBuilder":
         self._approval_group.draft_status = draft_status
         return self
+
     def department_changes(self, department_changes: List[str]) -> "ApprovalGroupBuilder":
         self._approval_group.department_changes = department_changes
         return self
+
     def job_changes(self, job_changes: List[str]) -> "ApprovalGroupBuilder":
         self._approval_group.job_changes = job_changes
         return self
+
     def position_changes(self, position_changes: List[str]) -> "ApprovalGroupBuilder":
         self._approval_group.position_changes = position_changes
         return self
-    
+
     def build(self) -> "ApprovalGroup":
         return self._approval_group

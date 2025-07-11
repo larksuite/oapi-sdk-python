@@ -32,24 +32,30 @@ class AddressTimeline(object):
 class AddressTimelineBuilder(object):
     def __init__(self) -> None:
         self._address_timeline = AddressTimeline()
+
     def address_items(self, address_items: List[Address]) -> "AddressTimelineBuilder":
         self._address_timeline.address_items = address_items
         return self
+
     def id(self, id: str) -> "AddressTimelineBuilder":
         self._address_timeline.id = id
         return self
+
     def employment_id(self, employment_id: str) -> "AddressTimelineBuilder":
         self._address_timeline.employment_id = employment_id
         return self
+
     def version_id(self, version_id: str) -> "AddressTimelineBuilder":
         self._address_timeline.version_id = version_id
         return self
+
     def effective_time(self, effective_time: str) -> "AddressTimelineBuilder":
         self._address_timeline.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "AddressTimelineBuilder":
         self._address_timeline.expiration_time = expiration_time
         return self
-    
+
     def build(self) -> "AddressTimeline":
         return self._address_timeline

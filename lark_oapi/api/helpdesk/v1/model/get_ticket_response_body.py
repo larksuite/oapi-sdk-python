@@ -22,9 +22,10 @@ class GetTicketResponseBody(object):
 class GetTicketResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_ticket_response_body = GetTicketResponseBody()
+
     def ticket(self, ticket: TicketV2) -> "GetTicketResponseBodyBuilder":
         self._get_ticket_response_body.ticket = ticket
         return self
-    
+
     def build(self) -> "GetTicketResponseBody":
         return self._get_ticket_response_body

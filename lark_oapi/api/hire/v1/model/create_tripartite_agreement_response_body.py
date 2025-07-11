@@ -21,9 +21,10 @@ class CreateTripartiteAgreementResponseBody(object):
 class CreateTripartiteAgreementResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_tripartite_agreement_response_body = CreateTripartiteAgreementResponseBody()
+
     def id(self, id: str) -> "CreateTripartiteAgreementResponseBodyBuilder":
         self._create_tripartite_agreement_response_body.id = id
         return self
-    
+
     def build(self) -> "CreateTripartiteAgreementResponseBody":
         return self._create_tripartite_agreement_response_body

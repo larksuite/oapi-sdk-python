@@ -21,9 +21,10 @@ class DocImage(object):
 class DocImageBuilder(object):
     def __init__(self) -> None:
         self._doc_image = DocImage()
+
     def image_key(self, image_key: str) -> "DocImageBuilder":
         self._doc_image.image_key = image_key
         return self
-    
+
     def build(self) -> "DocImage":
         return self._doc_image

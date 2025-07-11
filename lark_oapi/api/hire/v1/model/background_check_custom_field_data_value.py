@@ -23,12 +23,14 @@ class BackgroundCheckCustomFieldDataValue(object):
 class BackgroundCheckCustomFieldDataValueBuilder(object):
     def __init__(self) -> None:
         self._background_check_custom_field_data_value = BackgroundCheckCustomFieldDataValue()
+
     def key(self, key: str) -> "BackgroundCheckCustomFieldDataValueBuilder":
         self._background_check_custom_field_data_value.key = key
         return self
+
     def value(self, value: str) -> "BackgroundCheckCustomFieldDataValueBuilder":
         self._background_check_custom_field_data_value.value = value
         return self
-    
+
     def build(self) -> "BackgroundCheckCustomFieldDataValue":
         return self._background_check_custom_field_data_value

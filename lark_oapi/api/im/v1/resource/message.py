@@ -56,32 +56,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateMessageRequest, option: Optional[RequestOption] = None) -> CreateMessageResponse:
+    async def acreate(self, request: CreateMessageRequest,
+                      option: Optional[RequestOption] = None) -> CreateMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteMessageRequest, option: Optional[RequestOption] = None) -> DeleteMessageResponse:
         if option is None:
             option = RequestOption()
@@ -95,32 +93,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteMessageRequest, option: Optional[RequestOption] = None) -> DeleteMessageResponse:
+    async def adelete(self, request: DeleteMessageRequest,
+                      option: Optional[RequestOption] = None) -> DeleteMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def forward(self, request: ForwardMessageRequest, option: Optional[RequestOption] = None) -> ForwardMessageResponse:
         if option is None:
             option = RequestOption()
@@ -134,32 +130,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ForwardMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ForwardMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aforward(self, request: ForwardMessageRequest, option: Optional[RequestOption] = None) -> ForwardMessageResponse:
+    async def aforward(self, request: ForwardMessageRequest,
+                       option: Optional[RequestOption] = None) -> ForwardMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ForwardMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ForwardMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetMessageRequest, option: Optional[RequestOption] = None) -> GetMessageResponse:
         if option is None:
             option = RequestOption()
@@ -173,13 +167,12 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMessageResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetMessageRequest, option: Optional[RequestOption] = None) -> GetMessageResponse:
         if option is None:
@@ -188,17 +181,15 @@ class Message(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListMessageRequest, option: Optional[RequestOption] = None) -> ListMessageResponse:
         if option is None:
             option = RequestOption()
@@ -212,13 +203,12 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListMessageRequest, option: Optional[RequestOption] = None) -> ListMessageResponse:
         if option is None:
@@ -227,18 +217,17 @@ class Message(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageResponse)
         response.raw = resp
 
         return response
-        
-    def merge_forward(self, request: MergeForwardMessageRequest, option: Optional[RequestOption] = None) -> MergeForwardMessageResponse:
+
+    def merge_forward(self, request: MergeForwardMessageRequest,
+                      option: Optional[RequestOption] = None) -> MergeForwardMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -251,32 +240,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MergeForwardMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), MergeForwardMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def amerge_forward(self, request: MergeForwardMessageRequest, option: Optional[RequestOption] = None) -> MergeForwardMessageResponse:
+    async def amerge_forward(self, request: MergeForwardMessageRequest,
+                             option: Optional[RequestOption] = None) -> MergeForwardMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: MergeForwardMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), MergeForwardMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchMessageRequest, option: Optional[RequestOption] = None) -> PatchMessageResponse:
         if option is None:
             option = RequestOption()
@@ -290,33 +277,32 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchMessageRequest, option: Optional[RequestOption] = None) -> PatchMessageResponse:
+    async def apatch(self, request: PatchMessageRequest,
+                     option: Optional[RequestOption] = None) -> PatchMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMessageResponse)
         response.raw = resp
 
         return response
-        
-    def push_follow_up(self, request: PushFollowUpMessageRequest, option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
+
+    def push_follow_up(self, request: PushFollowUpMessageRequest,
+                       option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -329,33 +315,32 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PushFollowUpMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PushFollowUpMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apush_follow_up(self, request: PushFollowUpMessageRequest, option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
+    async def apush_follow_up(self, request: PushFollowUpMessageRequest,
+                              option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PushFollowUpMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PushFollowUpMessageResponse)
         response.raw = resp
 
         return response
-        
-    def read_users(self, request: ReadUsersMessageRequest, option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
+
+    def read_users(self, request: ReadUsersMessageRequest,
+                   option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -368,32 +353,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ReadUsersMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ReadUsersMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aread_users(self, request: ReadUsersMessageRequest, option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
+    async def aread_users(self, request: ReadUsersMessageRequest,
+                          option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ReadUsersMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ReadUsersMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def reply(self, request: ReplyMessageRequest, option: Optional[RequestOption] = None) -> ReplyMessageResponse:
         if option is None:
             option = RequestOption()
@@ -407,32 +390,30 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ReplyMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ReplyMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def areply(self, request: ReplyMessageRequest, option: Optional[RequestOption] = None) -> ReplyMessageResponse:
+    async def areply(self, request: ReplyMessageRequest,
+                     option: Optional[RequestOption] = None) -> ReplyMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ReplyMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ReplyMessageResponse)
         response.raw = resp
 
         return response
-        
+
     def update(self, request: UpdateMessageRequest, option: Optional[RequestOption] = None) -> UpdateMessageResponse:
         if option is None:
             option = RequestOption()
@@ -446,33 +427,32 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateMessageRequest, option: Optional[RequestOption] = None) -> UpdateMessageResponse:
+    async def aupdate(self, request: UpdateMessageRequest,
+                      option: Optional[RequestOption] = None) -> UpdateMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateMessageResponse)
         response.raw = resp
 
         return response
-        
-    def urgent_app(self, request: UrgentAppMessageRequest, option: Optional[RequestOption] = None) -> UrgentAppMessageResponse:
+
+    def urgent_app(self, request: UrgentAppMessageRequest,
+                   option: Optional[RequestOption] = None) -> UrgentAppMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -485,33 +465,32 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentAppMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentAppMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aurgent_app(self, request: UrgentAppMessageRequest, option: Optional[RequestOption] = None) -> UrgentAppMessageResponse:
+    async def aurgent_app(self, request: UrgentAppMessageRequest,
+                          option: Optional[RequestOption] = None) -> UrgentAppMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentAppMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentAppMessageResponse)
         response.raw = resp
 
         return response
-        
-    def urgent_phone(self, request: UrgentPhoneMessageRequest, option: Optional[RequestOption] = None) -> UrgentPhoneMessageResponse:
+
+    def urgent_phone(self, request: UrgentPhoneMessageRequest,
+                     option: Optional[RequestOption] = None) -> UrgentPhoneMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -524,33 +503,32 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentPhoneMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentPhoneMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aurgent_phone(self, request: UrgentPhoneMessageRequest, option: Optional[RequestOption] = None) -> UrgentPhoneMessageResponse:
+    async def aurgent_phone(self, request: UrgentPhoneMessageRequest,
+                            option: Optional[RequestOption] = None) -> UrgentPhoneMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentPhoneMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentPhoneMessageResponse)
         response.raw = resp
 
         return response
-        
-    def urgent_sms(self, request: UrgentSmsMessageRequest, option: Optional[RequestOption] = None) -> UrgentSmsMessageResponse:
+
+    def urgent_sms(self, request: UrgentSmsMessageRequest,
+                   option: Optional[RequestOption] = None) -> UrgentSmsMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -563,30 +541,26 @@ class Message(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentSmsMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentSmsMessageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aurgent_sms(self, request: UrgentSmsMessageRequest, option: Optional[RequestOption] = None) -> UrgentSmsMessageResponse:
+    async def aurgent_sms(self, request: UrgentSmsMessageRequest,
+                          option: Optional[RequestOption] = None) -> UrgentSmsMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UrgentSmsMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), UrgentSmsMessageResponse)
         response.raw = resp
 
         return response
-        
-    

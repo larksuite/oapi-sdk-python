@@ -28,18 +28,22 @@ class DlpDetectModeProofContext(object):
 class DlpDetectModeProofContextBuilder(object):
     def __init__(self) -> None:
         self._dlp_detect_mode_proof_context = DlpDetectModeProofContext()
+
     def detect_mode(self, detect_mode: int) -> "DlpDetectModeProofContextBuilder":
         self._dlp_detect_mode_proof_context.detect_mode = detect_mode
         return self
+
     def detect_name(self, detect_name: str) -> "DlpDetectModeProofContextBuilder":
         self._dlp_detect_mode_proof_context.detect_name = detect_name
         return self
+
     def proof_contexts(self, proof_contexts: List[DlpProofContext]) -> "DlpDetectModeProofContextBuilder":
         self._dlp_detect_mode_proof_context.proof_contexts = proof_contexts
         return self
+
     def hit_count(self, hit_count: int) -> "DlpDetectModeProofContextBuilder":
         self._dlp_detect_mode_proof_context.hit_count = hit_count
         return self
-    
+
     def build(self) -> "DlpDetectModeProofContext":
         return self._dlp_detect_mode_proof_context

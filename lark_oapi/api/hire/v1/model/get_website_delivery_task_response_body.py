@@ -28,18 +28,22 @@ class GetWebsiteDeliveryTaskResponseBody(object):
 class GetWebsiteDeliveryTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_website_delivery_task_response_body = GetWebsiteDeliveryTaskResponseBody()
+
     def status(self, status: int) -> "GetWebsiteDeliveryTaskResponseBodyBuilder":
         self._get_website_delivery_task_response_body.status = status
         return self
+
     def delivery(self, delivery: WebsiteDeliveryDto) -> "GetWebsiteDeliveryTaskResponseBodyBuilder":
         self._get_website_delivery_task_response_body.delivery = delivery
         return self
+
     def status_msg(self, status_msg: str) -> "GetWebsiteDeliveryTaskResponseBodyBuilder":
         self._get_website_delivery_task_response_body.status_msg = status_msg
         return self
+
     def extra_info(self, extra_info: str) -> "GetWebsiteDeliveryTaskResponseBodyBuilder":
         self._get_website_delivery_task_response_body.extra_info = extra_info
         return self
-    
+
     def build(self) -> "GetWebsiteDeliveryTaskResponseBody":
         return self._get_website_delivery_task_response_body

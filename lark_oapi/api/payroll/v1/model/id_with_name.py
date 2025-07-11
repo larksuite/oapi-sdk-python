@@ -25,15 +25,18 @@ class IdWithName(object):
 class IdWithNameBuilder(object):
     def __init__(self) -> None:
         self._id_with_name = IdWithName()
+
     def id(self, id: str) -> "IdWithNameBuilder":
         self._id_with_name.id = id
         return self
+
     def zh_name(self, zh_name: str) -> "IdWithNameBuilder":
         self._id_with_name.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "IdWithNameBuilder":
         self._id_with_name.en_name = en_name
         return self
-    
+
     def build(self) -> "IdWithName":
         return self._id_with_name

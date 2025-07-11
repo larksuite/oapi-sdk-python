@@ -24,8 +24,9 @@ class WithdrawOnboardingPreHireRequestBuilder(object):
         withdraw_onboarding_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
         withdraw_onboarding_pre_hire_request.token_types = {AccessTokenType.TENANT}
         self._withdraw_onboarding_pre_hire_request: WithdrawOnboardingPreHireRequest = withdraw_onboarding_pre_hire_request
-    
-    def request_body(self, request_body: WithdrawOnboardingPreHireRequestBody) -> "WithdrawOnboardingPreHireRequestBuilder":
+
+    def request_body(self,
+                     request_body: WithdrawOnboardingPreHireRequestBody) -> "WithdrawOnboardingPreHireRequestBuilder":
         self._withdraw_onboarding_pre_hire_request.request_body = request_body
         self._withdraw_onboarding_pre_hire_request.body = request_body
         return self
