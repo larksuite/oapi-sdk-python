@@ -3,7 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .job_requirement import JobRequirement
+from .update_job_requirement_request_body import UpdateJobRequirementRequestBody
 
 
 class UpdateJobRequirementRequest(BaseRequest):
@@ -15,7 +15,7 @@ class UpdateJobRequirementRequest(BaseRequest):
         self.job_family_id_type: Optional[str] = None
         self.employee_type_id_type: Optional[str] = None
         self.job_requirement_id: Optional[str] = None
-        self.request_body: Optional[JobRequirement] = None
+        self.request_body: Optional[UpdateJobRequirementRequestBody] = None
 
     @staticmethod
     def builder() -> "UpdateJobRequirementRequestBuilder":
@@ -61,7 +61,7 @@ class UpdateJobRequirementRequestBuilder(object):
         self._update_job_requirement_request.paths["job_requirement_id"] = str(job_requirement_id)
         return self
 
-    def request_body(self, request_body: JobRequirement) -> "UpdateJobRequirementRequestBuilder":
+    def request_body(self, request_body: UpdateJobRequirementRequestBody) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.request_body = request_body
         self._update_job_requirement_request.body = request_body
         return self

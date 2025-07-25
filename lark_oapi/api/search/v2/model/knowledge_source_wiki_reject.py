@@ -8,13 +8,13 @@ class KnowledgeSourceWikiReject(object):
     _types = {
         "wiki_tokens": List[str],
         "node_tokens": List[str],
-        "space_ids": List[int],
+        "space_ids": List[str],
     }
 
     def __init__(self, d=None):
         self.wiki_tokens: Optional[List[str]] = None
         self.node_tokens: Optional[List[str]] = None
-        self.space_ids: Optional[List[int]] = None
+        self.space_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -34,7 +34,7 @@ class KnowledgeSourceWikiRejectBuilder(object):
         self._knowledge_source_wiki_reject.node_tokens = node_tokens
         return self
 
-    def space_ids(self, space_ids: List[int]) -> "KnowledgeSourceWikiRejectBuilder":
+    def space_ids(self, space_ids: List[str]) -> "KnowledgeSourceWikiRejectBuilder":
         self._knowledge_source_wiki_reject.space_ids = space_ids
         return self
 

@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .free_clock_setting import FreeClockSetting
 
 
 class FreePunchCfg(object):
@@ -12,6 +13,7 @@ class FreePunchCfg(object):
         "work_day_no_punch_as_lack": bool,
         "work_hours_demand": bool,
         "work_hours": int,
+        "free_clock_setting": FreeClockSetting,
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class FreePunchCfg(object):
         self.work_day_no_punch_as_lack: Optional[bool] = None
         self.work_hours_demand: Optional[bool] = None
         self.work_hours: Optional[int] = None
+        self.free_clock_setting: Optional[FreeClockSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +57,10 @@ class FreePunchCfgBuilder(object):
 
     def work_hours(self, work_hours: int) -> "FreePunchCfgBuilder":
         self._free_punch_cfg.work_hours = work_hours
+        return self
+
+    def free_clock_setting(self, free_clock_setting: FreeClockSetting) -> "FreePunchCfgBuilder":
+        self._free_punch_cfg.free_clock_setting = free_clock_setting
         return self
 
     def build(self) -> "FreePunchCfg":

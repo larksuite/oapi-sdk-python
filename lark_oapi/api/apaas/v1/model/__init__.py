@@ -86,6 +86,7 @@ from .user_task_summary_type import *
 from .user_task_wf_instance_type import *
 from .user_with_avatar import *
 from .workflow_instance_log import *
+from .list_app_request import *
 from .audit_log_list_application_audit_log_request import *
 from .data_change_log_detail_application_audit_log_request import *
 from .data_change_logs_list_application_audit_log_request import *
@@ -149,6 +150,8 @@ from .rollback_user_task_request_body import *
 from .rollback_user_task_request import *
 from .rollback_points_user_task_request_body import *
 from .rollback_points_user_task_request import *
+from .list_app_response_body import *
+from .list_app_response import *
 from .audit_log_list_application_audit_log_response_body import *
 from .audit_log_list_application_audit_log_response import *
 from .data_change_log_detail_application_audit_log_response_body import *

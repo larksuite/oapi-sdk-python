@@ -1,5 +1,6 @@
 from .allowed_edit_modes import *
 from .app import *
+from .app_block_workflow import *
 from .app_connector import *
 from .app_dashboard import *
 from .app_field_property_auto_serial import *

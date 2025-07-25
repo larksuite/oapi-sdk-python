@@ -32,6 +32,8 @@ class Participant(object):
         "time_in_meeting": str,
         "leave_reason": str,
         "accept_status": int,
+        "is_external": bool,
+        "webinar_user_role": str,
     }
 
     def __init__(self, d=None):
@@ -61,6 +63,8 @@ class Participant(object):
         self.time_in_meeting: Optional[str] = None
         self.leave_reason: Optional[str] = None
         self.accept_status: Optional[int] = None
+        self.is_external: Optional[bool] = None
+        self.webinar_user_role: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -174,6 +178,14 @@ class ParticipantBuilder(object):
 
     def accept_status(self, accept_status: int) -> "ParticipantBuilder":
         self._participant.accept_status = accept_status
+        return self
+
+    def is_external(self, is_external: bool) -> "ParticipantBuilder":
+        self._participant.is_external = is_external
+        return self
+
+    def webinar_user_role(self, webinar_user_role: str) -> "ParticipantBuilder":
+        self._participant.webinar_user_role = webinar_user_role
         return self
 
     def build(self) -> "Participant":

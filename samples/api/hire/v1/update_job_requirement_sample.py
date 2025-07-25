@@ -20,8 +20,8 @@ def main():
         .job_level_id_type("people_admin_job_level_id") \
         .job_family_id_type("people_admin_job_category_id") \
         .employee_type_id_type("people_admin_employee_type_id") \
-        .request_body(JobRequirement.builder()
-                      .name("test")
+        .request_body(UpdateJobRequirementRequestBody.builder()
+                      .name("HR部门春季招聘需求")
                       .display_progress(1)
                       .head_count(11)
                       .recruitment_type_id("1618209327096")
@@ -48,7 +48,6 @@ def main():
                       .job_id_list([])
                       .employment_job_id("123")
                       .position_id("123")
-                      .update_option(JobRequirementUpdateOption.builder().build())
                       .build()) \
         .build()
 
@@ -82,8 +81,8 @@ async def amain():
         .job_level_id_type("people_admin_job_level_id") \
         .job_family_id_type("people_admin_job_category_id") \
         .employee_type_id_type("people_admin_employee_type_id") \
-        .request_body(JobRequirement.builder()
-                      .name("test")
+        .request_body(UpdateJobRequirementRequestBody.builder()
+                      .name("HR部门春季招聘需求")
                       .display_progress(1)
                       .head_count(11)
                       .recruitment_type_id("1618209327096")
@@ -110,7 +109,6 @@ async def amain():
                       .job_id_list([])
                       .employment_job_id("123")
                       .position_id("123")
-                      .update_option(JobRequirementUpdateOption.builder().build())
                       .build()) \
         .build()
 

@@ -1,4 +1,5 @@
 from .acct_item import *
+from .cost_allocation_detail import *
 from .cost_allocation_plan import *
 from .cost_allocation_report import *
 from .datasource import *

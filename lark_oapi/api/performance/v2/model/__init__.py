@@ -4,6 +4,7 @@ from .cooperation_project import *
 from .cooperation_role import *
 from .cooperation_user_role import *
 from .custom_metric_config import *
+from .default_invitation import *
 from .department import *
 from .department_id import *
 from .direct_project_leader_record_info import *
@@ -15,6 +16,9 @@ from .imported_metric import *
 from .imported_metric_field import *
 from .indicator import *
 from .indicator_option import *
+from .invitation import *
+from .invitation_relation import *
+from .invitation_reviewer import *
 from .invited_review_record_info import *
 from .job_family import *
 from .job_level import *

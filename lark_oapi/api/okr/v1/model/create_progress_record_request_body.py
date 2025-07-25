@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .content_block import ContentBlock
+from .progress_rate_new import ProgressRateNew
 
 
 class CreateProgressRecordRequestBody(object):
@@ -14,6 +15,7 @@ class CreateProgressRecordRequestBody(object):
         "content": ContentBlock,
         "source_url_pc": str,
         "source_url_mobile": str,
+        "progress_rate": ProgressRateNew,
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,7 @@ class CreateProgressRecordRequestBody(object):
         self.content: Optional[ContentBlock] = None
         self.source_url_pc: Optional[str] = None
         self.source_url_mobile: Optional[str] = None
+        self.progress_rate: Optional[ProgressRateNew] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -61,6 +64,10 @@ class CreateProgressRecordRequestBodyBuilder(object):
 
     def source_url_mobile(self, source_url_mobile: str) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.source_url_mobile = source_url_mobile
+        return self
+
+    def progress_rate(self, progress_rate: ProgressRateNew) -> "CreateProgressRecordRequestBodyBuilder":
+        self._create_progress_record_request_body.progress_rate = progress_rate
         return self
 
     def build(self) -> "CreateProgressRecordRequestBody":

@@ -4,6 +4,7 @@ from .resource import *
 class V1(object):
     def __init__(self, config: Config) -> None:
         self.acct_item: AcctItem = AcctItem(config)
+        self.cost_allocation_detail: CostAllocationDetail = CostAllocationDetail(config)
         self.cost_allocation_plan: CostAllocationPlan = CostAllocationPlan(config)
         self.cost_allocation_report: CostAllocationReport = CostAllocationReport(config)
         self.datasource: Datasource = Datasource(config)

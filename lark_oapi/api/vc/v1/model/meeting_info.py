@@ -28,6 +28,11 @@ class MeetingInfo(object):
         "telephone": bool,
         "reserved_rooms": List[ReservedRoom],
         "has_related_document": bool,
+        "ai_note": bool,
+        "is_external": bool,
+        "meeting_subtype": int,
+        "meeting_instance_id": str,
+        "number_of_webinar_viewers": str,
     }
 
     def __init__(self, d=None):
@@ -52,6 +57,11 @@ class MeetingInfo(object):
         self.telephone: Optional[bool] = None
         self.reserved_rooms: Optional[List[ReservedRoom]] = None
         self.has_related_document: Optional[bool] = None
+        self.ai_note: Optional[bool] = None
+        self.is_external: Optional[bool] = None
+        self.meeting_subtype: Optional[int] = None
+        self.meeting_instance_id: Optional[str] = None
+        self.number_of_webinar_viewers: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -145,6 +155,26 @@ class MeetingInfoBuilder(object):
 
     def has_related_document(self, has_related_document: bool) -> "MeetingInfoBuilder":
         self._meeting_info.has_related_document = has_related_document
+        return self
+
+    def ai_note(self, ai_note: bool) -> "MeetingInfoBuilder":
+        self._meeting_info.ai_note = ai_note
+        return self
+
+    def is_external(self, is_external: bool) -> "MeetingInfoBuilder":
+        self._meeting_info.is_external = is_external
+        return self
+
+    def meeting_subtype(self, meeting_subtype: int) -> "MeetingInfoBuilder":
+        self._meeting_info.meeting_subtype = meeting_subtype
+        return self
+
+    def meeting_instance_id(self, meeting_instance_id: str) -> "MeetingInfoBuilder":
+        self._meeting_info.meeting_instance_id = meeting_instance_id
+        return self
+
+    def number_of_webinar_viewers(self, number_of_webinar_viewers: str) -> "MeetingInfoBuilder":
+        self._meeting_info.number_of_webinar_viewers = number_of_webinar_viewers
         return self
 
     def build(self) -> "MeetingInfo":

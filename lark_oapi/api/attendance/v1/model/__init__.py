@@ -21,6 +21,7 @@ from .field import *
 from .file import *
 from .filter_item import *
 from .flexible_rule import *
+from .free_clock_setting import *
 from .free_punch_cfg import *
 from .group import *
 from .group_meta import *

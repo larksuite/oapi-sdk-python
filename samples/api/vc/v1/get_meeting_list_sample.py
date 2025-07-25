@@ -23,6 +23,8 @@ def main():
         .meeting_type(2) \
         .page_size(20) \
         .page_token("str") \
+        .include_external_meetings(False) \
+        .include_webinar(False) \
         .user_id_type("user_id") \
         .build()
 
@@ -59,6 +61,8 @@ async def amain():
         .meeting_type(2) \
         .page_size(20) \
         .page_token("str") \
+        .include_external_meetings(False) \
+        .include_webinar(False) \
         .user_id_type("user_id") \
         .build()
 

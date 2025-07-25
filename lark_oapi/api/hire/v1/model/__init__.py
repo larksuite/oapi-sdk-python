@@ -611,6 +611,7 @@ from .delete_job_requirement_request import *
 from .list_job_requirement_request import *
 from .list_by_id_job_requirement_request_body import *
 from .list_by_id_job_requirement_request import *
+from .update_job_requirement_request_body import *
 from .update_job_requirement_request import *
 from .list_job_requirement_schema_request import *
 from .list_job_schema_request import *

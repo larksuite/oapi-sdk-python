@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .content_block import ContentBlock
+from .progress_rate_new import ProgressRateNew
 
 
 class CreateProgressRecordResponseBody(object):
@@ -10,12 +11,14 @@ class CreateProgressRecordResponseBody(object):
         "progress_id": int,
         "modify_time": int,
         "content": ContentBlock,
+        "progress_rate": ProgressRateNew,
     }
 
     def __init__(self, d=None):
         self.progress_id: Optional[int] = None
         self.modify_time: Optional[int] = None
         self.content: Optional[ContentBlock] = None
+        self.progress_rate: Optional[ProgressRateNew] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +40,10 @@ class CreateProgressRecordResponseBodyBuilder(object):
 
     def content(self, content: ContentBlock) -> "CreateProgressRecordResponseBodyBuilder":
         self._create_progress_record_response_body.content = content
+        return self
+
+    def progress_rate(self, progress_rate: ProgressRateNew) -> "CreateProgressRecordResponseBodyBuilder":
+        self._create_progress_record_response_body.progress_rate = progress_rate
         return self
 
     def build(self) -> "CreateProgressRecordResponseBody":

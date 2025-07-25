@@ -23,6 +23,7 @@ def main():
                       .content(ContentBlock.builder().build())
                       .source_url_pc("open.feishu.cn")
                       .source_url_mobile("open.feishu.cn")
+                      .progress_rate(ProgressRateNew.builder().build())
                       .build()) \
         .build()
 
@@ -59,6 +60,7 @@ async def amain():
                       .content(ContentBlock.builder().build())
                       .source_url_pc("open.feishu.cn")
                       .source_url_mobile("open.feishu.cn")
+                      .progress_rate(ProgressRateNew.builder().build())
                       .build()) \
         .build()
 

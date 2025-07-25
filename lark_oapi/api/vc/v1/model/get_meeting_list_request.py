@@ -17,6 +17,8 @@ class GetMeetingListRequest(BaseRequest):
         self.meeting_type: Optional[int] = None
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.include_external_meetings: Optional[bool] = None
+        self.include_webinar: Optional[bool] = None
         self.user_id_type: Optional[str] = None
 
     @staticmethod
@@ -76,6 +78,16 @@ class GetMeetingListRequestBuilder(object):
     def page_token(self, page_token: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.page_token = page_token
         self._get_meeting_list_request.add_query("page_token", page_token)
+        return self
+
+    def include_external_meetings(self, include_external_meetings: bool) -> "GetMeetingListRequestBuilder":
+        self._get_meeting_list_request.include_external_meetings = include_external_meetings
+        self._get_meeting_list_request.add_query("include_external_meetings", include_external_meetings)
+        return self
+
+    def include_webinar(self, include_webinar: bool) -> "GetMeetingListRequestBuilder":
+        self._get_meeting_list_request.include_webinar = include_webinar
+        self._get_meeting_list_request.add_query("include_webinar", include_webinar)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetMeetingListRequestBuilder":

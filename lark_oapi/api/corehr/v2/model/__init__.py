@@ -89,6 +89,7 @@ from .employee_default_cost_center import *
 from .employee_domain_event_data import *
 from .employee_international_assignment import *
 from .employee_job_data import *
+from .employee_union_city_info import *
 from .employees_additional_job import *
 from .employees_additional_job_batch_req_date import *
 from .employees_additional_job_edit import *

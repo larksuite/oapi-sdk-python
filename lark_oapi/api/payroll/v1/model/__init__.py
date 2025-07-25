@@ -68,6 +68,7 @@ from .verification_activity import *
 from .verification_activity_row import *
 from .verification_plan import *
 from .list_acct_item_request import *
+from .list_cost_allocation_detail_request import *
 from .list_cost_allocation_plan_request import *
 from .list_cost_allocation_report_request import *
 from .list_datasource_request import *
@@ -84,6 +85,8 @@ from .query_payment_detail_request_body import *
 from .query_payment_detail_request import *
 from .list_acct_item_response_body import *
 from .list_acct_item_response import *
+from .list_cost_allocation_detail_response_body import *
+from .list_cost_allocation_detail_response import *
 from .list_cost_allocation_plan_response_body import *
 from .list_cost_allocation_plan_response import *
 from .list_cost_allocation_report_response_body import *

@@ -6,11 +6,11 @@ from lark_oapi.core.construct import init
 
 class KnowledgeSourceHelpdeskFilter(object):
     _types = {
-        "helpdesk_ids": List[int],
+        "helpdesk_ids": List[str],
     }
 
     def __init__(self, d=None):
-        self.helpdesk_ids: Optional[List[int]] = None
+        self.helpdesk_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -22,7 +22,7 @@ class KnowledgeSourceHelpdeskFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_helpdesk_filter = KnowledgeSourceHelpdeskFilter()
 
-    def helpdesk_ids(self, helpdesk_ids: List[int]) -> "KnowledgeSourceHelpdeskFilterBuilder":
+    def helpdesk_ids(self, helpdesk_ids: List[str]) -> "KnowledgeSourceHelpdeskFilterBuilder":
         self._knowledge_source_helpdesk_filter.helpdesk_ids = helpdesk_ids
         return self
 

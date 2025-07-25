@@ -16,6 +16,7 @@ class GetParticipantListRequest(BaseRequest):
         self.room_id: Optional[str] = None
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.webinar_user_role: Optional[str] = None
         self.user_id_type: Optional[str] = None
 
     @staticmethod
@@ -70,6 +71,11 @@ class GetParticipantListRequestBuilder(object):
     def page_token(self, page_token: str) -> "GetParticipantListRequestBuilder":
         self._get_participant_list_request.page_token = page_token
         self._get_participant_list_request.add_query("page_token", page_token)
+        return self
+
+    def webinar_user_role(self, webinar_user_role: str) -> "GetParticipantListRequestBuilder":
+        self._get_participant_list_request.webinar_user_role = webinar_user_role
+        self._get_participant_list_request.add_query("webinar_user_role", webinar_user_role)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetParticipantListRequestBuilder":

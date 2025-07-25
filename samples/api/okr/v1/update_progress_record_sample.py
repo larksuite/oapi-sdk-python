@@ -18,6 +18,7 @@ def main():
         .user_id_type("user_id") \
         .request_body(UpdateProgressRecordRequestBody.builder()
                       .content(ContentBlock.builder().build())
+                      .progress_rate(ProgressRateNew.builder().build())
                       .build()) \
         .build()
 
@@ -49,6 +50,7 @@ async def amain():
         .user_id_type("user_id") \
         .request_body(UpdateProgressRecordRequestBody.builder()
                       .content(ContentBlock.builder().build())
+                      .progress_rate(ProgressRateNew.builder().build())
                       .build()) \
         .build()
 

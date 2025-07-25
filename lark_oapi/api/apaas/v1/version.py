@@ -3,6 +3,7 @@ from .resource import *
 
 class V1(object):
     def __init__(self, config: Config) -> None:
+        self.app: App = App(config)
         self.application_audit_log: ApplicationAuditLog = ApplicationAuditLog(config)
         self.application_environment_variable: ApplicationEnvironmentVariable = ApplicationEnvironmentVariable(config)
         self.application_flow: ApplicationFlow = ApplicationFlow(config)

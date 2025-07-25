@@ -51,6 +51,7 @@ from .period import *
 from .period_rule import *
 from .progress_item import *
 from .progress_rate import *
+from .progress_rate_new import *
 from .progress_record import *
 from .progress_record_simplify import *
 from .task_info import *

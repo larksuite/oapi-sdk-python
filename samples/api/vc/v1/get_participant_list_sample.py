@@ -22,6 +22,7 @@ def main():
         .room_id("omm_eada1d61a550955240c28757e7dec3af") \
         .page_size(20) \
         .page_token("str") \
+        .webinar_user_role("0") \
         .user_id_type("user_id") \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
         .room_id("omm_eada1d61a550955240c28757e7dec3af") \
         .page_size(20) \
         .page_token("str") \
+        .webinar_user_role("0") \
         .user_id_type("user_id") \
         .build()
 

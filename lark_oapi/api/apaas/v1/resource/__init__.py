@@ -1,3 +1,4 @@
+from .app import *
 from .application_audit_log import *
 from .application_environment_variable import *
 from .application_flow import *
