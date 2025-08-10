@@ -6,6 +6,8 @@ from .doc_chunk_position import DocChunkPosition
 from .doc_chunk_table_detail import DocChunkTableDetail
 from .llm_detail import LlmDetail
 from .image_detail import ImageDetail
+from .file_detail import FileDetail
+from .code_detail import CodeDetail
 
 
 class DocChunkResult(object):
@@ -22,7 +24,11 @@ class DocChunkResult(object):
         "table_detail": DocChunkTableDetail,
         "llm_detail": LlmDetail,
         "image_detail": ImageDetail,
-        "slide_index": str,
+        "slide_index": int,
+        "md_text": str,
+        "html_text": str,
+        "file_detail": FileDetail,
+        "code_detail": CodeDetail,
     }
 
     def __init__(self, d=None):
@@ -38,7 +44,11 @@ class DocChunkResult(object):
         self.table_detail: Optional[DocChunkTableDetail] = None
         self.llm_detail: Optional[LlmDetail] = None
         self.image_detail: Optional[ImageDetail] = None
-        self.slide_index: Optional[str] = None
+        self.slide_index: Optional[int] = None
+        self.md_text: Optional[str] = None
+        self.html_text: Optional[str] = None
+        self.file_detail: Optional[FileDetail] = None
+        self.code_detail: Optional[CodeDetail] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -98,8 +108,24 @@ class DocChunkResultBuilder(object):
         self._doc_chunk_result.image_detail = image_detail
         return self
 
-    def slide_index(self, slide_index: str) -> "DocChunkResultBuilder":
+    def slide_index(self, slide_index: int) -> "DocChunkResultBuilder":
         self._doc_chunk_result.slide_index = slide_index
+        return self
+
+    def md_text(self, md_text: str) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.md_text = md_text
+        return self
+
+    def html_text(self, html_text: str) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.html_text = html_text
+        return self
+
+    def file_detail(self, file_detail: FileDetail) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.file_detail = file_detail
+        return self
+
+    def code_detail(self, code_detail: CodeDetail) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.code_detail = code_detail
         return self
 
     def build(self) -> "DocChunkResult":

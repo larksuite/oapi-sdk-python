@@ -8,117 +8,117 @@ from .core import logger, JSON
 from .core.model import *
 from .core.token import TokenManager, verify
 from .core.http import Transport
-from .api.drive.service import DriveService
-from .api.optical_char_recognition.service import OpticalCharRecognitionService
-from .api.payroll.service import PayrollService
-from .api.workplace.service import WorkplaceService
-from .api.base.service import BaseService
-from .api.block.service import BlockService
-from .api.speech_to_text.service import SpeechToTextService
-from .api.cardkit.service import CardkitService
-from .api.mdm.service import MdmService
-from .api.minutes.service import MinutesService
-from .api.okr.service import OkrService
-from .api.performance.service import PerformanceService
-from .api.board.service import BoardService
-from .api.vc.service import VcService
-from .api.aily.service import AilyService
-from .api.auth.service import AuthService
-from .api.search.service import SearchService
-from .api.task.service import TaskService
-from .api.acs.service import AcsService
-from .api.attendance.service import AttendanceService
-from .api.apaas.service import ApaasService
-from .api.document_ai.service import DocumentAiService
-from .api.helpdesk.service import HelpdeskService
-from .api.im.service import ImService
-from .api.personal_settings.service import PersonalSettingsService
-from .api.authen.service import AuthenService
-from .api.hire.service import HireService
-from .api.mail.service import MailService
-from .api.passport.service import PassportService
-from .api.admin.service import AdminService
-from .api.ehr.service import EhrService
-from .api.verification.service import VerificationService
-from .api.wiki.service import WikiService
-from .api.human_authentication.service import HumanAuthenticationService
 from .api.report.service import ReportService
-from .api.calendar.service import CalendarService
-from .api.security_and_compliance.service import SecurityAndComplianceService
-from .api.sheets.service import SheetsService
-from .api.baike.service import BaikeService
-from .api.translation.service import TranslationService
-from .api.bitable.service import BitableService
-from .api.corehr.service import CorehrService
-from .api.docx.service import DocxService
-from .api.moments.service import MomentsService
+from .api.search.service import SearchService
+from .api.acs.service import AcsService
 from .api.application.service import ApplicationService
+from .api.corehr.service import CorehrService
+from .api.mdm.service import MdmService
+from .api.payroll.service import PayrollService
 from .api.tenant.service import TenantService
+from .api.translation.service import TranslationService
+from .api.workplace.service import WorkplaceService
+from .api.passport.service import PassportService
+from .api.vc.service import VcService
+from .api.board.service import BoardService
+from .api.calendar.service import CalendarService
+from .api.contact.service import ContactService
+from .api.personal_settings.service import PersonalSettingsService
+from .api.minutes.service import MinutesService
+from .api.docx.service import DocxService
+from .api.im.service import ImService
+from .api.admin.service import AdminService
+from .api.helpdesk.service import HelpdeskService
+from .api.performance.service import PerformanceService
+from .api.sheets.service import SheetsService
+from .api.base.service import BaseService
 from .api.event.service import EventService
 from .api.meeting_room.service import MeetingRoomService
-from .api.docs.service import DocsService
+from .api.verification.service import VerificationService
+from .api.bitable.service import BitableService
+from .api.block.service import BlockService
 from .api.lingo.service import LingoService
+from .api.aily.service import AilyService
+from .api.apaas.service import ApaasService
+from .api.document_ai.service import DocumentAiService
+from .api.task.service import TaskService
 from .api.compensation.service import CompensationService
-from .api.contact.service import ContactService
+from .api.hire.service import HireService
+from .api.human_authentication.service import HumanAuthenticationService
+from .api.moments.service import MomentsService
+from .api.optical_char_recognition.service import OpticalCharRecognitionService
+from .api.speech_to_text.service import SpeechToTextService
+from .api.attendance.service import AttendanceService
+from .api.ehr.service import EhrService
+from .api.drive.service import DriveService
+from .api.okr.service import OkrService
 from .api.approval.service import ApprovalService
+from .api.cardkit.service import CardkitService
+from .api.mail.service import MailService
+from .api.security_and_compliance.service import SecurityAndComplianceService
+from .api.wiki.service import WikiService
+from .api.authen.service import AuthenService
+from .api.baike.service import BaikeService
+from .api.docs.service import DocsService
+from .api.auth.service import AuthService
 
 
 class Client(object):
     def __init__(self) -> None:
         self._config: Optional[Config] = None
-        self.drive: Optional[DriveService] = None
-        self.optical_char_recognition: Optional[OpticalCharRecognitionService] = None
-        self.payroll: Optional[PayrollService] = None
-        self.workplace: Optional[WorkplaceService] = None
-        self.base: Optional[BaseService] = None
-        self.block: Optional[BlockService] = None
-        self.speech_to_text: Optional[SpeechToTextService] = None
-        self.cardkit: Optional[CardkitService] = None
-        self.mdm: Optional[MdmService] = None
-        self.minutes: Optional[MinutesService] = None
-        self.okr: Optional[OkrService] = None
-        self.performance: Optional[PerformanceService] = None
-        self.board: Optional[BoardService] = None
-        self.vc: Optional[VcService] = None
-        self.aily: Optional[AilyService] = None
-        self.auth: Optional[AuthService] = None
-        self.search: Optional[SearchService] = None
-        self.task: Optional[TaskService] = None
-        self.acs: Optional[AcsService] = None
-        self.attendance: Optional[AttendanceService] = None
-        self.apaas: Optional[ApaasService] = None
-        self.document_ai: Optional[DocumentAiService] = None
-        self.helpdesk: Optional[HelpdeskService] = None
-        self.im: Optional[ImService] = None
-        self.personal_settings: Optional[PersonalSettingsService] = None
-        self.authen: Optional[AuthenService] = None
-        self.hire: Optional[HireService] = None
-        self.mail: Optional[MailService] = None
-        self.passport: Optional[PassportService] = None
-        self.admin: Optional[AdminService] = None
-        self.ehr: Optional[EhrService] = None
-        self.verification: Optional[VerificationService] = None
-        self.wiki: Optional[WikiService] = None
-        self.human_authentication: Optional[HumanAuthenticationService] = None
         self.report: Optional[ReportService] = None
-        self.calendar: Optional[CalendarService] = None
-        self.security_and_compliance: Optional[SecurityAndComplianceService] = None
-        self.sheets: Optional[SheetsService] = None
-        self.baike: Optional[BaikeService] = None
-        self.translation: Optional[TranslationService] = None
-        self.bitable: Optional[BitableService] = None
-        self.corehr: Optional[CorehrService] = None
-        self.docx: Optional[DocxService] = None
-        self.moments: Optional[MomentsService] = None
+        self.search: Optional[SearchService] = None
+        self.acs: Optional[AcsService] = None
         self.application: Optional[ApplicationService] = None
+        self.corehr: Optional[CorehrService] = None
+        self.mdm: Optional[MdmService] = None
+        self.payroll: Optional[PayrollService] = None
         self.tenant: Optional[TenantService] = None
+        self.translation: Optional[TranslationService] = None
+        self.workplace: Optional[WorkplaceService] = None
+        self.passport: Optional[PassportService] = None
+        self.vc: Optional[VcService] = None
+        self.board: Optional[BoardService] = None
+        self.calendar: Optional[CalendarService] = None
+        self.contact: Optional[ContactService] = None
+        self.personal_settings: Optional[PersonalSettingsService] = None
+        self.minutes: Optional[MinutesService] = None
+        self.docx: Optional[DocxService] = None
+        self.im: Optional[ImService] = None
+        self.admin: Optional[AdminService] = None
+        self.helpdesk: Optional[HelpdeskService] = None
+        self.performance: Optional[PerformanceService] = None
+        self.sheets: Optional[SheetsService] = None
+        self.base: Optional[BaseService] = None
         self.event: Optional[EventService] = None
         self.meeting_room: Optional[MeetingRoomService] = None
-        self.docs: Optional[DocsService] = None
+        self.verification: Optional[VerificationService] = None
+        self.bitable: Optional[BitableService] = None
+        self.block: Optional[BlockService] = None
         self.lingo: Optional[LingoService] = None
+        self.aily: Optional[AilyService] = None
+        self.apaas: Optional[ApaasService] = None
+        self.document_ai: Optional[DocumentAiService] = None
+        self.task: Optional[TaskService] = None
         self.compensation: Optional[CompensationService] = None
-        self.contact: Optional[ContactService] = None
+        self.hire: Optional[HireService] = None
+        self.human_authentication: Optional[HumanAuthenticationService] = None
+        self.moments: Optional[MomentsService] = None
+        self.optical_char_recognition: Optional[OpticalCharRecognitionService] = None
+        self.speech_to_text: Optional[SpeechToTextService] = None
+        self.attendance: Optional[AttendanceService] = None
+        self.ehr: Optional[EhrService] = None
+        self.drive: Optional[DriveService] = None
+        self.okr: Optional[OkrService] = None
         self.approval: Optional[ApprovalService] = None
+        self.cardkit: Optional[CardkitService] = None
+        self.mail: Optional[MailService] = None
+        self.security_and_compliance: Optional[SecurityAndComplianceService] = None
+        self.wiki: Optional[WikiService] = None
+        self.authen: Optional[AuthenService] = None
+        self.baike: Optional[BaikeService] = None
+        self.docs: Optional[DocsService] = None
+        self.auth: Optional[AuthService] = None
 
     @staticmethod
     def builder() -> "ClientBuilder":
@@ -221,59 +221,59 @@ class ClientBuilder(object):
         self._init_logger()
 
         # 初始化 服务
-        client.drive = DriveService(self._config)
-        client.optical_char_recognition = OpticalCharRecognitionService(self._config)
-        client.payroll = PayrollService(self._config)
-        client.workplace = WorkplaceService(self._config)
-        client.base = BaseService(self._config)
-        client.block = BlockService(self._config)
-        client.speech_to_text = SpeechToTextService(self._config)
-        client.cardkit = CardkitService(self._config)
-        client.mdm = MdmService(self._config)
-        client.minutes = MinutesService(self._config)
-        client.okr = OkrService(self._config)
-        client.performance = PerformanceService(self._config)
-        client.board = BoardService(self._config)
-        client.vc = VcService(self._config)
-        client.aily = AilyService(self._config)
-        client.auth = AuthService(self._config)
-        client.search = SearchService(self._config)
-        client.task = TaskService(self._config)
-        client.acs = AcsService(self._config)
-        client.attendance = AttendanceService(self._config)
-        client.apaas = ApaasService(self._config)
-        client.document_ai = DocumentAiService(self._config)
-        client.helpdesk = HelpdeskService(self._config)
-        client.im = ImService(self._config)
-        client.personal_settings = PersonalSettingsService(self._config)
-        client.authen = AuthenService(self._config)
-        client.hire = HireService(self._config)
-        client.mail = MailService(self._config)
-        client.passport = PassportService(self._config)
-        client.admin = AdminService(self._config)
-        client.ehr = EhrService(self._config)
-        client.verification = VerificationService(self._config)
-        client.wiki = WikiService(self._config)
-        client.human_authentication = HumanAuthenticationService(self._config)
         client.report = ReportService(self._config)
-        client.calendar = CalendarService(self._config)
-        client.security_and_compliance = SecurityAndComplianceService(self._config)
-        client.sheets = SheetsService(self._config)
-        client.baike = BaikeService(self._config)
-        client.translation = TranslationService(self._config)
-        client.bitable = BitableService(self._config)
-        client.corehr = CorehrService(self._config)
-        client.docx = DocxService(self._config)
-        client.moments = MomentsService(self._config)
+        client.search = SearchService(self._config)
+        client.acs = AcsService(self._config)
         client.application = ApplicationService(self._config)
+        client.corehr = CorehrService(self._config)
+        client.mdm = MdmService(self._config)
+        client.payroll = PayrollService(self._config)
         client.tenant = TenantService(self._config)
+        client.translation = TranslationService(self._config)
+        client.workplace = WorkplaceService(self._config)
+        client.passport = PassportService(self._config)
+        client.vc = VcService(self._config)
+        client.board = BoardService(self._config)
+        client.calendar = CalendarService(self._config)
+        client.contact = ContactService(self._config)
+        client.personal_settings = PersonalSettingsService(self._config)
+        client.minutes = MinutesService(self._config)
+        client.docx = DocxService(self._config)
+        client.im = ImService(self._config)
+        client.admin = AdminService(self._config)
+        client.helpdesk = HelpdeskService(self._config)
+        client.performance = PerformanceService(self._config)
+        client.sheets = SheetsService(self._config)
+        client.base = BaseService(self._config)
         client.event = EventService(self._config)
         client.meeting_room = MeetingRoomService(self._config)
-        client.docs = DocsService(self._config)
+        client.verification = VerificationService(self._config)
+        client.bitable = BitableService(self._config)
+        client.block = BlockService(self._config)
         client.lingo = LingoService(self._config)
+        client.aily = AilyService(self._config)
+        client.apaas = ApaasService(self._config)
+        client.document_ai = DocumentAiService(self._config)
+        client.task = TaskService(self._config)
         client.compensation = CompensationService(self._config)
-        client.contact = ContactService(self._config)
+        client.hire = HireService(self._config)
+        client.human_authentication = HumanAuthenticationService(self._config)
+        client.moments = MomentsService(self._config)
+        client.optical_char_recognition = OpticalCharRecognitionService(self._config)
+        client.speech_to_text = SpeechToTextService(self._config)
+        client.attendance = AttendanceService(self._config)
+        client.ehr = EhrService(self._config)
+        client.drive = DriveService(self._config)
+        client.okr = OkrService(self._config)
         client.approval = ApprovalService(self._config)
+        client.cardkit = CardkitService(self._config)
+        client.mail = MailService(self._config)
+        client.security_and_compliance = SecurityAndComplianceService(self._config)
+        client.wiki = WikiService(self._config)
+        client.authen = AuthenService(self._config)
+        client.baike = BaikeService(self._config)
+        client.docs = DocsService(self._config)
+        client.auth = AuthService(self._config)
 
         return client
 

@@ -25,6 +25,7 @@ from .meeting_invite_status import *
 from .meeting_named_user import *
 from .meeting_participant import *
 from .meeting_participant_result import *
+from .meeting_related_artifacts import *
 from .meeting_security_setting import *
 from .meeting_user import *
 from .meeting_webinar_setting import *

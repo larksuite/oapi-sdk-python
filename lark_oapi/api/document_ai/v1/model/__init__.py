@@ -8,6 +8,7 @@ from .business_entity import *
 from .business_license import *
 from .chinese_passport import *
 from .chinese_passport_entity import *
+from .code_detail import *
 from .currency import *
 from .department_id import *
 from .doc_chunk_bbox_item import *
@@ -23,6 +24,7 @@ from .extract_currency import *
 from .extract_price import *
 from .extract_term import *
 from .extract_time import *
+from .file_detail import *
 from .food_manage_entity import *
 from .food_manage_license import *
 from .food_produce_entity import *
@@ -52,6 +54,7 @@ from .resume_competition import *
 from .resume_education import *
 from .resume_language import *
 from .resume_project import *
+from .table_img import *
 from .taxi_enitity import *
 from .taxi_entity import *
 from .taxi_invoice import *

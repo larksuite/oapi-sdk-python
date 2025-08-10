@@ -27,6 +27,7 @@ from .seniority_adjust_information import SeniorityAdjustInformation
 from .employment_bp import EmploymentBp
 from .employment_bp import EmploymentBp
 from .enum import Enum
+from .enum import Enum
 
 
 class Employee(object):
@@ -108,6 +109,7 @@ class Employee(object):
         "contract_type": Enum,
         "archive_cpst_plan_id": str,
         "attendance_group_id": str,
+        "individuals_with_headcount_or_not": Enum,
     }
 
     def __init__(self, d=None):
@@ -188,6 +190,7 @@ class Employee(object):
         self.contract_type: Optional[Enum] = None
         self.archive_cpst_plan_id: Optional[str] = None
         self.attendance_group_id: Optional[str] = None
+        self.individuals_with_headcount_or_not: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -507,6 +510,10 @@ class EmployeeBuilder(object):
 
     def attendance_group_id(self, attendance_group_id: str) -> "EmployeeBuilder":
         self._employee.attendance_group_id = attendance_group_id
+        return self
+
+    def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBuilder":
+        self._employee.individuals_with_headcount_or_not = individuals_with_headcount_or_not
         return self
 
     def build(self) -> "Employee":

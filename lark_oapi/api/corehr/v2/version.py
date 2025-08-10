@@ -40,6 +40,7 @@ class V2(object):
         self.location: Location = Location(config)
         self.location_address: LocationAddress = LocationAddress(config)
         self.offboarding: Offboarding = Offboarding(config)
+        self.pathway: Pathway = Pathway(config)
         self.person: Person = Person(config)
         self.pre_hire: PreHire = PreHire(config)
         self.probation: Probation = Probation(config)

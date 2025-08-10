@@ -18,6 +18,7 @@ def main():
         .with_participants(False) \
         .with_meeting_ability(False) \
         .user_id_type("user_id") \
+        .query_mode(0) \
         .build()
 
     # 发起请求
@@ -48,6 +49,7 @@ async def amain():
         .with_participants(False) \
         .with_meeting_ability(False) \
         .user_id_type("user_id") \
+        .query_mode(0) \
         .build()
 
     # 发起请求

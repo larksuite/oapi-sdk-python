@@ -151,6 +151,7 @@ from .language import *
 from .leave_accrual_record import *
 from .leave_balance import *
 from .leave_employ_expire_record import *
+from .leave_extend_item import *
 from .leave_granting_record import *
 from .leave_process_info import *
 from .leave_request import *
@@ -164,6 +165,9 @@ from .location_v2 import *
 from .location_version_data import *
 from .match_rule import *
 from .match_rules import *
+from .matching_rule_dimension_item import *
+from .matching_rule_item import *
+from .matching_rule_scope_setting import *
 from .name import *
 from .name_for_update import *
 from .national_id import *
@@ -272,6 +276,7 @@ from .qr_code import *
 from .qr_code_dimension import *
 from .qr_code_dimension_value import *
 from .qr_code_value import *
+from .query_process_flow_data_template_req import *
 from .reorganization_info import *
 from .report_detail_req import *
 from .resident_tax import *
@@ -450,6 +455,8 @@ from .search_enum_request_body import *
 from .search_enum_request import *
 from .get_job_request import *
 from .list_job_request import *
+from .query_multi_timeline_job_request_body import *
+from .query_multi_timeline_job_request import *
 from .query_recent_change_job_request import *
 from .create_job_change_request_body import *
 from .create_job_change_request import *
@@ -459,6 +466,8 @@ from .search_job_change_request_body import *
 from .search_job_change_request import *
 from .batch_get_job_family_request_body import *
 from .batch_get_job_family_request import *
+from .query_multi_timeline_job_family_request_body import *
+from .query_multi_timeline_job_family_request import *
 from .query_recent_change_job_family_request import *
 from .create_job_grade_request import *
 from .delete_job_grade_request import *
@@ -484,6 +493,13 @@ from .revoke_offboarding_request_body import *
 from .revoke_offboarding_request import *
 from .submit_v2_offboarding_request_body import *
 from .submit_v2_offboarding_request import *
+from .active_pathway_request_body import *
+from .active_pathway_request import *
+from .batch_get_pathway_request_body import *
+from .batch_get_pathway_request import *
+from .create_pathway_request import *
+from .delete_pathway_request import *
+from .patch_pathway_request import *
 from .create_person_request import *
 from .patch_person_request import *
 from .complete_pre_hire_request import *
@@ -654,6 +670,8 @@ from .get_job_response_body import *
 from .get_job_response import *
 from .list_job_response_body import *
 from .list_job_response import *
+from .query_multi_timeline_job_response_body import *
+from .query_multi_timeline_job_response import *
 from .query_recent_change_job_response_body import *
 from .query_recent_change_job_response import *
 from .create_job_change_response_body import *
@@ -664,6 +682,8 @@ from .search_job_change_response_body import *
 from .search_job_change_response import *
 from .batch_get_job_family_response_body import *
 from .batch_get_job_family_response import *
+from .query_multi_timeline_job_family_response_body import *
+from .query_multi_timeline_job_family_response import *
 from .query_recent_change_job_family_response_body import *
 from .query_recent_change_job_family_response import *
 from .create_job_grade_response_body import *
@@ -693,6 +713,13 @@ from .edit_offboarding_response import *
 from .revoke_offboarding_response import *
 from .submit_v2_offboarding_response_body import *
 from .submit_v2_offboarding_response import *
+from .active_pathway_response import *
+from .batch_get_pathway_response_body import *
+from .batch_get_pathway_response import *
+from .create_pathway_response_body import *
+from .create_pathway_response import *
+from .delete_pathway_response import *
+from .patch_pathway_response import *
 from .create_person_response_body import *
 from .create_person_response import *
 from .patch_person_response_body import *
@@ -776,6 +803,9 @@ from .p2_corehr_location_updated_v2 import *
 from .p2_corehr_offboarding_checklist_updated_v2 import *
 from .p2_corehr_offboarding_status_updated_v2 import *
 from .p2_corehr_offboarding_updated_v2 import *
+from .p2_corehr_pathway_created_v2 import *
+from .p2_corehr_pathway_deleted_v2 import *
+from .p2_corehr_pathway_updated_v2 import *
 from .p2_corehr_pre_hire_onboarding_task_changed_v2 import *
 from .p2_corehr_probation_updated_v2 import *
 from .p2_corehr_process_updated_v2 import *

@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_get_job_family_request import BatchGetJobFamilyRequest
 from ..model.batch_get_job_family_response import BatchGetJobFamilyResponse
+from ..model.query_multi_timeline_job_family_request import QueryMultiTimelineJobFamilyRequest
+from ..model.query_multi_timeline_job_family_response import QueryMultiTimelineJobFamilyResponse
 from ..model.query_recent_change_job_family_request import QueryRecentChangeJobFamilyRequest
 from ..model.query_recent_change_job_family_response import QueryRecentChangeJobFamilyResponse
 
@@ -53,6 +55,46 @@ class JobFamily(object):
 
         # 反序列化
         response: BatchGetJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobFamilyResponse)
+        response.raw = resp
+
+        return response
+
+    def query_multi_timeline(self, request: QueryMultiTimelineJobFamilyRequest,
+                             option: Optional[RequestOption] = None) -> QueryMultiTimelineJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       QueryMultiTimelineJobFamilyResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_multi_timeline(self, request: QueryMultiTimelineJobFamilyRequest,
+                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       QueryMultiTimelineJobFamilyResponse)
         response.raw = resp
 
         return response

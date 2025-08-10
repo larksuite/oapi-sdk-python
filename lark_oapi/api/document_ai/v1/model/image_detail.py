@@ -9,12 +9,14 @@ class ImageDetail(object):
         "base64": str,
         "caption": str,
         "links": List[str],
+        "token": str,
     }
 
     def __init__(self, d=None):
         self.base64: Optional[str] = None
         self.caption: Optional[str] = None
         self.links: Optional[List[str]] = None
+        self.token: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class ImageDetailBuilder(object):
 
     def links(self, links: List[str]) -> "ImageDetailBuilder":
         self._image_detail.links = links
+        return self
+
+    def token(self, token: str) -> "ImageDetailBuilder":
+        self._image_detail.token = token
         return self
 
     def build(self) -> "ImageDetail":

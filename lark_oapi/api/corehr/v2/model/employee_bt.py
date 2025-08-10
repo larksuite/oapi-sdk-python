@@ -20,6 +20,7 @@ from .enum import Enum
 from .enum import Enum
 from .seniority_adjust_information import SeniorityAdjustInformation
 from .enum import Enum
+from .enum import Enum
 
 
 class EmployeeBt(object):
@@ -90,6 +91,7 @@ class EmployeeBt(object):
         "archive_cpst_plan_id": str,
         "attendance_group_id": str,
         "whether_returnee": bool,
+        "individuals_with_headcount_or_not": Enum,
     }
 
     def __init__(self, d=None):
@@ -159,6 +161,7 @@ class EmployeeBt(object):
         self.archive_cpst_plan_id: Optional[str] = None
         self.attendance_group_id: Optional[str] = None
         self.whether_returnee: Optional[bool] = None
+        self.individuals_with_headcount_or_not: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -434,6 +437,10 @@ class EmployeeBtBuilder(object):
 
     def whether_returnee(self, whether_returnee: bool) -> "EmployeeBtBuilder":
         self._employee_bt.whether_returnee = whether_returnee
+        return self
+
+    def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBtBuilder":
+        self._employee_bt.individuals_with_headcount_or_not = individuals_with_headcount_or_not
         return self
 
     def build(self) -> "EmployeeBt":

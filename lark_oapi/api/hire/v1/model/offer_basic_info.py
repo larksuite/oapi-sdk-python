@@ -30,6 +30,7 @@ class OfferBasicInfo(object):
         "position_id": str,
         "job_offered": str,
         "job_grade_id": str,
+        "pathway_id": str,
     }
 
     def __init__(self, d=None):
@@ -56,6 +57,7 @@ class OfferBasicInfo(object):
         self.position_id: Optional[str] = None
         self.job_offered: Optional[str] = None
         self.job_grade_id: Optional[str] = None
+        self.pathway_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -157,6 +159,10 @@ class OfferBasicInfoBuilder(object):
 
     def job_grade_id(self, job_grade_id: str) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.job_grade_id = job_grade_id
+        return self
+
+    def pathway_id(self, pathway_id: str) -> "OfferBasicInfoBuilder":
+        self._offer_basic_info.pathway_id = pathway_id
         return self
 
     def build(self) -> "OfferBasicInfo":

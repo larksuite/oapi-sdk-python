@@ -11,6 +11,7 @@ class GetMeetingRequest(BaseRequest):
         self.with_participants: Optional[bool] = None
         self.with_meeting_ability: Optional[bool] = None
         self.user_id_type: Optional[str] = None
+        self.query_mode: Optional[int] = None
         self.meeting_id: Optional[int] = None
 
     @staticmethod
@@ -40,6 +41,11 @@ class GetMeetingRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.user_id_type = user_id_type
         self._get_meeting_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def query_mode(self, query_mode: int) -> "GetMeetingRequestBuilder":
+        self._get_meeting_request.query_mode = query_mode
+        self._get_meeting_request.add_query("query_mode", query_mode)
         return self
 
     def meeting_id(self, meeting_id: int) -> "GetMeetingRequestBuilder":

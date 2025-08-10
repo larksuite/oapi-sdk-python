@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .vc_info import VcInfo
 from .meeting_settings import MeetingSettings
+from .third_party_meeting_settings import ThirdPartyMeetingSettings
 
 
 class Vchat(object):
@@ -15,6 +16,7 @@ class Vchat(object):
         "live_link": str,
         "vc_info": VcInfo,
         "meeting_settings": MeetingSettings,
+        "third_party_meeting_settings": ThirdPartyMeetingSettings,
     }
 
     def __init__(self, d=None):
@@ -25,6 +27,7 @@ class Vchat(object):
         self.live_link: Optional[str] = None
         self.vc_info: Optional[VcInfo] = None
         self.meeting_settings: Optional[MeetingSettings] = None
+        self.third_party_meeting_settings: Optional[ThirdPartyMeetingSettings] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +65,10 @@ class VchatBuilder(object):
 
     def meeting_settings(self, meeting_settings: MeetingSettings) -> "VchatBuilder":
         self._vchat.meeting_settings = meeting_settings
+        return self
+
+    def third_party_meeting_settings(self, third_party_meeting_settings: ThirdPartyMeetingSettings) -> "VchatBuilder":
+        self._vchat.third_party_meeting_settings = third_party_meeting_settings
         return self
 
     def build(self) -> "Vchat":

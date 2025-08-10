@@ -3,15 +3,18 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .meeting import Meeting
+from .meeting_related_artifacts import MeetingRelatedArtifacts
 
 
 class GetMeetingResponseBody(object):
     _types = {
         "meeting": Meeting,
+        "related_artifacts": MeetingRelatedArtifacts,
     }
 
     def __init__(self, d=None):
         self.meeting: Optional[Meeting] = None
+        self.related_artifacts: Optional[MeetingRelatedArtifacts] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +28,10 @@ class GetMeetingResponseBodyBuilder(object):
 
     def meeting(self, meeting: Meeting) -> "GetMeetingResponseBodyBuilder":
         self._get_meeting_response_body.meeting = meeting
+        return self
+
+    def related_artifacts(self, related_artifacts: MeetingRelatedArtifacts) -> "GetMeetingResponseBodyBuilder":
+        self._get_meeting_response_body.related_artifacts = related_artifacts
         return self
 
     def build(self) -> "GetMeetingResponseBody":

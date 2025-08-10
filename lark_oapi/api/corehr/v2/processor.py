@@ -33,6 +33,9 @@ from .model.p2_corehr_location_updated_v2 import P2CorehrLocationUpdatedV2
 from .model.p2_corehr_offboarding_checklist_updated_v2 import P2CorehrOffboardingChecklistUpdatedV2
 from .model.p2_corehr_offboarding_status_updated_v2 import P2CorehrOffboardingStatusUpdatedV2
 from .model.p2_corehr_offboarding_updated_v2 import P2CorehrOffboardingUpdatedV2
+from .model.p2_corehr_pathway_created_v2 import P2CorehrPathwayCreatedV2
+from .model.p2_corehr_pathway_deleted_v2 import P2CorehrPathwayDeletedV2
+from .model.p2_corehr_pathway_updated_v2 import P2CorehrPathwayUpdatedV2
 from .model.p2_corehr_pre_hire_onboarding_task_changed_v2 import P2CorehrPreHireOnboardingTaskChangedV2
 from .model.p2_corehr_probation_updated_v2 import P2CorehrProbationUpdatedV2
 from .model.p2_corehr_process_updated_v2 import P2CorehrProcessUpdatedV2
@@ -369,6 +372,39 @@ class P2CorehrOffboardingUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingU
         return P2CorehrOffboardingUpdatedV2
 
     def do(self, data: P2CorehrOffboardingUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPathwayCreatedV2Processor(IEventProcessor[P2CorehrPathwayCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrPathwayCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPathwayCreatedV2]:
+        return P2CorehrPathwayCreatedV2
+
+    def do(self, data: P2CorehrPathwayCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPathwayDeletedV2Processor(IEventProcessor[P2CorehrPathwayDeletedV2]):
+    def __init__(self, f: Callable[[P2CorehrPathwayDeletedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPathwayDeletedV2]:
+        return P2CorehrPathwayDeletedV2
+
+    def do(self, data: P2CorehrPathwayDeletedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPathwayUpdatedV2Processor(IEventProcessor[P2CorehrPathwayUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrPathwayUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPathwayUpdatedV2]:
+        return P2CorehrPathwayUpdatedV2
+
+    def do(self, data: P2CorehrPathwayUpdatedV2) -> None:
         self.f(data)
 
 

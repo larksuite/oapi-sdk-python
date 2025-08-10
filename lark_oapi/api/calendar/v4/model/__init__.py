@@ -36,6 +36,7 @@ from .free_time import *
 from .free_time_ai import *
 from .free_time_slot import *
 from .freebusy import *
+from .i18n_meeting_description import *
 from .instance import *
 from .meeting_chat import *
 from .meeting_minute import *
@@ -56,6 +57,7 @@ from .search_user_data_ai import *
 from .search_user_result_ai import *
 from .setting import *
 from .system_info import *
+from .third_party_meeting_settings import *
 from .time_info import *
 from .time_span import *
 from .timeoff_event import *

@@ -17,6 +17,9 @@ class DocChunkTableCell(object):
         "row_span": int,
         "col_span": int,
         "is_merge_cell": bool,
+        "images": List[str],
+        "files": List[str],
+        "is_header": bool,
     }
 
     def __init__(self, d=None):
@@ -31,6 +34,9 @@ class DocChunkTableCell(object):
         self.row_span: Optional[int] = None
         self.col_span: Optional[int] = None
         self.is_merge_cell: Optional[bool] = None
+        self.images: Optional[List[str]] = None
+        self.files: Optional[List[str]] = None
+        self.is_header: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +90,18 @@ class DocChunkTableCellBuilder(object):
 
     def is_merge_cell(self, is_merge_cell: bool) -> "DocChunkTableCellBuilder":
         self._doc_chunk_table_cell.is_merge_cell = is_merge_cell
+        return self
+
+    def images(self, images: List[str]) -> "DocChunkTableCellBuilder":
+        self._doc_chunk_table_cell.images = images
+        return self
+
+    def files(self, files: List[str]) -> "DocChunkTableCellBuilder":
+        self._doc_chunk_table_cell.files = files
+        return self
+
+    def is_header(self, is_header: bool) -> "DocChunkTableCellBuilder":
+        self._doc_chunk_table_cell.is_header = is_header
         return self
 
     def build(self) -> "DocChunkTableCell":

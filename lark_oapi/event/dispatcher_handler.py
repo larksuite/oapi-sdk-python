@@ -831,6 +831,27 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.offboarding.updated_v2"] = P2CorehrOffboardingUpdatedV2Processor(f)
         return self
 
+    def register_p2_corehr_pathway_created_v2(self, f: Callable[
+        [P2CorehrPathwayCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.pathway.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.pathway.created_v2")
+        self._processorMap["p2.corehr.pathway.created_v2"] = P2CorehrPathwayCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_pathway_deleted_v2(self, f: Callable[
+        [P2CorehrPathwayDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.pathway.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.pathway.deleted_v2")
+        self._processorMap["p2.corehr.pathway.deleted_v2"] = P2CorehrPathwayDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_pathway_updated_v2(self, f: Callable[
+        [P2CorehrPathwayUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.pathway.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.pathway.updated_v2")
+        self._processorMap["p2.corehr.pathway.updated_v2"] = P2CorehrPathwayUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_pre_hire_onboarding_task_changed_v2(self, f: Callable[
         [P2CorehrPreHireOnboardingTaskChangedV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.pre_hire.onboarding_task_changed_v2" in self._processorMap:

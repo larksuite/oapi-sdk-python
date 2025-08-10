@@ -349,6 +349,8 @@ from .registration_basic_info import *
 from .registration_info import *
 from .registration_schema import *
 from .registration_schema_info import *
+from .related_dimension_config import *
+from .related_dimension_setting import *
 from .report_custom_data import *
 from .resume_source import *
 from .reward import *
