@@ -42,6 +42,7 @@ class V2(object):
         self.offboarding: Offboarding = Offboarding(config)
         self.pathway: Pathway = Pathway(config)
         self.person: Person = Person(config)
+        self.position: Position = Position(config)
         self.pre_hire: PreHire = PreHire(config)
         self.probation: Probation = Probation(config)
         self.probation_assessment: ProbationAssessment = ProbationAssessment(config)

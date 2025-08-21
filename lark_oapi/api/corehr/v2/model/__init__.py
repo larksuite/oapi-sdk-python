@@ -184,6 +184,7 @@ from .onboarding_task import *
 from .onboarding_task_change import *
 from .operation_log_entity import *
 from .operation_log_entity_field import *
+from .operation_log_entity_field_ext import *
 from .operation_log_list_req import *
 from .operation_log_list_resp_item import *
 from .org_role import *
@@ -317,6 +318,9 @@ from .signature_template_region_info import *
 from .signature_template_setting import *
 from .signature_user_info import *
 from .start_process_param import *
+from .talent_pool_member_op_req_item import *
+from .talent_pool_member_op_resp_item import *
+from .talent_pool_member_ref_req_item import *
 from .terminate_signature_fail_id_and_reason import *
 from .time_zone import *
 from .tranfer_employment_info import *
@@ -453,6 +457,8 @@ from .query_employees_job_data_request_body import *
 from .query_employees_job_data_request import *
 from .search_enum_request_body import *
 from .search_enum_request import *
+from .batch_get_job_request_body import *
+from .batch_get_job_request import *
 from .get_job_request import *
 from .list_job_request import *
 from .query_multi_timeline_job_request_body import *
@@ -502,6 +508,8 @@ from .delete_pathway_request import *
 from .patch_pathway_request import *
 from .create_person_request import *
 from .patch_person_request import *
+from .query_position_request_body import *
+from .query_position_request import *
 from .complete_pre_hire_request import *
 from .create_pre_hire_request import *
 from .delete_pre_hire_request import *
@@ -666,6 +674,8 @@ from .query_employees_job_data_response_body import *
 from .query_employees_job_data_response import *
 from .search_enum_response_body import *
 from .search_enum_response import *
+from .batch_get_job_response_body import *
+from .batch_get_job_response import *
 from .get_job_response_body import *
 from .get_job_response import *
 from .list_job_response_body import *
@@ -724,6 +734,8 @@ from .create_person_response_body import *
 from .create_person_response import *
 from .patch_person_response_body import *
 from .patch_person_response import *
+from .query_position_response_body import *
+from .query_position_response import *
 from .complete_pre_hire_response_body import *
 from .complete_pre_hire_response import *
 from .create_pre_hire_response_body import *

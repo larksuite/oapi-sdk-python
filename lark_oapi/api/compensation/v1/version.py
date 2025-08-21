@@ -8,4 +8,5 @@ class V1(object):
         self.indicator: Indicator = Indicator(config)
         self.item: Item = Item(config)
         self.item_category: ItemCategory = ItemCategory(config)
+        self.lump_sum_payment: LumpSumPayment = LumpSumPayment(config)
         self.plan: Plan = Plan(config)

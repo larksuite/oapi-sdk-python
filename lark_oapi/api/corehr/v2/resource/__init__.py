@@ -35,6 +35,7 @@ from .location_address import *
 from .offboarding import *
 from .pathway import *
 from .person import *
+from .position import *
 from .pre_hire import *
 from .probation import *
 from .probation_assessment import *

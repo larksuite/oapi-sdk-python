@@ -9,23 +9,24 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_get_job_request import BatchGetJobRequest
-from ..model.batch_get_job_response import BatchGetJobResponse
-from ..model.get_job_request import GetJobRequest
-from ..model.get_job_response import GetJobResponse
-from ..model.list_job_request import ListJobRequest
-from ..model.list_job_response import ListJobResponse
-from ..model.query_multi_timeline_job_request import QueryMultiTimelineJobRequest
-from ..model.query_multi_timeline_job_response import QueryMultiTimelineJobResponse
-from ..model.query_recent_change_job_request import QueryRecentChangeJobRequest
-from ..model.query_recent_change_job_response import QueryRecentChangeJobResponse
+from ..model.batch_create_lump_sum_payment_request import BatchCreateLumpSumPaymentRequest
+from ..model.batch_create_lump_sum_payment_response import BatchCreateLumpSumPaymentResponse
+from ..model.batch_remove_lump_sum_payment_request import BatchRemoveLumpSumPaymentRequest
+from ..model.batch_remove_lump_sum_payment_response import BatchRemoveLumpSumPaymentResponse
+from ..model.batch_update_lump_sum_payment_request import BatchUpdateLumpSumPaymentRequest
+from ..model.batch_update_lump_sum_payment_response import BatchUpdateLumpSumPaymentResponse
+from ..model.query_lump_sum_payment_request import QueryLumpSumPaymentRequest
+from ..model.query_lump_sum_payment_response import QueryLumpSumPaymentResponse
+from ..model.query_detail_lump_sum_payment_request import QueryDetailLumpSumPaymentRequest
+from ..model.query_detail_lump_sum_payment_response import QueryDetailLumpSumPaymentResponse
 
 
-class Job(object):
+class LumpSumPayment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobRequest, option: Optional[RequestOption] = None) -> BatchGetJobResponse:
+    def batch_create(self, request: BatchCreateLumpSumPaymentRequest,
+                     option: Optional[RequestOption] = None) -> BatchCreateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +41,14 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobResponse)
+        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchCreateLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetJobRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetJobResponse:
+    async def abatch_create(self, request: BatchCreateLumpSumPaymentRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,12 +59,14 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobResponse)
+        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchCreateLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    def get(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+    def batch_remove(self, request: BatchRemoveLumpSumPaymentRequest,
+                     option: Optional[RequestOption] = None) -> BatchRemoveLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,12 +81,14 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchRemoveLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+    async def abatch_remove(self, request: BatchRemoveLumpSumPaymentRequest,
+                            option: Optional[RequestOption] = None) -> BatchRemoveLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,12 +99,14 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchRemoveLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    def list(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+    def batch_update(self, request: BatchUpdateLumpSumPaymentRequest,
+                     option: Optional[RequestOption] = None) -> BatchUpdateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,12 +121,14 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchUpdateLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+    async def abatch_update(self, request: BatchUpdateLumpSumPaymentRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,13 +139,14 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchUpdateLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineJobRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineJobResponse:
+    def query(self, request: QueryLumpSumPaymentRequest,
+              option: Optional[RequestOption] = None) -> QueryLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -150,14 +161,13 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryMultiTimelineJobResponse)
+        response: QueryLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineJobRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineJobResponse:
+    async def aquery(self, request: QueryLumpSumPaymentRequest,
+                     option: Optional[RequestOption] = None) -> QueryLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -168,14 +178,13 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryMultiTimelineJobResponse)
+        response: QueryLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeJobRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+    def query_detail(self, request: QueryDetailLumpSumPaymentRequest,
+                     option: Optional[RequestOption] = None) -> QueryDetailLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,13 +199,14 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
+        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryDetailLumpSumPaymentResponse)
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+    async def aquery_detail(self, request: QueryDetailLumpSumPaymentRequest,
+                            option: Optional[RequestOption] = None) -> QueryDetailLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -207,7 +217,8 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
+        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryDetailLumpSumPaymentResponse)
         response.raw = resp
 
         return response

@@ -14,6 +14,7 @@ from .id_name_object import IdNameObject
 from .id_name_object import IdNameObject
 from .job_requirement_customized_data_dto import JobRequirementCustomizedDataDto
 from .job_type_info import JobTypeInfo
+from .jr_count_data_info import JrCountDataInfo
 
 
 class JobRequirementDto(object):
@@ -52,6 +53,7 @@ class JobRequirementDto(object):
         "position_id": str,
         "completion_time": str,
         "approval_status": int,
+        "count_data": JrCountDataInfo,
     }
 
     def __init__(self, d=None):
@@ -89,6 +91,7 @@ class JobRequirementDto(object):
         self.position_id: Optional[str] = None
         self.completion_time: Optional[str] = None
         self.approval_status: Optional[int] = None
+        self.count_data: Optional[JrCountDataInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -235,6 +238,10 @@ class JobRequirementDtoBuilder(object):
 
     def approval_status(self, approval_status: int) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.approval_status = approval_status
+        return self
+
+    def count_data(self, count_data: JrCountDataInfo) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.count_data = count_data
         return self
 
     def build(self) -> "JobRequirementDto":

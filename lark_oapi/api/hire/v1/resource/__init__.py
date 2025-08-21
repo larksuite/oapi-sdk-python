@@ -47,8 +47,10 @@ from .minutes import *
 from .note import *
 from .offer import *
 from .offer_application_form import *
+from .offer_approval_template import *
 from .offer_custom_field import *
 from .offer_schema import *
+from .portal_apply_schema import *
 from .questionnaire import *
 from .referral import *
 from .referral_account import *

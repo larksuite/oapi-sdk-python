@@ -268,6 +268,7 @@ from .job_storefront import *
 from .job_type import *
 from .job_type_info import *
 from .job_user_info import *
+from .jr_count_data_info import *
 from .language_info import *
 from .level import *
 from .location import *
@@ -637,8 +638,10 @@ from .offer_status_offer_request import *
 from .update_offer_request import *
 from .get_offer_application_form_request import *
 from .list_offer_application_form_request import *
+from .list_offer_approval_template_request import *
 from .update_offer_custom_field_request import *
 from .get_offer_schema_request import *
+from .list_portal_apply_schema_request import *
 from .list_questionnaire_request import *
 from .get_by_application_referral_request import *
 from .search_referral_request_body import *
@@ -919,9 +922,13 @@ from .get_offer_application_form_response_body import *
 from .get_offer_application_form_response import *
 from .list_offer_application_form_response_body import *
 from .list_offer_application_form_response import *
+from .list_offer_approval_template_response_body import *
+from .list_offer_approval_template_response import *
 from .update_offer_custom_field_response import *
 from .get_offer_schema_response_body import *
 from .get_offer_schema_response import *
+from .list_portal_apply_schema_response_body import *
+from .list_portal_apply_schema_response import *
 from .list_questionnaire_response_body import *
 from .list_questionnaire_response import *
 from .get_by_application_referral_response_body import *

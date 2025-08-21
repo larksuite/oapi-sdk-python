@@ -8,6 +8,7 @@ from .i18n import I18n
 
 class MatchingRuleItem(object):
     _types = {
+        "matching_rule_id": str,
         "company_id": str,
         "active": bool,
         "priority": int,
@@ -16,6 +17,7 @@ class MatchingRuleItem(object):
     }
 
     def __init__(self, d=None):
+        self.matching_rule_id: Optional[str] = None
         self.company_id: Optional[str] = None
         self.active: Optional[bool] = None
         self.priority: Optional[int] = None
@@ -31,6 +33,10 @@ class MatchingRuleItem(object):
 class MatchingRuleItemBuilder(object):
     def __init__(self) -> None:
         self._matching_rule_item = MatchingRuleItem()
+
+    def matching_rule_id(self, matching_rule_id: str) -> "MatchingRuleItemBuilder":
+        self._matching_rule_item.matching_rule_id = matching_rule_id
+        return self
 
     def company_id(self, company_id: str) -> "MatchingRuleItemBuilder":
         self._matching_rule_item.company_id = company_id

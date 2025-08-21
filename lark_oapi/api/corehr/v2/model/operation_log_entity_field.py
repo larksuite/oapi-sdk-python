@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .operation_log_entity_field_ext import OperationLogEntityFieldExt
 
 
 class OperationLogEntityField(object):
@@ -9,12 +10,14 @@ class OperationLogEntityField(object):
         "field": str,
         "before": str,
         "after": str,
+        "ext": OperationLogEntityFieldExt,
     }
 
     def __init__(self, d=None):
         self.field: Optional[str] = None
         self.before: Optional[str] = None
         self.after: Optional[str] = None
+        self.ext: Optional[OperationLogEntityFieldExt] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +39,10 @@ class OperationLogEntityFieldBuilder(object):
 
     def after(self, after: str) -> "OperationLogEntityFieldBuilder":
         self._operation_log_entity_field.after = after
+        return self
+
+    def ext(self, ext: OperationLogEntityFieldExt) -> "OperationLogEntityFieldBuilder":
+        self._operation_log_entity_field.ext = ext
         return self
 
     def build(self) -> "OperationLogEntityField":
