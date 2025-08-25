@@ -61,6 +61,7 @@ from .api.hire.service import HireService
 from .api.optical_char_recognition.service import OpticalCharRecognitionService
 from .api.attendance.service import AttendanceService
 from .api.event.service import EventService
+from .api.message.service import MessageService
 
 
 class Client(object):
@@ -119,12 +120,15 @@ class Client(object):
         self.optical_char_recognition: Optional[OpticalCharRecognitionService] = None
         self.attendance: Optional[AttendanceService] = None
         self.event: Optional[EventService] = None
+        self.message: Optional[MessageService] = None
 
     @staticmethod
     def builder() -> "ClientBuilder":
         return ClientBuilder()
 
-    def request(self, request: BaseRequest, option: Optional[RequestOption] = None) -> BaseResponse:
+    def request(
+        self, request: BaseRequest, option: Optional[RequestOption] = None
+    ) -> BaseResponse:
         if option is None:
             option = RequestOption()
 
@@ -145,7 +149,9 @@ class Client(object):
 
         return resp
 
-    async def arequest(self, request: BaseRequest, option: Optional[RequestOption] = None) -> BaseResponse:
+    async def arequest(
+        self, request: BaseRequest, option: Optional[RequestOption] = None
+    ) -> BaseResponse:
         if option is None:
             option = RequestOption()
 
@@ -274,7 +280,7 @@ class ClientBuilder(object):
         client.optical_char_recognition = OpticalCharRecognitionService(self._config)
         client.attendance = AttendanceService(self._config)
         client.event = EventService(self._config)
-
+        client.message = MessageService(self._config)
         return client
 
     def _init_cache(self):
