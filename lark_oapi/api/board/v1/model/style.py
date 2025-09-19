@@ -6,21 +6,29 @@ from lark_oapi.core.construct import init
 
 class Style(object):
     _types = {
+        "fill_color": str,
         "fill_opacity": float,
         "border_style": str,
         "border_width": str,
         "border_opacity": float,
         "h_flip": bool,
         "v_flip": bool,
+        "border_color": str,
+        "theme_fill_color_code": int,
+        "theme_border_color_code": int,
     }
 
     def __init__(self, d=None):
+        self.fill_color: Optional[str] = None
         self.fill_opacity: Optional[float] = None
         self.border_style: Optional[str] = None
         self.border_width: Optional[str] = None
         self.border_opacity: Optional[float] = None
         self.h_flip: Optional[bool] = None
         self.v_flip: Optional[bool] = None
+        self.border_color: Optional[str] = None
+        self.theme_fill_color_code: Optional[int] = None
+        self.theme_border_color_code: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +39,10 @@ class Style(object):
 class StyleBuilder(object):
     def __init__(self) -> None:
         self._style = Style()
+
+    def fill_color(self, fill_color: str) -> "StyleBuilder":
+        self._style.fill_color = fill_color
+        return self
 
     def fill_opacity(self, fill_opacity: float) -> "StyleBuilder":
         self._style.fill_opacity = fill_opacity
@@ -54,6 +66,18 @@ class StyleBuilder(object):
 
     def v_flip(self, v_flip: bool) -> "StyleBuilder":
         self._style.v_flip = v_flip
+        return self
+
+    def border_color(self, border_color: str) -> "StyleBuilder":
+        self._style.border_color = border_color
+        return self
+
+    def theme_fill_color_code(self, theme_fill_color_code: int) -> "StyleBuilder":
+        self._style.theme_fill_color_code = theme_fill_color_code
+        return self
+
+    def theme_border_color_code(self, theme_border_color_code: int) -> "StyleBuilder":
+        self._style.theme_border_color_code = theme_border_color_code
         return self
 
     def build(self) -> "Style":

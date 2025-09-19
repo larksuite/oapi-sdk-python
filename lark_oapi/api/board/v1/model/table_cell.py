@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .table_cell_merge_info import TableCellMergeInfo
 from .text import Text
+from .style import Style
 
 
 class TableCell(object):
@@ -13,6 +14,7 @@ class TableCell(object):
         "merge_info": TableCellMergeInfo,
         "children": List[str],
         "text": Text,
+        "style": Style,
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class TableCell(object):
         self.merge_info: Optional[TableCellMergeInfo] = None
         self.children: Optional[List[str]] = None
         self.text: Optional[Text] = None
+        self.style: Optional[Style] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -50,6 +53,10 @@ class TableCellBuilder(object):
 
     def text(self, text: Text) -> "TableCellBuilder":
         self._table_cell.text = text
+        return self
+
+    def style(self, style: Style) -> "TableCellBuilder":
+        self._table_cell.style = style
         return self
 
     def build(self) -> "TableCell":

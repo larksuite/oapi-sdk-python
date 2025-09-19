@@ -2,15 +2,18 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .pie import Pie
 
 
 class CompositeShape(object):
     _types = {
         "type": str,
+        "pie": Pie,
     }
 
     def __init__(self, d=None):
         self.type: Optional[str] = None
+        self.pie: Optional[Pie] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +27,10 @@ class CompositeShapeBuilder(object):
 
     def type(self, type: str) -> "CompositeShapeBuilder":
         self._composite_shape.type = type
+        return self
+
+    def pie(self, pie: Pie) -> "CompositeShapeBuilder":
+        self._composite_shape.pie = pie
         return self
 
     def build(self) -> "CompositeShape":

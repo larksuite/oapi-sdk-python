@@ -42,6 +42,7 @@ class CalendarEvent(object):
         "has_more_attendee": bool,
         "attachments": List[Attachment],
         "event_check_in": EventCheckIn,
+        "source": str,
     }
 
     def __init__(self, d=None):
@@ -71,6 +72,7 @@ class CalendarEvent(object):
         self.has_more_attendee: Optional[bool] = None
         self.attachments: Optional[List[Attachment]] = None
         self.event_check_in: Optional[EventCheckIn] = None
+        self.source: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -184,6 +186,10 @@ class CalendarEventBuilder(object):
 
     def event_check_in(self, event_check_in: EventCheckIn) -> "CalendarEventBuilder":
         self._calendar_event.event_check_in = event_check_in
+        return self
+
+    def source(self, source: str) -> "CalendarEventBuilder":
+        self._calendar_event.source = source
         return self
 
     def build(self) -> "CalendarEvent":

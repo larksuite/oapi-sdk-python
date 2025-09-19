@@ -17,10 +17,14 @@ from ..model.get_calendar_request import GetCalendarRequest
 from ..model.get_calendar_response import GetCalendarResponse
 from ..model.list_calendar_request import ListCalendarRequest
 from ..model.list_calendar_response import ListCalendarResponse
+from ..model.mget_calendar_request import MgetCalendarRequest
+from ..model.mget_calendar_response import MgetCalendarResponse
 from ..model.patch_calendar_request import PatchCalendarRequest
 from ..model.patch_calendar_response import PatchCalendarResponse
 from ..model.primary_calendar_request import PrimaryCalendarRequest
 from ..model.primary_calendar_response import PrimaryCalendarResponse
+from ..model.primarys_calendar_request import PrimarysCalendarRequest
+from ..model.primarys_calendar_response import PrimarysCalendarResponse
 from ..model.search_calendar_request import SearchCalendarRequest
 from ..model.search_calendar_response import SearchCalendarResponse
 from ..model.subscribe_calendar_request import SubscribeCalendarRequest
@@ -183,6 +187,42 @@ class Calendar(object):
 
         return response
 
+    def mget(self, request: MgetCalendarRequest, option: Optional[RequestOption] = None) -> MgetCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: MgetCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def amget(self, request: MgetCalendarRequest, option: Optional[RequestOption] = None) -> MgetCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: MgetCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchCalendarRequest, option: Optional[RequestOption] = None) -> PatchCalendarResponse:
         if option is None:
             option = RequestOption()
@@ -254,6 +294,44 @@ class Calendar(object):
 
         # 反序列化
         response: PrimaryCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PrimaryCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    def primarys(self, request: PrimarysCalendarRequest,
+                 option: Optional[RequestOption] = None) -> PrimarysCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PrimarysCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PrimarysCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def aprimarys(self, request: PrimarysCalendarRequest,
+                        option: Optional[RequestOption] = None) -> PrimarysCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PrimarysCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PrimarysCalendarResponse)
         response.raw = resp
 
         return response

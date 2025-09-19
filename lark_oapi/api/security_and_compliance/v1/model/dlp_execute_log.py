@@ -37,6 +37,8 @@ class DlpExecuteLog(object):
         "file_token": str,
         "trigger_event_type": str,
         "chat_type": int,
+        "group_owner_name": str,
+        "group_owner_id": int,
     }
 
     def __init__(self, d=None):
@@ -69,6 +71,8 @@ class DlpExecuteLog(object):
         self.file_token: Optional[str] = None
         self.trigger_event_type: Optional[str] = None
         self.chat_type: Optional[int] = None
+        self.group_owner_name: Optional[str] = None
+        self.group_owner_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -194,6 +198,14 @@ class DlpExecuteLogBuilder(object):
 
     def chat_type(self, chat_type: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.chat_type = chat_type
+        return self
+
+    def group_owner_name(self, group_owner_name: str) -> "DlpExecuteLogBuilder":
+        self._dlp_execute_log.group_owner_name = group_owner_name
+        return self
+
+    def group_owner_id(self, group_owner_id: int) -> "DlpExecuteLogBuilder":
+        self._dlp_execute_log.group_owner_id = group_owner_id
         return self
 
     def build(self) -> "DlpExecuteLog":

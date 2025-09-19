@@ -9,6 +9,12 @@ from .composite_shape import CompositeShape
 from .connector import Connector
 from .section import Section
 from .table import Table
+from .lifeline import Lifeline
+from .paint import Paint
+from .svg import Svg
+from .sticky_note import StickyNote
+from .mind_map_node import MindMapNode
+from .mind_map_root import MindMapRoot
 from .mind_map import MindMap
 
 
@@ -21,15 +27,23 @@ class WhiteboardNode(object):
         "x": float,
         "y": float,
         "angle": float,
-        "width": float,
         "height": float,
         "text": Text,
         "style": Style,
         "image": Image,
         "composite_shape": CompositeShape,
         "connector": Connector,
+        "width": float,
         "section": Section,
         "table": Table,
+        "locked": bool,
+        "z_index": int,
+        "lifeline": Lifeline,
+        "paint": Paint,
+        "svg": Svg,
+        "sticky_note": StickyNote,
+        "mind_map_node": MindMapNode,
+        "mind_map_root": MindMapRoot,
         "mind_map": MindMap,
     }
 
@@ -41,15 +55,23 @@ class WhiteboardNode(object):
         self.x: Optional[float] = None
         self.y: Optional[float] = None
         self.angle: Optional[float] = None
-        self.width: Optional[float] = None
         self.height: Optional[float] = None
         self.text: Optional[Text] = None
         self.style: Optional[Style] = None
         self.image: Optional[Image] = None
         self.composite_shape: Optional[CompositeShape] = None
         self.connector: Optional[Connector] = None
+        self.width: Optional[float] = None
         self.section: Optional[Section] = None
         self.table: Optional[Table] = None
+        self.locked: Optional[bool] = None
+        self.z_index: Optional[int] = None
+        self.lifeline: Optional[Lifeline] = None
+        self.paint: Optional[Paint] = None
+        self.svg: Optional[Svg] = None
+        self.sticky_note: Optional[StickyNote] = None
+        self.mind_map_node: Optional[MindMapNode] = None
+        self.mind_map_root: Optional[MindMapRoot] = None
         self.mind_map: Optional[MindMap] = None
         init(self, d, self._types)
 
@@ -90,10 +112,6 @@ class WhiteboardNodeBuilder(object):
         self._whiteboard_node.angle = angle
         return self
 
-    def width(self, width: float) -> "WhiteboardNodeBuilder":
-        self._whiteboard_node.width = width
-        return self
-
     def height(self, height: float) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.height = height
         return self
@@ -118,12 +136,48 @@ class WhiteboardNodeBuilder(object):
         self._whiteboard_node.connector = connector
         return self
 
+    def width(self, width: float) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.width = width
+        return self
+
     def section(self, section: Section) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.section = section
         return self
 
     def table(self, table: Table) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.table = table
+        return self
+
+    def locked(self, locked: bool) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.locked = locked
+        return self
+
+    def z_index(self, z_index: int) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.z_index = z_index
+        return self
+
+    def lifeline(self, lifeline: Lifeline) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.lifeline = lifeline
+        return self
+
+    def paint(self, paint: Paint) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.paint = paint
+        return self
+
+    def svg(self, svg: Svg) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.svg = svg
+        return self
+
+    def sticky_note(self, sticky_note: StickyNote) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.sticky_note = sticky_note
+        return self
+
+    def mind_map_node(self, mind_map_node: MindMapNode) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.mind_map_node = mind_map_node
+        return self
+
+    def mind_map_root(self, mind_map_root: MindMapRoot) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.mind_map_root = mind_map_root
         return self
 
     def mind_map(self, mind_map: MindMap) -> "WhiteboardNodeBuilder":

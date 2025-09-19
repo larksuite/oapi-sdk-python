@@ -24,6 +24,7 @@ from .connector_instance import *
 from .connector_instance_definition import *
 from .connector_instance_ref_info import *
 from .criterion import *
+from .data_model_permission_access import *
 from .dataset import *
 from .dataset_field import *
 from .dataset_field_type import *
@@ -37,6 +38,7 @@ from .event import *
 from .event_subscribe_rule import *
 from .event_subscriber import *
 from .external_user import *
+from .field_permission_access import *
 from .file import *
 from .flow import *
 from .function import *
@@ -61,7 +63,10 @@ from .object_meta import *
 from .object_search_layout import *
 from .object_settings import *
 from .object_settings_for_query import *
+from .operation_permission_access import *
 from .order_condition import *
+from .page_permission_access import *
+from .page_permission_v2 import *
 from .permission_name_info import *
 from .record import *
 from .record_group_by_item import *
@@ -69,6 +74,8 @@ from .record_permission import *
 from .record_result import *
 from .record_result_error import *
 from .role import *
+from .role_basic import *
+from .role_basic_mask import *
 from .role_member import *
 from .runtime_log import *
 from .runtime_log_tag import *
@@ -77,6 +84,8 @@ from .search_object_param import *
 from .seat_activity import *
 from .seat_assignment import *
 from .sort import *
+from .sub_page_simple_info import *
+from .sub_page_simple_info_v2 import *
 from .task_info import *
 from .tenant import *
 from .user import *

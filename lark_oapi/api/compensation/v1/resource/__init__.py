@@ -5,3 +5,8 @@ from .item import *
 from .item_category import *
 from .lump_sum_payment import *
 from .plan import *
+from .recurring_payment import *
+from .social_archive import *
+from .social_archive_adjust_record import *
+from .social_insurance import *
+from .social_plan import *

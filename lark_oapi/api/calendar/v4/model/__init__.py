@@ -73,8 +73,12 @@ from .create_calendar_request import *
 from .delete_calendar_request import *
 from .get_calendar_request import *
 from .list_calendar_request import *
+from .mget_calendar_request_body import *
+from .mget_calendar_request import *
 from .patch_calendar_request import *
 from .primary_calendar_request import *
+from .primarys_calendar_request_body import *
+from .primarys_calendar_request import *
 from .search_calendar_request_body import *
 from .search_calendar_request import *
 from .subscribe_calendar_request import *
@@ -111,6 +115,8 @@ from .create_calendar_event_meeting_minute_request import *
 from .create_exchange_binding_request import *
 from .delete_exchange_binding_request import *
 from .get_exchange_binding_request import *
+from .batch_freebusy_request_body import *
+from .batch_freebusy_request import *
 from .list_freebusy_request_body import *
 from .list_freebusy_request import *
 from .generate_caldav_conf_setting_request_body import *
@@ -124,10 +130,14 @@ from .get_calendar_response_body import *
 from .get_calendar_response import *
 from .list_calendar_response_body import *
 from .list_calendar_response import *
+from .mget_calendar_response_body import *
+from .mget_calendar_response import *
 from .patch_calendar_response_body import *
 from .patch_calendar_response import *
 from .primary_calendar_response_body import *
 from .primary_calendar_response import *
+from .primarys_calendar_response_body import *
+from .primarys_calendar_response import *
 from .search_calendar_response_body import *
 from .search_calendar_response import *
 from .subscribe_calendar_response_body import *
@@ -177,6 +187,8 @@ from .create_exchange_binding_response import *
 from .delete_exchange_binding_response import *
 from .get_exchange_binding_response_body import *
 from .get_exchange_binding_response import *
+from .batch_freebusy_response_body import *
+from .batch_freebusy_response import *
 from .list_freebusy_response_body import *
 from .list_freebusy_response import *
 from .generate_caldav_conf_setting_response_body import *

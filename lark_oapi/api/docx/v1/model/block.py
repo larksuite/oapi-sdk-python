@@ -55,6 +55,8 @@ from .source_synced import SourceSynced
 from .reference_synced import ReferenceSynced
 from .sub_page_list import SubPageList
 from .ai_template import AiTemplate
+from .reference_base import ReferenceBase
+from .project import Project
 
 
 class Block(object):
@@ -117,6 +119,8 @@ class Block(object):
         "reference_synced": ReferenceSynced,
         "sub_page_list": SubPageList,
         "ai_template": AiTemplate,
+        "reference_base": ReferenceBase,
+        "project": Project,
     }
 
     def __init__(self, d=None):
@@ -178,6 +182,8 @@ class Block(object):
         self.reference_synced: Optional[ReferenceSynced] = None
         self.sub_page_list: Optional[SubPageList] = None
         self.ai_template: Optional[AiTemplate] = None
+        self.reference_base: Optional[ReferenceBase] = None
+        self.project: Optional[Project] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -419,6 +425,14 @@ class BlockBuilder(object):
 
     def ai_template(self, ai_template: AiTemplate) -> "BlockBuilder":
         self._block.ai_template = ai_template
+        return self
+
+    def reference_base(self, reference_base: ReferenceBase) -> "BlockBuilder":
+        self._block.reference_base = reference_base
+        return self
+
+    def project(self, project: Project) -> "BlockBuilder":
+        self._block.project = project
         return self
 
     def build(self) -> "Block":

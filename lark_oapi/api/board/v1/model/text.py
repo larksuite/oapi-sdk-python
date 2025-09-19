@@ -11,6 +11,14 @@ class Text(object):
         "font_size": int,
         "horizontal_align": str,
         "vertical_align": str,
+        "text_color": str,
+        "text_background_color": str,
+        "line_through": bool,
+        "underline": bool,
+        "italic": bool,
+        "angle": int,
+        "theme_text_color_code": int,
+        "theme_text_background_color_code": int,
     }
 
     def __init__(self, d=None):
@@ -19,6 +27,14 @@ class Text(object):
         self.font_size: Optional[int] = None
         self.horizontal_align: Optional[str] = None
         self.vertical_align: Optional[str] = None
+        self.text_color: Optional[str] = None
+        self.text_background_color: Optional[str] = None
+        self.line_through: Optional[bool] = None
+        self.underline: Optional[bool] = None
+        self.italic: Optional[bool] = None
+        self.angle: Optional[int] = None
+        self.theme_text_color_code: Optional[int] = None
+        self.theme_text_background_color_code: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +64,38 @@ class TextBuilder(object):
 
     def vertical_align(self, vertical_align: str) -> "TextBuilder":
         self._text.vertical_align = vertical_align
+        return self
+
+    def text_color(self, text_color: str) -> "TextBuilder":
+        self._text.text_color = text_color
+        return self
+
+    def text_background_color(self, text_background_color: str) -> "TextBuilder":
+        self._text.text_background_color = text_background_color
+        return self
+
+    def line_through(self, line_through: bool) -> "TextBuilder":
+        self._text.line_through = line_through
+        return self
+
+    def underline(self, underline: bool) -> "TextBuilder":
+        self._text.underline = underline
+        return self
+
+    def italic(self, italic: bool) -> "TextBuilder":
+        self._text.italic = italic
+        return self
+
+    def angle(self, angle: int) -> "TextBuilder":
+        self._text.angle = angle
+        return self
+
+    def theme_text_color_code(self, theme_text_color_code: int) -> "TextBuilder":
+        self._text.theme_text_color_code = theme_text_color_code
+        return self
+
+    def theme_text_background_color_code(self, theme_text_background_color_code: int) -> "TextBuilder":
+        self._text.theme_text_background_color_code = theme_text_background_color_code
         return self
 
     def build(self) -> "Text":

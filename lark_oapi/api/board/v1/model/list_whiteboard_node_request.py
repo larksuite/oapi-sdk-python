@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class ListWhiteboardNodeRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.whiteboard_id: Optional[str] = None
 
     @staticmethod
@@ -23,6 +24,11 @@ class ListWhiteboardNodeRequestBuilder(object):
         list_whiteboard_node_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
         list_whiteboard_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_whiteboard_node_request: ListWhiteboardNodeRequest = list_whiteboard_node_request
+
+    def user_id_type(self, user_id_type: str) -> "ListWhiteboardNodeRequestBuilder":
+        self._list_whiteboard_node_request.user_id_type = user_id_type
+        self._list_whiteboard_node_request.add_query("user_id_type", user_id_type)
+        return self
 
     def whiteboard_id(self, whiteboard_id: str) -> "ListWhiteboardNodeRequestBuilder":
         self._list_whiteboard_node_request.whiteboard_id = whiteboard_id

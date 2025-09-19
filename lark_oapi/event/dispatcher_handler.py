@@ -7,6 +7,7 @@ from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
 from lark_oapi.api.approval.v4.processor import *
 from lark_oapi.api.calendar.v4.processor import *
+from lark_oapi.api.compensation.v1.processor import *
 from lark_oapi.api.contact.v3.processor import *
 from lark_oapi.api.corehr.v1.processor import *
 from lark_oapi.api.corehr.v2.processor import *
@@ -335,6 +336,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.calendar.calendar.event.changed_v4" in self._processorMap:
             raise EventException("processor already registered, type: p2.calendar.calendar.event.changed_v4")
         self._processorMap["p2.calendar.calendar.event.changed_v4"] = P2CalendarCalendarEventChangedV4Processor(f)
+        return self
+
+    def register_p2_compensation_archive_changed_v1(self, f: Callable[
+        [P2CompensationArchiveChangedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.compensation.archive.changed_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.compensation.archive.changed_v1")
+        self._processorMap["p2.compensation.archive.changed_v1"] = P2CompensationArchiveChangedV1Processor(f)
         return self
 
     def register_p2_contact_custom_attr_event_updated_v3(self, f: Callable[

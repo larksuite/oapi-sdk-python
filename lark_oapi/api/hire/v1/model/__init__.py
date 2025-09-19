@@ -519,6 +519,8 @@ from .list_application_interview_request import *
 from .create_attachment_request import *
 from .get_attachment_request import *
 from .preview_attachment_request import *
+from .batch_query_background_check_order_request_body import *
+from .batch_query_background_check_order_request import *
 from .list_background_check_order_request import *
 from .search_diversity_inclusion_request_body import *
 from .search_diversity_inclusion_request import *
@@ -756,6 +758,8 @@ from .get_attachment_response_body import *
 from .get_attachment_response import *
 from .preview_attachment_response_body import *
 from .preview_attachment_response import *
+from .batch_query_background_check_order_response_body import *
+from .batch_query_background_check_order_response import *
 from .list_background_check_order_response_body import *
 from .list_background_check_order_response import *
 from .search_diversity_inclusion_response_body import *

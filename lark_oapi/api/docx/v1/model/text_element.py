@@ -10,6 +10,7 @@ from .inline_file import InlineFile
 from .undefined_element import UndefinedElement
 from .inline_block import InlineBlock
 from .equation import Equation
+from .inline_link_preview import InlineLinkPreview
 
 
 class TextElement(object):
@@ -22,6 +23,7 @@ class TextElement(object):
         "undefined": UndefinedElement,
         "inline_block": InlineBlock,
         "equation": Equation,
+        "link_preview": InlineLinkPreview,
     }
 
     def __init__(self, d=None):
@@ -33,6 +35,7 @@ class TextElement(object):
         self.undefined: Optional[UndefinedElement] = None
         self.inline_block: Optional[InlineBlock] = None
         self.equation: Optional[Equation] = None
+        self.link_preview: Optional[InlineLinkPreview] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -74,6 +77,10 @@ class TextElementBuilder(object):
 
     def equation(self, equation: Equation) -> "TextElementBuilder":
         self._text_element.equation = equation
+        return self
+
+    def link_preview(self, link_preview: InlineLinkPreview) -> "TextElementBuilder":
+        self._text_element.link_preview = link_preview
         return self
 
     def build(self) -> "TextElement":

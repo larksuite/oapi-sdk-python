@@ -22,6 +22,7 @@ class Employee(object):
         "level": str,
         "employee_type": str,
         "job_requirement_id": str,
+        "external_employment_id": str,
     }
 
     def __init__(self, d=None):
@@ -41,6 +42,7 @@ class Employee(object):
         self.level: Optional[str] = None
         self.employee_type: Optional[str] = None
         self.job_requirement_id: Optional[str] = None
+        self.external_employment_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -114,6 +116,10 @@ class EmployeeBuilder(object):
 
     def job_requirement_id(self, job_requirement_id: str) -> "EmployeeBuilder":
         self._employee.job_requirement_id = job_requirement_id
+        return self
+
+    def external_employment_id(self, external_employment_id: str) -> "EmployeeBuilder":
+        self._employee.external_employment_id = external_employment_id
         return self
 
     def build(self) -> "Employee":

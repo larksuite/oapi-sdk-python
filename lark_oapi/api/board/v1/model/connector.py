@@ -4,20 +4,31 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .connector_attached_object import ConnectorAttachedObject
 from .connector_attached_object import ConnectorAttachedObject
+from .connector_info import ConnectorInfo
+from .connector_info import ConnectorInfo
 from .connector_caption import ConnectorCaption
+from .point import Point
 
 
 class Connector(object):
     _types = {
         "start_object": ConnectorAttachedObject,
         "end_object": ConnectorAttachedObject,
+        "start": ConnectorInfo,
+        "end": ConnectorInfo,
         "captions": ConnectorCaption,
+        "shape": str,
+        "turning_points": List[Point],
     }
 
     def __init__(self, d=None):
         self.start_object: Optional[ConnectorAttachedObject] = None
         self.end_object: Optional[ConnectorAttachedObject] = None
+        self.start: Optional[ConnectorInfo] = None
+        self.end: Optional[ConnectorInfo] = None
         self.captions: Optional[ConnectorCaption] = None
+        self.shape: Optional[str] = None
+        self.turning_points: Optional[List[Point]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,8 +48,24 @@ class ConnectorBuilder(object):
         self._connector.end_object = end_object
         return self
 
+    def start(self, start: ConnectorInfo) -> "ConnectorBuilder":
+        self._connector.start = start
+        return self
+
+    def end(self, end: ConnectorInfo) -> "ConnectorBuilder":
+        self._connector.end = end
+        return self
+
     def captions(self, captions: ConnectorCaption) -> "ConnectorBuilder":
         self._connector.captions = captions
+        return self
+
+    def shape(self, shape: str) -> "ConnectorBuilder":
+        self._connector.shape = shape
+        return self
+
+    def turning_points(self, turning_points: List[Point]) -> "ConnectorBuilder":
+        self._connector.turning_points = turning_points
         return self
 
     def build(self) -> "Connector":
