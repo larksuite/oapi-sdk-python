@@ -42,6 +42,10 @@ from .location_record import *
 from .location_setting import *
 from .machine import *
 from .member_status_change import *
+from .normal_leave_balance import *
+from .normal_leave_type import *
+from .normal_leave_user_account import *
+from .normal_leave_user_first_work_time import *
 from .open_apply_time_range import *
 from .out_record import *
 from .out_time import *
@@ -74,6 +78,8 @@ from .shift_middle_time_rule import *
 from .statistics_field import *
 from .status_change import *
 from .task_result import *
+from .time_range import *
+from .time_range_list import *
 from .user_allowed_remedy import *
 from .user_approval import *
 from .user_arrange_shift_group import *
@@ -82,6 +88,7 @@ from .user_daily_shift import *
 from .user_flow import *
 from .user_id import *
 from .user_leave import *
+from .user_normal_leave_type import *
 from .user_out import *
 from .user_overtime_work import *
 from .user_setting import *
@@ -92,6 +99,7 @@ from .user_stats_data_duration import *
 from .user_stats_data_feature import *
 from .user_stats_field import *
 from .user_stats_view import *
+from .user_sub_type_account import *
 from .user_task import *
 from .user_task_remedy import *
 from .user_tmp_daily_shift import *

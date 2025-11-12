@@ -16,6 +16,8 @@ class Style(object):
         "border_color": str,
         "theme_fill_color_code": int,
         "theme_border_color_code": int,
+        "fill_color_type": int,
+        "border_color_type": int,
     }
 
     def __init__(self, d=None):
@@ -29,6 +31,8 @@ class Style(object):
         self.border_color: Optional[str] = None
         self.theme_fill_color_code: Optional[int] = None
         self.theme_border_color_code: Optional[int] = None
+        self.fill_color_type: Optional[int] = None
+        self.border_color_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -78,6 +82,14 @@ class StyleBuilder(object):
 
     def theme_border_color_code(self, theme_border_color_code: int) -> "StyleBuilder":
         self._style.theme_border_color_code = theme_border_color_code
+        return self
+
+    def fill_color_type(self, fill_color_type: int) -> "StyleBuilder":
+        self._style.fill_color_type = fill_color_type
+        return self
+
+    def border_color_type(self, border_color_type: int) -> "StyleBuilder":
+        self._style.border_color_type = border_color_type
         return self
 
     def build(self) -> "Style":

@@ -3,14 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .eco_exam_result import EcoExamResult
+from .update_result_eco_exam_request_body import UpdateResultEcoExamRequestBody
 
 
 class UpdateResultEcoExamRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.exam_id: Optional[str] = None
-        self.request_body: Optional[EcoExamResult] = None
+        self.request_body: Optional[UpdateResultEcoExamRequestBody] = None
 
     @staticmethod
     def builder() -> "UpdateResultEcoExamRequestBuilder":
@@ -31,7 +31,7 @@ class UpdateResultEcoExamRequestBuilder(object):
         self._update_result_eco_exam_request.paths["exam_id"] = str(exam_id)
         return self
 
-    def request_body(self, request_body: EcoExamResult) -> "UpdateResultEcoExamRequestBuilder":
+    def request_body(self, request_body: UpdateResultEcoExamRequestBody) -> "UpdateResultEcoExamRequestBuilder":
         self._update_result_eco_exam_request.request_body = request_body
         self._update_result_eco_exam_request.body = request_body
         return self

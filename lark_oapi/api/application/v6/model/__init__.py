@@ -53,6 +53,7 @@ from .application_visibility_user_white_black_info import *
 from .block import *
 from .block_i18n_info import *
 from .bot import *
+from .bot_display_info import *
 from .callback import *
 from .client_badge_num import *
 from .cloud_doc import *

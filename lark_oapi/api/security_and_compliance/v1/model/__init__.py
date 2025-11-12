@@ -50,6 +50,9 @@ from .notification import *
 from .openapi_log import *
 from .openapi_log_detail import *
 from .param import *
+from .policy_entity import *
+from .policy_log import *
+from .policy_log_item import *
 from .security_log_error import *
 from .simple_user import *
 from .subscribe_audit_log_file import *

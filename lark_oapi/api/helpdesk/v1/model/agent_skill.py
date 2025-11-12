@@ -15,6 +15,7 @@ class AgentSkill(object):
         "agent_ids": List[str],
         "is_default": bool,
         "agents": List[Agent],
+        "agent_skill_id": str,
     }
 
     def __init__(self, d=None):
@@ -25,6 +26,7 @@ class AgentSkill(object):
         self.agent_ids: Optional[List[str]] = None
         self.is_default: Optional[bool] = None
         self.agents: Optional[List[Agent]] = None
+        self.agent_skill_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +64,10 @@ class AgentSkillBuilder(object):
 
     def agents(self, agents: List[Agent]) -> "AgentSkillBuilder":
         self._agent_skill.agents = agents
+        return self
+
+    def agent_skill_id(self, agent_skill_id: str) -> "AgentSkillBuilder":
+        self._agent_skill.agent_skill_id = agent_skill_id
         return self
 
     def build(self) -> "AgentSkill":

@@ -12,6 +12,7 @@ class ReplaceImageRequest(object):
         "height": int,
         "align": int,
         "caption": Caption,
+        "scale": float,
     }
 
     def __init__(self, d=None):
@@ -20,6 +21,7 @@ class ReplaceImageRequest(object):
         self.height: Optional[int] = None
         self.align: Optional[int] = None
         self.caption: Optional[Caption] = None
+        self.scale: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class ReplaceImageRequestBuilder(object):
 
     def caption(self, caption: Caption) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.caption = caption
+        return self
+
+    def scale(self, scale: float) -> "ReplaceImageRequestBuilder":
+        self._replace_image_request.scale = scale
         return self
 
     def build(self) -> "ReplaceImageRequest":

@@ -13,9 +13,12 @@ from .department_id import *
 from .dialog_search_request import *
 from .doc import *
 from .doc_passage_param import *
+from .enterprise_knowledge_source_comment_param import *
 from .enterprise_knowledge_source_helpdesk_param import *
 from .enterprise_knowledge_source_lingo_param import *
+from .enterprise_knowledge_source_mail_param import *
 from .enterprise_knowledge_source_message_param import *
+from .enterprise_knowledge_source_minutes_param import *
 from .enterprise_knowledge_source_param import *
 from .enterprise_knowledge_source_space_param import *
 from .enterprise_knowledge_source_wiki_param import *

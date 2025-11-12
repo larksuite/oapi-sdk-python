@@ -27,6 +27,7 @@ class LumpSumPayment(object):
         "reference_period_start_date": str,
         "reference_period_end_date": str,
         "details": List[LumpSumPaymentDetail],
+        "binding_period_decimal": str,
     }
 
     def __init__(self, d=None):
@@ -49,6 +50,7 @@ class LumpSumPayment(object):
         self.reference_period_start_date: Optional[str] = None
         self.reference_period_end_date: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetail]] = None
+        self.binding_period_decimal: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -134,6 +136,10 @@ class LumpSumPaymentBuilder(object):
 
     def details(self, details: List[LumpSumPaymentDetail]) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.details = details
+        return self
+
+    def binding_period_decimal(self, binding_period_decimal: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.binding_period_decimal = binding_period_decimal
         return self
 
     def build(self) -> "LumpSumPayment":

@@ -15,11 +15,12 @@ def main():
     # 构造请求对象
     request: UpdateResultEcoExamRequest = UpdateResultEcoExamRequest.builder() \
         .exam_id("7178536692385679677") \
-        .request_body(EcoExamResult.builder()
+        .request_body(UpdateResultEcoExamRequestBody.builder()
                       .result("60.5")
                       .result_time("1658676234053")
                       .report_list([])
                       .detail_list([])
+                      .status(1)
                       .build()) \
         .build()
 
@@ -48,11 +49,12 @@ async def amain():
     # 构造请求对象
     request: UpdateResultEcoExamRequest = UpdateResultEcoExamRequest.builder() \
         .exam_id("7178536692385679677") \
-        .request_body(EcoExamResult.builder()
+        .request_body(UpdateResultEcoExamRequestBody.builder()
                       .result("60.5")
                       .result_time("1658676234053")
                       .report_list([])
                       .detail_list([])
+                      .status(1)
                       .build()) \
         .build()
 

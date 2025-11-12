@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n_names import I18nNames
+from .time_range_list import TimeRangeList
 
 
 class UserLeave(object):
@@ -19,6 +20,7 @@ class UserLeave(object):
         "approve_pass_time": str,
         "approve_apply_time": str,
         "idempotent_id": str,
+        "leave_detail_range_objs": List[TimeRangeList],
     }
 
     def __init__(self, d=None):
@@ -34,6 +36,7 @@ class UserLeave(object):
         self.approve_pass_time: Optional[str] = None
         self.approve_apply_time: Optional[str] = None
         self.idempotent_id: Optional[str] = None
+        self.leave_detail_range_objs: Optional[List[TimeRangeList]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -91,6 +94,10 @@ class UserLeaveBuilder(object):
 
     def idempotent_id(self, idempotent_id: str) -> "UserLeaveBuilder":
         self._user_leave.idempotent_id = idempotent_id
+        return self
+
+    def leave_detail_range_objs(self, leave_detail_range_objs: List[TimeRangeList]) -> "UserLeaveBuilder":
+        self._user_leave.leave_detail_range_objs = leave_detail_range_objs
         return self
 
     def build(self) -> "UserLeave":

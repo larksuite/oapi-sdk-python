@@ -25,6 +25,7 @@ from .connector_instance_definition import *
 from .connector_instance_ref_info import *
 from .criterion import *
 from .data_model_permission_access import *
+from .data_model_permission_v2 import *
 from .dataset import *
 from .dataset_field import *
 from .dataset_field_type import *
@@ -38,7 +39,10 @@ from .event import *
 from .event_subscribe_rule import *
 from .event_subscriber import *
 from .external_user import *
+from .field_api_name_simple_info import *
 from .field_permission_access import *
+from .field_permission_config_v2 import *
+from .field_permission_v2 import *
 from .file import *
 from .flow import *
 from .function import *
@@ -64,6 +68,7 @@ from .object_search_layout import *
 from .object_settings import *
 from .object_settings_for_query import *
 from .operation_permission_access import *
+from .operation_permission_v2 import *
 from .order_condition import *
 from .page_permission_access import *
 from .page_permission_v2 import *
@@ -71,9 +76,12 @@ from .permission_name_info import *
 from .record import *
 from .record_group_by_item import *
 from .record_permission import *
+from .record_permission_v2 import *
 from .record_result import *
 from .record_result_error import *
+from .record_scope_v2 import *
 from .role import *
+from .role_api_name_simple_info import *
 from .role_basic import *
 from .role_basic_mask import *
 from .role_member import *
@@ -89,6 +97,8 @@ from .sub_page_simple_info_v2 import *
 from .task_info import *
 from .tenant import *
 from .user import *
+from .user_scope_v2 import *
+from .user_simple_info import *
 from .user_task import *
 from .user_task_opinion import *
 from .user_task_summary_type import *

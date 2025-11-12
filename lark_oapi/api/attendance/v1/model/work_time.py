@@ -10,6 +10,7 @@ class WorkTime(object):
         "work_end_time": str,
         "settlement_type": str,
         "check_fail_reason": str,
+        "overtime_date": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class WorkTime(object):
         self.work_end_time: Optional[str] = None
         self.settlement_type: Optional[str] = None
         self.check_fail_reason: Optional[str] = None
+        self.overtime_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class WorkTimeBuilder(object):
 
     def check_fail_reason(self, check_fail_reason: str) -> "WorkTimeBuilder":
         self._work_time.check_fail_reason = check_fail_reason
+        return self
+
+    def overtime_date(self, overtime_date: str) -> "WorkTimeBuilder":
+        self._work_time.overtime_date = overtime_date
         return self
 
     def build(self) -> "WorkTime":

@@ -17,7 +17,7 @@ class Ticket(object):
         "ticket_id": str,
         "helpdesk_id": str,
         "guest": TicketUser,
-        "comments": Comments,
+        "comments": List[Comments],
         "ticket_type": int,
         "status": int,
         "score": int,
@@ -46,7 +46,7 @@ class Ticket(object):
         self.ticket_id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
         self.guest: Optional[TicketUser] = None
-        self.comments: Optional[Comments] = None
+        self.comments: Optional[List[Comments]] = None
         self.ticket_type: Optional[int] = None
         self.status: Optional[int] = None
         self.score: Optional[int] = None
@@ -92,7 +92,7 @@ class TicketBuilder(object):
         self._ticket.guest = guest
         return self
 
-    def comments(self, comments: Comments) -> "TicketBuilder":
+    def comments(self, comments: List[Comments]) -> "TicketBuilder":
         self._ticket.comments = comments
         return self
 

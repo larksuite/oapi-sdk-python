@@ -12,6 +12,7 @@ class Image(object):
         "token": str,
         "align": int,
         "caption": Caption,
+        "scale": float,
     }
 
     def __init__(self, d=None):
@@ -20,6 +21,7 @@ class Image(object):
         self.token: Optional[str] = None
         self.align: Optional[int] = None
         self.caption: Optional[Caption] = None
+        self.scale: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class ImageBuilder(object):
 
     def caption(self, caption: Caption) -> "ImageBuilder":
         self._image.caption = caption
+        return self
+
+    def scale(self, scale: float) -> "ImageBuilder":
+        self._image.scale = scale
         return self
 
     def build(self) -> "Image":

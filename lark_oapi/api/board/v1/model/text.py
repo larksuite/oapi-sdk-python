@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .rich_text import RichText
 
 
 class Text(object):
@@ -19,6 +20,9 @@ class Text(object):
         "angle": int,
         "theme_text_color_code": int,
         "theme_text_background_color_code": int,
+        "rich_text": RichText,
+        "text_color_type": int,
+        "text_background_color_type": int,
     }
 
     def __init__(self, d=None):
@@ -35,6 +39,9 @@ class Text(object):
         self.angle: Optional[int] = None
         self.theme_text_color_code: Optional[int] = None
         self.theme_text_background_color_code: Optional[int] = None
+        self.rich_text: Optional[RichText] = None
+        self.text_color_type: Optional[int] = None
+        self.text_background_color_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -96,6 +103,18 @@ class TextBuilder(object):
 
     def theme_text_background_color_code(self, theme_text_background_color_code: int) -> "TextBuilder":
         self._text.theme_text_background_color_code = theme_text_background_color_code
+        return self
+
+    def rich_text(self, rich_text: RichText) -> "TextBuilder":
+        self._text.rich_text = rich_text
+        return self
+
+    def text_color_type(self, text_color_type: int) -> "TextBuilder":
+        self._text.text_color_type = text_color_type
+        return self
+
+    def text_background_color_type(self, text_background_color_type: int) -> "TextBuilder":
+        self._text.text_background_color_type = text_background_color_type
         return self
 
     def build(self) -> "Text":

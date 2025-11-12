@@ -11,6 +11,7 @@ class MindMapNode(object):
         "z_index": int,
         "layout_position": str,
         "children": List[str],
+        "collapsed": bool,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class MindMapNode(object):
         self.z_index: Optional[int] = None
         self.layout_position: Optional[str] = None
         self.children: Optional[List[str]] = None
+        self.collapsed: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class MindMapNodeBuilder(object):
 
     def children(self, children: List[str]) -> "MindMapNodeBuilder":
         self._mind_map_node.children = children
+        return self
+
+    def collapsed(self, collapsed: bool) -> "MindMapNodeBuilder":
+        self._mind_map_node.collapsed = collapsed
         return self
 
     def build(self) -> "MindMapNode":

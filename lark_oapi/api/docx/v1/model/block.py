@@ -57,6 +57,7 @@ from .sub_page_list import SubPageList
 from .ai_template import AiTemplate
 from .reference_base import ReferenceBase
 from .project import Project
+from .meeting_notes_qa import MeetingNotesQa
 
 
 class Block(object):
@@ -121,6 +122,7 @@ class Block(object):
         "ai_template": AiTemplate,
         "reference_base": ReferenceBase,
         "project": Project,
+        "meeting_notes_qa": MeetingNotesQa,
     }
 
     def __init__(self, d=None):
@@ -184,6 +186,7 @@ class Block(object):
         self.ai_template: Optional[AiTemplate] = None
         self.reference_base: Optional[ReferenceBase] = None
         self.project: Optional[Project] = None
+        self.meeting_notes_qa: Optional[MeetingNotesQa] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -433,6 +436,10 @@ class BlockBuilder(object):
 
     def project(self, project: Project) -> "BlockBuilder":
         self._block.project = project
+        return self
+
+    def meeting_notes_qa(self, meeting_notes_qa: MeetingNotesQa) -> "BlockBuilder":
+        self._block.meeting_notes_qa = meeting_notes_qa
         return self
 
     def build(self) -> "Block":

@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_whiteboard_node_request import CreateWhiteboardNodeRequest
 from ..model.create_whiteboard_node_response import CreateWhiteboardNodeResponse
+from ..model.create_plantuml_whiteboard_node_request import CreatePlantumlWhiteboardNodeRequest
+from ..model.create_plantuml_whiteboard_node_response import CreatePlantumlWhiteboardNodeResponse
 from ..model.list_whiteboard_node_request import ListWhiteboardNodeRequest
 from ..model.list_whiteboard_node_response import ListWhiteboardNodeResponse
 
@@ -53,6 +55,46 @@ class WhiteboardNode(object):
 
         # 反序列化
         response: CreateWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateWhiteboardNodeResponse)
+        response.raw = resp
+
+        return response
+
+    def create_plantuml(self, request: CreatePlantumlWhiteboardNodeRequest,
+                        option: Optional[RequestOption] = None) -> CreatePlantumlWhiteboardNodeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreatePlantumlWhiteboardNodeResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate_plantuml(self, request: CreatePlantumlWhiteboardNodeRequest,
+                               option: Optional[RequestOption] = None) -> CreatePlantumlWhiteboardNodeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreatePlantumlWhiteboardNodeResponse)
         response.raw = resp
 
         return response

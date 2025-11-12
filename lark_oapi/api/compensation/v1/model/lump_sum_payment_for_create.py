@@ -18,6 +18,7 @@ class LumpSumPaymentForCreate(object):
         "reference_period_end_date": str,
         "details": List[LumpSumPaymentDetailForCreate],
         "remark": str,
+        "binding_period_decimal": str,
     }
 
     def __init__(self, d=None):
@@ -32,6 +33,7 @@ class LumpSumPaymentForCreate(object):
         self.reference_period_end_date: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetailForCreate]] = None
         self.remark: Optional[str] = None
+        self.binding_period_decimal: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -85,6 +87,10 @@ class LumpSumPaymentForCreateBuilder(object):
 
     def remark(self, remark: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.remark = remark
+        return self
+
+    def binding_period_decimal(self, binding_period_decimal: str) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.binding_period_decimal = binding_period_decimal
         return self
 
     def build(self) -> "LumpSumPaymentForCreate":

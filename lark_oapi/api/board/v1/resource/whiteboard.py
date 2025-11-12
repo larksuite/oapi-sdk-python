@@ -13,6 +13,8 @@ from ..model.download_as_image_whiteboard_request import DownloadAsImageWhiteboa
 from ..model.download_as_image_whiteboard_response import DownloadAsImageWhiteboardResponse
 from ..model.theme_whiteboard_request import ThemeWhiteboardRequest
 from ..model.theme_whiteboard_response import ThemeWhiteboardResponse
+from ..model.update_theme_whiteboard_request import UpdateThemeWhiteboardRequest
+from ..model.update_theme_whiteboard_response import UpdateThemeWhiteboardResponse
 
 
 class Whiteboard(object):
@@ -104,6 +106,46 @@ class Whiteboard(object):
 
         # 反序列化
         response: ThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8), ThemeWhiteboardResponse)
+        response.raw = resp
+
+        return response
+
+    def update_theme(self, request: UpdateThemeWhiteboardRequest,
+                     option: Optional[RequestOption] = None) -> UpdateThemeWhiteboardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateThemeWhiteboardResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate_theme(self, request: UpdateThemeWhiteboardRequest,
+                            option: Optional[RequestOption] = None) -> UpdateThemeWhiteboardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UpdateThemeWhiteboardResponse)
         response.raw = resp
 
         return response

@@ -7,6 +7,9 @@ from .enterprise_knowledge_source_wiki_param import EnterpriseKnowledgeSourceWik
 from .enterprise_knowledge_source_message_param import EnterpriseKnowledgeSourceMessageParam
 from .enterprise_knowledge_source_helpdesk_param import EnterpriseKnowledgeSourceHelpdeskParam
 from .enterprise_knowledge_source_lingo_param import EnterpriseKnowledgeSourceLingoParam
+from .enterprise_knowledge_source_comment_param import EnterpriseKnowledgeSourceCommentParam
+from .enterprise_knowledge_source_minutes_param import EnterpriseKnowledgeSourceMinutesParam
+from .enterprise_knowledge_source_mail_param import EnterpriseKnowledgeSourceMailParam
 
 
 class EnterpriseKnowledgeSourceParam(object):
@@ -16,6 +19,9 @@ class EnterpriseKnowledgeSourceParam(object):
         "message": EnterpriseKnowledgeSourceMessageParam,
         "helpdesk_faq": EnterpriseKnowledgeSourceHelpdeskParam,
         "lingo": EnterpriseKnowledgeSourceLingoParam,
+        "comment": EnterpriseKnowledgeSourceCommentParam,
+        "minutes": EnterpriseKnowledgeSourceMinutesParam,
+        "mail": EnterpriseKnowledgeSourceMailParam,
     }
 
     def __init__(self, d=None):
@@ -24,6 +30,9 @@ class EnterpriseKnowledgeSourceParam(object):
         self.message: Optional[EnterpriseKnowledgeSourceMessageParam] = None
         self.helpdesk_faq: Optional[EnterpriseKnowledgeSourceHelpdeskParam] = None
         self.lingo: Optional[EnterpriseKnowledgeSourceLingoParam] = None
+        self.comment: Optional[EnterpriseKnowledgeSourceCommentParam] = None
+        self.minutes: Optional[EnterpriseKnowledgeSourceMinutesParam] = None
+        self.mail: Optional[EnterpriseKnowledgeSourceMailParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +63,18 @@ class EnterpriseKnowledgeSourceParamBuilder(object):
 
     def lingo(self, lingo: EnterpriseKnowledgeSourceLingoParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.lingo = lingo
+        return self
+
+    def comment(self, comment: EnterpriseKnowledgeSourceCommentParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+        self._enterprise_knowledge_source_param.comment = comment
+        return self
+
+    def minutes(self, minutes: EnterpriseKnowledgeSourceMinutesParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+        self._enterprise_knowledge_source_param.minutes = minutes
+        return self
+
+    def mail(self, mail: EnterpriseKnowledgeSourceMailParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+        self._enterprise_knowledge_source_param.mail = mail
         return self
 
     def build(self) -> "EnterpriseKnowledgeSourceParam":

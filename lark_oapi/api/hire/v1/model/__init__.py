@@ -544,6 +544,7 @@ from .batch_update_eco_background_check_package_request import *
 from .create_eco_background_check_package_request import *
 from .login_info_eco_exam_request_body import *
 from .login_info_eco_exam_request import *
+from .update_result_eco_exam_request_body import *
 from .update_result_eco_exam_request import *
 from .batch_delete_eco_exam_paper_request_body import *
 from .batch_delete_eco_exam_paper_request import *
