@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .rec_rule_condition import RecRuleCondition
+from .condition_group import ConditionGroup
 
 
 class RecRule(object):
@@ -11,6 +12,8 @@ class RecRule(object):
         "conjunction": str,
         "perm": int,
         "other_perm": int,
+        "condition_groups": List[ConditionGroup],
+        "display_rec_rule_version": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +21,8 @@ class RecRule(object):
         self.conjunction: Optional[str] = None
         self.perm: Optional[int] = None
         self.other_perm: Optional[int] = None
+        self.condition_groups: Optional[List[ConditionGroup]] = None
+        self.display_rec_rule_version: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +48,14 @@ class RecRuleBuilder(object):
 
     def other_perm(self, other_perm: int) -> "RecRuleBuilder":
         self._rec_rule.other_perm = other_perm
+        return self
+
+    def condition_groups(self, condition_groups: List[ConditionGroup]) -> "RecRuleBuilder":
+        self._rec_rule.condition_groups = condition_groups
+        return self
+
+    def display_rec_rule_version(self, display_rec_rule_version: int) -> "RecRuleBuilder":
+        self._rec_rule.display_rec_rule_version = display_rec_rule_version
         return self
 
     def build(self) -> "RecRule":

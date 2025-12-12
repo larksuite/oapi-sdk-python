@@ -6,9 +6,13 @@ from lark_oapi.core.construct import init
 
 class SendUserMailboxMessageResponseBody(object):
     _types = {
+        "message_id": str,
+        "thread_id": str,
     }
 
     def __init__(self, d=None):
+        self.message_id: Optional[str] = None
+        self.thread_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +23,14 @@ class SendUserMailboxMessageResponseBody(object):
 class SendUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._send_user_mailbox_message_response_body = SendUserMailboxMessageResponseBody()
+
+    def message_id(self, message_id: str) -> "SendUserMailboxMessageResponseBodyBuilder":
+        self._send_user_mailbox_message_response_body.message_id = message_id
+        return self
+
+    def thread_id(self, thread_id: str) -> "SendUserMailboxMessageResponseBodyBuilder":
+        self._send_user_mailbox_message_response_body.thread_id = thread_id
+        return self
 
     def build(self) -> "SendUserMailboxMessageResponseBody":
         return self._send_user_mailbox_message_response_body

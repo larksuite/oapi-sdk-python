@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_corehr_common_data_id_user_mapping_changed_v1 import P2CorehrCommonDataIdUserMappingChangedV1
 from .model.p2_corehr_common_data_meta_data_updated_v1 import P2CorehrCommonDataMetaDataUpdatedV1
 from .model.p2_corehr_contract_created_v1 import P2CorehrContractCreatedV1
 from .model.p2_corehr_contract_deleted_v1 import P2CorehrContractDeletedV1
@@ -30,6 +31,17 @@ from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
 from .model.p2_corehr_person_deleted_v1 import P2CorehrPersonDeletedV1
 from .model.p2_corehr_person_updated_v1 import P2CorehrPersonUpdatedV1
 from .model.p2_corehr_pre_hire_updated_v1 import P2CorehrPreHireUpdatedV1
+
+
+class P2CorehrCommonDataIdUserMappingChangedV1Processor(IEventProcessor[P2CorehrCommonDataIdUserMappingChangedV1]):
+    def __init__(self, f: Callable[[P2CorehrCommonDataIdUserMappingChangedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCommonDataIdUserMappingChangedV1]:
+        return P2CorehrCommonDataIdUserMappingChangedV1
+
+    def do(self, data: P2CorehrCommonDataIdUserMappingChangedV1) -> None:
+        self.f(data)
 
 
 class P2CorehrCommonDataMetaDataUpdatedV1Processor(IEventProcessor[P2CorehrCommonDataMetaDataUpdatedV1]):

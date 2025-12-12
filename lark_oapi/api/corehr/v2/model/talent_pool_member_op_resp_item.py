@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .error_info import ErrorInfo
 
 
 class TalentPoolMemberOpRespItem(object):
@@ -9,16 +10,14 @@ class TalentPoolMemberOpRespItem(object):
         "employment_id": str,
         "talent_pool_ref": str,
         "success": bool,
-        "err_msg": str,
-        "err_code": int,
+        "errs": List[ErrorInfo],
     }
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.talent_pool_ref: Optional[str] = None
         self.success: Optional[bool] = None
-        self.err_msg: Optional[str] = None
-        self.err_code: Optional[int] = None
+        self.errs: Optional[List[ErrorInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,12 +41,8 @@ class TalentPoolMemberOpRespItemBuilder(object):
         self._talent_pool_member_op_resp_item.success = success
         return self
 
-    def err_msg(self, err_msg: str) -> "TalentPoolMemberOpRespItemBuilder":
-        self._talent_pool_member_op_resp_item.err_msg = err_msg
-        return self
-
-    def err_code(self, err_code: int) -> "TalentPoolMemberOpRespItemBuilder":
-        self._talent_pool_member_op_resp_item.err_code = err_code
+    def errs(self, errs: List[ErrorInfo]) -> "TalentPoolMemberOpRespItemBuilder":
+        self._talent_pool_member_op_resp_item.errs = errs
         return self
 
     def build(self) -> "TalentPoolMemberOpRespItem":

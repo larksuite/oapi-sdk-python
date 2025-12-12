@@ -3,15 +3,18 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .external_instance import ExternalInstance
+from .process_record import ProcessRecord
 
 
 class CreateExternalInstanceResponseBody(object):
     _types = {
         "data": ExternalInstance,
+        "process_record": ProcessRecord,
     }
 
     def __init__(self, d=None):
         self.data: Optional[ExternalInstance] = None
+        self.process_record: Optional[ProcessRecord] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +28,10 @@ class CreateExternalInstanceResponseBodyBuilder(object):
 
     def data(self, data: ExternalInstance) -> "CreateExternalInstanceResponseBodyBuilder":
         self._create_external_instance_response_body.data = data
+        return self
+
+    def process_record(self, process_record: ProcessRecord) -> "CreateExternalInstanceResponseBodyBuilder":
+        self._create_external_instance_response_body.process_record = process_record
         return self
 
     def build(self) -> "CreateExternalInstanceResponseBody":

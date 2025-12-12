@@ -33,6 +33,7 @@ def main():
                       .title("@i18n@1")
                       .title_display_method(0)
                       .node_auto_approval_list([])
+                      .with_link(bool)
                       .build()) \
         .build()
 
@@ -79,6 +80,7 @@ async def amain():
                       .title("@i18n@1")
                       .title_display_method(0)
                       .node_auto_approval_list([])
+                      .with_link(bool)
                       .build()) \
         .build()
 

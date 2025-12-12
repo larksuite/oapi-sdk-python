@@ -3,14 +3,15 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
+from .send_user_mailbox_message_response_body import SendUserMailboxMessageResponseBody
 
 
 class SendUserMailboxMessageResponse(BaseResponse):
     _types = {
-
+        "data": SendUserMailboxMessageResponseBody
     }
 
     def __init__(self, d=None):
         super().__init__(d)
-
+        self.data: Optional[SendUserMailboxMessageResponseBody] = None
         init(self, d, self._types)

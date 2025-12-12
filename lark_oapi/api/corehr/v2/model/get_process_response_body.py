@@ -13,6 +13,7 @@ from .process_done_item import ProcessDoneItem
 from .process_system_todo_item import ProcessSystemTodoItem
 from .process_system_done_item import ProcessSystemDoneItem
 from .process_comment_info import ProcessCommentInfo
+from .dataengine_i18n import DataengineI18n
 
 
 class GetProcessResponseBody(object):
@@ -38,6 +39,7 @@ class GetProcessResponseBody(object):
         "comment_infos": List[ProcessCommentInfo],
         "original_process_id": str,
         "is_last_completed_correct_process": bool,
+        "process_name": DataengineI18n,
     }
 
     def __init__(self, d=None):
@@ -62,6 +64,7 @@ class GetProcessResponseBody(object):
         self.comment_infos: Optional[List[ProcessCommentInfo]] = None
         self.original_process_id: Optional[str] = None
         self.is_last_completed_correct_process: Optional[bool] = None
+        self.process_name: Optional[DataengineI18n] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -156,6 +159,10 @@ class GetProcessResponseBodyBuilder(object):
     def is_last_completed_correct_process(self,
                                           is_last_completed_correct_process: bool) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.is_last_completed_correct_process = is_last_completed_correct_process
+        return self
+
+    def process_name(self, process_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.process_name = process_name
         return self
 
     def build(self) -> "GetProcessResponseBody":

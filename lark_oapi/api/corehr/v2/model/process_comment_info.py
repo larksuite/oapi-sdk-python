@@ -11,6 +11,10 @@ class ProcessCommentInfo(object):
         "commentor_name": DataengineI18n,
         "comment_time": str,
         "comment_msg": str,
+        "at_user_ids": List[str],
+        "file_count": int,
+        "image_count": int,
+        "comment_id": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +22,10 @@ class ProcessCommentInfo(object):
         self.commentor_name: Optional[DataengineI18n] = None
         self.comment_time: Optional[str] = None
         self.comment_msg: Optional[str] = None
+        self.at_user_ids: Optional[List[str]] = None
+        self.file_count: Optional[int] = None
+        self.image_count: Optional[int] = None
+        self.comment_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +51,22 @@ class ProcessCommentInfoBuilder(object):
 
     def comment_msg(self, comment_msg: str) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.comment_msg = comment_msg
+        return self
+
+    def at_user_ids(self, at_user_ids: List[str]) -> "ProcessCommentInfoBuilder":
+        self._process_comment_info.at_user_ids = at_user_ids
+        return self
+
+    def file_count(self, file_count: int) -> "ProcessCommentInfoBuilder":
+        self._process_comment_info.file_count = file_count
+        return self
+
+    def image_count(self, image_count: int) -> "ProcessCommentInfoBuilder":
+        self._process_comment_info.image_count = image_count
+        return self
+
+    def comment_id(self, comment_id: str) -> "ProcessCommentInfoBuilder":
+        self._process_comment_info.comment_id = comment_id
         return self
 
     def build(self) -> "ProcessCommentInfo":

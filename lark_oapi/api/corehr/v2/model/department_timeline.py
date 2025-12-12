@@ -21,6 +21,7 @@ class DepartmentTimeline(object):
         "active": bool,
         "descriptions": List[I18n],
         "custom_fields": List[CustomFieldData],
+        "expiration_date": str,
     }
 
     def __init__(self, d=None):
@@ -35,6 +36,7 @@ class DepartmentTimeline(object):
         self.active: Optional[bool] = None
         self.descriptions: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.expiration_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -88,6 +90,10 @@ class DepartmentTimelineBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DepartmentTimelineBuilder":
         self._department_timeline.custom_fields = custom_fields
+        return self
+
+    def expiration_date(self, expiration_date: str) -> "DepartmentTimelineBuilder":
+        self._department_timeline.expiration_date = expiration_date
         return self
 
     def build(self) -> "DepartmentTimeline":

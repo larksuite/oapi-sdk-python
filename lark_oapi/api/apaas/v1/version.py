@@ -18,3 +18,6 @@ class V1(object):
         self.seat_activity: SeatActivity = SeatActivity(config)
         self.seat_assignment: SeatAssignment = SeatAssignment(config)
         self.user_task: UserTask = UserTask(config)
+        self.workspace: Workspace = Workspace(config)
+        self.workspace_table: WorkspaceTable = WorkspaceTable(config)
+        self.workspace_view: WorkspaceView = WorkspaceView(config)

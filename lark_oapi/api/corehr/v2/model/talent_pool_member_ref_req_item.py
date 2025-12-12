@@ -2,6 +2,8 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .i18n import I18n
+from .i18n import I18n
 from .object_field_data import ObjectFieldData
 
 
@@ -9,19 +11,21 @@ class TalentPoolMemberRefReqItem(object):
     _types = {
         "employment_id": str,
         "tagged_at_date": str,
-        "in_reason": str,
+        "reason_for_joining": List[I18n],
         "removed_at_date": str,
-        "out_reason": str,
+        "reason_for_removal": List[I18n],
         "custom_fields": List[ObjectFieldData],
+        "talent_pool_ref": str,
     }
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.tagged_at_date: Optional[str] = None
-        self.in_reason: Optional[str] = None
+        self.reason_for_joining: Optional[List[I18n]] = None
         self.removed_at_date: Optional[str] = None
-        self.out_reason: Optional[str] = None
+        self.reason_for_removal: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.talent_pool_ref: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -41,20 +45,24 @@ class TalentPoolMemberRefReqItemBuilder(object):
         self._talent_pool_member_ref_req_item.tagged_at_date = tagged_at_date
         return self
 
-    def in_reason(self, in_reason: str) -> "TalentPoolMemberRefReqItemBuilder":
-        self._talent_pool_member_ref_req_item.in_reason = in_reason
+    def reason_for_joining(self, reason_for_joining: List[I18n]) -> "TalentPoolMemberRefReqItemBuilder":
+        self._talent_pool_member_ref_req_item.reason_for_joining = reason_for_joining
         return self
 
     def removed_at_date(self, removed_at_date: str) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.removed_at_date = removed_at_date
         return self
 
-    def out_reason(self, out_reason: str) -> "TalentPoolMemberRefReqItemBuilder":
-        self._talent_pool_member_ref_req_item.out_reason = out_reason
+    def reason_for_removal(self, reason_for_removal: List[I18n]) -> "TalentPoolMemberRefReqItemBuilder":
+        self._talent_pool_member_ref_req_item.reason_for_removal = reason_for_removal
         return self
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.custom_fields = custom_fields
+        return self
+
+    def talent_pool_ref(self, talent_pool_ref: str) -> "TalentPoolMemberRefReqItemBuilder":
+        self._talent_pool_member_ref_req_item.talent_pool_ref = talent_pool_ref
         return self
 
     def build(self) -> "TalentPoolMemberRefReqItem":

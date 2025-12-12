@@ -11,6 +11,15 @@ class LocationAddressUpdate(object):
         "region_id": str,
         "city_id": str,
         "distinct_id": str,
+        "address_line1": str,
+        "address_line2": str,
+        "address_line3": str,
+        "address_line4": str,
+        "address_line5": str,
+        "address_line6": str,
+        "address_line7": str,
+        "address_line8": str,
+        "address_line9": str,
         "local_address_line1": str,
         "local_address_line2": str,
         "local_address_line3": str,
@@ -31,6 +40,15 @@ class LocationAddressUpdate(object):
         self.region_id: Optional[str] = None
         self.city_id: Optional[str] = None
         self.distinct_id: Optional[str] = None
+        self.address_line1: Optional[str] = None
+        self.address_line2: Optional[str] = None
+        self.address_line3: Optional[str] = None
+        self.address_line4: Optional[str] = None
+        self.address_line5: Optional[str] = None
+        self.address_line6: Optional[str] = None
+        self.address_line7: Optional[str] = None
+        self.address_line8: Optional[str] = None
+        self.address_line9: Optional[str] = None
         self.local_address_line1: Optional[str] = None
         self.local_address_line2: Optional[str] = None
         self.local_address_line3: Optional[str] = None
@@ -69,6 +87,42 @@ class LocationAddressUpdateBuilder(object):
 
     def distinct_id(self, distinct_id: str) -> "LocationAddressUpdateBuilder":
         self._location_address_update.distinct_id = distinct_id
+        return self
+
+    def address_line1(self, address_line1: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line1 = address_line1
+        return self
+
+    def address_line2(self, address_line2: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line2 = address_line2
+        return self
+
+    def address_line3(self, address_line3: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line3 = address_line3
+        return self
+
+    def address_line4(self, address_line4: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line4 = address_line4
+        return self
+
+    def address_line5(self, address_line5: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line5 = address_line5
+        return self
+
+    def address_line6(self, address_line6: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line6 = address_line6
+        return self
+
+    def address_line7(self, address_line7: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line7 = address_line7
+        return self
+
+    def address_line8(self, address_line8: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line8 = address_line8
+        return self
+
+    def address_line9(self, address_line9: str) -> "LocationAddressUpdateBuilder":
+        self._location_address_update.address_line9 = address_line9
         return self
 
     def local_address_line1(self, local_address_line1: str) -> "LocationAddressUpdateBuilder":

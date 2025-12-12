@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.flow_variable_data_process_request import FlowVariableDataProcessRequest
+from ..model.flow_variable_data_process_response import FlowVariableDataProcessResponse
 from ..model.get_process_request import GetProcessRequest
 from ..model.get_process_response import GetProcessResponse
 from ..model.list_process_request import ListProcessRequest
@@ -18,6 +20,46 @@ from ..model.list_process_response import ListProcessResponse
 class Process(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def flow_variable_data(self, request: FlowVariableDataProcessRequest,
+                           option: Optional[RequestOption] = None) -> FlowVariableDataProcessResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: FlowVariableDataProcessResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   FlowVariableDataProcessResponse)
+        response.raw = resp
+
+        return response
+
+    async def aflow_variable_data(self, request: FlowVariableDataProcessRequest,
+                                  option: Optional[RequestOption] = None) -> FlowVariableDataProcessResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: FlowVariableDataProcessResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   FlowVariableDataProcessResponse)
+        response.raw = resp
+
+        return response
 
     def get(self, request: GetProcessRequest, option: Optional[RequestOption] = None) -> GetProcessResponse:
         if option is None:

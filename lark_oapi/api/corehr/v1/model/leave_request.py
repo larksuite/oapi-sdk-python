@@ -6,6 +6,7 @@ from .i18n import I18n
 from .i18n import I18n
 from .leave_request_detail import LeaveRequestDetail
 from .leave_process_info import LeaveProcessInfo
+from .leave_extend_item import LeaveExtendItem
 
 
 class LeaveRequest(object):
@@ -39,6 +40,7 @@ class LeaveRequest(object):
         "leave_return_process_id": List[str],
         "wd_paid_type": int,
         "leave_correct_process_info": List[LeaveProcessInfo],
+        "workday_extend_infos": List[LeaveExtendItem],
     }
 
     def __init__(self, d=None):
@@ -71,6 +73,7 @@ class LeaveRequest(object):
         self.leave_return_process_id: Optional[List[str]] = None
         self.wd_paid_type: Optional[int] = None
         self.leave_correct_process_info: Optional[List[LeaveProcessInfo]] = None
+        self.workday_extend_infos: Optional[List[LeaveExtendItem]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -196,6 +199,10 @@ class LeaveRequestBuilder(object):
 
     def leave_correct_process_info(self, leave_correct_process_info: List[LeaveProcessInfo]) -> "LeaveRequestBuilder":
         self._leave_request.leave_correct_process_info = leave_correct_process_info
+        return self
+
+    def workday_extend_infos(self, workday_extend_infos: List[LeaveExtendItem]) -> "LeaveRequestBuilder":
+        self._leave_request.workday_extend_infos = workday_extend_infos
         return self
 
     def build(self) -> "LeaveRequest":

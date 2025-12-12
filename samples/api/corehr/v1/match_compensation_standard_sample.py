@@ -31,6 +31,14 @@ def main():
         .cpst_plan_id("6967639606963471118") \
         .cpst_salary_level_id("6967639606963471119") \
         .effective_time("1660924800000") \
+        .performance_review_period_id("7527790505990932012") \
+        .performance_indicator_id("7382324314454492716") \
+        .performance_score_grade_id("7382324475995670060") \
+        .custom_org_1_ids("7530538330711508524") \
+        .custom_org_2_ids("7530538330711508524") \
+        .custom_org_3_ids("7530538330711508524") \
+        .custom_org_4_ids("7530538330711508524") \
+        .custom_org_5_ids("7530538330711508524") \
         .build()
 
     # 发起请求
@@ -74,6 +82,14 @@ async def amain():
         .cpst_plan_id("6967639606963471118") \
         .cpst_salary_level_id("6967639606963471119") \
         .effective_time("1660924800000") \
+        .performance_review_period_id("7527790505990932012") \
+        .performance_indicator_id("7382324314454492716") \
+        .performance_score_grade_id("7382324475995670060") \
+        .custom_org_1_ids("7530538330711508524") \
+        .custom_org_2_ids("7530538330711508524") \
+        .custom_org_3_ids("7530538330711508524") \
+        .custom_org_4_ids("7530538330711508524") \
+        .custom_org_5_ids("7530538330711508524") \
         .build()
 
     # 发起请求

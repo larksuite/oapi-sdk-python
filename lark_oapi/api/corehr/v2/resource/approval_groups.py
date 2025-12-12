@@ -19,6 +19,10 @@ from ..model.open_query_job_change_list_by_ids_approval_groups_request import \
     OpenQueryJobChangeListByIdsApprovalGroupsRequest
 from ..model.open_query_job_change_list_by_ids_approval_groups_response import \
     OpenQueryJobChangeListByIdsApprovalGroupsResponse
+from ..model.open_query_position_change_list_by_ids_approval_groups_request import \
+    OpenQueryPositionChangeListByIdsApprovalGroupsRequest
+from ..model.open_query_position_change_list_by_ids_approval_groups_response import \
+    OpenQueryPositionChangeListByIdsApprovalGroupsResponse
 
 
 class ApprovalGroups(object):
@@ -144,6 +148,49 @@ class ApprovalGroups(object):
         # 反序列化
         response: OpenQueryJobChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                                      OpenQueryJobChangeListByIdsApprovalGroupsResponse)
+        response.raw = resp
+
+        return response
+
+    def open_query_position_change_list_by_ids(self, request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
+                                               option: Optional[
+                                                   RequestOption] = None) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                          OpenQueryPositionChangeListByIdsApprovalGroupsResponse)
+        response.raw = resp
+
+        return response
+
+    async def aopen_query_position_change_list_by_ids(self,
+                                                      request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
+                                                      option: Optional[
+                                                          RequestOption] = None) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                          OpenQueryPositionChangeListByIdsApprovalGroupsResponse)
         response.raw = resp
 
         return response

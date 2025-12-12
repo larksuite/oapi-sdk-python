@@ -43,6 +43,7 @@ def main():
                       .work_shift(Enum.builder().build())
                       .compensation_type(Enum.builder().build())
                       .service_company("6890452208593372680")
+                      .employee_subtype_id("6890452208593372680")
                       .pathway_id("6890452208593372671")
                       .build()) \
         .build()
@@ -100,6 +101,7 @@ async def amain():
                       .work_shift(Enum.builder().build())
                       .compensation_type(Enum.builder().build())
                       .service_company("6890452208593372680")
+                      .employee_subtype_id("6890452208593372680")
                       .pathway_id("6890452208593372671")
                       .build()) \
         .build()

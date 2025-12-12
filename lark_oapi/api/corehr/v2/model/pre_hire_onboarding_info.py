@@ -26,6 +26,7 @@ class PreHireOnboardingInfo(object):
         "flow_id": str,
         "check_in_time": str,
         "check_in_method": Enum,
+        "withdrawn_reason": str,
     }
 
     def __init__(self, d=None):
@@ -45,6 +46,7 @@ class PreHireOnboardingInfo(object):
         self.flow_id: Optional[str] = None
         self.check_in_time: Optional[str] = None
         self.check_in_method: Optional[Enum] = None
+        self.withdrawn_reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -118,6 +120,10 @@ class PreHireOnboardingInfoBuilder(object):
 
     def check_in_method(self, check_in_method: Enum) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.check_in_method = check_in_method
+        return self
+
+    def withdrawn_reason(self, withdrawn_reason: str) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.withdrawn_reason = withdrawn_reason
         return self
 
     def build(self) -> "PreHireOnboardingInfo":

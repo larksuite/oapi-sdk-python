@@ -15,6 +15,7 @@ class EmploymentDefaultCostCenter(object):
         "is_inherit": bool,
         "inherit_source": Enum,
         "reason": str,
+        "wk_created_at": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class EmploymentDefaultCostCenter(object):
         self.is_inherit: Optional[bool] = None
         self.inherit_source: Optional[Enum] = None
         self.reason: Optional[str] = None
+        self.wk_created_at: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -67,6 +69,10 @@ class EmploymentDefaultCostCenterBuilder(object):
 
     def reason(self, reason: str) -> "EmploymentDefaultCostCenterBuilder":
         self._employment_default_cost_center.reason = reason
+        return self
+
+    def wk_created_at(self, wk_created_at: str) -> "EmploymentDefaultCostCenterBuilder":
+        self._employment_default_cost_center.wk_created_at = wk_created_at
         return self
 
     def build(self) -> "EmploymentDefaultCostCenter":

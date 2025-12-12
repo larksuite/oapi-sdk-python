@@ -21,6 +21,7 @@ from .enum import Enum
 from .seniority_adjust_information import SeniorityAdjustInformation
 from .enum import Enum
 from .enum import Enum
+from .hrbp_info import HrbpInfo
 
 
 class EmployeeBt(object):
@@ -92,6 +93,9 @@ class EmployeeBt(object):
         "attendance_group_id": str,
         "whether_returnee": bool,
         "individuals_with_headcount_or_not": Enum,
+        "hrbp": List[str],
+        "all_hrbp": List[str],
+        "hrbp_info": List[HrbpInfo],
     }
 
     def __init__(self, d=None):
@@ -162,6 +166,9 @@ class EmployeeBt(object):
         self.attendance_group_id: Optional[str] = None
         self.whether_returnee: Optional[bool] = None
         self.individuals_with_headcount_or_not: Optional[Enum] = None
+        self.hrbp: Optional[List[str]] = None
+        self.all_hrbp: Optional[List[str]] = None
+        self.hrbp_info: Optional[List[HrbpInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -441,6 +448,18 @@ class EmployeeBtBuilder(object):
 
     def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBtBuilder":
         self._employee_bt.individuals_with_headcount_or_not = individuals_with_headcount_or_not
+        return self
+
+    def hrbp(self, hrbp: List[str]) -> "EmployeeBtBuilder":
+        self._employee_bt.hrbp = hrbp
+        return self
+
+    def all_hrbp(self, all_hrbp: List[str]) -> "EmployeeBtBuilder":
+        self._employee_bt.all_hrbp = all_hrbp
+        return self
+
+    def hrbp_info(self, hrbp_info: List[HrbpInfo]) -> "EmployeeBtBuilder":
+        self._employee_bt.hrbp_info = hrbp_info
         return self
 
     def build(self) -> "EmployeeBt":

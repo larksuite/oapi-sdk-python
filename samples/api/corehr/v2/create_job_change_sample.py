@@ -26,6 +26,8 @@ def main():
                       .transfer_key("transfer_3627531")
                       .initiator_id("ou_a294793e8fa21529f2a60e3e9de45520")
                       .transfer_reason_unique_identifier("involuntary_transfer")
+                      .update_method("update_all")
+                      .update_method_offboarding("update_all")
                       .build()) \
         .build()
 
@@ -65,6 +67,8 @@ async def amain():
                       .transfer_key("transfer_3627531")
                       .initiator_id("ou_a294793e8fa21529f2a60e3e9de45520")
                       .transfer_reason_unique_identifier("involuntary_transfer")
+                      .update_method("update_all")
+                      .update_method_offboarding("update_all")
                       .build()) \
         .build()
 

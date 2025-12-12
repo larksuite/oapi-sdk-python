@@ -3,14 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .message import Message
+from .send_user_mailbox_message_request_body import SendUserMailboxMessageRequestBody
 
 
 class SendUserMailboxMessageRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.user_mailbox_id: Optional[str] = None
-        self.request_body: Optional[Message] = None
+        self.request_body: Optional[SendUserMailboxMessageRequestBody] = None
 
     @staticmethod
     def builder() -> "SendUserMailboxMessageRequestBuilder":
@@ -31,7 +31,7 @@ class SendUserMailboxMessageRequestBuilder(object):
         self._send_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
 
-    def request_body(self, request_body: Message) -> "SendUserMailboxMessageRequestBuilder":
+    def request_body(self, request_body: SendUserMailboxMessageRequestBody) -> "SendUserMailboxMessageRequestBuilder":
         self._send_user_mailbox_message_request.request_body = request_body
         self._send_user_mailbox_message_request.body = request_body
         return self

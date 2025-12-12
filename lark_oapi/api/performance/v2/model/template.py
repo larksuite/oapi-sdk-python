@@ -11,6 +11,7 @@ class Template(object):
         "name": I18n,
         "stage_type": str,
         "review_stage_role": str,
+        "review_stage_data_write_mode": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class Template(object):
         self.name: Optional[I18n] = None
         self.stage_type: Optional[str] = None
         self.review_stage_role: Optional[str] = None
+        self.review_stage_data_write_mode: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +45,10 @@ class TemplateBuilder(object):
 
     def review_stage_role(self, review_stage_role: str) -> "TemplateBuilder":
         self._template.review_stage_role = review_stage_role
+        return self
+
+    def review_stage_data_write_mode(self, review_stage_data_write_mode: str) -> "TemplateBuilder":
+        self._template.review_stage_data_write_mode = review_stage_data_write_mode
         return self
 
     def build(self) -> "Template":

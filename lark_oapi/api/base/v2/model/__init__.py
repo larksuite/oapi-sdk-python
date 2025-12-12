@@ -1,5 +1,6 @@
 from .app import *
 from .block_role import *
+from .condition_group import *
 from .department_id import *
 from .ext_info import *
 from .icon import *

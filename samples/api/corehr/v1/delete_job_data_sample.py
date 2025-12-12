@@ -15,7 +15,6 @@ def main():
     # 构造请求对象
     request: DeleteJobDataRequest = DeleteJobDataRequest.builder() \
         .job_data_id("467642764726472") \
-        .version_id("1616161616") \
         .build()
 
     # 发起请求
@@ -43,7 +42,6 @@ async def amain():
     # 构造请求对象
     request: DeleteJobDataRequest = DeleteJobDataRequest.builder() \
         .job_data_id("467642764726472") \
-        .version_id("1616161616") \
         .build()
 
     # 发起请求

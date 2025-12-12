@@ -10,6 +10,8 @@ class Attachment(object):
         "filename": str,
         "id": str,
         "attachment_type": int,
+        "is_inline": bool,
+        "cid": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,8 @@ class Attachment(object):
         self.filename: Optional[str] = None
         self.id: Optional[str] = None
         self.attachment_type: Optional[int] = None
+        self.is_inline: Optional[bool] = None
+        self.cid: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +46,14 @@ class AttachmentBuilder(object):
 
     def attachment_type(self, attachment_type: int) -> "AttachmentBuilder":
         self._attachment.attachment_type = attachment_type
+        return self
+
+    def is_inline(self, is_inline: bool) -> "AttachmentBuilder":
+        self._attachment.is_inline = is_inline
+        return self
+
+    def cid(self, cid: str) -> "AttachmentBuilder":
+        self._attachment.cid = cid
         return self
 
     def build(self) -> "Attachment":

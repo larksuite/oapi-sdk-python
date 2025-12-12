@@ -27,6 +27,9 @@ from .connector_log_data import *
 from .count import *
 from .definition import *
 from .department_id import *
+from .district import *
+from .district_base_info import *
+from .entity_process_record import *
 from .exteranl_instance_check import *
 from .exteranl_instance_check_response import *
 from .external_approval import *
@@ -50,6 +53,7 @@ from .instance_cc_user import *
 from .instance_comment import *
 from .instance_create import *
 from .instance_detail_scenario_context import *
+from .instance_draft import *
 from .instance_search import *
 from .instance_search_approval import *
 from .instance_search_approval_external import *
@@ -81,6 +85,7 @@ from .node_cc import *
 from .object_context import *
 from .open_widget_instance import *
 from .preview_node import *
+from .process_record import *
 from .reason import *
 from .remedy_group import *
 from .revert_event import *
@@ -123,7 +128,6 @@ from .cancel_instance_request import *
 from .cc_instance_request import *
 from .create_instance_request import *
 from .get_instance_request import *
-from .list_instance_request import *
 from .preview_instance_request_body import *
 from .preview_instance_request import *
 from .query_instance_request import *
@@ -162,8 +166,6 @@ from .create_instance_response_body import *
 from .create_instance_response import *
 from .get_instance_response_body import *
 from .get_instance_response import *
-from .list_instance_response_body import *
-from .list_instance_response import *
 from .preview_instance_response_body import *
 from .preview_instance_response import *
 from .query_instance_response_body import *

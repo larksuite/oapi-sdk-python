@@ -36,6 +36,9 @@ from .model.p2_corehr_offboarding_updated_v2 import P2CorehrOffboardingUpdatedV2
 from .model.p2_corehr_pathway_created_v2 import P2CorehrPathwayCreatedV2
 from .model.p2_corehr_pathway_deleted_v2 import P2CorehrPathwayDeletedV2
 from .model.p2_corehr_pathway_updated_v2 import P2CorehrPathwayUpdatedV2
+from .model.p2_corehr_position_created_v2 import P2CorehrPositionCreatedV2
+from .model.p2_corehr_position_deleted_v2 import P2CorehrPositionDeletedV2
+from .model.p2_corehr_position_updated_v2 import P2CorehrPositionUpdatedV2
 from .model.p2_corehr_pre_hire_onboarding_task_changed_v2 import P2CorehrPreHireOnboardingTaskChangedV2
 from .model.p2_corehr_probation_updated_v2 import P2CorehrProbationUpdatedV2
 from .model.p2_corehr_process_updated_v2 import P2CorehrProcessUpdatedV2
@@ -43,6 +46,8 @@ from .model.p2_corehr_process_approver_updated_v2 import P2CorehrProcessApprover
 from .model.p2_corehr_process_cc_updated_v2 import P2CorehrProcessCcUpdatedV2
 from .model.p2_corehr_process_node_updated_v2 import P2CorehrProcessNodeUpdatedV2
 from .model.p2_corehr_process_status_update_v2 import P2CorehrProcessStatusUpdateV2
+from .model.p2_corehr_process_comment_info_updated_v2 import P2CorehrProcessCommentInfoUpdatedV2
+from .model.p2_corehr_signature_file_status_updated_v2 import P2CorehrSignatureFileStatusUpdatedV2
 
 
 class P2CorehrApprovalGroupsUpdatedV2Processor(IEventProcessor[P2CorehrApprovalGroupsUpdatedV2]):
@@ -408,6 +413,39 @@ class P2CorehrPathwayUpdatedV2Processor(IEventProcessor[P2CorehrPathwayUpdatedV2
         self.f(data)
 
 
+class P2CorehrPositionCreatedV2Processor(IEventProcessor[P2CorehrPositionCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrPositionCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPositionCreatedV2]:
+        return P2CorehrPositionCreatedV2
+
+    def do(self, data: P2CorehrPositionCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPositionDeletedV2Processor(IEventProcessor[P2CorehrPositionDeletedV2]):
+    def __init__(self, f: Callable[[P2CorehrPositionDeletedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPositionDeletedV2]:
+        return P2CorehrPositionDeletedV2
+
+    def do(self, data: P2CorehrPositionDeletedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPositionUpdatedV2Processor(IEventProcessor[P2CorehrPositionUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrPositionUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPositionUpdatedV2]:
+        return P2CorehrPositionUpdatedV2
+
+    def do(self, data: P2CorehrPositionUpdatedV2) -> None:
+        self.f(data)
+
+
 class P2CorehrPreHireOnboardingTaskChangedV2Processor(IEventProcessor[P2CorehrPreHireOnboardingTaskChangedV2]):
     def __init__(self, f: Callable[[P2CorehrPreHireOnboardingTaskChangedV2], None]):
         self.f = f
@@ -482,4 +520,26 @@ class P2CorehrProcessStatusUpdateV2Processor(IEventProcessor[P2CorehrProcessStat
         return P2CorehrProcessStatusUpdateV2
 
     def do(self, data: P2CorehrProcessStatusUpdateV2) -> None:
+        self.f(data)
+
+
+class P2CorehrProcessCommentInfoUpdatedV2Processor(IEventProcessor[P2CorehrProcessCommentInfoUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrProcessCommentInfoUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrProcessCommentInfoUpdatedV2]:
+        return P2CorehrProcessCommentInfoUpdatedV2
+
+    def do(self, data: P2CorehrProcessCommentInfoUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrSignatureFileStatusUpdatedV2Processor(IEventProcessor[P2CorehrSignatureFileStatusUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrSignatureFileStatusUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrSignatureFileStatusUpdatedV2]:
+        return P2CorehrSignatureFileStatusUpdatedV2
+
+    def do(self, data: P2CorehrSignatureFileStatusUpdatedV2) -> None:
         self.f(data)

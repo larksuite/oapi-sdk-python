@@ -12,6 +12,7 @@ class Currency(object):
         "currency_name": List[I18n],
         "numeric_code": int,
         "currency_alpha_3_code": str,
+        "country_region_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -20,6 +21,7 @@ class Currency(object):
         self.currency_name: Optional[List[I18n]] = None
         self.numeric_code: Optional[int] = None
         self.currency_alpha_3_code: Optional[str] = None
+        self.country_region_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class CurrencyBuilder(object):
 
     def currency_alpha_3_code(self, currency_alpha_3_code: str) -> "CurrencyBuilder":
         self._currency.currency_alpha_3_code = currency_alpha_3_code
+        return self
+
+    def country_region_id_list(self, country_region_id_list: List[str]) -> "CurrencyBuilder":
+        self._currency.country_region_id_list = country_region_id_list
         return self
 
     def build(self) -> "Currency":

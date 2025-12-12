@@ -25,6 +25,14 @@ class MatchCompensationStandardRequest(BaseRequest):
         self.cpst_plan_id: Optional[str] = None
         self.cpst_salary_level_id: Optional[str] = None
         self.effective_time: Optional[str] = None
+        self.performance_review_period_id: Optional[str] = None
+        self.performance_indicator_id: Optional[str] = None
+        self.performance_score_grade_id: Optional[str] = None
+        self.custom_org_1_ids: Optional[str] = None
+        self.custom_org_2_ids: Optional[str] = None
+        self.custom_org_3_ids: Optional[str] = None
+        self.custom_org_4_ids: Optional[str] = None
+        self.custom_org_5_ids: Optional[str] = None
 
     @staticmethod
     def builder() -> "MatchCompensationStandardRequestBuilder":
@@ -123,6 +131,48 @@ class MatchCompensationStandardRequestBuilder(object):
     def effective_time(self, effective_time: str) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.effective_time = effective_time
         self._match_compensation_standard_request.add_query("effective_time", effective_time)
+        return self
+
+    def performance_review_period_id(self,
+                                     performance_review_period_id: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.performance_review_period_id = performance_review_period_id
+        self._match_compensation_standard_request.add_query("performance_review_period_id",
+                                                            performance_review_period_id)
+        return self
+
+    def performance_indicator_id(self, performance_indicator_id: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.performance_indicator_id = performance_indicator_id
+        self._match_compensation_standard_request.add_query("performance_indicator_id", performance_indicator_id)
+        return self
+
+    def performance_score_grade_id(self, performance_score_grade_id: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.performance_score_grade_id = performance_score_grade_id
+        self._match_compensation_standard_request.add_query("performance_score_grade_id", performance_score_grade_id)
+        return self
+
+    def custom_org_1_ids(self, custom_org_1_ids: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_1_ids = custom_org_1_ids
+        self._match_compensation_standard_request.add_query("custom_org_1_ids", custom_org_1_ids)
+        return self
+
+    def custom_org_2_ids(self, custom_org_2_ids: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_2_ids = custom_org_2_ids
+        self._match_compensation_standard_request.add_query("custom_org_2_ids", custom_org_2_ids)
+        return self
+
+    def custom_org_3_ids(self, custom_org_3_ids: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_3_ids = custom_org_3_ids
+        self._match_compensation_standard_request.add_query("custom_org_3_ids", custom_org_3_ids)
+        return self
+
+    def custom_org_4_ids(self, custom_org_4_ids: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_4_ids = custom_org_4_ids
+        self._match_compensation_standard_request.add_query("custom_org_4_ids", custom_org_4_ids)
+        return self
+
+    def custom_org_5_ids(self, custom_org_5_ids: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_5_ids = custom_org_5_ids
+        self._match_compensation_standard_request.add_query("custom_org_5_ids", custom_org_5_ids)
         return self
 
     def build(self) -> MatchCompensationStandardRequest:

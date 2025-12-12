@@ -9,12 +9,24 @@ class Approval(object):
         "approval_code": str,
         "approval_name": str,
         "status": str,
+        "id": str,
+        "version_id": str,
+        "description": str,
+        "external_id": str,
+        "create_link": str,
+        "create_count": str,
     }
 
     def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.approval_name: Optional[str] = None
         self.status: Optional[str] = None
+        self.id: Optional[str] = None
+        self.version_id: Optional[str] = None
+        self.description: Optional[str] = None
+        self.external_id: Optional[str] = None
+        self.create_link: Optional[str] = None
+        self.create_count: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +48,30 @@ class ApprovalBuilder(object):
 
     def status(self, status: str) -> "ApprovalBuilder":
         self._approval.status = status
+        return self
+
+    def id(self, id: str) -> "ApprovalBuilder":
+        self._approval.id = id
+        return self
+
+    def version_id(self, version_id: str) -> "ApprovalBuilder":
+        self._approval.version_id = version_id
+        return self
+
+    def description(self, description: str) -> "ApprovalBuilder":
+        self._approval.description = description
+        return self
+
+    def external_id(self, external_id: str) -> "ApprovalBuilder":
+        self._approval.external_id = external_id
+        return self
+
+    def create_link(self, create_link: str) -> "ApprovalBuilder":
+        self._approval.create_link = create_link
+        return self
+
+    def create_count(self, create_count: str) -> "ApprovalBuilder":
+        self._approval.create_count = create_count
         return self
 
     def build(self) -> "Approval":

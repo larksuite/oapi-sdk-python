@@ -23,6 +23,8 @@ from ..model.restore_flow_instance_pre_hire_request import RestoreFlowInstancePr
 from ..model.restore_flow_instance_pre_hire_response import RestoreFlowInstancePreHireResponse
 from ..model.search_pre_hire_request import SearchPreHireRequest
 from ..model.search_pre_hire_response import SearchPreHireResponse
+from ..model.transform_onboarding_task_pre_hire_request import TransformOnboardingTaskPreHireRequest
+from ..model.transform_onboarding_task_pre_hire_response import TransformOnboardingTaskPreHireResponse
 from ..model.transit_task_pre_hire_request import TransitTaskPreHireRequest
 from ..model.transit_task_pre_hire_response import TransitTaskPreHireResponse
 from ..model.withdraw_onboarding_pre_hire_request import WithdrawOnboardingPreHireRequest
@@ -292,6 +294,46 @@ class PreHire(object):
 
         # 反序列化
         response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    def transform_onboarding_task(self, request: TransformOnboardingTaskPreHireRequest,
+                                  option: Optional[RequestOption] = None) -> TransformOnboardingTaskPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          TransformOnboardingTaskPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def atransform_onboarding_task(self, request: TransformOnboardingTaskPreHireRequest, option: Optional[
+        RequestOption] = None) -> TransformOnboardingTaskPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          TransformOnboardingTaskPreHireResponse)
         response.raw = resp
 
         return response

@@ -9,11 +9,13 @@ class FilterExpression(object):
     _types = {
         "conditions": List[FilterCondition],
         "expression": str,
+        "logic_expression": str,
     }
 
     def __init__(self, d=None):
         self.conditions: Optional[List[FilterCondition]] = None
         self.expression: Optional[str] = None
+        self.logic_expression: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class FilterExpressionBuilder(object):
 
     def expression(self, expression: str) -> "FilterExpressionBuilder":
         self._filter_expression.expression = expression
+        return self
+
+    def logic_expression(self, logic_expression: str) -> "FilterExpressionBuilder":
+        self._filter_expression.logic_expression = logic_expression
         return self
 
     def build(self) -> "FilterExpression":

@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class CreateInstanceResponseBody(object):
     _types = {
         "instance_code": str,
+        "instance_link": str,
     }
 
     def __init__(self, d=None):
         self.instance_code: Optional[str] = None
+        self.instance_link: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class CreateInstanceResponseBodyBuilder(object):
 
     def instance_code(self, instance_code: str) -> "CreateInstanceResponseBodyBuilder":
         self._create_instance_response_body.instance_code = instance_code
+        return self
+
+    def instance_link(self, instance_link: str) -> "CreateInstanceResponseBodyBuilder":
+        self._create_instance_response_body.instance_link = instance_link
         return self
 
     def build(self) -> "CreateInstanceResponseBody":

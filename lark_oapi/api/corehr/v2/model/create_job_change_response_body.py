@@ -19,6 +19,7 @@ class CreateJobChangeResponseBody(object):
         "transfer_info": TransferInfo,
         "is_adjust_salary": bool,
         "custom_fields": List[CustomFieldData],
+        "details_of_job_status_change": List[str],
     }
 
     def __init__(self, d=None):
@@ -33,6 +34,7 @@ class CreateJobChangeResponseBody(object):
         self.transfer_info: Optional[TransferInfo] = None
         self.is_adjust_salary: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.details_of_job_status_change: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -88,6 +90,11 @@ class CreateJobChangeResponseBodyBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.custom_fields = custom_fields
+        return self
+
+    def details_of_job_status_change(self,
+                                     details_of_job_status_change: List[str]) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.details_of_job_status_change = details_of_job_status_change
         return self
 
     def build(self) -> "CreateJobChangeResponseBody":

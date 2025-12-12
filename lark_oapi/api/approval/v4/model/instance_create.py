@@ -31,6 +31,7 @@ class InstanceCreate(object):
         "title_display_method": int,
         "node_auto_approval_list": List[NodeAutoApproval],
         "byte_extra": str,
+        "with_link": bool,
     }
 
     def __init__(self, d=None):
@@ -53,6 +54,7 @@ class InstanceCreate(object):
         self.title_display_method: Optional[int] = None
         self.node_auto_approval_list: Optional[List[NodeAutoApproval]] = None
         self.byte_extra: Optional[str] = None
+        self.with_link: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -138,6 +140,10 @@ class InstanceCreateBuilder(object):
 
     def byte_extra(self, byte_extra: str) -> "InstanceCreateBuilder":
         self._instance_create.byte_extra = byte_extra
+        return self
+
+    def with_link(self, with_link: bool) -> "InstanceCreateBuilder":
+        self._instance_create.with_link = with_link
         return self
 
     def build(self) -> "InstanceCreate":

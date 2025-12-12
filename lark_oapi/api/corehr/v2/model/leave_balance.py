@@ -21,6 +21,8 @@ class LeaveBalance(object):
         "offboarding_balance": str,
         "taken_current_date": str,
         "offboarding_granted": str,
+        "leave_balance_excluding_under_approval": str,
+        "leave_quantity_under_approval": str,
     }
 
     def __init__(self, d=None):
@@ -38,6 +40,8 @@ class LeaveBalance(object):
         self.offboarding_balance: Optional[str] = None
         self.taken_current_date: Optional[str] = None
         self.offboarding_granted: Optional[str] = None
+        self.leave_balance_excluding_under_approval: Optional[str] = None
+        self.leave_quantity_under_approval: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -103,6 +107,15 @@ class LeaveBalanceBuilder(object):
 
     def offboarding_granted(self, offboarding_granted: str) -> "LeaveBalanceBuilder":
         self._leave_balance.offboarding_granted = offboarding_granted
+        return self
+
+    def leave_balance_excluding_under_approval(self,
+                                               leave_balance_excluding_under_approval: str) -> "LeaveBalanceBuilder":
+        self._leave_balance.leave_balance_excluding_under_approval = leave_balance_excluding_under_approval
+        return self
+
+    def leave_quantity_under_approval(self, leave_quantity_under_approval: str) -> "LeaveBalanceBuilder":
+        self._leave_balance.leave_quantity_under_approval = leave_quantity_under_approval
         return self
 
     def build(self) -> "LeaveBalance":

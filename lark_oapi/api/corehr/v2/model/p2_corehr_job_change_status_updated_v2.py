@@ -17,7 +17,9 @@ class P2CorehrJobChangeStatusUpdatedV2Data(object):
         "process_id": str,
         "effective_date": str,
         "status": int,
+        "original_status": int,
         "transfer_key": str,
+        "details_of_job_status_change": List[str],
     }
 
     def __init__(self, d=None):
@@ -30,7 +32,9 @@ class P2CorehrJobChangeStatusUpdatedV2Data(object):
         self.process_id: Optional[str] = None
         self.effective_date: Optional[str] = None
         self.status: Optional[int] = None
+        self.original_status: Optional[int] = None
         self.transfer_key: Optional[str] = None
+        self.details_of_job_status_change: Optional[List[str]] = None
         init(self, d, self._types)
 
 

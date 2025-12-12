@@ -10,6 +10,7 @@ class PatchLocationAddressRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.client_token: Optional[str] = None
+        self.need_custom_latin_address: Optional[bool] = None
         self.location_id: Optional[str] = None
         self.address_id: Optional[str] = None
         self.request_body: Optional[LocationAddressUpdate] = None
@@ -31,6 +32,11 @@ class PatchLocationAddressRequestBuilder(object):
     def client_token(self, client_token: str) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.client_token = client_token
         self._patch_location_address_request.add_query("client_token", client_token)
+        return self
+
+    def need_custom_latin_address(self, need_custom_latin_address: bool) -> "PatchLocationAddressRequestBuilder":
+        self._patch_location_address_request.need_custom_latin_address = need_custom_latin_address
+        self._patch_location_address_request.add_query("need_custom_latin_address", need_custom_latin_address)
         return self
 
     def location_id(self, location_id: str) -> "PatchLocationAddressRequestBuilder":

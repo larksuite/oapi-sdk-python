@@ -22,6 +22,7 @@ class Connector(object):
         "caption_auto_direction": bool,
         "caption_position": float,
         "specified_coordinate": bool,
+        "caption_position_type": int,
     }
 
     def __init__(self, d=None):
@@ -35,6 +36,7 @@ class Connector(object):
         self.caption_auto_direction: Optional[bool] = None
         self.caption_position: Optional[float] = None
         self.specified_coordinate: Optional[bool] = None
+        self.caption_position_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +86,10 @@ class ConnectorBuilder(object):
 
     def specified_coordinate(self, specified_coordinate: bool) -> "ConnectorBuilder":
         self._connector.specified_coordinate = specified_coordinate
+        return self
+
+    def caption_position_type(self, caption_position_type: int) -> "ConnectorBuilder":
+        self._connector.caption_position_type = caption_position_type
         return self
 
     def build(self) -> "Connector":

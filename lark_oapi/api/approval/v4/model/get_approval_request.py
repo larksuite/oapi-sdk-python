@@ -11,6 +11,8 @@ class GetApprovalRequest(BaseRequest):
         self.locale: Optional[str] = None
         self.with_admin_id: Optional[bool] = None
         self.user_id_type: Optional[str] = None
+        self.with_option: Optional[bool] = None
+        self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
 
     @staticmethod
@@ -40,6 +42,16 @@ class GetApprovalRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "GetApprovalRequestBuilder":
         self._get_approval_request.user_id_type = user_id_type
         self._get_approval_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def with_option(self, with_option: bool) -> "GetApprovalRequestBuilder":
+        self._get_approval_request.with_option = with_option
+        self._get_approval_request.add_query("with_option", with_option)
+        return self
+
+    def user_id(self, user_id: str) -> "GetApprovalRequestBuilder":
+        self._get_approval_request.user_id = user_id
+        self._get_approval_request.add_query("user_id", user_id)
         return self
 
     def approval_code(self, approval_code: str) -> "GetApprovalRequestBuilder":

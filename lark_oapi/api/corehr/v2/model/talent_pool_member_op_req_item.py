@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .i18n import I18n
 from .object_field_data import ObjectFieldData
 
 
@@ -9,14 +10,14 @@ class TalentPoolMemberOpReqItem(object):
     _types = {
         "employment_id": str,
         "date": str,
-        "reason": str,
+        "reason": List[I18n],
         "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.date: Optional[str] = None
-        self.reason: Optional[str] = None
+        self.reason: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
@@ -37,7 +38,7 @@ class TalentPoolMemberOpReqItemBuilder(object):
         self._talent_pool_member_op_req_item.date = date
         return self
 
-    def reason(self, reason: str) -> "TalentPoolMemberOpReqItemBuilder":
+    def reason(self, reason: List[I18n]) -> "TalentPoolMemberOpReqItemBuilder":
         self._talent_pool_member_op_req_item.reason = reason
         return self
 

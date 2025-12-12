@@ -16,6 +16,8 @@ class CreateJobChangeRequestBody(object):
         "transfer_key": str,
         "initiator_id": str,
         "transfer_reason_unique_identifier": str,
+        "update_method": str,
+        "update_method_offboarding": str,
     }
 
     def __init__(self, d=None):
@@ -28,6 +30,8 @@ class CreateJobChangeRequestBody(object):
         self.transfer_key: Optional[str] = None
         self.initiator_id: Optional[str] = None
         self.transfer_reason_unique_identifier: Optional[str] = None
+        self.update_method: Optional[str] = None
+        self.update_method_offboarding: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -75,6 +79,14 @@ class CreateJobChangeRequestBodyBuilder(object):
     def transfer_reason_unique_identifier(self,
                                           transfer_reason_unique_identifier: str) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+        return self
+
+    def update_method(self, update_method: str) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.update_method = update_method
+        return self
+
+    def update_method_offboarding(self, update_method_offboarding: str) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.update_method_offboarding = update_method_offboarding
         return self
 
     def build(self) -> "CreateJobChangeRequestBody":
