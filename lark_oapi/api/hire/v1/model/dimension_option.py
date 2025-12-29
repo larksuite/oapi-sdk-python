@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .i18n import I18n
 
 
 class DimensionOption(object):
@@ -10,12 +11,14 @@ class DimensionOption(object):
         "id": str,
         "name": I18n,
         "score_val": int,
+        "alias_name": I18n,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.score_val: Optional[int] = None
+        self.alias_name: Optional[I18n] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +40,10 @@ class DimensionOptionBuilder(object):
 
     def score_val(self, score_val: int) -> "DimensionOptionBuilder":
         self._dimension_option.score_val = score_val
+        return self
+
+    def alias_name(self, alias_name: I18n) -> "DimensionOptionBuilder":
+        self._dimension_option.alias_name = alias_name
         return self
 
     def build(self) -> "DimensionOption":

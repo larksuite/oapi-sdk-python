@@ -14,7 +14,6 @@ def main():
 
     # 构造请求对象
     request: StopMeetingRecordingRequest = StopMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .build()
 
     # 发起请求
@@ -41,7 +40,6 @@ async def amain():
 
     # 构造请求对象
     request: StopMeetingRecordingRequest = StopMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .build()
 
     # 发起请求

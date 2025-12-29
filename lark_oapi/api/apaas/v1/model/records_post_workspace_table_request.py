@@ -10,6 +10,7 @@ class RecordsPostWorkspaceTableRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.columns: Optional[str] = None
+        self.on_conflict: Optional[str] = None
         self.workspace_id: Optional[str] = None
         self.table_name: Optional[str] = None
         self.request_body: Optional[RecordsPostWorkspaceTableRequestBody] = None
@@ -31,6 +32,11 @@ class RecordsPostWorkspaceTableRequestBuilder(object):
     def columns(self, columns: str) -> "RecordsPostWorkspaceTableRequestBuilder":
         self._records_post_workspace_table_request.columns = columns
         self._records_post_workspace_table_request.add_query("columns", columns)
+        return self
+
+    def on_conflict(self, on_conflict: str) -> "RecordsPostWorkspaceTableRequestBuilder":
+        self._records_post_workspace_table_request.on_conflict = on_conflict
+        self._records_post_workspace_table_request.add_query("on_conflict", on_conflict)
         return self
 
     def workspace_id(self, workspace_id: str) -> "RecordsPostWorkspaceTableRequestBuilder":

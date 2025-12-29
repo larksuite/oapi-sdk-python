@@ -27,6 +27,9 @@ from .meeting_participant import *
 from .meeting_participant_result import *
 from .meeting_related_artifacts import *
 from .meeting_security_setting import *
+from .meeting_subtitle import *
+from .meeting_subtitle_data import *
+from .meeting_subtitle_ssd_speaker import *
 from .meeting_user import *
 from .meeting_webinar_setting import *
 from .my_ai_av_plugin_card_status import *

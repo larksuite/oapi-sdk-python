@@ -25,7 +25,6 @@ class MatchCompensationStandardRequest(BaseRequest):
         self.cpst_plan_id: Optional[str] = None
         self.cpst_salary_level_id: Optional[str] = None
         self.effective_time: Optional[str] = None
-        self.performance_review_period_id: Optional[str] = None
         self.performance_indicator_id: Optional[str] = None
         self.performance_score_grade_id: Optional[str] = None
         self.custom_org_1_ids: Optional[str] = None
@@ -131,13 +130,6 @@ class MatchCompensationStandardRequestBuilder(object):
     def effective_time(self, effective_time: str) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.effective_time = effective_time
         self._match_compensation_standard_request.add_query("effective_time", effective_time)
-        return self
-
-    def performance_review_period_id(self,
-                                     performance_review_period_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.performance_review_period_id = performance_review_period_id
-        self._match_compensation_standard_request.add_query("performance_review_period_id",
-                                                            performance_review_period_id)
         return self
 
     def performance_indicator_id(self, performance_indicator_id: str) -> "MatchCompensationStandardRequestBuilder":

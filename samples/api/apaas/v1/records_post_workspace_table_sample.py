@@ -17,6 +17,7 @@ def main():
         .workspace_id("workspace_abc") \
         .table_name("table_name_1") \
         .columns("name,age") \
+        .on_conflict("user_id,product_id") \
         .request_body(RecordsPostWorkspaceTableRequestBody.builder()
                       .records("")
                       .build()) \
@@ -49,6 +50,7 @@ async def amain():
         .workspace_id("workspace_abc") \
         .table_name("table_name_1") \
         .columns("name,age") \
+        .on_conflict("user_id,product_id") \
         .request_body(RecordsPostWorkspaceTableRequestBody.builder()
                       .records("")
                       .build()) \

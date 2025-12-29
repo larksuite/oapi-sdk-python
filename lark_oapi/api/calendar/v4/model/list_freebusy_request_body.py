@@ -12,6 +12,7 @@ class ListFreebusyRequestBody(object):
         "room_id": str,
         "include_external_calendar": bool,
         "only_busy": bool,
+        "need_rsvp_status": bool,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class ListFreebusyRequestBody(object):
         self.room_id: Optional[str] = None
         self.include_external_calendar: Optional[bool] = None
         self.only_busy: Optional[bool] = None
+        self.need_rsvp_status: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class ListFreebusyRequestBodyBuilder(object):
 
     def only_busy(self, only_busy: bool) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.only_busy = only_busy
+        return self
+
+    def need_rsvp_status(self, need_rsvp_status: bool) -> "ListFreebusyRequestBodyBuilder":
+        self._list_freebusy_request_body.need_rsvp_status = need_rsvp_status
         return self
 
     def build(self) -> "ListFreebusyRequestBody":

@@ -21,6 +21,7 @@ def main():
                       .user_ids([])
                       .include_external_calendar(True)
                       .only_busy(True)
+                      .need_rsvp_status(True)
                       .build()) \
         .build()
 
@@ -55,6 +56,7 @@ async def amain():
                       .user_ids([])
                       .include_external_calendar(True)
                       .only_busy(True)
+                      .need_rsvp_status(True)
                       .build()) \
         .build()
 

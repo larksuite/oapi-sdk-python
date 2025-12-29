@@ -1,4 +1,5 @@
 from .ability import *
+from .ability_assessment import *
 from .acceptance import *
 from .account import *
 from .account_referrer import *
@@ -130,6 +131,7 @@ from .department_id import *
 from .di_data import *
 from .di_info import *
 from .dimension_ability import *
+from .dimension_ability_args import *
 from .dimension_assessment import *
 from .dimension_assessment_request import *
 from .dimension_option import *

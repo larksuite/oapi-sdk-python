@@ -1,4 +1,5 @@
 from .ability import *
+from .ability_assessment import *
 from .attachment import *
 from .composite_talent import *
 from .composite_talent_award_info import *

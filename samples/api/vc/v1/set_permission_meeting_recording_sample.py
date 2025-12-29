@@ -14,7 +14,6 @@ def main():
 
     # 构造请求对象
     request: SetPermissionMeetingRecordingRequest = SetPermissionMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .user_id_type("user_id") \
         .request_body(SetPermissionMeetingRecordingRequestBody.builder()
                       .permission_objects([])
@@ -46,7 +45,6 @@ async def amain():
 
     # 构造请求对象
     request: SetPermissionMeetingRecordingRequest = SetPermissionMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .user_id_type("user_id") \
         .request_body(SetPermissionMeetingRecordingRequestBody.builder()
                       .permission_objects([])

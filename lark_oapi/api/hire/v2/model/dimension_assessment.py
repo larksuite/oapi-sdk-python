@@ -7,6 +7,7 @@ from .dimension_option import DimensionOption
 from .dimension_option import DimensionOption
 from .recommended_job_level import RecommendedJobLevel
 from .question_assessment import QuestionAssessment
+from .ability_assessment import AbilityAssessment
 
 
 class DimensionAssessment(object):
@@ -21,6 +22,7 @@ class DimensionAssessment(object):
         "dimension_score": int,
         "recommended_job_level": RecommendedJobLevel,
         "question_assessments": List[QuestionAssessment],
+        "ability_assessments": List[AbilityAssessment],
     }
 
     def __init__(self, d=None):
@@ -34,6 +36,7 @@ class DimensionAssessment(object):
         self.dimension_score: Optional[int] = None
         self.recommended_job_level: Optional[RecommendedJobLevel] = None
         self.question_assessments: Optional[List[QuestionAssessment]] = None
+        self.ability_assessments: Optional[List[AbilityAssessment]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +87,10 @@ class DimensionAssessmentBuilder(object):
 
     def question_assessments(self, question_assessments: List[QuestionAssessment]) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.question_assessments = question_assessments
+        return self
+
+    def ability_assessments(self, ability_assessments: List[AbilityAssessment]) -> "DimensionAssessmentBuilder":
+        self._dimension_assessment.ability_assessments = ability_assessments
         return self
 
     def build(self) -> "DimensionAssessment":

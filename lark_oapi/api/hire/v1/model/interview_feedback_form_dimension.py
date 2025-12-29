@@ -8,6 +8,7 @@ from .score_dimension_config import ScoreDimensionConfig
 from .interview_dimension_option import InterviewDimensionOption
 from .dimension_ability import DimensionAbility
 from .related_dimension_config import RelatedDimensionConfig
+from .dimension_ability_args import DimensionAbilityArgs
 
 
 class InterviewFeedbackFormDimension(object):
@@ -25,6 +26,7 @@ class InterviewFeedbackFormDimension(object):
         "display_not_evident": bool,
         "ability_list": List[DimensionAbility],
         "related_dimension_config": RelatedDimensionConfig,
+        "dimension_ability_args": List[DimensionAbilityArgs],
     }
 
     def __init__(self, d=None):
@@ -41,6 +43,7 @@ class InterviewFeedbackFormDimension(object):
         self.display_not_evident: Optional[bool] = None
         self.ability_list: Optional[List[DimensionAbility]] = None
         self.related_dimension_config: Optional[RelatedDimensionConfig] = None
+        self.dimension_ability_args: Optional[List[DimensionAbilityArgs]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,6 +107,11 @@ class InterviewFeedbackFormDimensionBuilder(object):
     def related_dimension_config(self,
                                  related_dimension_config: RelatedDimensionConfig) -> "InterviewFeedbackFormDimensionBuilder":
         self._interview_feedback_form_dimension.related_dimension_config = related_dimension_config
+        return self
+
+    def dimension_ability_args(self, dimension_ability_args: List[
+        DimensionAbilityArgs]) -> "InterviewFeedbackFormDimensionBuilder":
+        self._interview_feedback_form_dimension.dimension_ability_args = dimension_ability_args
         return self
 
     def build(self) -> "InterviewFeedbackFormDimension":

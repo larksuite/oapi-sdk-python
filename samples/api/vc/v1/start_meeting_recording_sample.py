@@ -14,7 +14,6 @@ def main():
 
     # 构造请求对象
     request: StartMeetingRecordingRequest = StartMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .request_body(StartMeetingRecordingRequestBody.builder()
                       .timezone(8)
                       .build()) \
@@ -44,7 +43,6 @@ async def amain():
 
     # 构造请求对象
     request: StartMeetingRecordingRequest = StartMeetingRecordingRequest.builder() \
-        .meeting_id("6911188411932033028") \
         .request_body(StartMeetingRecordingRequestBody.builder()
                       .timezone(8)
                       .build()) \

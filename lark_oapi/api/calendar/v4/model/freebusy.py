@@ -8,11 +8,13 @@ class Freebusy(object):
     _types = {
         "start_time": str,
         "end_time": str,
+        "rsvp_status": str,
     }
 
     def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
+        self.rsvp_status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class FreebusyBuilder(object):
 
     def end_time(self, end_time: str) -> "FreebusyBuilder":
         self._freebusy.end_time = end_time
+        return self
+
+    def rsvp_status(self, rsvp_status: str) -> "FreebusyBuilder":
+        self._freebusy.rsvp_status = rsvp_status
         return self
 
     def build(self) -> "Freebusy":

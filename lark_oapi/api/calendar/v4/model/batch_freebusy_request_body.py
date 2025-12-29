@@ -11,6 +11,7 @@ class BatchFreebusyRequestBody(object):
         "user_ids": List[str],
         "include_external_calendar": bool,
         "only_busy": bool,
+        "need_rsvp_status": bool,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class BatchFreebusyRequestBody(object):
         self.user_ids: Optional[List[str]] = None
         self.include_external_calendar: Optional[bool] = None
         self.only_busy: Optional[bool] = None
+        self.need_rsvp_status: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class BatchFreebusyRequestBodyBuilder(object):
 
     def only_busy(self, only_busy: bool) -> "BatchFreebusyRequestBodyBuilder":
         self._batch_freebusy_request_body.only_busy = only_busy
+        return self
+
+    def need_rsvp_status(self, need_rsvp_status: bool) -> "BatchFreebusyRequestBodyBuilder":
+        self._batch_freebusy_request_body.need_rsvp_status = need_rsvp_status
         return self
 
     def build(self) -> "BatchFreebusyRequestBody":

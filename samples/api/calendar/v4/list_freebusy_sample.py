@@ -22,6 +22,7 @@ def main():
                       .room_id("omm_xxxxxxxxxx")
                       .include_external_calendar(True)
                       .only_busy(True)
+                      .need_rsvp_status(True)
                       .build()) \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
                       .room_id("omm_xxxxxxxxxx")
                       .include_external_calendar(True)
                       .only_busy(True)
+                      .need_rsvp_status(True)
                       .build()) \
         .build()
 

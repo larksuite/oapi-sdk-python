@@ -6,6 +6,7 @@ from .user_report2021 import UserReport2021
 from .user_report2022 import UserReport2022
 from .user_report2023 import UserReport2023
 from .user_report2024 import UserReport2024
+from .user_report2025 import UserReport2025
 
 
 class UserAnnualReport(object):
@@ -14,6 +15,7 @@ class UserAnnualReport(object):
         "year_2022": UserReport2022,
         "year_2023": UserReport2023,
         "year_2024": UserReport2024,
+        "year_2025": UserReport2025,
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class UserAnnualReport(object):
         self.year_2022: Optional[UserReport2022] = None
         self.year_2023: Optional[UserReport2023] = None
         self.year_2024: Optional[UserReport2024] = None
+        self.year_2025: Optional[UserReport2025] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -46,6 +49,10 @@ class UserAnnualReportBuilder(object):
 
     def year_2024(self, year_2024: UserReport2024) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2024 = year_2024
+        return self
+
+    def year_2025(self, year_2025: UserReport2025) -> "UserAnnualReportBuilder":
+        self._user_annual_report.year_2025 = year_2025
         return self
 
     def build(self) -> "UserAnnualReport":
