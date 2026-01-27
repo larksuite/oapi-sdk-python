@@ -176,6 +176,9 @@ from .rollback_points_user_task_request_body import *
 from .rollback_points_user_task_request import *
 from .sql_commands_workspace_request_body import *
 from .sql_commands_workspace_request import *
+from .enum_get_workspace_enum_request import *
+from .list_workspace_enum_request import *
+from .list_workspace_table_request import *
 from .records_batch_update_workspace_table_request_body import *
 from .records_batch_update_workspace_table_request import *
 from .records_delete_workspace_table_request import *
@@ -184,6 +187,7 @@ from .records_patch_workspace_table_request_body import *
 from .records_patch_workspace_table_request import *
 from .records_post_workspace_table_request_body import *
 from .records_post_workspace_table_request import *
+from .table_get_workspace_table_request import *
 from .views_get_workspace_view_request import *
 from .list_app_response_body import *
 from .list_app_response import *
@@ -247,6 +251,12 @@ from .rollback_points_user_task_response_body import *
 from .rollback_points_user_task_response import *
 from .sql_commands_workspace_response_body import *
 from .sql_commands_workspace_response import *
+from .enum_get_workspace_enum_response_body import *
+from .enum_get_workspace_enum_response import *
+from .list_workspace_enum_response_body import *
+from .list_workspace_enum_response import *
+from .list_workspace_table_response_body import *
+from .list_workspace_table_response import *
 from .records_batch_update_workspace_table_response_body import *
 from .records_batch_update_workspace_table_response import *
 from .records_delete_workspace_table_response import *
@@ -256,5 +266,8 @@ from .records_patch_workspace_table_response_body import *
 from .records_patch_workspace_table_response import *
 from .records_post_workspace_table_response_body import *
 from .records_post_workspace_table_response import *
+from .table_get_workspace_table_response_body import *
+from .table_get_workspace_table_response import *
 from .views_get_workspace_view_response_body import *
 from .views_get_workspace_view_response import *
+from .p2_apaas_workspace_record_change_v1 import *

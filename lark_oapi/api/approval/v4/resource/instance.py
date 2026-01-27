@@ -19,6 +19,8 @@ from ..model.create_instance_request import CreateInstanceRequest
 from ..model.create_instance_response import CreateInstanceResponse
 from ..model.get_instance_request import GetInstanceRequest
 from ..model.get_instance_response import GetInstanceResponse
+from ..model.list_instance_request import ListInstanceRequest
+from ..model.list_instance_response import ListInstanceResponse
 from ..model.preview_instance_request import PreviewInstanceRequest
 from ..model.preview_instance_response import PreviewInstanceResponse
 from ..model.query_instance_request import QueryInstanceRequest
@@ -213,6 +215,42 @@ class Instance(object):
 
         # 反序列化
         response: GetInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInstanceResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
         response.raw = resp
 
         return response

@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.list_workspace_table_request import ListWorkspaceTableRequest
+from ..model.list_workspace_table_response import ListWorkspaceTableResponse
 from ..model.records_batch_update_workspace_table_request import RecordsBatchUpdateWorkspaceTableRequest
 from ..model.records_batch_update_workspace_table_response import RecordsBatchUpdateWorkspaceTableResponse
 from ..model.records_delete_workspace_table_request import RecordsDeleteWorkspaceTableRequest
@@ -19,11 +21,51 @@ from ..model.records_patch_workspace_table_request import RecordsPatchWorkspaceT
 from ..model.records_patch_workspace_table_response import RecordsPatchWorkspaceTableResponse
 from ..model.records_post_workspace_table_request import RecordsPostWorkspaceTableRequest
 from ..model.records_post_workspace_table_response import RecordsPostWorkspaceTableResponse
+from ..model.table_get_workspace_table_request import TableGetWorkspaceTableRequest
+from ..model.table_get_workspace_table_response import TableGetWorkspaceTableResponse
 
 
 class WorkspaceTable(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def list(self, request: ListWorkspaceTableRequest,
+             option: Optional[RequestOption] = None) -> ListWorkspaceTableResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceTableResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListWorkspaceTableRequest,
+                    option: Optional[RequestOption] = None) -> ListWorkspaceTableResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceTableResponse)
+        response.raw = resp
+
+        return response
 
     def records_batch_update(self, request: RecordsBatchUpdateWorkspaceTableRequest,
                              option: Optional[RequestOption] = None) -> RecordsBatchUpdateWorkspaceTableResponse:
@@ -221,6 +263,46 @@ class WorkspaceTable(object):
         # 反序列化
         response: RecordsPostWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                      RecordsPostWorkspaceTableResponse)
+        response.raw = resp
+
+        return response
+
+    def table_get(self, request: TableGetWorkspaceTableRequest,
+                  option: Optional[RequestOption] = None) -> TableGetWorkspaceTableResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TableGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  TableGetWorkspaceTableResponse)
+        response.raw = resp
+
+        return response
+
+    async def atable_get(self, request: TableGetWorkspaceTableRequest,
+                         option: Optional[RequestOption] = None) -> TableGetWorkspaceTableResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TableGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  TableGetWorkspaceTableResponse)
         response.raw = resp
 
         return response

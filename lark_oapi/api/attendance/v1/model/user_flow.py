@@ -24,6 +24,7 @@ class UserFlow(object):
         "check_result": str,
         "external_id": str,
         "idempotent_id": str,
+        "create_time": str,
     }
 
     def __init__(self, d=None):
@@ -45,6 +46,7 @@ class UserFlow(object):
         self.check_result: Optional[str] = None
         self.external_id: Optional[str] = None
         self.idempotent_id: Optional[str] = None
+        self.create_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -126,6 +128,10 @@ class UserFlowBuilder(object):
 
     def idempotent_id(self, idempotent_id: str) -> "UserFlowBuilder":
         self._user_flow.idempotent_id = idempotent_id
+        return self
+
+    def create_time(self, create_time: str) -> "UserFlowBuilder":
+        self._user_flow.create_time = create_time
         return self
 
     def build(self) -> "UserFlow":

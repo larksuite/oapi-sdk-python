@@ -13,6 +13,7 @@ class PayGroup(object):
         "code": str,
         "status": str,
         "country_region": CountryRegion,
+        "is_global_region": bool,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class PayGroup(object):
         self.code: Optional[str] = None
         self.status: Optional[str] = None
         self.country_region: Optional[CountryRegion] = None
+        self.is_global_region: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -50,6 +52,10 @@ class PayGroupBuilder(object):
 
     def country_region(self, country_region: CountryRegion) -> "PayGroupBuilder":
         self._pay_group.country_region = country_region
+        return self
+
+    def is_global_region(self, is_global_region: bool) -> "PayGroupBuilder":
+        self._pay_group.is_global_region = is_global_region
         return self
 
     def build(self) -> "PayGroup":

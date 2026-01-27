@@ -42,6 +42,8 @@ def main():
                       .international_assignment_type("global_assignment")
                       .effective_time("2024-01-02")
                       .expiration_time("2024-01-02")
+                      .international_assignment_allowance(True)
+                      .accommodation(True)
                       .build()) \
         .build()
 
@@ -98,6 +100,8 @@ async def amain():
                       .international_assignment_type("global_assignment")
                       .effective_time("2024-01-02")
                       .expiration_time("2024-01-02")
+                      .international_assignment_allowance(True)
+                      .accommodation(True)
                       .build()) \
         .build()
 

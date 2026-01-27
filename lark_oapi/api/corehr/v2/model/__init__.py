@@ -85,6 +85,7 @@ from .employee_job_family import *
 from .employee_job_level import *
 from .employee_pathway import *
 from .employee_bt import *
+from .employee_check_info import *
 from .employee_cost_allocation import *
 from .employee_default_cost_center import *
 from .employee_domain_event_data import *
@@ -285,6 +286,7 @@ from .reorganization_info import *
 from .report_detail_req import *
 from .resident_tax import *
 from .resident_tax_for_update import *
+from .self_service import *
 from .seniority_adjust_information import *
 from .seniority_adjust_information_edit import *
 from .signature_custom_field_v1 import *

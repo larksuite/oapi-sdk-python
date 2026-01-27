@@ -12,7 +12,12 @@ from .dataset import *
 from .department_id import *
 from .dialog_search_request import *
 from .doc import *
+from .doc_filter import *
+from .doc_meta import *
 from .doc_passage_param import *
+from .doc_request import *
+from .doc_res_unit import *
+from .doc_response import *
 from .enterprise_knowledge_source_comment_param import *
 from .enterprise_knowledge_source_helpdesk_param import *
 from .enterprise_knowledge_source_lingo_param import *
@@ -33,6 +38,7 @@ from .knowledge_qa_answer_request import *
 from .knowledge_qa_answer_response import *
 from .knowledge_qa_enterprise_reference import *
 from .knowledge_qa_internet_reference import *
+from .knowledge_qa_message import *
 from .knowledge_qa_reference import *
 from .knowledge_qa_search_enterprise_passage import *
 from .knowledge_qa_search_request import *
@@ -84,6 +90,7 @@ from .template_card_variables import *
 from .time_range import *
 from .user_info import *
 from .web_passage_param import *
+from .wiki_filter import *
 from .wiki_passage_param import *
 from .create_app_request_body import *
 from .create_app_request import *
@@ -96,6 +103,8 @@ from .patch_data_source_request import *
 from .create_data_source_item_request import *
 from .delete_data_source_item_request import *
 from .get_data_source_item_request import *
+from .search_doc_wiki_request_body import *
+from .search_doc_wiki_request import *
 from .create_message_request_body import *
 from .create_message_request import *
 from .create_schema_request import *
@@ -118,6 +127,8 @@ from .create_data_source_item_response import *
 from .delete_data_source_item_response import *
 from .get_data_source_item_response_body import *
 from .get_data_source_item_response import *
+from .search_doc_wiki_response_body import *
+from .search_doc_wiki_response import *
 from .create_message_response_body import *
 from .create_message_response import *
 from .create_schema_response_body import *

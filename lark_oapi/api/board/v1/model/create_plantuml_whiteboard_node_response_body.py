@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class CreatePlantumlWhiteboardNodeResponseBody(object):
     _types = {
         "node_id": str,
+        "extra": Dict[str, List[str]],
     }
 
     def __init__(self, d=None):
         self.node_id: Optional[str] = None
+        self.extra: Optional[Dict[str, List[str]]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class CreatePlantumlWhiteboardNodeResponseBodyBuilder(object):
 
     def node_id(self, node_id: str) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
         self._create_plantuml_whiteboard_node_response_body.node_id = node_id
+        return self
+
+    def extra(self, extra: Dict[str, List[str]]) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
+        self._create_plantuml_whiteboard_node_response_body.extra = extra
         return self
 
     def build(self) -> "CreatePlantumlWhiteboardNodeResponseBody":

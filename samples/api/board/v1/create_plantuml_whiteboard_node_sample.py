@@ -20,6 +20,8 @@ def main():
                       .style_type(1)
                       .syntax_type(0)
                       .diagram_type(0)
+                      .overwrite(bool)
+                      .parse_mode(0)
                       .build()) \
         .build()
 
@@ -53,6 +55,8 @@ async def amain():
                       .style_type(1)
                       .syntax_type(0)
                       .diagram_type(0)
+                      .overwrite(bool)
+                      .parse_mode(0)
                       .build()) \
         .build()
 

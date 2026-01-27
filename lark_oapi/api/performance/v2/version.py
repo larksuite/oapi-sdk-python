@@ -18,3 +18,4 @@ class V2(object):
         self.reviewee: Reviewee = Reviewee(config)
         self.stage_task: StageTask = StageTask(config)
         self.user_group_user_rel: UserGroupUserRel = UserGroupUserRel(config)
+        self.user_info: UserInfo = UserInfo(config)

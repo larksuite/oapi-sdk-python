@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .object_field_data import ObjectFieldData
 
 
 class AddressForUpdate(object):
@@ -24,6 +25,16 @@ class AddressForUpdate(object):
         "is_public": bool,
         "city_id_v2": str,
         "district_id_v2": str,
+        "custom_fields": List[ObjectFieldData],
+        "address_line1": str,
+        "address_line2": str,
+        "address_line3": str,
+        "address_line4": str,
+        "address_line5": str,
+        "address_line6": str,
+        "address_line7": str,
+        "address_line8": str,
+        "address_line9": str,
     }
 
     def __init__(self, d=None):
@@ -45,6 +56,16 @@ class AddressForUpdate(object):
         self.is_public: Optional[bool] = None
         self.city_id_v2: Optional[str] = None
         self.district_id_v2: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.address_line1: Optional[str] = None
+        self.address_line2: Optional[str] = None
+        self.address_line3: Optional[str] = None
+        self.address_line4: Optional[str] = None
+        self.address_line5: Optional[str] = None
+        self.address_line6: Optional[str] = None
+        self.address_line7: Optional[str] = None
+        self.address_line8: Optional[str] = None
+        self.address_line9: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -126,6 +147,46 @@ class AddressForUpdateBuilder(object):
 
     def district_id_v2(self, district_id_v2: str) -> "AddressForUpdateBuilder":
         self._address_for_update.district_id_v2 = district_id_v2
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "AddressForUpdateBuilder":
+        self._address_for_update.custom_fields = custom_fields
+        return self
+
+    def address_line1(self, address_line1: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line1 = address_line1
+        return self
+
+    def address_line2(self, address_line2: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line2 = address_line2
+        return self
+
+    def address_line3(self, address_line3: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line3 = address_line3
+        return self
+
+    def address_line4(self, address_line4: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line4 = address_line4
+        return self
+
+    def address_line5(self, address_line5: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line5 = address_line5
+        return self
+
+    def address_line6(self, address_line6: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line6 = address_line6
+        return self
+
+    def address_line7(self, address_line7: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line7 = address_line7
+        return self
+
+    def address_line8(self, address_line8: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line8 = address_line8
+        return self
+
+    def address_line9(self, address_line9: str) -> "AddressForUpdateBuilder":
+        self._address_for_update.address_line9 = address_line9
         return self
 
     def build(self) -> "AddressForUpdate":

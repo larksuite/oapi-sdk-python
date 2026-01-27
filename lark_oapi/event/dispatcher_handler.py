@@ -4,6 +4,7 @@ import hashlib
 import json
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.api.acs.v1.processor import *
+from lark_oapi.api.apaas.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
 from lark_oapi.api.approval.v4.processor import *
 from lark_oapi.api.calendar.v4.processor import *
@@ -236,6 +237,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.acs.user.updated_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.acs.user.updated_v1")
         self._processorMap["p2.acs.user.updated_v1"] = P2AcsUserUpdatedV1Processor(f)
+        return self
+
+    def register_p2_apaas_workspace_record_change_v1(self, f: Callable[
+        [P2ApaasWorkspaceRecordChangeV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.apaas.workspace.record_change_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.apaas.workspace.record_change_v1")
+        self._processorMap["p2.apaas.workspace.record_change_v1"] = P2ApaasWorkspaceRecordChangeV1Processor(f)
         return self
 
     def register_p2_application_application_created_v6(self, f: Callable[

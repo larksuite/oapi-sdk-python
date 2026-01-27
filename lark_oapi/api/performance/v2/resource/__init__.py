@@ -13,3 +13,4 @@ from .review_template import *
 from .reviewee import *
 from .stage_task import *
 from .user_group_user_rel import *
+from .user_info import *

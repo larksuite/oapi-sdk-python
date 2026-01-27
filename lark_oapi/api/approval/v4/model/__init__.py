@@ -128,6 +128,7 @@ from .cancel_instance_request import *
 from .cc_instance_request import *
 from .create_instance_request import *
 from .get_instance_request import *
+from .list_instance_request import *
 from .preview_instance_request_body import *
 from .preview_instance_request import *
 from .query_instance_request import *
@@ -166,6 +167,8 @@ from .create_instance_response_body import *
 from .create_instance_response import *
 from .get_instance_response_body import *
 from .get_instance_response import *
+from .list_instance_response_body import *
+from .list_instance_response import *
 from .preview_instance_response_body import *
 from .preview_instance_response import *
 from .query_instance_response_body import *

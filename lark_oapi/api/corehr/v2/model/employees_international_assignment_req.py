@@ -31,6 +31,8 @@ class EmployeesInternationalAssignmentReq(object):
         "international_assignment_type": str,
         "effective_time": str,
         "expiration_time": str,
+        "international_assignment_allowance": bool,
+        "accommodation": bool,
     }
 
     def __init__(self, d=None):
@@ -58,6 +60,8 @@ class EmployeesInternationalAssignmentReq(object):
         self.international_assignment_type: Optional[str] = None
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
+        self.international_assignment_allowance: Optional[bool] = None
+        self.accommodation: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -166,6 +170,15 @@ class EmployeesInternationalAssignmentReqBuilder(object):
 
     def expiration_time(self, expiration_time: str) -> "EmployeesInternationalAssignmentReqBuilder":
         self._employees_international_assignment_req.expiration_time = expiration_time
+        return self
+
+    def international_assignment_allowance(self,
+                                           international_assignment_allowance: bool) -> "EmployeesInternationalAssignmentReqBuilder":
+        self._employees_international_assignment_req.international_assignment_allowance = international_assignment_allowance
+        return self
+
+    def accommodation(self, accommodation: bool) -> "EmployeesInternationalAssignmentReqBuilder":
+        self._employees_international_assignment_req.accommodation = accommodation
         return self
 
     def build(self) -> "EmployeesInternationalAssignmentReq":

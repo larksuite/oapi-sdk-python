@@ -3,6 +3,10 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .policy_entity import PolicyEntity
+from .hit_content import HitContent
+from .proof_content_detail import ProofContentDetail
+from .detect_rule import DetectRule
+from .resource_attribute import ResourceAttribute
 
 
 class PolicyLogItem(object):
@@ -15,6 +19,10 @@ class PolicyLogItem(object):
         "condition": str,
         "policy_infos": List[PolicyEntity],
         "system_action": str,
+        "hit_contents": List[HitContent],
+        "proof_details": List[ProofContentDetail],
+        "detect_rules": List[DetectRule],
+        "resource_attributes": List[ResourceAttribute],
     }
 
     def __init__(self, d=None):
@@ -26,6 +34,10 @@ class PolicyLogItem(object):
         self.condition: Optional[str] = None
         self.policy_infos: Optional[List[PolicyEntity]] = None
         self.system_action: Optional[str] = None
+        self.hit_contents: Optional[List[HitContent]] = None
+        self.proof_details: Optional[List[ProofContentDetail]] = None
+        self.detect_rules: Optional[List[DetectRule]] = None
+        self.resource_attributes: Optional[List[ResourceAttribute]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -67,6 +79,22 @@ class PolicyLogItemBuilder(object):
 
     def system_action(self, system_action: str) -> "PolicyLogItemBuilder":
         self._policy_log_item.system_action = system_action
+        return self
+
+    def hit_contents(self, hit_contents: List[HitContent]) -> "PolicyLogItemBuilder":
+        self._policy_log_item.hit_contents = hit_contents
+        return self
+
+    def proof_details(self, proof_details: List[ProofContentDetail]) -> "PolicyLogItemBuilder":
+        self._policy_log_item.proof_details = proof_details
+        return self
+
+    def detect_rules(self, detect_rules: List[DetectRule]) -> "PolicyLogItemBuilder":
+        self._policy_log_item.detect_rules = detect_rules
+        return self
+
+    def resource_attributes(self, resource_attributes: List[ResourceAttribute]) -> "PolicyLogItemBuilder":
+        self._policy_log_item.resource_attributes = resource_attributes
         return self
 
     def build(self) -> "PolicyLogItem":

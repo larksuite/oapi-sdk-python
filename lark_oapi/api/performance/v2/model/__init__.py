@@ -105,6 +105,8 @@ from .query_reviewee_request_body import *
 from .query_reviewee_request import *
 from .write_user_group_user_rel_request_body import *
 from .write_user_group_user_rel_request import *
+from .query_user_info_request_body import *
+from .query_user_info_request import *
 from .query_activity_response_body import *
 from .query_activity_response import *
 from .import_additional_information_response_body import *
@@ -137,5 +139,7 @@ from .query_reviewee_response_body import *
 from .query_reviewee_response import *
 from .write_user_group_user_rel_response_body import *
 from .write_user_group_user_rel_response import *
+from .query_user_info_response_body import *
+from .query_user_info_response import *
 from .p2_performance_review_data_changed_v2 import *
 from .p2_performance_stage_task_open_result_v2 import *

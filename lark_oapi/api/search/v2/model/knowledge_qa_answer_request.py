@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .enterprise_knowledge_source_param import EnterpriseKnowledgeSourceParam
 from .knowledge_source_request_extra import KnowledgeSourceRequestExtra
+from .knowledge_qa_message import KnowledgeQaMessage
 
 
 class KnowledgeQaAnswerRequest(object):
@@ -14,6 +15,7 @@ class KnowledgeQaAnswerRequest(object):
         "enterprise_knowledge_source": EnterpriseKnowledgeSourceParam,
         "extra": KnowledgeSourceRequestExtra,
         "model_type": str,
+        "history_messages": List[KnowledgeQaMessage],
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class KnowledgeQaAnswerRequest(object):
         self.enterprise_knowledge_source: Optional[EnterpriseKnowledgeSourceParam] = None
         self.extra: Optional[KnowledgeSourceRequestExtra] = None
         self.model_type: Optional[str] = None
+        self.history_messages: Optional[List[KnowledgeQaMessage]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -57,6 +60,10 @@ class KnowledgeQaAnswerRequestBuilder(object):
 
     def model_type(self, model_type: str) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.model_type = model_type
+        return self
+
+    def history_messages(self, history_messages: List[KnowledgeQaMessage]) -> "KnowledgeQaAnswerRequestBuilder":
+        self._knowledge_qa_answer_request.history_messages = history_messages
         return self
 
     def build(self) -> "KnowledgeQaAnswerRequest":

@@ -21,6 +21,8 @@ from .data_archiving_message_struct import *
 from .data_archiving_user import *
 from .data_archiving_user_struct import *
 from .department_id import *
+from .detect_proof_context import *
+from .detect_rule import *
 from .device_apply_record import *
 from .device_record import *
 from .directory_items import *
@@ -41,6 +43,7 @@ from .file_risk_detection_record_result import *
 from .gw_common import *
 from .gw_request import *
 from .gw_response import *
+from .hit_content import *
 from .key_person import *
 from .list_openapi_log_request import *
 from .message import *
@@ -53,6 +56,9 @@ from .param import *
 from .policy_entity import *
 from .policy_log import *
 from .policy_log_item import *
+from .proof_content_detail import *
+from .proof_context import *
+from .resource_attribute import *
 from .security_log_error import *
 from .simple_user import *
 from .subscribe_audit_log_file import *
