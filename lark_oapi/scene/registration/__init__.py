@@ -21,10 +21,11 @@ class _RegistrationFlow:
         self._lark_url = lark_domain
 
     def _build_qr_url(self, uri):
-        from_value = f"{_SDK_NAME}/{self._source}" if self._source else _SDK_NAME
         parsed = urlparse(uri)
         params = parse_qs(parsed.query)
-        params["from"] = from_value
+        params["from"] = "sdk"
+        params["tp"] = "sdk"
+        params["source"] = f"{_SDK_NAME}/{self._source}" if self._source else _SDK_NAME
         return urlunparse(parsed._replace(query=urlencode(params, doseq=True)))
 
     def _notify_status(self, status, interval=None):
