@@ -1,3 +1,5 @@
 global-exclude */__pycache__/*
 global-exclude *.pyc
+recursive-include doc/channel *.md
+recursive-include samples/channel *.py
 prune tests

@@ -1,4 +1,5 @@
 import hashlib
+import hmac
 import json
 from typing import Optional, Callable, Any
 
@@ -42,14 +43,14 @@ class CardActionHandler(HttpHandler):
             card.raw = req
 
             if URL_VERIFICATION == card.type:
-                # 验证回调地址
-                # 校验 token
-                if self._verification_token != card.token:
+                # URL verification: constant-time token compare.
+                if self._verification_token is None or card.token is None or not hmac.compare_digest(
+                    self._verification_token, card.token
+                ):
                     raise AccessDeniedException("invalid verification_token")
 
-                # 返回 Challenge Code
-                resp_body = "{\"challenge\":\"%s\"}" % card.challenge
-                resp.content = resp_body.encode(UTF_8)
+                # Echo the challenge (JSON-escaped).
+                resp.content = JSON.marshal({"challenge": card.challenge}).encode(UTF_8)
                 return resp
             else:
                 # 否则验签
@@ -97,14 +98,22 @@ class CardActionHandler(HttpHandler):
         return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
-        if self._verification_token is None or self._verification_token == "":
+        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
+        if Strings.is_empty(self._verification_token):
+            # verification_token not configured: if upstream still sent a
+            # signature header, treat that as a config mismatch and fail closed.
+            if signature:
+                raise AccessDeniedException(
+                    "signature received but verification_token is not configured"
+                )
             return
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
-        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
-        bs = (timestamp + nonce + self._verification_token).encode(UTF_8) + request.body
-        h = hashlib.sha1(bs)
-        if signature != h.hexdigest():
+        if timestamp is None or nonce is None or signature is None:
+            raise AccessDeniedException("signature verification failed")
+        bs = (timestamp + nonce + self._verification_token).encode(UTF_8) + (request.body or b"")
+        expected = hashlib.sha1(bs).hexdigest()
+        if not hmac.compare_digest(signature, expected):
             raise AccessDeniedException("signature verification failed")
 
     @staticmethod

@@ -1,3 +1,4 @@
+import base64
 import copy
 import datetime
 import io
@@ -31,7 +32,17 @@ class Encoder(JSONEncoder):
         if isinstance(o, datetime.datetime):
             return o.strftime("%Y-%m-%d %H:%M:%S")
         if isinstance(o, bytes):
-            return str(o, encoding=UTF_8)
+            # Try UTF-8 first (the common case for wire payloads that
+            # happen to be stringly-typed), but fall back to base64 for
+            # genuine binary data (JPEG/PNG/PDF bytes pulled out of a
+            # download response that is later JSON-serialized by caller
+            # code). Without this fallback, any non-UTF-8 byte sequence
+            # raises ``UnicodeDecodeError`` mid-marshal and the whole
+            # response is lost.
+            try:
+                return str(o, encoding=UTF_8)
+            except UnicodeDecodeError:
+                return base64.b64encode(o).decode("ascii")
         if isinstance(o, int):
             return int(o)
         if isinstance(o, float):
