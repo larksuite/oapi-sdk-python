@@ -112,7 +112,7 @@ class _SyncFlow(_RegistrationFlow):
 
         device_code = begin_res["device_code"]
         interval = begin_res.get("interval", 5)
-        expire_in = begin_res.get("expire_in", 600)
+        expire_in = begin_res.get("expires_in", 600)
 
         qr_url = self._build_qr_url(begin_res["verification_uri_complete"])
         self._on_qr_code({"url": qr_url, "expire_in": expire_in})
@@ -174,7 +174,7 @@ class _AsyncFlow(_RegistrationFlow):
 
         device_code = begin_res["device_code"]
         interval = begin_res.get("interval", 5)
-        expire_in = begin_res.get("expire_in", 600)
+        expire_in = begin_res.get("expires_in", 600)
 
         qr_url = self._build_qr_url(begin_res["verification_uri_complete"])
         self._on_qr_code({"url": qr_url, "expire_in": expire_in})
