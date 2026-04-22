@@ -1,19 +1,31 @@
+"""
+Transport module for Feishu API requests.
+"""
+
 import json
+from typing import Dict, Optional
 
 import httpx
 import requests
-from requests_toolbelt import MultipartEncoder
-
-from lark_oapi.core.const import *
+from lark_oapi.core.const import AUTHORIZATION, PROJECT, USER_AGENT, UTF_8, VERSION
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
-from lark_oapi.core.model import *
+from lark_oapi.core.model import (
+    AccessTokenType,
+    BaseRequest,
+    Config,
+    RawResponse,
+    RequestOption,
+)
+from requests_toolbelt import MultipartEncoder
 
 
 class Transport(object):
 
     @staticmethod
-    def execute(conf: Config, req: BaseRequest, option: Optional[RequestOption] = None) -> RawResponse:
+    def execute(
+        conf: Config, req: BaseRequest, option: Optional[RequestOption] = None
+    ) -> RawResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +46,15 @@ class Transport(object):
             params=req.queries,
             data=data,
             timeout=conf.timeout,
+            proxies=conf.proxies,
         )
 
-        logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "
-                     f"headers: {JSON.marshal(headers)}, "
-                     f"params: {JSON.marshal(req.queries)}, "
-                     f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}")
+        logger.debug(
+            f"{str(req.http_method.name)} {url} {response.status_code}, "
+            f"headers: {JSON.marshal(headers)}, "
+            f"params: {JSON.marshal(req.queries)}, "
+            f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}"
+        )
 
         resp = RawResponse()
         resp.status_code = response.status_code
@@ -49,7 +64,9 @@ class Transport(object):
         return resp
 
     @staticmethod
-    async def aexecute(conf: Config, req: BaseRequest, option: Optional[RequestOption] = None) -> RawResponse:
+    async def aexecute(
+        conf: Config, req: BaseRequest, option: Optional[RequestOption] = None
+    ) -> RawResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,6 +96,7 @@ class Transport(object):
                 data=data,
                 files=files,
                 timeout=conf.timeout,
+                # TODO: Add proxy support if needed
             )
 
             logger.debug(
