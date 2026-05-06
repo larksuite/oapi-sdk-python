@@ -1,4 +1,5 @@
 import json
+import urllib.parse
 
 import httpx
 import requests
@@ -8,6 +9,7 @@ from lark_oapi.core.const import *
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.model import *
+from lark_oapi.core.utils.user_agent import build_user_agent
 
 
 class Transport(object):
@@ -21,7 +23,7 @@ class Transport(object):
         url: str = _build_url(conf.domain, req.uri, req.paths)
 
         # 组装header
-        headers: Dict[str, str] = _build_header(req, option)
+        headers: Dict[str, str] = _build_header(req, option, conf)
 
         data = req.body
         if data is not None and not isinstance(data, MultipartEncoder):
@@ -57,7 +59,7 @@ class Transport(object):
         url: str = _build_url(conf.domain, req.uri, req.paths)
 
         # 组装header
-        headers: Dict[str, str] = _build_header(req, option)
+        headers: Dict[str, str] = _build_header(req, option, conf)
 
         json_, files, data = None, None, None
         if req.files:
@@ -100,16 +102,24 @@ def _build_url(domain: str, uri: str, paths: Dict[str, str]) -> str:
     if paths is None:
         paths = {}
     for key in paths:
-        uri = uri.replace(":" + key, paths[key])
+        # Path params must be URL-encoded; safe='' prevents '/', '?', '#'
+        # from passing through unencoded (path traversal / query injection).
+        value = paths[key]
+        if value is None:
+            value = ""
+        encoded = urllib.parse.quote(str(value), safe="")
+        uri = uri.replace(":" + key, encoded)
 
     return domain + uri
 
 
-def _build_header(request: BaseRequest, option: RequestOption) -> Dict[str, str]:
+def _build_header(request: BaseRequest, option: RequestOption, conf: Optional[Config] = None) -> Dict[str, str]:
     headers = request.headers
 
     # 添加ua
-    headers[USER_AGENT] = f"{PROJECT}/v{VERSION}"
+    source = getattr(conf, "source", None) if conf is not None else None
+    extra_tags = getattr(conf, "extra_ua_tags", None) if conf is not None else None
+    headers[USER_AGENT] = build_user_agent(source=source, extra_tags=extra_tags)
 
     # 附加header
     if option.headers is not None:

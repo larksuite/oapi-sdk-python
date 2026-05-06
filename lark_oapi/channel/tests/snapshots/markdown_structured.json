@@ -1,0 +1,362 @@
+{
+  "01_plain": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "这是普通文本，没有任何 markdown。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "02_bold": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "下面是 "
+          },
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "粗体"
+          },
+          {
+            "tag": "text",
+            "text": " 文字。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "03_italic": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "下面是 "
+          },
+          {
+            "style": [
+              "italic"
+            ],
+            "tag": "text",
+            "text": "斜体"
+          },
+          {
+            "tag": "text",
+            "text": " 文字。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "04_bold_italic": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "组合 "
+          },
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "*粗+斜"
+          },
+          {
+            "tag": "text",
+            "text": "* 看一下。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "05_h1": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "H1 标题（应该字号最大）"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "06_h2": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "H2 标题（中号）"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "07_h3": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "H3 标题（小号）"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "08_quote": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "│ "
+          },
+          {
+            "tag": "text",
+            "text": "这是引用块第一行\n引用块第二行"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "09_nested_quote": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "│ "
+          },
+          {
+            "tag": "text",
+            "text": "外层引用\n> 嵌套引用"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "10_ul": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "• 苹果"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• 香蕉"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• 樱桃"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "11_ol": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "1. 第一"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "2. 第二"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "3. 第三"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "12_nested_ul": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "• 顶层"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• 子项 1"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• 子项 2"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "13_inline_code": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "命令是 "
+          },
+          {
+            "style": [
+              "code"
+            ],
+            "tag": "text",
+            "text": "git status"
+          },
+          {
+            "tag": "text",
+            "text": " 用来查看状态。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "14_link": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "tag": "text",
+            "text": "查看 "
+          },
+          {
+            "href": "https://example.com",
+            "tag": "a",
+            "text": "文档"
+          },
+          {
+            "tag": "text",
+            "text": " 了解更多。"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "15_code_fence": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "language": "PYTHON",
+            "tag": "code_block",
+            "text": "print('hi')"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  },
+  "16_composite": {
+    "zh_cn": {
+      "content": [
+        [
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "标题"
+          }
+        ],
+        [
+          {
+            "style": [
+              "bold"
+            ],
+            "tag": "text",
+            "text": "重点"
+          },
+          {
+            "tag": "text",
+            "text": "：下面是清单。"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• a"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "• b"
+          }
+        ],
+        [
+          {
+            "tag": "text",
+            "text": "│ "
+          },
+          {
+            "tag": "text",
+            "text": "引用"
+          }
+        ],
+        [
+          {
+            "language": "PYTHON",
+            "tag": "code_block",
+            "text": "print('done')"
+          }
+        ]
+      ],
+      "title": ""
+    }
+  }
+}

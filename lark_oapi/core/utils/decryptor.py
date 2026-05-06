@@ -14,10 +14,19 @@ class AESCipher(object):
         self.digest = hashlib.sha256(key).digest()
 
     def decrypt(self, enc: bytes) -> bytes:
+        if len(enc) < AES.block_size * 2 or len(enc) % AES.block_size != 0:
+            raise ValueError("invalid ciphertext length")
         iv = enc[: AES.block_size]
         cipher = AES.new(self.digest, AES.MODE_CBC, iv)
         s = cipher.decrypt(enc[AES.block_size:])
-        return s[: -ord(s[len(s) - 1:])]
+        if not s:
+            raise ValueError("invalid ciphertext: empty plaintext")
+        pad = s[-1]
+        if pad < 1 or pad > AES.block_size or pad > len(s):
+            raise ValueError("invalid PKCS7 padding")
+        if s[-pad:] != bytes([pad]) * pad:
+            raise ValueError("invalid PKCS7 padding")
+        return s[:-pad]
 
     def decrypt_str(self, enc: str) -> str:
         enc = base64.b64decode(enc)

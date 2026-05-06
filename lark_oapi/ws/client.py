@@ -3,17 +3,19 @@ import base64
 import http
 import random
 import time
+from typing import Callable, Optional
 from urllib.parse import urlparse, parse_qs
 
 import requests
 import websockets
 
 from lark_oapi.core.cache import ExpiringCache
-from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN
+from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN, USER_AGENT
 from lark_oapi.core.enum import LogLevel
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.utils import Strings
+from lark_oapi.core.utils.user_agent import build_user_agent
 from lark_oapi.event.dispatcher_handler import EventDispatcherHandler
 from lark_oapi.ws.const import *
 from lark_oapi.ws.enum import FrameType, MessageType
@@ -90,23 +92,40 @@ class Client(object):
                  log_level: LogLevel = LogLevel.INFO,
                  event_handler: EventDispatcherHandler = None,
                  domain: str = FEISHU_DOMAIN,
-                 auto_reconnect: bool = True) -> None:
+                 auto_reconnect: bool = True,
+                 source: Optional[str] = None,
+                 extra_ua_tags: Optional[list] = None) -> None:
         self._app_id: str = app_id
         self._app_secret: str = app_secret
         self._log_level: LogLevel = log_level
         self._event_handler: EventDispatcherHandler = event_handler
         self._auto_reconnect: bool = auto_reconnect
         self._domain: str = domain
+        # UA used on the endpoint-discovery POST (and any future HTTP/WS
+        # handshakes from this client). ``extra_ua_tags`` is internal — sub-
+        # modules (e.g. FeishuChannel) pass ``["channel"]`` here.
+        self._user_agent: str = build_user_agent(source=source, extra_tags=extra_ua_tags)
         self._conn: Optional[websockets.WebSocketClientProtocol] = None
         self._conn_url: str = ""
         self._service_id: str = ""
         self._conn_id: str = ""
+        # Local defaults; the Feishu WS endpoint authoritatively replaces these
+        # via _configure() on every handshake (and may push updates mid-session
+        # via CONTROL frames). Matches node-sdk parent SDK — user-facing
+        # overrides are intentionally not exposed.
         self._reconnect_nonce: int = 30
         self._reconnect_count: int = -1
         self._reconnect_interval: int = 120
         self._ping_interval: int = 120
         self._cache: ExpiringCache = ExpiringCache(clear_interval=30)
         self._lock = asyncio.Lock()
+        # Observer hooks for higher-level wrappers (e.g. FeishuChannel) to
+        # react to reconnect lifecycle. ``on_reconnecting`` fires when the
+        # client decides a connection was lost and starts retrying;
+        # ``on_reconnected`` fires on the first successful re-establishment.
+        # Both default to no-op so existing callers see no behaviour change.
+        self.on_reconnecting: Callable[[], None] = lambda: None
+        self.on_reconnected: Callable[[], None] = lambda: None
         logger.setLevel(log_level.value)
 
     def start(self) -> None:
@@ -185,6 +204,7 @@ class Client(object):
             self._domain + GEN_ENDPOINT_URI,
             headers={
                 "locale": "zh",
+                USER_AGENT: self._user_agent,
             },
             json={
                 "AppID": self._app_id,
@@ -260,7 +280,7 @@ class Client(object):
         try:
             start = int(round(time.time() * 1000))
             if message_type == MessageType.EVENT:
-                result = self._event_handler.do_without_validation(pl)
+                result = self._event_handler._do_without_validation(pl)
             elif message_type == MessageType.CARD:
                 return
             else:
@@ -281,6 +301,13 @@ class Client(object):
         await self._write_message(frame.SerializeToString())
 
     async def _reconnect(self):
+        # Notify subscribers that we're about to try reconnecting. Wrapped in
+        # try/except so a misbehaving observer can never derail reconnect.
+        try:
+            self.on_reconnecting()
+        except Exception as e:  # pragma: no cover - defensive
+            logger.warning(self._fmt_log("on_reconnecting callback raised: {}", e))
+
         # 首次重连随机抖动
         if self._reconnect_nonce > 0:
             nonce = random.random() * self._reconnect_nonce
@@ -290,6 +317,7 @@ class Client(object):
         if self._reconnect_count >= 0:
             for i in range(self._reconnect_count):
                 if await self._try_connect(i):
+                    self._fire_on_reconnected()
                     return
                 await asyncio.sleep(self._reconnect_interval)
             raise ServerUnreachableException(
@@ -298,9 +326,16 @@ class Client(object):
             i = 0
             while True:
                 if await self._try_connect(i):
+                    self._fire_on_reconnected()
                     return
                 await asyncio.sleep(self._reconnect_interval)
                 i += 1
+
+    def _fire_on_reconnected(self) -> None:
+        try:
+            self.on_reconnected()
+        except Exception as e:  # pragma: no cover - defensive
+            logger.warning(self._fmt_log("on_reconnected callback raised: {}", e))
 
     async def _try_connect(self, cnt: int) -> bool:
         logger.info(self._fmt_log("trying to reconnect for the {} time", _ordinal(cnt + 1)))

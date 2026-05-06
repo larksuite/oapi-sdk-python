@@ -31,6 +31,53 @@ To address these issues, Feishu Open Platform has developed the Open Interface S
 
 更多示例可参考：https://github.com/larksuite/oapi-sdk-python-demo
 
+## Channel module
+
+`lark_oapi.channel` is a higher-level capability layer on top of the core
+OpenAPI client. It wraps event subscription, message normalization, outbound
+sending, streaming card updates, deduplication, retries, and SSRF-guarded
+media uploads behind a single `FeishuChannel` class — so a working bot is
+only a handful of lines.
+
+### Install
+
+```bash
+pip install lark-oapi
+```
+
+### Quickstart — echo bot
+
+```python
+import asyncio
+from lark_oapi.channel import FeishuChannel
+
+channel = FeishuChannel(app_id="cli_xxx", app_secret="***")
+
+@channel.on("message")
+async def on_message(msg):
+    await channel.send(
+        msg.conversation.chat_id,
+        {"text": f"echo: {msg.content_text}"},
+    )
+
+asyncio.run(channel.connect())
+```
+
+`channel.connect()` opens a long-lived WebSocket to Feishu, dispatches inbound
+events through registered `on(...)` handlers, and keeps the connection alive
+across reconnects. `channel.send(...)` accepts plain dicts (`{"text": ...}`,
+`{"markdown": ...}`, `{"card": ...}`) or strongly-typed `Outbound*` payloads
+from `lark_oapi.channel`.
+
+See the [Channel quickstart](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/quickstart.md),
+[Channel reference](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/reference.md),
+and [Channel echo bot sample](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/samples/channel/echo_bot.py)
+for runnable usage and API details. The public surface is exported from
+[`lark_oapi.channel`](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/lark_oapi/channel/__init__.py).
+
+## Requirements
+Python >= 3.8
+
 ## License
 MIT
 
