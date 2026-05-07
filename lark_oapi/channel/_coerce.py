@@ -177,6 +177,7 @@ def coerce_send_opts(
     if opts is None:
         return SendOpts()
     if isinstance(opts, SendOpts):
+        _coerce_reply_target_gone(opts.reply_target_gone)
         return opts
     if not isinstance(opts, dict):
         raise TypeError("send opts must be SendOpts or dict")
@@ -186,6 +187,9 @@ def coerce_send_opts(
         receive_id=_dict_get_any(opts, ("receiveId", "receive_id")),
         receive_id_type=_dict_get_any(opts, ("receiveIdType", "receive_id_type")),
         uuid=opts.get("uuid"),
+        reply_target_gone=_coerce_reply_target_gone(
+            _dict_get_any(opts, ("replyTargetGone", "reply_target_gone"))
+        ),
     )
 
 
@@ -194,6 +198,13 @@ def _dict_get_any(d: Dict[str, Any], keys) -> Any:
         if k in d:
             return d[k]
     return None
+
+
+def _coerce_reply_target_gone(value: Any) -> str:
+    value = value or "fresh"
+    if value not in ("fresh", "fail"):
+        raise ValueError(f"invalid reply_target_gone: {value}")
+    return value
 
 
 def _coerce_caption(value: Any) -> Optional[str]:

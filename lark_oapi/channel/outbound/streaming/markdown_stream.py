@@ -49,6 +49,7 @@ class MarkdownStreamController:
         send_card_by_reference: SendCardByReference,
         update_card_element_content: UpdateCardElementContent,
         finish_streaming_card: FinishStreamingCard,
+        reply_target_gone: str = "fresh",
         min_ms: int = 100,
         min_chars: int = 50,
         initial_text: str = INITIAL_TEXT,
@@ -58,6 +59,7 @@ class MarkdownStreamController:
         self._rit = receive_id_type
         self._reply_to = reply_to
         self._reply_in_thread = reply_in_thread
+        self._reply_target_gone = reply_target_gone
         self._create_card_instance = create_card_instance
         self._send_card_by_reference = send_card_by_reference
         self._update_card_element_content = update_card_element_content
@@ -141,12 +143,17 @@ class MarkdownStreamController:
             },
         }
         self._card_id = await self._create_card_instance(spec)
+        kwargs = {
+            "receive_id_type": self._rit,
+            "reply_to": self._reply_to,
+            "reply_in_thread": self._reply_in_thread,
+        }
+        if self._reply_target_gone != "fresh":
+            kwargs["reply_target_gone"] = self._reply_target_gone
         result = await self._send_card_by_reference(
             self._to,
             self._card_id,
-            receive_id_type=self._rit,
-            reply_to=self._reply_to,
-            reply_in_thread=self._reply_in_thread,
+            **kwargs,
         )
         self._message_id = getattr(result, "message_id", "") or ""
 

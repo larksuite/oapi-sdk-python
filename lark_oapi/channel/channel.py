@@ -1333,6 +1333,7 @@ class FeishuChannel:
                 receive_id_type=rit,
                 reply_to=send_opts.reply_to,
                 reply_in_thread=send_opts.reply_in_thread,
+                reply_target_gone=send_opts.reply_target_gone,
                 uuid_=send_opts.uuid,
             )
         except Exception as e:
@@ -1395,6 +1396,7 @@ class FeishuChannel:
                 receive_id_type=rit,
                 reply_to=send_opts.reply_to,
                 reply_in_thread=send_opts.reply_in_thread,
+                reply_target_gone=send_opts.reply_target_gone,
                 create_card_instance=self.create_card_instance,
                 send_card_by_reference=self.send_card_by_reference,
                 update_card_element_content=self.update_card_element_content,
@@ -1421,6 +1423,7 @@ class FeishuChannel:
                     to, rit, snapshot=snap,
                     reply_to=send_opts.reply_to,
                     reply_in_thread=send_opts.reply_in_thread,
+                    reply_target_gone=send_opts.reply_target_gone,
                 ),
                 patch_card=self._patch_card,
             )
@@ -1638,6 +1641,7 @@ class FeishuChannel:
         receive_id_type: Optional[str] = None,
         reply_to: Optional[str] = None,
         reply_in_thread: Optional[bool] = None,
+        reply_target_gone: str = "fresh",
     ) -> SendResult:
         """Send a message that references a pre-allocated card (see
         :meth:`create_card_instance`)."""
@@ -1648,6 +1652,7 @@ class FeishuChannel:
             receive_id_type=rit,
             reply_to=reply_to,
             reply_in_thread=reply_in_thread,
+            reply_target_gone=reply_target_gone,
         )
 
     async def update_card_element_content(
@@ -1687,7 +1692,16 @@ class FeishuChannel:
     # ------------------------------------------------------------------
     # Card streaming internals
     # ------------------------------------------------------------------
-    async def _ensure_card(self, to, rit, *, initial_text, reply_to, reply_in_thread) -> str:
+    async def _ensure_card(
+        self,
+        to,
+        rit,
+        *,
+        initial_text,
+        reply_to,
+        reply_in_thread,
+        reply_target_gone="fresh",
+    ) -> str:
         return await self._ensure_card_snapshot(
             to, rit,
             snapshot={
@@ -1697,10 +1711,18 @@ class FeishuChannel:
             },
             reply_to=reply_to,
             reply_in_thread=reply_in_thread,
+            reply_target_gone=reply_target_gone,
         )
 
     async def _ensure_card_snapshot(
-        self, to, rit, *, snapshot, reply_to, reply_in_thread
+        self,
+        to,
+        rit,
+        *,
+        snapshot,
+        reply_to,
+        reply_in_thread,
+        reply_target_gone="fresh",
     ) -> str:
         result = await self._sender.send(
             OutboundCard(card=snapshot),
@@ -1708,6 +1730,7 @@ class FeishuChannel:
             receive_id_type=rit,
             reply_to=reply_to,
             reply_in_thread=reply_in_thread,
+            reply_target_gone=reply_target_gone,
         )
         if not result.success or not result.message_id:
             code = result.error.code if result.error else FeishuChannelErrorCode.UNKNOWN

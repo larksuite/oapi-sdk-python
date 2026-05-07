@@ -621,6 +621,7 @@ UAT = UserAccessToken
 # ----------------------------------------------------------------------------
 
 ReceiveIdType = Literal["open_id", "chat_id", "user_id", "union_id", "email"]
+ReplyTargetGoneBehavior = Literal["fresh", "fail"]
 
 
 @dataclass
@@ -630,6 +631,7 @@ class SendOpts:
     receive_id: Optional[str] = None  # explicit target; overrides auto-routing
     receive_id_type: Optional[ReceiveIdType] = None
     uuid: Optional[str] = None
+    reply_target_gone: ReplyTargetGoneBehavior = "fresh"
 
 
 @dataclass

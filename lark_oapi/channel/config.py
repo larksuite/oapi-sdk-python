@@ -82,6 +82,7 @@ TagMdMode = Literal["structured", "native"]
 TransportKind = Literal["ws", "webhook"]
 DmPolicy = Literal["open", "allowlist", "blocklist", "disabled"]
 GroupPolicy = Literal["open", "allowlist", "blocklist", "admin_only", "disabled"]
+SenderIdentityField = Literal["open_id", "user_id", "union_id"]
 
 
 # ---------------------------------------------------------------------------
@@ -114,12 +115,16 @@ class PolicyConfig:
       (``admin_only`` only valid for groups)
     - ``require_mention`` — only respond in group chats when @Bot is mentioned
     - ``respond_to_mention_all`` — treat ``@all`` as a valid mention
-    - ``allow_from`` / ``deny_from`` — sender open_ids allowed/denied
-      under DM ``allowlist``/``blocklist`` modes
+    - ``allow_from`` / ``deny_from`` — sender identities allowed/denied
+      under DM ``allowlist``/``blocklist`` modes, matched by
+      ``sender_identity_fields``
     - ``group_allowlist`` / ``group_blocklist`` — chat_ids allowed/denied
       under group ``allowlist``/``blocklist`` modes
-    - ``admins`` — open_ids that bypass every gate (always allowed; required
-      sender list for ``admin_only`` group policy)
+    - ``admins`` — sender identities that bypass every gate (always allowed;
+      required sender list for ``admin_only`` group policy), matched by
+      ``sender_identity_fields``
+    - ``sender_identity_fields`` — identity fields used for sender-based
+      allow/block/admin lists; group chat allow/block lists remain chat_id based
     - ``group_overrides`` — per-chat overrides keyed by chat_id
     """
 
@@ -132,6 +137,9 @@ class PolicyConfig:
     group_allowlist: Optional[List[str]] = None
     group_blocklist: Optional[List[str]] = None
     admins: Optional[List[str]] = None
+    sender_identity_fields: List[SenderIdentityField] = field(
+        default_factory=lambda: ["open_id"]
+    )
     group_overrides: Dict[str, GroupOverride] = field(default_factory=dict)
 
 

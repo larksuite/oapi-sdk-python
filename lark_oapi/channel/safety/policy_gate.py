@@ -9,18 +9,36 @@ Group chat:
 
 DM:
     - dm_mode: open / allowlist / pair / disabled
-    - allowlist: sender_id must appear in dm_allowlist
+    - allowlist: sender identity must appear in dm_allowlist
 
 Returns `(allowed: bool, reason?: RejectReason)`.
 """
 
 import threading
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional, Set
 
 from ..config import PolicyConfig
-from ..types import InboundMessage
+from ..types import Identity, InboundMessage
 from .types import RejectReason
+
+
+_VALID_SENDER_IDENTITY_FIELDS = {"open_id", "user_id", "union_id"}
+
+
+def _sender_identity_values(sender: Identity, fields: List[str]) -> Set[str]:
+    values: Set[str] = set()
+    for field in fields or ["open_id"]:
+        if field not in _VALID_SENDER_IDENTITY_FIELDS:
+            raise ValueError(f"invalid sender identity field: {field}")
+        value = str(getattr(sender, field, "") or "")
+        if value:
+            values.add(value)
+    return values
+
+
+def _matches_any_sender_identity(sender_ids: Set[str], candidates) -> bool:
+    return bool(sender_ids and candidates and sender_ids.intersection(set(candidates)))
 
 
 @dataclass
@@ -55,17 +73,23 @@ class PolicyGate:
             policy = self._policy
             bot_open_id = self._bot_open_id
 
+        sender_ids = _sender_identity_values(msg.sender, policy.sender_identity_fields)
+
         # 1. admin bypass — always allowed regardless of any other gate
-        if policy.admins and msg.sender.open_id in policy.admins:
+        if policy.admins and _matches_any_sender_identity(sender_ids, policy.admins):
             return PolicyDecision(True)
 
         chat_type = msg.conversation.chat_type
         if chat_type in ("group", "topic"):
-            return self._evaluate_group(msg, policy, bot_open_id)
-        return self._evaluate_dm(msg, policy)
+            return self._evaluate_group(msg, policy, bot_open_id, sender_ids)
+        return self._evaluate_dm(msg, policy, sender_ids)
 
     def _evaluate_group(
-        self, msg: InboundMessage, policy: PolicyConfig, bot_open_id: Optional[str]
+        self,
+        msg: InboundMessage,
+        policy: PolicyConfig,
+        bot_open_id: Optional[str],
+        sender_ids: Set[str],
     ) -> PolicyDecision:
         override = (policy.group_overrides or {}).get(msg.conversation.chat_id)
 
@@ -79,26 +103,26 @@ class PolicyGate:
             return PolicyDecision(False, "policy_group_disabled")
 
         if policy_kind == "blocklist":
-            # Per-override blocklist gates the chat's sender open_ids.
+            # Per-override blocklist gates the chat's sender identities.
             # Global group_blocklist gates chat_ids.
             if override and override.blocklist is not None:
-                if msg.sender.open_id in override.blocklist:
+                if _matches_any_sender_identity(sender_ids, override.blocklist):
                     return PolicyDecision(False, "policy_blocklist")
             elif policy.group_blocklist and msg.conversation.chat_id in policy.group_blocklist:
                 return PolicyDecision(False, "policy_blocklist")
             # Otherwise fall through — blocklist mode permits everyone not listed.
 
         elif policy_kind == "admin_only":
-            if not policy.admins or msg.sender.open_id not in policy.admins:
+            if not policy.admins or not _matches_any_sender_identity(sender_ids, policy.admins):
                 return PolicyDecision(False, "policy_admin_only")
             # Admins fall through to require_mention; an admin who forgot to
             # @-mention the bot in a group still hits the mention gate.
 
         elif policy_kind == "allowlist":
-            # Per-override allowlist gates the chat's sender open_ids.
+            # Per-override allowlist gates the chat's sender identities.
             # Global group_allowlist gates chat_ids.
             if override and override.allowlist is not None:
-                if msg.sender.open_id not in override.allowlist:
+                if not _matches_any_sender_identity(sender_ids, override.allowlist):
                     return PolicyDecision(False, "policy_group_not_in_allowlist")
             else:
                 if not policy.group_allowlist or msg.conversation.chat_id not in policy.group_allowlist:
@@ -125,19 +149,21 @@ class PolicyGate:
         if msg.mentioned_all and not respond_mention_all and not mentioned_bot:
             return PolicyDecision(False, "policy_mention_all_blocked")
 
-        if policy.allow_from and msg.sender.open_id not in policy.allow_from:
+        if policy.allow_from and not _matches_any_sender_identity(sender_ids, policy.allow_from):
             return PolicyDecision(False, "policy_sender_not_allowed")
 
         return PolicyDecision(True)
 
-    def _evaluate_dm(self, msg: InboundMessage, policy: PolicyConfig) -> PolicyDecision:
+    def _evaluate_dm(
+        self, msg: InboundMessage, policy: PolicyConfig, sender_ids: Set[str]
+    ) -> PolicyDecision:
         if policy.dm_policy == "disabled":
             return PolicyDecision(False, "policy_dm_disabled")
         if policy.dm_policy == "blocklist":
-            if policy.deny_from and msg.sender.open_id in policy.deny_from:
+            if policy.deny_from and _matches_any_sender_identity(sender_ids, policy.deny_from):
                 return PolicyDecision(False, "policy_blocklist")
             return PolicyDecision(True)
         if policy.dm_policy == "allowlist":
-            if not policy.allow_from or msg.sender.open_id not in policy.allow_from:
+            if not policy.allow_from or not _matches_any_sender_identity(sender_ids, policy.allow_from):
                 return PolicyDecision(False, "policy_dm_not_in_allowlist")
         return PolicyDecision(True)

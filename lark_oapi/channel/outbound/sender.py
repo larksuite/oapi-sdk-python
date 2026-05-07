@@ -337,6 +337,7 @@ class OutboundSender:
         receive_id_type: Optional[str] = None,
         reply_to: Optional[str] = None,
         reply_in_thread: Optional[bool] = None,
+        reply_target_gone: str = "fresh",
         uuid_: Optional[str] = None,
     ) -> SendResult:
         """Route a single OutboundMessage through the driver.
@@ -393,6 +394,7 @@ class OutboundSender:
                 receive_id_type=receive_id_type,
                 reply_to=effective_reply_to,
                 reply_in_thread=reply_in_thread,
+                reply_target_gone=reply_target_gone,
                 uuid_=req_uuid,
             )
             last_result = result
@@ -417,6 +419,7 @@ class OutboundSender:
         receive_id_type: Optional[str],
         reply_to: Optional[str],
         reply_in_thread: Optional[bool],
+        reply_target_gone: str,
         uuid_: str,
     ) -> SendResult:
         """One send attempt with retry + two graceful downgrades.
@@ -442,6 +445,8 @@ class OutboundSender:
         err = result.error
         # Downgrade 1: reply target gone → fresh send
         if is_reply_target_gone(err.code) and reply_to:
+            if reply_target_gone == "fail":
+                return result
             logger.info("outbound: reply target gone, retrying as fresh message")
             async def fresh(_: int) -> SendResult:
                 rid = receive_id or ""

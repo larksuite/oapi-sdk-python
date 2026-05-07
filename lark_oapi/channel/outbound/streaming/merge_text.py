@@ -1,8 +1,8 @@
 """Smart concat for streaming text deltas.
 
-Different LLM providers yield text in different ways:
-- **Delta** (OpenAI): each chunk is a new suffix (`"Hello"` → `" world"`).
-- **Accumulated** (Anthropic prose APIs): each chunk is the running total
+Different streaming producers yield text in different ways:
+- **Delta**: each chunk is a new suffix (`"Hello"` → `" world"`).
+- **Accumulated**: each chunk is the running total
   (`"Hello"` → `"Hello world"`).
 - **Mixed** — some frameworks switch styles mid-stream.
 
