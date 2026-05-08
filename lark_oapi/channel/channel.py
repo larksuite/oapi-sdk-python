@@ -38,6 +38,7 @@ import json
 import threading
 import time
 from collections import OrderedDict
+from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Literal, Optional, Set, Union
 
 from lark_oapi.client import Client
@@ -97,6 +98,14 @@ from .types import (
 
 EventHandler = Callable[..., Any]
 Unsubscribe = Callable[[], None]
+
+
+@dataclass
+class _SentMessageContext:
+    message_id: str
+    chat_id: str
+    chat_type: Optional[str] = None
+    receive_id_type: Optional[str] = None
 
 
 def _card_action_identity(action: Any) -> str:
@@ -293,7 +302,9 @@ class FeishuChannel:
         self._bot_identity_lock = threading.Lock()
 
         self._sent_messages: "OrderedDict[str, float]" = OrderedDict()
+        self._sent_message_context: "OrderedDict[str, _SentMessageContext]" = OrderedDict()
         self._sent_messages_max = 2048
+        self._start_future: Optional[asyncio.Future] = None
 
         self._bg_loop: Optional[asyncio.AbstractEventLoop] = None
         self._bg_thread: Optional[threading.Thread] = None
@@ -308,7 +319,11 @@ class FeishuChannel:
         self._bg_tasks_lock = threading.Lock()
 
         self._shutdown = threading.Event()
+        self._stop_requested = False
         self._started = False
+        self._lifecycle_lock = threading.Lock()
+        self._lifecycle_generation = 0
+        self._background_generation = 0
         # Lazy-init: asyncio.Event() in older Python (<3.10) requires a
         # running loop; create on first access from a coroutine context.
         self._ready_event: Optional[asyncio.Event] = None
@@ -556,6 +571,90 @@ class FeishuChannel:
             return
         await asyncio.get_running_loop().run_in_executor(None, self.start)
 
+    async def start_background(self, *, timeout: Optional[float] = 30.0) -> None:
+        """Start transport in the background and return once it is ready.
+
+        ``connect()`` keeps the historical foreground/blocking WebSocket
+        behavior. Async applications that need startup to continue after the
+        WebSocket handshake should use this method instead.
+        """
+        if self._ready_flag:
+            return
+        loop = asyncio.get_running_loop()
+        if self._start_future is None or self._start_future.done():
+            with self._lifecycle_lock:
+                self._stop_requested = False
+                self._background_generation += 1
+                background_generation = self._background_generation
+            self._start_future = loop.run_in_executor(None, self.start)
+        else:
+            with self._lifecycle_lock:
+                background_generation = self._background_generation
+        await self._wait_background_start_ready(
+            timeout=timeout,
+            generation=background_generation,
+        )
+
+    async def connect_until_ready(self, *, timeout: Optional[float] = 30.0) -> None:
+        """Alias for :meth:`start_background` with explicit ready semantics."""
+        await self.start_background(timeout=timeout)
+
+    async def stop_background(self) -> None:
+        """Stop a channel started by :meth:`start_background`.
+
+        This is equivalent to :meth:`disconnect`; it is provided as the
+        lifecycle counterpart to ``start_background``.
+        """
+        await self.disconnect()
+
+    async def _wait_background_start_ready(
+        self,
+        *,
+        timeout: Optional[float],
+        generation: int,
+    ) -> None:
+        loop = asyncio.get_running_loop()
+        deadline = None if timeout is None else loop.time() + timeout
+        while True:
+            if self._ready_flag:
+                return
+            if generation != self._background_generation:
+                return
+            if self._stop_requested:
+                return
+            fut = self._start_future
+            if fut is None:
+                await asyncio.sleep(0.05)
+                continue
+            if fut is not None and fut.done():
+                if fut.cancelled():
+                    if generation != self._background_generation or self._stop_requested:
+                        return
+                    raise FeishuChannelError(
+                        FeishuChannelErrorCode.NOT_CONNECTED,
+                        "Channel background start was cancelled",
+                    )
+                exc = fut.exception()
+                if exc is not None:
+                    raise exc
+                if self._ready_flag or self._config.transport.kind == "webhook":
+                    return
+                raise FeishuChannelError(
+                    FeishuChannelErrorCode.NOT_CONNECTED,
+                    "Channel start exited before transport became ready",
+                )
+            ws = self._ws_client
+            if ws is not None and getattr(ws, "_conn", None) is not None:
+                self._mark_ready()
+                return
+            if deadline is not None and loop.time() >= deadline:
+                self.stop()
+                raise FeishuChannelError(
+                    FeishuChannelErrorCode.NOT_CONNECTED,
+                    "Timed out waiting for channel transport readiness",
+                )
+            await asyncio.sleep(0.05)
+
     async def disconnect(self) -> None:
         """Gracefully drain safety pipeline batches + stop the WS loop."""
         if self._safety is not None:
@@ -578,46 +677,77 @@ class FeishuChannel:
         """
         if self._started:
             return
-        self._started = True
+        with self._lifecycle_lock:
+            self._lifecycle_generation += 1
+            generation = self._lifecycle_generation
+            self._stop_requested = False
+            self._started = True
         self._ensure_bg_loop()
         self._fetch_bot_identity_sync()
         self._dispatcher = self._build_dispatcher()
         if self._config.transport.kind == "webhook":
-            logger.info(
-                "FeishuChannel: webhook mode ready — pass `dispatcher` to your HTTP adaptor"
-            )
-            self._mark_ready()
+            with self._lifecycle_lock:
+                if not self._is_active_start(generation):
+                    return
+                logger.info(
+                    "FeishuChannel: webhook mode ready — pass `dispatcher` to your HTTP adaptor"
+                )
+                self._mark_ready()
             return
-        self._ws_client = WSClient(
-            self._config.app_id,
-            self._config.app_secret,
-            log_level=self._config.log_level,
-            event_handler=self._dispatcher,
-            domain=self._config.domain,
-            auto_reconnect=self._config.transport.auto_reconnect,
-            extra_ua_tags=["channel"],
-        )
-        # Wire transport-level reconnect events to the public ``on()`` bus so
-        # callers registering ``on("reconnecting", ...) / on("reconnected", ...)``
-        # actually observe them.
-        self._ws_client.on_reconnecting = self._notify_reconnecting
-        self._ws_client.on_reconnected = self._notify_reconnected
+        with self._lifecycle_lock:
+            if not self._is_active_start(generation):
+                return
+            self._ws_client = WSClient(
+                self._config.app_id,
+                self._config.app_secret,
+                log_level=self._config.log_level,
+                event_handler=self._dispatcher,
+                domain=self._config.domain,
+                auto_reconnect=self._config.transport.auto_reconnect,
+                extra_ua_tags=["channel"],
+            )
+            # Wire transport-level reconnect events to the public ``on()`` bus so
+            # callers registering ``on("reconnecting", ...) / on("reconnected", ...)``
+            # actually observe them.
+            self._ws_client.on_reconnecting = self._notify_reconnecting
+            self._ws_client.on_reconnected = self._notify_reconnected
         try:
             self._ws_client.start()
         except FeishuChannelError:
             # Already the right shape; just reset started so caller can retry.
-            self._started = False
+            self._finish_failed_start(generation)
             raise
         except Exception as e:
+            if not self._is_active_start(generation):
+                return
             # Anything else (ws client's ClientException, timeouts, DNS, ...)
             # → typed NOT_CONNECTED so callers can ``except FeishuChannelError
             # as err: if err.code == FeishuChannelErrorCode.NOT_CONNECTED``.
-            self._started = False
+            self._finish_failed_start(generation)
             raise FeishuChannelError(
                 FeishuChannelErrorCode.NOT_CONNECTED,
                 f"WebSocket connect failed: {e}",
             ) from e
-        self._mark_ready()
+        with self._lifecycle_lock:
+            if not self._is_active_start(generation):
+                return
+            self._mark_ready()
+
+    def _is_active_start(self, generation: int) -> bool:
+        if (
+            generation != self._lifecycle_generation
+            or self._shutdown.is_set()
+            or self._stop_requested
+        ):
+            if generation == self._lifecycle_generation:
+                self._started = False
+            return False
+        return True
+
+    def _finish_failed_start(self, generation: int) -> None:
+        with self._lifecycle_lock:
+            if generation == self._lifecycle_generation:
+                self._started = False
 
     def stop(self, *, join_timeout: float = 5.0) -> None:
         """Tear down everything the channel owns.
@@ -633,10 +763,20 @@ class FeishuChannel:
         if self._shutdown.is_set():
             return
         self._shutdown.set()
+        if self._start_future is not None:
+            try:
+                self._start_future.cancel()
+            except Exception:  # pragma: no cover
+                pass
 
         # 1. Stop WS client (best-effort; some builds don't expose stop()).
-        ws = self._ws_client
+        with self._lifecycle_lock:
+            self._background_generation += 1
+            self._lifecycle_generation += 1
+            self._stop_requested = True
+            ws = self._ws_client
         if ws is not None:
+            stopped = False
             for meth in ("stop", "close", "disconnect"):
                 fn = getattr(ws, meth, None)
                 if callable(fn):
@@ -644,7 +784,10 @@ class FeishuChannel:
                         fn()
                     except Exception as e:  # pragma: no cover
                         logger.warning("FeishuChannel.stop: ws.%s raised: %s", meth, e)
+                    stopped = True
                     break
+            if not stopped:
+                self._stop_private_ws_client(ws)
 
         # 2. Cancel scheduled futures.
         with self._bg_tasks_lock:
@@ -686,6 +829,7 @@ class FeishuChannel:
         self._bg_loop = None
         self._bg_thread = None
         self._ws_client = None
+        self._start_future = None
 
         # Allow a subsequent connect()/start() to actually run. Without
         # clearing these two flags, a channel that was stopped would be
@@ -702,6 +846,33 @@ class FeishuChannel:
                 pass
         with self._bg_tasks_lock:
             self._bg_tasks.clear()
+
+    def _stop_private_ws_client(self, ws: Any) -> None:
+        disconnect = getattr(ws, "_disconnect", None)
+        try:
+            from lark_oapi.ws import client as ws_client_module
+
+            ws_loop = getattr(ws_client_module, "loop", None)
+            if callable(disconnect) and ws_loop is not None:
+                if ws_loop.is_running():
+                    try:
+                        running_loop = asyncio.get_running_loop()
+                    except RuntimeError:
+                        running_loop = None
+                    if running_loop is ws_loop:
+                        ws_loop.create_task(disconnect())
+                    else:
+                        fut = asyncio.run_coroutine_threadsafe(disconnect(), ws_loop)
+                        try:
+                            fut.result(timeout=2.0)
+                        except Exception as e:  # pragma: no cover
+                            logger.warning("FeishuChannel.stop: ws._disconnect timed out: %s", e)
+                elif not ws_loop.is_closed():
+                    ws_loop.run_until_complete(disconnect())
+            if ws_loop is not None and ws_loop.is_running():
+                ws_loop.call_soon_threadsafe(ws_loop.stop)
+        except Exception as e:  # pragma: no cover
+            logger.warning("FeishuChannel.stop: private ws shutdown raised: %s", e)
 
     def schedule(self, coro) -> "concurrent.futures.Future":
         """Submit a coroutine to the background loop; safe from any thread.
@@ -1118,6 +1289,18 @@ class FeishuChannel:
                 getattr(event, "reaction_type", None), "emoji_type", None
             )
             action_time = getattr(event, "action_time", None)
+            raw_dict = _coerce.obj_to_dict(data) or {}
+            raw_event = raw_dict.get("event") if isinstance(raw_dict, dict) else {}
+            if not isinstance(raw_event, dict):
+                raw_event = {}
+            chat_id = getattr(event, "chat_id", None) or raw_event.get("chat_id")
+            chat_type = getattr(event, "chat_type", None) or raw_event.get("chat_type")
+            context = self._sent_message_context.get(message_id)
+            if context is not None:
+                if not chat_id:
+                    chat_id = context.chat_id
+                if not chat_type:
+                    chat_type = context.chat_type
 
             if cfg == "own":
                 if message_id and message_id not in self._sent_messages:
@@ -1129,8 +1312,10 @@ class FeishuChannel:
                 operator=EventOperator(open_id=operator_open_id or ""),
                 emoji_type=emoji_type or "",
                 action=direction,
+                chat_id=chat_id or None,
+                chat_type=chat_type or None,
                 action_time=action_time,
-                raw=_coerce.obj_to_dict(data) or {},
+                raw=raw_dict,
             )
             # Tier 3: dedup only. Reactions are idempotent state changes so
             # lock / serial queue would add latency for no benefit, but
@@ -1341,6 +1526,12 @@ class FeishuChannel:
             raise
         if not result.success and result.error is not None:
             await self._forward_outbound_error(result.error)
+        if result.success:
+            self._remember_sent_message_context(
+                result,
+                chat_id=to if rit == "chat_id" and isinstance(to, str) else None,
+                receive_id_type=rit,
+            )
         return result
 
     async def _forward_outbound_error(self, err: Any) -> None:
@@ -1800,4 +1991,27 @@ class FeishuChannel:
         self._sent_messages[message_id] = time.time()
         self._sent_messages.move_to_end(message_id)
         while len(self._sent_messages) > self._sent_messages_max:
-            self._sent_messages.popitem(last=False)
+            evicted, _ = self._sent_messages.popitem(last=False)
+            self._sent_message_context.pop(evicted, None)
+
+    def _remember_sent_message_context(
+        self,
+        result: SendResult,
+        *,
+        chat_id: Optional[str],
+        receive_id_type: Optional[str],
+    ) -> None:
+        message_ids = list(result.chunk_ids or [])
+        if result.message_id and result.message_id not in message_ids:
+            message_ids.insert(0, result.message_id)
+        for message_id in message_ids:
+            self._track_sent_message(message_id)
+            if not chat_id:
+                self._sent_message_context.pop(message_id, None)
+                continue
+            self._sent_message_context[message_id] = _SentMessageContext(
+                message_id=message_id,
+                chat_id=chat_id,
+                receive_id_type=receive_id_type,
+            )
+            self._sent_message_context.move_to_end(message_id)

@@ -8,11 +8,13 @@ pipeline construction, dispatcher building — are all testable in isolation.
 import asyncio
 import threading
 import time
+from unittest.mock import patch
 
 import pytest
 
 from lark_oapi.channel import FeishuChannel as _ChannelClient
 from lark_oapi.channel.bot_identity import BotIdentity
+from lark_oapi.channel.errors import FeishuChannelError, FeishuChannelErrorCode
 
 
 def _client() -> _ChannelClient:
@@ -76,6 +78,282 @@ def test_track_sent_message_refreshes_on_touch():
     c._track_sent_message("a")
     c._track_sent_message("d")
     assert "a" in c._sent_messages
+
+
+@pytest.mark.asyncio
+async def test_start_background_returns_after_ws_ready_without_waiting_for_start_exit():
+    c = _client()
+    started = threading.Event()
+    release = threading.Event()
+
+    class _BlockingReadyWS:
+        def __init__(self, *args, **kwargs):
+            self._conn = None
+            self._stopped = False
+
+        def start(self):
+            self._conn = object()
+            started.set()
+            release.wait(timeout=2.0)
+
+        def stop(self):
+            self._stopped = True
+            release.set()
+
+    async def _no_identity(_cfg):
+        return None
+
+    with patch("lark_oapi.channel.channel.WSClient", _BlockingReadyWS), patch(
+        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+    ):
+        await asyncio.wait_for(c.start_background(timeout=1.0), timeout=1.0)
+        assert started.is_set()
+        assert c.is_ready is True
+        assert c._start_future is not None
+        assert c._start_future.done() is False
+
+        await c.stop_background()
+        assert c.is_ready is False
+
+
+@pytest.mark.asyncio
+async def test_start_background_propagates_not_connected_startup_failure():
+    c = _client()
+
+    class _FailingWS:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def start(self):
+            raise RuntimeError("handshake failed")
+
+    async def _no_identity(_cfg):
+        return None
+
+    with patch("lark_oapi.channel.channel.WSClient", _FailingWS), patch(
+        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+    ):
+        with pytest.raises(FeishuChannelError) as exc:
+            await c.start_background(timeout=1.0)
+
+    assert exc.value.code is FeishuChannelErrorCode.NOT_CONNECTED
+
+
+@pytest.mark.asyncio
+async def test_stop_background_wakes_in_flight_start_background_waiter():
+    c = _client()
+    start_entered = threading.Event()
+    release_start = threading.Event()
+
+    class _BlockingNotReadyWS:
+        def __init__(self, *args, **kwargs):
+            self._conn = None
+
+        def start(self):
+            start_entered.set()
+            release_start.wait(timeout=2.0)
+
+        def stop(self):
+            release_start.set()
+
+    async def _identity(_cfg):
+        return BotIdentity(open_id="ou_bot")
+
+    with patch("lark_oapi.channel.channel.WSClient", _BlockingNotReadyWS), patch(
+        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
+    ):
+        start_task = asyncio.create_task(c.start_background(timeout=10.0))
+        while not start_entered.wait(0.01):
+            await asyncio.sleep(0.01)
+
+        await c.stop_background()
+        await asyncio.wait_for(start_task, timeout=1.0)
+
+    assert c.is_ready is False
+    assert c._started is False
+
+
+@pytest.mark.asyncio
+async def test_start_background_after_stop_waits_for_new_readiness(monkeypatch):
+    c = _client()
+    c.stop()
+    loop = asyncio.get_running_loop()
+    start_future = loop.create_future()
+    submitted = threading.Event()
+
+    def fake_run_in_executor(executor, fn):
+        submitted.set()
+        return start_future
+
+    monkeypatch.setattr(loop, "run_in_executor", fake_run_in_executor)
+
+    start_task = asyncio.create_task(c.start_background(timeout=1.0))
+    while not submitted.wait(0.01):
+        await asyncio.sleep(0.01)
+    await asyncio.sleep(0.05)
+
+    assert start_task.done() is False
+
+    c._mark_ready()
+    start_future.set_result(None)
+    await asyncio.wait_for(start_task, timeout=1.0)
+
+
+def test_stop_during_blocking_start_does_not_surface_late_ws_start_exception():
+    c = _client()
+    ready = threading.Event()
+    release = threading.Event()
+    errors = []
+
+    class _LateFailingWS:
+        def __init__(self, *args, **kwargs):
+            self._conn = None
+
+        def start(self):
+            self._conn = object()
+            ready.set()
+            release.wait(timeout=2.0)
+            raise RuntimeError("loop stopped during shutdown")
+
+        def stop(self):
+            return None
+
+    async def _identity(_cfg):
+        return BotIdentity(open_id="ou_bot")
+
+    with patch("lark_oapi.channel.channel.WSClient", _LateFailingWS), patch(
+        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
+    ):
+        def run_start():
+            try:
+                c.start()
+            except Exception as exc:
+                errors.append(exc)
+
+        t = threading.Thread(target=run_start)
+        t.start()
+        assert ready.wait(1.0)
+        c.stop()
+        release.set()
+        t.join(timeout=2.0)
+
+    assert not t.is_alive()
+    assert errors == []
+    assert c._started is False
+    assert c.is_ready is False
+
+
+def test_stop_during_pre_ws_start_prevents_late_ws_creation():
+    c = _client()
+    fetch_entered = threading.Event()
+    release_fetch = threading.Event()
+    ws_started = threading.Event()
+    errors = []
+
+    class _ShouldNotStartWS:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def start(self):
+            ws_started.set()
+
+    async def _slow_identity(_cfg):
+        fetch_entered.set()
+        await asyncio.get_running_loop().run_in_executor(None, release_fetch.wait)
+        return BotIdentity(open_id="ou_bot")
+
+    with patch("lark_oapi.channel.channel.WSClient", _ShouldNotStartWS), patch(
+        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_slow_identity
+    ):
+        def run_start():
+            try:
+                c.start()
+            except Exception as exc:
+                errors.append(exc)
+
+        t = threading.Thread(target=run_start)
+        t.start()
+        assert fetch_entered.wait(1.0)
+        stop_t = threading.Thread(target=c.stop)
+        stop_t.start()
+        release_fetch.set()
+        t.join(timeout=2.0)
+        stop_t.join(timeout=2.0)
+
+    assert not t.is_alive()
+    assert not stop_t.is_alive()
+    assert errors == []
+    assert ws_started.is_set() is False
+    assert c.ws_client is None
+    assert c._started is False
+    assert c.is_ready is False
+
+
+def test_stale_pre_ws_start_cannot_be_uncancelled_by_restart():
+    c = _client()
+    first_fetch_entered = threading.Event()
+    second_fetch_entered = threading.Event()
+    release_first_fetch = threading.Event()
+    release_second_fetch = threading.Event()
+    fetch_count = 0
+    labels_by_thread = {}
+    started_labels = []
+    errors = []
+    lock = threading.Lock()
+
+    class _LabelledWS:
+        def __init__(self, *args, **kwargs):
+            self._conn = object()
+
+        def start(self):
+            with lock:
+                started_labels.append(labels_by_thread.get(threading.get_ident()))
+
+        def stop(self):
+            return None
+
+    def _slow_fetch():
+        nonlocal fetch_count
+        with lock:
+            fetch_count += 1
+            label = "first" if fetch_count == 1 else "second"
+            labels_by_thread[threading.get_ident()] = label
+        if label == "first":
+            first_fetch_entered.set()
+            release_first_fetch.wait(timeout=2.0)
+        else:
+            second_fetch_entered.set()
+            release_second_fetch.wait(timeout=2.0)
+
+    with patch("lark_oapi.channel.channel.WSClient", _LabelledWS), patch.object(
+        c, "_fetch_bot_identity_sync", side_effect=_slow_fetch
+    ):
+        def run_start():
+            try:
+                c.start()
+            except Exception as exc:
+                errors.append(exc)
+
+        first = threading.Thread(target=run_start)
+        first.start()
+        assert first_fetch_entered.wait(1.0)
+
+        c.stop()
+
+        second = threading.Thread(target=run_start)
+        second.start()
+        assert second_fetch_entered.wait(1.0)
+
+        release_first_fetch.set()
+        first.join(timeout=2.0)
+        release_second_fetch.set()
+        second.join(timeout=2.0)
+
+    assert not first.is_alive()
+    assert not second.is_alive()
+    assert errors == []
+    assert "first" not in started_labels
+    assert "second" in started_labels
 
 
 def test_bot_identity_accessor_before_resolve():

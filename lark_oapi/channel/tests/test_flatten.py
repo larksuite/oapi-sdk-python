@@ -102,6 +102,57 @@ def test_post_to_markdown_style_mapping():
     assert "```python" in t
 
 
+def test_post_resources_include_images_media_audio_and_files_deduped():
+    post = {
+        "zh_cn": {
+            "title": "Assets",
+            "content": [
+                [
+                    {"tag": "text", "text": "see "},
+                    {"tag": "img", "image_key": "img_1"},
+                    {"tag": "img", "image_key": "img_1"},
+                    {"tag": "media", "file_key": "vid_1"},
+                ],
+                [
+                    {"tag": "audio", "file_key": "aud_1"},
+                    {"tag": "file", "file_key": "file_1", "file_name": "report.pdf"},
+                ],
+            ],
+        }
+    }
+
+    t, r = flatten(PostContent(post=post))
+
+    assert "![image](img_1)" in t
+    assert "[media:vid_1]" in t
+    assert [(x.type, x.file_key, x.file_name) for x in r] == [
+        ("image", "img_1", None),
+        ("video", "vid_1", None),
+        ("audio", "aud_1", None),
+        ("file", "file_1", "report.pdf"),
+    ]
+
+
+def test_post_direct_document_shape_flattens_text_and_resources():
+    post = {
+        "title": "Direct",
+        "content": [
+            [
+                {"tag": "text", "text": "hello "},
+                {"tag": "a", "text": "link", "href": "https://x"},
+                {"tag": "img", "image_key": "img_direct"},
+            ]
+        ],
+    }
+
+    t, r = flatten(PostContent(post=post))
+
+    assert "# Direct" in t
+    assert "[link](https://x)" in t
+    assert r[0].type == "image"
+    assert r[0].file_key == "img_direct"
+
+
 def test_merge_forward_flatten_recursive():
     child = TextContent(text="child content")
     item = MergeForwardItem(
