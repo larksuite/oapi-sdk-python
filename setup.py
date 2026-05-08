@@ -31,7 +31,7 @@ setup(
         "requests>=2.25",
         "requests_toolbelt>=0.9",
         "pycryptodome>=3.9",
-        "websockets>=11,<14",
+        "websockets>=11,<16",
         "httpx>=0.24,<1.0",
     ],
     extras_require={

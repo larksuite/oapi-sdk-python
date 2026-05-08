@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import http
+import inspect
 import random
 import time
 from typing import Callable, Optional
@@ -8,6 +9,7 @@ from urllib.parse import urlparse, parse_qs
 
 import requests
 import websockets
+from websockets.exceptions import InvalidHandshake
 
 from lark_oapi.core.cache import ExpiringCache
 from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN, USER_AGENT
@@ -23,6 +25,7 @@ from lark_oapi.ws.exception import *
 from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
+
 
 try:
     loop = asyncio.get_event_loop()
@@ -66,15 +69,40 @@ async def _select():
         await asyncio.sleep(3600)
 
 
-def _parse_ws_conn_exception(e: websockets.InvalidStatusCode):
-    code = e.headers.get(HEADER_HANDSHAKE_STATUS)
-    msg = e.headers.get(HEADER_HANDSHAKE_MSG)
+def _ws_connect_kwargs():
+    params = inspect.signature(websockets.connect).parameters
+    if "proxy" in params:
+        # websockets 15 enables environment proxy discovery by default. The SDK
+        # historically connected directly, so preserve that behavior when the
+        # parameter exists.
+        return {"proxy": None}
+    return {}
+
+
+def _get_ws_conn_exception_headers(e):
+    headers = getattr(e, "headers", None)
+    if headers is not None:
+        return headers
+
+    response = getattr(e, "response", None)
+    if response is None:
+        return None
+    return getattr(response, "headers", None)
+
+
+def _parse_ws_conn_exception(e):
+    headers = _get_ws_conn_exception_headers(e)
+    if headers is None:
+        raise e
+
+    code = headers.get(HEADER_HANDSHAKE_STATUS)
+    msg = headers.get(HEADER_HANDSHAKE_MSG)
     if code is None or msg is None:
         raise e
 
     code = int(code)
     if code == AUTH_FAILED:
-        auth_code = e.headers.get(HEADER_HANDSHAKE_AUTH_ERRCODE)
+        auth_code = headers.get(HEADER_HANDSHAKE_AUTH_ERRCODE)
         if int(auth_code) == EXCEED_CONN_LIMIT:
             raise ClientException(code, msg)
         else:
@@ -168,7 +196,7 @@ class Client(object):
             conn_id = q[DEVICE_ID][0]
             service_id = q[SERVICE_ID][0]
 
-            conn = await websockets.connect(conn_url)
+            conn = await websockets.connect(conn_url, **_ws_connect_kwargs())
             self._conn = conn
             self._conn_url = conn_url
             self._conn_id = conn_id
@@ -176,7 +204,7 @@ class Client(object):
 
             logger.info(self._fmt_log("connected to {}", conn_url))
             loop.create_task(self._receive_message_loop())
-        except websockets.InvalidStatusCode as e:
+        except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
             self._lock.release()
