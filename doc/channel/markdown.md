@@ -1,47 +1,54 @@
-# Markdown → Post 转换
+# Markdown to Post Conversion
 
-Channel SDK 在发送 markdown 消息时，会通过 `MarkdownConverter` 把字符串转成飞书 post 格式。两种渲染模式可选：
+Channel sends `{"markdown": ...}` and bare string messages as Feishu post
+messages. The SDK converts markdown into a post AST before calling the message
+API.
 
-| 模式 | 何时使用 | 渲染特点 |
-|---|---|---|
-| `'structured'`（默认） | 跨客户端确定性渲染、需要结构化节点（语法高亮代码块、可解析链接等） | 解析为 `tag:text`/`tag:a`/`tag:code_block` 等结构化节点。SDK 完全控制渲染。但飞书 post 格式没有 H1/H2/H3 字号节点、没有 blockquote 块级节点、没有嵌套列表节点，这些构造会降级为加粗文本/Unicode 字符前缀/平展列表。 |
-| `'native'` | 用户体验依赖飞书原生 markdown 渲染（H1/H2/H3 字号层级、引用块、列表控件） | 把原始 markdown 包成 `tag:md` 节点交由飞书客户端原生 parser 渲染。Code fence 段独立成行（绕过已知客户端边缘行为）。**注意：渲染依赖飞书客户端版本**，不同 PC/移动端可能有差异。 |
+If you want a plain text message, send `{"text": "..."}` explicitly.
 
-## 配置
+## Configuration
 
 ```python
-from lark_oapi.channel.config import OutboundConfig, MarkdownConverter
+from lark_oapi.channel import FeishuChannel, MarkdownConverter, OutboundConfig
 
-# 默认（结构化）—— 现有行为，跨客户端一致
-config = OutboundConfig()
-
-# 切到 native —— 飞书原生 md 渲染
-config = OutboundConfig(
-    markdown_converter=MarkdownConverter(tag_md_mode="native"),
-)
-
-# 关闭转换 —— 直接发 plain text（enabled=False 优先级高于 tag_md_mode）
-config = OutboundConfig(
-    markdown_converter=MarkdownConverter(enabled=False),
+channel = FeishuChannel(
+    app_id="cli_xxx",
+    app_secret="***",
+    outbound=OutboundConfig(
+        markdown_converter=MarkdownConverter(tag_md_mode="native"),
+    ),
 )
 ```
 
-## 选型建议
+## Modes
 
-- **跨客户端确定性场景**：选 `'structured'`。例如代码片段需要语法高亮，或需要在 SDK 层断言 wire 格式。
-- **AI Agent 回复 / 报告通知 / 富文本通信**：选 `'native'`。AI 输出常用的 H1/H2/H3 章节、bullet 列表、blockquote 在 structured 模式下会丢失视觉层级。
-- **不确定时**：先用默认 `'structured'`；遇到具体的渲染回归再切换。
+| Mode | When to use | Rendering behavior |
+|---|---|---|
+| `structured` (default) | Deterministic rendering across clients, code blocks, links, and SDK-side wire-format assertions | Parses markdown into explicit post nodes such as `tag:text`, `tag:a`, and `tag:code_block`. Feishu post has no native heading, blockquote, or nested-list nodes, so those constructs are flattened or approximated. |
+| `native` | Richer user-facing markdown rendering in Feishu clients | Wraps markdown into `tag:md` nodes and lets the Feishu client render it. Headings, quotes, and lists render closer to native markdown, but exact output depends on client version. |
 
-## native 模式注意事项
+`MarkdownConverter.enabled` exists for compatibility with the config schema. Do
+not rely on `enabled=False` to send plain text; use `{"text": ...}` instead.
 
-- 渲染最终由飞书客户端 markdown parser 决定。SDK 不承诺 native 模式跨客户端版本像素一致。
-- `OutboundPost(post=<pre_built_ast>)` opaque pass-through 不受 `tag_md_mode` 影响。
-- `MarkdownConverter.enabled=False` 优先级高于 `tag_md_mode`：禁用时直接发 plain text，不走 native 路径。
-- mentions 仍挂在外层 post 元数据上（与 structured 一致），不内嵌为 `<at>` 字面写进 `tag:md` 节点 text。
+## Choosing a Mode
 
-## Wire format 对照
+- Use `structured` when you need predictable cross-client output or testable
+  post ASTs.
+- Use `native` when user-facing markdown structure matters more than exact
+  cross-client parity.
+- Use `{"text": ...}` for plain text.
 
-输入：
+## Native Mode Notes
+
+- Rendering is delegated to the Feishu client markdown parser.
+- `OutboundPost(post=prebuilt_ast)` is passed through and is not affected by
+  `tag_md_mode`.
+- Structured mentions are inserted as post `tag:at` nodes in the first row.
+  They are not written as literal `<at>` text inside a `tag:md` string.
+
+## Wire Format Comparison
+
+Input:
 
 ````
 # Hello
@@ -49,33 +56,33 @@ config = OutboundConfig(
 > world
 
 ```python
-print('hi')
+print("hi")
 ```
 ````
 
-`tag_md_mode='structured'`（默认）：
+`tag_md_mode="structured"`:
 
 ```json
 {"zh_cn": {"title": "", "content": [
   [{"tag": "text", "text": "Hello", "style": ["bold"]}],
   [{"tag": "text", "text": "│ "}, {"tag": "text", "text": "world"}],
-  [{"tag": "code_block", "language": "PYTHON", "text": "print('hi')"}]
+  [{"tag": "code_block", "language": "PYTHON", "text": "print(\"hi\")"}]
 ]}}
 ```
 
-`tag_md_mode='native'`：
+`tag_md_mode="native"`:
 
 ```json
 {"zh_cn": {"title": "", "content": [
   [{"tag": "md", "text": "# Hello\n\n> world"}],
-  [{"tag": "md", "text": "```python\nprint('hi')\n```"}]
+  [{"tag": "md", "text": "```python\nprint(\"hi\")\n```"}]
 ]}}
 ```
 
-## Editing messages
+## Editing Messages
 
 `FeishuChannel.edit_message(message_id, message)` accepts the same high-level
-outbound message shapes as `send()` for editable text/post messages:
+outbound shapes as `send()` for editable text/post messages:
 
 ```python
 await channel.edit_message(message_id, "# Markdown heading")
@@ -84,13 +91,10 @@ await channel.edit_message(message_id, {"text": "plain text"})
 await channel.edit_message(message_id, {"post": prebuilt_post_ast})
 ```
 
-A bare string is markdown, matching `send(to, "...")`. To edit as plain text,
-use `{"text": "..."}` explicitly.
-
 Cards are updated with `update_card(message_id, card)`, not `edit_message()`.
-Media/share/sticker messages are not editable through `edit_message()`.
+Media, share, and sticker messages are not editable through `edit_message()`.
 
-## Image and video captions
+## Image and Video Captions
 
 Images and videos can include an optional markdown caption:
 
@@ -100,12 +104,13 @@ await channel.send(chat_id, {"video": {"source": video_bytes}, "caption": "Demo 
 ```
 
 When no caption is provided, image/video messages use the normal `image` or
-`media` message type. When a non-empty caption is provided, the SDK sends a
-single `post` message containing the rendered caption followed by the image or
-video node. Caption markdown follows `OutboundConfig.markdown_converter`,
-including `tag_md_mode`.
+`media` message type. With a caption, the SDK sends a single post message that
+contains the rendered caption followed by an image or video node. Caption
+markdown follows `OutboundConfig.markdown_converter`.
 
 In this release, captions are supported for image and video messages only.
-`caption` on file or audio dictionary inputs is rejected with a format error
-before upload. Send the caption as a separate message if two-message semantics
-are acceptable.
+`caption` on file or audio dictionary inputs returns `SendResult.fail(...)`
+with `format_error` before upload. Send the caption as a separate message if
+two-message semantics are acceptable.
+
+Return to [Channel module](../channel.md).

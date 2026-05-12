@@ -1,23 +1,27 @@
 # Channel Reference
 
-`FeishuChannel` is the public entry point for the Channel capability layer. It
-combines WebSocket or webhook event transport, inbound message normalization,
-policy checks, deduplication, outbound sending, media upload/download,
-streaming replies, and card helpers.
+This is the detailed reference for `FeishuChannel`. For a narrative guide, see
+[Channel module](../channel.md). For first-run setup, see [Channel quickstart](./quickstart.md).
 
-## When to use Channel
+## Entry Point
 
-Use Channel for conversational bots: AI chat, streaming replies, interactive
-cards, media handling, mention policy, webhook adapters, and long-running
-WebSocket connections. Use lower-level `WSClient`, `EventDispatcherHandler`,
-or `Client` directly when your integration only needs raw event dispatch or
-OpenAPI calls.
+```python
+from lark_oapi.channel import FeishuChannel
+```
+
+`FeishuChannel` combines WebSocket or webhook event transport, inbound message
+normalization, safety policy, deduplication, outbound sending, media
+upload/download, streaming replies, and card helpers.
+
+Use lower-level `WSClient`, `EventDispatcherHandler`, or `Client` directly when
+your integration only needs raw event dispatch or direct OpenAPI calls.
 
 ## Minimal Example
 
 ```python
 import asyncio
 import os
+
 from lark_oapi.channel import FeishuChannel
 
 channel = FeishuChannel(
@@ -25,7 +29,6 @@ channel = FeishuChannel(
     app_secret=os.environ["LARK_APP_SECRET"],
 )
 
-@channel.on("message")
 async def on_message(msg):
     await channel.send(
         msg.chat_id,
@@ -33,43 +36,34 @@ async def on_message(msg):
         {"reply_to": msg.message_id},
     )
 
+channel.on("message", on_message)
+
 asyncio.run(channel.connect())
 ```
 
-`connect()` starts the configured transport. In WebSocket mode it opens a
-long-lived connection and dispatches events until the process exits or
-`disconnect()` is called. In webhook mode, use `start()` once and pass HTTP
-requests to `handle_webhook_request(headers, body)`.
-
 ## Constructor Options
-
-`FeishuChannel` accepts flat keyword arguments for the common case and
-dataclass configuration for advanced behavior:
 
 | Option | Required | Description |
 |---|---:|---|
 | `app_id` / `app_secret` | yes | Feishu app credentials |
-| `encrypt_key` / `verification_token` | webhook | Webhook verification and decryption fields |
-| `domain` | no | Feishu/Lark/custom OpenAPI domain |
+| `domain` | no | Feishu, Lark, or custom OpenAPI domain |
 | `log_level` | no | SDK log level |
 | `transport` | no | `"ws"` by default, or `"webhook"` |
-| `policy` | no | Group/DM admission policy and mention behavior |
-| `safety` | no | Dedup, stale-window, batching, and per-chat queue behavior |
-| `inbound` | no | Message normalization and name/media handling |
-| `outbound` | no | Chunking, retries, markdown conversion, SSRF allowlist, streaming throttle |
-| `uat` / `token_store` | no | User access token device-flow configuration |
-| `dedup_store` / `safety_cache` | no | Pluggable stores for dedup and safety state |
-| `name_lookup` | no | Custom open_id to display-name resolver |
+| `encrypt_key` | if configured | Webhook/event decryption key from the developer console |
+| `verification_token` | if configured | Webhook/event verification token from the developer console |
+| `policy` | no | `PolicyConfig` for DM/group admission and mention behavior |
+| `safety` | no | `SafetyConfig` for dedup, stale window, batching, and per-chat queue |
+| `inbound` | no | `InboundConfig` for normalization, media, names, and reaction behavior |
+| `outbound` | no | `OutboundConfig` for chunking, retry, markdown conversion, SSRF, and streaming throttle |
+| `uat` | no | `UATConfig` for user access token device-flow behavior |
+| `token_store` | no | Custom user access token store |
+| `dedup_store` | no | Pipeline-layer `DedupStore` |
+| `safety_cache` | no | Safety-layer `ICache` |
+| `name_lookup` | no | Custom `open_id` to display-name resolver |
 | `config` | no | Prebuilt `ChannelConfig`; flat kwargs override touched fields |
 
 ```python
-from lark_oapi.channel import (
-    DedupConfig,
-    FeishuChannel,
-    OutboundConfig,
-    RetryConfig,
-    SafetyConfig,
-)
+from lark_oapi.channel import DedupConfig, FeishuChannel, OutboundConfig, RetryConfig, SafetyConfig
 
 channel = FeishuChannel(
     app_id="cli_xxx",
@@ -79,10 +73,23 @@ channel = FeishuChannel(
 )
 ```
 
-## Event Listening
+## Lifecycle
 
-Canonical event names are exported through `Events` and type-checked through
-`ChannelEventName`:
+| Method | Purpose |
+|---|---|
+| `await channel.connect()` | Start transport. In WebSocket mode, keep running until stopped. |
+| `await channel.connect_until_ready(timeout=30)` | Start in the background and return after readiness. |
+| `await channel.start_background(timeout=30)` | Alias-style background startup with explicit naming. |
+| `await channel.disconnect()` | Drain safety batches and stop the transport. |
+| `channel.start()` | Synchronous startup. In webhook mode, build the dispatcher and return. |
+| `channel.stop()` | Synchronous teardown. |
+| `await channel.wait_ready(timeout=30)` | Wait for readiness after startup. |
+
+`start()` is synchronous and may block during initial setup, including bot
+identity resolution. Prefer `connect_until_ready()` in async web framework
+startup hooks.
+
+## Event Listening
 
 ```python
 from lark_oapi.channel import Events
@@ -95,41 +102,84 @@ channel.on(Events.BOT_LEAVE, on_bot_leave)
 channel.on(Events.MESSAGE_READ, on_message_read)
 channel.on(Events.COMMENT, on_comment)
 channel.on(Events.REJECT, on_reject)
-channel.on(Events.RAW, on_raw_event)
 channel.on(Events.RECONNECTING, on_reconnecting)
 channel.on(Events.RECONNECTED, on_reconnected)
 channel.on(Events.ERROR, on_error)
 ```
 
-`"message"`, `"cardAction"`, `"reaction"`, `"botAdded"`, `"botLeave"`,
-`"messageRead"`, `"comment"`, `"reject"`, `"raw"`, `"reconnecting"`,
-`"reconnected"`, and `"error"` are accepted. Snake-case aliases such as
-`"card_action"` and `"bot_added"` are normalized for compatibility.
+Dispatched event names:
+
+| Event | Payload |
+|---|---|
+| `message` | `InboundMessage` |
+| `cardAction` | `CardActionEvent` |
+| `reaction` | `ReactionEvent` |
+| `botAdded` | `BotAddedEvent` |
+| `botLeave` | `BotLeaveEvent` |
+| `messageRead` | `MessageReadEvent` |
+| `comment` | `CommentEvent` |
+| `reject` | `RejectEvent` |
+| `reconnecting` | no argument |
+| `reconnected` | no argument |
+| `error` | exception or `OutboundSendError` |
+
+Snake-case aliases such as `card_action`, `bot_added`, `bot_leave`, and
+`message_read` are normalized for compatibility.
 
 ## Message Model
 
-`"message"` handlers receive an `InboundMessage`. The fields most handlers
-use are:
+`message` handlers receive an `InboundMessage`.
 
 | Field | Description |
 |---|---|
 | `message_id` / `id` | Feishu message id |
+| `create_time` | Original event timestamp |
+| `conversation` | `Conversation(chat_id, chat_type, thread_id)` |
 | `chat_id` | Shortcut for `conversation.chat_id` |
 | `chat_type` | `p2p`, `group`, `topic`, or `unknown` |
-| `sender_id` | Sender open_id |
-| `sender_name` | Optional display name resolved by the inbound pipeline |
-| `content` | Typed content dataclass such as `TextContent`, `ImageContent`, or `FileContent` |
-| `content_text` | Markdown/XML-style flattened text suitable for prompts and logs |
-| `resources` | Media descriptors for image/file/audio/video/sticker downloads |
-| `mentions` | Structured mention objects |
-| `mentioned_bot` / `mentioned_all` | Mention policy flags |
-| `reply_to_message_id` | Parent message id when the event is a reply |
+| `sender` | `Identity` for the sender |
+| `sender_id` | Shortcut for `sender.open_id` |
+| `sender_name` | Optional display name |
+| `mentions` | List of `Mention` objects |
+| `mentioned_all` | Whether the message mentioned all members |
+| `mentioned_bot` | Whether the message mentioned the bot |
+| `reply_to_message_id` | Parent message id when present |
+| `content` | Typed `MessageContent` dataclass |
+| `content_text` | Flattened markdown/XML-style text |
+| `resources` | Resource descriptors for download |
+| `raw_content_type` | Original Feishu message type |
 | `raw` | Original event payload |
+
+## Policy
+
+Defaults:
+
+- `dm_policy="open"`
+- `group_policy="open"`
+- `require_mention=True`
+- `respond_to_mention_all=False`
+- `sender_identity_fields=["open_id"]`
+
+Runtime update:
+
+```python
+channel.update_policy(
+    require_mention=False,
+    respond_to_mention_all=True,
+    group_policy="allowlist",
+    group_allowlist=["oc_xxx"],
+)
+```
+
+`update_policy()` accepts keyword changes for fields on `PolicyConfig`.
 
 ## Sending Messages
 
-`channel.send(to, message, opts=None)` accepts a bare string, a dict, or an
-`Outbound*` dataclass. A bare string is treated as markdown.
+`channel.send(to, message, opts=None)` accepts:
+
+- a bare string, treated as markdown;
+- a dict;
+- a typed `Outbound*` dataclass.
 
 ```python
 await channel.send(chat_id, {"text": "plain text"})
@@ -145,7 +195,7 @@ await channel.send(chat_id, {"share_user": {"user_id": "ou_xxx"}})
 await channel.send(chat_id, {"sticker": {"file_key": "file_v3_xxx"}})
 ```
 
-`opts` is either a `SendOpts` object or a dict. Common options:
+`opts` may be a `SendOpts` object or a dict:
 
 ```python
 await channel.send(
@@ -155,69 +205,89 @@ await channel.send(
         "reply_to": message_id,
         "reply_in_thread": True,
         "receive_id_type": "chat_id",
+        "reply_target_gone": "fresh",
+        "uuid": "optional-idempotency-key",
     },
 )
 ```
 
-Do not hand-write `@username` text when you need structured mentions. Use the
-typed mention/identity fields supported by the outbound dataclasses so Feishu
-placeholders are assembled by the SDK.
-
-## Streaming Replies
-
-Use `channel.stream(...)` for LLM-style output. The markdown form uses
-CardKit preallocation internally and handles throttling, cancellation, and
-the final `finish_streaming_card` call.
+For structured mentions, use typed outbound messages:
 
 ```python
-async def write_answer(stream):
-    for chunk in ["Thinking", "...", "\nDone"]:
-        await stream.append(chunk)
+from lark_oapi.channel import Identity, OutboundText
+
+await channel.send(
+    chat_id,
+    OutboundText(
+        text="please check",
+        mentions=[Identity(open_id="ou_xxx", display_name="Alice")],
+    ),
+)
+```
+
+Media `source` accepts:
+
+- HTTP(S) URL string, guarded by `OutboundConfig.ssrf_allowlist`;
+- local file path string;
+- `bytes`;
+- existing media key string for the matching message kind: `img_...` for
+  images, `file_...` for file/audio/video. Stickers use
+  `{"sticker": {"file_key": ...}}` instead of media `source`.
+
+Image and video messages support `caption`; file and audio captions are rejected
+with `format_error`.
+
+## Streaming
+
+Markdown stream:
+
+```python
+async def producer(stream):
+    for token in ["hello", " ", "world"]:
+        await stream.append(token)
+
+await channel.stream(chat_id, {"markdown": producer}, {"reply_to": message_id})
+```
+
+Card stream:
+
+```python
+async def producer(stream):
+    await stream.update(next_card_json)
 
 await channel.stream(
     chat_id,
-    {"markdown": write_answer},
-    {"reply_to": message_id},
+    {"card": {"initial": initial_card_json, "producer": producer}},
 )
 ```
 
-Use the low-level CardKit methods only when you need to own the exact card
-allocation and patch sequence:
+For low-level CardKit preallocation, see [Streaming with CardKit](./cardkit-streaming.md).
 
-```python
-card_id = await channel.create_card_instance(card_json)
-result = await channel.send_card_by_reference(chat_id, card_id)
-await channel.update_card_element_content(card_id, "main", "hello", sequence=1)
-await channel.finish_streaming_card(card_id, sequence=2)
-```
+## Helpers
 
-See [CardKit streaming](./cardkit-streaming.md) for sequence rules and
-permissions.
-
-## Low-Level Helpers
-
-```python
-await channel.update_card(message_id, card_json)
-await channel.edit_message(message_id, {"markdown": "updated"})
-await channel.recall_message(message_id)
-await channel.add_reaction(message_id, "THUMBSUP")
-await channel.remove_reaction(message_id, reaction_id)
-body = await channel.download_resource(file_key, resource_type="image")
-path = await channel.download_resource_to_file(
-    file_key,
-    resource_type="file",
-    dest_dir=download_dir,
-)
-info = await channel.get_chat_info(chat_id)
-raw_client = channel.client
-```
+| Method | Return | Notes |
+|---|---|---|
+| `await channel.update_card(message_id, card)` | `SendResult` | Replace a sent card message |
+| `await channel.edit_message(message_id, message)` | `SendResult` | Text/post only |
+| `await channel.recall_message(message_id)` | `SendResult` | Recall/delete a message |
+| `await channel.add_reaction(message_id, emoji_type)` | `SendResult` | Add a reaction |
+| `await channel.remove_reaction(message_id, reaction_id)` | `SendResult` | Remove a reaction by id |
+| `await channel.download_resource(file_key, resource_type="image")` | `bytes \| None` | Returns `None` on API failure |
+| `await channel.download_resource_to_file(...)` | `Path` | Raises `download_failed` when no body is returned |
+| `await channel.get_chat_info(chat_id)` | `ChatInfo \| None` | Returns `None` on API failure |
+| `channel.client` | `Client` | Underlying OpenAPI client |
 
 ## Error Handling
 
-Outbound failures return `SendResult.fail(...)` or raise
-`FeishuChannelError`. Register `channel.on("error", handler)` for centralized
-observability; direct callers still receive the original return value or
-exception.
+`send()` returns `SendResult`.
+
+- Invalid input and transport/coercion failures may raise.
+- Upstream send failures usually return `SendResult(success=False, error=...)`.
+- Both raised errors and failed `SendResult.error` are forwarded to
+  `channel.on("error", handler)`.
+
+`stream()` and low-level CardKit helpers raise for controller or CardKit
+failures.
 
 Known `FeishuChannelErrorCode` values:
 
@@ -234,18 +304,10 @@ Known `FeishuChannelErrorCode` values:
 | `not_connected` | Transport is not connected or startup failed |
 | `unknown` | Uncategorized upstream or SDK error |
 
-## Common Issues
+## Related Documents
 
-- Group messages require an @bot mention by default; tune `PolicyConfig` only
-  after checking the app's event scopes and tenant approval.
-- URL-sourced media requires `OutboundConfig(ssrf_allowlist=[...])`; without
-  an allowlist the SDK refuses the download.
-- `file` and `audio` captions are rejected in this release. `image` and
-  `video` captions are supported.
-- Use `channel.stream()` for normal streaming answers. Manual
-  `update_card_element_content(...)` loops must keep a strictly increasing
-  CardKit `sequence`.
-- Card button callbacks require the app to subscribe to card action events
-  and use a card schema that actually emits callbacks.
-- Webhook integrations must call `channel.start()` before
-  `handle_webhook_request(...)`.
+- [Channel quickstart](./quickstart.md)
+- [Webhook server adapter](./webhook-server.md)
+- [Streaming with CardKit](./cardkit-streaming.md)
+- [Markdown to post conversion](./markdown.md)
+- [Two-layer dedup architecture](./dedup-architecture.md)

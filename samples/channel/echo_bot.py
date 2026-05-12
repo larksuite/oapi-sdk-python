@@ -20,12 +20,13 @@ async def main():
         app_secret=_require_env("LARK_APP_SECRET"),
     )
 
-    @channel.on("message")
     async def on_message(msg):
         await channel.send(
             msg.conversation.chat_id,
             {"text": f"echo: {msg.content_text}"},
         )
+
+    channel.on("message", on_message)
 
     await channel.connect()
 

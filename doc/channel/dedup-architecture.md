@@ -1,34 +1,23 @@
-# Channel SDK: Two-Layer Dedup Architecture
+# Channel SDK: Two-layer Dedup Architecture
 
-This document describes the de-duplication layers in `lark_oapi.channel`,
-the protocols you implement to extend them, and three reference
-implementations (JSON file, SQLite, Redis best-effort).
+This document is an advanced architecture note for applications that need to
+customize Channel dedup state. Most bots can use the defaults.
 
-## Why two layers?
+Channel has two dedup layers:
 
-The Channel SDK runs every inbound event through two independent dedup
-checks:
+1. **Pipeline layer**: `InboundPipeline` uses a `DedupStore` before full message
+   normalization. It catches webhook retries and WebSocket reconnect backfill.
+2. **Safety layer**: `SafetyPipeline` uses `SeenCache` before dispatching to
+   user handlers. It catches duplicate handler dispatches and can optionally
+   consult a shared `ICache`.
 
-1. **Pipeline layer** — `InboundPipeline` checks the event/message ID against
-   a `DedupStore` at the very top of the funnel. This catches:
-   - **Webhook retries** — the same event may be POSTed several times if our
-     200 response is delayed.
-   - **WS reconnect backfill** — after a reconnect, Feishu replays a window
-     of recent events; the event ID changes but the message ID does not.
+The two layers use different protocols because they run at different points in
+the pipeline.
 
-2. **Safety layer** — `SafetyPipeline.push_*` then checks the message/event
-   ID against a `SeenCache`. This catches:
-   - **Race conditions inside a single process** when two coroutines reach
-     `push_message` for the same ID at the same instant.
-   - **(Best-effort) cross-process duplicates** when the optional
-     `ICache` is Redis-backed.
+## Pipeline Layer: `DedupStore`
 
-The layers exist because they have different purposes (transport-level dedup
-vs handler-level dedup), different lifetimes (pipeline runs before parsing,
-safety runs after), and different concurrency requirements (pipeline is
-single-process, safety wants to be cross-process).
-
-## DedupStore (pipeline layer)
+`DedupStore` is defined in `lark_oapi.channel.normalize.dedup` and re-exported
+from `lark_oapi.channel`.
 
 ```python
 from typing import Protocol, runtime_checkable
@@ -41,53 +30,95 @@ class DedupStore(Protocol):
 
 Contract:
 
-- **`seen(key) -> bool`** — return True if `mark(key, ...)` was called within
-  the most recent `ttl_seconds` window, False otherwise.
-- **`mark(key, ttl_seconds)`** — record `key` as seen, expiring after
-  `ttl_seconds` seconds. The store is responsible for honoring TTL — the SDK
-  never calls `evict()` or similar.
-- **Threading** — `seen` and `mark` are called from the SDK's background
-  loop and may be invoked from multiple threads in tests. Implementations
-  must be thread-safe.
-- **Capacity** — when the store reaches its configured `max_entries`, it
-  must LRU-evict.
-- **Frozen** — these method names and signatures will not change in the
-  SDK 1.x line.
+- `seen(key)` returns `True` if the key is still considered seen.
+- `mark(key, ttl_seconds)` records the key with the TTL supplied by the SDK.
+- Implementations should be thread-safe.
+- TTL behavior is part of the protocol. Capacity limits and LRU eviction are
+  implementation choices, not SDK-enforced protocol methods.
 
-The two key shapes are produced by the SDK helpers:
+Key helpers:
 
 ```python
 from lark_oapi.channel import make_event_key, make_message_key
 
-make_event_key("acc1", "evt1")    # "evt:acc1:evt1"
-make_message_key("acc1", "msg1")  # "msg:acc1:msg1"
+make_event_key("cli_xxx", "evt_xxx")    # "evt:cli_xxx:evt_xxx"
+make_message_key("cli_xxx", "om_xxx")   # "msg:cli_xxx:om_xxx"
 ```
 
-## ICache (safety layer)
+Inject a custom store with `dedup_store=...`:
 
 ```python
-# lark_oapi/core/cache.py — synchronous, no SETNX yet
-class ICache(Protocol):
-    def get(self, key: str) -> Optional[str]: ...
-    def set(self, key: str, value: str, expire_at: int) -> None: ...
+from lark_oapi.channel import FeishuChannel
+
+channel = FeishuChannel(
+    app_id="cli_xxx",
+    app_secret="***",
+    dedup_store=my_dedup_store,
+)
 ```
 
-The current `ICache` does **not** expose an atomic SETNX primitive, so
-cross-process dedup is best-effort, not a coherence boundary. Two patterns
-are safe today:
+## Safety Layer: `ICache`
 
-1. **Single worker per app_id** — route all events for one Feishu app to
-   one process (sticky routing or leader election). The default and
-   only configuration covered by tests.
-2. **Idempotent handlers** — if you must run multiple workers, design your
-   `on("message")` handlers to be idempotent on the event id.
+`SeenCache` can use an optional `lark_oapi.core.cache.ICache` implementation.
+The current `ICache` interface is synchronous:
 
-A future SDK version may add `ICache.set_if_not_exists`; until then, treat
-the cache layer as a best-effort speedup.
+```python
+class ICache:
+    def get(self, key: str) -> str: ...
+    def set(self, key: str, value: str, expire: int): ...
+```
 
-## Reference implementation: JSON file (single-process persistence)
+`expire` is a Unix timestamp in seconds.
 
-Suitable for single-process bots that want dedup state to survive restarts.
+The current `ICache` does not expose an atomic `SETNX` primitive. With multiple
+workers, shared-cache dedup is best-effort rather than a strict cross-process
+coherence boundary. Safe patterns:
+
+- Route events for one app to a single worker.
+- Make handlers idempotent on event/message ids.
+
+Inject a shared cache with `safety_cache=...`:
+
+```python
+from lark_oapi.channel import FeishuChannel
+
+channel = FeishuChannel(
+    app_id="cli_xxx",
+    app_secret="***",
+    safety_cache=my_cache,
+)
+```
+
+## Configuration Notes
+
+`DedupConfig.ttl_seconds`, `max_entries`, and `sweep_seconds` are used by the
+default in-memory stores. When you pass a custom `dedup_store`, the SDK only
+passes `ttl_seconds` into `mark(key, ttl_seconds)`; your store owns any capacity
+and eviction behavior.
+
+In this release, `DedupConfig.enabled` controls the pipeline-layer `Deduper`.
+The safety layer still runs `SeenCache` dedup.
+
+```python
+from lark_oapi.channel import DedupConfig, FeishuChannel, SafetyConfig
+
+channel = FeishuChannel(
+    app_id="cli_xxx",
+    app_secret="***",
+    safety=SafetyConfig(
+        dedup=DedupConfig(
+            ttl_seconds=12 * 3600,
+            max_entries=5000,
+            sweep_seconds=5 * 60,
+        ),
+    ),
+)
+```
+
+## Example: JSON File Store
+
+This example persists pipeline-layer dedup state across process restarts. It is
+not shipped as an SDK class.
 
 ```python
 import json
@@ -97,13 +128,11 @@ from collections import OrderedDict
 from pathlib import Path
 
 class JsonFileDedupStore:
-    """Persistent DedupStore backed by a JSON file. Thread-safe, LRU."""
-
     def __init__(self, path: Path, *, max_entries: int = 5000) -> None:
         self._path = Path(path)
         self._max = max_entries
         self._lock = threading.Lock()
-        self._data: "OrderedDict[str, float]" = OrderedDict()
+        self._data = OrderedDict()
         self._load()
 
     def _load(self) -> None:
@@ -113,10 +142,11 @@ class JsonFileDedupStore:
             raw = json.loads(self._path.read_text())
             now = time.time()
             self._data = OrderedDict(
-                (k, exp) for k, exp in raw.items() if isinstance(exp, (int, float)) and exp > now
+                (k, exp)
+                for k, exp in raw.items()
+                if isinstance(exp, (int, float)) and exp > now
             )
         except (json.JSONDecodeError, OSError):
-            # Corrupt / unreadable file — start clean rather than crashing.
             self._data = OrderedDict()
 
     def _persist_locked(self) -> None:
@@ -145,127 +175,28 @@ class JsonFileDedupStore:
             self._persist_locked()
 ```
 
-Inject into the channel:
+## Example: Redis `ICache`
 
-```python
-from pathlib import Path
-from lark_oapi.channel import FeishuChannel
-
-channel = FeishuChannel(
-    app_id="cli_xxx",
-    app_secret="***",
-    dedup_store=JsonFileDedupStore(
-        path=Path.home() / ".myapp/feishu_seen.json",
-        max_entries=2048,
-    ),
-)
-```
-
-## Reference implementation: SQLite (single-process persistence, larger working set)
-
-For applications where the JSON-file overhead becomes a bottleneck.
-
-```python
-import sqlite3
-import threading
-import time
-from pathlib import Path
-
-class SqliteDedupStore:
-    def __init__(self, path: Path, *, max_entries: int = 50_000) -> None:
-        self._lock = threading.Lock()
-        self._max = max_entries
-        Path(path).parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(str(path), check_same_thread=False)
-        self._conn.execute(
-            "CREATE TABLE IF NOT EXISTS seen ("
-            "  key TEXT PRIMARY KEY, expires_at REAL NOT NULL"
-            ")"
-        )
-        self._conn.commit()
-
-    def seen(self, key: str) -> bool:
-        with self._lock:
-            row = self._conn.execute(
-                "SELECT expires_at FROM seen WHERE key = ?", (key,)
-            ).fetchone()
-            if row is None:
-                return False
-            if row[0] <= time.time():
-                self._conn.execute("DELETE FROM seen WHERE key = ?", (key,))
-                self._conn.commit()
-                return False
-            return True
-
-    def mark(self, key: str, ttl_seconds: int) -> None:
-        expire_at = time.time() + ttl_seconds
-        with self._lock:
-            self._conn.execute(
-                "INSERT OR REPLACE INTO seen(key, expires_at) VALUES (?, ?)",
-                (key, expire_at),
-            )
-            # Trim to max_entries by oldest expiry.
-            self._conn.execute(
-                "DELETE FROM seen WHERE key NOT IN ("
-                "  SELECT key FROM seen ORDER BY expires_at DESC LIMIT ?"
-                ")",
-                (self._max,),
-            )
-            self._conn.commit()
-```
-
-## Reference implementation: Redis (cross-process best-effort)
-
-`SeenCache` itself is `ICache`-shaped; for cross-process you write a Redis
-adapter for `ICache`, NOT for `DedupStore`. Note this is best-effort until
-SETNX support lands.
+This example adapts Redis to the safety-layer `ICache` shape. It is
+best-effort because the SDK calls `get()` and `set()` separately.
 
 ```python
 import time
-import redis  # not a SDK dependency — bring your own
+
+import redis
 
 class RedisICache:
-    """ICache adapter over Redis. Best-effort — no atomic SETNX yet."""
-
     def __init__(self, client: redis.Redis, *, prefix: str = "feishu:seen:") -> None:
         self._client = client
         self._prefix = prefix
 
     def get(self, key: str):
-        v = self._client.get(self._prefix + key)
-        return v.decode() if v else None
+        value = self._client.get(self._prefix + key)
+        return value.decode() if value else None
 
-    def set(self, key: str, value: str, expire_at: int) -> None:
-        ttl = max(1, int(expire_at - time.time()))
+    def set(self, key: str, value: str, expire: int):
+        ttl = max(1, int(expire - time.time()))
         self._client.set(self._prefix + key, value, ex=ttl)
 ```
 
-Inject:
-
-```python
-import redis
-from lark_oapi.channel import FeishuChannel
-
-channel = FeishuChannel(
-    app_id="cli_xxx",
-    app_secret="***",
-    safety_cache=RedisICache(redis.Redis.from_url("redis://localhost:6379/0")),
-)
-```
-
-## TTL and capacity
-
-Both layers honor the `DedupConfig` you pass via `safety=SafetyConfig(dedup=...)`:
-
-```python
-from lark_oapi.channel import DedupConfig, SafetyConfig
-
-DedupConfig(
-    enabled=True,
-    ttl_seconds=12 * 3600,    # 12 hours
-    max_entries=5000,
-    sweep_seconds=5 * 60,     # background sweep period for expired keys
-)
-```
-
-The pipeline layer reads `ttl_seconds` and passes it to your `DedupStore.mark(key, ttl_seconds)`; the safety layer uses the same config to bound its in-memory `SeenCache`.
+Return to [Channel module](../channel.md).
