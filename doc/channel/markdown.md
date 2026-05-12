@@ -109,8 +109,8 @@ contains the rendered caption followed by an image or video node. Caption
 markdown follows `OutboundConfig.markdown_converter`.
 
 In this release, captions are supported for image and video messages only.
-`caption` on file or audio dictionary inputs returns `SendResult.fail(...)`
-with `format_error` before upload. Send the caption as a separate message if
-two-message semantics are acceptable.
+`caption` on file or audio dictionary inputs is rejected with `format_error`
+before upload. Send the caption as a separate message if two-message semantics
+are acceptable.
 
 Return to [Channel module](../channel.md).
