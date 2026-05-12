@@ -12,9 +12,10 @@ status, body_bytes = await channel.handle_webhook_request(headers, body)
 
 `handle_webhook_request(...)` decrypts the body when `encrypt_key` is
 configured, validates `verification_token` when configured, verifies request
-signatures when `encrypt_key` is configured, and routes the event to your
-registered `channel.on(...)` handlers. If signature headers are present without
-`encrypt_key`, the dispatcher fails closed as a configuration mismatch.
+signatures for non-challenge events when `encrypt_key` is configured, and routes
+the event to your registered `channel.on(...)` handlers. Signature headers may
+be present even when event encryption is disabled; without `encrypt_key`, the
+dispatcher treats the request as plaintext and does not verify those headers.
 
 You must initialize the channel before the first request. In async frameworks,
 prefer `await channel.connect_until_ready()` during application startup. The

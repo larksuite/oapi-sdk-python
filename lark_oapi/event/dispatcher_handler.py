@@ -87,14 +87,13 @@ class EventDispatcherHandler(HttpHandler):
                 ):
                     raise AccessDeniedException("invalid verification_token")
 
-            # Verify signature before dispatching either URL verification or
-            # a business event — URL_VERIFICATION is signature-checked too.
-            self._verify_sign(req)
-
             if URL_VERIFICATION == context.type:
                 # 验证回调地址事件, 直接返回 Challenge Code
                 resp.content = JSON.marshal({"challenge": context.challenge}).encode(UTF_8)
                 return resp
+            else:
+                # 否则验签
+                self._verify_sign(req)
 
             event_key = f"{context.schema}.{context.type}"
             if event_key in self._callback_processor_map:
@@ -189,23 +188,14 @@ class EventDispatcherHandler(HttpHandler):
         return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
-        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
-        if Strings.is_empty(self._encrypt_key):
-            # encrypt_key not configured: if upstream still sent a signature
-            # header, treat that as a config mismatch and fail closed;
-            # otherwise treat encryption as disabled and pass through.
-            if signature:
-                raise AccessDeniedException(
-                    "signature received but encrypt_key is not configured"
-                )
+        if self._encrypt_key is None or self._encrypt_key == "":
             return
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
-        if timestamp is None or nonce is None or signature is None:
-            raise AccessDeniedException("signature verification failed")
-        bs = (timestamp + nonce + self._encrypt_key).encode(UTF_8) + (request.body or b"")
-        expected = hashlib.sha256(bs).hexdigest()
-        if not hmac.compare_digest(signature, expected):
+        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
+        bs = (timestamp + nonce + self._encrypt_key).encode(UTF_8) + request.body
+        h = hashlib.sha256(bs)
+        if signature != h.hexdigest():
             raise AccessDeniedException("signature verification failed")
 
     @staticmethod

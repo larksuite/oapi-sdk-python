@@ -98,22 +98,14 @@ class CardActionHandler(HttpHandler):
         return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
-        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
-        if Strings.is_empty(self._verification_token):
-            # verification_token not configured: if upstream still sent a
-            # signature header, treat that as a config mismatch and fail closed.
-            if signature:
-                raise AccessDeniedException(
-                    "signature received but verification_token is not configured"
-                )
+        if self._verification_token is None or self._verification_token == "":
             return
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
-        if timestamp is None or nonce is None or signature is None:
-            raise AccessDeniedException("signature verification failed")
-        bs = (timestamp + nonce + self._verification_token).encode(UTF_8) + (request.body or b"")
-        expected = hashlib.sha1(bs).hexdigest()
-        if not hmac.compare_digest(signature, expected):
+        signature = request.headers.get(LARK_REQUEST_SIGNATURE)
+        bs = (timestamp + nonce + self._verification_token).encode(UTF_8) + request.body
+        h = hashlib.sha1(bs)
+        if signature != h.hexdigest():
             raise AccessDeniedException("signature verification failed")
 
     @staticmethod
