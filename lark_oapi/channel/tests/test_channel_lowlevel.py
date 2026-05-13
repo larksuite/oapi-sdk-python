@@ -91,8 +91,8 @@ async def test_disconnect_drains_safety_and_stops():
     # After disconnect() the bg loop + ws client + thread are torn down,
     # and the started flag is reset so a subsequent connect() can re-run.
     # ``_shutdown`` is cleared at the end of stop() so the channel can be
-    # reconnected later (TC-003 regression fix) — we assert on the
-    # observable state that actually matters.
+    # reconnected later; assert on the observable state that actually
+    # matters.
     assert channel._bg_loop is None
     assert channel._ws_client is None
     assert channel._started is False

@@ -1,7 +1,4 @@
-"""Tests for capabilities newly added in the 2.0.0.dev0 harness-feedback
-batch: share_chat / share_user / sticker outbound types (TC-109/110/112),
-on("error") forwarding for send/stream failures (TC-006), and
-RejectEvent emission on dedup/stale hits (TC-506/507)."""
+"""Tests for channel capabilities that sit above the low-level sender."""
 
 import asyncio
 from unittest.mock import AsyncMock
@@ -28,47 +25,47 @@ from lark_oapi.channel.errors import FeishuChannelErrorCode, OutboundSendError
 
 
 # ---------------------------------------------------------------------------
-# TC-109 / TC-110 / TC-112 — outbound share_chat / share_user / sticker
+# Outbound share_chat / share_user / sticker
 # ---------------------------------------------------------------------------
 
 
-def test_tc109_coerce_share_chat_dict():
+def test_coerce_share_chat_dict():
     out = coerce_outbound({"share_chat": {"chat_id": "oc_xyz"}})
     assert isinstance(out, OutboundShareChat)
     assert out.chat_id == "oc_xyz"
 
 
-def test_tc109_coerce_share_chat_camelcase_and_string_shorthand():
+def test_coerce_share_chat_camelcase_and_string_shorthand():
     # camelCase key for cross-language JSON compatibility.
     assert coerce_outbound({"shareChat": {"chatId": "oc_cam"}}).chat_id == "oc_cam"
     # Bare string shorthand: ``{"share_chat": "oc_..."}`` → same thing.
     assert coerce_outbound({"share_chat": "oc_bare"}).chat_id == "oc_bare"
 
 
-def test_tc110_coerce_share_user_dict():
+def test_coerce_share_user_dict():
     out = coerce_outbound({"share_user": {"user_id": "ou_xyz"}})
     assert isinstance(out, OutboundShareUser)
     assert out.user_id == "ou_xyz"
 
 
-def test_tc110_coerce_share_user_accepts_open_id_alias():
+def test_coerce_share_user_accepts_open_id_alias():
     # On the wire Feishu calls this field ``user_id`` but Python users
     # usually hold an ``open_id`` in hand; both accepted for ergonomics.
     assert coerce_outbound({"share_user": {"open_id": "ou_open"}}).user_id == "ou_open"
 
 
-def test_tc112_coerce_sticker_dict():
+def test_coerce_sticker_dict():
     out = coerce_outbound({"sticker": {"file_key": "img_key_123"}})
     assert isinstance(out, OutboundSticker)
     assert out.file_key == "img_key_123"
 
 
-def test_tc112_coerce_sticker_string_shorthand():
+def test_coerce_sticker_string_shorthand():
     assert coerce_outbound({"sticker": "img_key_abc"}).file_key == "img_key_abc"
 
 
 @pytest.mark.asyncio
-async def test_tc109_send_share_chat_wire_format():
+async def test_send_share_chat_wire_format():
     """End-to-end: ``channel.send(to, {"share_chat": ...})`` must produce a
     Feishu ``msg_type=share_chat`` wire body with ``content={"chat_id": ...}``
     (JSON-encoded). Patch the sender's ``SendDriver`` directly — monkey-
@@ -90,7 +87,7 @@ async def test_tc109_send_share_chat_wire_format():
 
 
 @pytest.mark.asyncio
-async def test_tc112_send_sticker_wire_format():
+async def test_send_sticker_wire_format():
     import json
     ch = FeishuChannel(app_id="cli_x", app_secret="s")
     ch._sender._driver.create_message = AsyncMock(
@@ -105,12 +102,12 @@ async def test_tc112_send_sticker_wire_format():
 
 
 # ---------------------------------------------------------------------------
-# TC-006 — on("error") receives send/stream failures
+# on("error") receives send/stream failures
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.asyncio
-async def test_tc006_send_failure_forwarded_to_on_error():
+async def test_send_failure_forwarded_to_on_error():
     """When ``channel.send()`` returns a ``SendResult.fail(...)``, any
     handler registered via ``on("error", ...)`` must also see the error.
     The original ``SendResult`` is still returned to the caller — forwarding
@@ -148,7 +145,7 @@ async def test_tc006_send_failure_forwarded_to_on_error():
 
 
 @pytest.mark.asyncio
-async def test_tc006_send_raised_exception_forwarded_to_on_error():
+async def test_send_raised_exception_forwarded_to_on_error():
     """Even exceptions raised synchronously during coerce (e.g. unknown
     input shape) must be forwarded before the re-raise."""
     ch = FeishuChannel(app_id="cli_x", app_secret="s")
@@ -163,7 +160,7 @@ async def test_tc006_send_raised_exception_forwarded_to_on_error():
 
 
 # ---------------------------------------------------------------------------
-# TC-506 / TC-507 — RejectEvent emitted on dedup / stale hits
+# RejectEvent emitted on dedup / stale hits
 # ---------------------------------------------------------------------------
 
 
@@ -178,7 +175,7 @@ def _inbound(msg_id: str, *, create_time: int = 1_000_000_000_000) -> InboundMes
 
 
 @pytest.mark.asyncio
-async def test_tc506_duplicate_emits_reject_event():
+async def test_duplicate_emits_reject_event():
     """Feeding the same message_id twice through SafetyPipeline's full
     tier must emit ``RejectEvent(reason="duplicate")`` on the second hit
     (before: silent drop).
@@ -214,7 +211,7 @@ async def test_tc506_duplicate_emits_reject_event():
 
 
 @pytest.mark.asyncio
-async def test_tc507_stale_emits_reject_event():
+async def test_stale_emits_reject_event():
     """A message with ``create_time`` older than the stale window must emit
     ``RejectEvent(reason="stale")`` (before: silent drop)."""
     loop = asyncio.get_running_loop()

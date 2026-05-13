@@ -230,6 +230,7 @@ class LarkClientDriver:
         data: bytes,
         file_name: str = "",
         file_type: str = "stream",
+        duration_ms: Optional[int] = None,
     ) -> Dict[str, Any]:
         try:
             from lark_oapi.api.im.v1.model.create_file_request import CreateFileRequest
@@ -237,13 +238,15 @@ class LarkClientDriver:
         except ImportError:  # pragma: no cover
             return {"code": -1, "msg": "file upload model missing"}
         name = file_name or "upload"
-        body = (
+        builder = (
             CreateFileRequestBody.builder()
             .file_type(file_type)
             .file_name(name)
             .file(_as_upload_stream(data, name))
-            .build()
         )
+        if duration_ms is not None and duration_ms > 0:
+            builder = builder.duration(duration_ms)
+        body = builder.build()
         req = CreateFileRequest.builder().request_body(body).build()
         resp = await self._client.im.v1.file.acreate(req)
         return _resp_to_dict(resp)

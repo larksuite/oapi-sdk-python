@@ -1,26 +1,4 @@
-"""Harness regression tests for TC-603 / TC-604 / TC-605 (media + SSRF).
-
-These document SDK bugs surfaced by the channel test harness. They should be
-red today and go green once fixes land. Do not relax the assertions without
-a matching fix.
-
-- TC-603: :func:`lark_oapi.core.json.JSON.marshal` blows up when a ``bytes``
-  value (image JPEG / any non-UTF-8 blob) appears in the serialized object
-  graph. :class:`Encoder.default` does ``str(o, encoding=UTF_8)`` with no
-  fallback, so callers that round-trip ``download_resource`` results through
-  the SDK JSON encoder hit ``UnicodeDecodeError`` for real image bytes.
-
-- TC-604: ``LarkClientDriver.upload_file`` exists and matches the harness
-  signature, and ``_resp_to_dict`` *does* surface ``data.file_key`` — so a
-  "file_key missing" error from the harness implies either a failed upload
-  or a shape regression. This test pins the contract the harness relies on.
-
-- TC-605: ``assert_public_url`` raises ``FeishuChannelError`` correctly, but
-  the uploader wraps it: when URL-sourced media is sent without an SSRF
-  allowlist, :func:`gather_buffer` returns ``(None, name)`` and the outbound
-  sender silently degrades to an empty-body send. The harness expects a
-  propagated ``FeishuChannelError(SSRF_BLOCKED)``; current SDK swallows it.
-"""
+"""Regression tests for media serialization, upload, and SSRF handling."""
 
 from dataclasses import dataclass, field
 from types import SimpleNamespace
@@ -40,7 +18,7 @@ from lark_oapi.core.json import JSON
 
 
 # --------------------------------------------------------------------------- #
-# TC-603: JSON.marshal must not blow up on non-UTF-8 bytes (JPEG magic bytes)
+# JSON.marshal must not blow up on non-UTF-8 bytes (JPEG magic bytes)
 # --------------------------------------------------------------------------- #
 
 
@@ -48,8 +26,8 @@ from lark_oapi.core.json import JSON
 _JPEG_BYTES = b"\xff\xd8\xff\xe0\x00\x10JFIF\x00"
 
 
-def test_tc603_json_marshal_handles_raw_image_bytes():
-    """Regression: harness round-trips ``download_resource`` bytes through
+def test_json_marshal_handles_raw_image_bytes():
+    """Regression: callers can round-trip ``download_resource`` bytes through
     ``JSON.marshal``. ``Encoder.default`` calls ``str(o, encoding=UTF_8)`` on
     bytes with no base64 / latin1 fallback, so JPEG magic bytes raise
     ``UnicodeDecodeError``.
@@ -71,10 +49,9 @@ def test_tc603_json_marshal_handles_raw_image_bytes():
     assert len(back["content"]) > 0
 
 
-def test_tc603_json_marshal_nested_bytes_in_response_like_object():
-    """Harness path: download_resource returns bytes, wraps into a dict, and
-    serializes via JSON.marshal (or an object whose ``__dict__`` contains
-    bytes). The Encoder must not raise for either shape."""
+def test_json_marshal_nested_bytes_in_response_like_object():
+    """``JSON.marshal`` must not raise for response-like objects that carry
+    raw bytes in ``__dict__``."""
 
     class _FakeResp:
         def __init__(self) -> None:
@@ -93,7 +70,7 @@ def test_tc603_json_marshal_nested_bytes_in_response_like_object():
 
 
 # --------------------------------------------------------------------------- #
-# TC-604: driver.upload_file contract — returns {"code", "msg", "data":
+# driver.upload_file contract - returns {"code", "msg", "data":
 # {"file_key": ...}}
 # --------------------------------------------------------------------------- #
 
@@ -114,9 +91,9 @@ def _stub_client_for_upload(file_key: Optional[str]) -> MagicMock:
 
 
 @pytest.mark.asyncio
-async def test_tc604_upload_file_signature_matches_harness():
-    """Harness calls ``driver.upload_file(data=..., file_name=..., file_type=...)``
-    and expects a dict with ``data.file_key``. Pin the signature + shape.
+async def test_upload_file_signature_returns_file_key_shape():
+    """``driver.upload_file(data=..., file_name=..., file_type=...)`` returns
+    a dict with ``data.file_key``. Pin the signature + shape.
     """
     c = _stub_client_for_upload(file_key="file_xyz")
     d = LarkClientDriver(c)
@@ -127,16 +104,16 @@ async def test_tc604_upload_file_signature_matches_harness():
     )
     assert isinstance(raw, dict)
     assert raw.get("code") == 0
-    # The exact field the harness digs for.
+    # The exact field downstream upload resolution reads.
     data = raw.get("data") or {}
     assert data.get("file_key") == "file_xyz", (
-        "TC-604: driver.upload_file must surface data.file_key in the dict "
-        "returned to callers (the harness expects this shape)."
+        "driver.upload_file must surface data.file_key in the dict "
+        "returned to callers."
     )
 
 
 @pytest.mark.asyncio
-async def test_tc604_upload_file_preserves_file_key_through_resp_to_dict():
+async def test_upload_file_preserves_file_key_through_resp_to_dict():
     """Direct ``_resp_to_dict`` test — guards against a regression where the
     marshaller drops ``file_key`` (e.g. filter_null or a wrong type map)."""
 
@@ -152,16 +129,16 @@ async def test_tc604_upload_file_preserves_file_key_through_resp_to_dict():
 
 
 # --------------------------------------------------------------------------- #
-# TC-605: URL-sourced media without allowlist must surface SSRF_BLOCKED, not
+# URL-sourced media without allowlist must surface SSRF_BLOCKED, not
 # silently return None.
 # --------------------------------------------------------------------------- #
 
 
 @pytest.mark.asyncio
-async def test_tc605_gather_buffer_url_without_allowlist_raises_ssrf_blocked():
+async def test_gather_buffer_url_without_allowlist_raises_ssrf_blocked():
     """Today ``gather_buffer`` logs a warning and returns ``(None, name)``
-    when no allowlist is configured. The harness (and any safety-sensitive
-    caller) needs a typed error: ``FeishuChannelError(SSRF_BLOCKED)``.
+    when no allowlist is configured. Safety-sensitive callers need a typed
+    error: ``FeishuChannelError(SSRF_BLOCKED)``.
     Returning ``None`` is indistinguishable from a transient network failure
     and can't be matched on.
     """
@@ -172,7 +149,7 @@ async def test_tc605_gather_buffer_url_without_allowlist_raises_ssrf_blocked():
 
 
 @pytest.mark.asyncio
-async def test_tc605_resolve_media_key_url_without_allowlist_raises():
+async def test_resolve_media_key_url_without_allowlist_raises():
     """End-to-end uploader path: sending an OutboundImage whose source is a
     private-IP URL should surface ``FeishuChannelError(SSRF_BLOCKED)`` to the
     caller, not quietly downgrade to ``key=None`` (which produces an empty

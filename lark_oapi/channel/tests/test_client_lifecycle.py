@@ -312,7 +312,7 @@ def test_stale_pre_ws_start_cannot_be_uncancelled_by_restart():
         def stop(self):
             return None
 
-    def _slow_fetch():
+    def _slow_fetch(*_args, **_kwargs):
         nonlocal fetch_count
         with lock:
             fetch_count += 1
@@ -397,7 +397,7 @@ def test_build_dispatcher_registers_required_events():
         # drive comment-add has no typed SDK processor and the wire
         # payload may arrive under either schema (p1 callback envelope vs
         # p2 WS envelope). Register both so neither path logs
-        # ``processor not found`` (TC-317 reproduced this on the WS path).
+        # ``processor not found``.
         "p1.drive.notice.comment_add_v1",
         "p2.drive.notice.comment_add_v1",
     }

@@ -1,6 +1,6 @@
 """Normalize ``drive.notice.comment_add_v1`` events.
 
-Wire payload (verified against the live Feishu tenant API)::
+Wire payload shape::
 
     {
       "file_token": "...",

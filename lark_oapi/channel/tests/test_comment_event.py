@@ -1,19 +1,15 @@
-"""Tests for normalize_comment + dispatcher wiring (TC-317 lineage).
+"""Tests for normalize_comment + dispatcher wiring.
 
 Two regressions are guarded here:
 
-1. The harness reported ``processor not found, type:
-   drive.notice.comment_add_v1`` because the channel never registered a
-   handler. Now registered under both ``p1`` and ``p2`` schemas (the WS
-   frontier wraps in p2 envelope; legacy callback uses p1).
+1. ``drive.notice.comment_add_v1`` must be registered under both ``p1`` and
+   ``p2`` schemas because the WS frontier wraps in p2 envelope while legacy
+   callback uses p1.
 
-2. After registration, the live comment payload still surfaced operator
-   open_id / mentioned_bot / timestamp as null — the original
-   ``normalize_comment`` was guessing at field names that don't exist in
-   the wire format. Real shape (observed end-to-end against a Feishu
-   tenant 2026-04-27): operator at ``notice_meta.from_user_id``,
-   mentioned-bot is the boolean ``is_mentioned``, timestamp is
-   ``create_time`` as a millisecond string.
+2. The comment payload must surface operator open_id / mentioned_bot /
+   timestamp from the actual wire fields: operator at
+   ``notice_meta.from_user_id``, mentioned-bot as boolean ``is_mentioned``,
+   and timestamp from ``create_time`` as a millisecond string.
 """
 
 import threading
@@ -29,7 +25,7 @@ from lark_oapi.channel.normalize.comment import CommentEvent, normalize_comment
 
 def test_full_payload_real_wire_format():
     """Mirror of the real ``drive.notice.comment_add_v1`` payload Feishu
-    sends on the WS frontier (TC-317 capture, 2026-04-27)."""
+    sends on the WS frontier."""
     payload = {
         "event": {
             "file_token": "doc_token_x",
@@ -89,7 +85,7 @@ def test_missing_operator_returns_none():
 def test_envelope_timestamp_used_when_inner_event_omits_it():
     """The real WS payload puts ``create_time`` on the p2 envelope's
     ``header``, not the inner event dict. Without this fallback, every
-    delivered ``CommentEvent`` had ``timestamp=0`` (TC-317)."""
+    delivered ``CommentEvent`` had ``timestamp=0``."""
     payload = {
         "event": {
             "file_token": "doc_token_x",
@@ -191,7 +187,7 @@ def test_incoming_comment_event_invokes_comment_handler():
 
     ctx = CustomizedEvent()
     ctx.event = {
-        "file_token": "doc_token_harness",
+        "file_token": "doc_token_fixture",
         "file_type": "docx",
         "comment_id": "cmt_42",
         "reply_id": "rpl_42",
@@ -213,7 +209,7 @@ def test_incoming_comment_event_invokes_comment_handler():
     assert done.wait(timeout=2.0), "comment handler was not invoked within 2s"
     assert len(got) == 1
     ev = got[0]
-    assert ev.file_token == "doc_token_harness"
+    assert ev.file_token == "doc_token_fixture"
     assert ev.comment_id == "cmt_42"
     assert ev.operator.open_id == "ou_op_user"
     assert ev.operator.user_id == "u_op"

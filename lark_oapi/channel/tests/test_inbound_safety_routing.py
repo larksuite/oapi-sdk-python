@@ -163,7 +163,7 @@ async def test_comment_routes_through_push_action_scoped_by_file_token():
     c = _client()
     safety = _installed_safety(c)
 
-    # Real ``drive.notice.comment_add_v1`` wire shape (TC-317 capture).
+    # Real ``drive.notice.comment_add_v1`` wire shape.
     data = SimpleNamespace(event={
         "file_token": "doc_abc",
         "file_type": "docx",

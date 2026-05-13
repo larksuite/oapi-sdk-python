@@ -4,7 +4,7 @@ Before this batch, any upload failure — auth rejected by server, local file
 missing, URL download timed out, wrong allowlist, etc. — funneled through
 ``resolve_media_key`` returning ``None`` + a ``logger.warning`` the caller
 never saw. The sender then produced ``SendResult.fail(UNKNOWN, "empty body")``
-which is the exact symptom the TC-601/602 report described.
+which is the exact symptom reported for missing media upload bodies.
 
 Now every failure surfaces as a typed :class:`FeishuChannelError` with the
 right code (``UPLOAD_FAILED`` / ``SSRF_BLOCKED``) and a ``context`` dict
@@ -90,10 +90,10 @@ async def test_gather_buffer_url_download_network_error_raises_upload_failed(
 
 @pytest.mark.asyncio
 async def test_resolve_media_key_propagates_server_rejection_code_and_msg():
-    """Real scenario behind the TC-601/602 "empty body" report: the Lark
-    backend rejects the upload with ``code=99991663`` (token invalid) or
-    similar. Before: caller saw ``SendResult.fail(UNKNOWN, "empty body")``
-    with no trace of 99991663. Now: caller sees
+    """When the Lark backend rejects an upload with ``code=99991663`` (token
+    invalid) or similar, the caller must not only see an "empty body" error.
+    Before: caller saw ``SendResult.fail(UNKNOWN, "empty body")`` with no
+    trace of 99991663. Now: caller sees
     ``SendResult.fail(UPLOAD_FAILED, hint="... code=99991663 msg=token invalid")``
     and the context dict has raw_code/raw_msg."""
     fake_upload_image = AsyncMock(

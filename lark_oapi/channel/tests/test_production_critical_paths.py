@@ -124,16 +124,16 @@ async def test_outbound_url_source_blocked_by_ssrf_guard_in_flight():
     """`OutboundImage(source=MediaSource(kind='url', url=<private>))` must be
     stopped by the SSRF guard before any httpx.get.
 
-    Updated semantics (TC-605 fix): ``gather_buffer`` now **raises** a
-    typed :class:`FeishuChannelError(SSRF_BLOCKED)` instead of silently
-    returning ``(None, default)``. Silent drop made SSRF blocks
+    ``gather_buffer`` now raises a typed
+    :class:`FeishuChannelError(SSRF_BLOCKED)` instead of silently returning
+    ``(None, default)``. Silent drop made SSRF blocks
     indistinguishable from transient network failures upstream.
     """
     from lark_oapi.channel.errors import FeishuChannelError, FeishuChannelErrorCode
     from lark_oapi.channel.outbound.media.uploader import gather_buffer as _gather_buffer
     from lark_oapi.channel.types import MediaSource
 
-    # Case 1: no allowlist configured → hard stop (TC-605 regression).
+    # Case 1: no allowlist configured means hard stop.
     source = MediaSource(kind="url", url="https://internal.test/secret.png")
     with pytest.raises(FeishuChannelError) as ei:
         await _gather_buffer(source, "default.bin")

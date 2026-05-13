@@ -35,10 +35,13 @@ release. Custom implementations written today will keep working without
 modification.
 """
 
+import json
+import os
 import threading
 import time
 from collections import OrderedDict
-from typing import Optional, Protocol, runtime_checkable
+from pathlib import Path
+from typing import Optional, Protocol, Union, runtime_checkable
 
 
 @runtime_checkable
@@ -88,6 +91,102 @@ class InMemoryDedupStore:
 
     def size(self) -> int:
         return len(self._data)
+
+
+class JsonFileDedupStore:
+    """Thread-safe JSON-file ``DedupStore`` for single-process persistence.
+
+    The store writes on every ``mark()`` so the frozen ``DedupStore`` protocol
+    remains sufficient for cross-restart dedup. ``flush()`` is provided for
+    callers that want an explicit sync point, but the pipeline never relies on
+    it. This implementation is not a multi-process coordination primitive.
+    """
+
+    def __init__(
+        self,
+        path: Union[str, Path],
+        *,
+        max_entries: int = 5000,
+    ) -> None:
+        self._path = Path(path)
+        self._max = max(1, int(max_entries))
+        self._data: "OrderedDict[str, float]" = OrderedDict()
+        self._lock = threading.Lock()
+        self._data = self._load()
+
+    def seen(self, key: str) -> bool:
+        with self._lock:
+            exp = self._data.get(key)
+            if exp is None:
+                return False
+            if exp <= time.time():
+                self._data.pop(key, None)
+                self._persist_locked()
+                return False
+            self._data.move_to_end(key)
+            return True
+
+    def mark(self, key: str, ttl_seconds: int) -> None:
+        with self._lock:
+            self._data[key] = time.time() + ttl_seconds
+            self._data.move_to_end(key)
+            self._evict_locked()
+            self._persist_locked()
+
+    def flush(self) -> None:
+        with self._lock:
+            self._persist_locked()
+
+    def size(self) -> int:
+        with self._lock:
+            return len(self._data)
+
+    def _load(self) -> "OrderedDict[str, float]":
+        if not self._path.exists():
+            return OrderedDict()
+        try:
+            raw = json.loads(self._path.read_text(encoding="utf-8"))
+        except (OSError, ValueError, TypeError):
+            return OrderedDict()
+        if not isinstance(raw, dict) or raw.get("version") != 1:
+            return OrderedDict()
+        entries = raw.get("entries")
+        if not isinstance(entries, dict):
+            return OrderedDict()
+        now = time.time()
+        out: "OrderedDict[str, float]" = OrderedDict()
+        for key, exp in entries.items():
+            if isinstance(key, str) and isinstance(exp, (int, float)) and exp > now:
+                out[key] = float(exp)
+        self._evict_data(out, now=now)
+        return out
+
+    def _evict_locked(self) -> None:
+        self._evict_data(self._data, now=time.time())
+
+    def _evict_data(self, data: "OrderedDict[str, float]", *, now: float) -> None:
+        expired = [key for key, exp in data.items() if exp <= now]
+        for key in expired:
+            data.pop(key, None)
+        while len(data) > self._max:
+            data.popitem(last=False)
+
+    def _persist_locked(self) -> None:
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "version": 1,
+            "entries": dict(self._data),
+        }
+        tmp = self._path.with_name(f".{self._path.name}.tmp")
+        try:
+            tmp.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+            os.replace(str(tmp), str(self._path))
+        finally:
+            try:
+                if tmp.exists():
+                    tmp.unlink()
+            except OSError:
+                pass
 
 
 def make_event_key(account_id: str, event_id: str) -> str:

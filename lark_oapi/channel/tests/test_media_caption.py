@@ -157,6 +157,97 @@ async def test_audio_caption_is_rejected_without_uploading_or_sending():
 
 
 @pytest.mark.asyncio
+async def test_file_caption_split_opt_in_sends_caption_then_native_file():
+    d, calls = make_caption_driver(file_key="file_split")
+    cfg = OutboundConfig(
+        file_audio_caption_mode="caption_then_media",
+        markdown_converter=MarkdownConverter(tag_md_mode="native"),
+    )
+    s = OutboundSender(d, cfg)
+
+    result = await s.send(
+        OutboundFile(
+            source=MediaSource(kind="buffer", buffer=b"abc"),
+            file_name="a.txt",
+            caption="file caption",
+        ),
+        receive_id="oc_1",
+    )
+
+    assert result.success is True
+    creates = [c for c in calls if c["op"] == "create"]
+    assert [c["msg_type"] for c in creates] == ["post", "file"]
+    caption_post = json.loads(creates[0]["content"])
+    assert caption_post["zh_cn"]["content"] == [[{"tag": "md", "text": "file caption"}]]
+    assert json.loads(creates[1]["content"]) == {"file_key": "file_split"}
+
+
+@pytest.mark.asyncio
+async def test_audio_caption_split_opt_in_sends_caption_then_native_audio():
+    d, calls = make_caption_driver(file_key="audio_split")
+    cfg = OutboundConfig(
+        file_audio_caption_mode="caption_then_media",
+        markdown_converter=MarkdownConverter(tag_md_mode="native"),
+    )
+    s = OutboundSender(d, cfg)
+
+    result = await s.send(
+        OutboundAudio(
+            source=MediaSource(kind="buffer", buffer=b"not-parseable"),
+            caption="audio caption",
+        ),
+        receive_id="oc_1",
+    )
+
+    assert result.success is True
+    creates = [c for c in calls if c["op"] == "create"]
+    assert [c["msg_type"] for c in creates] == ["post", "audio"]
+    caption_post = json.loads(creates[0]["content"])
+    assert caption_post["zh_cn"]["content"] == [[{"tag": "md", "text": "audio caption"}]]
+    assert json.loads(creates[1]["content"]) == {"file_key": "audio_split"}
+
+
+@pytest.mark.asyncio
+async def test_file_caption_split_applies_reply_to_caption_only():
+    calls: List[Dict[str, Any]] = []
+
+    async def create_message(**kwargs):
+        calls.append({"op": "create", **kwargs})
+        return {"code": 0, "msg": "ok", "data": {"message_id": "om_create"}}
+
+    async def reply_message(**kwargs):
+        calls.append({"op": "reply", **kwargs})
+        return {"code": 0, "msg": "ok", "data": {"message_id": "om_reply"}}
+
+    async def upload_file(**kwargs):
+        calls.append({"op": "upload_file", **{k: v for k, v in kwargs.items() if k != "data"}})
+        return {"code": 0, "msg": "ok", "data": {"file_key": "file_reply"}}
+
+    cfg = OutboundConfig(file_audio_caption_mode="caption_then_media")
+    s = OutboundSender(SendDriver(
+        create_message=create_message,
+        reply_message=reply_message,
+        upload_file=upload_file,
+    ), cfg)
+
+    result = await s.send(
+        OutboundFile(
+            source=MediaSource(kind="buffer", buffer=b"abc"),
+            file_name="a.txt",
+            caption="file caption",
+        ),
+        receive_id="oc_1",
+        reply_to="om_parent",
+    )
+
+    assert result.success is True
+    send_ops = [c["op"] for c in calls if c["op"] in ("reply", "create")]
+    assert send_ops == ["reply", "create"]
+    reply = [c for c in calls if c["op"] == "reply"][0]
+    assert reply["message_id"] == "om_parent"
+
+
+@pytest.mark.asyncio
 async def test_video_caption_native_post_body_uses_media_tag():
     d, calls = make_caption_driver(file_key="video_cap")
     cfg = OutboundConfig(markdown_converter=MarkdownConverter(tag_md_mode="native"))

@@ -6,6 +6,7 @@ having to know the original wire format.
 """
 
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Union
 
 from .errors import SendError
@@ -84,6 +85,15 @@ class ResourceDescriptor:
     file_name: Optional[str] = None
     duration_ms: Optional[int] = None
     cover_image_key: Optional[str] = None
+
+
+@dataclass
+class DownloadedResource:
+    path: Path
+    resource_type: ResourceType
+    file_key: str
+    content_type: Optional[str] = None
+    file_name: Optional[str] = None
 
 
 # ----------------------------------------------------------------------------

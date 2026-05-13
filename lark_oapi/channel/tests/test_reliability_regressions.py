@@ -1,31 +1,4 @@
-"""Reliability regression tests covering reported bugs.
-
-These tests encode the expected behavior. Each one originally FAILED against
-the SDK — they are reproducers; a passing run means the underlying bug is
-fixed.
-
-Mapping:
-
-- ``test_tc002_invalid_credentials_error_has_not_connected_code`` -> TC-002
-  ``FeishuChannel.connect()`` with invalid app credentials should raise
-  :class:`FeishuChannelError` carrying
-  :attr:`FeishuChannelErrorCode.NOT_CONNECTED`. Today it lets the raw
-  ``lark_oapi.ws.exception.ClientException`` (``.code`` is an ``int``, not an
-  enum) escape unwrapped.
-
-- ``test_tc003_reconnect_after_disconnect_reinitializes_ws_client`` -> TC-003
-  After ``await channel.disconnect()``, ``await channel.connect()`` should
-  reinitialize the background loop + the ``ws_client``. Today
-  :meth:`FeishuChannel.stop` leaves ``_started=True`` and sets
-  ``_shutdown``, so the next ``connect()`` short-circuits and never rebuilds
-  the WS client.
-
-- ``test_tc007_reconnecting_event_is_dispatched_on_ws_reconnect`` -> TC-007
-  :meth:`FeishuChannel._notify_reconnecting` is wired to fire any
-  ``channel.on("reconnecting", ...)`` handlers, but no code path in the
-  channel or the underlying WS client ever invokes it. Handlers registered
-  for ``reconnecting`` / ``reconnected`` stay silent forever.
-"""
+"""Reliability regression tests for channel lifecycle behavior."""
 
 from __future__ import annotations
 
@@ -45,12 +18,12 @@ def _channel() -> FeishuChannel:
 
 
 # ---------------------------------------------------------------------------
-# TC-002 — invalid credentials must surface as NOT_CONNECTED
+# Invalid credentials must surface as NOT_CONNECTED
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.asyncio
-async def test_tc002_invalid_credentials_error_has_not_connected_code():
+async def test_invalid_credentials_error_has_not_connected_code():
     """When the WS handshake fails because app_id/app_secret are invalid,
     the channel must raise ``FeishuChannelError`` with code
     ``NOT_CONNECTED``. Today it re-raises the raw ``ClientException`` from
@@ -82,8 +55,8 @@ async def test_tc002_invalid_credentials_error_has_not_connected_code():
 
     assert raised is not None, "connect() with invalid credentials must raise"
 
-    # This is the contract the harness checks: error.code is a
-    # FeishuChannelErrorCode whose .value equals "not_connected".
+    # Keep the public error shape stable: error.code is a
+    # FeishuChannelErrorCode whose value equals "not_connected".
     assert isinstance(raised, FeishuChannelError), (
         f"expected FeishuChannelError, got {type(raised).__name__}: {raised!r}"
     )
@@ -94,12 +67,12 @@ async def test_tc002_invalid_credentials_error_has_not_connected_code():
 
 
 # ---------------------------------------------------------------------------
-# TC-003 — reconnect after graceful disconnect must rebuild ws_client
+# Reconnect after graceful disconnect must rebuild ws_client
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.asyncio
-async def test_tc003_reconnect_after_disconnect_reinitializes_ws_client():
+async def test_reconnect_after_disconnect_reinitializes_ws_client():
     """Lifecycle contract:
 
     1. ``await channel.connect()`` brings the channel up.
@@ -117,7 +90,7 @@ async def test_tc003_reconnect_after_disconnect_reinitializes_ws_client():
 
     class _FakeWS:
         def __init__(self, *a, **kw):
-            self._conn = object()  # harness asserts this is non-None
+            self._conn = object()
             self._stopped = False
             fake_ws_instances.append(self)
 
@@ -167,11 +140,11 @@ async def test_tc003_reconnect_after_disconnect_reinitializes_ws_client():
 
 
 # ---------------------------------------------------------------------------
-# TC-007 — reconnecting / reconnected events must be dispatched
+# Reconnecting / reconnected events must be dispatched
 # ---------------------------------------------------------------------------
 
 
-def test_tc007_reconnecting_event_is_dispatched_on_ws_reconnect():
+def test_reconnecting_event_is_dispatched_on_ws_reconnect():
     """When the underlying WS transport reconnects, ``channel`` must fire
     ``reconnecting`` and ``reconnected`` events to user handlers.
 

@@ -87,12 +87,14 @@ from .types import (
     CardActionPayload,
     ChatInfo,
     EventOperator,
+    DownloadedResource,
     MediaSource,
     MessageReadEvent,
     OutboundCard,
     OutboundPost,
     OutboundText,
     ReactionEvent,
+    ResourceDescriptor,
     SendResult,
 )
 
@@ -683,7 +685,7 @@ class FeishuChannel:
             self._stop_requested = False
             self._started = True
         self._ensure_bg_loop()
-        self._fetch_bot_identity_sync()
+        self._fetch_bot_identity_sync(generation)
         self._dispatcher = self._build_dispatcher()
         if self._config.transport.kind == "webhook":
             with self._lifecycle_lock:
@@ -935,17 +937,48 @@ class FeishuChannel:
             self._store_bot_identity(identity)
         return identity
 
-    def _fetch_bot_identity_sync(self) -> None:
+    def _fetch_bot_identity_sync(self, generation: Optional[int] = None) -> None:
         if self._bg_loop is None:
             raise RuntimeError("FeishuChannel: background loop is not running")
         fut = asyncio.run_coroutine_threadsafe(
             fetch_bot_identity(self._client.config), self._bg_loop
         )
-        try:
-            identity = fut.result(timeout=10)
-        except Exception as e:
-            logger.warning("FeishuChannel: bot identity fetch failed: %s", e)
-            identity = None
+        deadline = time.monotonic() + 10.0
+        identity: Optional[BotIdentity] = None
+
+        def _startup_cancelled() -> bool:
+            return (
+                self._shutdown.is_set()
+                or self._stop_requested
+                or (
+                    generation is not None
+                    and generation != self._lifecycle_generation
+                )
+            )
+
+        while True:
+            if _startup_cancelled():
+                fut.cancel()
+                return
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                fut.cancel()
+                logger.warning("FeishuChannel: bot identity fetch failed: timed out")
+                break
+            try:
+                identity = fut.result(timeout=min(0.1, remaining))
+                break
+            except concurrent.futures.TimeoutError:
+                continue
+            except concurrent.futures.CancelledError:
+                return
+            except Exception as e:
+                if _startup_cancelled():
+                    return
+                logger.warning("FeishuChannel: bot identity fetch failed: %s", e)
+                break
+        if _startup_cancelled():
+            return
         if identity is None:
             # The old code gave up here permanently, which meant a transient
             # network hiccup at startup left group ``@Bot`` detection broken
@@ -1427,6 +1460,8 @@ class FeishuChannel:
         kind: Literal["image", "file"],
         file_name: Optional[str] = None,
         file_type: Optional[str] = None,
+        duration_ms: Optional[int] = None,
+        duration_probe: Optional[str] = None,
     ) -> str:
         """Upload a media resource and return its Feishu ``image_key`` /
         ``file_key`` without sending a message.
@@ -1479,6 +1514,8 @@ class FeishuChannel:
             kind,
             file_name=file_name,
             file_type=file_type,
+            duration_ms=duration_ms,
+            duration_probe=duration_probe,
             ssrf_allowlist=self._config.outbound.ssrf_allowlist,
         )
         if key is None:
@@ -1725,6 +1762,71 @@ class FeishuChannel:
             FeishuChannelError(DOWNLOAD_FAILED): when the download fails or
                 the response has no body.
         """
+        path, _, _ = await self._download_resource_to_file_with_meta(
+            file_key=file_key,
+            resource_type=resource_type,
+            message_id=message_id,
+            dest_dir=dest_dir,
+            file_name=file_name,
+            prefer_meta_file_name=False,
+        )
+        return path
+
+    async def download_resource_descriptor_to_file(
+        self,
+        resource: ResourceDescriptor,
+        *,
+        message_id: str,
+        dest_dir: "Path",
+        fallback_types: bool = True,
+    ) -> DownloadedResource:
+        if not isinstance(resource, ResourceDescriptor):
+            raise TypeError("resource must be a ResourceDescriptor")
+
+        attempts = [resource.type]
+        if fallback_types and resource.type in ("audio", "video"):
+            attempts.append("file")
+
+        last_error: Optional[FeishuChannelError] = None
+        for resource_type in attempts:
+            try:
+                path, content_type, meta_file_name = await self._download_resource_to_file_with_meta(
+                    file_key=resource.file_key,
+                    resource_type=resource_type,
+                    message_id=message_id,
+                    dest_dir=dest_dir,
+                    file_name=resource.file_name,
+                    prefer_meta_file_name=True,
+                )
+                return DownloadedResource(
+                    path=path,
+                    resource_type=resource_type,
+                    file_key=resource.file_key,
+                    content_type=content_type,
+                    file_name=None if resource.file_name else meta_file_name,
+                )
+            except FeishuChannelError as e:
+                if e.code != FeishuChannelErrorCode.DOWNLOAD_FAILED:
+                    raise
+                last_error = e
+
+        if last_error is not None:
+            raise last_error
+        raise FeishuChannelError(
+            FeishuChannelErrorCode.DOWNLOAD_FAILED,
+            f"download failed: file_key={resource.file_key} resource_type={resource.type}",
+        )
+
+    async def _download_resource_to_file_with_meta(
+        self,
+        *,
+        file_key: str,
+        resource_type: str,
+        message_id: Optional[str],
+        dest_dir: "Path",
+        file_name: Optional[str],
+        prefer_meta_file_name: bool,
+    ) -> "tuple[Path, Optional[str], Optional[str]]":
         from pathlib import Path
         import os
         import tempfile
@@ -1743,13 +1845,18 @@ class FeishuChannel:
 
         dest_dir = Path(dest_dir)
         dest_dir.mkdir(parents=True, exist_ok=True)
+        content_type, meta_file_name = self._split_download_meta(meta)
 
         if file_name:
             name = file_name
+        elif prefer_meta_file_name and meta_file_name:
+            name = meta_file_name
         else:
-            suffix = self._infer_suffix(meta, resource_type)
+            suffix = self._infer_suffix(content_type or meta_file_name, resource_type)
             name = f"{file_key}{suffix}"
-        out = dest_dir / name
+        fallback = f"{file_key}{self._infer_suffix(content_type or meta_file_name, resource_type)}"
+        safe_name = self._sanitize_download_file_name(name, fallback=fallback)
+        out = self._contained_download_path(dest_dir, safe_name, fallback=fallback)
 
         # Atomic: write to tmp file in same dir, then rename.
         fd, tmp_path = tempfile.mkstemp(prefix=".dl-", dir=str(dest_dir))
@@ -1763,7 +1870,58 @@ class FeishuChannel:
             except OSError:
                 pass
             raise
-        return out
+        return out, content_type, meta_file_name
+
+    @staticmethod
+    def _split_download_meta(meta: Optional[str]) -> "tuple[Optional[str], Optional[str]]":
+        if not meta:
+            return None, None
+        if FeishuChannel._looks_like_mime_type(meta):
+            return meta, None
+        return None, meta
+
+    @staticmethod
+    def _looks_like_mime_type(value: str) -> bool:
+        import re
+
+        candidate = value.split(";", 1)[0].strip().lower()
+        if candidate.count("/") != 1:
+            return False
+        top_level, subtype = candidate.split("/", 1)
+        token = r"[a-z0-9!#$&^_.+\-'%*`|~]+"
+        return bool(re.fullmatch(token, top_level) and re.fullmatch(token, subtype))
+
+    @staticmethod
+    def _sanitize_download_file_name(name: str, *, fallback: str) -> str:
+        import os
+
+        raw = str(name or "")
+        raw = raw.replace("\\", "/")
+        base = os.path.basename(raw)
+        base = "".join(ch for ch in base if 32 <= ord(ch) != 127)
+        base = base.strip()
+        if base in ("", ".", ".."):
+            base = fallback
+        base = base.replace("/", "_").replace("\\", "_")
+        if base in ("", ".", ".."):
+            return "download.bin"
+        return base
+
+    @staticmethod
+    def _contained_download_path(dest_dir: "Path", name: str, *, fallback: str) -> "Path":
+        from pathlib import Path
+
+        dest = Path(dest_dir)
+        root = dest.resolve()
+        out = dest / name
+        try:
+            out.resolve().relative_to(root)
+            return out
+        except ValueError:
+            safe_fallback = FeishuChannel._sanitize_download_file_name(
+                fallback, fallback="download.bin"
+            )
+            return dest / safe_fallback
 
     @staticmethod
     def _infer_suffix(meta: Optional[str], resource_type: str) -> str:
@@ -1788,7 +1946,7 @@ class FeishuChannel:
 
         return {
             "image": ".jpg",
-            "audio": ".mp3",
+            "audio": ".ogg",
             "video": ".mp4",
             "file": ".bin",
         }.get(resource_type, ".bin")

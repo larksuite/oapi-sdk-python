@@ -24,6 +24,8 @@ from lark_oapi.core.log import logger
 
 from ...errors import FeishuChannelError, FeishuChannelErrorCode
 from ...types import MediaSource
+from .duration_mp4 import parse_mp4_duration
+from .duration_ogg import parse_opus_duration
 from .ssrf_guard import assert_public_url
 
 # 50 MiB default cap on URL-sourced downloads. Prevents an attacker URL that
@@ -39,14 +41,17 @@ async def resolve_media_key(
     *,
     file_name: Optional[str] = None,
     file_type: Optional[str] = None,
+    duration_ms: Optional[int] = None,
+    duration_probe: Optional[str] = None,
     ssrf_allowlist: Optional[List[str]] = None,
 ) -> Optional[str]:
     """Return a Lark file_key for ``source``, uploading if needed.
 
     ``kind`` selects the driver endpoint: ``"image"`` → ``upload_image``,
-    anything else → ``upload_file``. ``ssrf_allowlist`` (if given) overrides
-    any per-source allowlist on ``MediaSource``; this is how the sender
-    threads ``OutboundConfig.ssrf_allowlist`` down to the uploader.
+    anything else → ``upload_file``. ``duration_probe`` may be ``"opus"`` or
+    ``"mp4"`` for native audio/video file uploads. ``ssrf_allowlist`` (if
+    given) overrides any per-source allowlist on ``MediaSource``; this is how
+    the sender threads ``OutboundConfig.ssrf_allowlist`` down to the uploader.
 
     **Error propagation.** Three failure modes, each surfaced to the caller
     with a typed :class:`FeishuChannelError` code so the sender can map it
@@ -97,9 +102,14 @@ async def resolve_media_key(
             context={"kind": kind, "source_kind": source.kind},
         )
 
+    if duration_ms is None and source.kind in ("buffer", "file", "url"):
+        duration_ms = _probe_duration_ms(buffer, duration_probe)
+
     kwargs: Dict[str, Any] = {"data": buffer, "file_name": fname}
     if file_type:
         kwargs["file_type"] = file_type
+    if duration_ms is not None and duration_ms > 0 and _supports_kwarg(uploader, "duration_ms"):
+        kwargs["duration_ms"] = duration_ms
     try:
         raw = await _maybe_await(uploader(**kwargs))
     except FeishuChannelError:
@@ -131,6 +141,25 @@ async def resolve_media_key(
             context={"kind": kind, "data_keys": list(data.keys())},
         )
     return key
+
+
+def _probe_duration_ms(buffer: bytes, duration_probe: Optional[str]) -> Optional[int]:
+    if duration_probe == "opus":
+        return parse_opus_duration(buffer)
+    if duration_probe == "mp4":
+        return parse_mp4_duration(buffer)
+    return None
+
+
+def _supports_kwarg(fn: Any, name: str) -> bool:
+    try:
+        sig = inspect.signature(fn)
+    except (TypeError, ValueError):
+        return False
+    for param in sig.parameters.values():
+        if param.kind == inspect.Parameter.VAR_KEYWORD:
+            return True
+    return name in sig.parameters
 
 
 async def gather_buffer(

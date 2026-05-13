@@ -239,6 +239,21 @@ def _build_media_caption_post(
     return {"msg_type": "post", "content": json.dumps(post, ensure_ascii=False)}
 
 
+def _build_caption_post(
+    *,
+    caption: str,
+    table_mode: str = "off",
+    tag_md_mode: str = "structured",
+) -> Dict[str, str]:
+    post = markdown_to_post_ast(
+        caption,
+        title="",
+        table_mode=table_mode,
+        tag_md_mode=tag_md_mode,
+    )
+    return {"msg_type": "post", "content": json.dumps(post, ensure_ascii=False)}
+
+
 def _build_card(msg: OutboundCard) -> Dict[str, str]:
     if msg.card_id:
         content = {"type": "card", "data": {"card_id": msg.card_id}}
@@ -548,7 +563,11 @@ class OutboundSender:
                 )]
             return [_build_image(key)]
         if isinstance(msg, OutboundFile):
-            if msg.caption:
+            split_caption = (
+                bool(msg.caption)
+                and self._config.file_audio_caption_mode == "caption_then_media"
+            )
+            if msg.caption and not split_caption:
                 raise _UnsupportedMediaCaption("file")
             key = await resolve_media_key(
                 self._driver, msg.source, "file",
@@ -556,19 +575,45 @@ class OutboundSender:
             )
             if not key:
                 return []
+            if split_caption:
+                table_mode, tag_md_mode = self._markdown_modes()
+                return [
+                    _build_caption_post(
+                        caption=msg.caption or "",
+                        table_mode=table_mode,
+                        tag_md_mode=tag_md_mode,
+                    ),
+                    _build_file(key),
+                ]
             return [_build_file(key)]
         if isinstance(msg, OutboundAudio):
-            if msg.caption:
+            split_caption = (
+                bool(msg.caption)
+                and self._config.file_audio_caption_mode == "caption_then_media"
+            )
+            if msg.caption and not split_caption:
                 raise _UnsupportedMediaCaption("audio")
             key = await resolve_media_key(
                 self._driver, msg.source, "file",
-                file_type="opus", ssrf_allowlist=allowlist,
+                file_type="opus", duration_probe="opus", ssrf_allowlist=allowlist,
             )
-            return [_build_audio(key)] if key else []
+            if not key:
+                return []
+            if split_caption:
+                table_mode, tag_md_mode = self._markdown_modes()
+                return [
+                    _build_caption_post(
+                        caption=msg.caption or "",
+                        table_mode=table_mode,
+                        tag_md_mode=tag_md_mode,
+                    ),
+                    _build_audio(key),
+                ]
+            return [_build_audio(key)]
         if isinstance(msg, OutboundVideo):
             key = await resolve_media_key(
                 self._driver, msg.source, "file",
-                file_type="mp4", ssrf_allowlist=allowlist,
+                file_type="mp4", duration_probe="mp4", ssrf_allowlist=allowlist,
             )
             if msg.caption and key:
                 table_mode, tag_md_mode = self._markdown_modes()

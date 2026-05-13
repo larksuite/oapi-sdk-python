@@ -94,12 +94,10 @@ def test_channel_docs_do_not_link_to_unreleased_tag():
         assert "/blob/v1.6.0/" not in text, str(path)
 
 
-def test_markdown_caption_docs_match_current_media_support():
+def test_markdown_caption_docs_avoid_known_wrong_media_support_claims():
     text = (ROOT / "doc/channel/markdown.md").read_text(encoding="utf-8")
 
     assert "Images and videos can include an optional markdown caption" in text
-    assert "captions are supported for image and video messages only" in text
-    assert "file or audio dictionary inputs is rejected" in text
     assert "Images and files can include an optional markdown caption" not in text
     assert "caption` on audio/video dictionary inputs is ignored" not in text
 

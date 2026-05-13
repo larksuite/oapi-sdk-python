@@ -6,7 +6,13 @@ flat-text/resource flattener.
 """
 
 from .comment import CommentEvent, CommentOperator, normalize_comment
-from .dedup import DedupStore, InMemoryDedupStore, make_event_key, make_message_key
+from .dedup import (
+    DedupStore,
+    InMemoryDedupStore,
+    JsonFileDedupStore,
+    make_event_key,
+    make_message_key,
+)
 from .flatten import flatten
 from .mentions import (
     MentionExtraction,
@@ -23,6 +29,7 @@ __all__ = [
     "CommentOperator",
     "DedupStore",
     "InMemoryDedupStore",
+    "JsonFileDedupStore",
     "InboundPipeline",
     "MentionExtraction",
     "extract_mentions",

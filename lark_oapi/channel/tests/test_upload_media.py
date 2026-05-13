@@ -14,6 +14,7 @@ Contract (B'):
     - SSRF allowlist auto-pulled from ``OutboundConfig.ssrf_allowlist``
 """
 
+import struct
 from unittest.mock import AsyncMock
 
 import pytest
@@ -21,6 +22,18 @@ import pytest
 from lark_oapi.channel import FeishuChannel
 from lark_oapi.channel.errors import FeishuChannelError, FeishuChannelErrorCode
 from lark_oapi.channel.types import MediaSource
+
+
+def _ogg_page(granule: int) -> bytes:
+    header = b"OggS"
+    header += bytes([0])
+    header += bytes([4])
+    header += struct.pack("<q", granule)
+    header += struct.pack("<I", 1)
+    header += struct.pack("<I", 0)
+    header += struct.pack("<I", 0)
+    header += bytes([0])
+    return header
 
 
 def _make_channel(*, ssrf_allowlist=None) -> FeishuChannel:
@@ -126,6 +139,23 @@ async def test_upload_media_video_threads_file_type_mp4(tmp_path):
 
     assert key == "file_video"
     assert ch._sender._driver.upload_file.await_args.kwargs["file_type"] == "mp4"
+
+
+async def test_upload_media_can_probe_file_duration():
+    ch = _make_channel()
+    ch._sender._driver.upload_file = AsyncMock(  # type: ignore[attr-defined]
+        return_value={"code": 0, "msg": "", "data": {"file_key": "file_audio"}}
+    )
+
+    key = await ch.upload_media(
+        MediaSource(kind="buffer", buffer=_ogg_page(48000)),
+        kind="file",
+        file_type="opus",
+        duration_probe="opus",
+    )
+
+    assert key == "file_audio"
+    assert ch._sender._driver.upload_file.await_args.kwargs["duration_ms"] == 1000
 
 
 # ---------------------------------------------------------------------------

@@ -83,6 +83,7 @@ TransportKind = Literal["ws", "webhook"]
 DmPolicy = Literal["open", "allowlist", "blocklist", "disabled"]
 GroupPolicy = Literal["open", "allowlist", "blocklist", "admin_only", "disabled"]
 SenderIdentityField = Literal["open_id", "user_id", "union_id"]
+FileAudioCaptionMode = Literal["fail", "caption_then_media"]
 
 
 # ---------------------------------------------------------------------------
@@ -286,6 +287,7 @@ class OutboundConfig:
     footer: FooterConfig = field(default_factory=FooterConfig)
     markdown_converter: MarkdownConverter = field(default_factory=MarkdownConverter)
     retry: RetryConfig = field(default_factory=RetryConfig)
+    file_audio_caption_mode: FileAudioCaptionMode = "fail"
     # Hostname allowlist for URL-sourced media downloads. Required by the
     # SSRF guard — without an allowlist, URL downloads are refused. See
     # :mod:`..outbound.media.ssrf_guard` for the rationale.
