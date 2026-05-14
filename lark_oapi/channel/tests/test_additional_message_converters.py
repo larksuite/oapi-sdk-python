@@ -1,4 +1,4 @@
-"""Parser tests for the 4 new msg_type converters."""
+"""Parser tests for additional msg_type converters."""
 
 import json
 

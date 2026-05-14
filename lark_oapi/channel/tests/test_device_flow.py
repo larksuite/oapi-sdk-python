@@ -1,6 +1,5 @@
 """DeviceFlowClient tests with a mocked httpx transport."""
 
-import json
 from typing import Any, Dict, List
 
 import httpx

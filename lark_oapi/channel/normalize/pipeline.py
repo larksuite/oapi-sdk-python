@@ -2,7 +2,7 @@
 
 Orchestrates the flow:
     raw event → dedup → parse → async enrich (merge_forward, interactive,
-    mentions, identity) → InboundMessage + ctx.
+    mentions, identity) → InboundMessage.
 """
 
 from dataclasses import dataclass, field
@@ -69,15 +69,19 @@ def _sender_to_identity(sender: Any) -> Identity:
             open_id=sid.get("open_id") or "",
             union_id=sid.get("union_id"),
             user_id=sid.get("user_id"),
-            is_bot=sender.get("sender_type") == "bot",
+            is_bot=_is_bot_sender_type(sender.get("sender_type")),
         )
     sid = getattr(sender, "sender_id", None)
     return Identity(
         open_id=getattr(sid, "open_id", "") or "",
         union_id=getattr(sid, "union_id", None),
         user_id=getattr(sid, "user_id", None),
-        is_bot=getattr(sender, "sender_type", None) == "bot",
+        is_bot=_is_bot_sender_type(getattr(sender, "sender_type", None)),
     )
+
+
+def _is_bot_sender_type(sender_type: Any) -> bool:
+    return sender_type in {"bot", "app"}
 
 
 def _message_to_dict(msg: Any) -> Dict[str, Any]:

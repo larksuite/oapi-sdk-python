@@ -1,4 +1,4 @@
-"""CR-13: polymorphic edit_message materialization tests."""
+"""Polymorphic edit_message materialization tests."""
 
 import json
 from unittest.mock import AsyncMock

@@ -1,7 +1,7 @@
 """Infer `receive_id_type` for Lark's `POST /im/v1/messages` endpoint.
 
 Lark requires you to say whether `receive_id` is an open_id, chat_id, user_id,
-union_id, or email. In Agent use cases the id format is usually obvious from
+union_id, or email. In channel use cases the id format is usually obvious from
 the prefix, so we auto-detect.
 """
 

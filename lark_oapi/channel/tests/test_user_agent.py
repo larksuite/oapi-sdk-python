@@ -7,8 +7,6 @@ HTTP and WebSocket clients.
 
 import re
 
-import pytest
-
 from lark_oapi.channel import FeishuChannel
 from lark_oapi.client import Client
 from lark_oapi.core.const import PROJECT, USER_AGENT, VERSION

@@ -1,6 +1,5 @@
 """TokenStore tests."""
 
-import asyncio
 import os
 import tempfile
 import warnings

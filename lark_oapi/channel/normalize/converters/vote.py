@@ -17,4 +17,4 @@ def convert(content: VoteContent) -> Tuple[str, List[ResourceDescriptor]]:
         lines.append(content.topic)
     for opt in content.options or []:
         lines.append(f"• {opt}")
-    return f"<vote>\n" + "\n".join(lines) + "\n</vote>", []
+    return "<vote>\n" + "\n".join(lines) + "\n</vote>", []

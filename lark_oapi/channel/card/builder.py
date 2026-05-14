@@ -25,7 +25,7 @@ class CardBuilder:
     """Fluent v2 card builder.
 
     Example:
-        >>> c = (card()
+        >>> c = (new_card()
         ...     .header(title="Deploy", template="blue")
         ...     .markdown("Running **step 2**")
         ...     .divider()
@@ -42,7 +42,7 @@ class CardBuilder:
 
     # ---- meta -----------------------------------------------------------------
     def streaming(self, enabled: bool = True) -> "CardBuilder":
-        """Mark this card as a streaming card (used by StreamController)."""
+        """Mark this card for use with the streaming card helpers."""
         self._streaming = enabled
         return self
 

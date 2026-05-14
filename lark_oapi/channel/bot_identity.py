@@ -1,6 +1,6 @@
 """Bot identity auto-fetch.
 
-Two-step resolution flow:
+Resolution flow:
     1. Try `GET /open-apis/bot/v3/info` (returns app_id / activate_status / name / open_id).
     2. Fall back to `GET /open-apis/application/v6/applications/:app_id` (richer data).
     3. Return `BotIdentity(open_id, user_id?, name?)`; the caller persists it on

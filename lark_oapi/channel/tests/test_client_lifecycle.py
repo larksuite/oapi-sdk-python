@@ -7,7 +7,6 @@ pipeline construction, dispatcher building — are all testable in isolation.
 
 import asyncio
 import threading
-import time
 from unittest.mock import patch
 
 import pytest
@@ -363,8 +362,6 @@ def test_bot_identity_accessor_before_resolve():
 
 def test_resolve_bot_identity_persists_to_safety_pipeline(monkeypatch):
     """When identity resolves, it should propagate into the safety PolicyGate."""
-    from lark_oapi.channel.bot_identity import fetch_bot_identity as _real
-
     async def fake_fetch(config):
         return BotIdentity(open_id="ou_bot_xyz", name="Test Bot")
 
@@ -397,7 +394,7 @@ def test_build_dispatcher_registers_required_events():
         # drive comment-add has no typed SDK processor and the wire
         # payload may arrive under either schema (p1 callback envelope vs
         # p2 WS envelope). Register both so neither path logs
-        # ``processor not found`` (TC-317 reproduced this on the WS path).
+        # ``processor not found``.
         "p1.drive.notice.comment_add_v1",
         "p2.drive.notice.comment_add_v1",
     }

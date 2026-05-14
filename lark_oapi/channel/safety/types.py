@@ -21,6 +21,16 @@ from typing import Literal
 # sites inside the safety package keep working.
 from ..config import ChatQueueConfig, DedupConfig, TextBatchConfig  # noqa: F401
 
+__all__ = [
+    "BatchConfig",
+    "ChatQueueConfig",
+    "DedupConfig",
+    "MediaBatchConfig",
+    "RejectEvent",
+    "RejectReason",
+    "TextBatchConfig",
+]
+
 # ---- Reject taxonomy --------------------------------------------------------
 
 RejectReason = Literal[
@@ -44,11 +54,11 @@ RejectReason = Literal[
 
 @dataclass
 class RejectEvent:
-    """Emitted by PolicyGate when a message is filtered out.
+    """Emitted by SafetyPipeline when a message is filtered out.
 
-    Carries just enough info for the caller to log / surface the decision.
-    Dedup / stale / lock rejections stay silent (debug log only) because they
-    aren't user-facing decisions.
+    Carries just enough info for the caller to log or surface the decision.
+    Reasons include both policy decisions and runtime safety gates such as
+    stale messages, duplicate delivery, lock contention, and self-sent drops.
     """
 
     message_id: str

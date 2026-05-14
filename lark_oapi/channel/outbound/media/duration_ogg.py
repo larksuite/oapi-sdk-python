@@ -13,7 +13,7 @@ import struct
 from typing import Optional
 
 OGG_MAGIC = b"OggS"
-OPUS_SAMPLE_RATE_KHZ = 48  # Opus mandates a 48 kHz output rate
+OPUS_SAMPLES_PER_MS = 48  # Opus mandates a 48 kHz output rate
 
 
 def parse_opus_duration(buf: bytes) -> Optional[int]:
@@ -30,6 +30,6 @@ def parse_opus_duration(buf: bytes) -> Optional[int]:
                 return None
             if granule < 0:
                 return None
-            return int(round(granule / OPUS_SAMPLE_RATE_KHZ))
+            return int(round(granule / OPUS_SAMPLES_PER_MS))
         i -= 1
     return None

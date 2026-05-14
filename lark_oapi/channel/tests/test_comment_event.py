@@ -1,11 +1,10 @@
-"""Tests for normalize_comment + dispatcher wiring (TC-317 lineage).
+"""Tests for normalize_comment and dispatcher wiring.
 
 Two regressions are guarded here:
 
-1. The harness reported ``processor not found, type:
-   drive.notice.comment_add_v1`` because the channel never registered a
-   handler. Now registered under both ``p1`` and ``p2`` schemas (the WS
-   frontier wraps in p2 envelope; legacy callback uses p1).
+1. The channel registers ``drive.notice.comment_add_v1`` under both ``p1`` and
+   ``p2`` schemas. The WS frontier wraps in a p2 envelope; legacy callbacks
+   use p1.
 
 2. After registration, the live comment payload still surfaced operator
    open_id / mentioned_bot / timestamp as null — the original
@@ -28,8 +27,7 @@ from lark_oapi.channel.normalize.comment import CommentEvent, normalize_comment
 
 
 def test_full_payload_real_wire_format():
-    """Mirror of the real ``drive.notice.comment_add_v1`` payload Feishu
-    sends on the WS frontier (TC-317 capture, 2026-04-27)."""
+    """Mirror a realistic ``drive.notice.comment_add_v1`` WS payload."""
     payload = {
         "event": {
             "file_token": "doc_token_x",
@@ -89,7 +87,7 @@ def test_missing_operator_returns_none():
 def test_envelope_timestamp_used_when_inner_event_omits_it():
     """The real WS payload puts ``create_time`` on the p2 envelope's
     ``header``, not the inner event dict. Without this fallback, every
-    delivered ``CommentEvent`` had ``timestamp=0`` (TC-317)."""
+    delivered ``CommentEvent`` would have ``timestamp=0``."""
     payload = {
         "event": {
             "file_token": "doc_token_x",
@@ -128,9 +126,8 @@ def test_legacy_top_level_user_id_fallback():
 
 def test_is_mentioned_false_propagates():
     """When the bot was NOT @-mentioned (e.g. an at-document comment), the
-    flag must surface as False — regression for the case where every event
-    came through with mentioned_bot=False because the old code matched a
-    mentions array that doesn't exist on the wire."""
+    flag must surface as False. The result must not depend on a mentions array
+    that doesn't exist on the wire."""
     payload = {
         "event": {
             "file_token": "t",
@@ -191,7 +188,7 @@ def test_incoming_comment_event_invokes_comment_handler():
 
     ctx = CustomizedEvent()
     ctx.event = {
-        "file_token": "doc_token_harness",
+        "file_token": "doc_token_case",
         "file_type": "docx",
         "comment_id": "cmt_42",
         "reply_id": "rpl_42",
@@ -213,7 +210,7 @@ def test_incoming_comment_event_invokes_comment_handler():
     assert done.wait(timeout=2.0), "comment handler was not invoked within 2s"
     assert len(got) == 1
     ev = got[0]
-    assert ev.file_token == "doc_token_harness"
+    assert ev.file_token == "doc_token_case"
     assert ev.comment_id == "cmt_42"
     assert ev.operator.open_id == "ou_op_user"
     assert ev.operator.user_id == "u_op"

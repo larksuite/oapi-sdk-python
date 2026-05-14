@@ -27,7 +27,7 @@ Typical construction::
 """
 
 from dataclasses import dataclass, field
-from typing import Awaitable, Callable, Dict, List, Literal, Optional, Union
+from typing import Any, Awaitable, Callable, Dict, List, Literal, Optional, Union
 
 from lark_oapi.core.const import FEISHU_DOMAIN
 from lark_oapi.core.enum import LogLevel
@@ -189,14 +189,15 @@ class SafetyConfig:
     """Safety-pipeline configuration.
 
     Groups dedup, per-chat queue, text batching, and the stale-cutoff window.
-    ``DedupConfig``, ``TextBatchConfig``, and ``ChatQueueConfig`` live in
-    :mod:`lark_oapi.channel.safety.types` (re-exported from this module) to
-    avoid a circular import back from the safety pipeline.
+    ``DedupConfig``, ``TextBatchConfig``, and ``ChatQueueConfig`` live in this
+    module; ``MediaBatchConfig`` lives in :mod:`lark_oapi.channel.safety.types`
+    and is imported lazily to avoid a circular import through the safety
+    package.
     """
 
     dedup: DedupConfig = field(default_factory=DedupConfig)
     text_batch: TextBatchConfig = field(default_factory=TextBatchConfig)
-    media_batch: "MediaBatchConfig" = field(
+    media_batch: Any = field(
         default_factory=lambda: _media_batch_default()
     )
     chat_queue: ChatQueueConfig = field(default_factory=ChatQueueConfig)

@@ -1,35 +1,15 @@
-"""Regression tests for media upload + resource download response handling.
+"""Media upload and standalone resource download response contracts.
 
-The investigated hypothesis (``_resp_to_dict`` / ``_unwrap`` lose ``image_key``
-via ``JSON.marshal``) was **wrong** — bench tests below prove both helpers
-are robust. The real root causes, confirmed against a live Feishu tenant,
-were two separate bugs in ``lark_oapi.channel``:
+These tests cover two contracts:
 
-TC-601 / TC-602 / TC-603 / TC-604 — **media upload silently dropped**
-    ``LarkClientDriver.upload_image`` / ``upload_file`` called
-    ``.image(data)`` / ``.file(data)`` with raw ``bytes``. The SDK's
-    multipart serializer (``Files.extract_files``) only picks fields whose
-    value ``isinstance(v, io.IOBase)``; raw ``bytes`` are dropped on the
-    floor, so the API received a request with no image/file part and
-    returned ``234001 Invalid request param``. The outbound pipeline then
-    reported ``code=unknown hint="empty body"``. Fix: wrap the buffer in a
-    named ``io.BytesIO`` so the multipart part is well-formed.
+- Upload helpers pass file payloads as named ``io.IOBase`` streams so the
+  multipart serializer includes the image/file part.
+- Standalone image/file keys download through the standalone resource
+  endpoints when no ``message_id`` is available.
 
-TC-603 / TC-604 — **wrong download endpoint for standalone keys**
-    ``download_media`` always called
-    ``GET /im/v1/messages/:message_id/resources/:file_key`` — even when the
-    caller passed no ``message_id`` (the harness uploads via
-    ``image.create`` / ``file.create`` and then downloads by key alone).
-    The empty ``message_id`` produced a nonsense URI that the server 200'd
-    with no payload. Fix: when ``message_id`` is empty, route to
-    ``GET /im/v1/images/:image_key`` or ``GET /im/v1/files/:file_key``.
-
-TC-605 (SSRF) is covered elsewhere in :mod:`test_media_regressions` and
-:mod:`test_production_critical_paths`; on the live run the guard *did*
-fire (uploader logged "materialize blocked: refusing URL download..."),
-but the harness case asserts a raised ``FeishuChannelError`` whereas this
-SDK deliberately turns it into ``SendResult.fail(SSRF_BLOCKED)``. That is
-a harness↔SDK contract disagreement, not a library bug.
+SSRF blocking behavior is covered in
+:mod:`test_media_upload_download_regressions` and
+:mod:`test_seen_cache_and_ssrf_paths`.
 """
 
 import io
@@ -47,11 +27,11 @@ from lark_oapi.channel.outbound.media.uploader import _unwrap
 
 
 # ---------------------------------------------------------------------------
-# Real response objects — the happy path everyone except test harnesses hits
+# Real response objects.
 # ---------------------------------------------------------------------------
 
 
-def test_tc601_resp_to_dict_extracts_image_key_from_real_response():
+def test_resp_to_dict_extracts_image_key_from_real_response():
     body = CreateImageResponseBody.builder().image_key("img_v2_real").build()
     resp = CreateImageResponse()
     resp.code = 0
@@ -63,7 +43,7 @@ def test_tc601_resp_to_dict_extracts_image_key_from_real_response():
     assert out["data"]["image_key"] == "img_v2_real"
 
 
-def test_tc602_resp_to_dict_extracts_file_key_from_real_response():
+def test_resp_to_dict_extracts_file_key_from_real_response():
     body = CreateFileResponseBody.builder().file_key("file_v2_real").build()
     resp = CreateFileResponse()
     resp.code = 0
@@ -86,9 +66,7 @@ def test_unwrap_passes_through_real_response_body():
 
 
 # ---------------------------------------------------------------------------
-# Mock responses — the path a harness is likely to hit. The doc's diagnosis
-# would predict these fail; they don't, because the except fallback + the
-# ``dir()`` sweep handle them.
+# Mock responses also preserve upload keys through fallback extraction.
 # ---------------------------------------------------------------------------
 
 
@@ -145,7 +123,7 @@ def test_unwrap_passthrough_when_driver_already_returned_dict():
 
 
 @pytest.mark.asyncio
-async def test_tc601_resolve_media_key_image_end_to_end():
+async def test_resolve_media_key_image_end_to_end():
     """Exercise the full chain the sender walks: a driver that returns a
     realistic dict (as the real ``LarkClientDriver.upload_image`` would
     after running ``_resp_to_dict``), and assert that ``resolve_media_key``
@@ -175,7 +153,7 @@ async def test_tc601_resolve_media_key_image_end_to_end():
 
 
 @pytest.mark.asyncio
-async def test_tc602_resolve_media_key_file_end_to_end():
+async def test_resolve_media_key_file_end_to_end():
     from lark_oapi.channel.outbound.media.uploader import resolve_media_key
     from lark_oapi.channel.outbound.sender import SendDriver
     from lark_oapi.channel.types import MediaSource
@@ -196,7 +174,7 @@ async def test_tc602_resolve_media_key_file_end_to_end():
 
 
 @pytest.mark.asyncio
-async def test_tc601_upload_image_via_real_driver_response_shape():
+async def test_upload_image_via_real_driver_response_shape():
     """Full loop: driver.upload_image's actual internal pipeline uses
     ``_resp_to_dict`` on a real ``CreateImageResponse``. Here we mock only
     ``self._client.im.v1.image.acreate`` and let the rest run for real, so
@@ -244,11 +222,11 @@ def _captured_file_body(client_mock: MagicMock) -> object:
 
 
 @pytest.mark.asyncio
-async def test_tc601_upload_image_passes_iobase_stream_not_bytes():
-    """Server-side regression: ``Files.extract_files`` only picks up fields
+async def test_upload_image_passes_iobase_stream_not_bytes():
+    """``Files.extract_files`` only picks up fields
     that are ``io.IOBase`` instances. If the driver passes raw ``bytes``,
     the multipart part is silently dropped and the server returns
-    ``234001 Invalid request param`` (observed TC-601 before the fix).
+    ``234001 Invalid request param``.
 
     This test mocks the low-level client and asserts the ``image`` field on
     the outgoing request body is an ``IOBase`` carrying the original bytes
@@ -280,8 +258,8 @@ async def test_tc601_upload_image_passes_iobase_stream_not_bytes():
 
 
 @pytest.mark.asyncio
-async def test_tc602_upload_file_passes_iobase_stream_not_bytes():
-    """Same failure mode as TC-601, on the file endpoint. Also pin that the
+async def test_upload_file_passes_iobase_stream_not_bytes():
+    """Same IOBase requirement, on the file endpoint. Also pin that the
     file_name is plumbed through both the dedicated ``file_name`` field AND
     the IO stream's ``.name`` (the SDK looks at both in different code
     paths)."""
@@ -310,7 +288,7 @@ async def test_tc602_upload_file_passes_iobase_stream_not_bytes():
 
 
 @pytest.mark.asyncio
-async def test_tc602_upload_file_uses_default_name_when_caller_omits_it():
+async def test_upload_file_uses_default_name_when_caller_omits_it():
     """Don't break existing callers that don't pass file_name — the stream
     still needs *some* ``.name`` so the multipart Content-Disposition is
     valid."""
@@ -343,12 +321,11 @@ class _FakeFile:
 
 
 @pytest.mark.asyncio
-async def test_tc603_download_image_without_message_id_uses_image_get():
+async def test_download_image_without_message_id_uses_image_get():
     """Standalone image key (uploaded via ``image.create`` then downloaded
     by key only): must hit ``GET /im/v1/images/:image_key``, not the
     ``/messages/:id/resources/:file_key`` endpoint. The latter returned an
-    empty body when the caller had no message_id (observed TC-603 before
-    the fix)."""
+    empty body when the caller had no message_id."""
     resp = MagicMock()
     resp.code = 0
     resp.file = _FakeFile(b"\x89PNG-bytes")
@@ -368,7 +345,7 @@ async def test_tc603_download_image_without_message_id_uses_image_get():
 
 
 @pytest.mark.asyncio
-async def test_tc604_download_file_without_message_id_uses_file_get():
+async def test_download_file_without_message_id_uses_file_get():
     resp = MagicMock()
     resp.code = 0
     resp.file = _FakeFile(b"%PDF-bytes")

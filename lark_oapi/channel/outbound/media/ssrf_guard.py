@@ -107,18 +107,23 @@ async def assert_public_url(
         u = urlparse(url)
     except ValueError as e:
         raise FeishuChannelError(
-            FeishuChannelErrorCode.SSRF_BLOCKED, f"invalid url: {e}", context={"url": url}
+            FeishuChannelErrorCode.SSRF_BLOCKED,
+            f"invalid url: {e}",
+            context={"url": redact_url_for_log(url)},
         ) from e
+    safe_url = redact_url_for_log(url)
     if u.scheme not in ("http", "https"):
         raise FeishuChannelError(
             FeishuChannelErrorCode.SSRF_BLOCKED,
             f"protocol {u.scheme!r} not allowed",
-            context={"url": url},
+            context={"url": safe_url},
         )
     hostname = u.hostname or ""
     if not hostname:
         raise FeishuChannelError(
-            FeishuChannelErrorCode.SSRF_BLOCKED, "url has no hostname", context={"url": url}
+            FeishuChannelErrorCode.SSRF_BLOCKED,
+            "url has no hostname",
+            context={"url": safe_url},
         )
     if allowlist and hostname in allowlist:
         return
@@ -133,7 +138,7 @@ async def assert_public_url(
         raise FeishuChannelError(
             FeishuChannelErrorCode.SSRF_BLOCKED,
             f"dns resolve failed: {e}",
-            context={"url": url, "hostname": hostname},
+            context={"url": safe_url, "hostname": hostname},
         ) from e
 
     for family, _type, _proto, _canon, sockaddr in infos:
@@ -144,11 +149,26 @@ async def assert_public_url(
             raise FeishuChannelError(
                 FeishuChannelErrorCode.SSRF_BLOCKED,
                 f"blocked ipv4 {ip}",
-                context={"url": url, "ip": ip},
+                context={"url": safe_url, "ip": ip},
             )
         if family == socket.AF_INET6 and _ipv6_blocked(ip):
             raise FeishuChannelError(
                 FeishuChannelErrorCode.SSRF_BLOCKED,
                 f"blocked ipv6 {ip}",
-                context={"url": url, "ip": ip},
+                context={"url": safe_url, "ip": ip},
             )
+
+
+def redact_url_for_log(url: str) -> str:
+    """Return a URL safe for logs/errors: no credentials, query, or fragment."""
+    try:
+        u = urlparse(url)
+        hostname = u.hostname or ""
+        if not hostname:
+            return "<invalid-url>"
+        netloc = hostname
+        if u.port is not None:
+            netloc = f"{netloc}:{u.port}"
+        return u._replace(netloc=netloc, query="", fragment="").geturl()
+    except Exception:
+        return "<redacted-url>"

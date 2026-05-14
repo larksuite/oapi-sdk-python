@@ -36,7 +36,7 @@ def split_with_code_fences(text: str, limit: int) -> List[str]:
     fence_lang: Optional[str] = None  # None when outside a fence
 
     def flush():
-        nonlocal buf, buf_len, fence_lang
+        nonlocal buf, buf_len
         if not buf:
             return
         chunk = "\n".join(buf)

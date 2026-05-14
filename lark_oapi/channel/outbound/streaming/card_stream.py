@@ -30,7 +30,7 @@ class CardStreamController:
         *,
         initial: Dict[str, Any],
         ensure_created: Callable[[Dict[str, Any]], Awaitable[str]],
-        patch_card: Callable[[str, Dict[str, Any]], Awaitable[None]],
+        patch_card: Callable[[str, Dict[str, Any]], Awaitable[Any]],
         min_ms: int = 100,
         min_chars: int = 50,
     ) -> None:

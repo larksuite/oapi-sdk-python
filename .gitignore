@@ -7,6 +7,6 @@ upload.sh
 */__pycache__/
 *.pyc
 *.cache
-tests/
+/tests/
 .env
 sensitive_info_result.txt

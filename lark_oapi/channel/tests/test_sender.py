@@ -144,6 +144,18 @@ async def test_error_response_classified():
 
 
 @pytest.mark.asyncio
+async def test_send_failure_log_redacts_request_content(caplog):
+    d, calls = make_driver(responses=[{"code": 230001, "msg": "bad"}])
+    s = OutboundSender(d)
+
+    await s.send(OutboundText(text="secret customer payload"), receive_id="oc_1")
+
+    assert "secret customer payload" not in caplog.text
+    assert "request_content=" not in caplog.text
+    assert "request_content_len=" in caplog.text
+
+
+@pytest.mark.asyncio
 async def test_receive_id_type_auto_detected():
     d, calls = make_driver()
     s = OutboundSender(d)

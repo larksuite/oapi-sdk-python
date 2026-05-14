@@ -1,6 +1,6 @@
 """Channel error types and classification.
 
-Single canonical enum: `FeishuChannelErrorCode` — 9 values covering the
+Single canonical enum: `FeishuChannelErrorCode` — 10 values covering the
 taxonomy of failures surfaced by the outbound / inbound pipelines.
 """
 

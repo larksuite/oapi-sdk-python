@@ -38,7 +38,7 @@ def merge_batch(batch: List[InboundMessage]) -> InboundMessage:
     texts: List[str] = []
     all_mentions = list(last.mentions or [])
     mentioned_all = False
-    mentioned_bot_open_ids = set()
+    seen_mention_ids = set()
     for m in batch:
         content = m.content
         text = getattr(content, "text", "") or getattr(content, "title", "") or ""
@@ -48,9 +48,9 @@ def merge_batch(batch: List[InboundMessage]) -> InboundMessage:
             mentioned_all = True
         for mention in m.mentions or []:
             sig = mention.open_id or mention.user_id or mention.key
-            if sig in mentioned_bot_open_ids:
+            if sig in seen_mention_ids:
                 continue
-            mentioned_bot_open_ids.add(sig)
+            seen_mention_ids.add(sig)
             if mention not in all_mentions:
                 all_mentions.append(mention)
     from ..types import InboundMessage as _IM, TextContent

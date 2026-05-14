@@ -1,15 +1,11 @@
-"""Regression: every inbound handler (cardAction / reaction / comment)
-must route through the right ``SafetyPipeline`` tier — Node-SDK aligned:
+"""Every inbound handler must route through the right ``SafetyPipeline`` tier:
 
     * cardAction  → ``push_action`` (tier 2, dedup + lock + queue by chatId)
     * reaction    → ``push_light``  (tier 3, dedup only)
     * comment     → ``push_action`` (tier 2, dedup + lock + queue by fileToken)
 
-Before this fix, Python routed all three directly to ``_invoke`` — a
-redelivered WS event would double-fire user handlers, and concurrent
-actions on the same scope could race. The SafetyPipeline was present
-(``pipeline.py`` docstring already listed ``cardAction / comment`` as
-tier 2) but nothing in ``channel.py`` actually called into it.
+This guards against bypassing the safety tiers and accidentally allowing
+redelivered events to double-fire user handlers.
 """
 
 from types import SimpleNamespace
@@ -163,7 +159,7 @@ async def test_comment_routes_through_push_action_scoped_by_file_token():
     c = _client()
     safety = _installed_safety(c)
 
-    # Real ``drive.notice.comment_add_v1`` wire shape (TC-317 capture).
+    # Realistic ``drive.notice.comment_add_v1`` wire shape.
     data = SimpleNamespace(event={
         "file_token": "doc_abc",
         "file_type": "docx",

@@ -1,6 +1,7 @@
 """End-to-end inbound pipeline tests (with deduper + async enrichment)."""
 
 import json
+from types import SimpleNamespace
 
 import pytest
 
@@ -10,8 +11,11 @@ from lark_oapi.channel.normalize.pipeline import InboundPipeline, PipelineConfig
 from lark_oapi.channel.types import InteractiveContent, MergeForwardContent, TextContent
 
 
-def _sender(open_id="ou_sender"):
-    return {"sender_id": {"open_id": open_id, "user_id": "u1"}, "sender_type": "user"}
+def _sender(open_id="ou_sender", *, sender_type="user"):
+    return {
+        "sender_id": {"open_id": open_id, "user_id": "u1"},
+        "sender_type": sender_type,
+    }
 
 
 def _msg(
@@ -46,6 +50,32 @@ async def test_text_message_normalized():
     assert inbound.content.text == "hi"
     assert inbound.sender.open_id == "ou_sender"
     assert inbound.conversation.chat_type == "p2p"
+
+
+@pytest.mark.asyncio
+async def test_sender_type_app_maps_to_bot_for_dict_sender():
+    p = InboundPipeline(PipelineConfig(), PipelineDeps())
+    inbound = await p.process(
+        event_id="e_app",
+        message_event=_msg(),
+        sender=_sender(open_id="ou_peer_bot", sender_type="app"),
+    )
+    assert inbound is not None
+    assert inbound.sender.open_id == "ou_peer_bot"
+    assert inbound.sender.is_bot is True
+
+
+@pytest.mark.asyncio
+async def test_sender_type_app_maps_to_bot_for_object_sender():
+    p = InboundPipeline(PipelineConfig(), PipelineDeps())
+    sender = SimpleNamespace(
+        sender_id=SimpleNamespace(open_id="ou_peer_bot", user_id="u_peer"),
+        sender_type="app",
+    )
+    inbound = await p.process(event_id="e_app_obj", message_event=_msg(), sender=sender)
+    assert inbound is not None
+    assert inbound.sender.open_id == "ou_peer_bot"
+    assert inbound.sender.is_bot is True
 
 
 @pytest.mark.asyncio

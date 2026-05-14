@@ -1,19 +1,12 @@
 """Regression tests for upload error propagation.
 
-Before this batch, any upload failure — auth rejected by server, local file
-missing, URL download timed out, wrong allowlist, etc. — funneled through
-``resolve_media_key`` returning ``None`` + a ``logger.warning`` the caller
-never saw. The sender then produced ``SendResult.fail(UNKNOWN, "empty body")``
-which is the exact symptom the TC-601/602 report described.
-
-Now every failure surfaces as a typed :class:`FeishuChannelError` with the
-right code (``UPLOAD_FAILED`` / ``SSRF_BLOCKED``) and a ``context`` dict
-carrying the upstream code/msg. The sender's ``_materialize`` already
-catches ``FeishuChannelError`` and routes the code through
+Upload failures such as server rejection, missing local files, URL download
+errors, and wrong allowlists surface as typed :class:`FeishuChannelError`
+instances with useful context. The sender maps those errors into
 ``SendResult.fail(SendError(code=e.code, ...))``.
 """
 
-from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import AsyncMock
 
 import pytest
 
@@ -83,6 +76,40 @@ async def test_gather_buffer_url_download_network_error_raises_upload_failed(
     assert "simulated network blow-up" in str(err.__cause__)
 
 
+@pytest.mark.asyncio
+async def test_gather_buffer_url_errors_redact_sensitive_url_parts(monkeypatch):
+    source = MediaSource(
+        kind="url",
+        url="https://user:pass@cdn.ok.test/a.png?token=secret#frag",
+    )
+    source._ssrf_allowlist = ["cdn.ok.test"]  # type: ignore[attr-defined]
+
+    class _BoomClient:
+        def __init__(self, *a, **kw):
+            pass
+
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *a):
+            return False
+
+        def stream(self, method, url):
+            raise RuntimeError("simulated network blow-up")
+
+    import httpx
+    monkeypatch.setattr(httpx, "AsyncClient", _BoomClient)
+
+    with pytest.raises(FeishuChannelError) as ei:
+        await gather_buffer(source, "fallback.bin")
+
+    rendered = str(ei.value)
+    assert "cdn.ok.test" in rendered
+    assert "token=secret" not in rendered
+    assert "user:pass" not in rendered
+    assert ei.value.context.get("url") == "https://cdn.ok.test/a.png"
+
+
 # ---------------------------------------------------------------------------
 # resolve_media_key — server-side upload rejection propagates code + msg
 # ---------------------------------------------------------------------------
@@ -90,10 +117,8 @@ async def test_gather_buffer_url_download_network_error_raises_upload_failed(
 
 @pytest.mark.asyncio
 async def test_resolve_media_key_propagates_server_rejection_code_and_msg():
-    """Real scenario behind the TC-601/602 "empty body" report: the Lark
-    backend rejects the upload with ``code=99991663`` (token invalid) or
-    similar. Before: caller saw ``SendResult.fail(UNKNOWN, "empty body")``
-    with no trace of 99991663. Now: caller sees
+    """When the Lark backend rejects an upload with ``code=99991663`` or
+    similar, the caller sees
     ``SendResult.fail(UPLOAD_FAILED, hint="... code=99991663 msg=token invalid")``
     and the context dict has raw_code/raw_msg."""
     fake_upload_image = AsyncMock(

@@ -40,8 +40,8 @@ def _key_of(msg: InboundMessage) -> Tuple[str, str, str, str]:
     return (chat_id, kind, reply_to, thread_id)
 
 
-def _merge(sources: List[InboundMessage]) -> InboundMessage:
-    """Merge a list of media messages into a single dispatch.
+def _attach_sources_to_last(sources: List[InboundMessage]) -> InboundMessage:
+    """Attach a media batch to the last source message and return that carrier.
 
     Use the last message as the carrier (latest metadata), attach all
     sources as ``batched_sources`` in arrival order.
@@ -128,7 +128,7 @@ class MediaPipelineManager:
         if bucket is None or not bucket.sources:
             return
         self._cancel_timer(bucket)
-        merged = _merge(bucket.sources)
+        merged = _attach_sources_to_last(bucket.sources)
         if self._handler is not None:
             await self._handler(merged)
 

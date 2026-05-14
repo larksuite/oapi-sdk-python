@@ -1,4 +1,4 @@
-"""CR-14: image/file caption tests."""
+"""Image/file caption tests."""
 
 import json
 from typing import Any, Dict, List

@@ -9,7 +9,6 @@ import pytest
 from lark_oapi.channel.config import PolicyConfig, GroupOverride
 from lark_oapi.channel.safety import (
     ChatPipeline,
-    ChatPipelineManager,
     PolicyGate,
     ProcessingLock,
     RejectEvent,

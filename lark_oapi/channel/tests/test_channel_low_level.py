@@ -6,7 +6,6 @@ from unittest.mock import AsyncMock
 import pytest
 
 from lark_oapi.channel import FeishuChannel
-from lark_oapi.channel.types import SendResult
 
 
 @pytest.fixture
@@ -20,6 +19,18 @@ async def test_update_card_calls_underlying_patch(channel):
     r = await channel.update_card("om_1", {"schema": "2.0"})
     assert r.success is True
     channel._driver.patch_message.assert_awaited_once()
+
+
+@pytest.mark.asyncio
+async def test_update_card_failure_returns_failed_result(channel):
+    channel._driver.patch_message = AsyncMock(
+        return_value={"code": 230001, "msg": "invalid card"}
+    )
+    r = await channel.update_card("om_1", {"schema": "2.0"})
+    assert r.success is False
+    assert r.error is not None
+    assert r.error.raw_code == 230001
+    assert r.raw == {"code": 230001, "msg": "invalid card"}
 
 
 @pytest.mark.asyncio
@@ -91,7 +102,7 @@ async def test_disconnect_drains_safety_and_stops():
     # After disconnect() the bg loop + ws client + thread are torn down,
     # and the started flag is reset so a subsequent connect() can re-run.
     # ``_shutdown`` is cleared at the end of stop() so the channel can be
-    # reconnected later (TC-003 regression fix) — we assert on the
+    # reconnected later; we assert on the
     # observable state that actually matters.
     assert channel._bg_loop is None
     assert channel._ws_client is None

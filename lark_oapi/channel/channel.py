@@ -12,6 +12,7 @@ The only event-registration API is node-style string events::
     channel.on("botAdded", handler)     # handler(event: BotAddedEvent)
     channel.on("botLeave", handler)
     channel.on("messageRead", handler)
+    channel.on("comment", handler)
     channel.on("reject", handler)       # handler(event: RejectEvent)
     channel.on("reconnecting", handler)
     channel.on("reconnected", handler)
@@ -39,7 +40,8 @@ import threading
 import time
 from collections import OrderedDict
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Literal, Optional, Set, Union
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Literal, Mapping, Optional, Set, Union
 
 from lark_oapi.client import Client
 from lark_oapi.core.enum import LogLevel
@@ -947,11 +949,10 @@ class FeishuChannel:
             logger.warning("FeishuChannel: bot identity fetch failed: %s", e)
             identity = None
         if identity is None:
-            # The old code gave up here permanently, which meant a transient
-            # network hiccup at startup left group ``@Bot`` detection broken
-            # for the process lifetime (``_bot_open_id`` stays None →
-            # PolicyGate can never match mentions). Schedule a background
-            # backoff retry loop instead.
+            # A transient network hiccup at startup can leave group ``@Bot``
+            # detection unavailable until identity resolves. Schedule a
+            # background backoff retry loop instead of treating startup lookup
+            # as the only chance to populate ``_bot_open_id``.
             logger.warning(
                 "FeishuChannel: bot identity unresolved on startup — "
                 "scheduling background retry (group @Bot detection will "
@@ -1037,7 +1038,7 @@ class FeishuChannel:
                     except Exception:  # pragma: no cover
                         pass
 
-            t = threading.Thread(target=_runner, name="lark-agent-bg", daemon=True)
+            t = threading.Thread(target=_runner, name="lark-channel-bg", daemon=True)
             t.start()
             self._bg_loop = loop
             self._bg_thread = t
@@ -1117,7 +1118,7 @@ class FeishuChannel:
             if "cardAction" in self._handlers:
                 self.schedule(self._handle_interaction_event(data))
         except Exception as e:
-            logger.exception("interaction schedule failed: %s", e)
+            logger.exception("cardAction schedule failed: %s", e)
         return P2CardActionTriggerResponse({})
 
     def _on_p2_reaction_created(self, data: Any) -> None:
@@ -1631,8 +1632,8 @@ class FeishuChannel:
 
     async def update_card(self, message_id: str, card: Dict[str, Any]) -> SendResult:
         """Update a card message (node-aligned). Returns a :class:`SendResult`."""
-        await self._patch_card(message_id, card)
-        return SendResult.ok(message_id=message_id)
+        raw = await self._patch_card(message_id, card)
+        return _coerce.result_from_raw(raw, message_id=message_id)
 
     async def recall_message(self, message_id: str) -> SendResult:
         raw = await self._driver.delete_message(message_id=message_id)
@@ -1749,6 +1750,7 @@ class FeishuChannel:
         else:
             suffix = self._infer_suffix(meta, resource_type)
             name = f"{file_key}{suffix}"
+        name = self._safe_download_file_name(name)
         out = dest_dir / name
 
         # Atomic: write to tmp file in same dir, then rename.
@@ -1764,6 +1766,30 @@ class FeishuChannel:
                 pass
             raise
         return out
+
+    @staticmethod
+    def _safe_download_file_name(name: str) -> str:
+        """Validate a download filename before joining it under dest_dir."""
+        from pathlib import PureWindowsPath
+        import os
+
+        name = (name or "").replace("\x00", "")
+        win = PureWindowsPath(name)
+        if (
+            not name
+            or name in (".", "..")
+            or os.path.isabs(name)
+            or "/" in name
+            or "\\" in name
+            or win.drive
+            or win.root
+            or any(part in ("", ".", "..") for part in win.parts)
+        ):
+            raise FeishuChannelError(
+                FeishuChannelErrorCode.DOWNLOAD_FAILED,
+                f"unsafe download file name: {name!r}",
+            )
+        return name
 
     @staticmethod
     def _infer_suffix(meta: Optional[str], resource_type: str) -> str:
@@ -1893,6 +1919,7 @@ class FeishuChannel:
         reply_in_thread,
         reply_target_gone="fresh",
     ) -> str:
+        """Compatibility wrapper for older internal card-stream call sites."""
         return await self._ensure_card_snapshot(
             to, rit,
             snapshot={
@@ -1930,7 +1957,7 @@ class FeishuChannel:
             )
         return result.message_id
 
-    async def _patch_card(self, message_id: str, card: Dict[str, Any]) -> None:
+    async def _patch_card(self, message_id: str, card: Dict[str, Any]) -> Dict[str, Any]:
         raw = await self._driver.patch_message(
             message_id=message_id,
             content=json.dumps(card, ensure_ascii=False),
@@ -1938,9 +1965,10 @@ class FeishuChannel:
         code = (raw or {}).get("code", 0)
         if code != 0:
             logger.warning(
-                "channel.stream: patch failed code=%s msg=%s",
+                "channel.card_patch: patch failed code=%s msg=%s",
                 code, (raw or {}).get("msg"),
             )
+        return raw
 
     # ------------------------------------------------------------------
     # Fetch payload

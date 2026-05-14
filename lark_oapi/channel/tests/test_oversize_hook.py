@@ -1,4 +1,4 @@
-"""Tests for the OutboundConfig.on_oversize hook (CR-7)."""
+"""Tests for the OutboundConfig.on_oversize hook."""
 
 import pytest
 

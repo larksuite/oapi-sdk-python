@@ -646,11 +646,12 @@ class OutboundSender:
             return SendResult.fail(SendError(code=FeishuChannelErrorCode.UNKNOWN, retryable=True, hint=str(e)))
         result = self._to_result(raw)
         if not result.success:
+            content_len = len(body.get("content", "") or "")
             logger.warning(
                 "outbound: create_message FAILED receive_id_type=%s receive_id=%s msg_type=%s "
-                "request_content=%s response=%s",
+                "request_content_len=%s response=%s",
                 receive_id_type, receive_id, body.get("msg_type"),
-                body.get("content", "")[:800],
+                content_len,
                 result.raw,
             )
         return result
@@ -677,11 +678,12 @@ class OutboundSender:
             return SendResult.fail(SendError(code=FeishuChannelErrorCode.UNKNOWN, retryable=True, hint=str(e)))
         result = self._to_result(raw)
         if not result.success:
+            content_len = len(body.get("content", "") or "")
             logger.warning(
                 "outbound: reply_message FAILED message_id=%s msg_type=%s "
-                "request_content=%s response=%s",
+                "request_content_len=%s response=%s",
                 message_id, body.get("msg_type"),
-                body.get("content", "")[:800],
+                content_len,
                 result.raw,
             )
         return result

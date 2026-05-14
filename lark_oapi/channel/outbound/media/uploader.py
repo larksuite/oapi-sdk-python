@@ -10,8 +10,8 @@ The uploader:
     3. Delegates the actual upload to the :class:`SendDriver`'s
        ``upload_image`` / ``upload_file`` callback.
 
-Returns ``None`` on any failure; the caller is expected to downgrade the
-outbound message or surface an error.
+Runtime failures are surfaced as :class:`FeishuChannelError`; ``None`` is
+reserved for caller-constructed "nothing to upload" inputs.
 """
 
 import asyncio
@@ -24,7 +24,7 @@ from lark_oapi.core.log import logger
 
 from ...errors import FeishuChannelError, FeishuChannelErrorCode
 from ...types import MediaSource
-from .ssrf_guard import assert_public_url
+from .ssrf_guard import assert_public_url, redact_url_for_log
 
 # 50 MiB default cap on URL-sourced downloads. Prevents an attacker URL that
 # returns an unbounded body from exhausting worker RAM. Tune via
@@ -44,9 +44,9 @@ async def resolve_media_key(
     """Return a Lark file_key for ``source``, uploading if needed.
 
     ``kind`` selects the driver endpoint: ``"image"`` → ``upload_image``,
-    anything else → ``upload_file``. ``ssrf_allowlist`` (if given) overrides
-    any per-source allowlist on ``MediaSource``; this is how the sender
-    threads ``OutboundConfig.ssrf_allowlist`` down to the uploader.
+    anything else → ``upload_file``. ``ssrf_allowlist`` (if given) supplies the
+    sender-level default from ``OutboundConfig.ssrf_allowlist``; an explicit
+    per-source allowlist still takes precedence.
 
     **Error propagation.** Three failure modes, each surfaced to the caller
     with a typed :class:`FeishuChannelError` code so the sender can map it
@@ -156,15 +156,15 @@ async def gather_buffer(
         except OSError as e:
             # Preserve the concrete OSError reason (FileNotFoundError,
             # PermissionError, IsADirectoryError, ...) via ``from e`` and
-            # surface it as a typed ``UPLOAD_FAILED``. Swallowing to None
-            # previously collapsed every distinct failure into a generic
-            # "empty body" sender error, losing the diagnostic.
+            # surface it as a typed ``UPLOAD_FAILED`` so callers keep the
+            # concrete diagnostic instead of seeing a generic send failure.
             raise FeishuChannelError(
                 FeishuChannelErrorCode.UPLOAD_FAILED,
                 f"could not read local file {source.path!r}: {e}",
                 context={"path": source.path, "source_kind": "file"},
             ) from e
     if source.kind == "url" and source.url:
+        safe_url = redact_url_for_log(source.url)
         # SSRF guard is mandatory for URL downloads unless an explicit
         # hostname allowlist is provided by the caller. The guard protects
         # against DNS-resolved private / loopback / metadata IPs, but it
@@ -178,7 +178,7 @@ async def gather_buffer(
             logger.warning(
                 "outbound: SSRF guard explicitly disabled for %s — this is "
                 "only safe when the URL is fully trusted",
-                source.url,
+                safe_url,
             )
         elif not allowlist:
             # No allowlist configured → hard stop. Raise a typed error so
@@ -188,12 +188,12 @@ async def gather_buffer(
             raise FeishuChannelError(
                 FeishuChannelErrorCode.SSRF_BLOCKED,
                 (
-                    f"refusing URL download for {source.url} — no SSRF "
+                    f"refusing URL download for {safe_url} — no SSRF "
                     "allowlist configured; set "
-                    "MediaSource._ssrf_allowlist to a list of trusted "
-                    "hostnames or use kind='buffer'/'file' instead"
+                    "OutboundConfig.ssrf_allowlist to trusted hostnames or "
+                    "use kind='buffer'/'file' instead"
                 ),
-                context={"url": source.url},
+                context={"url": safe_url},
             )
         else:
             # Let assert_public_url's FeishuChannelError propagate up as
@@ -223,7 +223,7 @@ async def gather_buffer(
                                         f"({cap} bytes)"
                                     ),
                                     context={
-                                        "url": source.url,
+                                        "url": safe_url,
                                         "content_length": cl,
                                         "cap": cap,
                                     },
@@ -242,7 +242,7 @@ async def gather_buffer(
                                     f"({total} > {cap} bytes)"
                                 ),
                                 context={
-                                    "url": source.url,
+                                    "url": safe_url,
                                     "bytes_read": total,
                                     "cap": cap,
                                 },
@@ -259,8 +259,8 @@ async def gather_buffer(
             # concrete exception via ``from e`` instead of losing it.
             raise FeishuChannelError(
                 FeishuChannelErrorCode.UPLOAD_FAILED,
-                f"URL download of {source.url} failed: {e}",
-                context={"url": source.url, "source_kind": "url"},
+                f"URL download of {safe_url} failed: {e}",
+                context={"url": safe_url, "source_kind": "url"},
             ) from e
     # Fallthrough: source.kind wasn't one of buffer/file/url, or required
     # attribute missing (e.g. kind="file" with path=None). Caller-constructed

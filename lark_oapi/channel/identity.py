@@ -1,7 +1,7 @@
 """Identity resolution with a bounded LRU + TTL name cache.
 
-Agent code often needs to turn an open_id into a display name (for mentions,
-merge_forward summaries, etc.). This module:
+Channel handlers often need to turn an open_id into a display name (for
+mentions, merge_forward summaries, etc.). This module:
 
 - Caches resolved (open_id → name) entries with a TTL.
 - Batches lookups via `resolve_names(open_ids)`.
@@ -12,7 +12,7 @@ import inspect
 import threading
 import time
 from collections import OrderedDict
-from typing import Callable, Dict, Iterable, List, Optional
+from typing import Awaitable, Callable, Dict, Iterable, List, Optional, Union
 
 from lark_oapi.core.log import logger
 
@@ -20,8 +20,11 @@ from .config import NameCacheConfig
 from .types import Identity
 
 
-ContactLookupFn = Callable[[List[str]], "Dict[str, Identity] | object"]
-"""Signature: given a list of open_ids, return dict[open_id, Identity].
+ContactLookupResult = Dict[str, Union[Identity, str]]
+ContactLookupFn = Callable[
+    [List[str]], Union[ContactLookupResult, Awaitable[ContactLookupResult]]
+]
+"""Signature: given a list of open_ids, return dict[open_id, Identity | str].
 
 Either sync or awaitable return is accepted.
 """

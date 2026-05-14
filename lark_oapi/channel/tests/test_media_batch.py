@@ -1,6 +1,6 @@
-"""Media batching integration tests (CR-1).
+"""Media batching integration tests.
 
-Acceptance from response doc §2.1.4:
+Covered behavior:
 1. 5 consecutive images -> 1 dispatch with batched_sources length == 5
 2. img -> img -> text -> img -> 3 dispatches in order: media_batch(2), text, media(1)
 3. img -> file -> 2 dispatches (incompatible kinds)

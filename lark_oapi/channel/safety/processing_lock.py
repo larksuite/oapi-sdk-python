@@ -6,7 +6,7 @@ The two pieces of dedup state serve different purposes:
   survives across reconnects, optionally shared via Redis.
 - `ProcessingLock` = "this id is being processed RIGHT NOW by this worker" —
   short TTL (5min), memory-only. Needed because `SeenCache.add()` only happens
-  AFTER the handler returns, so during a long LLM call a WS reconnect could
+  AFTER the handler returns, so during a long-running handler a WS reconnect could
   re-deliver the same event and we'd process it twice.
 
 `acquire(id)` returns False when another coroutine still holds the lock.

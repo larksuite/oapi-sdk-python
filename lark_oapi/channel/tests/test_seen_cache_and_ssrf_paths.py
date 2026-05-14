@@ -1,11 +1,10 @@
-"""Tests for paths the reviewer flagged as production-critical but previously
-exercised only indirectly."""
+"""Direct coverage for SeenCache expiry, SSRF resolution, and media reads."""
 
 import asyncio
 import socket
 import time
 from types import SimpleNamespace
-from unittest.mock import AsyncMock, patch
+from unittest.mock import patch
 
 import pytest
 
@@ -124,8 +123,8 @@ async def test_outbound_url_source_blocked_by_ssrf_guard_in_flight():
     """`OutboundImage(source=MediaSource(kind='url', url=<private>))` must be
     stopped by the SSRF guard before any httpx.get.
 
-    Updated semantics (TC-605 fix): ``gather_buffer`` now **raises** a
-    typed :class:`FeishuChannelError(SSRF_BLOCKED)` instead of silently
+    ``gather_buffer`` raises a typed
+    :class:`FeishuChannelError(SSRF_BLOCKED)` instead of silently
     returning ``(None, default)``. Silent drop made SSRF blocks
     indistinguishable from transient network failures upstream.
     """
@@ -133,7 +132,7 @@ async def test_outbound_url_source_blocked_by_ssrf_guard_in_flight():
     from lark_oapi.channel.outbound.media.uploader import gather_buffer as _gather_buffer
     from lark_oapi.channel.types import MediaSource
 
-    # Case 1: no allowlist configured → hard stop (TC-605 regression).
+    # Case 1: no allowlist configured -> hard stop.
     source = MediaSource(kind="url", url="https://internal.test/secret.png")
     with pytest.raises(FeishuChannelError) as ei:
         await _gather_buffer(source, "default.bin")

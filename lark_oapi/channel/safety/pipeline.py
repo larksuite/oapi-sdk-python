@@ -122,7 +122,7 @@ class SafetyPipeline:
     async def push_message(self, msg: InboundMessage) -> None:
         """Run a message through the complete safety gauntlet."""
         # 1. Stale detector — emits RejectEvent(reason="stale") so subscribers
-        #    can observe the drop; previously silently returned.
+        #    can observe the drop.
         if is_stale(msg.create_time * 1000 if msg.create_time < 10**12 else msg.create_time,
                     self._stale_window_ms):
             logger.debug("safety: stale drop message_id=%s", msg.id)

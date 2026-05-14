@@ -12,7 +12,6 @@ from lark_oapi.channel.types import (
     ReplyRef,
     ResourceDescriptor,
     ResourceType,
-    TextContent,
 )
 
 

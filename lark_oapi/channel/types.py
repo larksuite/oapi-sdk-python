@@ -1,4 +1,4 @@
-"""Unified data types exposed to Agent handlers.
+"""Unified data types exposed to channel handlers.
 
 Design goal: a single `MessageContent` discriminated union covers all 19 Lark
 message types so that handlers can `if content.kind == 'text': ...` without
@@ -361,15 +361,15 @@ class ReplyRef:
 class InboundMessage:
     """Inbound-normalized message.
 
-    Two views of the content:
+    Main views of the content:
     - `content`: discriminated-union (`TextContent` / `ImageContent` / ...)
       — Pythonic, type-checkable.
     - `content_text`: flat string rendering (Markdown for text/post, XML-like
-      placeholders for media, merge_forward trees) — convenient for LLM
-      prompts and text-only pipelines.
+      placeholders for media, merge_forward trees) — convenient for text-only
+      pipelines.
     - `resources`: parallel list of media descriptors for download/routing.
-    - `mentioned_bot`: convenience flag set during policy evaluation; True
-      iff any mention resolves to the current bot's open_id.
+    - `mentioned_bot`: convenience flag set by normalization/batching callers
+      when any mention resolves to the current bot's open_id.
     """
 
     id: str

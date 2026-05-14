@@ -3,13 +3,13 @@
 Decision order:
 
 Group chat:
-    1. group_allowlist — chat_id must appear in the list (if the list is set)
-    2. require_mention — mentioned_bot or respond_to_mention_all + mention_all
-    3. mention_all block — if the user @-ed everyone but we're not opted in
+    1. ``group_policy`` / per-chat override gates the chat or sender.
+    2. ``require_mention`` checks bot mention or optionally ``@all``.
+    3. ``respond_to_mention_all=False`` blocks standalone ``@all`` mentions.
 
 DM:
-    - dm_mode: open / allowlist / pair / disabled
-    - allowlist: sender identity must appear in dm_allowlist
+    - ``dm_policy``: open / allowlist / blocklist / disabled
+    - ``allow_from`` / ``deny_from`` match configured sender identity fields
 
 Returns `(allowed: bool, reason?: RejectReason)`.
 """

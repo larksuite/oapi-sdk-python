@@ -5,7 +5,6 @@ service methods to record the built Request objects, then assert the
 builders wired up fields as expected.
 """
 
-from typing import Any, List
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest

@@ -1,7 +1,6 @@
 """Tests for the Node-aligned FeishuChannel facade."""
 
-import json
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock
 
 import pytest
 
@@ -12,7 +11,6 @@ from lark_oapi.channel._coerce import (
     normalize_event_name as _normalize_event_name,
 )
 from lark_oapi.channel.types import (
-    MediaSource,
     OutboundCard,
     OutboundFile,
     OutboundImage,

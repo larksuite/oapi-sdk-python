@@ -1,6 +1,6 @@
 """Reject-reason vocabulary lock-in.
 
-Pins the policy_* prefixed names introduced by CR-11 so downstream
+Pins the policy_* prefixed names so downstream
 consumers (Hermes metrics) can match on a stable taxonomy.
 """
 

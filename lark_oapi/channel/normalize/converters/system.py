@@ -2,7 +2,7 @@
 
 Lark system messages ship a template string with ``{var}`` placeholders
 (e.g. ``"{from_user} invited {to_chatters}"``) plus a dict of values. We
-expand the placeholders here so downstream consumers (e.g. LLM agents) see
+expand the placeholders here so downstream consumers see
 the rendered human text rather than the template.
 """
 

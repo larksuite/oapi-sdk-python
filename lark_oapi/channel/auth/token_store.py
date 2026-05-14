@@ -5,7 +5,7 @@
   loudly.
 
 Production users should implement their own TokenStore backed by Vault /
-KMS / managed database; see `TokenStore.Protocol`.
+KMS / managed database; see the `TokenStore` protocol below.
 """
 
 import asyncio

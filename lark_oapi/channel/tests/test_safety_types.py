@@ -19,17 +19,13 @@ def test_text_batch_defaults_match_node_spec():
     assert t.max_chars == 4000
 
 
-# Removed: pre-CR-1 placeholder schema test. The new schema is covered by
-# test_media_batch_default_disabled below.
-
-
 def test_batch_config_composes_text_and_media():
     b = BatchConfig()
     assert isinstance(b.text, TextBatchConfig)
     assert isinstance(b.media, MediaBatchConfig)
 
 
-# --- CR-1: MediaBatchConfig new schema ------------------------------------
+# --- MediaBatchConfig schema ----------------------------------------------
 
 from lark_oapi.channel import MediaBatchConfig as PublicMediaBatchConfig
 from lark_oapi.channel import SafetyConfig

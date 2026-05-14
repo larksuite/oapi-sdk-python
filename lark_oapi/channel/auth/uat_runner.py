@@ -18,8 +18,9 @@ from .token_store import TokenStore
 
 
 # Per-user-open-id asyncio locks so concurrent handler invocations for the
-# same user don't both try to refresh / run device flow simultaneously — that
-# caused "one wins the store write, the other's refresh token is stale" bugs.
+# same user don't both try to refresh an expiring token simultaneously. The
+# interactive device-flow prompt/poll step runs outside this lock so a waiting
+# authorization does not block unrelated cache reads forever.
 # The locks bind to the loop of the first caller; callers on other loops fall
 # back to lock-less behaviour (rare; same-user concurrency across loops is not
 # a supported configuration).
@@ -43,13 +44,12 @@ async def require_user_auth(
     """Resolve a usable UAT for ``user_open_id``, running device flow if needed.
 
     ``uat_config`` is a :class:`~..config.UATConfig` with scope allow/block
-    lists and the refresh slack; ``context`` is the :class:`InteractionContext`
-    used to prompt the user (must expose ``respond(card)``).
+    lists and the refresh slack; ``context`` is the object used to prompt the
+    user and should expose ``respond(card)``.
 
     A per-user asyncio.Lock serializes concurrent callers for the same user
-    so two handlers don't both try to refresh an expiring UAT (which would
-    invalidate the refresh token on the loser and force an unnecessary
-    device flow).
+    through cache lookup and refresh. The prompt/poll device-flow phase is
+    intentionally outside that lock.
     """
     ub = uat_config
     if ub.allowed_scopes is not None:

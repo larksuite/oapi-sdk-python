@@ -1,4 +1,4 @@
-"""Normalize: raw Lark events → structured NormalizedMessage / *Event shapes.
+"""Normalize: raw Lark events → structured InboundMessage / *Event shapes.
 
 Houses the inbound pipeline, message-content registry, dedup store, mention
 parser (node-aligned ``extract_mentions`` / ``resolve_mentions``), and the

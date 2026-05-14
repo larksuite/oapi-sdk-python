@@ -1,6 +1,5 @@
-"""Tests for FeishuChannel.download_resource_to_file (CR-4)."""
+"""Tests for FeishuChannel.download_resource_to_file."""
 
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
@@ -89,3 +88,50 @@ async def test_explicit_file_name_overrides_inferred(tmp_path):
             dest_dir=tmp_path, file_name="custom.bin",
         )
     assert path.name == "custom.bin"
+
+
+@pytest.mark.asyncio
+async def test_explicit_file_name_cannot_escape_dest_dir(tmp_path):
+    ch = FeishuChannel(app_id="cli_x", app_secret="x")
+
+    async def fake_download(*args, **kwargs):
+        return b"data", "image/jpeg"
+
+    with patch(
+        "lark_oapi.channel._api_helpers.download_media_with_meta",
+        side_effect=fake_download,
+    ):
+        with pytest.raises(FeishuChannelError) as excinfo:
+            await ch.download_resource_to_file(
+                file_key="k",
+                resource_type="image",
+                message_id="m",
+                dest_dir=tmp_path,
+                file_name="../escape.bin",
+            )
+
+    assert excinfo.value.code == FeishuChannelErrorCode.DOWNLOAD_FAILED
+    assert not (tmp_path.parent / "escape.bin").exists()
+
+
+@pytest.mark.asyncio
+async def test_default_file_name_cannot_escape_dest_dir(tmp_path):
+    ch = FeishuChannel(app_id="cli_x", app_secret="x")
+
+    async def fake_download(*args, **kwargs):
+        return b"data", "image/jpeg"
+
+    with patch(
+        "lark_oapi.channel._api_helpers.download_media_with_meta",
+        side_effect=fake_download,
+    ):
+        with pytest.raises(FeishuChannelError) as excinfo:
+            await ch.download_resource_to_file(
+                file_key="../escape",
+                resource_type="image",
+                message_id="m",
+                dest_dir=tmp_path,
+            )
+
+    assert excinfo.value.code == FeishuChannelErrorCode.DOWNLOAD_FAILED
+    assert not (tmp_path.parent / "escape.jpg").exists()

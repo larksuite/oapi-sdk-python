@@ -1,10 +1,8 @@
-"""Tests for the rich-policy extensions added in CR-3.
+"""Tests for rich policy behavior.
 
 Covers admin bypass, blocklist (DM + group + per-override), admin_only,
 and per-override allowlist precedence.
 """
-
-import pytest
 
 from lark_oapi.channel import GroupOverride, PolicyConfig
 from lark_oapi.channel.safety.policy_gate import PolicyGate
@@ -12,7 +10,6 @@ from lark_oapi.channel.types import (
     Conversation,
     Identity,
     InboundMessage,
-    Mention,
     TextContent,
 )
 

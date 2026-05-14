@@ -142,7 +142,6 @@ async def test_placeholder_in_nested_child_resolves_via_top_mentions():
     # Build a fake message_event shape the pipeline accepts. Child text
     # contains a @_user_1 placeholder; outer mentions array carries the entry.
     from types import SimpleNamespace
-    from unittest.mock import AsyncMock
 
     from lark_oapi.channel.normalize.pipeline import (
         InboundPipeline,

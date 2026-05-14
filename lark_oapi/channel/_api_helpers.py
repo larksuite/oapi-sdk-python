@@ -118,6 +118,13 @@ async def fetch_history(
     limit: Optional[int] = None,
     before_id: Optional[str] = None,
 ) -> List[Any]:
+    """Fetch recent messages for ``chat_id``.
+
+    ``before_id`` is accepted for source compatibility with earlier internal
+    call sites, but the generated list-message builder available here does not
+    expose cursoring by message id, so this helper currently ignores it.
+    """
+    _ = before_id
     try:
         from lark_oapi.api.im.v1.model.list_message_request import ListMessageRequest
 

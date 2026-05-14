@@ -1,4 +1,4 @@
-"""is_ready / wait_ready (CR-6, simplified — no ring buffer).
+"""is_ready / wait_ready behavior.
 
 These tests poke FeishuChannel at the API surface, not the WS layer. They
 flip the readiness event manually to confirm the property and the await

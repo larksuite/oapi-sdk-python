@@ -1,7 +1,7 @@
 """Convert Lark EventMessage.content JSON into a MessageContent variant.
 
 The Lark platform currently supports 19 message types. We produce a uniform
-`MessageContent` union so Agent code does not need to switch on the original
+`MessageContent` union so callers do not need to switch on the original
 wire schema.
 
 This module handles the SYNCHRONOUS parsing step only — async expansion

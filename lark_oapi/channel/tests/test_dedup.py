@@ -1,7 +1,5 @@
 """Tests for dedup storage + two-key strategy."""
 
-import time
-
 from lark_oapi.channel.normalize.dedup import Deduper, InMemoryDedupStore, make_event_key, make_message_key
 
 

@@ -1,4 +1,4 @@
-"""Self-sent message filter tests (CR-9)."""
+"""Self-sent message filter tests."""
 
 import asyncio
 import time

@@ -1,18 +1,18 @@
-"""CR-12: tag_md_mode behavior tests."""
+"""tag_md_mode behavior tests."""
 import json
 from dataclasses import fields
 from pathlib import Path
 
 import pytest
 
-from lark_oapi.channel.config import MarkdownConverter
+from lark_oapi.channel.config import MarkdownConverter, OutboundConfig
 from lark_oapi.channel.outbound.markdown.to_post import (
     _split_at_code_fences,
     markdown_to_post_ast,
 )
 
 
-# 16-case fixture set from CR-12 Appendix A
+# Fixture set covering structured and native markdown conversion.
 FIXTURES = {
     "01_plain": "这是普通文本，没有任何 markdown。",
     "02_bold": "下面是 **粗体** 文字。",
@@ -163,9 +163,7 @@ class TestNativeMode:
 
 
 class TestStructuredSnapshot:
-    """CR-12 acceptance #3: structured-mode output must be byte-identical to
-    pre-CR-12 baseline for all 16 fixture inputs. This is the regression guard.
-    """
+    """Structured-mode output must stay byte-identical to the snapshot."""
 
     @staticmethod
     def _load_snapshot():
@@ -224,7 +222,7 @@ class TestSenderBuildPost:
 
 
 class TestEnabledPriority:
-    """CR-12 acceptance #5: enabled=False overrides tag_md_mode=native."""
+    """enabled=False overrides tag_md_mode=native."""
 
     def test_disabled_converter_branch_picks_structured(self):
         # Replicate the sender's branch logic exactly:
@@ -238,8 +236,6 @@ class TestEnabledPriority:
     def test_disabled_converter_via_sender_uses_structured(self):
         # Even when MarkdownConverter is configured with native, disabling
         # the converter forces structured (plain-text fallback) at _materialize.
-        import pytest
-
         from lark_oapi.channel.config import OutboundConfig
         from lark_oapi.channel.outbound.sender import OutboundSender
         from lark_oapi.channel.tests.test_sender import make_driver
@@ -265,12 +261,10 @@ class TestEnabledPriority:
 
 
 class TestSenderEndToEndNativeMode:
-    """CR-12 acceptance #6: sender plumbing produces tag:md wire payload
-    when configured with tag_md_mode='native', and structured by default."""
+    """Sender plumbing produces tag:md when configured with native mode."""
 
     @pytest.mark.asyncio
     async def test_outbound_post_native_produces_tag_md_only_payload(self):
-        from lark_oapi.channel.config import OutboundConfig
         from lark_oapi.channel.outbound.sender import OutboundSender
         from lark_oapi.channel.tests.test_sender import make_driver
         from lark_oapi.channel.types import OutboundPost
@@ -292,7 +286,6 @@ class TestSenderEndToEndNativeMode:
 
     @pytest.mark.asyncio
     async def test_outbound_post_default_still_produces_structured_payload(self):
-        from lark_oapi.channel.config import OutboundConfig
         from lark_oapi.channel.outbound.sender import OutboundSender
         from lark_oapi.channel.tests.test_sender import make_driver
         from lark_oapi.channel.types import OutboundPost
