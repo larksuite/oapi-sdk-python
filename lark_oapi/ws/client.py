@@ -147,6 +147,13 @@ class Client(object):
         self._ping_interval: int = 120
         self._cache: ExpiringCache = ExpiringCache(clear_interval=30)
         self._lock = asyncio.Lock()
+        # Background task handles so ``stop()`` can cancel them on graceful
+        # shutdown. Without these references, ``loop.close()`` after stop
+        # would report "Task was destroyed but it is pending!" for the
+        # ping/receive loops and they'd leak across reconnect cycles.
+        self._ping_task: Optional[asyncio.Task] = None
+        self._receive_message_task: Optional[asyncio.Task] = None
+        self._main_task: Optional[asyncio.Task] = None
         # Observer hooks for higher-level wrappers (e.g. FeishuChannel) to
         # react to reconnect lifecycle. ``on_reconnecting`` fires when the
         # client decides a connection was lost and starts retrying;
@@ -170,8 +177,18 @@ class Client(object):
             else:
                 raise e
 
-        loop.create_task(self._ping_loop())
-        loop.run_until_complete(_select())
+        self._ping_task = loop.create_task(self._ping_loop())
+        # ``_main_task`` blocks the foreground until ``stop()`` cancels it.
+        # We keep the reference so ``stop()`` can release ``start()``.
+        # Backward compat: still uses the module-level ``_select`` coroutine
+        # for callers/tests that monkeypatch it.
+        self._main_task = loop.create_task(_select())
+        try:
+            loop.run_until_complete(self._main_task)
+        except asyncio.CancelledError:
+            # Graceful shutdown via ``stop()`` — return cleanly so the
+            # caller's ``start()`` thread can exit.
+            pass
 
     async def _ping_loop(self):
         while True:
@@ -203,7 +220,9 @@ class Client(object):
             self._service_id = service_id
 
             logger.info(self._fmt_log("connected to {}", conn_url))
-            loop.create_task(self._receive_message_loop())
+            # Save handle so ``stop()`` can cancel this background task and
+            # avoid "Task was destroyed but it is pending!" on loop close.
+            self._receive_message_task = loop.create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
@@ -390,6 +409,45 @@ class Client(object):
             self._conn_id = ""
             self._service_id = ""
             self._lock.release()
+
+    async def stop(self) -> None:
+        """Gracefully stop the WebSocket client.
+
+        Disables auto-reconnect, closes the WebSocket connection, cancels the
+        internal background tasks (ping loop, receive loop), and releases the
+        blocking ``start()`` call so its thread can exit cleanly.
+
+        Designed for cross-thread use — when ``start()`` is running on a
+        dedicated worker thread (the common pattern, since it blocks), call
+        ``stop()`` from another thread via::
+
+            future = asyncio.run_coroutine_threadsafe(client.stop(), client_loop)
+            future.result(timeout=5)
+
+        where ``client_loop`` is the event loop ``start()`` is running on
+        (typically the loop created in the worker thread).
+
+        After ``stop()`` returns, ``start()`` will exit and the worker thread
+        can be joined. Subsequent calls to ``stop()`` are safe (idempotent).
+        """
+        # Prevent the receive loop's exception handler from auto-reconnecting
+        # after we close the WebSocket below.
+        self._auto_reconnect = False
+
+        # Cancel background tasks first so they don't observe the disconnect
+        # as a network failure and try to reconnect.
+        for task in (self._ping_task, self._receive_message_task):
+            if task is not None and not task.done():
+                task.cancel()
+
+        # Close the underlying WebSocket. Safe to call multiple times —
+        # ``_disconnect`` early-returns when ``self._conn is None``.
+        await self._disconnect()
+
+        # Release the foreground ``start()`` blocker. Cancelling this task
+        # makes ``loop.run_until_complete(self._main_task)`` return.
+        if self._main_task is not None and not self._main_task.done():
+            self._main_task.cancel()
 
     async def _write_message(self, data: bytes):
         async with self._lock:
