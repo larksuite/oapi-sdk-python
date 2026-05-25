@@ -4,7 +4,7 @@ import http
 import inspect
 import random
 import time
-from typing import Callable, Optional
+from typing import Callable, Dict, Mapping, Optional
 from urllib.parse import urlparse, parse_qs
 
 import requests
@@ -122,13 +122,15 @@ class Client(object):
                  domain: str = FEISHU_DOMAIN,
                  auto_reconnect: bool = True,
                  source: Optional[str] = None,
-                 extra_ua_tags: Optional[list] = None) -> None:
+                 extra_ua_tags: Optional[list] = None,
+                 headers: Optional[Mapping[str, str]] = None) -> None:
         self._app_id: str = app_id
         self._app_secret: str = app_secret
         self._log_level: LogLevel = log_level
         self._event_handler: EventDispatcherHandler = event_handler
         self._auto_reconnect: bool = auto_reconnect
         self._domain: str = domain
+        self._headers: Dict[str, str] = dict(headers or {})
         # UA used on the endpoint-discovery POST (and any future HTTP/WS
         # handshakes from this client). ``extra_ua_tags`` is internal — sub-
         # modules (e.g. FeishuChannel) pass ``["channel"]`` here.
@@ -228,12 +230,14 @@ class Client(object):
         if Strings.is_empty(self._app_id) or Strings.is_empty(self._app_secret):
             raise ClientException(NO_CREDENTIAL, "app_id or app_secret is null")
 
+        headers = dict(self._headers)
+        headers.update({
+            "locale": "zh",
+            USER_AGENT: self._user_agent,
+        })
         response = requests.post(
             self._domain + GEN_ENDPOINT_URI,
-            headers={
-                "locale": "zh",
-                USER_AGENT: self._user_agent,
-            },
+            headers=headers,
             json={
                 "AppID": self._app_id,
                 "AppSecret": self._app_secret,

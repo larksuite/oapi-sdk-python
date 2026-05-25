@@ -707,6 +707,7 @@ class FeishuChannel:
                 domain=self._config.domain,
                 auto_reconnect=self._config.transport.auto_reconnect,
                 extra_ua_tags=["channel"],
+                headers=self._config.transport.headers,
             )
             # Wire transport-level reconnect events to the public ``on()`` bus so
             # callers registering ``on("reconnecting", ...) / on("reconnected", ...)``

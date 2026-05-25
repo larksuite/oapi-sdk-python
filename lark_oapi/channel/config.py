@@ -320,6 +320,7 @@ class UATConfig:
 class TransportConfig:
     kind: TransportKind = "ws"
     auto_reconnect: bool = True
+    headers: Optional[Dict[str, str]] = None
 
     # WS tuning (pingInterval / reconnectInterval / reconnectNonce / etc.) is
     # NOT exposed here intentionally: the Feishu WS endpoint delivers a
