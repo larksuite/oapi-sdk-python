@@ -110,6 +110,8 @@ def _build_url(domain: str, uri: str, paths: Dict[str, str]) -> str:
         encoded = urllib.parse.quote(str(value), safe="")
         uri = uri.replace(":" + key, encoded)
 
+    if uri.startswith("http://") or uri.startswith("https://"):
+        return uri
     return domain + uri
 
 

@@ -2,6 +2,7 @@ import asyncio
 import base64
 import http
 import inspect
+import json
 import random
 import time
 from typing import Callable, Dict, Mapping, Optional
@@ -12,7 +13,8 @@ import websockets
 from websockets.exceptions import InvalidHandshake
 
 from lark_oapi.core.cache import ExpiringCache
-from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN, USER_AGENT
+from lark_oapi.core.client_assertion import build_proxy_url, extract_aud_from_url
+from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN, USER_AGENT, X_TARGET_SERVICE
 from lark_oapi.core.enum import LogLevel
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
@@ -123,13 +125,15 @@ class Client(object):
                  auto_reconnect: bool = True,
                  source: Optional[str] = None,
                  extra_ua_tags: Optional[list] = None,
-                 headers: Optional[Mapping[str, str]] = None) -> None:
+                 headers: Optional[Mapping[str, str]] = None,
+                 client_assertion_provider=None) -> None:
         self._app_id: str = app_id
         self._app_secret: str = app_secret
         self._log_level: LogLevel = log_level
         self._event_handler: EventDispatcherHandler = event_handler
         self._auto_reconnect: bool = auto_reconnect
         self._domain: str = domain
+        self._client_assertion_provider = client_assertion_provider
         self._headers: Dict[str, str] = dict(headers or {})
         # UA used on the endpoint-discovery POST (and any future HTTP/WS
         # handshakes from this client). ``extra_ua_tags`` is internal — sub-
@@ -227,7 +231,9 @@ class Client(object):
                 raise e
 
     def _get_conn_url(self) -> str:
-        if Strings.is_empty(self._app_id) or Strings.is_empty(self._app_secret):
+        if Strings.is_empty(self._app_id) or (
+                self._client_assertion_provider is None and Strings.is_empty(self._app_secret)
+        ):
             raise ClientException(NO_CREDENTIAL, "app_id or app_secret is null")
 
         headers = dict(self._headers)
@@ -235,16 +241,33 @@ class Client(object):
             "locale": "zh",
             USER_AGENT: self._user_agent,
         })
+        url = self._domain + GEN_ENDPOINT_URI
+        body = {"AppID": self._app_id}
+        if self._client_assertion_provider is not None:
+            aud = extract_aud_from_url(self._domain)
+            assertion_token = self._client_assertion_provider.retrieve_token(aud)
+            if assertion_token is None or Strings.is_empty(assertion_token.value):
+                raise ClientException(7101, "client assertion token is empty")
+            body["ClientAssertion"] = assertion_token.value
+            if assertion_token.target_info is not None:
+                url = build_proxy_url(assertion_token.target_info, GEN_ENDPOINT_URI)
+                headers[X_TARGET_SERVICE] = aud
+        else:
+            body["AppSecret"] = self._app_secret
+
         response = requests.post(
-            self._domain + GEN_ENDPOINT_URI,
+            url,
             headers=headers,
-            json={
-                "AppID": self._app_id,
-                "AppSecret": self._app_secret,
-            },
+            json=body,
         )
         if response.status_code != http.HTTPStatus.OK:
-            raise ServerException(response.status_code, "system busy")
+            msg = "system busy"
+            try:
+                payload = json.loads(str(response.content, UTF_8))
+                msg = payload.get("msg") or msg
+            except Exception:
+                pass
+            raise ServerException(response.status_code, msg)
 
         resp = JSON.unmarshal(str(response.content, UTF_8), EndpointResp)
         if resp.code == OK:

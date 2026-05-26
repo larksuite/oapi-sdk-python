@@ -8,6 +8,7 @@ from .core.const import UTF_8, APPLICATION_JSON
 from .core import logger, JSON
 from .core.model import *
 from .core.token import TokenManager, verify
+from .core.access_token import AccessToken
 from .core.http import Transport
 from .api.board.service import BoardService
 from .api.cardkit.service import CardkitService
@@ -149,6 +150,7 @@ class Client(object):
         self.docs: Optional[DocsService] = None
         self.drive: Optional[DriveService] = None
         self.performance: Optional[PerformanceService] = None
+        self.access_token: Optional[AccessToken] = None
 
     @staticmethod
     def builder() -> "ClientBuilder":
@@ -221,6 +223,14 @@ class ClientBuilder(object):
 
     def app_secret(self, app_secret: str) -> "ClientBuilder":
         self._config.app_secret = app_secret
+        return self
+
+    def client_assertion_provider(self, provider) -> "ClientBuilder":
+        self._config.client_assertion_provider = provider
+        return self
+
+    def oauth_base_url(self, oauth_base_url: str) -> "ClientBuilder":
+        self._config.oauth_base_url = oauth_base_url
         return self
 
     def domain(self, domain: str) -> "ClientBuilder":
@@ -322,6 +332,7 @@ class ClientBuilder(object):
         client.docs = DocsService(self._config)
         client.drive = DriveService(self._config)
         client.performance = PerformanceService(self._config)
+        client.access_token = AccessToken(self._config)
 
         return client
 

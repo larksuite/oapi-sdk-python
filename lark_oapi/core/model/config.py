@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 
 from lark_oapi.core import AppType, LogLevel
 from lark_oapi.core.cache import ICache
@@ -10,6 +10,8 @@ class Config(object):
         self.app_id: Optional[str] = None
         self.app_secret: Optional[str] = None
         self.domain: str = FEISHU_DOMAIN  # 域名, 默认为 https://open.feishu.cn
+        self.oauth_base_url: Optional[str] = None
+        self.client_assertion_provider: Optional[Any] = None
         self.timeout: Optional[float] = 30  # client timeout in seconds (default 30s); override via ClientBuilder.timeout()
         self.app_type: AppType = AppType.SELF  # 应用类型, 默认为自建应用; 若设为 ISV 需在 request_option 中配置 tenant_key
         self.enable_set_token: bool = False  # 是否允许手动设置 token, 默认不开启; 开启后需在 request_option 中配置 token

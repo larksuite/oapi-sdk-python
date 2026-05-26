@@ -1,4 +1,5 @@
 from .cache import ICache
+from .client_assertion import *
 from .const import *
 from .enum import *
 from .env_var import *

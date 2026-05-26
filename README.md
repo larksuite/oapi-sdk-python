@@ -47,6 +47,35 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
+## ClientAssertion Keyless Mode
+
+For self-built apps that use an external signing service, the SDK can fetch
+tenant tokens with `client_assertion` instead of `app_secret`. The SDK does not
+generate, parse, sign, or store JWT private keys; your provider supplies the
+final assertion string.
+
+```python
+import os
+
+import lark_oapi as lark
+from lark_oapi.core.client_assertion import ClientAssertionToken
+
+
+class EnvClientAssertionProvider:
+    def retrieve_token(self, aud: str) -> ClientAssertionToken:
+        return ClientAssertionToken(os.environ["LARK_CLIENT_ASSERTION"])
+
+
+client = lark.Client.builder() \
+    .app_id(os.environ["LARK_APP_ID"]) \
+    .client_assertion_provider(EnvClientAssertionProvider()) \
+    .build()
+```
+
+If you use a custom OpenAPI domain, also configure `oauth_base_url(...)` so the
+SDK can derive the OAuth audience correctly. Keyless mode is for self-built
+apps only and does not support AppAccessToken-only APIs.
+
 ## Channel Module
 
 `lark_oapi.channel` is a high-level module built on top of the OpenAPI client
