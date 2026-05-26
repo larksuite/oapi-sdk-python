@@ -47,6 +47,56 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
+## One-Click App Registration
+
+`lark_oapi.register_app` creates an app through the OAuth device flow. It
+returns a verification URL in `on_qr_code`; render the URL as a QR code or show
+it as a link for the user to open in Feishu/Lark.
+
+```python
+import lark_oapi as lark
+
+
+def on_qr_code(info):
+    print(info["url"])
+
+
+result = lark.register_app(
+    on_qr_code=on_qr_code,
+    app_preset={
+        "avatar": [
+            "https://example.com/a.png",
+            "https://example.com/b.webp",
+        ],
+        "name": "{user}'s app",
+        "desc": "Created by the business platform",
+    },
+)
+
+print(result["client_id"])
+```
+
+For a real manual E2E run without mocked registration responses:
+
+```bash
+python3 samples/registration/app_preset_live_e2e.py --open
+```
+
+### `register_app` parameters
+
+| Parameter | Description | Type | Required | Default |
+| ---- | ---- | ---- | ---- | ---- |
+| `on_qr_code` | Callback when the verification URL is ready. Receives `{"url": str, "expire_in": int}` | function | Yes | - |
+| `on_status_change` | Callback on polling status changes. Status values include `polling`, `slow_down`, `domain_switched` | function | No | - |
+| `source` | Source identifier appended to the QR URL as `python-sdk/{source}` | string | No | `python-sdk` |
+| `cancel_event` | `threading.Event` used to cancel sync polling | threading.Event | No | - |
+| `domain` | Custom Feishu accounts base URL | string | No | `https://accounts.feishu.cn` |
+| `lark_domain` | Custom Lark accounts base URL used when tenant brand is Lark | string | No | `https://accounts.larksuite.com` |
+| `app_preset` | Pre-fill values for the app-creation page. All fields are optional; users can still edit them on the page. Pass raw values; the SDK URL-encodes them automatically | dict | No | - |
+| `app_preset.avatar` | App avatar URL(s). 1-6 URLs supported; the first one is selected by default. Allowed formats are handled by the Web page: png / jpg / jpeg / webp / gif | string or list[string] | No | - |
+| `app_preset.name` | App name. Supports the `{user}` placeholder, replaced by the Web page with the scanning user's name | string | No | - |
+| `app_preset.desc` | App description. Supports the `{user}` placeholder | string | No | - |
+
 ## Channel Module
 
 `lark_oapi.channel` is a high-level module built on top of the OpenAPI client
