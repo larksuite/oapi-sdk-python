@@ -10,15 +10,44 @@ from .errors import AppAccessDeniedError, AppExpiredError, RegisterAppError
 
 _ENDPOINT = "/oauth/v1/app/registration"
 _SDK_NAME = "python-sdk"
+_AVATAR_MAX_COUNT = 6
 
 
 class _RegistrationFlow:
-    def __init__(self, on_qr_code, on_status_change, source, domain, lark_domain):
+    def __init__(self, on_qr_code, on_status_change, source, domain, lark_domain, app_preset=None):
         self._on_qr_code = on_qr_code
         self._on_status_change = on_status_change
         self._source = source
         self._base_url = domain
         self._lark_url = lark_domain
+        self._app_preset = app_preset
+
+    def _apply_app_preset(self, params):
+        if not self._app_preset:
+            return
+
+        avatar = self._app_preset.get("avatar")
+        name = self._app_preset.get("name")
+        desc = self._app_preset.get("desc")
+
+        if avatar is not None:
+            avatars = avatar if isinstance(avatar, list) else [avatar]
+            if len(avatars) == 0:
+                raise ValueError("app_preset.avatar must contain at least 1 URL")
+            if len(avatars) > _AVATAR_MAX_COUNT:
+                raise ValueError(
+                    f"app_preset.avatar supports at most {_AVATAR_MAX_COUNT} URLs, got {len(avatars)}"
+                )
+            for index, url in enumerate(avatars):
+                if not isinstance(url, str) or url == "":
+                    raise ValueError(f"app_preset.avatar[{index}] must be a non-empty string")
+            params["avatar"] = avatars
+
+        if name is not None:
+            params["name"] = name
+
+        if desc is not None:
+            params["desc"] = desc
 
     def _build_qr_url(self, uri):
         parsed = urlparse(uri)
@@ -26,6 +55,9 @@ class _RegistrationFlow:
         params["from"] = "sdk"
         params["tp"] = "sdk"
         params["source"] = f"{_SDK_NAME}/{self._source}" if self._source else _SDK_NAME
+        # app_preset values only pre-fill the Web app-creation page. Callers
+        # pass raw values; urlencode below handles URL encoding automatically.
+        self._apply_app_preset(params)
         return urlunparse(parsed._replace(query=urlencode(params, doseq=True)))
 
     def _notify_status(self, status, interval=None):
@@ -74,8 +106,8 @@ class _RegistrationFlow:
 
 
 class _SyncFlow(_RegistrationFlow):
-    def __init__(self, on_qr_code, on_status_change, source, cancel_event, domain, lark_domain):
-        super().__init__(on_qr_code, on_status_change, source, domain, lark_domain)
+    def __init__(self, on_qr_code, on_status_change, source, cancel_event, domain, lark_domain, app_preset=None):
+        super().__init__(on_qr_code, on_status_change, source, domain, lark_domain, app_preset)
         self._cancel_event = cancel_event
 
     def _post(self, data):
@@ -211,8 +243,9 @@ def register_app(
     cancel_event=None,
     domain="https://accounts.feishu.cn",
     lark_domain="https://accounts.larksuite.com",
+    app_preset=None,
 ):
-    flow = _SyncFlow(on_qr_code, on_status_change, source, cancel_event, domain, lark_domain)
+    flow = _SyncFlow(on_qr_code, on_status_change, source, cancel_event, domain, lark_domain, app_preset)
     return flow.run()
 
 
@@ -222,6 +255,7 @@ async def aregister_app(
     source=None,
     domain="https://accounts.feishu.cn",
     lark_domain="https://accounts.larksuite.com",
+    app_preset=None,
 ):
-    flow = _AsyncFlow(on_qr_code, on_status_change, source, domain, lark_domain)
+    flow = _AsyncFlow(on_qr_code, on_status_change, source, domain, lark_domain, app_preset)
     return await flow.run()

@@ -43,6 +43,55 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
+## 一键创建应用
+
+`lark_oapi.register_app` 基于 OAuth device flow 创建应用。SDK 会在
+`on_qr_code` 回调中返回验证链接，你可以将该链接渲染为二维码，或直接展示给用户在飞书/Lark 中打开。
+
+```python
+import lark_oapi as lark
+
+
+def on_qr_code(info):
+    print(info["url"])
+
+
+result = lark.register_app(
+    on_qr_code=on_qr_code,
+    app_preset={
+        "avatar": [
+            "https://example.com/a.png",
+            "https://example.com/b.webp",
+        ],
+        "name": "{user}的应用",
+        "desc": "由业务平台自动生成",
+    },
+)
+
+print(result["client_id"])
+```
+
+如需不使用 mock、真实跑一遍手动 E2E：
+
+```bash
+python3 samples/registration/app_preset_live_e2e.py --open
+```
+
+### `register_app` 参数
+
+| 参数 | 描述 | 类型 | 必填 | 默认值 |
+| ---- | ---- | ---- | ---- | ---- |
+| `on_qr_code` | 验证链接就绪时的回调，参数为 `{"url": str, "expire_in": int}` | function | 是 | - |
+| `on_status_change` | 轮询状态变化回调，状态包括 `polling`、`slow_down`、`domain_switched` | function | 否 | - |
+| `source` | 来源标识，会拼入二维码 URL 的 `source` 参数，格式为 `python-sdk/{source}` | string | 否 | `python-sdk` |
+| `cancel_event` | 用于取消同步轮询的 `threading.Event` | threading.Event | 否 | - |
+| `domain` | 自定义飞书账号域名 base URL | string | 否 | `https://accounts.feishu.cn` |
+| `lark_domain` | 自定义 Lark 账号域名 base URL，检测到 Lark 租户时使用 | string | 否 | `https://accounts.larksuite.com` |
+| `app_preset` | 创建页预填信息。所有字段都是选填，用户扫码后仍可在页面手动修改。调用方传原始值，SDK 自动 URL Encode | dict | 否 | - |
+| `app_preset.avatar` | 应用头像 URL，支持 1-6 个；传多个时默认选中第一个。图片格式由 Web 页面处理：png / jpg / jpeg / webp / gif | string 或 list[string] | 否 | - |
+| `app_preset.name` | 应用名称，支持 `{user}` 占位符，由 Web 页面替换为扫码用户名称 | string | 否 | - |
+| `app_preset.desc` | 应用描述，支持 `{user}` 占位符 | string | 否 | - |
+
 ## Channel 模块
 
 `lark_oapi.channel` 是基于 OpenAPI Client 和事件传输封装的高层模块。它把机器人接入中的事件监听、消息归一化、安全策略、出站发送、媒体上传下载、卡片交互、流式回复等能力收敛到 `FeishuChannel` 一个入口。
