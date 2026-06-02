@@ -12,7 +12,7 @@ class UnreadAtMessage(object):
         "create_time": str,
         "create_time_ms": str,
         "update_time_ms": str,
-        "type": int,
+        "type": str,
         "is_at_all": bool,
     }
 
@@ -23,7 +23,7 @@ class UnreadAtMessage(object):
         self.create_time: Optional[str] = None
         self.create_time_ms: Optional[str] = None
         self.update_time_ms: Optional[str] = None
-        self.type: Optional[int] = None
+        self.type: Optional[str] = None
         self.is_at_all: Optional[bool] = None
         init(self, d, self._types)
 
@@ -60,7 +60,7 @@ class UnreadAtMessageBuilder(object):
         self._unread_at_message.update_time_ms = update_time_ms
         return self
 
-    def type(self, type: int) -> "UnreadAtMessageBuilder":
+    def type(self, type: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.type = type
         return self
 

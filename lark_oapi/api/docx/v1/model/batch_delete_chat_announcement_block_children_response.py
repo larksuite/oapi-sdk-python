@@ -9,7 +9,8 @@ from .batch_delete_chat_announcement_block_children_response_body import \
 
 class BatchDeleteChatAnnouncementBlockChildrenResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteChatAnnouncementBlockChildrenResponseBody
+        "data": BatchDeleteChatAnnouncementBlockChildrenResponseBody,
+
     }
 
     def __init__(self, d=None):

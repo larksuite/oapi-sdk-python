@@ -8,7 +8,8 @@ from .submit_probation_response_body import SubmitProbationResponseBody
 
 class SubmitProbationResponse(BaseResponse):
     _types = {
-        "data": SubmitProbationResponseBody
+        "data": SubmitProbationResponseBody,
+
     }
 
     def __init__(self, d=None):

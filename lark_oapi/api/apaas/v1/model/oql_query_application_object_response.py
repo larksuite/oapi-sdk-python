@@ -8,7 +8,8 @@ from .oql_query_application_object_response_body import OqlQueryApplicationObjec
 
 class OqlQueryApplicationObjectResponse(BaseResponse):
     _types = {
-        "data": OqlQueryApplicationObjectResponseBody
+        "data": OqlQueryApplicationObjectResponseBody,
+
     }
 
     def __init__(self, d=None):

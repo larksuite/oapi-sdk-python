@@ -8,7 +8,8 @@ from .list_interview_registration_schema_response_body import ListInterviewRegis
 
 class ListInterviewRegistrationSchemaResponse(BaseResponse):
     _types = {
-        "data": ListInterviewRegistrationSchemaResponseBody
+        "data": ListInterviewRegistrationSchemaResponseBody,
+
     }
 
     def __init__(self, d=None):

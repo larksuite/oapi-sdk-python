@@ -8,7 +8,8 @@ from .patch_tasklist_activity_subscription_response_body import PatchTasklistAct
 
 class PatchTasklistActivitySubscriptionResponse(BaseResponse):
     _types = {
-        "data": PatchTasklistActivitySubscriptionResponseBody
+        "data": PatchTasklistActivitySubscriptionResponseBody,
+
     }
 
     def __init__(self, d=None):

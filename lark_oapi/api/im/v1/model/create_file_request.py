@@ -22,7 +22,7 @@ class CreateFileRequestBuilder(object):
         create_file_request = CreateFileRequest()
         create_file_request.http_method = HttpMethod.POST
         create_file_request.uri = "/open-apis/im/v1/files"
-        create_file_request.token_types = {AccessTokenType.TENANT}
+        create_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_file_request: CreateFileRequest = create_file_request
 
     def request_body(self, request_body: CreateFileRequestBody) -> "CreateFileRequestBuilder":

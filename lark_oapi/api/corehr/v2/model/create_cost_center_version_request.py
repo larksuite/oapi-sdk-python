@@ -3,7 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .cost_center_version import CostCenterVersion
+from .create_cost_center_version_request_body import CreateCostCenterVersionRequestBody
 
 
 class CreateCostCenterVersionRequest(BaseRequest):
@@ -11,7 +11,7 @@ class CreateCostCenterVersionRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.cost_center_id: Optional[str] = None
-        self.request_body: Optional[CostCenterVersion] = None
+        self.request_body: Optional[CreateCostCenterVersionRequestBody] = None
 
     @staticmethod
     def builder() -> "CreateCostCenterVersionRequestBuilder":
@@ -37,7 +37,7 @@ class CreateCostCenterVersionRequestBuilder(object):
         self._create_cost_center_version_request.paths["cost_center_id"] = str(cost_center_id)
         return self
 
-    def request_body(self, request_body: CostCenterVersion) -> "CreateCostCenterVersionRequestBuilder":
+    def request_body(self, request_body: CreateCostCenterVersionRequestBody) -> "CreateCostCenterVersionRequestBuilder":
         self._create_cost_center_version_request.request_body = request_body
         self._create_cost_center_version_request.body = request_body
         return self

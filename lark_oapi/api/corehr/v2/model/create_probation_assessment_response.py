@@ -8,7 +8,8 @@ from .create_probation_assessment_response_body import CreateProbationAssessment
 
 class CreateProbationAssessmentResponse(BaseResponse):
     _types = {
-        "data": CreateProbationAssessmentResponseBody
+        "data": CreateProbationAssessmentResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -16,6 +16,7 @@ def main():
     request: GetUserMailboxMessageRequest = GetUserMailboxMessageRequest.builder() \
         .user_mailbox_id("user@xxx.xx 或 me") \
         .message_id("TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==") \
+        .format("full") \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     request: GetUserMailboxMessageRequest = GetUserMailboxMessageRequest.builder() \
         .user_mailbox_id("user@xxx.xx 或 me") \
         .message_id("TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==") \
+        .format("full") \
         .build()
 
     # 发起请求

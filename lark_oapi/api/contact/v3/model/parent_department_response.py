@@ -8,7 +8,8 @@ from .parent_department_response_body import ParentDepartmentResponseBody
 
 class ParentDepartmentResponse(BaseResponse):
     _types = {
-        "data": ParentDepartmentResponseBody
+        "data": ParentDepartmentResponseBody,
+
     }
 
     def __init__(self, d=None):

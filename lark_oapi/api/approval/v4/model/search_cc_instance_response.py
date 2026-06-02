@@ -8,7 +8,8 @@ from .search_cc_instance_response_body import SearchCcInstanceResponseBody
 
 class SearchCcInstanceResponse(BaseResponse):
     _types = {
-        "data": SearchCcInstanceResponseBody
+        "data": SearchCcInstanceResponseBody,
+
     }
 
     def __init__(self, d=None):

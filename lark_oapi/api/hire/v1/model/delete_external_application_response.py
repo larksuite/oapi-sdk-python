@@ -8,7 +8,8 @@ from .delete_external_application_response_body import DeleteExternalApplication
 
 class DeleteExternalApplicationResponse(BaseResponse):
     _types = {
-        "data": DeleteExternalApplicationResponseBody
+        "data": DeleteExternalApplicationResponseBody,
+
     }
 
     def __init__(self, d=None):

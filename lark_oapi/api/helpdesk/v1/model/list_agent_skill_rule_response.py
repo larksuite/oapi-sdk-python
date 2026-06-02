@@ -8,7 +8,8 @@ from .list_agent_skill_rule_response_body import ListAgentSkillRuleResponseBody
 
 class ListAgentSkillRuleResponse(BaseResponse):
     _types = {
-        "data": ListAgentSkillRuleResponseBody
+        "data": ListAgentSkillRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

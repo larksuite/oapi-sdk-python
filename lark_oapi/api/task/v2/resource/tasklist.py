@@ -23,6 +23,8 @@ from ..model.patch_tasklist_request import PatchTasklistRequest
 from ..model.patch_tasklist_response import PatchTasklistResponse
 from ..model.remove_members_tasklist_request import RemoveMembersTasklistRequest
 from ..model.remove_members_tasklist_response import RemoveMembersTasklistResponse
+from ..model.search_tasklist_request import SearchTasklistRequest
+from ..model.search_tasklist_response import SearchTasklistResponse
 from ..model.tasks_tasklist_request import TasksTasklistRequest
 from ..model.tasks_tasklist_response import TasksTasklistResponse
 
@@ -288,6 +290,43 @@ class Tasklist(object):
         # 反序列化
         response: RemoveMembersTasklistResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                  RemoveMembersTasklistResponse)
+        response.raw = resp
+
+        return response
+
+    def search(self, request: SearchTasklistRequest, option: Optional[RequestOption] = None) -> SearchTasklistResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTasklistResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTasklistResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchTasklistRequest,
+                      option: Optional[RequestOption] = None) -> SearchTasklistResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTasklistResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTasklistResponse)
         response.raw = resp
 
         return response

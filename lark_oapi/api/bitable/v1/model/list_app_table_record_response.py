@@ -8,7 +8,8 @@ from .list_app_table_record_response_body import ListAppTableRecordResponseBody
 
 class ListAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": ListAppTableRecordResponseBody
+        "data": ListAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

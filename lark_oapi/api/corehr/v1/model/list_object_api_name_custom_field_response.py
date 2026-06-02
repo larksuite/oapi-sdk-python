@@ -8,7 +8,8 @@ from .list_object_api_name_custom_field_response_body import ListObjectApiNameCu
 
 class ListObjectApiNameCustomFieldResponse(BaseResponse):
     _types = {
-        "data": ListObjectApiNameCustomFieldResponseBody
+        "data": ListObjectApiNameCustomFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

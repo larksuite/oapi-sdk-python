@@ -8,7 +8,8 @@ from .query_recent_change_position_response_body import QueryRecentChangePositio
 
 class QueryRecentChangePositionResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangePositionResponseBody
+        "data": QueryRecentChangePositionResponseBody,
+
     }
 
     def __init__(self, d=None):

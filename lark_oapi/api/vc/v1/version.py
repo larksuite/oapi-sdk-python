@@ -8,6 +8,7 @@ class V1(object):
         self.meeting: Meeting = Meeting(config)
         self.meeting_recording: MeetingRecording = MeetingRecording(config)
         self.meeting_list: MeetingList = MeetingList(config)
+        self.note: Note = Note(config)
         self.participant_list: ParticipantList = ParticipantList(config)
         self.participant_quality_list: ParticipantQualityList = ParticipantQualityList(config)
         self.report: Report = Report(config)

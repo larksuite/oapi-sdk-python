@@ -8,7 +8,8 @@ from .withdraw_referral_account_response_body import WithdrawReferralAccountResp
 
 class WithdrawReferralAccountResponse(BaseResponse):
     _types = {
-        "data": WithdrawReferralAccountResponseBody
+        "data": WithdrawReferralAccountResponseBody,
+
     }
 
     def __init__(self, d=None):

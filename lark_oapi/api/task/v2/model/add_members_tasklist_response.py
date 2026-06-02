@@ -8,7 +8,8 @@ from .add_members_tasklist_response_body import AddMembersTasklistResponseBody
 
 class AddMembersTasklistResponse(BaseResponse):
     _types = {
-        "data": AddMembersTasklistResponseBody
+        "data": AddMembersTasklistResponseBody,
+
     }
 
     def __init__(self, d=None):

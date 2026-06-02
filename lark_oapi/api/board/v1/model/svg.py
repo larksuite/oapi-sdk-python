@@ -7,10 +7,14 @@ from lark_oapi.core.construct import init
 class Svg(object):
     _types = {
         "svg_code": str,
+        "key": str,
+        "type": int,
     }
 
     def __init__(self, d=None):
         self.svg_code: Optional[str] = None
+        self.key: Optional[str] = None
+        self.type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +28,14 @@ class SvgBuilder(object):
 
     def svg_code(self, svg_code: str) -> "SvgBuilder":
         self._svg.svg_code = svg_code
+        return self
+
+    def key(self, key: str) -> "SvgBuilder":
+        self._svg.key = key
+        return self
+
+    def type(self, type: int) -> "SvgBuilder":
+        self._svg.type = type
         return self
 
     def build(self) -> "Svg":

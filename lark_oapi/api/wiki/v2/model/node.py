@@ -22,6 +22,7 @@ class Node(object):
         "creator": str,
         "owner": str,
         "node_creator": str,
+        "url": str,
     }
 
     def __init__(self, d=None):
@@ -41,6 +42,7 @@ class Node(object):
         self.creator: Optional[str] = None
         self.owner: Optional[str] = None
         self.node_creator: Optional[str] = None
+        self.url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -114,6 +116,10 @@ class NodeBuilder(object):
 
     def node_creator(self, node_creator: str) -> "NodeBuilder":
         self._node.node_creator = node_creator
+        return self
+
+    def url(self, url: str) -> "NodeBuilder":
+        self._node.url = url
         return self
 
     def build(self) -> "Node":

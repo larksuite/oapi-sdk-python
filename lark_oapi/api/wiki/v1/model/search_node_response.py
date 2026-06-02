@@ -8,7 +8,8 @@ from .search_node_response_body import SearchNodeResponseBody
 
 class SearchNodeResponse(BaseResponse):
     _types = {
-        "data": SearchNodeResponseBody
+        "data": SearchNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

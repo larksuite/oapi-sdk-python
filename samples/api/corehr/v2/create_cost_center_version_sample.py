@@ -16,13 +16,15 @@ def main():
     request: CreateCostCenterVersionRequest = CreateCostCenterVersionRequest.builder() \
         .cost_center_id("6862995757234914824") \
         .user_id_type("people_corehr_id") \
-        .request_body(CostCenterVersion.builder()
+        .request_body(CreateCostCenterVersionRequestBody.builder()
                       .name([])
+                      .code("MDPD00000023")
                       .parent_cost_center_id("6862995757234914824")
                       .managers([])
                       .description([])
                       .effective_time("2020-01-01")
                       .operation_reason("过期作废")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -52,13 +54,15 @@ async def amain():
     request: CreateCostCenterVersionRequest = CreateCostCenterVersionRequest.builder() \
         .cost_center_id("6862995757234914824") \
         .user_id_type("people_corehr_id") \
-        .request_body(CostCenterVersion.builder()
+        .request_body(CreateCostCenterVersionRequestBody.builder()
                       .name([])
+                      .code("MDPD00000023")
                       .parent_cost_center_id("6862995757234914824")
                       .managers([])
                       .description([])
                       .effective_time("2020-01-01")
                       .operation_reason("过期作废")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

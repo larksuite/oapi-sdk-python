@@ -18,6 +18,8 @@ def main():
         .version_id("file_version") \
         .obj_type("doc/sheet/bitable/docx") \
         .user_id_type("open_id") \
+        .page_token("1665739388") \
+        .page_size(10) \
         .build()
 
     # 发起请求
@@ -48,6 +50,8 @@ async def amain():
         .version_id("file_version") \
         .obj_type("doc/sheet/bitable/docx") \
         .user_id_type("open_id") \
+        .page_token("1665739388") \
+        .page_size(10) \
         .build()
 
     # 发起请求

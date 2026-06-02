@@ -15,8 +15,8 @@ def main():
     # 构造请求对象
     request: ListAppTableRequest = ListAppTableRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .page_token("tblsRc9GRRXKqhvW") \
         .page_size(20) \
+        .page_token("tblsRc9GRRXKqhvW") \
         .build()
 
     # 发起请求
@@ -44,8 +44,8 @@ async def amain():
     # 构造请求对象
     request: ListAppTableRequest = ListAppTableRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .page_token("tblsRc9GRRXKqhvW") \
         .page_size(20) \
+        .page_token("tblsRc9GRRXKqhvW") \
         .build()
 
     # 发起请求

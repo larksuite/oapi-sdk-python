@@ -110,6 +110,9 @@ class Employee(object):
         "archive_cpst_plan_id": str,
         "attendance_group_id": str,
         "individuals_with_headcount_or_not": Enum,
+        "is_direct_leader": bool,
+        "is_dotted_leader": bool,
+        "company_talent_pool_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -191,6 +194,9 @@ class Employee(object):
         self.archive_cpst_plan_id: Optional[str] = None
         self.attendance_group_id: Optional[str] = None
         self.individuals_with_headcount_or_not: Optional[Enum] = None
+        self.is_direct_leader: Optional[bool] = None
+        self.is_dotted_leader: Optional[bool] = None
+        self.company_talent_pool_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -514,6 +520,18 @@ class EmployeeBuilder(object):
 
     def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBuilder":
         self._employee.individuals_with_headcount_or_not = individuals_with_headcount_or_not
+        return self
+
+    def is_direct_leader(self, is_direct_leader: bool) -> "EmployeeBuilder":
+        self._employee.is_direct_leader = is_direct_leader
+        return self
+
+    def is_dotted_leader(self, is_dotted_leader: bool) -> "EmployeeBuilder":
+        self._employee.is_dotted_leader = is_dotted_leader
+        return self
+
+    def company_talent_pool_ids(self, company_talent_pool_ids: List[str]) -> "EmployeeBuilder":
+        self._employee.company_talent_pool_ids = company_talent_pool_ids
         return self
 
     def build(self) -> "Employee":

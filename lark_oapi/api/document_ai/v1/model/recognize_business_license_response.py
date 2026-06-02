@@ -8,7 +8,8 @@ from .recognize_business_license_response_body import RecognizeBusinessLicenseRe
 
 class RecognizeBusinessLicenseResponse(BaseResponse):
     _types = {
-        "data": RecognizeBusinessLicenseResponseBody
+        "data": RecognizeBusinessLicenseResponseBody,
+
     }
 
     def __init__(self, d=None):

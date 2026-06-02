@@ -9,7 +9,8 @@ from .list_signature_template_info_with_thumbnail_response_body import \
 
 class ListSignatureTemplateInfoWithThumbnailResponse(BaseResponse):
     _types = {
-        "data": ListSignatureTemplateInfoWithThumbnailResponseBody
+        "data": ListSignatureTemplateInfoWithThumbnailResponseBody,
+
     }
 
     def __init__(self, d=None):

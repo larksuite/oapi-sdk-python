@@ -8,7 +8,8 @@ from .get_resource_reservation_list_response_body import GetResourceReservationL
 
 class GetResourceReservationListResponse(BaseResponse):
     _types = {
-        "data": GetResourceReservationListResponseBody
+        "data": GetResourceReservationListResponseBody,
+
     }
 
     def __init__(self, d=None):

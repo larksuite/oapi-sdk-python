@@ -8,7 +8,8 @@ from .agent_email_agent_response_body import AgentEmailAgentResponseBody
 
 class AgentEmailAgentResponse(BaseResponse):
     _types = {
-        "data": AgentEmailAgentResponseBody
+        "data": AgentEmailAgentResponseBody,
+
     }
 
     def __init__(self, d=None):

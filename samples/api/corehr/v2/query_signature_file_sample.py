@@ -20,6 +20,7 @@ def main():
         .update_time_start("2022-01-01 00:00:00") \
         .update_time_end("2022-01-01 00:00:00") \
         .user_id_type("people_corehr_id") \
+        .select_sign_url(bool) \
         .request_body(QuerySignatureFileRequestBody.builder()
                       .states([])
                       .template_ids([])
@@ -56,6 +57,7 @@ async def amain():
         .update_time_start("2022-01-01 00:00:00") \
         .update_time_end("2022-01-01 00:00:00") \
         .user_id_type("people_corehr_id") \
+        .select_sign_url(bool) \
         .request_body(QuerySignatureFileRequestBody.builder()
                       .states([])
                       .template_ids([])

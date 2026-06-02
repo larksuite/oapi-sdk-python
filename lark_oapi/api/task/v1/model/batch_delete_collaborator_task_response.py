@@ -8,7 +8,8 @@ from .batch_delete_collaborator_task_response_body import BatchDeleteCollaborato
 
 class BatchDeleteCollaboratorTaskResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteCollaboratorTaskResponseBody
+        "data": BatchDeleteCollaboratorTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

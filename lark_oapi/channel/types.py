@@ -561,10 +561,10 @@ class SendResult:
 
     @classmethod
     def ok(
-        cls,
-        message_id: Optional[str] = None,
-        raw: Optional[Dict[str, Any]] = None,
-        chunk_ids: Optional[List[str]] = None,
+            cls,
+            message_id: Optional[str] = None,
+            raw: Optional[Dict[str, Any]] = None,
+            chunk_ids: Optional[List[str]] = None,
     ) -> "SendResult":
         return cls(
             success=True, message_id=message_id, raw=raw, chunk_ids=chunk_ids,
@@ -614,7 +614,6 @@ class UserAccessToken:
 # Back-compat alias — existing code and tests import ``UAT`` directly. Kept
 # for one release to ease migration; prefer ``UserAccessToken`` in new code.
 UAT = UserAccessToken
-
 
 # ----------------------------------------------------------------------------
 # Send options / routing

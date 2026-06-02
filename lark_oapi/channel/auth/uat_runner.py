@@ -16,7 +16,6 @@ from ..types import UAT
 from .device_flow import DeviceFlowClient, uat_needs_refresh
 from .token_store import TokenStore
 
-
 # Per-user-open-id asyncio locks so concurrent handler invocations for the
 # same user don't both try to refresh an expiring token simultaneously. The
 # interactive device-flow prompt/poll step runs outside this lock so a waiting
@@ -33,13 +32,13 @@ def _get_user_lock(user_open_id: str) -> asyncio.Lock:
 
 
 async def require_user_auth(
-    *,
-    device_flow: DeviceFlowClient,
-    token_store: TokenStore,
-    uat_config: Any,
-    user_open_id: str,
-    scopes: List[str],
-    context: Any,
+        *,
+        device_flow: DeviceFlowClient,
+        token_store: TokenStore,
+        uat_config: Any,
+        user_open_id: str,
+        scopes: List[str],
+        context: Any,
 ) -> UAT:
     """Resolve a usable UAT for ``user_open_id``, running device flow if needed.
 
@@ -67,7 +66,7 @@ async def require_user_auth(
             missing = [s for s in scopes if s and s not in (existing.scopes or [])]
             if not missing:
                 if uat_needs_refresh(
-                    existing, slack_seconds=ub.refresh_before_expiry_seconds
+                        existing, slack_seconds=ub.refresh_before_expiry_seconds
                 ):
                     if existing.refresh_token:
                         try:

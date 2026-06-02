@@ -8,7 +8,8 @@ from .list_chat_announcement_block_response_body import ListChatAnnouncementBloc
 
 class ListChatAnnouncementBlockResponse(BaseResponse):
     _types = {
-        "data": ListChatAnnouncementBlockResponseBody
+        "data": ListChatAnnouncementBlockResponseBody,
+
     }
 
     def __init__(self, d=None):

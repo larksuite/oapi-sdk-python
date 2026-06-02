@@ -10,6 +10,7 @@ class GetFileCommentRequest(BaseRequest):
         super().__init__()
         self.file_type: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.need_reaction: Optional[bool] = None
         self.file_token: Optional[str] = None
         self.comment_id: Optional[int] = None
 
@@ -35,6 +36,11 @@ class GetFileCommentRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "GetFileCommentRequestBuilder":
         self._get_file_comment_request.user_id_type = user_id_type
         self._get_file_comment_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def need_reaction(self, need_reaction: bool) -> "GetFileCommentRequestBuilder":
+        self._get_file_comment_request.need_reaction = need_reaction
+        self._get_file_comment_request.add_query("need_reaction", need_reaction)
         return self
 
     def file_token(self, file_token: str) -> "GetFileCommentRequestBuilder":

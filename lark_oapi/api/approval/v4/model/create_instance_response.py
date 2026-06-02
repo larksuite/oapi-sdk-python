@@ -8,7 +8,8 @@ from .create_instance_response_body import CreateInstanceResponseBody
 
 class CreateInstanceResponse(BaseResponse):
     _types = {
-        "data": CreateInstanceResponseBody
+        "data": CreateInstanceResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .workforce_plan_dimension import WorkforcePlanDimension
 
 
 class WorkforcePlan(object):
@@ -12,6 +13,7 @@ class WorkforcePlan(object):
         "start_date": str,
         "end_date": str,
         "active": bool,
+        "dimension_lists": List[WorkforcePlanDimension],
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class WorkforcePlan(object):
         self.start_date: Optional[str] = None
         self.end_date: Optional[str] = None
         self.active: Optional[bool] = None
+        self.dimension_lists: Optional[List[WorkforcePlanDimension]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class WorkforcePlanBuilder(object):
 
     def active(self, active: bool) -> "WorkforcePlanBuilder":
         self._workforce_plan.active = active
+        return self
+
+    def dimension_lists(self, dimension_lists: List[WorkforcePlanDimension]) -> "WorkforcePlanBuilder":
+        self._workforce_plan.dimension_lists = dimension_lists
         return self
 
     def build(self) -> "WorkforcePlan":

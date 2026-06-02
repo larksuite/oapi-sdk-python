@@ -8,7 +8,8 @@ from .create_badge_image_response_body import CreateBadgeImageResponseBody
 
 class CreateBadgeImageResponse(BaseResponse):
     _types = {
-        "data": CreateBadgeImageResponseBody
+        "data": CreateBadgeImageResponseBody,
+
     }
 
     def __init__(self, d=None):

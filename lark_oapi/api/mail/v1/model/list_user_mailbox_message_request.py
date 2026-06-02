@@ -12,6 +12,7 @@ class ListUserMailboxMessageRequest(BaseRequest):
         self.page_token: Optional[str] = None
         self.folder_id: Optional[str] = None
         self.only_unread: Optional[bool] = None
+        self.label_id: Optional[str] = None
         self.user_mailbox_id: Optional[str] = None
 
     @staticmethod
@@ -46,6 +47,11 @@ class ListUserMailboxMessageRequestBuilder(object):
     def only_unread(self, only_unread: bool) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.only_unread = only_unread
         self._list_user_mailbox_message_request.add_query("only_unread", only_unread)
+        return self
+
+    def label_id(self, label_id: str) -> "ListUserMailboxMessageRequestBuilder":
+        self._list_user_mailbox_message_request.label_id = label_id
+        self._list_user_mailbox_message_request.add_query("label_id", label_id)
         return self
 
     def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxMessageRequestBuilder":

@@ -8,7 +8,8 @@ from .list_interview_feedback_form_response_body import ListInterviewFeedbackFor
 
 class ListInterviewFeedbackFormResponse(BaseResponse):
     _types = {
-        "data": ListInterviewFeedbackFormResponseBody
+        "data": ListInterviewFeedbackFormResponseBody,
+
     }
 
     def __init__(self, d=None):

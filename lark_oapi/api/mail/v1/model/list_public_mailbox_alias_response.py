@@ -8,7 +8,8 @@ from .list_public_mailbox_alias_response_body import ListPublicMailboxAliasRespo
 
 class ListPublicMailboxAliasResponse(BaseResponse):
     _types = {
-        "data": ListPublicMailboxAliasResponseBody
+        "data": ListPublicMailboxAliasResponseBody,
+
     }
 
     def __init__(self, d=None):

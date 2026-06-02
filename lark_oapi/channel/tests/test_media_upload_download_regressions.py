@@ -15,7 +15,6 @@ from lark_oapi.channel.outbound.media.uploader import (
 from lark_oapi.channel.types import MediaSource
 from lark_oapi.core.json import JSON
 
-
 # --------------------------------------------------------------------------- #
 # JSON.marshal must not blow up on non-UTF-8 bytes (JPEG magic bytes).
 # --------------------------------------------------------------------------- #

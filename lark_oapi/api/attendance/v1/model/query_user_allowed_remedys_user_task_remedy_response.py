@@ -8,7 +8,8 @@ from .query_user_allowed_remedys_user_task_remedy_response_body import QueryUser
 
 class QueryUserAllowedRemedysUserTaskRemedyResponse(BaseResponse):
     _types = {
-        "data": QueryUserAllowedRemedysUserTaskRemedyResponseBody
+        "data": QueryUserAllowedRemedysUserTaskRemedyResponseBody,
+
     }
 
     def __init__(self, d=None):

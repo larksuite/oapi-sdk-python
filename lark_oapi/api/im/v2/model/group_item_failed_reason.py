@@ -2,18 +2,18 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .feed_group_item import FeedGroupItem
+from .feed_group_item_v2 import FeedGroupItemV2
 
 
 class GroupItemFailedReason(object):
     _types = {
-        "item": FeedGroupItem,
+        "item": FeedGroupItemV2,
         "error_code": int,
         "error_message": str,
     }
 
     def __init__(self, d=None):
-        self.item: Optional[FeedGroupItem] = None
+        self.item: Optional[FeedGroupItemV2] = None
         self.error_code: Optional[int] = None
         self.error_message: Optional[str] = None
         init(self, d, self._types)
@@ -27,7 +27,7 @@ class GroupItemFailedReasonBuilder(object):
     def __init__(self) -> None:
         self._group_item_failed_reason = GroupItemFailedReason()
 
-    def item(self, item: FeedGroupItem) -> "GroupItemFailedReasonBuilder":
+    def item(self, item: FeedGroupItemV2) -> "GroupItemFailedReasonBuilder":
         self._group_item_failed_reason.item = item
         return self
 

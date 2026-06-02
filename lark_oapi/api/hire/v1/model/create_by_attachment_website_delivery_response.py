@@ -8,7 +8,8 @@ from .create_by_attachment_website_delivery_response_body import CreateByAttachm
 
 class CreateByAttachmentWebsiteDeliveryResponse(BaseResponse):
     _types = {
-        "data": CreateByAttachmentWebsiteDeliveryResponseBody
+        "data": CreateByAttachmentWebsiteDeliveryResponseBody,
+
     }
 
     def __init__(self, d=None):

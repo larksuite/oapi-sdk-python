@@ -13,6 +13,8 @@ from ..model.get_app_table_form_request import GetAppTableFormRequest
 from ..model.get_app_table_form_response import GetAppTableFormResponse
 from ..model.patch_app_table_form_request import PatchAppTableFormRequest
 from ..model.patch_app_table_form_response import PatchAppTableFormResponse
+from ..model.upgrade_app_table_form_request import UpgradeAppTableFormRequest
+from ..model.upgrade_app_table_form_response import UpgradeAppTableFormResponse
 
 
 class AppTableForm(object):
@@ -90,6 +92,44 @@ class AppTableForm(object):
 
         # 反序列化
         response: PatchAppTableFormResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAppTableFormResponse)
+        response.raw = resp
+
+        return response
+
+    def upgrade(self, request: UpgradeAppTableFormRequest,
+                option: Optional[RequestOption] = None) -> UpgradeAppTableFormResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpgradeAppTableFormResponse = JSON.unmarshal(str(resp.content, UTF_8), UpgradeAppTableFormResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupgrade(self, request: UpgradeAppTableFormRequest,
+                       option: Optional[RequestOption] = None) -> UpgradeAppTableFormResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UpgradeAppTableFormResponse = JSON.unmarshal(str(resp.content, UTF_8), UpgradeAppTableFormResponse)
         response.raw = resp
 
         return response

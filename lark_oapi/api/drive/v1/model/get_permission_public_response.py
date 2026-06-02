@@ -8,7 +8,8 @@ from .get_permission_public_response_body import GetPermissionPublicResponseBody
 
 class GetPermissionPublicResponse(BaseResponse):
     _types = {
-        "data": GetPermissionPublicResponseBody
+        "data": GetPermissionPublicResponseBody,
+
     }
 
     def __init__(self, d=None):

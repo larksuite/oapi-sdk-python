@@ -8,7 +8,8 @@ from .update_talent_external_info_response_body import UpdateTalentExternalInfoR
 
 class UpdateTalentExternalInfoResponse(BaseResponse):
     _types = {
-        "data": UpdateTalentExternalInfoResponseBody
+        "data": UpdateTalentExternalInfoResponseBody,
+
     }
 
     def __init__(self, d=None):

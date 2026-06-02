@@ -124,6 +124,7 @@ async def test_fetch_interactive_success_v1():
 @pytest.mark.asyncio
 async def test_fetch_interactive_sync_fetch_also_accepted():
     """Injected fetcher may return a plain value (not awaitable)."""
+
     def fetch(mid):
         return {"data": {"items": [{"body": {"content": json.dumps({"schema": "2.0", "body": {}})}}]}}
 

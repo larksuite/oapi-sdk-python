@@ -237,25 +237,25 @@ class _AsyncFlow(_RegistrationFlow):
 
 
 def register_app(
-    on_qr_code,
-    on_status_change=None,
-    source=None,
-    cancel_event=None,
-    domain="https://accounts.feishu.cn",
-    lark_domain="https://accounts.larksuite.com",
-    app_preset=None,
+        on_qr_code,
+        on_status_change=None,
+        source=None,
+        cancel_event=None,
+        domain="https://accounts.feishu.cn",
+        lark_domain="https://accounts.larksuite.com",
+        app_preset=None,
 ):
     flow = _SyncFlow(on_qr_code, on_status_change, source, cancel_event, domain, lark_domain, app_preset)
     return flow.run()
 
 
 async def aregister_app(
-    on_qr_code,
-    on_status_change=None,
-    source=None,
-    domain="https://accounts.feishu.cn",
-    lark_domain="https://accounts.larksuite.com",
-    app_preset=None,
+        on_qr_code,
+        on_status_change=None,
+        source=None,
+        domain="https://accounts.feishu.cn",
+        lark_domain="https://accounts.larksuite.com",
+        app_preset=None,
 ):
     flow = _AsyncFlow(on_qr_code, on_status_change, source, domain, lark_domain, app_preset)
     return await flow.run()

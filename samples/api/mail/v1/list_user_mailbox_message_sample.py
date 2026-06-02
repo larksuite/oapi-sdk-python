@@ -19,6 +19,7 @@ def main():
         .page_token("xxx") \
         .folder_id("INBOX 或者用户文件夹 id") \
         .only_unread(True) \
+        .label_id("FLAGGED") \
         .build()
 
     # 发起请求
@@ -50,6 +51,7 @@ async def amain():
         .page_token("xxx") \
         .folder_id("INBOX 或者用户文件夹 id") \
         .only_unread(True) \
+        .label_id("FLAGGED") \
         .build()
 
     # 发起请求

@@ -10,13 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from ..types import CardPayload
 
-
 # Cell values containing these constructs should be rendered via `lark_md`
 # so bold/italic/code/link stay formatted; plain cells use `text`.
 _INLINE_MD_IN_CELL_RE = re.compile(
     r"(\*\*[^*]+\*\*)|(\*[^*\s][^*]*\*)|(`[^`\n]+`)|(\[[^\]]+\]\([^)]+\))"
 )
-
 
 HeaderTemplate = str  # 'blue' | 'red' | 'green' | ...
 
@@ -56,12 +54,12 @@ class CardBuilder:
 
     # ---- header ---------------------------------------------------------------
     def header(
-        self,
-        title: str,
-        *,
-        subtitle: Optional[str] = None,
-        template: HeaderTemplate = "blue",
-        icon: Optional[Dict[str, Any]] = None,
+            self,
+            title: str,
+            *,
+            subtitle: Optional[str] = None,
+            template: HeaderTemplate = "blue",
+            icon: Optional[Dict[str, Any]] = None,
     ) -> "CardBuilder":
         h: Dict[str, Any] = {"title": {"tag": "plain_text", "content": title}}
         if subtitle:
@@ -135,13 +133,13 @@ class CardBuilder:
     # elements; multiple buttons on one row use `column_set`.
 
     def _build_button(
-        self,
-        *,
-        label: str,
-        action: Optional[Dict[str, Any]] = None,
-        style: str = "default",
-        url: Optional[str] = None,
-        confirm: Optional[Dict[str, Any]] = None,
+            self,
+            *,
+            label: str,
+            action: Optional[Dict[str, Any]] = None,
+            style: str = "default",
+            url: Optional[str] = None,
+            confirm: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         btn: Dict[str, Any] = {
             "tag": "button",
@@ -157,13 +155,13 @@ class CardBuilder:
         return btn
 
     def button(
-        self,
-        label: str,
-        *,
-        action: Optional[Dict[str, Any]] = None,
-        style: str = "default",
-        url: Optional[str] = None,
-        confirm: Optional[Dict[str, Any]] = None,
+            self,
+            label: str,
+            *,
+            action: Optional[Dict[str, Any]] = None,
+            style: str = "default",
+            url: Optional[str] = None,
+            confirm: Optional[Dict[str, Any]] = None,
     ) -> "CardBuilder":
         self._body_elements.append(
             self._build_button(label=label, action=action, style=style, url=url, confirm=confirm)
@@ -189,11 +187,11 @@ class CardBuilder:
         return self
 
     def select(
-        self,
-        placeholder: str,
-        *,
-        options: List[Dict[str, str]],
-        action: Optional[Dict[str, Any]] = None,
+            self,
+            placeholder: str,
+            *,
+            options: List[Dict[str, str]],
+            action: Optional[Dict[str, Any]] = None,
     ) -> "CardBuilder":
         sel: Dict[str, Any] = {
             "tag": "select_static",
@@ -222,12 +220,12 @@ class CardBuilder:
         return self
 
     def table(
-        self,
-        headers: List[str],
-        rows: List[List[str]],
-        *,
-        page_size: int = 5,
-        data_types: Optional[List[str]] = None,
+            self,
+            headers: List[str],
+            rows: List[List[str]],
+            *,
+            page_size: int = 5,
+            data_types: Optional[List[str]] = None,
     ) -> "CardBuilder":
         """Append a native Card 2.0 ``table`` component.
 

@@ -8,7 +8,8 @@ from .search_basic_info_bank_branch_response_body import SearchBasicInfoBankBran
 
 class SearchBasicInfoBankBranchResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoBankBranchResponseBody
+        "data": SearchBasicInfoBankBranchResponseBody,
+
     }
 
     def __init__(self, d=None):

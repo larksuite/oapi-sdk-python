@@ -8,7 +8,8 @@ from .get_active_meeting_reserve_response_body import GetActiveMeetingReserveRes
 
 class GetActiveMeetingReserveResponse(BaseResponse):
     _types = {
-        "data": GetActiveMeetingReserveResponseBody
+        "data": GetActiveMeetingReserveResponseBody,
+
     }
 
     def __init__(self, d=None):

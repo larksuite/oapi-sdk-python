@@ -8,7 +8,8 @@ from .create_spreadsheet_sheet_float_image_response_body import CreateSpreadshee
 
 class CreateSpreadsheetSheetFloatImageResponse(BaseResponse):
     _types = {
-        "data": CreateSpreadsheetSheetFloatImageResponseBody
+        "data": CreateSpreadsheetSheetFloatImageResponseBody,
+
     }
 
     def __init__(self, d=None):

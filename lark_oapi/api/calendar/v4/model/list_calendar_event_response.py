@@ -8,7 +8,8 @@ from .list_calendar_event_response_body import ListCalendarEventResponseBody
 
 class ListCalendarEventResponse(BaseResponse):
     _types = {
-        "data": ListCalendarEventResponseBody
+        "data": ListCalendarEventResponseBody,
+
     }
 
     def __init__(self, d=None):

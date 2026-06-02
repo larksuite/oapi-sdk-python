@@ -8,7 +8,8 @@ from .import_additional_information_response_body import ImportAdditionalInforma
 
 class ImportAdditionalInformationResponse(BaseResponse):
     _types = {
-        "data": ImportAdditionalInformationResponseBody
+        "data": ImportAdditionalInformationResponseBody,
+
     }
 
     def __init__(self, d=None):

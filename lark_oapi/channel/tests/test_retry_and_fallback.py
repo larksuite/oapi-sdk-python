@@ -130,6 +130,6 @@ async def test_long_text_splits_preserving_order_first_reply_only():
     s._retry_max_attempts = 1
     r = await s.send(OutboundText(text="a" * 25), reply_to="om_target", receive_id="oc_1")
     assert r.success is True
-    assert calls[0]["op"] == "reply"   # first chunk replies
+    assert calls[0]["op"] == "reply"  # first chunk replies
     for c in calls[1:]:
-        assert c["op"] == "create"     # subsequent chunks are fresh
+        assert c["op"] == "create"  # subsequent chunks are fresh

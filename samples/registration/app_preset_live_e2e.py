@@ -28,7 +28,6 @@ import requests
 import lark_oapi as lark
 from lark_oapi.scene.registration import RegisterAppError
 
-
 DEFAULT_AVATARS = [
     "https://s1-imfile.feishucdn.com/static-resource/v1/v3_00cj_d6bebede-c56b-40a2-b767-8e9da07f3b3g",
     "https://s1-imfile.feishucdn.com/static-resource/v1/v2_bc5d2075-fcbd-41f8-bfe3-5a5ecbf0f7dg",

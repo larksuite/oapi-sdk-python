@@ -7,11 +7,11 @@ from .app_table_form_patched_field import AppTableFormPatchedField
 
 class PatchAppTableFormFieldResponseBody(object):
     _types = {
-        "field": AppTableFormPatchedField,
+        "fields": AppTableFormPatchedField,
     }
 
     def __init__(self, d=None):
-        self.field: Optional[AppTableFormPatchedField] = None
+        self.fields: Optional[AppTableFormPatchedField] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,8 +23,8 @@ class PatchAppTableFormFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_form_field_response_body = PatchAppTableFormFieldResponseBody()
 
-    def field(self, field: AppTableFormPatchedField) -> "PatchAppTableFormFieldResponseBodyBuilder":
-        self._patch_app_table_form_field_response_body.field = field
+    def fields(self, fields: AppTableFormPatchedField) -> "PatchAppTableFormFieldResponseBodyBuilder":
+        self._patch_app_table_form_field_response_body.fields = fields
         return self
 
     def build(self) -> "PatchAppTableFormFieldResponseBody":

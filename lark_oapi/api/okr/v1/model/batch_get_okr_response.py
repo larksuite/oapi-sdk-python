@@ -8,7 +8,8 @@ from .batch_get_okr_response_body import BatchGetOkrResponseBody
 
 class BatchGetOkrResponse(BaseResponse):
     _types = {
-        "data": BatchGetOkrResponseBody
+        "data": BatchGetOkrResponseBody,
+
     }
 
     def __init__(self, d=None):

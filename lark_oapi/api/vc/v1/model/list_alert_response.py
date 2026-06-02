@@ -8,7 +8,8 @@ from .list_alert_response_body import ListAlertResponseBody
 
 class ListAlertResponse(BaseResponse):
     _types = {
-        "data": ListAlertResponseBody
+        "data": ListAlertResponseBody,
+
     }
 
     def __init__(self, d=None):

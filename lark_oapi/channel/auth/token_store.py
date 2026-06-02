@@ -25,7 +25,9 @@ class TokenStore(Protocol):
     """Async interface for UAT storage."""
 
     async def get(self, user_id: str) -> Optional[UAT]: ...
+
     async def set(self, user_id: str, token: UAT) -> None: ...
+
     async def delete(self, user_id: str) -> None: ...
 
 

@@ -8,7 +8,8 @@ from .create_calendar_event_meeting_minute_response_body import CreateCalendarEv
 
 class CreateCalendarEventMeetingMinuteResponse(BaseResponse):
     _types = {
-        "data": CreateCalendarEventMeetingMinuteResponseBody
+        "data": CreateCalendarEventMeetingMinuteResponseBody,
+
     }
 
     def __init__(self, d=None):

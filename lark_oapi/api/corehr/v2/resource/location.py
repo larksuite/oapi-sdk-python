@@ -15,6 +15,8 @@ from ..model.batch_get_location_request import BatchGetLocationRequest
 from ..model.batch_get_location_response import BatchGetLocationResponse
 from ..model.patch_location_request import PatchLocationRequest
 from ..model.patch_location_response import PatchLocationResponse
+from ..model.query_multi_timeline_location_request import QueryMultiTimelineLocationRequest
+from ..model.query_multi_timeline_location_response import QueryMultiTimelineLocationResponse
 from ..model.query_recent_change_location_request import QueryRecentChangeLocationRequest
 from ..model.query_recent_change_location_response import QueryRecentChangeLocationResponse
 
@@ -131,6 +133,46 @@ class Location(object):
 
         # 反序列化
         response: PatchLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchLocationResponse)
+        response.raw = resp
+
+        return response
+
+    def query_multi_timeline(self, request: QueryMultiTimelineLocationRequest,
+                             option: Optional[RequestOption] = None) -> QueryMultiTimelineLocationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryMultiTimelineLocationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_multi_timeline(self, request: QueryMultiTimelineLocationRequest,
+                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineLocationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      QueryMultiTimelineLocationResponse)
         response.raw = resp
 
         return response

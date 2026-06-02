@@ -27,6 +27,8 @@ class DeviceChangeEvent(object):
         "is_managed": bool,
         "mdm_device_id": str,
         "mdm_provider_name": str,
+        "device_env_detect_status": int,
+        "is_public": bool,
     }
 
     def __init__(self, d=None):
@@ -50,6 +52,8 @@ class DeviceChangeEvent(object):
         self.is_managed: Optional[bool] = None
         self.mdm_device_id: Optional[str] = None
         self.mdm_provider_name: Optional[str] = None
+        self.device_env_detect_status: Optional[int] = None
+        self.is_public: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -139,6 +143,14 @@ class DeviceChangeEventBuilder(object):
 
     def mdm_provider_name(self, mdm_provider_name: str) -> "DeviceChangeEventBuilder":
         self._device_change_event.mdm_provider_name = mdm_provider_name
+        return self
+
+    def device_env_detect_status(self, device_env_detect_status: int) -> "DeviceChangeEventBuilder":
+        self._device_change_event.device_env_detect_status = device_env_detect_status
+        return self
+
+    def is_public(self, is_public: bool) -> "DeviceChangeEventBuilder":
+        self._device_change_event.is_public = is_public
         return self
 
     def build(self) -> "DeviceChangeEvent":

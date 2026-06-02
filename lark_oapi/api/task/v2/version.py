@@ -10,5 +10,6 @@ class V2(object):
         self.section: Section = Section(config)
         self.task: Task = Task(config)
         self.task_subtask: TaskSubtask = TaskSubtask(config)
+        self.task_v2: TaskV2 = TaskV2(config)
         self.tasklist: Tasklist = Tasklist(config)
         self.tasklist_activity_subscription: TasklistActivitySubscription = TasklistActivitySubscription(config)

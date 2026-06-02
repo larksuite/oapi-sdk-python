@@ -8,7 +8,8 @@ from .subscription_user_mailbox_event_response_body import SubscriptionUserMailb
 
 class SubscriptionUserMailboxEventResponse(BaseResponse):
     _types = {
-        "data": SubscriptionUserMailboxEventResponseBody
+        "data": SubscriptionUserMailboxEventResponseBody,
+
     }
 
     def __init__(self, d=None):

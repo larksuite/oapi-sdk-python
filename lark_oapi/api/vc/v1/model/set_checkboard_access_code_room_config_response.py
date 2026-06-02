@@ -8,7 +8,8 @@ from .set_checkboard_access_code_room_config_response_body import SetCheckboardA
 
 class SetCheckboardAccessCodeRoomConfigResponse(BaseResponse):
     _types = {
-        "data": SetCheckboardAccessCodeRoomConfigResponseBody
+        "data": SetCheckboardAccessCodeRoomConfigResponseBody,
+
     }
 
     def __init__(self, d=None):

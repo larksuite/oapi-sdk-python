@@ -22,7 +22,7 @@ class GetTalentRequestBuilder(object):
         get_talent_request = GetTalentRequest()
         get_talent_request.http_method = HttpMethod.GET
         get_talent_request.uri = "/open-apis/hire/v2/talents/:talent_id"
-        get_talent_request.token_types = {AccessTokenType.TENANT}
+        get_talent_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_talent_request: GetTalentRequest = get_talent_request
 
     def user_id_type(self, user_id_type: str) -> "GetTalentRequestBuilder":

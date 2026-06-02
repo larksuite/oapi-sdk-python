@@ -8,7 +8,8 @@ from .upload_report_archive_rule_response_body import UploadReportArchiveRuleRes
 
 class UploadReportArchiveRuleResponse(BaseResponse):
     _types = {
-        "data": UploadReportArchiveRuleResponseBody
+        "data": UploadReportArchiveRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

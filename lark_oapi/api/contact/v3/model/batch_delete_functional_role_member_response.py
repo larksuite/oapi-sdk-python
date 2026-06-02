@@ -8,7 +8,8 @@ from .batch_delete_functional_role_member_response_body import BatchDeleteFuncti
 
 class BatchDeleteFunctionalRoleMemberResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteFunctionalRoleMemberResponseBody
+        "data": BatchDeleteFunctionalRoleMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

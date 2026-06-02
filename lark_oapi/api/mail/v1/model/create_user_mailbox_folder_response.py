@@ -8,7 +8,8 @@ from .create_user_mailbox_folder_response_body import CreateUserMailboxFolderRes
 
 class CreateUserMailboxFolderResponse(BaseResponse):
     _types = {
-        "data": CreateUserMailboxFolderResponseBody
+        "data": CreateUserMailboxFolderResponseBody,
+
     }
 
     def __init__(self, d=None):

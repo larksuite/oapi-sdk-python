@@ -8,7 +8,8 @@ from .list_file_version_response_body import ListFileVersionResponseBody
 
 class ListFileVersionResponse(BaseResponse):
     _types = {
-        "data": ListFileVersionResponseBody
+        "data": ListFileVersionResponseBody,
+
     }
 
     def __init__(self, d=None):

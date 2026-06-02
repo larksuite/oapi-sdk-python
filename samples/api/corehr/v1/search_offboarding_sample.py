@@ -17,6 +17,7 @@ def main():
         .page_size(100) \
         .page_token("6891251722631890445") \
         .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
         .request_body(SearchOffboardingRequestBody.builder()
                       .employment_ids([])
                       .apply_initiating_time_start("2022-01-01 11:22:33")
@@ -30,6 +31,8 @@ def main():
                       .statuses([])
                       .reasons([])
                       .employee_reasons([])
+                      .department_ids([])
+                      .select_fields([])
                       .build()) \
         .build()
 
@@ -60,6 +63,7 @@ async def amain():
         .page_size(100) \
         .page_token("6891251722631890445") \
         .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
         .request_body(SearchOffboardingRequestBody.builder()
                       .employment_ids([])
                       .apply_initiating_time_start("2022-01-01 11:22:33")
@@ -73,6 +77,8 @@ async def amain():
                       .statuses([])
                       .reasons([])
                       .employee_reasons([])
+                      .department_ids([])
+                      .select_fields([])
                       .build()) \
         .build()
 

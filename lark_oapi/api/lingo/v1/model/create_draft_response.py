@@ -8,7 +8,8 @@ from .create_draft_response_body import CreateDraftResponseBody
 
 class CreateDraftResponse(BaseResponse):
     _types = {
-        "data": CreateDraftResponseBody
+        "data": CreateDraftResponseBody,
+
     }
 
     def __init__(self, d=None):

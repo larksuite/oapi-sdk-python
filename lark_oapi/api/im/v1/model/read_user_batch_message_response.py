@@ -8,7 +8,8 @@ from .read_user_batch_message_response_body import ReadUserBatchMessageResponseB
 
 class ReadUserBatchMessageResponse(BaseResponse):
     _types = {
-        "data": ReadUserBatchMessageResponseBody
+        "data": ReadUserBatchMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

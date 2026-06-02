@@ -8,7 +8,8 @@ from .combined_update_talent_response_body import CombinedUpdateTalentResponseBo
 
 class CombinedUpdateTalentResponse(BaseResponse):
     _types = {
-        "data": CombinedUpdateTalentResponseBody
+        "data": CombinedUpdateTalentResponseBody,
+
     }
 
     def __init__(self, d=None):

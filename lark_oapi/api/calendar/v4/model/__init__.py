@@ -13,6 +13,9 @@ from .calendar_event_attendee_chat_member import *
 from .calendar_event_attendee_id import *
 from .calendar_event_attendee_resp import *
 from .calendar_event_resp import *
+from .calendar_event_search_filter import *
+from .calendar_event_search_item import *
+from .calendar_event_search_meta import *
 from .calendar_freebusy import *
 from .calendar_freebusy_error import *
 from .calendar_primary_batch_req import *
@@ -31,6 +34,7 @@ from .event_organizer import *
 from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
+from .excluded_event_time import *
 from .file import *
 from .free_time import *
 from .free_time_ai import *
@@ -38,9 +42,12 @@ from .free_time_slot import *
 from .freebusy import *
 from .i18n_meeting_description import *
 from .instance import *
+from .instance_relation_info import *
 from .meeting_chat import *
 from .meeting_minute import *
 from .meeting_settings import *
+from .mget_instance_info_fail_msg import *
+from .mget_meeting_chat_fail_msg import *
 from .my_ai_event_detail import *
 from .my_ai_event_info import *
 from .myai_card_status import *
@@ -49,7 +56,10 @@ from .myai_reply import *
 from .myai_search_doc_result import *
 from .open_event_rsvp_info import *
 from .operate_card_data import *
+from .recommend_event_info import *
+from .recommend_room_info import *
 from .reminder import *
+from .resource_waitlist import *
 from .room_meta import *
 from .schema import *
 from .search_event_data import *
@@ -59,6 +69,7 @@ from .setting import *
 from .system_info import *
 from .third_party_meeting_settings import *
 from .time_info import *
+from .time_range import *
 from .time_span import *
 from .timeoff_event import *
 from .user_calendar import *

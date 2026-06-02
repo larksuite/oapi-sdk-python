@@ -15,6 +15,7 @@ from .custom_field_value import CustomFieldValue
 from .task_dependency import TaskDependency
 from .task_assignee import TaskAssignee
 from .reminder import Reminder
+from .attachment import Attachment
 
 
 class Task(object):
@@ -48,6 +49,11 @@ class Task(object):
         "dependencies": List[TaskDependency],
         "assignee_related": List[TaskAssignee],
         "positive_reminders": List[Reminder],
+        "agent_task_status": int,
+        "agent_task_progress": str,
+        "text_deliveries": List[str],
+        "attachment_deliveries": List[Attachment],
+        "next_task_guid": str,
     }
 
     def __init__(self, d=None):
@@ -80,6 +86,11 @@ class Task(object):
         self.dependencies: Optional[List[TaskDependency]] = None
         self.assignee_related: Optional[List[TaskAssignee]] = None
         self.positive_reminders: Optional[List[Reminder]] = None
+        self.agent_task_status: Optional[int] = None
+        self.agent_task_progress: Optional[str] = None
+        self.text_deliveries: Optional[List[str]] = None
+        self.attachment_deliveries: Optional[List[Attachment]] = None
+        self.next_task_guid: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -205,6 +216,26 @@ class TaskBuilder(object):
 
     def positive_reminders(self, positive_reminders: List[Reminder]) -> "TaskBuilder":
         self._task.positive_reminders = positive_reminders
+        return self
+
+    def agent_task_status(self, agent_task_status: int) -> "TaskBuilder":
+        self._task.agent_task_status = agent_task_status
+        return self
+
+    def agent_task_progress(self, agent_task_progress: str) -> "TaskBuilder":
+        self._task.agent_task_progress = agent_task_progress
+        return self
+
+    def text_deliveries(self, text_deliveries: List[str]) -> "TaskBuilder":
+        self._task.text_deliveries = text_deliveries
+        return self
+
+    def attachment_deliveries(self, attachment_deliveries: List[Attachment]) -> "TaskBuilder":
+        self._task.attachment_deliveries = attachment_deliveries
+        return self
+
+    def next_task_guid(self, next_task_guid: str) -> "TaskBuilder":
+        self._task.next_task_guid = next_task_guid
         return self
 
     def build(self) -> "Task":

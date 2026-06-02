@@ -19,6 +19,7 @@ class DepartmentForPatch(object):
         "custom_fields": List[ObjectFieldData],
         "cost_center_id": str,
         "staffing_model": Enum,
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class DepartmentForPatch(object):
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.cost_center_id: Optional[str] = None
         self.staffing_model: Optional[Enum] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -76,6 +78,10 @@ class DepartmentForPatchBuilder(object):
 
     def staffing_model(self, staffing_model: Enum) -> "DepartmentForPatchBuilder":
         self._department_for_patch.staffing_model = staffing_model
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "DepartmentForPatchBuilder":
+        self._department_for_patch.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "DepartmentForPatch":

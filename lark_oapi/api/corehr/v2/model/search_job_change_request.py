@@ -26,7 +26,7 @@ class SearchJobChangeRequestBuilder(object):
         search_job_change_request = SearchJobChangeRequest()
         search_job_change_request.http_method = HttpMethod.POST
         search_job_change_request.uri = "/open-apis/corehr/v2/job_changes/search"
-        search_job_change_request.token_types = {AccessTokenType.TENANT}
+        search_job_change_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._search_job_change_request: SearchJobChangeRequest = search_job_change_request
 
     def page_size(self, page_size: int) -> "SearchJobChangeRequestBuilder":

@@ -8,7 +8,8 @@ from .list_acct_item_response_body import ListAcctItemResponseBody
 
 class ListAcctItemResponse(BaseResponse):
     _types = {
-        "data": ListAcctItemResponseBody
+        "data": ListAcctItemResponseBody,
+
     }
 
     def __init__(self, d=None):

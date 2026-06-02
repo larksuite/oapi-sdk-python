@@ -8,7 +8,8 @@ from .complete_pre_hire_response_body import CompletePreHireResponseBody
 
 class CompletePreHireResponse(BaseResponse):
     _types = {
-        "data": CompletePreHireResponseBody
+        "data": CompletePreHireResponseBody,
+
     }
 
     def __init__(self, d=None):

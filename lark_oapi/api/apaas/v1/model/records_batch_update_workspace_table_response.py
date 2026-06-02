@@ -8,7 +8,8 @@ from .records_batch_update_workspace_table_response_body import RecordsBatchUpda
 
 class RecordsBatchUpdateWorkspaceTableResponse(BaseResponse):
     _types = {
-        "data": RecordsBatchUpdateWorkspaceTableResponseBody
+        "data": RecordsBatchUpdateWorkspaceTableResponseBody,
+
     }
 
     def __init__(self, d=None):

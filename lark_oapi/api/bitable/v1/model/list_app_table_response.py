@@ -8,7 +8,8 @@ from .list_app_table_response_body import ListAppTableResponseBody
 
 class ListAppTableResponse(BaseResponse):
     _types = {
-        "data": ListAppTableResponseBody
+        "data": ListAppTableResponseBody,
+
     }
 
     def __init__(self, d=None):

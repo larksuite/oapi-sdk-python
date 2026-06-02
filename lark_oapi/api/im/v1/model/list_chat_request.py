@@ -12,6 +12,7 @@ class ListChatRequest(BaseRequest):
         self.sort_type: Optional[str] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
+        self.types: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListChatRequestBuilder":
@@ -45,6 +46,11 @@ class ListChatRequestBuilder(object):
     def page_size(self, page_size: int) -> "ListChatRequestBuilder":
         self._list_chat_request.page_size = page_size
         self._list_chat_request.add_query("page_size", page_size)
+        return self
+
+    def types(self, types: str) -> "ListChatRequestBuilder":
+        self._list_chat_request.types = types
+        self._list_chat_request.add_query("types", types)
         return self
 
     def build(self) -> ListChatRequest:

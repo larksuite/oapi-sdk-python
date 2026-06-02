@@ -8,7 +8,8 @@ from .reserve_scope_reserve_config_response_body import ReserveScopeReserveConfi
 
 class ReserveScopeReserveConfigResponse(BaseResponse):
     _types = {
-        "data": ReserveScopeReserveConfigResponseBody
+        "data": ReserveScopeReserveConfigResponseBody,
+
     }
 
     def __init__(self, d=None):

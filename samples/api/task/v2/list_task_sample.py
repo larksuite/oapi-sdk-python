@@ -19,6 +19,7 @@ def main():
         .completed(True) \
         .type("my_tasks") \
         .user_id_type("open_id") \
+        .agent_task_status(1) \
         .build()
 
     # 发起请求
@@ -50,6 +51,7 @@ async def amain():
         .completed(True) \
         .type("my_tasks") \
         .user_id_type("open_id") \
+        .agent_task_status(1) \
         .build()
 
     # 发起请求

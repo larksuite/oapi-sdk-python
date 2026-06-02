@@ -3,7 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .version import Version
+from .create_file_version_request_body import CreateFileVersionRequestBody
 
 
 class CreateFileVersionRequest(BaseRequest):
@@ -11,7 +11,7 @@ class CreateFileVersionRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.file_token: Optional[str] = None
-        self.request_body: Optional[Version] = None
+        self.request_body: Optional[CreateFileVersionRequestBody] = None
 
     @staticmethod
     def builder() -> "CreateFileVersionRequestBuilder":
@@ -37,7 +37,7 @@ class CreateFileVersionRequestBuilder(object):
         self._create_file_version_request.paths["file_token"] = str(file_token)
         return self
 
-    def request_body(self, request_body: Version) -> "CreateFileVersionRequestBuilder":
+    def request_body(self, request_body: CreateFileVersionRequestBody) -> "CreateFileVersionRequestBuilder":
         self._create_file_version_request.request_body = request_body
         self._create_file_version_request.body = request_body
         return self

@@ -8,7 +8,8 @@ from .create_permission_public_password_response_body import CreatePermissionPub
 
 class CreatePermissionPublicPasswordResponse(BaseResponse):
     _types = {
-        "data": CreatePermissionPublicPasswordResponseBody
+        "data": CreatePermissionPublicPasswordResponseBody,
+
     }
 
     def __init__(self, d=None):

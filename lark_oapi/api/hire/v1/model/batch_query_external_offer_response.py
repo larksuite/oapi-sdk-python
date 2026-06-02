@@ -8,7 +8,8 @@ from .batch_query_external_offer_response_body import BatchQueryExternalOfferRes
 
 class BatchQueryExternalOfferResponse(BaseResponse):
     _types = {
-        "data": BatchQueryExternalOfferResponseBody
+        "data": BatchQueryExternalOfferResponseBody,
+
     }
 
     def __init__(self, d=None):

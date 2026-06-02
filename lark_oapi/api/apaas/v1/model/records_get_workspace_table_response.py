@@ -8,7 +8,8 @@ from .records_get_workspace_table_response_body import RecordsGetWorkspaceTableR
 
 class RecordsGetWorkspaceTableResponse(BaseResponse):
     _types = {
-        "data": RecordsGetWorkspaceTableResponseBody
+        "data": RecordsGetWorkspaceTableResponseBody,
+
     }
 
     def __init__(self, d=None):

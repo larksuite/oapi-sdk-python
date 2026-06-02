@@ -66,7 +66,7 @@ def chunk_text(text: str, limit: int = 3500, mode: _ChunkMode = "newline") -> li
     if len(text) <= limit:
         return [text]
     if mode == "none":
-        return [text[i : i + limit] for i in range(0, len(text), limit)]
+        return [text[i: i + limit] for i in range(0, len(text), limit)]
     if mode == "paragraph":
         return _chunk_by_delim(text, limit, delim="\n\n")
     return _chunk_by_delim(text, limit, delim="\n")
@@ -81,7 +81,7 @@ def _chunk_by_delim(text: str, limit: int, delim: str) -> list:
         if n - i <= limit:
             chunks.append(text[i:])
             break
-        window = text[i : i + limit]
+        window = text[i: i + limit]
         idx = window.rfind(delim)
         if idx <= 0:
             chunks.append(window)
@@ -193,9 +193,9 @@ def _build_text(msg: OutboundText) -> Dict[str, str]:
 
 
 def _build_post(
-    msg: OutboundPost,
-    table_mode: str = "off",
-    tag_md_mode: str = "structured",
+        msg: OutboundPost,
+        table_mode: str = "off",
+        tag_md_mode: str = "structured",
 ) -> Dict[str, str]:
     """Build a Feishu post-message body.
 
@@ -221,11 +221,11 @@ def _build_post(
 
 
 def _build_media_caption_post(
-    *,
-    caption: str,
-    media_node: Dict[str, Any],
-    table_mode: str = "off",
-    tag_md_mode: str = "structured",
+        *,
+        caption: str,
+        media_node: Dict[str, Any],
+        table_mode: str = "off",
+        tag_md_mode: str = "structured",
 ) -> Dict[str, str]:
     post = markdown_to_post_ast(
         caption,
@@ -291,11 +291,11 @@ def _build_sticker(file_key: str) -> Dict[str, str]:
 
 class OutboundSender:
     def __init__(
-        self,
-        driver: SendDriver,
-        config: Optional[OutboundConfig] = None,
-        *,
-        on_success: Optional[Callable[[str], None]] = None,
+            self,
+            driver: SendDriver,
+            config: Optional[OutboundConfig] = None,
+            *,
+            on_success: Optional[Callable[[str], None]] = None,
     ) -> None:
         self._driver = driver
         self._config = config or OutboundConfig()
@@ -330,15 +330,15 @@ class OutboundSender:
         )
 
     async def send(
-        self,
-        message: OutboundMessage,
-        *,
-        receive_id: Optional[str] = None,
-        receive_id_type: Optional[str] = None,
-        reply_to: Optional[str] = None,
-        reply_in_thread: Optional[bool] = None,
-        reply_target_gone: str = "fresh",
-        uuid_: Optional[str] = None,
+            self,
+            message: OutboundMessage,
+            *,
+            receive_id: Optional[str] = None,
+            receive_id_type: Optional[str] = None,
+            reply_to: Optional[str] = None,
+            reply_in_thread: Optional[bool] = None,
+            reply_target_gone: str = "fresh",
+            uuid_: Optional[str] = None,
     ) -> SendResult:
         """Route a single OutboundMessage through the driver.
 
@@ -412,21 +412,22 @@ class OutboundSender:
         return last_result
 
     async def _send_one_with_fallback(
-        self,
-        *,
-        body: Dict[str, str],
-        receive_id: Optional[str],
-        receive_id_type: Optional[str],
-        reply_to: Optional[str],
-        reply_in_thread: Optional[bool],
-        reply_target_gone: str,
-        uuid_: str,
+            self,
+            *,
+            body: Dict[str, str],
+            receive_id: Optional[str],
+            receive_id_type: Optional[str],
+            reply_to: Optional[str],
+            reply_in_thread: Optional[bool],
+            reply_target_gone: str,
+            uuid_: str,
     ) -> SendResult:
         """One send attempt with retry + two graceful downgrades.
 
         - `target_revoked` when replying → retry as a fresh create.
         - `format_error` on `post` → downgrade to plain text.
         """
+
         async def attempt(_: int) -> SendResult:
             if reply_to:
                 return await self._reply(reply_to, body, reply_in_thread, uuid_)
@@ -448,10 +449,12 @@ class OutboundSender:
             if reply_target_gone == "fail":
                 return result
             logger.info("outbound: reply target gone, retrying as fresh message")
+
             async def fresh(_: int) -> SendResult:
                 rid = receive_id or ""
                 rit = receive_id_type or infer_receive_id_type(rid)
                 return await self._create(rid, rit, body, uuid_)
+
             return await with_retry(fresh, max_attempts=self._config.retry.max_attempts,
                                     base_delay_ms=self._config.retry.base_delay_ms)
 
@@ -461,23 +464,25 @@ class OutboundSender:
             plain = _post_to_plain_text_from_body(body.get("content", ""))
             if plain:
                 text_body = {"msg_type": "text", "content": json.dumps({"text": plain}, ensure_ascii=False)}
+
                 async def fallback(_: int) -> SendResult:
                     if reply_to:
                         return await self._reply(reply_to, text_body, reply_in_thread, uuid_)
                     rid = receive_id or ""
                     rit = receive_id_type or infer_receive_id_type(rid)
                     return await self._create(rid, rit, text_body, uuid_)
+
                 return await with_retry(fallback, max_attempts=self._config.retry.max_attempts,
                                         base_delay_ms=self._config.retry.base_delay_ms)
 
         return result
 
     async def _materialize(
-        self,
-        msg: OutboundMessage,
-        *,
-        chat_id: str = "",
-        receive_id_type: str = "",
+            self,
+            msg: OutboundMessage,
+            *,
+            chat_id: str = "",
+            receive_id_type: str = "",
     ) -> List[Dict[str, str]]:
         if isinstance(msg, OutboundText):
             text = msg.text or ""
@@ -588,7 +593,7 @@ class OutboundSender:
         return []
 
     async def _maybe_oversize_hook(
-        self, text: str, *, chat_id: str, receive_id_type: str,
+            self, text: str, *, chat_id: str, receive_id_type: str,
     ) -> Optional[str]:
         """Return non-empty replacement when the hook supplies one.
 
@@ -625,11 +630,11 @@ class OutboundSender:
         return None
 
     async def _create(
-        self,
-        receive_id: str,
-        receive_id_type: str,
-        body: Dict[str, str],
-        uuid_: str,
+            self,
+            receive_id: str,
+            receive_id_type: str,
+            body: Dict[str, str],
+            uuid_: str,
     ) -> SendResult:
         try:
             raw = await _maybe_await(
@@ -657,11 +662,11 @@ class OutboundSender:
         return result
 
     async def _reply(
-        self,
-        message_id: str,
-        body: Dict[str, str],
-        reply_in_thread: Optional[bool],
-        uuid_: str,
+            self,
+            message_id: str,
+            body: Dict[str, str],
+            reply_in_thread: Optional[bool],
+            uuid_: str,
     ) -> SendResult:
         try:
             kwargs: Dict[str, Any] = {

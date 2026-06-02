@@ -8,7 +8,8 @@ from .participant_list_export_response_body import ParticipantListExportResponse
 
 class ParticipantListExportResponse(BaseResponse):
     _types = {
-        "data": ParticipantListExportResponseBody
+        "data": ParticipantListExportResponseBody,
+
     }
 
     def __init__(self, d=None):

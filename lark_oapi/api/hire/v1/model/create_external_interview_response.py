@@ -8,7 +8,8 @@ from .create_external_interview_response_body import CreateExternalInterviewResp
 
 class CreateExternalInterviewResponse(BaseResponse):
     _types = {
-        "data": CreateExternalInterviewResponseBody
+        "data": CreateExternalInterviewResponseBody,
+
     }
 
     def __init__(self, d=None):

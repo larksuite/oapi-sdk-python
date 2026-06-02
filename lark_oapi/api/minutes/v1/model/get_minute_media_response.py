@@ -8,7 +8,8 @@ from .get_minute_media_response_body import GetMinuteMediaResponseBody
 
 class GetMinuteMediaResponse(BaseResponse):
     _types = {
-        "data": GetMinuteMediaResponseBody
+        "data": GetMinuteMediaResponseBody,
+
     }
 
     def __init__(self, d=None):

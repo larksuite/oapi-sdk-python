@@ -7,6 +7,10 @@ from .phone_for_update import PhoneForUpdate
 from .address_for_update import AddressForUpdate
 from .file import File
 from .object_field_data import ObjectFieldData
+from .visa_for_update import VisaForUpdate
+from .passport_for_update import PassportForUpdate
+from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
+from .name_for_update import NameForUpdate
 
 
 class DependentForUpdate(object):
@@ -25,6 +29,14 @@ class DependentForUpdate(object):
         "address": AddressForUpdate,
         "birth_certificate_of_children": List[File],
         "custom_fields": List[ObjectFieldData],
+        "reason": str,
+        "modify_date": str,
+        "visas": List[VisaForUpdate],
+        "passports": List[PassportForUpdate],
+        "citizenship_statuses": List[ProfileSettingCitizenshipStatus],
+        "id": str,
+        "nationality_v2": str,
+        "name": NameForUpdate,
     }
 
     def __init__(self, d=None):
@@ -42,6 +54,14 @@ class DependentForUpdate(object):
         self.address: Optional[AddressForUpdate] = None
         self.birth_certificate_of_children: Optional[List[File]] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.reason: Optional[str] = None
+        self.modify_date: Optional[str] = None
+        self.visas: Optional[List[VisaForUpdate]] = None
+        self.passports: Optional[List[PassportForUpdate]] = None
+        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
+        self.id: Optional[str] = None
+        self.nationality_v2: Optional[str] = None
+        self.name: Optional[NameForUpdate] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -109,6 +129,39 @@ class DependentForUpdateBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DependentForUpdateBuilder":
         self._dependent_for_update.custom_fields = custom_fields
+        return self
+
+    def reason(self, reason: str) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.reason = reason
+        return self
+
+    def modify_date(self, modify_date: str) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.modify_date = modify_date
+        return self
+
+    def visas(self, visas: List[VisaForUpdate]) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.visas = visas
+        return self
+
+    def passports(self, passports: List[PassportForUpdate]) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.passports = passports
+        return self
+
+    def citizenship_statuses(self, citizenship_statuses: List[
+        ProfileSettingCitizenshipStatus]) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.citizenship_statuses = citizenship_statuses
+        return self
+
+    def id(self, id: str) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.id = id
+        return self
+
+    def nationality_v2(self, nationality_v2: str) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.nationality_v2 = nationality_v2
+        return self
+
+    def name(self, name: NameForUpdate) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.name = name
         return self
 
     def build(self) -> "DependentForUpdate":

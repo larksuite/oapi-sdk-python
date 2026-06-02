@@ -51,6 +51,11 @@ def main():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
+                      .legal_name_v2s([])
+                      .national_id_v2s([])
+                      .visas([])
+                      .passports([])
+                      .person_for_countries([])
                       .build()) \
         .build()
 
@@ -115,6 +120,11 @@ async def amain():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
+                      .legal_name_v2s([])
+                      .national_id_v2s([])
+                      .visas([])
+                      .passports([])
+                      .person_for_countries([])
                       .build()) \
         .build()
 

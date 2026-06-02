@@ -25,7 +25,7 @@ class TreeDepartmentRequestBuilder(object):
         tree_department_request = TreeDepartmentRequest()
         tree_department_request.http_method = HttpMethod.POST
         tree_department_request.uri = "/open-apis/corehr/v2/departments/tree"
-        tree_department_request.token_types = {AccessTokenType.TENANT}
+        tree_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._tree_department_request: TreeDepartmentRequest = tree_department_request
 
     def page_size(self, page_size: int) -> "TreeDepartmentRequestBuilder":

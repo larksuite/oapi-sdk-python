@@ -8,7 +8,8 @@ from .write_user_group_user_rel_response_body import WriteUserGroupUserRelRespon
 
 class WriteUserGroupUserRelResponse(BaseResponse):
     _types = {
-        "data": WriteUserGroupUserRelResponseBody
+        "data": WriteUserGroupUserRelResponseBody,
+
     }
 
     def __init__(self, d=None):

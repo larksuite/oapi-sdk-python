@@ -56,6 +56,7 @@ class BasicInfo(object):
         "hukou_location": str,
         "custom_fields": List[ObjectFieldData],
         "expected_graduate_date": str,
+        "political_affiliation": str,
     }
 
     def __init__(self, d=None):
@@ -98,6 +99,7 @@ class BasicInfo(object):
         self.hukou_location: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.expected_graduate_date: Optional[str] = None
+        self.political_affiliation: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -263,6 +265,10 @@ class BasicInfoBuilder(object):
 
     def expected_graduate_date(self, expected_graduate_date: str) -> "BasicInfoBuilder":
         self._basic_info.expected_graduate_date = expected_graduate_date
+        return self
+
+    def political_affiliation(self, political_affiliation: str) -> "BasicInfoBuilder":
+        self._basic_info.political_affiliation = political_affiliation
         return self
 
     def build(self) -> "BasicInfo":

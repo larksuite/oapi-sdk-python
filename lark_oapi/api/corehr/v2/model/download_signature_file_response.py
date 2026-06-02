@@ -9,6 +9,7 @@ class DownloadSignatureFileResponse(BaseResponse):
     _types = {
         "file": IO[Any],
         "file_name": str,
+
     }
 
     def __init__(self, d=None):

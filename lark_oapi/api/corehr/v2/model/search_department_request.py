@@ -26,7 +26,7 @@ class SearchDepartmentRequestBuilder(object):
         search_department_request = SearchDepartmentRequest()
         search_department_request.http_method = HttpMethod.POST
         search_department_request.uri = "/open-apis/corehr/v2/departments/search"
-        search_department_request.token_types = {AccessTokenType.TENANT}
+        search_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._search_department_request: SearchDepartmentRequest = search_department_request
 
     def page_size(self, page_size: int) -> "SearchDepartmentRequestBuilder":

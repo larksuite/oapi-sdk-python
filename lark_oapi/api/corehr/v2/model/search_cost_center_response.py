@@ -8,7 +8,8 @@ from .search_cost_center_response_body import SearchCostCenterResponseBody
 
 class SearchCostCenterResponse(BaseResponse):
     _types = {
-        "data": SearchCostCenterResponseBody
+        "data": SearchCostCenterResponseBody,
+
     }
 
     def __init__(self, d=None):

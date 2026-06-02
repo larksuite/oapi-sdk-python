@@ -14,6 +14,9 @@ class NationalId(object):
         "country_region_id": str,
         "issued_by": str,
         "custom_fields": List[CustomFieldData],
+        "wk_id": str,
+        "series": str,
+        "effective_for_a_long_time": bool,
     }
 
     def __init__(self, d=None):
@@ -24,6 +27,9 @@ class NationalId(object):
         self.country_region_id: Optional[str] = None
         self.issued_by: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.wk_id: Optional[str] = None
+        self.series: Optional[str] = None
+        self.effective_for_a_long_time: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -61,6 +67,18 @@ class NationalIdBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "NationalIdBuilder":
         self._national_id.custom_fields = custom_fields
+        return self
+
+    def wk_id(self, wk_id: str) -> "NationalIdBuilder":
+        self._national_id.wk_id = wk_id
+        return self
+
+    def series(self, series: str) -> "NationalIdBuilder":
+        self._national_id.series = series
+        return self
+
+    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "NationalIdBuilder":
+        self._national_id.effective_for_a_long_time = effective_for_a_long_time
         return self
 
     def build(self) -> "NationalId":

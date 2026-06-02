@@ -9,7 +9,6 @@ from .batch_create_app_table_request_body import BatchCreateAppTableRequestBody
 class BatchCreateAppTableRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.user_id_type: Optional[str] = None
         self.app_token: Optional[str] = None
         self.request_body: Optional[BatchCreateAppTableRequestBody] = None
 
@@ -26,11 +25,6 @@ class BatchCreateAppTableRequestBuilder(object):
         batch_create_app_table_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/batch_create"
         batch_create_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._batch_create_app_table_request: BatchCreateAppTableRequest = batch_create_app_table_request
-
-    def user_id_type(self, user_id_type: str) -> "BatchCreateAppTableRequestBuilder":
-        self._batch_create_app_table_request.user_id_type = user_id_type
-        self._batch_create_app_table_request.add_query("user_id_type", user_id_type)
-        return self
 
     def app_token(self, app_token: str) -> "BatchCreateAppTableRequestBuilder":
         self._batch_create_app_table_request.app_token = app_token

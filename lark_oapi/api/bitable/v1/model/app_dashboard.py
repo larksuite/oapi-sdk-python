@@ -2,17 +2,20 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .dashboard_share_config import DashboardShareConfig
 
 
 class AppDashboard(object):
     _types = {
         "block_id": str,
         "name": str,
+        "share_config": DashboardShareConfig,
     }
 
     def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.name: Optional[str] = None
+        self.share_config: Optional[DashboardShareConfig] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +33,10 @@ class AppDashboardBuilder(object):
 
     def name(self, name: str) -> "AppDashboardBuilder":
         self._app_dashboard.name = name
+        return self
+
+    def share_config(self, share_config: DashboardShareConfig) -> "AppDashboardBuilder":
+        self._app_dashboard.share_config = share_config
         return self
 
     def build(self) -> "AppDashboard":

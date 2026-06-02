@@ -8,7 +8,8 @@ from .list_user_mailbox_rule_response_body import ListUserMailboxRuleResponseBod
 
 class ListUserMailboxRuleResponse(BaseResponse):
     _types = {
-        "data": ListUserMailboxRuleResponseBody
+        "data": ListUserMailboxRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

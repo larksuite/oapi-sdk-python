@@ -26,6 +26,7 @@ def main():
                       .custom_fields([])
                       .cost_center_id("7142384817131652652")
                       .staffing_model(Enum.builder().build())
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -65,6 +66,7 @@ async def amain():
                       .custom_fields([])
                       .cost_center_id("7142384817131652652")
                       .staffing_model(Enum.builder().build())
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

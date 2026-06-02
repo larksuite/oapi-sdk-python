@@ -8,7 +8,8 @@ from .search_entity_response_body import SearchEntityResponseBody
 
 class SearchEntityResponse(BaseResponse):
     _types = {
-        "data": SearchEntityResponseBody
+        "data": SearchEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

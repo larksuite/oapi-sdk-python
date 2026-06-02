@@ -8,7 +8,8 @@ from .create_website_site_user_response_body import CreateWebsiteSiteUserRespons
 
 class CreateWebsiteSiteUserResponse(BaseResponse):
     _types = {
-        "data": CreateWebsiteSiteUserResponseBody
+        "data": CreateWebsiteSiteUserResponseBody,
+
     }
 
     def __init__(self, d=None):

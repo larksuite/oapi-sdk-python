@@ -8,7 +8,8 @@ from .update_task_comment_response_body import UpdateTaskCommentResponseBody
 
 class UpdateTaskCommentResponse(BaseResponse):
     _types = {
-        "data": UpdateTaskCommentResponseBody
+        "data": UpdateTaskCommentResponseBody,
+
     }
 
     def __init__(self, d=None):

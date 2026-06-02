@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .transfer_info import TransferInfo
 from .custom_field_data import CustomFieldData
+from .employment_lookup_name import EmploymentLookupName
 
 
 class JobChange(object):
@@ -21,6 +22,9 @@ class JobChange(object):
         "is_adjust_salary": bool,
         "custom_fields": List[CustomFieldData],
         "details_of_job_status_change": List[str],
+        "employment_name": EmploymentLookupName,
+        "exception_status": str,
+        "no_permission_fields": List[str],
     }
 
     def __init__(self, d=None):
@@ -37,6 +41,9 @@ class JobChange(object):
         self.is_adjust_salary: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.details_of_job_status_change: Optional[List[str]] = None
+        self.employment_name: Optional[EmploymentLookupName] = None
+        self.exception_status: Optional[str] = None
+        self.no_permission_fields: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -98,6 +105,18 @@ class JobChangeBuilder(object):
 
     def details_of_job_status_change(self, details_of_job_status_change: List[str]) -> "JobChangeBuilder":
         self._job_change.details_of_job_status_change = details_of_job_status_change
+        return self
+
+    def employment_name(self, employment_name: EmploymentLookupName) -> "JobChangeBuilder":
+        self._job_change.employment_name = employment_name
+        return self
+
+    def exception_status(self, exception_status: str) -> "JobChangeBuilder":
+        self._job_change.exception_status = exception_status
+        return self
+
+    def no_permission_fields(self, no_permission_fields: List[str]) -> "JobChangeBuilder":
+        self._job_change.no_permission_fields = no_permission_fields
         return self
 
     def build(self) -> "JobChange":

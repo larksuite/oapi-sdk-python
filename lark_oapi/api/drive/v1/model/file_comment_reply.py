@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .reply_content import ReplyContent
 from .reply_extra import ReplyExtra
+from .file_comment_v2_batch_query_reaction_data import FileCommentV2BatchQueryReactionData
 
 
 class FileCommentReply(object):
@@ -14,6 +15,7 @@ class FileCommentReply(object):
         "create_time": int,
         "update_time": int,
         "extra": ReplyExtra,
+        "reactions": List[FileCommentV2BatchQueryReactionData],
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class FileCommentReply(object):
         self.create_time: Optional[int] = None
         self.update_time: Optional[int] = None
         self.extra: Optional[ReplyExtra] = None
+        self.reactions: Optional[List[FileCommentV2BatchQueryReactionData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +59,10 @@ class FileCommentReplyBuilder(object):
 
     def extra(self, extra: ReplyExtra) -> "FileCommentReplyBuilder":
         self._file_comment_reply.extra = extra
+        return self
+
+    def reactions(self, reactions: List[FileCommentV2BatchQueryReactionData]) -> "FileCommentReplyBuilder":
+        self._file_comment_reply.reactions = reactions
         return self
 
     def build(self) -> "FileCommentReply":

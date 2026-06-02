@@ -8,7 +8,8 @@ from .copy_space_node_response_body import CopySpaceNodeResponseBody
 
 class CopySpaceNodeResponse(BaseResponse):
     _types = {
-        "data": CopySpaceNodeResponseBody
+        "data": CopySpaceNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

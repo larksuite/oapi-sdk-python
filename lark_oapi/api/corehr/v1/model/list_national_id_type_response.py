@@ -8,7 +8,8 @@ from .list_national_id_type_response_body import ListNationalIdTypeResponseBody
 
 class ListNationalIdTypeResponse(BaseResponse):
     _types = {
-        "data": ListNationalIdTypeResponseBody
+        "data": ListNationalIdTypeResponseBody,
+
     }
 
     def __init__(self, d=None):

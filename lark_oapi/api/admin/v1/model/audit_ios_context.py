@@ -11,8 +11,8 @@ class AuditIosContext(object):
         "app_ver": str,
         "ver": str,
         "os": str,
-        "s_t_zone": str,
-        "m_l": str,
+        "st_zone": str,
+        "ml": str,
         "sjd": str,
         "proxyip": str,
         "wifip": str,
@@ -20,7 +20,7 @@ class AuditIosContext(object):
         "active_ip": str,
         "active_ip_detail": str,
         "cell_base_station": str,
-        "i_p": str,
+        "ip": str,
     }
 
     def __init__(self, d=None):
@@ -29,8 +29,8 @@ class AuditIosContext(object):
         self.app_ver: Optional[str] = None
         self.ver: Optional[str] = None
         self.os: Optional[str] = None
-        self.s_t_zone: Optional[str] = None
-        self.m_l: Optional[str] = None
+        self.st_zone: Optional[str] = None
+        self.ml: Optional[str] = None
         self.sjd: Optional[str] = None
         self.proxyip: Optional[str] = None
         self.wifip: Optional[str] = None
@@ -38,7 +38,7 @@ class AuditIosContext(object):
         self.active_ip: Optional[str] = None
         self.active_ip_detail: Optional[str] = None
         self.cell_base_station: Optional[str] = None
-        self.i_p: Optional[str] = None
+        self.ip: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -70,12 +70,12 @@ class AuditIosContextBuilder(object):
         self._audit_ios_context.os = os
         return self
 
-    def s_t_zone(self, s_t_zone: str) -> "AuditIosContextBuilder":
-        self._audit_ios_context.s_t_zone = s_t_zone
+    def st_zone(self, st_zone: str) -> "AuditIosContextBuilder":
+        self._audit_ios_context.st_zone = st_zone
         return self
 
-    def m_l(self, m_l: str) -> "AuditIosContextBuilder":
-        self._audit_ios_context.m_l = m_l
+    def ml(self, ml: str) -> "AuditIosContextBuilder":
+        self._audit_ios_context.ml = ml
         return self
 
     def sjd(self, sjd: str) -> "AuditIosContextBuilder":
@@ -106,8 +106,8 @@ class AuditIosContextBuilder(object):
         self._audit_ios_context.cell_base_station = cell_base_station
         return self
 
-    def i_p(self, i_p: str) -> "AuditIosContextBuilder":
-        self._audit_ios_context.i_p = i_p
+    def ip(self, ip: str) -> "AuditIosContextBuilder":
+        self._audit_ios_context.ip = ip
         return self
 
     def build(self) -> "AuditIosContext":

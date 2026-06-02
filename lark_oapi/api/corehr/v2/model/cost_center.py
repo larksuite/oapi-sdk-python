@@ -19,6 +19,7 @@ class CostCenter(object):
         "expiration_time": str,
         "active": bool,
         "operation_reason": str,
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -33,6 +34,7 @@ class CostCenter(object):
         self.expiration_time: Optional[str] = None
         self.active: Optional[bool] = None
         self.operation_reason: Optional[str] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,6 +88,10 @@ class CostCenterBuilder(object):
 
     def operation_reason(self, operation_reason: str) -> "CostCenterBuilder":
         self._cost_center.operation_reason = operation_reason
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CostCenterBuilder":
+        self._cost_center.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "CostCenter":

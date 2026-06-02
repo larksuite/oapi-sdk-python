@@ -8,7 +8,8 @@ from .list_aily_session_aily_message_response_body import ListAilySessionAilyMes
 
 class ListAilySessionAilyMessageResponse(BaseResponse):
     _types = {
-        "data": ListAilySessionAilyMessageResponseBody
+        "data": ListAilySessionAilyMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

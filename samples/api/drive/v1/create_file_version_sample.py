@@ -16,9 +16,17 @@ def main():
     request: CreateFileVersionRequest = CreateFileVersionRequest.builder() \
         .file_token("doxbcyvqZlSc9WlHvQMlSJwUrsb") \
         .user_id_type("user_id") \
-        .request_body(Version.builder()
-                      .name("文档标题")
+        .request_body(CreateFileVersionRequestBody.builder()
+                      .owner_id("694699009591869450")
                       .obj_type("docx")
+                      .parent_type("docx")
+                      .name("文档标题")
+                      .parent_token("doxcnMycg4ryxQofSeoKkJuXYOb")
+                      .creator_id("694699009591869451")
+                      .create_time("1660708537")
+                      .update_time("1660708537")
+                      .status("0，1，2")
+                      .version("version1")
                       .build()) \
         .build()
 
@@ -48,9 +56,17 @@ async def amain():
     request: CreateFileVersionRequest = CreateFileVersionRequest.builder() \
         .file_token("doxbcyvqZlSc9WlHvQMlSJwUrsb") \
         .user_id_type("user_id") \
-        .request_body(Version.builder()
-                      .name("文档标题")
+        .request_body(CreateFileVersionRequestBody.builder()
+                      .owner_id("694699009591869450")
                       .obj_type("docx")
+                      .parent_type("docx")
+                      .name("文档标题")
+                      .parent_token("doxcnMycg4ryxQofSeoKkJuXYOb")
+                      .creator_id("694699009591869451")
+                      .create_time("1660708537")
+                      .update_time("1660708537")
+                      .status("0，1，2")
+                      .version("version1")
                       .build()) \
         .build()
 

@@ -15,6 +15,7 @@ class QuerySignatureFileRequest(BaseRequest):
         self.update_time_start: Optional[str] = None
         self.update_time_end: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.select_sign_url: Optional[bool] = None
         self.request_body: Optional[QuerySignatureFileRequestBody] = None
 
     @staticmethod
@@ -59,6 +60,11 @@ class QuerySignatureFileRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.user_id_type = user_id_type
         self._query_signature_file_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def select_sign_url(self, select_sign_url: bool) -> "QuerySignatureFileRequestBuilder":
+        self._query_signature_file_request.select_sign_url = select_sign_url
+        self._query_signature_file_request.add_query("select_sign_url", select_sign_url)
         return self
 
     def request_body(self, request_body: QuerySignatureFileRequestBody) -> "QuerySignatureFileRequestBuilder":

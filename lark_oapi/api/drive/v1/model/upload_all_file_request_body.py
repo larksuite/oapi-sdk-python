@@ -12,6 +12,7 @@ class UploadAllFileRequestBody(object):
         "size": int,
         "checksum": str,
         "file": IO[Any],
+        "file_token": str,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class UploadAllFileRequestBody(object):
         self.size: Optional[int] = None
         self.checksum: Optional[str] = None
         self.file: Optional[IO[Any]] = None
+        self.file_token: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class UploadAllFileRequestBodyBuilder(object):
 
     def file(self, file: IO[Any]) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.file = file
+        return self
+
+    def file_token(self, file_token: str) -> "UploadAllFileRequestBodyBuilder":
+        self._upload_all_file_request_body.file_token = file_token
         return self
 
     def build(self) -> "UploadAllFileRequestBody":

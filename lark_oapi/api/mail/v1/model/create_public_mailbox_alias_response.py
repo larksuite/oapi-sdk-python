@@ -8,7 +8,8 @@ from .create_public_mailbox_alias_response_body import CreatePublicMailboxAliasR
 
 class CreatePublicMailboxAliasResponse(BaseResponse):
     _types = {
-        "data": CreatePublicMailboxAliasResponseBody
+        "data": CreatePublicMailboxAliasResponseBody,
+
     }
 
     def __init__(self, d=None):

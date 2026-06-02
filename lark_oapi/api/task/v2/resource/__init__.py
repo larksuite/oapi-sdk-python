@@ -5,5 +5,6 @@ from .custom_field_option import *
 from .section import *
 from .task import *
 from .task_subtask import *
+from .task_v2 import *
 from .tasklist import *
 from .tasklist_activity_subscription import *

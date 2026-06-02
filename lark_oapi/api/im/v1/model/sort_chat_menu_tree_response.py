@@ -8,7 +8,8 @@ from .sort_chat_menu_tree_response_body import SortChatMenuTreeResponseBody
 
 class SortChatMenuTreeResponse(BaseResponse):
     _types = {
-        "data": SortChatMenuTreeResponseBody
+        "data": SortChatMenuTreeResponseBody,
+
     }
 
     def __init__(self, d=None):

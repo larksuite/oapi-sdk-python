@@ -7,12 +7,14 @@ from lark_oapi.core.construct import init
 class TimeInfo(object):
     _types = {
         "date": str,
+        "date_time": str,
         "timestamp": str,
         "timezone": str,
     }
 
     def __init__(self, d=None):
         self.date: Optional[str] = None
+        self.date_time: Optional[str] = None
         self.timestamp: Optional[str] = None
         self.timezone: Optional[str] = None
         init(self, d, self._types)
@@ -28,6 +30,10 @@ class TimeInfoBuilder(object):
 
     def date(self, date: str) -> "TimeInfoBuilder":
         self._time_info.date = date
+        return self
+
+    def date_time(self, date_time: str) -> "TimeInfoBuilder":
+        self._time_info.date_time = date_time
         return self
 
     def timestamp(self, timestamp: str) -> "TimeInfoBuilder":

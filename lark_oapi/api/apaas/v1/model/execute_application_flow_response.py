@@ -8,7 +8,8 @@ from .execute_application_flow_response_body import ExecuteApplicationFlowRespon
 
 class ExecuteApplicationFlowResponse(BaseResponse):
     _types = {
-        "data": ExecuteApplicationFlowResponseBody
+        "data": ExecuteApplicationFlowResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -21,6 +21,8 @@ def main():
         .sort_type("ByCreateTimeAsc") \
         .page_size(20) \
         .page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
+        .card_msg_content_type("user_card_content") \
+        .only_thread_root_messages(bool) \
         .build()
 
     # 发起请求
@@ -54,6 +56,8 @@ async def amain():
         .sort_type("ByCreateTimeAsc") \
         .page_size(20) \
         .page_token("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==") \
+        .card_msg_content_type("user_card_content") \
+        .only_thread_root_messages(bool) \
         .build()
 
     # 发起请求

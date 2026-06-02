@@ -8,7 +8,8 @@ from .get_mailgroup_response_body import GetMailgroupResponseBody
 
 class GetMailgroupResponse(BaseResponse):
     _types = {
-        "data": GetMailgroupResponseBody
+        "data": GetMailgroupResponseBody,
+
     }
 
     def __init__(self, d=None):

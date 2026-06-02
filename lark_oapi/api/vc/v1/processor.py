@@ -9,6 +9,7 @@ from .model.p2_vc_meeting_join_meeting_v1 import P2VcMeetingJoinMeetingV1
 from .model.p2_vc_meeting_leave_meeting_v1 import P2VcMeetingLeaveMeetingV1
 from .model.p2_vc_meeting_meeting_ended_v1 import P2VcMeetingMeetingEndedV1
 from .model.p2_vc_meeting_meeting_started_v1 import P2VcMeetingMeetingStartedV1
+from .model.p2_vc_meeting_participant_meeting_ended_v1 import P2VcMeetingParticipantMeetingEndedV1
 from .model.p2_vc_meeting_recording_ended_v1 import P2VcMeetingRecordingEndedV1
 from .model.p2_vc_meeting_recording_ready_v1 import P2VcMeetingRecordingReadyV1
 from .model.p2_vc_meeting_recording_started_v1 import P2VcMeetingRecordingStartedV1
@@ -86,6 +87,17 @@ class P2VcMeetingMeetingStartedV1Processor(IEventProcessor[P2VcMeetingMeetingSta
         return P2VcMeetingMeetingStartedV1
 
     def do(self, data: P2VcMeetingMeetingStartedV1) -> None:
+        self.f(data)
+
+
+class P2VcMeetingParticipantMeetingEndedV1Processor(IEventProcessor[P2VcMeetingParticipantMeetingEndedV1]):
+    def __init__(self, f: Callable[[P2VcMeetingParticipantMeetingEndedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcMeetingParticipantMeetingEndedV1]:
+        return P2VcMeetingParticipantMeetingEndedV1
+
+    def do(self, data: P2VcMeetingParticipantMeetingEndedV1) -> None:
         self.f(data)
 
 

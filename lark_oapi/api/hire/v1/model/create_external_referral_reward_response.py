@@ -8,7 +8,8 @@ from .create_external_referral_reward_response_body import CreateExternalReferra
 
 class CreateExternalReferralRewardResponse(BaseResponse):
     _types = {
-        "data": CreateExternalReferralRewardResponseBody
+        "data": CreateExternalReferralRewardResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_application_object_record_response_body import QueryApplicationObjec
 
 class QueryApplicationObjectRecordResponse(BaseResponse):
     _types = {
-        "data": QueryApplicationObjectRecordResponseBody
+        "data": QueryApplicationObjectRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

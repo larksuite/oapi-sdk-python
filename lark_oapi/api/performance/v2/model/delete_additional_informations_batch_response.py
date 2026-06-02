@@ -8,7 +8,8 @@ from .delete_additional_informations_batch_response_body import DeleteAdditional
 
 class DeleteAdditionalInformationsBatchResponse(BaseResponse):
     _types = {
-        "data": DeleteAdditionalInformationsBatchResponseBody
+        "data": DeleteAdditionalInformationsBatchResponseBody,
+
     }
 
     def __init__(self, d=None):

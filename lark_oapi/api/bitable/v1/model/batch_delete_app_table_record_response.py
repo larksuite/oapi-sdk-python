@@ -8,7 +8,8 @@ from .batch_delete_app_table_record_response_body import BatchDeleteAppTableReco
 
 class BatchDeleteAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteAppTableRecordResponseBody
+        "data": BatchDeleteAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

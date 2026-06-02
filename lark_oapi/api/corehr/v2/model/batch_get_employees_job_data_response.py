@@ -8,7 +8,8 @@ from .batch_get_employees_job_data_response_body import BatchGetEmployeesJobData
 
 class BatchGetEmployeesJobDataResponse(BaseResponse):
     _types = {
-        "data": BatchGetEmployeesJobDataResponseBody
+        "data": BatchGetEmployeesJobDataResponseBody,
+
     }
 
     def __init__(self, d=None):

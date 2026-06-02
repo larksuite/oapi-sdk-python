@@ -8,7 +8,8 @@ from .update_public_mailbox_response_body import UpdatePublicMailboxResponseBody
 
 class UpdatePublicMailboxResponse(BaseResponse):
     _types = {
-        "data": UpdatePublicMailboxResponseBody
+        "data": UpdatePublicMailboxResponseBody,
+
     }
 
     def __init__(self, d=None):

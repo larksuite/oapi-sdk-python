@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class DownloadFileRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.version: Optional[str] = None
         self.file_token: Optional[str] = None
 
     @staticmethod
@@ -23,6 +24,11 @@ class DownloadFileRequestBuilder(object):
         download_file_request.uri = "/open-apis/drive/v1/files/:file_token/download"
         download_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._download_file_request: DownloadFileRequest = download_file_request
+
+    def version(self, version: str) -> "DownloadFileRequestBuilder":
+        self._download_file_request.version = version
+        self._download_file_request.add_query("version", version)
+        return self
 
     def file_token(self, file_token: str) -> "DownloadFileRequestBuilder":
         self._download_file_request.file_token = file_token

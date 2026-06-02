@@ -8,7 +8,8 @@ from .batch_remove_recurring_payment_response_body import BatchRemoveRecurringPa
 
 class BatchRemoveRecurringPaymentResponse(BaseResponse):
     _types = {
-        "data": BatchRemoveRecurringPaymentResponseBody
+        "data": BatchRemoveRecurringPaymentResponseBody,
+
     }
 
     def __init__(self, d=None):

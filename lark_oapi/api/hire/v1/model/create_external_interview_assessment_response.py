@@ -8,7 +8,8 @@ from .create_external_interview_assessment_response_body import CreateExternalIn
 
 class CreateExternalInterviewAssessmentResponse(BaseResponse):
     _types = {
-        "data": CreateExternalInterviewAssessmentResponseBody
+        "data": CreateExternalInterviewAssessmentResponseBody,
+
     }
 
     def __init__(self, d=None):

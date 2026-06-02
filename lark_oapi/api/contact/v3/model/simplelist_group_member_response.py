@@ -8,7 +8,8 @@ from .simplelist_group_member_response_body import SimplelistGroupMemberResponse
 
 class SimplelistGroupMemberResponse(BaseResponse):
     _types = {
-        "data": SimplelistGroupMemberResponseBody
+        "data": SimplelistGroupMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

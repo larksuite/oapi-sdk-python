@@ -8,7 +8,8 @@ from .update_aily_session_response_body import UpdateAilySessionResponseBody
 
 class UpdateAilySessionResponse(BaseResponse):
     _types = {
-        "data": UpdateAilySessionResponseBody
+        "data": UpdateAilySessionResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_interview_record_attachment_response_body import GetInterviewRecordAtt
 
 class GetInterviewRecordAttachmentResponse(BaseResponse):
     _types = {
-        "data": GetInterviewRecordAttachmentResponseBody
+        "data": GetInterviewRecordAttachmentResponseBody,
+
     }
 
     def __init__(self, d=None):

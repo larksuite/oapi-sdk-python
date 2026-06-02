@@ -8,10 +8,14 @@ from .pathway import Pathway
 class BatchGetPathwayResponseBody(object):
     _types = {
         "items": List[Pathway],
+        "page_token": str,
+        "has_more": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[Pathway]] = None
+        self.page_token: Optional[str] = None
+        self.has_more: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +29,14 @@ class BatchGetPathwayResponseBodyBuilder(object):
 
     def items(self, items: List[Pathway]) -> "BatchGetPathwayResponseBodyBuilder":
         self._batch_get_pathway_response_body.items = items
+        return self
+
+    def page_token(self, page_token: str) -> "BatchGetPathwayResponseBodyBuilder":
+        self._batch_get_pathway_response_body.page_token = page_token
+        return self
+
+    def has_more(self, has_more: bool) -> "BatchGetPathwayResponseBodyBuilder":
+        self._batch_get_pathway_response_body.has_more = has_more
         return self
 
     def build(self) -> "BatchGetPathwayResponseBody":

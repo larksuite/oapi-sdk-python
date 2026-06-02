@@ -11,8 +11,6 @@ class AppTableView(object):
         "view_name": str,
         "view_type": str,
         "property": AppTableViewProperty,
-        "view_public_level": str,
-        "view_private_owner_id": str,
     }
 
     def __init__(self, d=None):
@@ -20,8 +18,6 @@ class AppTableView(object):
         self.view_name: Optional[str] = None
         self.view_type: Optional[str] = None
         self.property: Optional[AppTableViewProperty] = None
-        self.view_public_level: Optional[str] = None
-        self.view_private_owner_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -47,14 +43,6 @@ class AppTableViewBuilder(object):
 
     def property(self, property: AppTableViewProperty) -> "AppTableViewBuilder":
         self._app_table_view.property = property
-        return self
-
-    def view_public_level(self, view_public_level: str) -> "AppTableViewBuilder":
-        self._app_table_view.view_public_level = view_public_level
-        return self
-
-    def view_private_owner_id(self, view_private_owner_id: str) -> "AppTableViewBuilder":
-        self._app_table_view.view_private_owner_id = view_private_owner_id
         return self
 
     def build(self) -> "AppTableView":

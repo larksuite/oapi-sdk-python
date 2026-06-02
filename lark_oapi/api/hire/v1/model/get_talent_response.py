@@ -8,7 +8,8 @@ from .get_talent_response_body import GetTalentResponseBody
 
 class GetTalentResponse(BaseResponse):
     _types = {
-        "data": GetTalentResponseBody
+        "data": GetTalentResponseBody,
+
     }
 
     def __init__(self, d=None):

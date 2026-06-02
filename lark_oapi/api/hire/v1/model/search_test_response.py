@@ -8,7 +8,8 @@ from .search_test_response_body import SearchTestResponseBody
 
 class SearchTestResponse(BaseResponse):
     _types = {
-        "data": SearchTestResponseBody
+        "data": SearchTestResponseBody,
+
     }
 
     def __init__(self, d=None):

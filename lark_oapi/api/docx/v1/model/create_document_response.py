@@ -8,7 +8,8 @@ from .create_document_response_body import CreateDocumentResponseBody
 
 class CreateDocumentResponse(BaseResponse):
     _types = {
-        "data": CreateDocumentResponseBody
+        "data": CreateDocumentResponseBody,
+
     }
 
     def __init__(self, d=None):

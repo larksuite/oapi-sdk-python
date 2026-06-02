@@ -14,6 +14,7 @@ class DeviceApplyRecordEvent(object):
         "apply_status": int,
         "operator": UserId,
         "apply_device_ownership": int,
+        "apply_reason": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class DeviceApplyRecordEvent(object):
         self.apply_status: Optional[int] = None
         self.operator: Optional[UserId] = None
         self.apply_device_ownership: Optional[int] = None
+        self.apply_reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +58,10 @@ class DeviceApplyRecordEventBuilder(object):
 
     def apply_device_ownership(self, apply_device_ownership: int) -> "DeviceApplyRecordEventBuilder":
         self._device_apply_record_event.apply_device_ownership = apply_device_ownership
+        return self
+
+    def apply_reason(self, apply_reason: str) -> "DeviceApplyRecordEventBuilder":
+        self._device_apply_record_event.apply_reason = apply_reason
         return self
 
     def build(self) -> "DeviceApplyRecordEvent":

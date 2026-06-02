@@ -8,7 +8,8 @@ from .underauditlist_application_response_body import UnderauditlistApplicationR
 
 class UnderauditlistApplicationResponse(BaseResponse):
     _types = {
-        "data": UnderauditlistApplicationResponseBody
+        "data": UnderauditlistApplicationResponseBody,
+
     }
 
     def __init__(self, d=None):

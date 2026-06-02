@@ -8,7 +8,8 @@ from .list_cost_allocation_detail_response_body import ListCostAllocationDetailR
 
 class ListCostAllocationDetailResponse(BaseResponse):
     _types = {
-        "data": ListCostAllocationDetailResponseBody
+        "data": ListCostAllocationDetailResponseBody,
+
     }
 
     def __init__(self, d=None):

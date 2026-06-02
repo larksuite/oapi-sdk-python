@@ -97,6 +97,7 @@ from .sub_page_simple_info import *
 from .sub_page_simple_info_v2 import *
 from .task_info import *
 from .tenant import *
+from .tenant_app_metrics import *
 from .user import *
 from .user_scope_v2 import *
 from .user_simple_info import *

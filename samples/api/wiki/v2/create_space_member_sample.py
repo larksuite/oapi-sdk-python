@@ -20,6 +20,7 @@ def main():
                       .member_type("openid")
                       .member_id("ou_67e5ecb64ce1c0bd94612c17999db411")
                       .member_role("admin")
+                      .member_perm("admin")
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .member_type("openid")
                       .member_id("ou_67e5ecb64ce1c0bd94612c17999db411")
                       .member_role("admin")
+                      .member_perm("admin")
                       .build()) \
         .build()
 

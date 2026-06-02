@@ -8,7 +8,8 @@ from .get_currency_response_body import GetCurrencyResponseBody
 
 class GetCurrencyResponse(BaseResponse):
     _types = {
-        "data": GetCurrencyResponseBody
+        "data": GetCurrencyResponseBody,
+
     }
 
     def __init__(self, d=None):

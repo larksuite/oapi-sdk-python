@@ -8,7 +8,8 @@ from .kickout_meeting_response_body import KickoutMeetingResponseBody
 
 class KickoutMeetingResponse(BaseResponse):
     _types = {
-        "data": KickoutMeetingResponseBody
+        "data": KickoutMeetingResponseBody,
+
     }
 
     def __init__(self, d=None):

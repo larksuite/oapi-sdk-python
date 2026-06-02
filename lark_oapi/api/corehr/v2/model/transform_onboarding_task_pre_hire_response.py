@@ -8,7 +8,8 @@ from .transform_onboarding_task_pre_hire_response_body import TransformOnboardin
 
 class TransformOnboardingTaskPreHireResponse(BaseResponse):
     _types = {
-        "data": TransformOnboardingTaskPreHireResponseBody
+        "data": TransformOnboardingTaskPreHireResponseBody,
+
     }
 
     def __init__(self, d=None):

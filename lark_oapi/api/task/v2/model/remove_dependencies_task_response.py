@@ -8,7 +8,8 @@ from .remove_dependencies_task_response_body import RemoveDependenciesTaskRespon
 
 class RemoveDependenciesTaskResponse(BaseResponse):
     _types = {
-        "data": RemoveDependenciesTaskResponseBody
+        "data": RemoveDependenciesTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .create_cost_center_version_response_body import CreateCostCenterVersionRes
 
 class CreateCostCenterVersionResponse(BaseResponse):
     _types = {
-        "data": CreateCostCenterVersionResponseBody
+        "data": CreateCostCenterVersionResponseBody,
+
     }
 
     def __init__(self, d=None):

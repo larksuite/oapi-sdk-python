@@ -8,7 +8,8 @@ from .query_operation_logs_department_response_body import QueryOperationLogsDep
 
 class QueryOperationLogsDepartmentResponse(BaseResponse):
     _types = {
-        "data": QueryOperationLogsDepartmentResponseBody
+        "data": QueryOperationLogsDepartmentResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -82,12 +82,12 @@ class ChatPipeline:
     """
 
     def __init__(
-        self,
-        scope: str,
-        config: TextBatchConfig,
-        loop: asyncio.AbstractEventLoop,
-        *,
-        serial_only: bool = False,
+            self,
+            scope: str,
+            config: TextBatchConfig,
+            loop: asyncio.AbstractEventLoop,
+            *,
+            serial_only: bool = False,
     ) -> None:
         self._scope = scope
         self._config = config
@@ -210,10 +210,10 @@ class ChatPipelineManager:
     """Map of scope → ChatPipeline, lazily created."""
 
     def __init__(
-        self,
-        config: TextBatchConfig,
-        loop: asyncio.AbstractEventLoop,
-        queue_config: Optional[ChatQueueConfig] = None,
+            self,
+            config: TextBatchConfig,
+            loop: asyncio.AbstractEventLoop,
+            queue_config: Optional[ChatQueueConfig] = None,
     ) -> None:
         self._config = config
         self._loop = loop

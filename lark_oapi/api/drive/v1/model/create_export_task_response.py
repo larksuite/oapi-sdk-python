@@ -8,7 +8,8 @@ from .create_export_task_response_body import CreateExportTaskResponseBody
 
 class CreateExportTaskResponse(BaseResponse):
     _types = {
-        "data": CreateExportTaskResponseBody
+        "data": CreateExportTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

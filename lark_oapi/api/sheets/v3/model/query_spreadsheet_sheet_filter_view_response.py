@@ -8,7 +8,8 @@ from .query_spreadsheet_sheet_filter_view_response_body import QuerySpreadsheetS
 
 class QuerySpreadsheetSheetFilterViewResponse(BaseResponse):
     _types = {
-        "data": QuerySpreadsheetSheetFilterViewResponseBody
+        "data": QuerySpreadsheetSheetFilterViewResponseBody,
+
     }
 
     def __init__(self, d=None):

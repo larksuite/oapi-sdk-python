@@ -6,9 +6,11 @@ from lark_oapi.core.construct import init
 
 class DeleteSubscribeFileResponseBody(object):
     _types = {
+        "data": str,
     }
 
     def __init__(self, d=None):
+        self.data: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +21,10 @@ class DeleteSubscribeFileResponseBody(object):
 class DeleteSubscribeFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_subscribe_file_response_body = DeleteSubscribeFileResponseBody()
+
+    def data(self, data: str) -> "DeleteSubscribeFileResponseBodyBuilder":
+        self._delete_subscribe_file_response_body.data = data
+        return self
 
     def build(self) -> "DeleteSubscribeFileResponseBody":
         return self._delete_subscribe_file_response_body

@@ -8,7 +8,8 @@ from .create_chat_announcement_block_children_response_body import CreateChatAnn
 
 class CreateChatAnnouncementBlockChildrenResponse(BaseResponse):
     _types = {
-        "data": CreateChatAnnouncementBlockChildrenResponseBody
+        "data": CreateChatAnnouncementBlockChildrenResponseBody,
+
     }
 
     def __init__(self, d=None):

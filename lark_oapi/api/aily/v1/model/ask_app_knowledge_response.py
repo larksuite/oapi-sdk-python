@@ -8,7 +8,8 @@ from .ask_app_knowledge_response_body import AskAppKnowledgeResponseBody
 
 class AskAppKnowledgeResponse(BaseResponse):
     _types = {
-        "data": AskAppKnowledgeResponseBody
+        "data": AskAppKnowledgeResponseBody,
+
     }
 
     def __init__(self, d=None):

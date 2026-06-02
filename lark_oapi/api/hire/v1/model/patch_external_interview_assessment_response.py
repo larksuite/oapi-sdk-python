@@ -8,7 +8,8 @@ from .patch_external_interview_assessment_response_body import PatchExternalInte
 
 class PatchExternalInterviewAssessmentResponse(BaseResponse):
     _types = {
-        "data": PatchExternalInterviewAssessmentResponseBody
+        "data": PatchExternalInterviewAssessmentResponseBody,
+
     }
 
     def __init__(self, d=None):

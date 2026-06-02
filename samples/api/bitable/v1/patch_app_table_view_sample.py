@@ -17,6 +17,7 @@ def main():
         .app_token("bascng7vrxcxpig7geggXiCtadY") \
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewTpR1urY") \
+        .user_id_type("str") \
         .request_body(PatchAppTableViewRequestBody.builder()
                       .view_name("grid")
                       .property(AppTableViewProperty.builder().build())
@@ -50,6 +51,7 @@ async def amain():
         .app_token("bascng7vrxcxpig7geggXiCtadY") \
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewTpR1urY") \
+        .user_id_type("str") \
         .request_body(PatchAppTableViewRequestBody.builder()
                       .view_name("grid")
                       .property(AppTableViewProperty.builder().build())

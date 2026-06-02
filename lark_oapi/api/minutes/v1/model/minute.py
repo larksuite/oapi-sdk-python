@@ -13,6 +13,7 @@ class Minute(object):
         "cover": str,
         "duration": str,
         "url": str,
+        "note_id": int,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class Minute(object):
         self.cover: Optional[str] = None
         self.duration: Optional[str] = None
         self.url: Optional[str] = None
+        self.note_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +62,10 @@ class MinuteBuilder(object):
 
     def url(self, url: str) -> "MinuteBuilder":
         self._minute.url = url
+        return self
+
+    def note_id(self, note_id: int) -> "MinuteBuilder":
+        self._minute.note_id = note_id
         return self
 
     def build(self) -> "Minute":

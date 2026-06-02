@@ -10,6 +10,8 @@ class ListWorkforcePlanRequest(BaseRequest):
         super().__init__()
         self.get_all_plan: Optional[bool] = None
         self.active: Optional[bool] = None
+        self.start_date: Optional[str] = None
+        self.end_date: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListWorkforcePlanRequestBuilder":
@@ -22,7 +24,7 @@ class ListWorkforcePlanRequestBuilder(object):
         list_workforce_plan_request = ListWorkforcePlanRequest()
         list_workforce_plan_request.http_method = HttpMethod.GET
         list_workforce_plan_request.uri = "/open-apis/corehr/v2/workforce_plans"
-        list_workforce_plan_request.token_types = {AccessTokenType.TENANT}
+        list_workforce_plan_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_workforce_plan_request: ListWorkforcePlanRequest = list_workforce_plan_request
 
     def get_all_plan(self, get_all_plan: bool) -> "ListWorkforcePlanRequestBuilder":
@@ -33,6 +35,16 @@ class ListWorkforcePlanRequestBuilder(object):
     def active(self, active: bool) -> "ListWorkforcePlanRequestBuilder":
         self._list_workforce_plan_request.active = active
         self._list_workforce_plan_request.add_query("active", active)
+        return self
+
+    def start_date(self, start_date: str) -> "ListWorkforcePlanRequestBuilder":
+        self._list_workforce_plan_request.start_date = start_date
+        self._list_workforce_plan_request.add_query("start_date", start_date)
+        return self
+
+    def end_date(self, end_date: str) -> "ListWorkforcePlanRequestBuilder":
+        self._list_workforce_plan_request.end_date = end_date
+        self._list_workforce_plan_request.add_query("end_date", end_date)
         return self
 
     def build(self) -> ListWorkforcePlanRequest:

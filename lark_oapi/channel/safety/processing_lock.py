@@ -25,10 +25,10 @@ DEFAULT_SWEEP_INTERVAL_MS = 60 * 1000
 
 class ProcessingLock:
     def __init__(
-        self,
-        ttl_ms: int = DEFAULT_TTL_MS,
-        *,
-        sweep_interval_ms: int = DEFAULT_SWEEP_INTERVAL_MS,
+            self,
+            ttl_ms: int = DEFAULT_TTL_MS,
+            *,
+            sweep_interval_ms: int = DEFAULT_SWEEP_INTERVAL_MS,
     ) -> None:
         self._ttl_ms = ttl_ms
         self._sweep_interval_ms = sweep_interval_ms

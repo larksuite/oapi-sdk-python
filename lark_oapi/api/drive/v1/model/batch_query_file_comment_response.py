@@ -8,7 +8,8 @@ from .batch_query_file_comment_response_body import BatchQueryFileCommentRespons
 
 class BatchQueryFileCommentResponse(BaseResponse):
     _types = {
-        "data": BatchQueryFileCommentResponseBody
+        "data": BatchQueryFileCommentResponseBody,
+
     }
 
     def __init__(self, d=None):

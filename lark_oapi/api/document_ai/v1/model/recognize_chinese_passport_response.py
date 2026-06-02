@@ -8,7 +8,8 @@ from .recognize_chinese_passport_response_body import RecognizeChinesePassportRe
 
 class RecognizeChinesePassportResponse(BaseResponse):
     _types = {
-        "data": RecognizeChinesePassportResponseBody
+        "data": RecognizeChinesePassportResponseBody,
+
     }
 
     def __init__(self, d=None):

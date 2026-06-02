@@ -30,6 +30,12 @@ class ListDeviceRecordRequest(BaseRequest):
         self.is_managed: Optional[bool] = None
         self.mdm_device_id: Optional[str] = None
         self.mdm_provider_name: Optional[str] = None
+        self.lsa_client_status: Optional[int] = None
+        self.device_env_detect_status: Optional[int] = None
+        self.is_public: Optional[bool] = None
+        self.source: Optional[int] = None
+        self.cert_serial_number: Optional[str] = None
+        self.cert_issuer: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListDeviceRecordRequestBuilder":
@@ -153,6 +159,36 @@ class ListDeviceRecordRequestBuilder(object):
     def mdm_provider_name(self, mdm_provider_name: str) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.mdm_provider_name = mdm_provider_name
         self._list_device_record_request.add_query("mdm_provider_name", mdm_provider_name)
+        return self
+
+    def lsa_client_status(self, lsa_client_status: int) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.lsa_client_status = lsa_client_status
+        self._list_device_record_request.add_query("lsa_client_status", lsa_client_status)
+        return self
+
+    def device_env_detect_status(self, device_env_detect_status: int) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.device_env_detect_status = device_env_detect_status
+        self._list_device_record_request.add_query("device_env_detect_status", device_env_detect_status)
+        return self
+
+    def is_public(self, is_public: bool) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.is_public = is_public
+        self._list_device_record_request.add_query("is_public", is_public)
+        return self
+
+    def source(self, source: int) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.source = source
+        self._list_device_record_request.add_query("source", source)
+        return self
+
+    def cert_serial_number(self, cert_serial_number: str) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.cert_serial_number = cert_serial_number
+        self._list_device_record_request.add_query("cert_serial_number", cert_serial_number)
+        return self
+
+    def cert_issuer(self, cert_issuer: str) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.cert_issuer = cert_issuer
+        self._list_device_record_request.add_query("cert_issuer", cert_issuer)
         return self
 
     def build(self) -> ListDeviceRecordRequest:

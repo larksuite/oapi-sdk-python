@@ -8,7 +8,8 @@ from .search_basic_info_currency_response_body import SearchBasicInfoCurrencyRes
 
 class SearchBasicInfoCurrencyResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoCurrencyResponseBody
+        "data": SearchBasicInfoCurrencyResponseBody,
+
     }
 
     def __init__(self, d=None):

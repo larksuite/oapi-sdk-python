@@ -8,7 +8,8 @@ from .batch_get_tmp_download_url_media_response_body import BatchGetTmpDownloadU
 
 class BatchGetTmpDownloadUrlMediaResponse(BaseResponse):
     _types = {
-        "data": BatchGetTmpDownloadUrlMediaResponseBody
+        "data": BatchGetTmpDownloadUrlMediaResponseBody,
+
     }
 
     def __init__(self, d=None):

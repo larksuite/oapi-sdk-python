@@ -8,7 +8,8 @@ from .create_task_reminder_response_body import CreateTaskReminderResponseBody
 
 class CreateTaskReminderResponse(BaseResponse):
     _types = {
-        "data": CreateTaskReminderResponseBody
+        "data": CreateTaskReminderResponseBody,
+
     }
 
     def __init__(self, d=None):

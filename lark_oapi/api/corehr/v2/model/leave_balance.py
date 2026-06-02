@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .leave_subtype_balance import LeaveSubtypeBalance
 
 
 class LeaveBalance(object):
@@ -23,6 +24,7 @@ class LeaveBalance(object):
         "offboarding_granted": str,
         "leave_balance_excluding_under_approval": str,
         "leave_quantity_under_approval": str,
+        "leave_subtype_balance_list": List[LeaveSubtypeBalance],
     }
 
     def __init__(self, d=None):
@@ -42,6 +44,7 @@ class LeaveBalance(object):
         self.offboarding_granted: Optional[str] = None
         self.leave_balance_excluding_under_approval: Optional[str] = None
         self.leave_quantity_under_approval: Optional[str] = None
+        self.leave_subtype_balance_list: Optional[List[LeaveSubtypeBalance]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -116,6 +119,11 @@ class LeaveBalanceBuilder(object):
 
     def leave_quantity_under_approval(self, leave_quantity_under_approval: str) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_quantity_under_approval = leave_quantity_under_approval
+        return self
+
+    def leave_subtype_balance_list(self,
+                                   leave_subtype_balance_list: List[LeaveSubtypeBalance]) -> "LeaveBalanceBuilder":
+        self._leave_balance.leave_subtype_balance_list = leave_subtype_balance_list
         return self
 
     def build(self) -> "LeaveBalance":

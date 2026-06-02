@@ -8,7 +8,8 @@ from .add_to_folder_talent_response_body import AddToFolderTalentResponseBody
 
 class AddToFolderTalentResponse(BaseResponse):
     _types = {
-        "data": AddToFolderTalentResponseBody
+        "data": AddToFolderTalentResponseBody,
+
     }
 
     def __init__(self, d=None):

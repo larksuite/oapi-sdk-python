@@ -6,13 +6,17 @@ from lark_oapi.core.construct import init
 
 class MeetingChat(object):
     _types = {
+        "event_id": str,
         "meeting_chat_id": str,
         "applink": str,
+        "meeting_chat_type": str,
     }
 
     def __init__(self, d=None):
+        self.event_id: Optional[str] = None
         self.meeting_chat_id: Optional[str] = None
         self.applink: Optional[str] = None
+        self.meeting_chat_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,12 +28,20 @@ class MeetingChatBuilder(object):
     def __init__(self) -> None:
         self._meeting_chat = MeetingChat()
 
+    def event_id(self, event_id: str) -> "MeetingChatBuilder":
+        self._meeting_chat.event_id = event_id
+        return self
+
     def meeting_chat_id(self, meeting_chat_id: str) -> "MeetingChatBuilder":
         self._meeting_chat.meeting_chat_id = meeting_chat_id
         return self
 
     def applink(self, applink: str) -> "MeetingChatBuilder":
         self._meeting_chat.applink = applink
+        return self
+
+    def meeting_chat_type(self, meeting_chat_type: str) -> "MeetingChatBuilder":
+        self._meeting_chat.meeting_chat_type = meeting_chat_type
         return self
 
     def build(self) -> "MeetingChat":

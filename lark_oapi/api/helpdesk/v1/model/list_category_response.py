@@ -8,7 +8,8 @@ from .list_category_response_body import ListCategoryResponseBody
 
 class ListCategoryResponse(BaseResponse):
     _types = {
-        "data": ListCategoryResponseBody
+        "data": ListCategoryResponseBody,
+
     }
 
     def __init__(self, d=None):

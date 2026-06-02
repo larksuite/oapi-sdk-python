@@ -8,7 +8,8 @@ from .patch_employees_international_assignment_response_body import PatchEmploye
 
 class PatchEmployeesInternationalAssignmentResponse(BaseResponse):
     _types = {
-        "data": PatchEmployeesInternationalAssignmentResponseBody
+        "data": PatchEmployeesInternationalAssignmentResponseBody,
+
     }
 
     def __init__(self, d=None):

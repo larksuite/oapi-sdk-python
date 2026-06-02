@@ -8,7 +8,8 @@ from .search_job_publish_record_response_body import SearchJobPublishRecordRespo
 
 class SearchJobPublishRecordResponse(BaseResponse):
     _types = {
-        "data": SearchJobPublishRecordResponseBody
+        "data": SearchJobPublishRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

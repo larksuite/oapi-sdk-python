@@ -8,7 +8,8 @@ from .query_custom_field_response_body import QueryCustomFieldResponseBody
 
 class QueryCustomFieldResponse(BaseResponse):
     _types = {
-        "data": QueryCustomFieldResponseBody
+        "data": QueryCustomFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_recent_change_cost_center_response_body import QueryRecentChangeCost
 
 class QueryRecentChangeCostCenterResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangeCostCenterResponseBody
+        "data": QueryRecentChangeCostCenterResponseBody,
+
     }
 
     def __init__(self, d=None):

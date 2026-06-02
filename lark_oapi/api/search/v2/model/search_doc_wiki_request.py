@@ -22,7 +22,7 @@ class SearchDocWikiRequestBuilder(object):
         search_doc_wiki_request = SearchDocWikiRequest()
         search_doc_wiki_request.http_method = HttpMethod.POST
         search_doc_wiki_request.uri = "/open-apis/search/v2/doc_wiki/search"
-        search_doc_wiki_request.token_types = {AccessTokenType.USER}
+        search_doc_wiki_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._search_doc_wiki_request: SearchDocWikiRequest = search_doc_wiki_request
 
     def request_body(self, request_body: SearchDocWikiRequestBody) -> "SearchDocWikiRequestBuilder":

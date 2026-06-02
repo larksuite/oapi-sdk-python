@@ -27,6 +27,7 @@ def main():
                       .org_roles([])
                       .match_rule_groups([])
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .org_roles([])
                       .match_rule_groups([])
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

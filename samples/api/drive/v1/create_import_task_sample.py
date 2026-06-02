@@ -20,6 +20,7 @@ def main():
                       .type("docx")
                       .file_name("文件名")
                       .point(ImportTaskMountPoint.builder().build())
+                      .token("doxbcHgfxdfxxxxxxxxxxxfMky")
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .type("docx")
                       .file_name("文件名")
                       .point(ImportTaskMountPoint.builder().build())
+                      .token("doxbcHgfxdfxxxxxxxxxxxfMky")
                       .build()) \
         .build()
 

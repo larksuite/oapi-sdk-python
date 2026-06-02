@@ -17,7 +17,6 @@ from lark_oapi.core.model.request_option import RequestOption
 from lark_oapi.core.utils.user_agent import build_user_agent
 from lark_oapi.ws.client import Client as WSClient
 
-
 _BASE = f"{PROJECT}/v{VERSION}"
 
 

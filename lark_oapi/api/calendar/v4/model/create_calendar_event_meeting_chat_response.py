@@ -8,7 +8,8 @@ from .create_calendar_event_meeting_chat_response_body import CreateCalendarEven
 
 class CreateCalendarEventMeetingChatResponse(BaseResponse):
     _types = {
-        "data": CreateCalendarEventMeetingChatResponseBody
+        "data": CreateCalendarEventMeetingChatResponseBody,
+
     }
 
     def __init__(self, d=None):

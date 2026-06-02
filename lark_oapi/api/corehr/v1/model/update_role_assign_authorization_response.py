@@ -8,7 +8,8 @@ from .update_role_assign_authorization_response_body import UpdateRoleAssignAuth
 
 class UpdateRoleAssignAuthorizationResponse(BaseResponse):
     _types = {
-        "data": UpdateRoleAssignAuthorizationResponseBody
+        "data": UpdateRoleAssignAuthorizationResponseBody,
+
     }
 
     def __init__(self, d=None):

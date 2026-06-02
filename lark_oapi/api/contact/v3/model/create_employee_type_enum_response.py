@@ -8,7 +8,8 @@ from .create_employee_type_enum_response_body import CreateEmployeeTypeEnumRespo
 
 class CreateEmployeeTypeEnumResponse(BaseResponse):
     _types = {
-        "data": CreateEmployeeTypeEnumResponseBody
+        "data": CreateEmployeeTypeEnumResponseBody,
+
     }
 
     def __init__(self, d=None):

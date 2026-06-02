@@ -8,7 +8,8 @@ from .get_rule_external_response_body import GetRuleExternalResponseBody
 
 class GetRuleExternalResponse(BaseResponse):
     _types = {
-        "data": GetRuleExternalResponseBody
+        "data": GetRuleExternalResponseBody,
+
     }
 
     def __init__(self, d=None):

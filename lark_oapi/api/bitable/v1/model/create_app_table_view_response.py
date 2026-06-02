@@ -8,7 +8,8 @@ from .create_app_table_view_response_body import CreateAppTableViewResponseBody
 
 class CreateAppTableViewResponse(BaseResponse):
     _types = {
-        "data": CreateAppTableViewResponseBody
+        "data": CreateAppTableViewResponseBody,
+
     }
 
     def __init__(self, d=None):

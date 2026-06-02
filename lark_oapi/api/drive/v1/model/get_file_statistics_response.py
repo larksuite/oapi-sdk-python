@@ -8,7 +8,8 @@ from .get_file_statistics_response_body import GetFileStatisticsResponseBody
 
 class GetFileStatisticsResponse(BaseResponse):
     _types = {
-        "data": GetFileStatisticsResponseBody
+        "data": GetFileStatisticsResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -22,6 +22,7 @@ from .seniority_adjust_information import SeniorityAdjustInformation
 from .enum import Enum
 from .enum import Enum
 from .hrbp_info import HrbpInfo
+from .landing_plan import LandingPlan
 
 
 class EmployeeBt(object):
@@ -96,6 +97,11 @@ class EmployeeBt(object):
         "hrbp": List[str],
         "all_hrbp": List[str],
         "hrbp_info": List[HrbpInfo],
+        "is_direct_leader": bool,
+        "is_dotted_leader": bool,
+        "company_talent_pool_ids": List[str],
+        "landing_plan": LandingPlan,
+        "all_position_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -169,6 +175,11 @@ class EmployeeBt(object):
         self.hrbp: Optional[List[str]] = None
         self.all_hrbp: Optional[List[str]] = None
         self.hrbp_info: Optional[List[HrbpInfo]] = None
+        self.is_direct_leader: Optional[bool] = None
+        self.is_dotted_leader: Optional[bool] = None
+        self.company_talent_pool_ids: Optional[List[str]] = None
+        self.landing_plan: Optional[LandingPlan] = None
+        self.all_position_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -460,6 +471,26 @@ class EmployeeBtBuilder(object):
 
     def hrbp_info(self, hrbp_info: List[HrbpInfo]) -> "EmployeeBtBuilder":
         self._employee_bt.hrbp_info = hrbp_info
+        return self
+
+    def is_direct_leader(self, is_direct_leader: bool) -> "EmployeeBtBuilder":
+        self._employee_bt.is_direct_leader = is_direct_leader
+        return self
+
+    def is_dotted_leader(self, is_dotted_leader: bool) -> "EmployeeBtBuilder":
+        self._employee_bt.is_dotted_leader = is_dotted_leader
+        return self
+
+    def company_talent_pool_ids(self, company_talent_pool_ids: List[str]) -> "EmployeeBtBuilder":
+        self._employee_bt.company_talent_pool_ids = company_talent_pool_ids
+        return self
+
+    def landing_plan(self, landing_plan: LandingPlan) -> "EmployeeBtBuilder":
+        self._employee_bt.landing_plan = landing_plan
+        return self
+
+    def all_position_ids(self, all_position_ids: List[str]) -> "EmployeeBtBuilder":
+        self._employee_bt.all_position_ids = all_position_ids
         return self
 
     def build(self) -> "EmployeeBt":

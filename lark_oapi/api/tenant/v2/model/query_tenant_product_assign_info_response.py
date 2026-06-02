@@ -8,7 +8,8 @@ from .query_tenant_product_assign_info_response_body import QueryTenantProductAs
 
 class QueryTenantProductAssignInfoResponse(BaseResponse):
     _types = {
-        "data": QueryTenantProductAssignInfoResponseBody
+        "data": QueryTenantProductAssignInfoResponseBody,
+
     }
 
     def __init__(self, d=None):

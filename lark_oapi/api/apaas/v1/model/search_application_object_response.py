@@ -8,7 +8,8 @@ from .search_application_object_response_body import SearchApplicationObjectResp
 
 class SearchApplicationObjectResponse(BaseResponse):
     _types = {
-        "data": SearchApplicationObjectResponseBody
+        "data": SearchApplicationObjectResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_badge_grant_response_body import GetBadgeGrantResponseBody
 
 class GetBadgeGrantResponse(BaseResponse):
     _types = {
-        "data": GetBadgeGrantResponseBody
+        "data": GetBadgeGrantResponseBody,
+
     }
 
     def __init__(self, d=None):

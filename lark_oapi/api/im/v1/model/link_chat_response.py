@@ -8,7 +8,8 @@ from .link_chat_response_body import LinkChatResponseBody
 
 class LinkChatResponse(BaseResponse):
     _types = {
-        "data": LinkChatResponseBody
+        "data": LinkChatResponseBody,
+
     }
 
     def __init__(self, d=None):

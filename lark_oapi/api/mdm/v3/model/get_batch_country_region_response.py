@@ -8,7 +8,8 @@ from .get_batch_country_region_response_body import GetBatchCountryRegionRespons
 
 class GetBatchCountryRegionResponse(BaseResponse):
     _types = {
-        "data": GetBatchCountryRegionResponseBody
+        "data": GetBatchCountryRegionResponseBody,
+
     }
 
     def __init__(self, d=None):

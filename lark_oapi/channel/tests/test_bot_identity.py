@@ -36,8 +36,8 @@ async def test_fetch_uses_bot_v3_info_first():
                          "app_name": "Demo Bot", "app_id": "cli_x"}},
     })
     with patch("lark_oapi.channel.bot_identity._verify_auth", side_effect=_fake_verify), \
-         patch("lark_oapi.channel.bot_identity.Transport.aexecute",
-               new=AsyncMock(return_value=bot_v3_resp)):
+            patch("lark_oapi.channel.bot_identity.Transport.aexecute",
+                  new=AsyncMock(return_value=bot_v3_resp)):
         ident = await fetch_bot_identity(config)
     assert isinstance(ident, BotIdentity)
     assert ident.open_id == "ou_bot_1"
@@ -62,7 +62,7 @@ async def test_fetch_falls_back_to_application_get():
         return calls.pop(0)
 
     with patch("lark_oapi.channel.bot_identity._verify_auth", side_effect=_fake_verify), \
-         patch("lark_oapi.channel.bot_identity.Transport.aexecute", side_effect=fake_aexecute):
+            patch("lark_oapi.channel.bot_identity.Transport.aexecute", side_effect=fake_aexecute):
         ident = await fetch_bot_identity(config)
     assert ident is not None and ident.open_id == "ou_fallback"
     assert ident.name == "App Y"
@@ -75,8 +75,8 @@ async def test_fetch_returns_none_on_all_failures():
     config.app_secret = "sec"
 
     with patch("lark_oapi.channel.bot_identity._verify_auth", side_effect=_fake_verify), \
-         patch("lark_oapi.channel.bot_identity.Transport.aexecute",
-               new=AsyncMock(side_effect=RuntimeError("network"))):
+            patch("lark_oapi.channel.bot_identity.Transport.aexecute",
+                  new=AsyncMock(side_effect=RuntimeError("network"))):
         ident = await fetch_bot_identity(config)
     assert ident is None
 
@@ -102,8 +102,8 @@ async def test_fetch_handles_top_level_payload():
         "msg": "ok",
     })
     with patch("lark_oapi.channel.bot_identity._verify_auth", side_effect=_fake_verify), \
-         patch("lark_oapi.channel.bot_identity.Transport.aexecute",
-               new=AsyncMock(return_value=flat_resp)):
+            patch("lark_oapi.channel.bot_identity.Transport.aexecute",
+                  new=AsyncMock(return_value=flat_resp)):
         ident = await fetch_bot_identity(config)
 
     assert ident is not None, "flat payload must be parsed, not treated as failure"
@@ -139,7 +139,7 @@ async def test_fetch_injects_tenant_token_into_request():
     # observe that the verify step is invoked with the same (req, option)
     # that later reaches aexecute.
     with patch("lark_oapi.channel.bot_identity._verify_auth", side_effect=_fake_verify) as verify_mock, \
-         patch("lark_oapi.channel.bot_identity.Transport.aexecute", side_effect=spy_aexecute):
+            patch("lark_oapi.channel.bot_identity.Transport.aexecute", side_effect=spy_aexecute):
         ident = await fetch_bot_identity(config)
 
     assert ident is not None and ident.open_id == "ou_bot"

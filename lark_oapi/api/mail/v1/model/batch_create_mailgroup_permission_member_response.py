@@ -8,7 +8,8 @@ from .batch_create_mailgroup_permission_member_response_body import BatchCreateM
 
 class BatchCreateMailgroupPermissionMemberResponse(BaseResponse):
     _types = {
-        "data": BatchCreateMailgroupPermissionMemberResponseBody
+        "data": BatchCreateMailgroupPermissionMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

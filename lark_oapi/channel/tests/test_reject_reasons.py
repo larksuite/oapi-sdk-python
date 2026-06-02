@@ -8,7 +8,6 @@ from typing import get_args
 
 from lark_oapi.channel import RejectReason
 
-
 EXPECTED_REASONS = {
     # Non-policy
     "stale",

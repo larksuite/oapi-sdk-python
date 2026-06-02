@@ -8,7 +8,8 @@ from .file_recognize_speech_response_body import FileRecognizeSpeechResponseBody
 
 class FileRecognizeSpeechResponse(BaseResponse):
     _types = {
-        "data": FileRecognizeSpeechResponseBody
+        "data": FileRecognizeSpeechResponseBody,
+
     }
 
     def __init__(self, d=None):

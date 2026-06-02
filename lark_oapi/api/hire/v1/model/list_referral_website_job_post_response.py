@@ -8,7 +8,8 @@ from .list_referral_website_job_post_response_body import ListReferralWebsiteJob
 
 class ListReferralWebsiteJobPostResponse(BaseResponse):
     _types = {
-        "data": ListReferralWebsiteJobPostResponseBody
+        "data": ListReferralWebsiteJobPostResponseBody,
+
     }
 
     def __init__(self, d=None):

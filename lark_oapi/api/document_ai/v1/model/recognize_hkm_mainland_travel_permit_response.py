@@ -8,7 +8,8 @@ from .recognize_hkm_mainland_travel_permit_response_body import RecognizeHkmMain
 
 class RecognizeHkmMainlandTravelPermitResponse(BaseResponse):
     _types = {
-        "data": RecognizeHkmMainlandTravelPermitResponseBody
+        "data": RecognizeHkmMainlandTravelPermitResponseBody,
+
     }
 
     def __init__(self, d=None):

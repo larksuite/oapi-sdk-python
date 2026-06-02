@@ -27,6 +27,7 @@ def main():
                       .parent_department_id("7094136522860922222")
                       .code_list([])
                       .fields([])
+                      .keyword("搜索关键词")
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .parent_department_id("7094136522860922222")
                       .code_list([])
                       .fields([])
+                      .keyword("搜索关键词")
                       .build()) \
         .build()
 

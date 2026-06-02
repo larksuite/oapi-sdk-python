@@ -86,12 +86,12 @@ def _plain(text: str) -> List[Dict[str, Any]]:
 
 
 def markdown_to_post_ast(
-    md: str,
-    title: str = "",
-    locale: str = "zh_cn",
-    mentions: "list[Identity] | None" = None,
-    table_mode: str = "off",
-    tag_md_mode: str = "structured",
+        md: str,
+        title: str = "",
+        locale: str = "zh_cn",
+        mentions: "list[Identity] | None" = None,
+        table_mode: str = "off",
+        tag_md_mode: str = "structured",
 ) -> Dict[str, Any]:
     """Produce a Lark post AST (`{locale: {title, content: [[...]]}}`) from Markdown.
 
@@ -192,8 +192,8 @@ def markdown_to_post_ast(
         if re.match(r"^\s*[-*+]\s+", line) or re.match(r"^\s*\d+[.)]\s+", line):
             _flush_paragraph(buf)
             while i < n and (
-                re.match(r"^\s*[-*+]\s+", lines[i])
-                or re.match(r"^\s*\d+[.)]\s+", lines[i])
+                    re.match(r"^\s*[-*+]\s+", lines[i])
+                    or re.match(r"^\s*\d+[.)]\s+", lines[i])
             ):
                 item_line = lines[i]
                 bullet_text = re.sub(r"^\s*[-*+]\s+", "• ", item_line)
@@ -294,10 +294,10 @@ _FENCE_LINE_RE = re.compile(r"^```")
 
 
 def _build_native_md_ast(
-    md: str,
-    title: str = "",
-    locale: str = "zh_cn",
-    mentions: "list[Identity] | None" = None,
+        md: str,
+        title: str = "",
+        locale: str = "zh_cn",
+        mentions: "list[Identity] | None" = None,
 ) -> Dict[str, Any]:
     """Pack raw markdown into one or more ``tag:md`` rows.
 

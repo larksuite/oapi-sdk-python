@@ -8,7 +8,8 @@ from .primarys_calendar_response_body import PrimarysCalendarResponseBody
 
 class PrimarysCalendarResponse(BaseResponse):
     _types = {
-        "data": PrimarysCalendarResponseBody
+        "data": PrimarysCalendarResponseBody,
+
     }
 
     def __init__(self, d=None):

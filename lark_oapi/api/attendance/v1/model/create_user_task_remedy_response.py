@@ -8,7 +8,8 @@ from .create_user_task_remedy_response_body import CreateUserTaskRemedyResponseB
 
 class CreateUserTaskRemedyResponse(BaseResponse):
     _types = {
-        "data": CreateUserTaskRemedyResponseBody
+        "data": CreateUserTaskRemedyResponseBody,
+
     }
 
     def __init__(self, d=None):

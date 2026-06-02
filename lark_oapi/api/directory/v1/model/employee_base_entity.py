@@ -65,7 +65,7 @@ class EmployeeBaseEntity(object):
         "is_admin": bool,
         "data_source": int,
         "geo_name": str,
-        "subscription_ids": List[str],
+        "subscription_ids": List[int],
         "virtual_org_infos": List[UserVirtualOrgInfo],
         "is_forbidden_delete_employee": bool,
     }
@@ -116,7 +116,7 @@ class EmployeeBaseEntity(object):
         self.is_admin: Optional[bool] = None
         self.data_source: Optional[int] = None
         self.geo_name: Optional[str] = None
-        self.subscription_ids: Optional[List[str]] = None
+        self.subscription_ids: Optional[List[int]] = None
         self.virtual_org_infos: Optional[List[UserVirtualOrgInfo]] = None
         self.is_forbidden_delete_employee: Optional[bool] = None
         init(self, d, self._types)
@@ -313,7 +313,7 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.geo_name = geo_name
         return self
 
-    def subscription_ids(self, subscription_ids: List[str]) -> "EmployeeBaseEntityBuilder":
+    def subscription_ids(self, subscription_ids: List[int]) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.subscription_ids = subscription_ids
         return self
 

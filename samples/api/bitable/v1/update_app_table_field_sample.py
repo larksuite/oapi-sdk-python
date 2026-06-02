@@ -17,12 +17,15 @@ def main():
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
         .field_id("fldPTb0U2y") \
+        .client_token("str") \
         .request_body(AppTableField.builder()
                       .field_name("字段名称")
                       .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
+                      .is_primary(True)
                       .ui_type("Progress")
+                      .is_hidden(False)
                       .build()) \
         .build()
 
@@ -53,12 +56,15 @@ async def amain():
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
         .field_id("fldPTb0U2y") \
+        .client_token("str") \
         .request_body(AppTableField.builder()
                       .field_name("字段名称")
                       .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
+                      .is_primary(True)
                       .ui_type("Progress")
+                      .is_hidden(False)
                       .build()) \
         .build()
 

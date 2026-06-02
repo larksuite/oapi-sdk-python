@@ -22,7 +22,7 @@ class CreateImageRequestBuilder(object):
         create_image_request = CreateImageRequest()
         create_image_request.http_method = HttpMethod.POST
         create_image_request.uri = "/open-apis/im/v1/images"
-        create_image_request.token_types = {AccessTokenType.TENANT}
+        create_image_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_image_request: CreateImageRequest = create_image_request
 
     def request_body(self, request_body: CreateImageRequestBody) -> "CreateImageRequestBuilder":

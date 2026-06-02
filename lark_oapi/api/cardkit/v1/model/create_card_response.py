@@ -8,7 +8,8 @@ from .create_card_response_body import CreateCardResponseBody
 
 class CreateCardResponse(BaseResponse):
     _types = {
-        "data": CreateCardResponseBody
+        "data": CreateCardResponseBody,
+
     }
 
     def __init__(self, d=None):

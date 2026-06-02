@@ -8,7 +8,8 @@ from .get_message_response_body import GetMessageResponseBody
 
 class GetMessageResponse(BaseResponse):
     _types = {
-        "data": GetMessageResponseBody
+        "data": GetMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

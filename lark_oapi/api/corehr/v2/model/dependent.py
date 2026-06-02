@@ -11,6 +11,10 @@ from .custom_field_data import CustomFieldData
 from .phone import Phone
 from .address import Address
 from .file import File
+from .enum import Enum
+from .visa import Visa
+from .passport import Passport
+from .citizenship_status import CitizenshipStatus
 
 
 class Dependent(object):
@@ -33,6 +37,11 @@ class Dependent(object):
         "phone": Phone,
         "address": Address,
         "birth_certificate_of_child": List[File],
+        "reason": Enum,
+        "modify_date": str,
+        "visas": List[Visa],
+        "passports": List[Passport],
+        "citizenship_statuses": List[CitizenshipStatus],
     }
 
     def __init__(self, d=None):
@@ -54,6 +63,11 @@ class Dependent(object):
         self.phone: Optional[Phone] = None
         self.address: Optional[Address] = None
         self.birth_certificate_of_child: Optional[List[File]] = None
+        self.reason: Optional[Enum] = None
+        self.modify_date: Optional[str] = None
+        self.visas: Optional[List[Visa]] = None
+        self.passports: Optional[List[Passport]] = None
+        self.citizenship_statuses: Optional[List[CitizenshipStatus]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -137,6 +151,26 @@ class DependentBuilder(object):
 
     def birth_certificate_of_child(self, birth_certificate_of_child: List[File]) -> "DependentBuilder":
         self._dependent.birth_certificate_of_child = birth_certificate_of_child
+        return self
+
+    def reason(self, reason: Enum) -> "DependentBuilder":
+        self._dependent.reason = reason
+        return self
+
+    def modify_date(self, modify_date: str) -> "DependentBuilder":
+        self._dependent.modify_date = modify_date
+        return self
+
+    def visas(self, visas: List[Visa]) -> "DependentBuilder":
+        self._dependent.visas = visas
+        return self
+
+    def passports(self, passports: List[Passport]) -> "DependentBuilder":
+        self._dependent.passports = passports
+        return self
+
+    def citizenship_statuses(self, citizenship_statuses: List[CitizenshipStatus]) -> "DependentBuilder":
+        self._dependent.citizenship_statuses = citizenship_statuses
         return self
 
     def build(self) -> "Dependent":

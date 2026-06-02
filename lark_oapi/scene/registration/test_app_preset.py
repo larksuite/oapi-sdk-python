@@ -193,4 +193,3 @@ class AppPresetAsyncRegisterAppE2ETest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(query["desc"], ["由业务平台自动生成"])
         self.assertEqual(result["client_id"], "cli_a")
         self.assertEqual(result["client_secret"], "sec_a")
-

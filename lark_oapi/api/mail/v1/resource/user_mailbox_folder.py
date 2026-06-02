@@ -13,6 +13,8 @@ from ..model.create_user_mailbox_folder_request import CreateUserMailboxFolderRe
 from ..model.create_user_mailbox_folder_response import CreateUserMailboxFolderResponse
 from ..model.delete_user_mailbox_folder_request import DeleteUserMailboxFolderRequest
 from ..model.delete_user_mailbox_folder_response import DeleteUserMailboxFolderResponse
+from ..model.get_user_mailbox_folder_request import GetUserMailboxFolderRequest
+from ..model.get_user_mailbox_folder_response import GetUserMailboxFolderResponse
 from ..model.list_user_mailbox_folder_request import ListUserMailboxFolderRequest
 from ..model.list_user_mailbox_folder_response import ListUserMailboxFolderResponse
 from ..model.patch_user_mailbox_folder_request import PatchUserMailboxFolderRequest
@@ -99,6 +101,44 @@ class UserMailboxFolder(object):
         # 反序列化
         response: DeleteUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                    DeleteUserMailboxFolderResponse)
+        response.raw = resp
+
+        return response
+
+    def get(self, request: GetUserMailboxFolderRequest,
+            option: Optional[RequestOption] = None) -> GetUserMailboxFolderResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxFolderResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetUserMailboxFolderRequest,
+                   option: Optional[RequestOption] = None) -> GetUserMailboxFolderResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetUserMailboxFolderResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxFolderResponse)
         response.raw = resp
 
         return response

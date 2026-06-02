@@ -2,6 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .job_detail_recruitment_type import JobDetailRecruitmentType
+from .job_detail_department import JobDetailDepartment
+from .code_name_object import CodeNameObject
 
 
 class JobBasicInfo(object):
@@ -9,12 +12,26 @@ class JobBasicInfo(object):
         "id": str,
         "name": str,
         "code": str,
+        "description": str,
+        "requirement": str,
+        "recruitment_type": JobDetailRecruitmentType,
+        "department": JobDetailDepartment,
+        "process_type": int,
+        "process_id": str,
+        "city_list": CodeNameObject,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.code: Optional[str] = None
+        self.description: Optional[str] = None
+        self.requirement: Optional[str] = None
+        self.recruitment_type: Optional[JobDetailRecruitmentType] = None
+        self.department: Optional[JobDetailDepartment] = None
+        self.process_type: Optional[int] = None
+        self.process_id: Optional[str] = None
+        self.city_list: Optional[CodeNameObject] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +53,34 @@ class JobBasicInfoBuilder(object):
 
     def code(self, code: str) -> "JobBasicInfoBuilder":
         self._job_basic_info.code = code
+        return self
+
+    def description(self, description: str) -> "JobBasicInfoBuilder":
+        self._job_basic_info.description = description
+        return self
+
+    def requirement(self, requirement: str) -> "JobBasicInfoBuilder":
+        self._job_basic_info.requirement = requirement
+        return self
+
+    def recruitment_type(self, recruitment_type: JobDetailRecruitmentType) -> "JobBasicInfoBuilder":
+        self._job_basic_info.recruitment_type = recruitment_type
+        return self
+
+    def department(self, department: JobDetailDepartment) -> "JobBasicInfoBuilder":
+        self._job_basic_info.department = department
+        return self
+
+    def process_type(self, process_type: int) -> "JobBasicInfoBuilder":
+        self._job_basic_info.process_type = process_type
+        return self
+
+    def process_id(self, process_id: str) -> "JobBasicInfoBuilder":
+        self._job_basic_info.process_id = process_id
+        return self
+
+    def city_list(self, city_list: CodeNameObject) -> "JobBasicInfoBuilder":
+        self._job_basic_info.city_list = city_list
         return self
 
     def build(self) -> "JobBasicInfo":

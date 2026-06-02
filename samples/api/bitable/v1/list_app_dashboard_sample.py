@@ -17,6 +17,7 @@ def main():
         .app_token("bascng7vrxcxpig7geggXiCtadY") \
         .page_size(10) \
         .page_token("blknkqrP3RqUkcAW") \
+        .with_share_config(bool) \
         .build()
 
     # 发起请求
@@ -46,6 +47,7 @@ async def amain():
         .app_token("bascng7vrxcxpig7geggXiCtadY") \
         .page_size(10) \
         .page_token("blknkqrP3RqUkcAW") \
+        .with_share_config(bool) \
         .build()
 
     # 发起请求

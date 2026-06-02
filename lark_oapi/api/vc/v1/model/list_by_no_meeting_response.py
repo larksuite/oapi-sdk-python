@@ -8,7 +8,8 @@ from .list_by_no_meeting_response_body import ListByNoMeetingResponseBody
 
 class ListByNoMeetingResponse(BaseResponse):
     _types = {
-        "data": ListByNoMeetingResponseBody
+        "data": ListByNoMeetingResponseBody,
+
     }
 
     def __init__(self, d=None):

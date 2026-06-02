@@ -8,7 +8,8 @@ from .get_category_response_body import GetCategoryResponseBody
 
 class GetCategoryResponse(BaseResponse):
     _types = {
-        "data": GetCategoryResponseBody
+        "data": GetCategoryResponseBody,
+
     }
 
     def __init__(self, d=None):

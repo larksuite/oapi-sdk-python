@@ -8,7 +8,8 @@ from .query_user_task_response_body import QueryUserTaskResponseBody
 
 class QueryUserTaskResponse(BaseResponse):
     _types = {
-        "data": QueryUserTaskResponseBody
+        "data": QueryUserTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

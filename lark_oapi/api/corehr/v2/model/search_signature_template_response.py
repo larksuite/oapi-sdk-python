@@ -8,7 +8,8 @@ from .search_signature_template_response_body import SearchSignatureTemplateResp
 
 class SearchSignatureTemplateResponse(BaseResponse):
     _types = {
-        "data": SearchSignatureTemplateResponseBody
+        "data": SearchSignatureTemplateResponseBody,
+
     }
 
     def __init__(self, d=None):

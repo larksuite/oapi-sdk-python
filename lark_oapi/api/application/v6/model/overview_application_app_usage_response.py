@@ -8,7 +8,8 @@ from .overview_application_app_usage_response_body import OverviewApplicationApp
 
 class OverviewApplicationAppUsageResponse(BaseResponse):
     _types = {
-        "data": OverviewApplicationAppUsageResponseBody
+        "data": OverviewApplicationAppUsageResponseBody,
+
     }
 
     def __init__(self, d=None):

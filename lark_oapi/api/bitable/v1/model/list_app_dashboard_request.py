@@ -10,6 +10,7 @@ class ListAppDashboardRequest(BaseRequest):
         super().__init__()
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.with_share_config: Optional[bool] = None
         self.app_token: Optional[str] = None
 
     @staticmethod
@@ -34,6 +35,11 @@ class ListAppDashboardRequestBuilder(object):
     def page_token(self, page_token: str) -> "ListAppDashboardRequestBuilder":
         self._list_app_dashboard_request.page_token = page_token
         self._list_app_dashboard_request.add_query("page_token", page_token)
+        return self
+
+    def with_share_config(self, with_share_config: bool) -> "ListAppDashboardRequestBuilder":
+        self._list_app_dashboard_request.with_share_config = with_share_config
+        self._list_app_dashboard_request.add_query("with_share_config", with_share_config)
         return self
 
     def app_token(self, app_token: str) -> "ListAppDashboardRequestBuilder":

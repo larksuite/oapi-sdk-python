@@ -11,6 +11,7 @@ from .common_address import CommonAddress
 from .job_config_detail import JobConfigDetail
 from .job_storefront import JobStorefront
 from .job_detail_tag import JobDetailTag
+from .stage_count_info import StageCountInfo
 
 
 class JobDetail(object):
@@ -24,6 +25,7 @@ class JobDetail(object):
         "job_config": JobConfigDetail,
         "storefront_list": List[JobStorefront],
         "tag_list": List[JobDetailTag],
+        "stage_count_list": List[StageCountInfo],
     }
 
     def __init__(self, d=None):
@@ -36,6 +38,7 @@ class JobDetail(object):
         self.job_config: Optional[JobConfigDetail] = None
         self.storefront_list: Optional[List[JobStorefront]] = None
         self.tag_list: Optional[List[JobDetailTag]] = None
+        self.stage_count_list: Optional[List[StageCountInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -81,6 +84,10 @@ class JobDetailBuilder(object):
 
     def tag_list(self, tag_list: List[JobDetailTag]) -> "JobDetailBuilder":
         self._job_detail.tag_list = tag_list
+        return self
+
+    def stage_count_list(self, stage_count_list: List[StageCountInfo]) -> "JobDetailBuilder":
+        self._job_detail.stage_count_list = stage_count_list
         return self
 
     def build(self) -> "JobDetail":

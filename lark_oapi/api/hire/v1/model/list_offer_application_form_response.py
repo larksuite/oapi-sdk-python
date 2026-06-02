@@ -8,7 +8,8 @@ from .list_offer_application_form_response_body import ListOfferApplicationFormR
 
 class ListOfferApplicationFormResponse(BaseResponse):
     _types = {
-        "data": ListOfferApplicationFormResponseBody
+        "data": ListOfferApplicationFormResponseBody,
+
     }
 
     def __init__(self, d=None):

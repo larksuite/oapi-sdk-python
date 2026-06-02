@@ -29,7 +29,7 @@ class BankAccount(object):
         "payment_amount": str,
         "priority": int,
         "currency_id": str,
-        "i_b_a_n": str,
+        "iban": str,
         "custom_fields": List[CustomFieldData],
     }
 
@@ -52,7 +52,7 @@ class BankAccount(object):
         self.payment_amount: Optional[str] = None
         self.priority: Optional[int] = None
         self.currency_id: Optional[str] = None
-        self.i_b_a_n: Optional[str] = None
+        self.iban: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -137,8 +137,8 @@ class BankAccountBuilder(object):
         self._bank_account.currency_id = currency_id
         return self
 
-    def i_b_a_n(self, i_b_a_n: str) -> "BankAccountBuilder":
-        self._bank_account.i_b_a_n = i_b_a_n
+    def iban(self, iban: str) -> "BankAccountBuilder":
+        self._bank_account.iban = iban
         return self
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "BankAccountBuilder":

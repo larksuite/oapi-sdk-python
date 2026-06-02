@@ -8,7 +8,8 @@ from .batch_workforce_plan_detail_response_body import BatchWorkforcePlanDetailR
 
 class BatchWorkforcePlanDetailResponse(BaseResponse):
     _types = {
-        "data": BatchWorkforcePlanDetailResponseBody
+        "data": BatchWorkforcePlanDetailResponseBody,
+
     }
 
     def __init__(self, d=None):

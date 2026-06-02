@@ -8,7 +8,8 @@ from .delete_managers_chat_managers_response_body import DeleteManagersChatManag
 
 class DeleteManagersChatManagersResponse(BaseResponse):
     _types = {
-        "data": DeleteManagersChatManagersResponseBody
+        "data": DeleteManagersChatManagersResponseBody,
+
     }
 
     def __init__(self, d=None):

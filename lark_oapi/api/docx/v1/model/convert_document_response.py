@@ -8,7 +8,8 @@ from .convert_document_response_body import ConvertDocumentResponseBody
 
 class ConvertDocumentResponse(BaseResponse):
     _types = {
-        "data": ConvertDocumentResponseBody
+        "data": ConvertDocumentResponseBody,
+
     }
 
     def __init__(self, d=None):

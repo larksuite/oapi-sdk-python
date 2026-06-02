@@ -8,7 +8,8 @@ from .find_spreadsheet_sheet_response_body import FindSpreadsheetSheetResponseBo
 
 class FindSpreadsheetSheetResponse(BaseResponse):
     _types = {
-        "data": FindSpreadsheetSheetResponseBody
+        "data": FindSpreadsheetSheetResponseBody,
+
     }
 
     def __init__(self, d=None):

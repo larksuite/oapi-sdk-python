@@ -27,6 +27,7 @@ def main():
                       .effective_time("2020-01-01")
                       .org_roles([])
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .effective_time("2020-01-01")
                       .org_roles([])
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

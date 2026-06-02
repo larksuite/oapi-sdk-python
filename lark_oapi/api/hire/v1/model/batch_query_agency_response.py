@@ -8,7 +8,8 @@ from .batch_query_agency_response_body import BatchQueryAgencyResponseBody
 
 class BatchQueryAgencyResponse(BaseResponse):
     _types = {
-        "data": BatchQueryAgencyResponseBody
+        "data": BatchQueryAgencyResponseBody,
+
     }
 
     def __init__(self, d=None):

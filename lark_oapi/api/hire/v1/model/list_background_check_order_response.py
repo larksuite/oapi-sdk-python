@@ -8,7 +8,8 @@ from .list_background_check_order_response_body import ListBackgroundCheckOrderR
 
 class ListBackgroundCheckOrderResponse(BaseResponse):
     _types = {
-        "data": ListBackgroundCheckOrderResponseBody
+        "data": ListBackgroundCheckOrderResponseBody,
+
     }
 
     def __init__(self, d=None):

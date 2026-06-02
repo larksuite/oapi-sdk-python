@@ -8,7 +8,8 @@ from .edit_offboarding_response_body import EditOffboardingResponseBody
 
 class EditOffboardingResponse(BaseResponse):
     _types = {
-        "data": EditOffboardingResponseBody
+        "data": EditOffboardingResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_custom_attr_response_body import ListCustomAttrResponseBody
 
 class ListCustomAttrResponse(BaseResponse):
     _types = {
-        "data": ListCustomAttrResponseBody
+        "data": ListCustomAttrResponseBody,
+
     }
 
     def __init__(self, d=None):

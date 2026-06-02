@@ -19,6 +19,7 @@ def main():
         .page_size(10) \
         .page_token("1654857036541812356") \
         .file_type("docx") \
+        .need_reaction(bool) \
         .user_id_type("user_id") \
         .build()
 
@@ -51,6 +52,7 @@ async def amain():
         .page_size(10) \
         .page_token("1654857036541812356") \
         .file_type("docx") \
+        .need_reaction(bool) \
         .user_id_type("user_id") \
         .build()
 

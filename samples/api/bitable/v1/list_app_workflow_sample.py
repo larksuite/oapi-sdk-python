@@ -15,8 +15,6 @@ def main():
     # 构造请求对象
     request: ListAppWorkflowRequest = ListAppWorkflowRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .page_token("str") \
-        .page_size(20) \
         .build()
 
     # 发起请求
@@ -44,8 +42,6 @@ async def amain():
     # 构造请求对象
     request: ListAppWorkflowRequest = ListAppWorkflowRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .page_token("str") \
-        .page_size(20) \
         .build()
 
     # 发起请求

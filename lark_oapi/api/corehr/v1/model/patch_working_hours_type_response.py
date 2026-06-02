@@ -8,7 +8,8 @@ from .patch_working_hours_type_response_body import PatchWorkingHoursTypeRespons
 
 class PatchWorkingHoursTypeResponse(BaseResponse):
     _types = {
-        "data": PatchWorkingHoursTypeResponseBody
+        "data": PatchWorkingHoursTypeResponseBody,
+
     }
 
     def __init__(self, d=None):

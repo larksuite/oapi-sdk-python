@@ -3,6 +3,7 @@ from .export import *
 from .meeting import *
 from .meeting_recording import *
 from .meeting_list import *
+from .note import *
 from .participant_list import *
 from .participant_quality_list import *
 from .report import *

@@ -8,7 +8,8 @@ from .list_seat_activity_response_body import ListSeatActivityResponseBody
 
 class ListSeatActivityResponse(BaseResponse):
     _types = {
-        "data": ListSeatActivityResponseBody
+        "data": ListSeatActivityResponseBody,
+
     }
 
     def __init__(self, d=None):

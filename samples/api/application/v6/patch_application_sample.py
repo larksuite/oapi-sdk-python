@@ -18,6 +18,8 @@ def main():
         .lang("zh_cn") \
         .request_body(Application.builder()
                       .common_categories([])
+                      .allow_refresh_token(bool)
+                      .callback_info(CallbackInfo.builder().build())
                       .build()) \
         .build()
 
@@ -49,6 +51,8 @@ async def amain():
         .lang("zh_cn") \
         .request_body(Application.builder()
                       .common_categories([])
+                      .allow_refresh_token(bool)
+                      .callback_info(CallbackInfo.builder().build())
                       .build()) \
         .build()
 

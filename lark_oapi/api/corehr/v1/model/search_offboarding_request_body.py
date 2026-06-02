@@ -18,6 +18,8 @@ class SearchOffboardingRequestBody(object):
         "statuses": List[str],
         "reasons": List[str],
         "employee_reasons": List[str],
+        "department_ids": List[str],
+        "select_fields": List[str],
     }
 
     def __init__(self, d=None):
@@ -33,6 +35,8 @@ class SearchOffboardingRequestBody(object):
         self.statuses: Optional[List[str]] = None
         self.reasons: Optional[List[str]] = None
         self.employee_reasons: Optional[List[str]] = None
+        self.department_ids: Optional[List[str]] = None
+        self.select_fields: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -92,6 +96,14 @@ class SearchOffboardingRequestBodyBuilder(object):
 
     def employee_reasons(self, employee_reasons: List[str]) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.employee_reasons = employee_reasons
+        return self
+
+    def department_ids(self, department_ids: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.department_ids = department_ids
+        return self
+
+    def select_fields(self, select_fields: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.select_fields = select_fields
         return self
 
     def build(self) -> "SearchOffboardingRequestBody":

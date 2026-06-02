@@ -8,7 +8,8 @@ from .list_workspace_table_response_body import ListWorkspaceTableResponseBody
 
 class ListWorkspaceTableResponse(BaseResponse):
     _types = {
-        "data": ListWorkspaceTableResponseBody
+        "data": ListWorkspaceTableResponseBody,
+
     }
 
     def __init__(self, d=None):

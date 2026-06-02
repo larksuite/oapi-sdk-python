@@ -8,7 +8,8 @@ from .batch_create_user_flow_response_body import BatchCreateUserFlowResponseBod
 
 class BatchCreateUserFlowResponse(BaseResponse):
     _types = {
-        "data": BatchCreateUserFlowResponseBody
+        "data": BatchCreateUserFlowResponseBody,
+
     }
 
     def __init__(self, d=None):

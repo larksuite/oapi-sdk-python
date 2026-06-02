@@ -8,7 +8,8 @@ from .get_chat_response_body import GetChatResponseBody
 
 class GetChatResponse(BaseResponse):
     _types = {
-        "data": GetChatResponseBody
+        "data": GetChatResponseBody,
+
     }
 
     def __init__(self, d=None):

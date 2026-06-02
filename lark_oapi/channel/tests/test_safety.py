@@ -254,6 +254,7 @@ async def test_chat_pipeline_run_chains_serially():
             log.append(f"{name}:start")
             await asyncio.sleep(delay)
             log.append(f"{name}:end")
+
         return task
 
     t1 = await make_task("A", 0.05)

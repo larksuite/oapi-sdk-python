@@ -8,7 +8,8 @@ from .update_website_channel_response_body import UpdateWebsiteChannelResponseBo
 
 class UpdateWebsiteChannelResponse(BaseResponse):
     _types = {
-        "data": UpdateWebsiteChannelResponseBody
+        "data": UpdateWebsiteChannelResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -20,6 +20,7 @@ class DepartmentCreate(object):
         "custom_fields": List[ObjectFieldData],
         "cost_center_id": str,
         "staffing_model": Enum,
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -33,6 +34,7 @@ class DepartmentCreate(object):
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.cost_center_id: Optional[str] = None
         self.staffing_model: Optional[Enum] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -82,6 +84,10 @@ class DepartmentCreateBuilder(object):
 
     def staffing_model(self, staffing_model: Enum) -> "DepartmentCreateBuilder":
         self._department_create.staffing_model = staffing_model
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "DepartmentCreateBuilder":
+        self._department_create.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "DepartmentCreate":

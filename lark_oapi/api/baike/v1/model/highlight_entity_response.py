@@ -8,7 +8,8 @@ from .highlight_entity_response_body import HighlightEntityResponseBody
 
 class HighlightEntityResponse(BaseResponse):
     _types = {
-        "data": HighlightEntityResponseBody
+        "data": HighlightEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

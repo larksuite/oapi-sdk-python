@@ -2,8 +2,10 @@
 
 from lark_oapi.core.model import Config
 from .v3.version import V3
+from .v4.version import V4
 
 
 class AuthService(object):
     def __init__(self, config: Config) -> None:
         self.v3: V3 = V3(config)
+        self.v4: V4 = V4(config)

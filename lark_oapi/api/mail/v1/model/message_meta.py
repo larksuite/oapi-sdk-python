@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .message import Message
 
 
 class MessageMeta(object):
@@ -12,6 +13,7 @@ class MessageMeta(object):
         "smtp_message_id": str,
         "internal_date": int,
         "message_state": int,
+        "message": Message,
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class MessageMeta(object):
         self.smtp_message_id: Optional[str] = None
         self.internal_date: Optional[int] = None
         self.message_state: Optional[int] = None
+        self.message: Optional[Message] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +57,10 @@ class MessageMetaBuilder(object):
 
     def message_state(self, message_state: int) -> "MessageMetaBuilder":
         self._message_meta.message_state = message_state
+        return self
+
+    def message(self, message: Message) -> "MessageMetaBuilder":
+        self._message_meta.message = message
         return self
 
     def build(self) -> "MessageMeta":

@@ -8,7 +8,8 @@ from .remove_members_tasklist_response_body import RemoveMembersTasklistResponse
 
 class RemoveMembersTasklistResponse(BaseResponse):
     _types = {
-        "data": RemoveMembersTasklistResponseBody
+        "data": RemoveMembersTasklistResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -47,6 +47,8 @@ class SearchEmployeeRequestBody(object):
         "assignment_pay_group_id_list": List[str],
         "contract_type_list": List[str],
         "archive_cpst_plan_id_list": List[str],
+        "is_direct_leader": bool,
+        "is_dotted_leader": bool,
     }
 
     def __init__(self, d=None):
@@ -91,6 +93,8 @@ class SearchEmployeeRequestBody(object):
         self.assignment_pay_group_id_list: Optional[List[str]] = None
         self.contract_type_list: Optional[List[str]] = None
         self.archive_cpst_plan_id_list: Optional[List[str]] = None
+        self.is_direct_leader: Optional[bool] = None
+        self.is_dotted_leader: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -275,6 +279,14 @@ class SearchEmployeeRequestBodyBuilder(object):
 
     def archive_cpst_plan_id_list(self, archive_cpst_plan_id_list: List[str]) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.archive_cpst_plan_id_list = archive_cpst_plan_id_list
+        return self
+
+    def is_direct_leader(self, is_direct_leader: bool) -> "SearchEmployeeRequestBodyBuilder":
+        self._search_employee_request_body.is_direct_leader = is_direct_leader
+        return self
+
+    def is_dotted_leader(self, is_dotted_leader: bool) -> "SearchEmployeeRequestBodyBuilder":
+        self._search_employee_request_body.is_dotted_leader = is_dotted_leader
         return self
 
     def build(self) -> "SearchEmployeeRequestBody":

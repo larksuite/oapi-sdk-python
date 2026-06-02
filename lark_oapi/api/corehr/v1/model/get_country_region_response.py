@@ -8,7 +8,8 @@ from .get_country_region_response_body import GetCountryRegionResponseBody
 
 class GetCountryRegionResponse(BaseResponse):
     _types = {
-        "data": GetCountryRegionResponseBody
+        "data": GetCountryRegionResponseBody,
+
     }
 
     def __init__(self, d=None):

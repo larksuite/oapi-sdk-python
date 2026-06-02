@@ -10,12 +10,14 @@ class SearchDepartmentResponseBody(object):
         "items": List[Department],
         "page_token": str,
         "has_more": bool,
+        "reject_export": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[Department]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
+        self.reject_export: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class SearchDepartmentResponseBodyBuilder(object):
 
     def has_more(self, has_more: bool) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.has_more = has_more
+        return self
+
+    def reject_export(self, reject_export: bool) -> "SearchDepartmentResponseBodyBuilder":
+        self._search_department_response_body.reject_export = reject_export
         return self
 
     def build(self) -> "SearchDepartmentResponseBody":

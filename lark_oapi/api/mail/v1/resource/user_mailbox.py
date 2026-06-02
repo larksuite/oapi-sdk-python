@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.accessible_mailboxes_user_mailbox_request import AccessibleMailboxesUserMailboxRequest
+from ..model.accessible_mailboxes_user_mailbox_response import AccessibleMailboxesUserMailboxResponse
 from ..model.delete_user_mailbox_request import DeleteUserMailboxRequest
 from ..model.delete_user_mailbox_response import DeleteUserMailboxResponse
 
@@ -16,6 +18,46 @@ from ..model.delete_user_mailbox_response import DeleteUserMailboxResponse
 class UserMailbox(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def accessible_mailboxes(self, request: AccessibleMailboxesUserMailboxRequest,
+                             option: Optional[RequestOption] = None) -> AccessibleMailboxesUserMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: AccessibleMailboxesUserMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          AccessibleMailboxesUserMailboxResponse)
+        response.raw = resp
+
+        return response
+
+    async def aaccessible_mailboxes(self, request: AccessibleMailboxesUserMailboxRequest,
+                                    option: Optional[RequestOption] = None) -> AccessibleMailboxesUserMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: AccessibleMailboxesUserMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          AccessibleMailboxesUserMailboxResponse)
+        response.raw = resp
+
+        return response
 
     def delete(self, request: DeleteUserMailboxRequest,
                option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:

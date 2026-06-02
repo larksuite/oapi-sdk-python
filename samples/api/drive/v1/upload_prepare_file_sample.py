@@ -19,6 +19,7 @@ def main():
                       .parent_type("explorer")
                       .parent_node("str")
                       .size(int)
+                      .file_token("KOi6RfhPbdm6")
                       .build()) \
         .build()
 
@@ -51,6 +52,7 @@ async def amain():
                       .parent_type("explorer")
                       .parent_node("str")
                       .size(int)
+                      .file_token("KOi6RfhPbdm6")
                       .build()) \
         .build()
 

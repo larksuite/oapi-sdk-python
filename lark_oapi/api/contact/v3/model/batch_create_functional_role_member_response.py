@@ -8,7 +8,8 @@ from .batch_create_functional_role_member_response_body import BatchCreateFuncti
 
 class BatchCreateFunctionalRoleMemberResponse(BaseResponse):
     _types = {
-        "data": BatchCreateFunctionalRoleMemberResponseBody
+        "data": BatchCreateFunctionalRoleMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -19,6 +19,8 @@ class LumpSumPaymentDetail(object):
         "modify_time": str,
         "issuance_country_region_id": str,
         "issuance_pay_group_id": str,
+        "detail_reference_period_start_date": str,
+        "detail_reference_period_end_date": str,
     }
 
     def __init__(self, d=None):
@@ -35,6 +37,8 @@ class LumpSumPaymentDetail(object):
         self.modify_time: Optional[str] = None
         self.issuance_country_region_id: Optional[str] = None
         self.issuance_pay_group_id: Optional[str] = None
+        self.detail_reference_period_start_date: Optional[str] = None
+        self.detail_reference_period_end_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -96,6 +100,15 @@ class LumpSumPaymentDetailBuilder(object):
 
     def issuance_pay_group_id(self, issuance_pay_group_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_pay_group_id = issuance_pay_group_id
+        return self
+
+    def detail_reference_period_start_date(self,
+                                           detail_reference_period_start_date: str) -> "LumpSumPaymentDetailBuilder":
+        self._lump_sum_payment_detail.detail_reference_period_start_date = detail_reference_period_start_date
+        return self
+
+    def detail_reference_period_end_date(self, detail_reference_period_end_date: str) -> "LumpSumPaymentDetailBuilder":
+        self._lump_sum_payment_detail.detail_reference_period_end_date = detail_reference_period_end_date
         return self
 
     def build(self) -> "LumpSumPaymentDetail":

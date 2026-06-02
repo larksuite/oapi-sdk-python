@@ -11,6 +11,7 @@ class UpdateAppTableRecordRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.ignore_consistency_check: Optional[bool] = None
+        self.client_token: Optional[str] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.record_id: Optional[str] = None
@@ -38,6 +39,11 @@ class UpdateAppTableRecordRequestBuilder(object):
     def ignore_consistency_check(self, ignore_consistency_check: bool) -> "UpdateAppTableRecordRequestBuilder":
         self._update_app_table_record_request.ignore_consistency_check = ignore_consistency_check
         self._update_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+        return self
+
+    def client_token(self, client_token: str) -> "UpdateAppTableRecordRequestBuilder":
+        self._update_app_table_record_request.client_token = client_token
+        self._update_app_table_record_request.add_query("client_token", client_token)
         return self
 
     def app_token(self, app_token: str) -> "UpdateAppTableRecordRequestBuilder":

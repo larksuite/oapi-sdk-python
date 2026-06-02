@@ -15,6 +15,7 @@ class P2SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2Data(object):
         "apply_status": int,
         "operator": UserId,
         "apply_device_ownership": int,
+        "apply_reason": str,
     }
 
     def __init__(self, d=None):
@@ -24,6 +25,7 @@ class P2SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2Data(object):
         self.apply_status: Optional[int] = None
         self.operator: Optional[UserId] = None
         self.apply_device_ownership: Optional[int] = None
+        self.apply_reason: Optional[str] = None
         init(self, d, self._types)
 
 

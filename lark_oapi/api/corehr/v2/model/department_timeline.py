@@ -6,6 +6,7 @@ from .i18n import I18n
 from .enum import Enum
 from .i18n import I18n
 from .custom_field_data import CustomFieldData
+from .enum import Enum
 
 
 class DepartmentTimeline(object):
@@ -22,6 +23,12 @@ class DepartmentTimeline(object):
         "descriptions": List[I18n],
         "custom_fields": List[CustomFieldData],
         "expiration_date": str,
+        "tree_order": str,
+        "list_order": str,
+        "is_root": bool,
+        "is_confidential": bool,
+        "staffing_model": Enum,
+        "cost_center_id": str,
     }
 
     def __init__(self, d=None):
@@ -37,6 +44,12 @@ class DepartmentTimeline(object):
         self.descriptions: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.expiration_date: Optional[str] = None
+        self.tree_order: Optional[str] = None
+        self.list_order: Optional[str] = None
+        self.is_root: Optional[bool] = None
+        self.is_confidential: Optional[bool] = None
+        self.staffing_model: Optional[Enum] = None
+        self.cost_center_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -94,6 +107,30 @@ class DepartmentTimelineBuilder(object):
 
     def expiration_date(self, expiration_date: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.expiration_date = expiration_date
+        return self
+
+    def tree_order(self, tree_order: str) -> "DepartmentTimelineBuilder":
+        self._department_timeline.tree_order = tree_order
+        return self
+
+    def list_order(self, list_order: str) -> "DepartmentTimelineBuilder":
+        self._department_timeline.list_order = list_order
+        return self
+
+    def is_root(self, is_root: bool) -> "DepartmentTimelineBuilder":
+        self._department_timeline.is_root = is_root
+        return self
+
+    def is_confidential(self, is_confidential: bool) -> "DepartmentTimelineBuilder":
+        self._department_timeline.is_confidential = is_confidential
+        return self
+
+    def staffing_model(self, staffing_model: Enum) -> "DepartmentTimelineBuilder":
+        self._department_timeline.staffing_model = staffing_model
+        return self
+
+    def cost_center_id(self, cost_center_id: str) -> "DepartmentTimelineBuilder":
+        self._department_timeline.cost_center_id = cost_center_id
         return self
 
     def build(self) -> "DepartmentTimeline":

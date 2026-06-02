@@ -14,6 +14,7 @@ from .model.p2_drive_file_permission_member_removed_v1 import P2DriveFilePermiss
 from .model.p2_drive_file_read_v1 import P2DriveFileReadV1
 from .model.p2_drive_file_title_updated_v1 import P2DriveFileTitleUpdatedV1
 from .model.p2_drive_file_trashed_v1 import P2DriveFileTrashedV1
+from .model.p2_drive_notice_comment_add_v1 import P2DriveNoticeCommentAddV1
 
 
 class P2DriveFileBitableFieldChangedV1Processor(IEventProcessor[P2DriveFileBitableFieldChangedV1]):
@@ -134,4 +135,15 @@ class P2DriveFileTrashedV1Processor(IEventProcessor[P2DriveFileTrashedV1]):
         return P2DriveFileTrashedV1
 
     def do(self, data: P2DriveFileTrashedV1) -> None:
+        self.f(data)
+
+
+class P2DriveNoticeCommentAddV1Processor(IEventProcessor[P2DriveNoticeCommentAddV1]):
+    def __init__(self, f: Callable[[P2DriveNoticeCommentAddV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2DriveNoticeCommentAddV1]:
+        return P2DriveNoticeCommentAddV1
+
+    def do(self, data: P2DriveNoticeCommentAddV1) -> None:
         self.f(data)

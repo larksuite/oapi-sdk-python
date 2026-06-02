@@ -14,8 +14,12 @@ def main():
 
     # 构造请求对象
     request: BatchGetPathwayRequest = BatchGetPathwayRequest.builder() \
+        .page_size(100) \
+        .page_token("6891251722631890445") \
         .request_body(BatchGetPathwayRequestBody.builder()
                       .pathway_ids([])
+                      .pathway_codes([])
+                      .active(True)
                       .build()) \
         .build()
 
@@ -43,8 +47,12 @@ async def amain():
 
     # 构造请求对象
     request: BatchGetPathwayRequest = BatchGetPathwayRequest.builder() \
+        .page_size(100) \
+        .page_token("6891251722631890445") \
         .request_body(BatchGetPathwayRequestBody.builder()
                       .pathway_ids([])
+                      .pathway_codes([])
+                      .active(True)
                       .build()) \
         .build()
 

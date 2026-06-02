@@ -17,6 +17,8 @@ class DocMeta(object):
         "edit_user_id": str,
         "edit_user_name": str,
         "token": str,
+        "file_type": str,
+        "icon_info": str,
     }
 
     def __init__(self, d=None):
@@ -31,6 +33,8 @@ class DocMeta(object):
         self.edit_user_id: Optional[str] = None
         self.edit_user_name: Optional[str] = None
         self.token: Optional[str] = None
+        self.file_type: Optional[str] = None
+        self.icon_info: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +88,14 @@ class DocMetaBuilder(object):
 
     def token(self, token: str) -> "DocMetaBuilder":
         self._doc_meta.token = token
+        return self
+
+    def file_type(self, file_type: str) -> "DocMetaBuilder":
+        self._doc_meta.file_type = file_type
+        return self
+
+    def icon_info(self, icon_info: str) -> "DocMetaBuilder":
+        self._doc_meta.icon_info = icon_info
         return self
 
     def build(self) -> "DocMeta":

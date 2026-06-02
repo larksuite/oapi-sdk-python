@@ -8,7 +8,8 @@ from .list_subdivision_response_body import ListSubdivisionResponseBody
 
 class ListSubdivisionResponse(BaseResponse):
     _types = {
-        "data": ListSubdivisionResponseBody
+        "data": ListSubdivisionResponseBody,
+
     }
 
     def __init__(self, d=None):

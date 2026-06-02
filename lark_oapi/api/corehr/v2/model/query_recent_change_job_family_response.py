@@ -8,7 +8,8 @@ from .query_recent_change_job_family_response_body import QueryRecentChangeJobFa
 
 class QueryRecentChangeJobFamilyResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangeJobFamilyResponseBody
+        "data": QueryRecentChangeJobFamilyResponseBody,
+
     }
 
     def __init__(self, d=None):

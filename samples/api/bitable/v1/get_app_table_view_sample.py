@@ -17,6 +17,7 @@ def main():
         .app_token("bascnCMII2ORej2RItqpZZUNMIe") \
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewTpR1urY") \
+        .user_id_type("str") \
         .build()
 
     # 发起请求
@@ -46,6 +47,7 @@ async def amain():
         .app_token("bascnCMII2ORej2RItqpZZUNMIe") \
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewTpR1urY") \
+        .user_id_type("str") \
         .build()
 
     # 发起请求

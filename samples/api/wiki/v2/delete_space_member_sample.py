@@ -20,6 +20,7 @@ def main():
                       .member_type("openid")
                       .member_role("admin")
                       .type("user")
+                      .member_perm("admin")
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .member_type("openid")
                       .member_role("admin")
                       .type("user")
+                      .member_perm("admin")
                       .build()) \
         .build()
 

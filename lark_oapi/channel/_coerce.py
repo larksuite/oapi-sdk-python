@@ -36,7 +36,6 @@ from .types import (
     SendResult,
 )
 
-
 # --------------------------------------------------------------------------
 # Event-name normalization (node-aligned)
 # --------------------------------------------------------------------------
@@ -78,17 +77,17 @@ def normalize_event_name(name: str) -> str:
 
 
 def coerce_outbound(
-    input_: Union[Dict[str, Any], OutboundMessage, str],
+        input_: Union[Dict[str, Any], OutboundMessage, str],
 ) -> OutboundMessage:
     if isinstance(input_, str):
         return OutboundPost(markdown=input_)
     if isinstance(
-        input_,
-        (
-            OutboundText, OutboundPost, OutboundCard, OutboundImage,
-            OutboundFile, OutboundAudio, OutboundVideo,
-            OutboundShareChat, OutboundShareUser, OutboundSticker,
-        ),
+            input_,
+            (
+                    OutboundText, OutboundPost, OutboundCard, OutboundImage,
+                    OutboundFile, OutboundAudio, OutboundVideo,
+                    OutboundShareChat, OutboundShareUser, OutboundSticker,
+            ),
     ):
         return input_
     if not isinstance(input_, dict):
@@ -172,7 +171,7 @@ def coerce_media_source(spec: Any, *, kind: str) -> MediaSource:
 
 
 def coerce_send_opts(
-    opts: Optional[Union[SendOpts, Dict[str, Any]]],
+        opts: Optional[Union[SendOpts, Dict[str, Any]]],
 ) -> SendOpts:
     if opts is None:
         return SendOpts()

@@ -8,7 +8,8 @@ from .list_payment_activity_detail_response_body import ListPaymentActivityDetai
 
 class ListPaymentActivityDetailResponse(BaseResponse):
     _types = {
-        "data": ListPaymentActivityDetailResponseBody
+        "data": ListPaymentActivityDetailResponseBody,
+
     }
 
     def __init__(self, d=None):

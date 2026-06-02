@@ -14,7 +14,6 @@ from lark_oapi.channel.types import (
     TextContent,
 )
 
-
 BOT = "ou_bot"
 USER = "ou_user"
 
@@ -36,6 +35,7 @@ async def test_self_sent_dropped_by_default():
     rejects = []
 
     async def on_message(m): delivered.append(m)
+
     def on_reject(r): rejects.append(r)
 
     pipe = SafetyPipeline(
@@ -56,6 +56,7 @@ async def test_self_sent_dropped_by_default():
 async def test_user_sent_passes_through():
     loop = asyncio.get_running_loop()
     delivered = []
+
     async def on_message(m): delivered.append(m)
 
     pipe = SafetyPipeline(
@@ -75,6 +76,7 @@ async def test_user_sent_passes_through():
 async def test_self_sent_passes_when_disabled():
     loop = asyncio.get_running_loop()
     delivered = []
+
     async def on_message(m): delivered.append(m)
 
     pipe = SafetyPipeline(
@@ -95,6 +97,7 @@ async def test_self_sent_allowed_when_bot_id_unknown():
     """Conservative: don't filter until bot identity is resolved."""
     loop = asyncio.get_running_loop()
     delivered = []
+
     async def on_message(m): delivered.append(m)
 
     pipe = SafetyPipeline(

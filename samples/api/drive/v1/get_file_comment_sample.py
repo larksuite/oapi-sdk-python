@@ -18,6 +18,7 @@ def main():
         .comment_id("6916106822734578184") \
         .file_type("doc") \
         .user_id_type("user_id") \
+        .need_reaction(bool) \
         .build()
 
     # 发起请求
@@ -48,6 +49,7 @@ async def amain():
         .comment_id("6916106822734578184") \
         .file_type("doc") \
         .user_id_type("user_id") \
+        .need_reaction(bool) \
         .build()
 
     # 发起请求

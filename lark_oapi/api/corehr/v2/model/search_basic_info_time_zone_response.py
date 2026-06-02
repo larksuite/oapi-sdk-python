@@ -8,7 +8,8 @@ from .search_basic_info_time_zone_response_body import SearchBasicInfoTimeZoneRe
 
 class SearchBasicInfoTimeZoneResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoTimeZoneResponseBody
+        "data": SearchBasicInfoTimeZoneResponseBody,
+
     }
 
     def __init__(self, d=None):

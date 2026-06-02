@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: UnsubscriptionCalendarEventRequest = UnsubscriptionCalendarEventRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
+        .user_id_type("user_id") \
         .build()
 
     # 发起请求
@@ -42,6 +43,7 @@ async def amain():
     # 构造请求对象
     request: UnsubscriptionCalendarEventRequest = UnsubscriptionCalendarEventRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
+        .user_id_type("user_id") \
         .build()
 
     # 发起请求

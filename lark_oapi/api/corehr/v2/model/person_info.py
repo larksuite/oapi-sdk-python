@@ -27,6 +27,11 @@ from .person_info_chn import PersonInfoChn
 from .resident_tax import ResidentTax
 from .enum import Enum
 from .i18n import I18n
+from .person_name import PersonName
+from .national_id import NationalId
+from .visa import Visa
+from .passport import Passport
+from .person_for_country import PersonForCountry
 
 
 class PersonInfo(object):
@@ -91,6 +96,11 @@ class PersonInfo(object):
         "bank_account_number": str,
         "passport_number": str,
         "former_employer": List[I18n],
+        "legal_name_v2s": List[PersonName],
+        "national_id_v2s": List[NationalId],
+        "visas": List[Visa],
+        "passports": List[Passport],
+        "person_for_countries": List[PersonForCountry],
     }
 
     def __init__(self, d=None):
@@ -154,6 +164,11 @@ class PersonInfo(object):
         self.bank_account_number: Optional[str] = None
         self.passport_number: Optional[str] = None
         self.former_employer: Optional[List[I18n]] = None
+        self.legal_name_v2s: Optional[List[PersonName]] = None
+        self.national_id_v2s: Optional[List[NationalId]] = None
+        self.visas: Optional[List[Visa]] = None
+        self.passports: Optional[List[Passport]] = None
+        self.person_for_countries: Optional[List[PersonForCountry]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -403,6 +418,26 @@ class PersonInfoBuilder(object):
 
     def former_employer(self, former_employer: List[I18n]) -> "PersonInfoBuilder":
         self._person_info.former_employer = former_employer
+        return self
+
+    def legal_name_v2s(self, legal_name_v2s: List[PersonName]) -> "PersonInfoBuilder":
+        self._person_info.legal_name_v2s = legal_name_v2s
+        return self
+
+    def national_id_v2s(self, national_id_v2s: List[NationalId]) -> "PersonInfoBuilder":
+        self._person_info.national_id_v2s = national_id_v2s
+        return self
+
+    def visas(self, visas: List[Visa]) -> "PersonInfoBuilder":
+        self._person_info.visas = visas
+        return self
+
+    def passports(self, passports: List[Passport]) -> "PersonInfoBuilder":
+        self._person_info.passports = passports
+        return self
+
+    def person_for_countries(self, person_for_countries: List[PersonForCountry]) -> "PersonInfoBuilder":
+        self._person_info.person_for_countries = person_for_countries
         return self
 
     def build(self) -> "PersonInfo":

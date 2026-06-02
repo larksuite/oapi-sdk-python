@@ -8,7 +8,8 @@ from .query_social_plan_response_body import QuerySocialPlanResponseBody
 
 class QuerySocialPlanResponse(BaseResponse):
     _types = {
-        "data": QuerySocialPlanResponseBody
+        "data": QuerySocialPlanResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -130,7 +130,7 @@ async def test_bot_identity_retry_loop_succeeds_after_transient_failure():
         return identity
 
     with patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=flaky_fetch
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=flaky_fetch
     ):
         # Drive the retry loop directly (sync path would trigger the real
         # 10s timeout).
@@ -161,7 +161,7 @@ async def test_bot_identity_retry_loop_respects_shutdown():
         return None
 
     with patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=never_succeeds
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=never_succeeds
     ):
         # Kick the loop off, then shut down almost immediately.
         fut = asyncio.run_coroutine_threadsafe(

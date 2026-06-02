@@ -8,7 +8,8 @@ from .create_data_source_response_body import CreateDataSourceResponseBody
 
 class CreateDataSourceResponse(BaseResponse):
     _types = {
-        "data": CreateDataSourceResponseBody
+        "data": CreateDataSourceResponseBody,
+
     }
 
     def __init__(self, d=None):

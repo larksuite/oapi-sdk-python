@@ -8,7 +8,8 @@ from .detect_text_response_body import DetectTextResponseBody
 
 class DetectTextResponse(BaseResponse):
     _types = {
-        "data": DetectTextResponseBody
+        "data": DetectTextResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -34,6 +34,7 @@ class PersonName(object):
         "display_name_local_and_western_script": str,
         "display_name_local_script": str,
         "display_name_western_script": str,
+        "wk_id": str,
     }
 
     def __init__(self, d=None):
@@ -61,6 +62,7 @@ class PersonName(object):
         self.display_name_local_and_western_script: Optional[str] = None
         self.display_name_local_script: Optional[str] = None
         self.display_name_western_script: Optional[str] = None
+        self.wk_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -166,6 +168,10 @@ class PersonNameBuilder(object):
 
     def display_name_western_script(self, display_name_western_script: str) -> "PersonNameBuilder":
         self._person_name.display_name_western_script = display_name_western_script
+        return self
+
+    def wk_id(self, wk_id: str) -> "PersonNameBuilder":
+        self._person_name.wk_id = wk_id
         return self
 
     def build(self) -> "PersonName":

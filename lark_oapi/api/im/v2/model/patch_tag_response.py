@@ -8,7 +8,8 @@ from .patch_tag_response_body import PatchTagResponseBody
 
 class PatchTagResponse(BaseResponse):
     _types = {
-        "data": PatchTagResponseBody
+        "data": PatchTagResponseBody,
+
     }
 
     def __init__(self, d=None):

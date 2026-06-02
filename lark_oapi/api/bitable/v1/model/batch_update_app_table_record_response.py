@@ -8,7 +8,8 @@ from .batch_update_app_table_record_response_body import BatchUpdateAppTableReco
 
 class BatchUpdateAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": BatchUpdateAppTableRecordResponseBody
+        "data": BatchUpdateAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

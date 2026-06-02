@@ -8,7 +8,8 @@ from .list_file_response_body import ListFileResponseBody
 
 class ListFileResponse(BaseResponse):
     _types = {
-        "data": ListFileResponseBody
+        "data": ListFileResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -14,6 +14,9 @@ class NationalIdForUpdate(object):
         "expiration_date": str,
         "issued_by": str,
         "custom_fields": List[ObjectFieldData],
+        "wk_id": str,
+        "series": str,
+        "effective_for_a_long_time": bool,
     }
 
     def __init__(self, d=None):
@@ -24,6 +27,9 @@ class NationalIdForUpdate(object):
         self.expiration_date: Optional[str] = None
         self.issued_by: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.wk_id: Optional[str] = None
+        self.series: Optional[str] = None
+        self.effective_for_a_long_time: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -61,6 +67,18 @@ class NationalIdForUpdateBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.custom_fields = custom_fields
+        return self
+
+    def wk_id(self, wk_id: str) -> "NationalIdForUpdateBuilder":
+        self._national_id_for_update.wk_id = wk_id
+        return self
+
+    def series(self, series: str) -> "NationalIdForUpdateBuilder":
+        self._national_id_for_update.series = series
+        return self
+
+    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "NationalIdForUpdateBuilder":
+        self._national_id_for_update.effective_for_a_long_time = effective_for_a_long_time
         return self
 
     def build(self) -> "NationalIdForUpdate":

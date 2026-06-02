@@ -31,12 +31,12 @@ DEFAULT_MAX_RETRY_AFTER_S = 60.0
 
 
 async def with_retry(
-    op: Callable[[int], Awaitable[SendResult]],
-    *,
-    max_attempts: int = DEFAULT_MAX_ATTEMPTS,
-    base_delay_ms: int = DEFAULT_BASE_DELAY_MS,
-    max_delay_ms: int = DEFAULT_MAX_DELAY_MS,
-    jitter: bool = True,
+        op: Callable[[int], Awaitable[SendResult]],
+        *,
+        max_attempts: int = DEFAULT_MAX_ATTEMPTS,
+        base_delay_ms: int = DEFAULT_BASE_DELAY_MS,
+        max_delay_ms: int = DEFAULT_MAX_DELAY_MS,
+        jitter: bool = True,
 ) -> SendResult:
     """Call `op(attempt)` up to `max_attempts` times with backoff.
 
@@ -68,8 +68,8 @@ async def with_retry(
 
 
 def _compute_delay(
-    err: SendError, attempt: int, *,
-    base_delay_ms: int, max_delay_ms: int, jitter: bool,
+        err: SendError, attempt: int, *,
+        base_delay_ms: int, max_delay_ms: int, jitter: bool,
 ) -> float:
     """Compute seconds to sleep before the next retry.
 

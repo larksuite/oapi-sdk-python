@@ -8,7 +8,8 @@ from .list_functional_role_member_response_body import ListFunctionalRoleMemberR
 
 class ListFunctionalRoleMemberResponse(BaseResponse):
     _types = {
-        "data": ListFunctionalRoleMemberResponseBody
+        "data": ListFunctionalRoleMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

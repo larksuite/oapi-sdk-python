@@ -8,7 +8,8 @@ from .get_device_record_response_body import GetDeviceRecordResponseBody
 
 class GetDeviceRecordResponse(BaseResponse):
     _types = {
-        "data": GetDeviceRecordResponseBody
+        "data": GetDeviceRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

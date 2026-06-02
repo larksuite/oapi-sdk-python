@@ -8,7 +8,8 @@ from .create_image_response_body import CreateImageResponseBody
 
 class CreateImageResponse(BaseResponse):
     _types = {
-        "data": CreateImageResponseBody
+        "data": CreateImageResponseBody,
+
     }
 
     def __init__(self, d=None):

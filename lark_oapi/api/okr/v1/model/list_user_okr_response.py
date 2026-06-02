@@ -8,7 +8,8 @@ from .list_user_okr_response_body import ListUserOkrResponseBody
 
 class ListUserOkrResponse(BaseResponse):
     _types = {
-        "data": ListUserOkrResponseBody
+        "data": ListUserOkrResponseBody,
+
     }
 
     def __init__(self, d=None):

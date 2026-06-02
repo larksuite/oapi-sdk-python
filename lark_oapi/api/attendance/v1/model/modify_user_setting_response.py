@@ -8,7 +8,8 @@ from .modify_user_setting_response_body import ModifyUserSettingResponseBody
 
 class ModifyUserSettingResponse(BaseResponse):
     _types = {
-        "data": ModifyUserSettingResponseBody
+        "data": ModifyUserSettingResponseBody,
+
     }
 
     def __init__(self, d=None):

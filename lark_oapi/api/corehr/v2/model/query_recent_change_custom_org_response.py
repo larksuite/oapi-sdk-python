@@ -8,7 +8,8 @@ from .query_recent_change_custom_org_response_body import QueryRecentChangeCusto
 
 class QueryRecentChangeCustomOrgResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangeCustomOrgResponseBody
+        "data": QueryRecentChangeCustomOrgResponseBody,
+
     }
 
     def __init__(self, d=None):

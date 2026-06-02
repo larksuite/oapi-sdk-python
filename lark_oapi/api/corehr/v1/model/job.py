@@ -23,6 +23,7 @@ class Job(object):
         "effective_time": str,
         "expiration_time": str,
         "custom_fields": List[ObjectFieldData],
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -39,6 +40,7 @@ class Job(object):
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -100,6 +102,10 @@ class JobBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobBuilder":
         self._job.custom_fields = custom_fields
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "JobBuilder":
+        self._job.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "Job":

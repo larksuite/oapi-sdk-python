@@ -64,11 +64,13 @@ from .vault_task import *
 from .vault_task_file import *
 from .update_device_apply_record_request_body import *
 from .update_device_apply_record_request import *
+from .create_device_record_request_body import *
 from .create_device_record_request import *
 from .delete_device_record_request import *
 from .get_device_record_request import *
 from .list_device_record_request import *
 from .mine_device_record_request import *
+from .update_device_record_request_body import *
 from .update_device_record_request import *
 from .update_device_apply_record_response import *
 from .create_device_record_response_body import *

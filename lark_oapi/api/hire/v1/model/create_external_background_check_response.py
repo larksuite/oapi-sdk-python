@@ -8,7 +8,8 @@ from .create_external_background_check_response_body import CreateExternalBackgr
 
 class CreateExternalBackgroundCheckResponse(BaseResponse):
     _types = {
-        "data": CreateExternalBackgroundCheckResponseBody
+        "data": CreateExternalBackgroundCheckResponseBody,
+
     }
 
     def __init__(self, d=None):

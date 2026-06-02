@@ -9,7 +9,8 @@ from .data_change_log_detail_application_audit_log_response_body import \
 
 class DataChangeLogDetailApplicationAuditLogResponse(BaseResponse):
     _types = {
-        "data": DataChangeLogDetailApplicationAuditLogResponseBody
+        "data": DataChangeLogDetailApplicationAuditLogResponseBody,
+
     }
 
     def __init__(self, d=None):

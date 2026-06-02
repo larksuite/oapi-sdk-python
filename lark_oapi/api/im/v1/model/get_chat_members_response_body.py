@@ -11,6 +11,8 @@ class GetChatMembersResponseBody(object):
         "page_token": str,
         "has_more": bool,
         "member_total": int,
+        "trigger_security_conf_limit": bool,
+        "security_conf_limit": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,8 @@ class GetChatMembersResponseBody(object):
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
         self.member_total: Optional[int] = None
+        self.trigger_security_conf_limit: Optional[bool] = None
+        self.security_conf_limit: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +47,14 @@ class GetChatMembersResponseBodyBuilder(object):
 
     def member_total(self, member_total: int) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.member_total = member_total
+        return self
+
+    def trigger_security_conf_limit(self, trigger_security_conf_limit: bool) -> "GetChatMembersResponseBodyBuilder":
+        self._get_chat_members_response_body.trigger_security_conf_limit = trigger_security_conf_limit
+        return self
+
+    def security_conf_limit(self, security_conf_limit: int) -> "GetChatMembersResponseBodyBuilder":
+        self._get_chat_members_response_body.security_conf_limit = security_conf_limit
         return self
 
     def build(self) -> "GetChatMembersResponseBody":

@@ -24,6 +24,7 @@ def main():
                       .locale(Enum.builder().build())
                       .time_zone_id("123456789")
                       .display_language_id("123456789")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -61,6 +62,7 @@ async def amain():
                       .locale(Enum.builder().build())
                       .time_zone_id("123456789")
                       .display_language_id("123456789")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

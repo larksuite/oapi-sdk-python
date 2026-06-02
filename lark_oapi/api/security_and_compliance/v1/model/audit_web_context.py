@@ -7,12 +7,12 @@ from lark_oapi.core.construct import init
 class AuditWebContext(object):
     _types = {
         "user_agent": str,
-        "i_p": str,
+        "ip": str,
     }
 
     def __init__(self, d=None):
         self.user_agent: Optional[str] = None
-        self.i_p: Optional[str] = None
+        self.ip: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -28,8 +28,8 @@ class AuditWebContextBuilder(object):
         self._audit_web_context.user_agent = user_agent
         return self
 
-    def i_p(self, i_p: str) -> "AuditWebContextBuilder":
-        self._audit_web_context.i_p = i_p
+    def ip(self, ip: str) -> "AuditWebContextBuilder":
+        self._audit_web_context.ip = ip
         return self
 
     def build(self) -> "AuditWebContext":

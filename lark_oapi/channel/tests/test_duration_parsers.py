@@ -14,13 +14,13 @@ def _ogg_page(granule: int) -> bytes:
     # Structure: "OggS"(4) + version(1) + type(1) + granule(8) + serial(4)
     # + seq(4) + checksum(4) + n_segs(1) = 27 bytes total
     header = b"OggS"
-    header += bytes([0])                      # version
-    header += bytes([4])                      # type = end of stream
-    header += struct.pack("<q", granule)      # granule position LE int64
-    header += struct.pack("<I", 1)            # serial number
-    header += struct.pack("<I", 0)            # page sequence
-    header += struct.pack("<I", 0)            # CRC
-    header += bytes([0])                      # page segments
+    header += bytes([0])  # version
+    header += bytes([4])  # type = end of stream
+    header += struct.pack("<q", granule)  # granule position LE int64
+    header += struct.pack("<I", 1)  # serial number
+    header += struct.pack("<I", 0)  # page sequence
+    header += struct.pack("<I", 0)  # CRC
+    header += bytes([0])  # page segments
     return header
 
 
@@ -37,8 +37,8 @@ def test_opus_duration_half_second():
 
 def test_opus_duration_uses_last_oggs_page():
     """Multiple pages: parser should read the LAST one's granule."""
-    first = _ogg_page(24000)   # would be 500ms
-    last = _ogg_page(96000)    # should win: 2000ms
+    first = _ogg_page(24000)  # would be 500ms
+    last = _ogg_page(96000)  # should win: 2000ms
     assert parse_opus_duration(first + b"\x00" * 32 + last) == 2000
 
 
@@ -69,22 +69,22 @@ def _mvhd_v0(timescale: int, duration: int) -> bytes:
     # version(1) + flags(3) + creation(4) + modification(4) + timescale(4)
     # + duration(4) + rate(4) + volume(2) + reserved(10) + matrix(36)
     # + pre_defined(24) + next_track_id(4) = 100 bytes
-    payload = bytes([0, 0, 0, 0])             # version + flags
-    payload += struct.pack(">I", 0)           # creation
-    payload += struct.pack(">I", 0)           # modification
+    payload = bytes([0, 0, 0, 0])  # version + flags
+    payload += struct.pack(">I", 0)  # creation
+    payload += struct.pack(">I", 0)  # modification
     payload += struct.pack(">I", timescale)
     payload += struct.pack(">I", duration)
-    payload += b"\x00" * 76                   # rest (padded)
+    payload += b"\x00" * 76  # rest (padded)
     return _box(b"mvhd", payload)
 
 
 def _mvhd_v1(timescale: int, duration: int) -> bytes:
-    payload = bytes([1, 0, 0, 0])             # version 1 + flags
-    payload += struct.pack(">Q", 0)           # creation (64-bit)
-    payload += struct.pack(">Q", 0)           # modification (64-bit)
+    payload = bytes([1, 0, 0, 0])  # version 1 + flags
+    payload += struct.pack(">Q", 0)  # creation (64-bit)
+    payload += struct.pack(">Q", 0)  # modification (64-bit)
     payload += struct.pack(">I", timescale)
-    payload += struct.pack(">Q", duration)    # duration (64-bit)
-    payload += b"\x00" * 80                   # rest
+    payload += struct.pack(">Q", duration)  # duration (64-bit)
+    payload += b"\x00" * 80  # rest
     return _box(b"mvhd", payload)
 
 
@@ -98,7 +98,7 @@ def test_mp4_duration_v0_box():
 
 
 def test_mp4_duration_v1_box():
-    mvhd = _mvhd_v1(48000, 24000)   # timescale 48kHz, 24000 ticks = 500 ms
+    mvhd = _mvhd_v1(48000, 24000)  # timescale 48kHz, 24000 ticks = 500 ms
     moov = _box(b"moov", mvhd)
     assert parse_mp4_duration(moov) == 500
 

@@ -8,7 +8,8 @@ from .create_talent_external_info_response_body import CreateTalentExternalInfoR
 
 class CreateTalentExternalInfoResponse(BaseResponse):
     _types = {
-        "data": CreateTalentExternalInfoResponseBody
+        "data": CreateTalentExternalInfoResponseBody,
+
     }
 
     def __init__(self, d=None):

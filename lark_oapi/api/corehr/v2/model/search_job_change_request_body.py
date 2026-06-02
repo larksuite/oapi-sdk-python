@@ -17,6 +17,9 @@ class SearchJobChangeRequestBody(object):
         "transfer_type_unique_identifier": List[str],
         "transfer_reason_unique_identifier": List[str],
         "exception_statuses": List[str],
+        "original_department_ids": List[str],
+        "employment_department_ids": List[str],
+        "select_fields": List[str],
     }
 
     def __init__(self, d=None):
@@ -31,6 +34,9 @@ class SearchJobChangeRequestBody(object):
         self.transfer_type_unique_identifier: Optional[List[str]] = None
         self.transfer_reason_unique_identifier: Optional[List[str]] = None
         self.exception_statuses: Optional[List[str]] = None
+        self.original_department_ids: Optional[List[str]] = None
+        self.employment_department_ids: Optional[List[str]] = None
+        self.select_fields: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,6 +92,18 @@ class SearchJobChangeRequestBodyBuilder(object):
 
     def exception_statuses(self, exception_statuses: List[str]) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.exception_statuses = exception_statuses
+        return self
+
+    def original_department_ids(self, original_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.original_department_ids = original_department_ids
+        return self
+
+    def employment_department_ids(self, employment_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.employment_department_ids = employment_department_ids
+        return self
+
+    def select_fields(self, select_fields: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.select_fields = select_fields
         return self
 
     def build(self) -> "SearchJobChangeRequestBody":

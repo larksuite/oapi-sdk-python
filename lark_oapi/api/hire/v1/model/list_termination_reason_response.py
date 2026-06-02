@@ -8,7 +8,8 @@ from .list_termination_reason_response_body import ListTerminationReasonResponse
 
 class ListTerminationReasonResponse(BaseResponse):
     _types = {
-        "data": ListTerminationReasonResponseBody
+        "data": ListTerminationReasonResponseBody,
+
     }
 
     def __init__(self, d=None):

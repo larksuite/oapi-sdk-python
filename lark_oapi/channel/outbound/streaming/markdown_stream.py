@@ -18,11 +18,9 @@ from .merge_text import merge_streaming_text
 from .throttle import Throttle
 from .update_queue import UpdateQueue
 
-
 ELEMENT_ID = "stream_md"
 INITIAL_TEXT = "Thinking..."
 TERMINATED_FOOTER = "\n\n— _(generation interrupted)_"
-
 
 # Public type aliases for the 4 cardkit dependencies the controller needs.
 CreateCardInstance = Callable[[Dict[str, Any]], Awaitable[str]]
@@ -39,21 +37,21 @@ class MarkdownStreamController:
     """
 
     def __init__(
-        self,
-        *,
-        to: str,
-        receive_id_type: str,
-        reply_to: Optional[str],
-        reply_in_thread: Optional[bool],
-        create_card_instance: CreateCardInstance,
-        send_card_by_reference: SendCardByReference,
-        update_card_element_content: UpdateCardElementContent,
-        finish_streaming_card: FinishStreamingCard,
-        reply_target_gone: str = "fresh",
-        min_ms: int = 100,
-        min_chars: int = 50,
-        initial_text: str = INITIAL_TEXT,
-        element_id: str = ELEMENT_ID,
+            self,
+            *,
+            to: str,
+            receive_id_type: str,
+            reply_to: Optional[str],
+            reply_in_thread: Optional[bool],
+            create_card_instance: CreateCardInstance,
+            send_card_by_reference: SendCardByReference,
+            update_card_element_content: UpdateCardElementContent,
+            finish_streaming_card: FinishStreamingCard,
+            reply_target_gone: str = "fresh",
+            min_ms: int = 100,
+            min_chars: int = 50,
+            initial_text: str = INITIAL_TEXT,
+            element_id: str = ELEMENT_ID,
     ) -> None:
         self._to = to
         self._rit = receive_id_type
@@ -104,7 +102,7 @@ class MarkdownStreamController:
         self._throttle.flush_now()
 
     async def run(
-        self, producer: Callable[["MarkdownStreamController"], Awaitable[None]]
+            self, producer: Callable[["MarkdownStreamController"], Awaitable[None]]
     ) -> str:
         """Drive the producer; return the message_id.
 

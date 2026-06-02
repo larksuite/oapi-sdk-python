@@ -3,6 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .time_range import TimeRange
+from .time_range import TimeRange
+from .time_range import TimeRange
+from .time_range import TimeRange
 
 
 class WikiFilter(object):
@@ -13,6 +16,13 @@ class WikiFilter(object):
         "only_title": bool,
         "open_time": TimeRange,
         "sort_type": str,
+        "create_time": TimeRange,
+        "chat_ids": List[str],
+        "sharer_ids": List[str],
+        "only_comment": bool,
+        "my_edit_time": TimeRange,
+        "my_comment_time": TimeRange,
+        "original_creator_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -22,6 +32,13 @@ class WikiFilter(object):
         self.only_title: Optional[bool] = None
         self.open_time: Optional[TimeRange] = None
         self.sort_type: Optional[str] = None
+        self.create_time: Optional[TimeRange] = None
+        self.chat_ids: Optional[List[str]] = None
+        self.sharer_ids: Optional[List[str]] = None
+        self.only_comment: Optional[bool] = None
+        self.my_edit_time: Optional[TimeRange] = None
+        self.my_comment_time: Optional[TimeRange] = None
+        self.original_creator_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +72,34 @@ class WikiFilterBuilder(object):
 
     def sort_type(self, sort_type: str) -> "WikiFilterBuilder":
         self._wiki_filter.sort_type = sort_type
+        return self
+
+    def create_time(self, create_time: TimeRange) -> "WikiFilterBuilder":
+        self._wiki_filter.create_time = create_time
+        return self
+
+    def chat_ids(self, chat_ids: List[str]) -> "WikiFilterBuilder":
+        self._wiki_filter.chat_ids = chat_ids
+        return self
+
+    def sharer_ids(self, sharer_ids: List[str]) -> "WikiFilterBuilder":
+        self._wiki_filter.sharer_ids = sharer_ids
+        return self
+
+    def only_comment(self, only_comment: bool) -> "WikiFilterBuilder":
+        self._wiki_filter.only_comment = only_comment
+        return self
+
+    def my_edit_time(self, my_edit_time: TimeRange) -> "WikiFilterBuilder":
+        self._wiki_filter.my_edit_time = my_edit_time
+        return self
+
+    def my_comment_time(self, my_comment_time: TimeRange) -> "WikiFilterBuilder":
+        self._wiki_filter.my_comment_time = my_comment_time
+        return self
+
+    def original_creator_ids(self, original_creator_ids: List[str]) -> "WikiFilterBuilder":
+        self._wiki_filter.original_creator_ids = original_creator_ids
         return self
 
     def build(self) -> "WikiFilter":

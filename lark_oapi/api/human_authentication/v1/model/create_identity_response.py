@@ -8,7 +8,8 @@ from .create_identity_response_body import CreateIdentityResponseBody
 
 class CreateIdentityResponse(BaseResponse):
     _types = {
-        "data": CreateIdentityResponseBody
+        "data": CreateIdentityResponseBody,
+
     }
 
     def __init__(self, d=None):

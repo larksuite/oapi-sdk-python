@@ -22,7 +22,7 @@ class QueryTransferReasonRequestBuilder(object):
         query_transfer_reason_request = QueryTransferReasonRequest()
         query_transfer_reason_request.http_method = HttpMethod.GET
         query_transfer_reason_request.uri = "/open-apis/corehr/v1/transfer_reasons/query"
-        query_transfer_reason_request.token_types = {AccessTokenType.TENANT}
+        query_transfer_reason_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._query_transfer_reason_request: QueryTransferReasonRequest = query_transfer_reason_request
 
     def active(self, active: bool) -> "QueryTransferReasonRequestBuilder":

@@ -8,7 +8,8 @@ from .create_group_response_body import CreateGroupResponseBody
 
 class CreateGroupResponse(BaseResponse):
     _types = {
-        "data": CreateGroupResponseBody
+        "data": CreateGroupResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -36,8 +36,8 @@ async def test_seen_cache_expires_after_real_ttl():
 async def test_ssrf_blocks_ipv6_loopback_resolve():
     """A hostname resolving to `::1` must be blocked."""
     with patch(
-        "socket.getaddrinfo",
-        return_value=[(socket.AF_INET6, 0, 0, "", ("::1", 0, 0, 0))],
+            "socket.getaddrinfo",
+            return_value=[(socket.AF_INET6, 0, 0, "", ("::1", 0, 0, 0))],
     ):
         with pytest.raises(FeishuChannelError) as ei:
             await assert_public_url("https://v6-internal.test")
@@ -48,8 +48,8 @@ async def test_ssrf_blocks_ipv6_loopback_resolve():
 @pytest.mark.asyncio
 async def test_ssrf_allows_public_ipv6():
     with patch(
-        "socket.getaddrinfo",
-        return_value=[(socket.AF_INET6, 0, 0, "", ("2606:4700:4700::1111", 0, 0, 0))],
+            "socket.getaddrinfo",
+            return_value=[(socket.AF_INET6, 0, 0, "", ("2606:4700:4700::1111", 0, 0, 0))],
     ):
         # Should not raise
         await assert_public_url("https://ipv6-public.example")
@@ -146,8 +146,8 @@ async def test_outbound_url_source_blocked_by_ssrf_guard_in_flight():
     source2 = MediaSource(kind="url", url="https://evil.test/secret.png")
     source2._ssrf_allowlist = ["not-evil.test"]  # type: ignore[attr-defined]
     with patch(
-        "socket.getaddrinfo",
-        return_value=[(socket.AF_INET, 0, 0, "", ("10.0.0.5", 0))],
+            "socket.getaddrinfo",
+            return_value=[(socket.AF_INET, 0, 0, "", ("10.0.0.5", 0))],
     ):
         with pytest.raises(FeishuChannelError) as ei2:
             await _gather_buffer(source2, "default.bin")

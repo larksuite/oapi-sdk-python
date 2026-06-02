@@ -45,7 +45,7 @@ class CardActionHandler(HttpHandler):
             if URL_VERIFICATION == card.type:
                 # URL verification: constant-time token compare.
                 if self._verification_token is None or card.token is None or not hmac.compare_digest(
-                    self._verification_token, card.token
+                        self._verification_token, card.token
                 ):
                     raise AccessDeniedException("invalid verification_token")
 

@@ -8,7 +8,8 @@ from .get_account_assets_referral_account_response_body import GetAccountAssetsR
 
 class GetAccountAssetsReferralAccountResponse(BaseResponse):
     _types = {
-        "data": GetAccountAssetsReferralAccountResponseBody
+        "data": GetAccountAssetsReferralAccountResponseBody,
+
     }
 
     def __init__(self, d=None):

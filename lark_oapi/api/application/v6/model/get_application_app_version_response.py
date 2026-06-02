@@ -8,7 +8,8 @@ from .get_application_app_version_response_body import GetApplicationAppVersionR
 
 class GetApplicationAppVersionResponse(BaseResponse):
     _types = {
-        "data": GetApplicationAppVersionResponseBody
+        "data": GetApplicationAppVersionResponseBody,
+
     }
 
     def __init__(self, d=None):

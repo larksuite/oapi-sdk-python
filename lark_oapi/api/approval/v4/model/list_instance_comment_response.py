@@ -8,7 +8,8 @@ from .list_instance_comment_response_body import ListInstanceCommentResponseBody
 
 class ListInstanceCommentResponse(BaseResponse):
     _types = {
-        "data": ListInstanceCommentResponseBody
+        "data": ListInstanceCommentResponseBody,
+
     }
 
     def __init__(self, d=None):

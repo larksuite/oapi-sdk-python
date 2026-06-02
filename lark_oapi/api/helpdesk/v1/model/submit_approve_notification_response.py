@@ -8,7 +8,8 @@ from .submit_approve_notification_response_body import SubmitApproveNotification
 
 class SubmitApproveNotificationResponse(BaseResponse):
     _types = {
-        "data": SubmitApproveNotificationResponseBody
+        "data": SubmitApproveNotificationResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -9,10 +9,10 @@ class AuditObjectDetail(object):
         "clone_source": str,
         "text_detail": str,
         "file_name": str,
-        "third_party_app_i_d": str,
+        "third_party_app_id": str,
         "contain_file_num": int,
         "permission_setting_type": str,
-        "permission_external_access__type": bool,
+        "permission_external_access_type": bool,
         "permission_share_type": str,
         "file_service_source": str,
         "okr_download_content": str,
@@ -25,10 +25,10 @@ class AuditObjectDetail(object):
         self.clone_source: Optional[str] = None
         self.text_detail: Optional[str] = None
         self.file_name: Optional[str] = None
-        self.third_party_app_i_d: Optional[str] = None
+        self.third_party_app_id: Optional[str] = None
         self.contain_file_num: Optional[int] = None
         self.permission_setting_type: Optional[str] = None
-        self.permission_external_access__type: Optional[bool] = None
+        self.permission_external_access_type: Optional[bool] = None
         self.permission_share_type: Optional[str] = None
         self.file_service_source: Optional[str] = None
         self.okr_download_content: Optional[str] = None
@@ -58,8 +58,8 @@ class AuditObjectDetailBuilder(object):
         self._audit_object_detail.file_name = file_name
         return self
 
-    def third_party_app_i_d(self, third_party_app_i_d: str) -> "AuditObjectDetailBuilder":
-        self._audit_object_detail.third_party_app_i_d = third_party_app_i_d
+    def third_party_app_id(self, third_party_app_id: str) -> "AuditObjectDetailBuilder":
+        self._audit_object_detail.third_party_app_id = third_party_app_id
         return self
 
     def contain_file_num(self, contain_file_num: int) -> "AuditObjectDetailBuilder":
@@ -70,8 +70,8 @@ class AuditObjectDetailBuilder(object):
         self._audit_object_detail.permission_setting_type = permission_setting_type
         return self
 
-    def permission_external_access__type(self, permission_external_access__type: bool) -> "AuditObjectDetailBuilder":
-        self._audit_object_detail.permission_external_access__type = permission_external_access__type
+    def permission_external_access_type(self, permission_external_access_type: bool) -> "AuditObjectDetailBuilder":
+        self._audit_object_detail.permission_external_access_type = permission_external_access_type
         return self
 
     def permission_share_type(self, permission_share_type: str) -> "AuditObjectDetailBuilder":

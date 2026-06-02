@@ -8,7 +8,8 @@ from .update_app_role_response_body import UpdateAppRoleResponseBody
 
 class UpdateAppRoleResponse(BaseResponse):
     _types = {
-        "data": UpdateAppRoleResponseBody
+        "data": UpdateAppRoleResponseBody,
+
     }
 
     def __init__(self, d=None):

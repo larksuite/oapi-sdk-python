@@ -8,7 +8,8 @@ from .create_progress_record_response_body import CreateProgressRecordResponseBo
 
 class CreateProgressRecordResponse(BaseResponse):
     _types = {
-        "data": CreateProgressRecordResponseBody
+        "data": CreateProgressRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

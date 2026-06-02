@@ -8,7 +8,8 @@ from .create_oidc_refresh_access_token_response_body import CreateOidcRefreshAcc
 
 class CreateOidcRefreshAccessTokenResponse(BaseResponse):
     _types = {
-        "data": CreateOidcRefreshAccessTokenResponseBody
+        "data": CreateOidcRefreshAccessTokenResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .recognize_vat_invoice_response_body import RecognizeVatInvoiceResponseBody
 
 class RecognizeVatInvoiceResponse(BaseResponse):
     _types = {
-        "data": RecognizeVatInvoiceResponseBody
+        "data": RecognizeVatInvoiceResponseBody,
+
     }
 
     def __init__(self, d=None):

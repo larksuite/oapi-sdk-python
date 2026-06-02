@@ -8,7 +8,8 @@ from .query_user_stats_field_response_body import QueryUserStatsFieldResponseBod
 
 class QueryUserStatsFieldResponse(BaseResponse):
     _types = {
-        "data": QueryUserStatsFieldResponseBody
+        "data": QueryUserStatsFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

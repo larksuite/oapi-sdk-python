@@ -8,7 +8,8 @@ from .query_social_archive_adjust_record_response_body import QuerySocialArchive
 
 class QuerySocialArchiveAdjustRecordResponse(BaseResponse):
     _types = {
-        "data": QuerySocialArchiveAdjustRecordResponseBody
+        "data": QuerySocialArchiveAdjustRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

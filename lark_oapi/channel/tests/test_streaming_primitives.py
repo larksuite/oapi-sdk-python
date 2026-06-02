@@ -63,6 +63,7 @@ async def test_update_queue_runs_sequentially_when_not_bursted():
             log.append(f"{name}:start")
             await asyncio.sleep(sleep)
             log.append(f"{name}:end")
+
         return t
 
     for name, sleep in (("A", 0.01), ("B", 0.01), ("C", 0.01)):
@@ -87,6 +88,7 @@ async def test_update_queue_coalesces_pending_bursts():
     def mk(name):
         async def t():
             ran.append(name)
+
         return t
 
     q.enqueue(t_slow)
@@ -200,7 +202,7 @@ def _make_cardkit_fakes():
         "created_specs": [],
         "sent_refs": [],
         "elem_updates": [],  # list of (card_id, element_id, content, seq)
-        "finishes": [],      # list of (card_id, seq)
+        "finishes": [],  # list of (card_id, seq)
     }
 
     async def create_card_instance(spec):

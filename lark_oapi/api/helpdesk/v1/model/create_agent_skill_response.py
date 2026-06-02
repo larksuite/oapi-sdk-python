@@ -8,7 +8,8 @@ from .create_agent_skill_response_body import CreateAgentSkillResponseBody
 
 class CreateAgentSkillResponse(BaseResponse):
     _types = {
-        "data": CreateAgentSkillResponseBody
+        "data": CreateAgentSkillResponseBody,
+
     }
 
     def __init__(self, d=None):

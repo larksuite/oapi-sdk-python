@@ -8,7 +8,8 @@ from .get_agency_response_body import GetAgencyResponseBody
 
 class GetAgencyResponse(BaseResponse):
     _types = {
-        "data": GetAgencyResponseBody
+        "data": GetAgencyResponseBody,
+
     }
 
     def __init__(self, d=None):

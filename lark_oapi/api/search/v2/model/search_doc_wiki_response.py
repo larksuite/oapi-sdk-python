@@ -8,7 +8,8 @@ from .search_doc_wiki_response_body import SearchDocWikiResponseBody
 
 class SearchDocWikiResponse(BaseResponse):
     _types = {
-        "data": SearchDocWikiResponseBody
+        "data": SearchDocWikiResponseBody,
+
     }
 
     def __init__(self, d=None):

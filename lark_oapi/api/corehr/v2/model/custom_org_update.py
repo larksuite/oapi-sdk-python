@@ -19,6 +19,7 @@ class CustomOrgUpdate(object):
         "effective_time": str,
         "org_roles": List[OrgRoleUpdate],
         "custom_fields": List[CustomFieldData],
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class CustomOrgUpdate(object):
         self.effective_time: Optional[str] = None
         self.org_roles: Optional[List[OrgRoleUpdate]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -76,6 +78,10 @@ class CustomOrgUpdateBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.custom_fields = custom_fields
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CustomOrgUpdateBuilder":
+        self._custom_org_update.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "CustomOrgUpdate":

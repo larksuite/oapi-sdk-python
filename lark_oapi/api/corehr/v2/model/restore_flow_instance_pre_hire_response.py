@@ -8,7 +8,8 @@ from .restore_flow_instance_pre_hire_response_body import RestoreFlowInstancePre
 
 class RestoreFlowInstancePreHireResponse(BaseResponse):
     _types = {
-        "data": RestoreFlowInstancePreHireResponseBody
+        "data": RestoreFlowInstancePreHireResponseBody,
+
     }
 
     def __init__(self, d=None):

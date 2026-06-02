@@ -8,7 +8,8 @@ from .create_document_block_descendant_response_body import CreateDocumentBlockD
 
 class CreateDocumentBlockDescendantResponse(BaseResponse):
     _types = {
-        "data": CreateDocumentBlockDescendantResponseBody
+        "data": CreateDocumentBlockDescendantResponseBody,
+
     }
 
     def __init__(self, d=None):

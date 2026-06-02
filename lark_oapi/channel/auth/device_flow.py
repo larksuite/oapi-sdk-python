@@ -28,7 +28,6 @@ from lark_oapi.core.log import logger
 from ..errors import UATAuthError
 from ..types import UAT
 
-
 _HTML_TAG_RE = re.compile(r"<[^>]*>")
 
 
@@ -56,13 +55,13 @@ class DeviceFlowInit:
 
 class DeviceFlowClient:
     def __init__(
-        self,
-        app_id: str,
-        app_secret: str,
-        *,
-        domain: str = FEISHU_DOMAIN,
-        timeout: float = 30.0,
-        http_client: Optional[httpx.AsyncClient] = None,
+            self,
+            app_id: str,
+            app_secret: str,
+            *,
+            domain: str = FEISHU_DOMAIN,
+            timeout: float = 30.0,
+            http_client: Optional[httpx.AsyncClient] = None,
     ) -> None:
         self._app_id = app_id
         self._app_secret = app_secret
@@ -110,7 +109,7 @@ class DeviceFlowClient:
         return DeviceFlowInit(
             verification_uri=payload.get("verification_uri") or "",
             verification_uri_complete=payload.get("verification_uri_complete")
-            or payload.get("verification_uri") or "",
+                                      or payload.get("verification_uri") or "",
             user_code=payload.get("user_code") or "",
             device_code=payload.get("device_code") or "",
             expires_in=int(payload.get("expires_in") or 600),
@@ -118,11 +117,11 @@ class DeviceFlowClient:
         )
 
     async def poll(
-        self,
-        device_code: str,
-        *,
-        interval: int = 5,
-        timeout_seconds: Optional[int] = None,
+            self,
+            device_code: str,
+            *,
+            interval: int = 5,
+            timeout_seconds: Optional[int] = None,
     ) -> UAT:
         """Poll until authorization completes, scopes are denied, or timeout."""
         deadline = time.time() + (timeout_seconds or 600)

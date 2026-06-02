@@ -8,7 +8,8 @@ from .patch_contract_response_body import PatchContractResponseBody
 
 class PatchContractResponse(BaseResponse):
     _types = {
-        "data": PatchContractResponseBody
+        "data": PatchContractResponseBody,
+
     }
 
     def __init__(self, d=None):

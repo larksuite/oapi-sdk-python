@@ -8,7 +8,8 @@ from .scopes_functional_role_member_response_body import ScopesFunctionalRoleMem
 
 class ScopesFunctionalRoleMemberResponse(BaseResponse):
     _types = {
-        "data": ScopesFunctionalRoleMemberResponseBody
+        "data": ScopesFunctionalRoleMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

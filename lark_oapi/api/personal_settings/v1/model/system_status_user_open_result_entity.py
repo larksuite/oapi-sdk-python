@@ -7,13 +7,13 @@ from lark_oapi.core.construct import init
 class SystemStatusUserOpenResultEntity(object):
     _types = {
         "user_id": str,
-        "end_time": str,
+        "end_time": int,
         "result": str,
     }
 
     def __init__(self, d=None):
         self.user_id: Optional[str] = None
-        self.end_time: Optional[str] = None
+        self.end_time: Optional[int] = None
         self.result: Optional[str] = None
         init(self, d, self._types)
 
@@ -30,7 +30,7 @@ class SystemStatusUserOpenResultEntityBuilder(object):
         self._system_status_user_open_result_entity.user_id = user_id
         return self
 
-    def end_time(self, end_time: str) -> "SystemStatusUserOpenResultEntityBuilder":
+    def end_time(self, end_time: int) -> "SystemStatusUserOpenResultEntityBuilder":
         self._system_status_user_open_result_entity.end_time = end_time
         return self
 

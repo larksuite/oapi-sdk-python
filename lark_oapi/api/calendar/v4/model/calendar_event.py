@@ -43,6 +43,7 @@ class CalendarEvent(object):
         "attachments": List[Attachment],
         "event_check_in": EventCheckIn,
         "source": str,
+        "self_rsvp_status": str,
     }
 
     def __init__(self, d=None):
@@ -73,6 +74,7 @@ class CalendarEvent(object):
         self.attachments: Optional[List[Attachment]] = None
         self.event_check_in: Optional[EventCheckIn] = None
         self.source: Optional[str] = None
+        self.self_rsvp_status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -190,6 +192,10 @@ class CalendarEventBuilder(object):
 
     def source(self, source: str) -> "CalendarEventBuilder":
         self._calendar_event.source = source
+        return self
+
+    def self_rsvp_status(self, self_rsvp_status: str) -> "CalendarEventBuilder":
+        self._calendar_event.self_rsvp_status = self_rsvp_status
         return self
 
     def build(self) -> "CalendarEvent":

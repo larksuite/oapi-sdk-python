@@ -15,7 +15,6 @@ def main():
     # 构造请求对象
     request: BatchCreateAppTableRequest = BatchCreateAppTableRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .user_id_type("user_id") \
         .request_body(BatchCreateAppTableRequestBody.builder()
                       .tables([])
                       .build()) \
@@ -46,7 +45,6 @@ async def amain():
     # 构造请求对象
     request: BatchCreateAppTableRequest = BatchCreateAppTableRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-        .user_id_type("user_id") \
         .request_body(BatchCreateAppTableRequestBody.builder()
                       .tables([])
                       .build()) \

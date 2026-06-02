@@ -8,7 +8,8 @@ from .contacts_range_configuration_application_response_body import ContactsRang
 
 class ContactsRangeConfigurationApplicationResponse(BaseResponse):
     _types = {
-        "data": ContactsRangeConfigurationApplicationResponseBody
+        "data": ContactsRangeConfigurationApplicationResponseBody,
+
     }
 
     def __init__(self, d=None):

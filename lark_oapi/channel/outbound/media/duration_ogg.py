@@ -23,7 +23,7 @@ def parse_opus_duration(buf: bytes) -> Optional[int]:
     # Scan backward for the last OggS page
     i = len(buf) - 27
     while i >= 0:
-        if buf[i : i + 4] == OGG_MAGIC:
+        if buf[i: i + 4] == OGG_MAGIC:
             try:
                 granule = struct.unpack_from("<q", buf, i + 6)[0]
             except struct.error:

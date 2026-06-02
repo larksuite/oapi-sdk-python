@@ -24,7 +24,6 @@ Two ways to guard against that:
 
 from typing import Literal
 
-
 #: All event names accepted by :meth:`FeishuChannel.on`. The alias table in
 #: :mod:`._coerce` normalizes snake_case aliases (``"bot_added"``, ``"card_action"``,
 #: etc.) onto these canonical forms.

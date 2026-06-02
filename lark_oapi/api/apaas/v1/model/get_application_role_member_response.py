@@ -8,7 +8,8 @@ from .get_application_role_member_response_body import GetApplicationRoleMemberR
 
 class GetApplicationRoleMemberResponse(BaseResponse):
     _types = {
-        "data": GetApplicationRoleMemberResponseBody
+        "data": GetApplicationRoleMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

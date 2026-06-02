@@ -8,7 +8,8 @@ from .apply_reserve_response_body import ApplyReserveResponseBody
 
 class ApplyReserveResponse(BaseResponse):
     _types = {
-        "data": ApplyReserveResponseBody
+        "data": ApplyReserveResponseBody,
+
     }
 
     def __init__(self, d=None):

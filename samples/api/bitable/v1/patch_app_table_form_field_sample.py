@@ -24,6 +24,7 @@ def main():
                       .description("str")
                       .required(bool)
                       .visible(bool)
+                      .rich_description([])
                       .build()) \
         .build()
 
@@ -61,6 +62,7 @@ async def amain():
                       .description("str")
                       .required(bool)
                       .visible(bool)
+                      .rich_description([])
                       .build()) \
         .build()
 

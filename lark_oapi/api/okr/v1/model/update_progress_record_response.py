@@ -8,7 +8,8 @@ from .update_progress_record_response_body import UpdateProgressRecordResponseBo
 
 class UpdateProgressRecordResponse(BaseResponse):
     _types = {
-        "data": UpdateProgressRecordResponseBody
+        "data": UpdateProgressRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

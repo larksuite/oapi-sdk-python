@@ -35,6 +35,10 @@ from ..model.remove_reminders_task_request import RemoveRemindersTaskRequest
 from ..model.remove_reminders_task_response import RemoveRemindersTaskResponse
 from ..model.remove_tasklist_task_request import RemoveTasklistTaskRequest
 from ..model.remove_tasklist_task_response import RemoveTasklistTaskResponse
+from ..model.search_task_request import SearchTaskRequest
+from ..model.search_task_response import SearchTaskResponse
+from ..model.set_ancestor_task_task_request import SetAncestorTaskTaskRequest
+from ..model.set_ancestor_task_task_response import SetAncestorTaskTaskResponse
 from ..model.tasklists_task_request import TasklistsTaskRequest
 from ..model.tasklists_task_response import TasklistsTaskResponse
 
@@ -525,6 +529,80 @@ class Task(object):
 
         # 反序列化
         response: RemoveTasklistTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveTasklistTaskResponse)
+        response.raw = resp
+
+        return response
+
+    def search(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response.raw = resp
+
+        return response
+
+    def set_ancestor_task(self, request: SetAncestorTaskTaskRequest,
+                          option: Optional[RequestOption] = None) -> SetAncestorTaskTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SetAncestorTaskTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAncestorTaskTaskResponse)
+        response.raw = resp
+
+        return response
+
+    async def aset_ancestor_task(self, request: SetAncestorTaskTaskRequest,
+                                 option: Optional[RequestOption] = None) -> SetAncestorTaskTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SetAncestorTaskTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAncestorTaskTaskResponse)
         response.raw = resp
 
         return response

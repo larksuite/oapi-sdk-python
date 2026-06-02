@@ -25,7 +25,7 @@ class GetDetailJobRequestBuilder(object):
         get_detail_job_request = GetDetailJobRequest()
         get_detail_job_request.http_method = HttpMethod.GET
         get_detail_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/get_detail"
-        get_detail_job_request.token_types = {AccessTokenType.TENANT}
+        get_detail_job_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_detail_job_request: GetDetailJobRequest = get_detail_job_request
 
     def user_id_type(self, user_id_type: str) -> "GetDetailJobRequestBuilder":

@@ -8,7 +8,8 @@ from .create_user_mailbox_mail_contact_response_body import CreateUserMailboxMai
 
 class CreateUserMailboxMailContactResponse(BaseResponse):
     _types = {
-        "data": CreateUserMailboxMailContactResponseBody
+        "data": CreateUserMailboxMailContactResponseBody,
+
     }
 
     def __init__(self, d=None):

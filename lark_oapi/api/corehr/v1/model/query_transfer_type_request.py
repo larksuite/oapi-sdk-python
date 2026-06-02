@@ -22,7 +22,7 @@ class QueryTransferTypeRequestBuilder(object):
         query_transfer_type_request = QueryTransferTypeRequest()
         query_transfer_type_request.http_method = HttpMethod.GET
         query_transfer_type_request.uri = "/open-apis/corehr/v1/transfer_types/query"
-        query_transfer_type_request.token_types = {AccessTokenType.TENANT}
+        query_transfer_type_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._query_transfer_type_request: QueryTransferTypeRequest = query_transfer_type_request
 
     def active(self, active: bool) -> "QueryTransferTypeRequestBuilder":

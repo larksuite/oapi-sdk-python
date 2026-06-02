@@ -115,12 +115,12 @@ class FeishuChannelError(_ChannelError):
     """
 
     def __init__(
-        self,
-        code: FeishuChannelErrorCode,
-        message: str = "",
-        *,
-        cause: Optional[BaseException] = None,
-        context: Optional[Dict[str, Any]] = None,
+            self,
+            code: FeishuChannelErrorCode,
+            message: str = "",
+            *,
+            cause: Optional[BaseException] = None,
+            context: Optional[Dict[str, Any]] = None,
     ) -> None:
         resolved = message or code.value
         super().__init__(resolved)

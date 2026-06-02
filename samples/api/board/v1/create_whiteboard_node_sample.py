@@ -19,6 +19,7 @@ def main():
         .user_id_type("user_id") \
         .request_body(CreateWhiteboardNodeRequestBody.builder()
                       .nodes([])
+                      .overwrite(bool)
                       .build()) \
         .build()
 
@@ -51,6 +52,7 @@ async def amain():
         .user_id_type("user_id") \
         .request_body(CreateWhiteboardNodeRequestBody.builder()
                       .nodes([])
+                      .overwrite(bool)
                       .build()) \
         .build()
 

@@ -8,7 +8,8 @@ from .get_reserve_config_disable_inform_response_body import GetReserveConfigDis
 
 class GetReserveConfigDisableInformResponse(BaseResponse):
     _types = {
-        "data": GetReserveConfigDisableInformResponseBody
+        "data": GetReserveConfigDisableInformResponseBody,
+
     }
 
     def __init__(self, d=None):

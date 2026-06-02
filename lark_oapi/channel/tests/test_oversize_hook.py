@@ -13,6 +13,7 @@ def test_on_oversize_default_is_none():
 def test_on_oversize_accepts_callable():
     async def hook(ctx: OversizeContext):
         return None
+
     cfg = OutboundConfig(on_oversize=hook)
     assert cfg.on_oversize is hook
 

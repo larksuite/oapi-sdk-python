@@ -10,6 +10,7 @@ class Member(object):
         "member_id": str,
         "member_role": str,
         "type": str,
+        "member_perm": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class Member(object):
         self.member_id: Optional[str] = None
         self.member_role: Optional[str] = None
         self.type: Optional[str] = None
+        self.member_perm: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class MemberBuilder(object):
 
     def type(self, type: str) -> "MemberBuilder":
         self._member.type = type
+        return self
+
+    def member_perm(self, member_perm: str) -> "MemberBuilder":
+        self._member.member_perm = member_perm
         return self
 
     def build(self) -> "Member":

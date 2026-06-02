@@ -8,7 +8,8 @@ from .config_job_response_body import ConfigJobResponseBody
 
 class ConfigJobResponse(BaseResponse):
     _types = {
-        "data": ConfigJobResponseBody
+        "data": ConfigJobResponseBody,
+
     }
 
     def __init__(self, d=None):

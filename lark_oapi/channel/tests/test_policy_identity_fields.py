@@ -7,12 +7,12 @@ from lark_oapi.channel.types import TextContent
 
 
 def _message(
-    *,
-    chat_type="group",
-    open_id="ou_alice",
-    user_id="u_alice",
-    union_id="on_alice",
-    chat_id="oc_chat",
+        *,
+        chat_type="group",
+        open_id="ou_alice",
+        user_id="u_alice",
+        union_id="on_alice",
+        chat_id="oc_chat",
 ):
     return InboundMessage(
         id="om_1",

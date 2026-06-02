@@ -6,9 +6,11 @@ from lark_oapi.core.construct import init
 
 class PermissionPublicPassword(object):
     _types = {
+        "password": str,
     }
 
     def __init__(self, d=None):
+        self.password: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +21,10 @@ class PermissionPublicPassword(object):
 class PermissionPublicPasswordBuilder(object):
     def __init__(self) -> None:
         self._permission_public_password = PermissionPublicPassword()
+
+    def password(self, password: str) -> "PermissionPublicPasswordBuilder":
+        self._permission_public_password.password = password
+        return self
 
     def build(self) -> "PermissionPublicPassword":
         return self._permission_public_password

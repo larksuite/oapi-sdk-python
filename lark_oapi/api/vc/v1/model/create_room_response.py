@@ -8,7 +8,8 @@ from .create_room_response_body import CreateRoomResponseBody
 
 class CreateRoomResponse(BaseResponse):
     _types = {
-        "data": CreateRoomResponseBody
+        "data": CreateRoomResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -7,10 +7,14 @@ from lark_oapi.core.construct import init
 class UploadFinishFileResponseBody(object):
     _types = {
         "file_token": str,
+        "version": str,
+        "url": str,
     }
 
     def __init__(self, d=None):
         self.file_token: Optional[str] = None
+        self.version: Optional[str] = None
+        self.url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +28,14 @@ class UploadFinishFileResponseBodyBuilder(object):
 
     def file_token(self, file_token: str) -> "UploadFinishFileResponseBodyBuilder":
         self._upload_finish_file_response_body.file_token = file_token
+        return self
+
+    def version(self, version: str) -> "UploadFinishFileResponseBodyBuilder":
+        self._upload_finish_file_response_body.version = version
+        return self
+
+    def url(self, url: str) -> "UploadFinishFileResponseBodyBuilder":
+        self._upload_finish_file_response_body.url = url
         return self
 
     def build(self) -> "UploadFinishFileResponseBody":

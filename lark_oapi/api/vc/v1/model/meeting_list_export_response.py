@@ -8,7 +8,8 @@ from .meeting_list_export_response_body import MeetingListExportResponseBody
 
 class MeetingListExportResponse(BaseResponse):
     _types = {
-        "data": MeetingListExportResponseBody
+        "data": MeetingListExportResponseBody,
+
     }
 
     def __init__(self, d=None):

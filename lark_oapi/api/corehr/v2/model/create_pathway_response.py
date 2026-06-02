@@ -8,7 +8,8 @@ from .create_pathway_response_body import CreatePathwayResponseBody
 
 class CreatePathwayResponse(BaseResponse):
     _types = {
-        "data": CreatePathwayResponseBody
+        "data": CreatePathwayResponseBody,
+
     }
 
     def __init__(self, d=None):

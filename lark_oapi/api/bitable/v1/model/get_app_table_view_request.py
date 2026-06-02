@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class GetAppTableViewRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.view_id: Optional[str] = None
@@ -25,6 +26,11 @@ class GetAppTableViewRequestBuilder(object):
         get_app_table_view_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
         get_app_table_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_app_table_view_request: GetAppTableViewRequest = get_app_table_view_request
+
+    def user_id_type(self, user_id_type: str) -> "GetAppTableViewRequestBuilder":
+        self._get_app_table_view_request.user_id_type = user_id_type
+        self._get_app_table_view_request.add_query("user_id_type", user_id_type)
+        return self
 
     def app_token(self, app_token: str) -> "GetAppTableViewRequestBuilder":
         self._get_app_table_view_request.app_token = app_token

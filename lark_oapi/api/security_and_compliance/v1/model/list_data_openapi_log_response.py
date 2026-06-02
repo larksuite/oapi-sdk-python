@@ -8,7 +8,8 @@ from .list_data_openapi_log_response_body import ListDataOpenapiLogResponseBody
 
 class ListDataOpenapiLogResponse(BaseResponse):
     _types = {
-        "data": ListDataOpenapiLogResponseBody
+        "data": ListDataOpenapiLogResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -22,6 +22,9 @@ def main():
         .department_id_type("open_department_id") \
         .job_level_id_type("people_admin_job_level_id") \
         .job_family_id_type("people_admin_job_category_id") \
+        .recruiter_id_list([]) \
+        .hiring_manager_id_list([]) \
+        .assistant_id_list([]) \
         .build()
 
     # 发起请求
@@ -56,6 +59,9 @@ async def amain():
         .department_id_type("open_department_id") \
         .job_level_id_type("people_admin_job_level_id") \
         .job_family_id_type("people_admin_job_category_id") \
+        .recruiter_id_list([]) \
+        .hiring_manager_id_list([]) \
+        .assistant_id_list([]) \
         .build()
 
     # 发起请求
