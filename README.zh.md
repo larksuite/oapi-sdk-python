@@ -92,11 +92,21 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.name` | 应用名称，支持 `{user}` 占位符，由 Web 页面替换为扫码用户名称 | string | 否 | - |
 | `app_preset.desc` | 应用描述，支持 `{user}` 占位符 | string | 否 | - |
 
-## Channel 模块
+## 旧版 Channel 模块
 
-`lark_oapi.channel` 是基于 OpenAPI Client 和事件传输封装的高层模块。它把机器人接入中的事件监听、消息归一化、安全策略、出站发送、媒体上传下载、卡片交互、流式回复等能力收敛到 `FeishuChannel` 一个入口。
+`lark_oapi.channel` 是迁移窗口内为了兼容保留的旧版 Channel 入口。新的 Channel 能力只进入 [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/)，并使用 `lark_channel` import path；现有 `lark_oapi.channel` 用户的关键缺陷修复会评估是否回迁，维护窗口截止到 2027-06-02。
 
-当你要开发会话式机器人，需要处理归一化消息、回复消息、媒体、卡片回调、@ 策略、WebSocket 长连接或 webhook 回调时，优先使用 Channel。
+`lark-channel-sdk` 可以和 `lark-oapi` 同时安装。独立包的 [`SecurityConfig`](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md) 默认使用兼容模式，便于迁移后的机器人先用 audit 模式观测，再切到 strict 模式强制安全检查。完整步骤见 [迁移手册](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)。
+
+```bash
+pip install lark-channel-sdk
+```
+
+```python
+from lark_channel import FeishuChannel
+```
+
+旧版 import 示例：
 
 ```python
 import asyncio
@@ -120,12 +130,14 @@ channel.on("message", on_message)
 asyncio.run(channel.connect())
 ```
 
-Channel 完整文档：
+Channel 文档：
 
-- [Channel 模块](./doc/channel.zh.md)
-- [Channel 快速开始（英文）](./doc/channel/quickstart.md)
-- [Channel API 参考（英文）](./doc/channel/reference.md)
-- [可运行 echo bot 示例](./samples/channel/echo_bot.py)
+- [旧版 Channel 模块](./doc/channel.zh.md)
+- [旧版 Channel 快速开始（英文）](./doc/channel/quickstart.md)
+- [旧版 Channel API 参考（英文）](./doc/channel/reference.md)
+- [独立 Channel 迁移手册](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+- [独立 Channel 安全配置](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)
+- [可运行旧版 echo bot 示例](./samples/channel/echo_bot.py)
 
 ## 扩展示例
 

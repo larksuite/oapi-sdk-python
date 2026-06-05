@@ -1,5 +1,13 @@
 # Webhook Server Adapter
 
+> **Migration notice:** This page documents legacy `lark_oapi.channel` webhook
+> behavior. Channel has moved to
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) with the
+> `lark_channel` import path. Critical fixes for existing `lark_oapi.channel`
+> users are evaluated for backport until 2027-06-02. See the
+> [migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
 The Channel SDK does not ship a built-in HTTP server. TLS termination, rate
 limiting, IP allowlisting, anomaly tracking, and framework choice belong in
 your application or gateway layer.

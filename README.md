@@ -97,16 +97,30 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.name` | App name. Supports the `{user}` placeholder, replaced by the Web page with the scanning user's name | string | No | - |
 | `app_preset.desc` | App description. Supports the `{user}` placeholder | string | No | - |
 
-## Channel Module
+## Legacy Channel Module
 
-`lark_oapi.channel` is a high-level module built on top of the OpenAPI client
-and event transport. It bundles event listening, message normalization, safety
-policy, outbound sending, media upload/download, card interactions, and
-streaming replies into a single `FeishuChannel` entry point.
+`lark_oapi.channel` is the legacy Channel entry point kept for compatibility
+during the migration window. New Channel features ship in
+[`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) with the
+`lark_channel` import path; critical fixes for existing `lark_oapi.channel`
+users are evaluated for backport until 2027-06-02.
 
-Use Channel when you are building a conversational bot that needs normalized
-message events, replies, media handling, card callbacks, mention policy, or
-WebSocket/webhook transport management.
+`lark-channel-sdk` can be installed alongside `lark-oapi`. Its
+[`SecurityConfig`](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)
+defaults to compatibility mode so migrated bots can roll out with audit mode
+before strict enforcement. See the
+[migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+for the full checklist.
+
+```bash
+pip install lark-channel-sdk
+```
+
+```python
+from lark_channel import FeishuChannel
+```
+
+Existing legacy import example:
 
 ```python
 import asyncio
@@ -130,12 +144,14 @@ channel.on("message", on_message)
 asyncio.run(channel.connect())
 ```
 
-Full Channel documentation:
+Channel documentation:
 
-- [Channel module](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel.md)
-- [Channel quickstart](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/quickstart.md)
-- [Channel reference](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/reference.md)
-- [Runnable echo bot sample](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/samples/channel/echo_bot.py)
+- [Legacy Channel module](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel.md)
+- [Legacy Channel quickstart](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/quickstart.md)
+- [Legacy Channel reference](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/reference.md)
+- [Standalone Channel migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+- [Standalone Channel security guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)
+- [Runnable legacy echo bot sample](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/samples/channel/echo_bot.py)
 
 ## Examples
 

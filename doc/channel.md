@@ -2,6 +2,16 @@
 
 [中文](./channel.zh.md)
 
+> **Migration notice:** Channel has moved to the standalone
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) package with
+> the `lark_channel` import path. This page documents the legacy
+> `lark_oapi.channel` module kept for compatibility during the migration window.
+> New Channel features are added only to `lark-channel-sdk`; critical fixes for
+> existing `lark_oapi.channel` users are evaluated for backport until
+> 2027-06-02. See the
+> [migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
 `lark_oapi.channel` is a high-level module built on top of the OpenAPI
 `Client`, WebSocket event transport, and webhook event dispatching. It bundles
 event listening, message normalization, safety policy, outbound sending, media
