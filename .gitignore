@@ -10,3 +10,4 @@ upload.sh
 /tests/
 .env
 sensitive_info_result.txt
+doc/
