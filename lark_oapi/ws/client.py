@@ -233,7 +233,10 @@ class Client(object):
         if Strings.is_empty(self._app_id) or (
                 self._client_assertion_provider is None and Strings.is_empty(self._app_secret)
         ):
-            raise ClientException(NO_CREDENTIAL, "app_id or app_secret is null")
+            raise ClientException(
+                NO_CREDENTIAL,
+                "app_id is required and either app_secret or client_assertion_provider is required",
+            )
 
         headers = dict(self._headers)
         headers.update({
@@ -247,6 +250,7 @@ class Client(object):
             assertion_token = self._client_assertion_provider.retrieve_token(aud)
             if assertion_token is None or Strings.is_empty(assertion_token.value):
                 raise ClientException(7101, "client assertion token is empty")
+            body["AppSecret"] = ""
             body["ClientAssertion"] = assertion_token.value
             if assertion_token.target_info is not None:
                 url = build_proxy_url(assertion_token.target_info, GEN_ENDPOINT_URI)

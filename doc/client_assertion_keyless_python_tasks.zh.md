@@ -14,7 +14,7 @@
 | `lark_oapi/core/model/config.py` | 保存 `app_id`、`app_secret`、`domain`、`app_type`、cache 等配置 | 新增 provider 和 OAuth base URL 字段 |
 | `lark_oapi/core/token/auth.py` | 请求前鉴权、选择 app/tenant/user token | 加入 ClientAssertion 模式 token type 决策 |
 | `lark_oapi/core/token/manager.py` | 获取并缓存 app/tenant token | 增加 OAuth JWT bearer tenant token exchange；ClientAssertion 模式禁止 app token |
-| `lark_oapi/core/http/transport.py` | 组装 URL/header/body 并发送 sync/async 请求 | 支持 absolute URL，供 OAuth/proxy endpoint 使用 |
+| `lark_oapi/core/http/transport.py` | 组装 URL/header/body 并发送 sync/async 请求 | 支持 absolute URL，供 OAuth/proxy endpoint 使用；Debug 日志输出前递归脱敏敏感凭证 |
 | `lark_oapi/ws/client.py` | WebSocket endpoint bootstrap 和连接管理 | 支持 provider、TargetInfo 代理、自定义 header 覆盖规则 |
 
 ## GO SDK 对齐约束
@@ -160,10 +160,13 @@ class ClientAssertionProvider(Protocol):
 - [x] ✅ 相对 URL 仍按现有逻辑拼接 `domain + uri`。
 - [x] ✅ OAuth token exchange 调用方直接解析 OAuth 响应，不走 `Client.request()` 的 `BaseResponse` 语义。
 - [x] ✅ 保持自定义 headers、User-Agent、Content-Type 行为不回退。
+- [x] ✅ Debug 日志在序列化前递归脱敏 `Authorization`、`client_assertion`、`ClientAssertion`、`client_secret`、`AppSecret`、`*token*` 等敏感字段。
+- [x] ✅ 脱敏只作用于日志副本，不修改真实请求 headers/body。
 
 验收方框：
 - [x] ✅ absolute OAuth URL 不被拼成 `https://open.feishu.cnhttps://accounts.example.com/oauth/v3/token`。
 - [x] ✅ 普通 OpenAPI 相对路径行为不变。
+- [x] ✅ 同步和异步 Transport Debug 日志均不会输出 ClientAssertion、AppSecret、Authorization bearer token 等原文。
 
 ### 任务 6：OAuth user AccessToken 服务
 
@@ -202,14 +205,15 @@ class ClientAssertionProvider(Protocol):
 - [x] ✅ provider 存在时 aud 使用 `_domain` 的 host。
 - [x] ✅ provider 抛错时直接抛原始错误，保持 GO 细节。
 - [x] ✅ token 为空时报 `ClientException(7101, "client assertion token is empty")`。
-- [x] ✅ provider 模式 body 发送 `{"AppID": app_id, "ClientAssertion": token.value}`，不发送 `AppSecret`。
+- [x] ✅ provider 模式 body 发送 `{"AppID": app_id, "AppSecret": "", "ClientAssertion": token.value}`，保留必填的 `AppSecret` 字段为空串。
 - [x] ✅ `TargetInfo` 存在时 URL 改为 proxy URL，并设置 `X-Target-Service` 为真实 aud。
 - [x] ✅ 用户 headers 先合并，SDK 注入的 `locale`、`User-Agent`、`X-Target-Service` 后覆盖。
 - [x] ✅ 非 200 响应如果 body 可解析出 `msg`，使用服务端 msg；否则使用 `system busy`。
+- [x] ✅ 缺少凭证时错误文案说明 `app_id` 必填，且 `app_secret` / `client_assertion_provider` 至少提供一个。
 
 验收方框：
 - [x] ✅ app_secret bootstrap 旧行为不变。
-- [x] ✅ provider bootstrap 不传 `AppSecret`。
+- [x] ✅ provider bootstrap 传空串 `AppSecret`，不传真实密钥。
 - [x] ✅ 每次 `_get_conn_url()` 都调用 provider。
 - [x] ✅ 自定义 header 不丢失，冲突时 `X-Target-Service` 使用 SDK 注入值。
 

@@ -12,6 +12,7 @@
 | `lark_oapi/core/tests/test_client_assertion_access_token.py` | authorization code、refresh token、app_secret fallback、OAuth error、TargetInfo proxy |
 | `lark_oapi/ws/tests/test_client_assertion.py` | WS bootstrap provider、proxy、headers、空 token、provider error 原样抛出 |
 | `lark_oapi/core/tests/test_transport_absolute_url.py` | absolute URL 拼接与相对 URL 兼容 |
+| `lark_oapi/core/tests/test_transport_log_redaction.py` | Transport Debug 日志敏感字段脱敏，覆盖同步和异步请求 |
 | `lark_oapi/core/tests/e2e/test_client_assertion_keyless_local.py` | 本地 mock E2E |
 | `lark_oapi/core/tests/e2e/test_client_assertion_keyless_live.py` | 真实环境 smoke E2E，默认跳过 |
 
@@ -113,6 +114,14 @@
   - 输入：`domain = "https://open.feishu.cn"`、`uri = "/open-apis/mock/v1/ping"`。
   - 期望：输出 `https://open.feishu.cn/open-apis/mock/v1/ping`。
 
+- [x] ✅ `test_execute_redacts_sensitive_headers_and_body_from_debug_log`
+  - 输入：同步请求 headers/body 中包含 `Authorization`、`client_assertion`、`client_secret`、`AppSecret`、`refresh_token` 等敏感字段。
+  - 期望：Debug 日志只输出 `***`，真实请求 headers/body 仍保留原值。
+
+- [x] ✅ `test_aexecute_redacts_sensitive_headers_and_body_from_debug_log`
+  - 输入：异步请求 headers/body 中包含 user token、`client_assertion` 和 `client_secret`。
+  - 期望：Debug 日志不包含原始凭证，真实请求 payload 不被脱敏副本污染。
+
 ### OAuth user AccessToken
 
 - [x] ✅ `test_access_token_authorization_code_with_client_assertion`
@@ -151,7 +160,7 @@
 
 - [x] ✅ `test_ws_get_conn_url_with_client_assertion`
   - 使用 `Client("app_id", "", client_assertion_provider=provider)`。
-  - 期望：body 为 `{"AppID": "app_id", "ClientAssertion": "assertion"}`，不包含 `AppSecret`。
+  - 期望：body 为 `{"AppID": "app_id", "AppSecret": "", "ClientAssertion": "assertion"}`，保留必填的 `AppSecret` 字段为空串。
 
 - [x] ✅ `test_ws_get_conn_url_with_client_assertion_proxy`
   - provider 返回 `TargetInfo`。
@@ -164,6 +173,10 @@
 - [x] ✅ `test_ws_get_conn_url_empty_client_assertion_token`
   - provider 返回空 token。
   - 期望：抛 `ClientException`，code 为 `7101`。
+
+- [x] ✅ `test_ws_get_conn_url_missing_credentials_message`
+  - 使用 `Client("app_id", "")` 且不提供 provider。
+  - 期望：错误文案为 `app_id is required and either app_secret or client_assertion_provider is required`。
 
 - [x] ✅ `test_ws_provider_error_is_not_wrapped`
   - provider 抛出 `RuntimeError("boom")`。
@@ -192,7 +205,7 @@
 - [x] ✅ OAuth exchange body 使用 JWT bearer grant type。
 - [x] ✅ 普通 OpenAPI 请求最终带 tenant token。
 - [x] ✅ 第二次普通请求命中 tenant token cache，不再次调用 provider。
-- [x] ✅ WS bootstrap 使用 domain host 作为 aud，且 body 不含 `AppSecret`。
+- [x] ✅ WS bootstrap 使用 domain host 作为 aud，且 body 中 `AppSecret` 为空串。
 
 推荐命令：
 
@@ -244,6 +257,7 @@ python -m pytest \
   lark_oapi/core/tests/test_client_assertion_token_manager.py \
   lark_oapi/core/tests/test_client_assertion_access_token.py \
   lark_oapi/core/tests/test_transport_absolute_url.py \
+  lark_oapi/core/tests/test_transport_log_redaction.py \
   lark_oapi/ws/tests/test_client_assertion.py -v
 ```
 

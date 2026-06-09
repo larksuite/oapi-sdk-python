@@ -59,7 +59,7 @@ def test_ws_get_conn_url_with_client_assertion(monkeypatch):
     client = ws_client.Client("app_id", "", client_assertion_provider=provider)
 
     assert client._get_conn_url() == "ws://example.test/callback?device_id=device&service_id=42"
-    assert captured["json"] == {"AppID": "app_id", "ClientAssertion": "assertion"}
+    assert captured["json"] == {"AppID": "app_id", "AppSecret": "", "ClientAssertion": "assertion"}
     assert provider.calls == ["open.feishu.cn"]
 
 
@@ -92,7 +92,7 @@ def test_ws_get_conn_url_with_client_assertion_proxy(monkeypatch):
     assert captured["url"] == "https://proxy.example.com/proxy/callback/ws/endpoint"
     assert captured["headers"]["X-Target-Service"] == "open.feishu.cn"
     assert captured["headers"]["X-Custom"] == "custom-value"
-    assert captured["json"] == {"AppID": "app_id", "ClientAssertion": "assertion"}
+    assert captured["json"] == {"AppID": "app_id", "AppSecret": "", "ClientAssertion": "assertion"}
 
 
 def test_ws_get_conn_url_retrieves_token_each_time(monkeypatch):
@@ -124,6 +124,17 @@ def test_ws_get_conn_url_empty_client_assertion_token():
         client._get_conn_url()
 
     assert err.value.code == 7101
+
+
+def test_ws_get_conn_url_missing_credentials_message():
+    client = ws_client.Client("app_id", "")
+
+    with pytest.raises(ClientException) as err:
+        client._get_conn_url()
+
+    assert str(err.value) == (
+        "1000040344: app_id is required and either app_secret or client_assertion_provider is required"
+    )
 
 
 def test_ws_provider_error_is_not_wrapped():

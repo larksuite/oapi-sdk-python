@@ -139,7 +139,7 @@ def test_local_keyless_openapi_access_token_and_ws_e2e():
         assert len(state.oauth_bodies) == 3
         assert state.oauth_bodies[0]["grant_type"] == "urn:ietf:params:oauth:grant-type:jwt-bearer"
         assert state.oauth_bodies[0]["client_assertion"] == "local-assertion"
-        assert state.ws_bodies == [{"AppID": "cli_local", "ClientAssertion": "local-assertion"}]
+        assert state.ws_bodies == [{"AppID": "cli_local", "AppSecret": "", "ClientAssertion": "local-assertion"}]
     finally:
         server.shutdown()
         server.server_close()
