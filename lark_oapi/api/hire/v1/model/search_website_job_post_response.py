@@ -8,7 +8,8 @@ from .search_website_job_post_response_body import SearchWebsiteJobPostResponseB
 
 class SearchWebsiteJobPostResponse(BaseResponse):
     _types = {
-        "data": SearchWebsiteJobPostResponseBody
+        "data": SearchWebsiteJobPostResponseBody,
+
     }
 
     def __init__(self, d=None):

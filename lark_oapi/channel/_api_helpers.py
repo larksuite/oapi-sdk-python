@@ -19,7 +19,7 @@ from .types import ChatInfo, Identity
 
 
 async def default_name_lookup(
-    lark_client: Any, open_ids: List[str]
+        lark_client: Any, open_ids: List[str]
 ) -> Dict[str, Identity]:
     """Resolve open_ids to :class:`Identity` via ``contact.v3.user.batch``.
 
@@ -52,7 +52,7 @@ async def default_name_lookup(
                 union_id=getattr(item, "union_id", None),
                 user_id=getattr(item, "user_id", None),
                 display_name=getattr(item, "name", None)
-                or getattr(item, "en_name", None),
+                             or getattr(item, "en_name", None),
             )
         return out
     except Exception as e:  # pragma: no cover
@@ -112,11 +112,11 @@ async def fetch_chat_info(lark_client: Any, chat_id: str) -> Optional[ChatInfo]:
 
 
 async def fetch_history(
-    lark_client: Any,
-    *,
-    chat_id: str,
-    limit: Optional[int] = None,
-    before_id: Optional[str] = None,
+        lark_client: Any,
+        *,
+        chat_id: str,
+        limit: Optional[int] = None,
+        before_id: Optional[str] = None,
 ) -> List[Any]:
     """Fetch recent messages for ``chat_id``.
 
@@ -144,11 +144,11 @@ async def fetch_history(
 
 
 async def download_media(
-    lark_client: Any,
-    *,
-    message_id: str,
-    file_key: str,
-    resource_type: str,
+        lark_client: Any,
+        *,
+        message_id: str,
+        file_key: str,
+        resource_type: str,
 ) -> Optional[bytes]:
     """Download a message resource (image / file / audio / video attachment).
 
@@ -218,11 +218,11 @@ async def download_media(
 
 
 async def download_media_with_meta(
-    lark_client: Any,
-    *,
-    message_id: str,
-    file_key: str,
-    resource_type: str,
+        lark_client: Any,
+        *,
+        message_id: str,
+        file_key: str,
+        resource_type: str,
 ) -> "tuple[Optional[bytes], Optional[str]]":
     """Like :func:`download_media` but also returns a content-type / extension hint.
 
@@ -278,9 +278,9 @@ async def download_media_with_meta(
             body = None
 
         content_type: Optional[str] = (
-            getattr(resp, "content_type", None)
-            or getattr(resp, "mime_type", None)
-            or getattr(resp, "file_name", None)
+                getattr(resp, "content_type", None)
+                or getattr(resp, "mime_type", None)
+                or getattr(resp, "file_name", None)
         )
 
         return body, content_type

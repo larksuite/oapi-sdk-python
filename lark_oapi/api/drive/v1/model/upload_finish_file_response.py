@@ -8,7 +8,8 @@ from .upload_finish_file_response_body import UploadFinishFileResponseBody
 
 class UploadFinishFileResponse(BaseResponse):
     _types = {
-        "data": UploadFinishFileResponseBody
+        "data": UploadFinishFileResponseBody,
+
     }
 
     def __init__(self, d=None):

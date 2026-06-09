@@ -8,7 +8,8 @@ from .create_document_block_children_response_body import CreateDocumentBlockChi
 
 class CreateDocumentBlockChildrenResponse(BaseResponse):
     _types = {
-        "data": CreateDocumentBlockChildrenResponseBody
+        "data": CreateDocumentBlockChildrenResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_ticket_customized_field_response_body import ListTicketCustomizedFiel
 
 class ListTicketCustomizedFieldResponse(BaseResponse):
     _types = {
-        "data": ListTicketCustomizedFieldResponseBody
+        "data": ListTicketCustomizedFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

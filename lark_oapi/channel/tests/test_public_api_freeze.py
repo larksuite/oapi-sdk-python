@@ -16,7 +16,6 @@ from lark_oapi.channel import DedupStore, InMemoryDedupStore
 from lark_oapi.channel import make_event_key, make_message_key
 from lark_oapi.event.dispatcher_handler import EventDispatcherHandler
 
-
 ROOT = Path(__file__).resolve().parents[3]
 
 

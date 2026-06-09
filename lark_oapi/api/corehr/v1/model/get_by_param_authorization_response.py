@@ -8,7 +8,8 @@ from .get_by_param_authorization_response_body import GetByParamAuthorizationRes
 
 class GetByParamAuthorizationResponse(BaseResponse):
     _types = {
-        "data": GetByParamAuthorizationResponseBody
+        "data": GetByParamAuthorizationResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -10,8 +10,8 @@ class ListAppTableFieldRequest(BaseRequest):
         super().__init__()
         self.view_id: Optional[str] = None
         self.text_field_as_array: Optional[bool] = None
-        self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
+        self.page_token: Optional[str] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
 
@@ -39,14 +39,14 @@ class ListAppTableFieldRequestBuilder(object):
         self._list_app_table_field_request.add_query("text_field_as_array", text_field_as_array)
         return self
 
-    def page_token(self, page_token: str) -> "ListAppTableFieldRequestBuilder":
-        self._list_app_table_field_request.page_token = page_token
-        self._list_app_table_field_request.add_query("page_token", page_token)
-        return self
-
     def page_size(self, page_size: int) -> "ListAppTableFieldRequestBuilder":
         self._list_app_table_field_request.page_size = page_size
         self._list_app_table_field_request.add_query("page_size", page_size)
+        return self
+
+    def page_token(self, page_token: str) -> "ListAppTableFieldRequestBuilder":
+        self._list_app_table_field_request.page_token = page_token
+        self._list_app_table_field_request.add_query("page_token", page_token)
         return self
 
     def app_token(self, app_token: str) -> "ListAppTableFieldRequestBuilder":

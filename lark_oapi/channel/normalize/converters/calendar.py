@@ -39,14 +39,14 @@ def convert(content: CalendarContent) -> Tuple[str, List[ResourceDescriptor]]:
 
 
 def convert_general(
-    content: GeneralCalendarContent,
+        content: GeneralCalendarContent,
 ) -> Tuple[str, List[ResourceDescriptor]]:
     inner = _format_inner(content.summary, content.start_time, content.end_time)
     return f"<calendar>\n{inner}\n</calendar>", []
 
 
 def convert_share_event(
-    content: ShareCalendarEventContent,
+        content: ShareCalendarEventContent,
 ) -> Tuple[str, List[ResourceDescriptor]]:
     inner = _format_inner(content.summary, content.start_time, content.end_time)
     return f"<calendar_share>\n{inner}\n</calendar_share>", []

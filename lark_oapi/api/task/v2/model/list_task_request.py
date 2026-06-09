@@ -13,6 +13,7 @@ class ListTaskRequest(BaseRequest):
         self.completed: Optional[bool] = None
         self.type: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.agent_task_status: Optional[int] = None
 
     @staticmethod
     def builder() -> "ListTaskRequestBuilder":
@@ -25,7 +26,7 @@ class ListTaskRequestBuilder(object):
         list_task_request = ListTaskRequest()
         list_task_request.http_method = HttpMethod.GET
         list_task_request.uri = "/open-apis/task/v2/tasks"
-        list_task_request.token_types = {AccessTokenType.USER}
+        list_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_task_request: ListTaskRequest = list_task_request
 
     def page_size(self, page_size: int) -> "ListTaskRequestBuilder":
@@ -51,6 +52,11 @@ class ListTaskRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListTaskRequestBuilder":
         self._list_task_request.user_id_type = user_id_type
         self._list_task_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def agent_task_status(self, agent_task_status: int) -> "ListTaskRequestBuilder":
+        self._list_task_request.agent_task_status = agent_task_status
+        self._list_task_request.add_query("agent_task_status", agent_task_status)
         return self
 
     def build(self) -> ListTaskRequest:

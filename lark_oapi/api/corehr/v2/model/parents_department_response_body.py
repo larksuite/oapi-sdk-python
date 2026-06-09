@@ -8,10 +8,12 @@ from .department_parents import DepartmentParents
 class ParentsDepartmentResponseBody(object):
     _types = {
         "items": List[DepartmentParents],
+        "reject_export": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[DepartmentParents]] = None
+        self.reject_export: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +27,10 @@ class ParentsDepartmentResponseBodyBuilder(object):
 
     def items(self, items: List[DepartmentParents]) -> "ParentsDepartmentResponseBodyBuilder":
         self._parents_department_response_body.items = items
+        return self
+
+    def reject_export(self, reject_export: bool) -> "ParentsDepartmentResponseBodyBuilder":
+        self._parents_department_response_body.reject_export = reject_export
         return self
 
     def build(self) -> "ParentsDepartmentResponseBody":

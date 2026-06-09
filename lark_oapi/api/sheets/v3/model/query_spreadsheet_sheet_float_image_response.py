@@ -8,7 +8,8 @@ from .query_spreadsheet_sheet_float_image_response_body import QuerySpreadsheetS
 
 class QuerySpreadsheetSheetFloatImageResponse(BaseResponse):
     _types = {
-        "data": QuerySpreadsheetSheetFloatImageResponseBody
+        "data": QuerySpreadsheetSheetFloatImageResponseBody,
+
     }
 
     def __init__(self, d=None):

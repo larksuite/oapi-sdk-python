@@ -9,7 +9,8 @@ from .query_spreadsheet_sheet_filter_view_condition_response_body import \
 
 class QuerySpreadsheetSheetFilterViewConditionResponse(BaseResponse):
     _types = {
-        "data": QuerySpreadsheetSheetFilterViewConditionResponseBody
+        "data": QuerySpreadsheetSheetFilterViewConditionResponseBody,
+
     }
 
     def __init__(self, d=None):

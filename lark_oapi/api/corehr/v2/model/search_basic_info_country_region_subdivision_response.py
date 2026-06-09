@@ -9,7 +9,8 @@ from .search_basic_info_country_region_subdivision_response_body import \
 
 class SearchBasicInfoCountryRegionSubdivisionResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoCountryRegionSubdivisionResponseBody
+        "data": SearchBasicInfoCountryRegionSubdivisionResponseBody,
+
     }
 
     def __init__(self, d=None):

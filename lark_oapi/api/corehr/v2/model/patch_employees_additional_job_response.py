@@ -8,7 +8,8 @@ from .patch_employees_additional_job_response_body import PatchEmployeesAddition
 
 class PatchEmployeesAdditionalJobResponse(BaseResponse):
     _types = {
-        "data": PatchEmployeesAdditionalJobResponseBody
+        "data": PatchEmployeesAdditionalJobResponseBody,
+
     }
 
     def __init__(self, d=None):

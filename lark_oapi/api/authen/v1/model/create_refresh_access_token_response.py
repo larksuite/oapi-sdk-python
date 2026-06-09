@@ -8,7 +8,8 @@ from .create_refresh_access_token_response_body import CreateRefreshAccessTokenR
 
 class CreateRefreshAccessTokenResponse(BaseResponse):
     _types = {
-        "data": CreateRefreshAccessTokenResponseBody
+        "data": CreateRefreshAccessTokenResponseBody,
+
     }
 
     def __init__(self, d=None):

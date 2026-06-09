@@ -8,7 +8,8 @@ from .list_task_follower_response_body import ListTaskFollowerResponseBody
 
 class ListTaskFollowerResponse(BaseResponse):
     _types = {
-        "data": ListTaskFollowerResponseBody
+        "data": ListTaskFollowerResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -6,9 +6,11 @@ from lark_oapi.core.construct import init
 
 class DeleteFileCommentReplyResponseBody(object):
     _types = {
+        "data": str,
     }
 
     def __init__(self, d=None):
+        self.data: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +21,10 @@ class DeleteFileCommentReplyResponseBody(object):
 class DeleteFileCommentReplyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_file_comment_reply_response_body = DeleteFileCommentReplyResponseBody()
+
+    def data(self, data: str) -> "DeleteFileCommentReplyResponseBodyBuilder":
+        self._delete_file_comment_reply_response_body.data = data
+        return self
 
     def build(self) -> "DeleteFileCommentReplyResponseBody":
         return self._delete_file_comment_reply_response_body

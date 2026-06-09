@@ -8,7 +8,8 @@ from .list_role_response_body import ListRoleResponseBody
 
 class ListRoleResponse(BaseResponse):
     _types = {
-        "data": ListRoleResponseBody
+        "data": ListRoleResponseBody,
+
     }
 
     def __init__(self, d=None):

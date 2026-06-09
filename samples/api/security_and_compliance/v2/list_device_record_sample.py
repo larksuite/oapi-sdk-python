@@ -36,6 +36,12 @@ def main():
         .is_managed(bool) \
         .mdm_device_id("123abc") \
         .mdm_provider_name("Workspace_ONE") \
+        .lsa_client_status(1) \
+        .device_env_detect_status(0) \
+        .is_public(bool) \
+        .source(0) \
+        .cert_serial_number("140112030923876027756448774661898183576236633676") \
+        .cert_issuer("Root-CA") \
         .build()
 
     # 发起请求
@@ -84,6 +90,12 @@ async def amain():
         .is_managed(bool) \
         .mdm_device_id("123abc") \
         .mdm_provider_name("Workspace_ONE") \
+        .lsa_client_status(1) \
+        .device_env_detect_status(0) \
+        .is_public(bool) \
+        .source(0) \
+        .cert_serial_number("140112030923876027756448774661898183576236633676") \
+        .cert_issuer("Root-CA") \
         .build()
 
     # 发起请求

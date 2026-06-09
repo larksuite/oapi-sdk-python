@@ -8,7 +8,8 @@ from .query_multi_timeline_job_family_response_body import QueryMultiTimelineJob
 
 class QueryMultiTimelineJobFamilyResponse(BaseResponse):
     _types = {
-        "data": QueryMultiTimelineJobFamilyResponseBody
+        "data": QueryMultiTimelineJobFamilyResponseBody,
+
     }
 
     def __init__(self, d=None):

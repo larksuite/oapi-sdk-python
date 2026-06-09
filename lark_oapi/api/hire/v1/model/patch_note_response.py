@@ -8,7 +8,8 @@ from .patch_note_response_body import PatchNoteResponseBody
 
 class PatchNoteResponse(BaseResponse):
     _types = {
-        "data": PatchNoteResponseBody
+        "data": PatchNoteResponseBody,
+
     }
 
     def __init__(self, d=None):

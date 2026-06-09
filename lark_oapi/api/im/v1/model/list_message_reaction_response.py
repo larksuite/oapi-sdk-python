@@ -8,7 +8,8 @@ from .list_message_reaction_response_body import ListMessageReactionResponseBody
 
 class ListMessageReactionResponse(BaseResponse):
     _types = {
-        "data": ListMessageReactionResponseBody
+        "data": ListMessageReactionResponseBody,
+
     }
 
     def __init__(self, d=None):

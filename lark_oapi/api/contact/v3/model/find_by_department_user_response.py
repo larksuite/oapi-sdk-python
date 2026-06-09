@@ -8,7 +8,8 @@ from .find_by_department_user_response_body import FindByDepartmentUserResponseB
 
 class FindByDepartmentUserResponse(BaseResponse):
     _types = {
-        "data": FindByDepartmentUserResponseBody
+        "data": FindByDepartmentUserResponseBody,
+
     }
 
     def __init__(self, d=None):

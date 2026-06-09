@@ -8,7 +8,8 @@ from .create_task_subtask_response_body import CreateTaskSubtaskResponseBody
 
 class CreateTaskSubtaskResponse(BaseResponse):
     _types = {
-        "data": CreateTaskSubtaskResponseBody
+        "data": CreateTaskSubtaskResponseBody,
+
     }
 
     def __init__(self, d=None):

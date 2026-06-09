@@ -14,6 +14,7 @@ class ListFileCommentRequest(BaseRequest):
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
         self.user_id_type: Optional[str] = None
+        self.need_reaction: Optional[bool] = None
         self.file_token: Optional[str] = None
 
     @staticmethod
@@ -58,6 +59,11 @@ class ListFileCommentRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.user_id_type = user_id_type
         self._list_file_comment_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def need_reaction(self, need_reaction: bool) -> "ListFileCommentRequestBuilder":
+        self._list_file_comment_request.need_reaction = need_reaction
+        self._list_file_comment_request.add_query("need_reaction", need_reaction)
         return self
 
     def file_token(self, file_token: str) -> "ListFileCommentRequestBuilder":

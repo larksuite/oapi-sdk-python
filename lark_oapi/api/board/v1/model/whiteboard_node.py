@@ -16,6 +16,7 @@ from .sticky_note import StickyNote
 from .mind_map_node import MindMapNode
 from .mind_map_root import MindMapRoot
 from .mind_map import MindMap
+from .syntax import Syntax
 
 
 class WhiteboardNode(object):
@@ -45,6 +46,7 @@ class WhiteboardNode(object):
         "mind_map_node": MindMapNode,
         "mind_map_root": MindMapRoot,
         "mind_map": MindMap,
+        "syntax": Syntax,
     }
 
     def __init__(self, d=None):
@@ -73,6 +75,7 @@ class WhiteboardNode(object):
         self.mind_map_node: Optional[MindMapNode] = None
         self.mind_map_root: Optional[MindMapRoot] = None
         self.mind_map: Optional[MindMap] = None
+        self.syntax: Optional[Syntax] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -182,6 +185,10 @@ class WhiteboardNodeBuilder(object):
 
     def mind_map(self, mind_map: MindMap) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.mind_map = mind_map
+        return self
+
+    def syntax(self, syntax: Syntax) -> "WhiteboardNodeBuilder":
+        self._whiteboard_node.syntax = syntax
         return self
 
     def build(self) -> "WhiteboardNode":

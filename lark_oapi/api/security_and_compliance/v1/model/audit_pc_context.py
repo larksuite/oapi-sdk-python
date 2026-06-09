@@ -13,7 +13,7 @@ class AuditPcContext(object):
         "os": str,
         "wifip": str,
         "region": str,
-        "i_p": str,
+        "ip": str,
     }
 
     def __init__(self, d=None):
@@ -24,7 +24,7 @@ class AuditPcContext(object):
         self.os: Optional[str] = None
         self.wifip: Optional[str] = None
         self.region: Optional[str] = None
-        self.i_p: Optional[str] = None
+        self.ip: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -64,8 +64,8 @@ class AuditPcContextBuilder(object):
         self._audit_pc_context.region = region
         return self
 
-    def i_p(self, i_p: str) -> "AuditPcContextBuilder":
-        self._audit_pc_context.i_p = i_p
+    def ip(self, ip: str) -> "AuditPcContextBuilder":
+        self._audit_pc_context.ip = ip
         return self
 
     def build(self) -> "AuditPcContext":

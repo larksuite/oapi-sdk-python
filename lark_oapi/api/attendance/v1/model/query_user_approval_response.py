@@ -8,7 +8,8 @@ from .query_user_approval_response_body import QueryUserApprovalResponseBody
 
 class QueryUserApprovalResponse(BaseResponse):
     _types = {
-        "data": QueryUserApprovalResponseBody
+        "data": QueryUserApprovalResponseBody,
+
     }
 
     def __init__(self, d=None):

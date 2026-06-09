@@ -8,7 +8,8 @@ from .batch_update_job_manager_response_body import BatchUpdateJobManagerRespons
 
 class BatchUpdateJobManagerResponse(BaseResponse):
     _types = {
-        "data": BatchUpdateJobManagerResponseBody
+        "data": BatchUpdateJobManagerResponseBody,
+
     }
 
     def __init__(self, d=None):

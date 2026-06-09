@@ -17,8 +17,8 @@ async def test_success_returns_existing_path(tmp_path):
         return fake_bytes, "image/png"
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         path = await ch.download_resource_to_file(
             file_key="img_xyz",
@@ -44,8 +44,8 @@ async def test_dest_dir_is_auto_mkdir(tmp_path):
         return b"data", "application/pdf"
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         path = await ch.download_resource_to_file(
             file_key="f1", resource_type="file", message_id="om_x", dest_dir=target
@@ -62,8 +62,8 @@ async def test_failure_raises_download_failed(tmp_path):
         return None, None  # failure path
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         with pytest.raises(FeishuChannelError) as excinfo:
             await ch.download_resource_to_file(
@@ -80,8 +80,8 @@ async def test_explicit_file_name_overrides_inferred(tmp_path):
         return b"data", "image/jpeg"
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         path = await ch.download_resource_to_file(
             file_key="k", resource_type="image", message_id="m",
@@ -98,8 +98,8 @@ async def test_explicit_file_name_cannot_escape_dest_dir(tmp_path):
         return b"data", "image/jpeg"
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         with pytest.raises(FeishuChannelError) as excinfo:
             await ch.download_resource_to_file(
@@ -122,8 +122,8 @@ async def test_default_file_name_cannot_escape_dest_dir(tmp_path):
         return b"data", "image/jpeg"
 
     with patch(
-        "lark_oapi.channel._api_helpers.download_media_with_meta",
-        side_effect=fake_download,
+            "lark_oapi.channel._api_helpers.download_media_with_meta",
+            side_effect=fake_download,
     ):
         with pytest.raises(FeishuChannelError) as excinfo:
             await ch.download_resource_to_file(

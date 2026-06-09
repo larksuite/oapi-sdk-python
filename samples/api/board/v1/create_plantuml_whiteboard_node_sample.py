@@ -22,6 +22,7 @@ def main():
                       .diagram_type(0)
                       .overwrite(bool)
                       .parse_mode(0)
+                      .look_type(1)
                       .build()) \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
                       .diagram_type(0)
                       .overwrite(bool)
                       .parse_mode(0)
+                      .look_type(1)
                       .build()) \
         .build()
 

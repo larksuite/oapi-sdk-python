@@ -8,7 +8,8 @@ from .get_subregion_response_body import GetSubregionResponseBody
 
 class GetSubregionResponse(BaseResponse):
     _types = {
-        "data": GetSubregionResponseBody
+        "data": GetSubregionResponseBody,
+
     }
 
     def __init__(self, d=None):

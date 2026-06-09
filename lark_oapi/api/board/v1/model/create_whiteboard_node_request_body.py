@@ -8,10 +8,12 @@ from .whiteboard_node import WhiteboardNode
 class CreateWhiteboardNodeRequestBody(object):
     _types = {
         "nodes": List[WhiteboardNode],
+        "overwrite": bool,
     }
 
     def __init__(self, d=None):
         self.nodes: Optional[List[WhiteboardNode]] = None
+        self.overwrite: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +27,10 @@ class CreateWhiteboardNodeRequestBodyBuilder(object):
 
     def nodes(self, nodes: List[WhiteboardNode]) -> "CreateWhiteboardNodeRequestBodyBuilder":
         self._create_whiteboard_node_request_body.nodes = nodes
+        return self
+
+    def overwrite(self, overwrite: bool) -> "CreateWhiteboardNodeRequestBodyBuilder":
+        self._create_whiteboard_node_request_body.overwrite = overwrite
         return self
 
     def build(self) -> "CreateWhiteboardNodeRequestBody":

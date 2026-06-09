@@ -2,6 +2,10 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .border_radius import BorderRadius
+from .shadow import Shadow
+from .shadow import Shadow
+from .fill_gradient import FillGradient
 
 
 class Style(object):
@@ -18,6 +22,11 @@ class Style(object):
         "theme_border_color_code": int,
         "fill_color_type": int,
         "border_color_type": int,
+        "border_dasharrays": List[int],
+        "border_radius": BorderRadius,
+        "shadow": Shadow,
+        "inner_shadow": Shadow,
+        "fill_gradient": FillGradient,
     }
 
     def __init__(self, d=None):
@@ -33,6 +42,11 @@ class Style(object):
         self.theme_border_color_code: Optional[int] = None
         self.fill_color_type: Optional[int] = None
         self.border_color_type: Optional[int] = None
+        self.border_dasharrays: Optional[List[int]] = None
+        self.border_radius: Optional[BorderRadius] = None
+        self.shadow: Optional[Shadow] = None
+        self.inner_shadow: Optional[Shadow] = None
+        self.fill_gradient: Optional[FillGradient] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -90,6 +104,26 @@ class StyleBuilder(object):
 
     def border_color_type(self, border_color_type: int) -> "StyleBuilder":
         self._style.border_color_type = border_color_type
+        return self
+
+    def border_dasharrays(self, border_dasharrays: List[int]) -> "StyleBuilder":
+        self._style.border_dasharrays = border_dasharrays
+        return self
+
+    def border_radius(self, border_radius: BorderRadius) -> "StyleBuilder":
+        self._style.border_radius = border_radius
+        return self
+
+    def shadow(self, shadow: Shadow) -> "StyleBuilder":
+        self._style.shadow = shadow
+        return self
+
+    def inner_shadow(self, inner_shadow: Shadow) -> "StyleBuilder":
+        self._style.inner_shadow = inner_shadow
+        return self
+
+    def fill_gradient(self, fill_gradient: FillGradient) -> "StyleBuilder":
+        self._style.fill_gradient = fill_gradient
         return self
 
     def build(self) -> "Style":

@@ -8,7 +8,8 @@ from .urgent_app_message_response_body import UrgentAppMessageResponseBody
 
 class UrgentAppMessageResponse(BaseResponse):
     _types = {
-        "data": UrgentAppMessageResponseBody
+        "data": UrgentAppMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

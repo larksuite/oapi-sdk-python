@@ -105,7 +105,7 @@ async def test_img_img_text_img_three_dispatches():
     )
     await pipe.push_message(_img("m1"))
     await pipe.push_message(_img("m2"))
-    await pipe.push_message(_text("m3"))           # text forces media flush
+    await pipe.push_message(_text("m3"))  # text forces media flush
     await pipe.push_message(_img("m4"))
     await asyncio.sleep(0.2)
 
@@ -129,7 +129,7 @@ async def test_image_file_dispatched_separately():
         dedup_config=DedupConfig(enabled=False),
     )
     await pipe.push_message(_img("m1"))
-    await pipe.push_message(_file("m2"))   # file != image, force flush
+    await pipe.push_message(_file("m2"))  # file != image, force flush
     await asyncio.sleep(0.2)
 
     assert delivered == ["image", "file"], delivered

@@ -22,7 +22,10 @@ def main():
                       .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
+                      .is_primary(True)
+                      .field_id("fldWJyCkFQ")
                       .ui_type("Progress")
+                      .is_hidden(False)
                       .build()) \
         .build()
 
@@ -58,7 +61,10 @@ async def amain():
                       .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
+                      .is_primary(True)
+                      .field_id("fldWJyCkFQ")
                       .ui_type("Progress")
+                      .is_hidden(False)
                       .build()) \
         .build()
 

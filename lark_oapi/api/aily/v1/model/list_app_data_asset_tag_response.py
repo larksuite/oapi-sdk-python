@@ -8,7 +8,8 @@ from .list_app_data_asset_tag_response_body import ListAppDataAssetTagResponseBo
 
 class ListAppDataAssetTagResponse(BaseResponse):
     _types = {
-        "data": ListAppDataAssetTagResponseBody
+        "data": ListAppDataAssetTagResponseBody,
+
     }
 
     def __init__(self, d=None):

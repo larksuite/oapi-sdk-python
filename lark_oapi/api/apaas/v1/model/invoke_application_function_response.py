@@ -8,7 +8,8 @@ from .invoke_application_function_response_body import InvokeApplicationFunction
 
 class InvokeApplicationFunctionResponse(BaseResponse):
     _types = {
-        "data": InvokeApplicationFunctionResponseBody
+        "data": InvokeApplicationFunctionResponseBody,
+
     }
 
     def __init__(self, d=None):

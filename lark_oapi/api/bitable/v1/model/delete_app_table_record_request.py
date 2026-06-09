@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class DeleteAppTableRecordRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.ignore_consistency_check: Optional[bool] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.record_id: Optional[str] = None
@@ -25,6 +26,11 @@ class DeleteAppTableRecordRequestBuilder(object):
         delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
         delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_app_table_record_request: DeleteAppTableRecordRequest = delete_app_table_record_request
+
+    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "DeleteAppTableRecordRequestBuilder":
+        self._delete_app_table_record_request.ignore_consistency_check = ignore_consistency_check
+        self._delete_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+        return self
 
     def app_token(self, app_token: str) -> "DeleteAppTableRecordRequestBuilder":
         self._delete_app_table_record_request.app_token = app_token

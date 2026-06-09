@@ -20,7 +20,7 @@ class Kctx(object):
         "consistency_retry_type": str,
         "psm_link": str,
         "breakout_retry_psm": str,
-        "credential_i_d": str,
+        "credential_id": str,
         "authentication_type": str,
     }
 
@@ -39,7 +39,7 @@ class Kctx(object):
         self.consistency_retry_type: Optional[str] = None
         self.psm_link: Optional[str] = None
         self.breakout_retry_psm: Optional[str] = None
-        self.credential_i_d: Optional[str] = None
+        self.credential_id: Optional[str] = None
         self.authentication_type: Optional[str] = None
         init(self, d, self._types)
 
@@ -108,8 +108,8 @@ class KctxBuilder(object):
         self._kctx.breakout_retry_psm = breakout_retry_psm
         return self
 
-    def credential_i_d(self, credential_i_d: str) -> "KctxBuilder":
-        self._kctx.credential_i_d = credential_i_d
+    def credential_id(self, credential_id: str) -> "KctxBuilder":
+        self._kctx.credential_id = credential_id
         return self
 
     def authentication_type(self, authentication_type: str) -> "KctxBuilder":

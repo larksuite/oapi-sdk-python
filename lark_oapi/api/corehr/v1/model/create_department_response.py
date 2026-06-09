@@ -8,7 +8,8 @@ from .create_department_response_body import CreateDepartmentResponseBody
 
 class CreateDepartmentResponse(BaseResponse):
     _types = {
-        "data": CreateDepartmentResponseBody
+        "data": CreateDepartmentResponseBody,
+
     }
 
     def __init__(self, d=None):

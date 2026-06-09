@@ -8,7 +8,8 @@ from .update_app_table_record_response_body import UpdateAppTableRecordResponseB
 
 class UpdateAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": UpdateAppTableRecordResponseBody
+        "data": UpdateAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

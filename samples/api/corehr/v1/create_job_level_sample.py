@@ -24,6 +24,7 @@ def main():
                       .custom_fields([])
                       .job_grade([])
                       .pathway_ids([])
+                      .view_order(123)
                       .build()) \
         .build()
 
@@ -61,6 +62,7 @@ async def amain():
                       .custom_fields([])
                       .job_grade([])
                       .pathway_ids([])
+                      .view_order(123)
                       .build()) \
         .build()
 

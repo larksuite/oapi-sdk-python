@@ -8,7 +8,8 @@ from .upload_file_app_data_asset_response_body import UploadFileAppDataAssetResp
 
 class UploadFileAppDataAssetResponse(BaseResponse):
     _types = {
-        "data": UploadFileAppDataAssetResponseBody
+        "data": UploadFileAppDataAssetResponseBody,
+
     }
 
     def __init__(self, d=None):

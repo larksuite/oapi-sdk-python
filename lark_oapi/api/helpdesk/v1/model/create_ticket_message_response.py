@@ -8,7 +8,8 @@ from .create_ticket_message_response_body import CreateTicketMessageResponseBody
 
 class CreateTicketMessageResponse(BaseResponse):
     _types = {
-        "data": CreateTicketMessageResponseBody
+        "data": CreateTicketMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

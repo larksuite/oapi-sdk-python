@@ -29,7 +29,7 @@ def rfc3339_beijing(create_time_ms: Any) -> str:
         return ""
     try:
         ts = int(create_time_ms)
-        if ts > 10**12:
+        if ts > 10 ** 12:
             ts = ts / 1000.0
         dt = datetime.datetime.fromtimestamp(
             ts, tz=datetime.timezone(datetime.timedelta(hours=8))
@@ -50,7 +50,7 @@ def millis_to_datetime(value: Any) -> str:
         return ""
     try:
         ts = int(value)
-        if ts > 10**12:
+        if ts > 10 ** 12:
             ts = ts / 1000.0
         dt = datetime.datetime.fromtimestamp(
             ts, tz=datetime.timezone(datetime.timedelta(hours=8))

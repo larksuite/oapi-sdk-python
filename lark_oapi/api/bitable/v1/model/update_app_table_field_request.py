@@ -9,6 +9,7 @@ from .app_table_field import AppTableField
 class UpdateAppTableFieldRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.client_token: Optional[str] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.field_id: Optional[str] = None
@@ -27,6 +28,11 @@ class UpdateAppTableFieldRequestBuilder(object):
         update_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
         update_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._update_app_table_field_request: UpdateAppTableFieldRequest = update_app_table_field_request
+
+    def client_token(self, client_token: str) -> "UpdateAppTableFieldRequestBuilder":
+        self._update_app_table_field_request.client_token = client_token
+        self._update_app_table_field_request.add_query("client_token", client_token)
+        return self
 
     def app_token(self, app_token: str) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.app_token = app_token

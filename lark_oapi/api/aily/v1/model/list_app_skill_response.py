@@ -8,7 +8,8 @@ from .list_app_skill_response_body import ListAppSkillResponseBody
 
 class ListAppSkillResponse(BaseResponse):
     _types = {
-        "data": ListAppSkillResponseBody
+        "data": ListAppSkillResponseBody,
+
     }
 
     def __init__(self, d=None):

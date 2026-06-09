@@ -8,7 +8,8 @@ from .list_by_file_id_signature_node_response_body import ListByFileIdSignatureN
 
 class ListByFileIdSignatureNodeResponse(BaseResponse):
     _types = {
-        "data": ListByFileIdSignatureNodeResponseBody
+        "data": ListByFileIdSignatureNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -44,6 +44,7 @@ from typing import Optional, Protocol, runtime_checkable
 @runtime_checkable
 class DedupStore(Protocol):
     def seen(self, key: str) -> bool: ...
+
     def mark(self, key: str, ttl_seconds: int) -> None: ...
 
 

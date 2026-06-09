@@ -16,6 +16,9 @@ class ListChat(object):
         "tenant_key": str,
         "labels": List[str],
         "chat_status": str,
+        "chat_mode": str,
+        "p2p_target_type": str,
+        "p2p_target_id": str,
     }
 
     def __init__(self, d=None):
@@ -29,6 +32,9 @@ class ListChat(object):
         self.tenant_key: Optional[str] = None
         self.labels: Optional[List[str]] = None
         self.chat_status: Optional[str] = None
+        self.chat_mode: Optional[str] = None
+        self.p2p_target_type: Optional[str] = None
+        self.p2p_target_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -78,6 +84,18 @@ class ListChatBuilder(object):
 
     def chat_status(self, chat_status: str) -> "ListChatBuilder":
         self._list_chat.chat_status = chat_status
+        return self
+
+    def chat_mode(self, chat_mode: str) -> "ListChatBuilder":
+        self._list_chat.chat_mode = chat_mode
+        return self
+
+    def p2p_target_type(self, p2p_target_type: str) -> "ListChatBuilder":
+        self._list_chat.p2p_target_type = p2p_target_type
+        return self
+
+    def p2p_target_id(self, p2p_target_id: str) -> "ListChatBuilder":
+        self._list_chat.p2p_target_id = p2p_target_id
         return self
 
     def build(self) -> "ListChat":

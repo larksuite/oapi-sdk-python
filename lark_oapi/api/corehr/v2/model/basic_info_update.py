@@ -51,6 +51,7 @@ class BasicInfoUpdate(object):
         "citizenship_status_id_list": List[str],
         "work_experience": List[WorkExperienceForUpdate],
         "education_info": List[EducationInfoForUpdate],
+        "political_affiliation": str,
     }
 
     def __init__(self, d=None):
@@ -86,6 +87,7 @@ class BasicInfoUpdate(object):
         self.citizenship_status_id_list: Optional[List[str]] = None
         self.work_experience: Optional[List[WorkExperienceForUpdate]] = None
         self.education_info: Optional[List[EducationInfoForUpdate]] = None
+        self.political_affiliation: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -224,6 +226,10 @@ class BasicInfoUpdateBuilder(object):
 
     def education_info(self, education_info: List[EducationInfoForUpdate]) -> "BasicInfoUpdateBuilder":
         self._basic_info_update.education_info = education_info
+        return self
+
+    def political_affiliation(self, political_affiliation: str) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.political_affiliation = political_affiliation
         return self
 
     def build(self) -> "BasicInfoUpdate":

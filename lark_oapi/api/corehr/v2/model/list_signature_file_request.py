@@ -16,6 +16,7 @@ class ListSignatureFileRequest(BaseRequest):
         self.update_time_end: Optional[str] = None
         self.user_id_type: Optional[str] = None
         self.template_ids: Optional[str] = None
+        self.select_sign_url: Optional[bool] = None
 
     @staticmethod
     def builder() -> "ListSignatureFileRequestBuilder":
@@ -69,6 +70,11 @@ class ListSignatureFileRequestBuilder(object):
     def template_ids(self, template_ids: str) -> "ListSignatureFileRequestBuilder":
         self._list_signature_file_request.template_ids = template_ids
         self._list_signature_file_request.add_query("template_ids", template_ids)
+        return self
+
+    def select_sign_url(self, select_sign_url: bool) -> "ListSignatureFileRequestBuilder":
+        self._list_signature_file_request.select_sign_url = select_sign_url
+        self._list_signature_file_request.add_query("select_sign_url", select_sign_url)
         return self
 
     def build(self) -> ListSignatureFileRequest:

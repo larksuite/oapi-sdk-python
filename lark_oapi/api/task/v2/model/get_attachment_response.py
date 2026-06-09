@@ -8,7 +8,8 @@ from .get_attachment_response_body import GetAttachmentResponseBody
 
 class GetAttachmentResponse(BaseResponse):
     _types = {
-        "data": GetAttachmentResponseBody
+        "data": GetAttachmentResponseBody,
+
     }
 
     def __init__(self, d=None):

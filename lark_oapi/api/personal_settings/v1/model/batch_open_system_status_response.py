@@ -8,7 +8,8 @@ from .batch_open_system_status_response_body import BatchOpenSystemStatusRespons
 
 class BatchOpenSystemStatusResponse(BaseResponse):
     _types = {
-        "data": BatchOpenSystemStatusResponseBody
+        "data": BatchOpenSystemStatusResponseBody,
+
     }
 
     def __init__(self, d=None):

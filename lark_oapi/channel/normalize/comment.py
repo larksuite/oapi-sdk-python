@@ -53,10 +53,10 @@ class CommentEvent:
 
 
 def normalize_comment(
-    data: Any,
-    *,
-    bot_open_id: Optional[str] = None,
-    envelope_timestamp: Optional[str] = None,
+        data: Any,
+        *,
+        bot_open_id: Optional[str] = None,
+        envelope_timestamp: Optional[str] = None,
 ) -> Optional[CommentEvent]:
     """Flatten the raw ``drive.notice.comment_add_v1`` payload.
 
@@ -116,12 +116,12 @@ def normalize_comment(
     )
 
     ts_str = (
-        event.get("create_time")
-        or notice_meta.get("timestamp")
-        or event.get("action_time")
-        or event.get("event_create_time")
-        or event.get("timestamp")
-        or envelope_timestamp
+            event.get("create_time")
+            or notice_meta.get("timestamp")
+            or event.get("action_time")
+            or event.get("event_create_time")
+            or event.get("timestamp")
+            or envelope_timestamp
     )
     try:
         ts = int(ts_str) if ts_str is not None else 0

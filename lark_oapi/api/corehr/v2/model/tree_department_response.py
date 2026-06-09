@@ -8,7 +8,8 @@ from .tree_department_response_body import TreeDepartmentResponseBody
 
 class TreeDepartmentResponse(BaseResponse):
     _types = {
-        "data": TreeDepartmentResponseBody
+        "data": TreeDepartmentResponseBody,
+
     }
 
     def __init__(self, d=None):

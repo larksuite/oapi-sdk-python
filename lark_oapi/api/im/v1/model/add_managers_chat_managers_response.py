@@ -8,7 +8,8 @@ from .add_managers_chat_managers_response_body import AddManagersChatManagersRes
 
 class AddManagersChatManagersResponse(BaseResponse):
     _types = {
-        "data": AddManagersChatManagersResponseBody
+        "data": AddManagersChatManagersResponseBody,
+
     }
 
     def __init__(self, d=None):

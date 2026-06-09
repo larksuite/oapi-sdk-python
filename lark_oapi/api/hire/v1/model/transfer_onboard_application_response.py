@@ -8,7 +8,8 @@ from .transfer_onboard_application_response_body import TransferOnboardApplicati
 
 class TransferOnboardApplicationResponse(BaseResponse):
     _types = {
-        "data": TransferOnboardApplicationResponseBody
+        "data": TransferOnboardApplicationResponseBody,
+
     }
 
     def __init__(self, d=None):

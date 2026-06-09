@@ -8,7 +8,8 @@ from .match_entity_response_body import MatchEntityResponseBody
 
 class MatchEntityResponse(BaseResponse):
     _types = {
-        "data": MatchEntityResponseBody
+        "data": MatchEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

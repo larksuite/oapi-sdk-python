@@ -8,7 +8,8 @@ from .list_room_response_body import ListRoomResponseBody
 
 class ListRoomResponse(BaseResponse):
     _types = {
-        "data": ListRoomResponseBody
+        "data": ListRoomResponseBody,
+
     }
 
     def __init__(self, d=None):

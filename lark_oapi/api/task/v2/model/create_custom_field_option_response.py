@@ -8,7 +8,8 @@ from .create_custom_field_option_response_body import CreateCustomFieldOptionRes
 
 class CreateCustomFieldOptionResponse(BaseResponse):
     _types = {
-        "data": CreateCustomFieldOptionResponseBody
+        "data": CreateCustomFieldOptionResponseBody,
+
     }
 
     def __init__(self, d=None):

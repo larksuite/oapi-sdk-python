@@ -2,17 +2,17 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .tag_info import TagInfo
+from .tag_info_v2 import TagInfoV2
 
 
 class TagInfoWithBindVersion(object):
     _types = {
-        "tag_info": TagInfo,
+        "tag_info": TagInfoV2,
         "bind_version": str,
     }
 
     def __init__(self, d=None):
-        self.tag_info: Optional[TagInfo] = None
+        self.tag_info: Optional[TagInfoV2] = None
         self.bind_version: Optional[str] = None
         init(self, d, self._types)
 
@@ -25,7 +25,7 @@ class TagInfoWithBindVersionBuilder(object):
     def __init__(self) -> None:
         self._tag_info_with_bind_version = TagInfoWithBindVersion()
 
-    def tag_info(self, tag_info: TagInfo) -> "TagInfoWithBindVersionBuilder":
+    def tag_info(self, tag_info: TagInfoV2) -> "TagInfoWithBindVersionBuilder":
         self._tag_info_with_bind_version.tag_info = tag_info
         return self
 

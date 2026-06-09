@@ -16,6 +16,8 @@ def main():
     request: ListWorkforcePlanRequest = ListWorkforcePlanRequest.builder() \
         .get_all_plan(bool) \
         .active(bool) \
+        .start_date("2026-01-01") \
+        .end_date("2026-12-31") \
         .build()
 
     # 发起请求
@@ -44,6 +46,8 @@ async def amain():
     request: ListWorkforcePlanRequest = ListWorkforcePlanRequest.builder() \
         .get_all_plan(bool) \
         .active(bool) \
+        .start_date("2026-01-01") \
+        .end_date("2026-12-31") \
         .build()
 
     # 发起请求

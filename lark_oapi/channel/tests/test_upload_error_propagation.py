@@ -45,7 +45,7 @@ async def test_gather_buffer_missing_local_file_raises_upload_failed(tmp_path):
 
 @pytest.mark.asyncio
 async def test_gather_buffer_url_download_network_error_raises_upload_failed(
-    monkeypatch,
+        monkeypatch,
 ):
     """URL reachable per SSRF guard + allowlist, but httpx raises mid-
     download → ``UPLOAD_FAILED`` with the original exception as ``__cause__``."""
@@ -57,10 +57,13 @@ async def test_gather_buffer_url_download_network_error_raises_upload_failed(
     class _BoomClient:
         def __init__(self, *a, **kw):
             pass
+
         async def __aenter__(self):
             return self
+
         async def __aexit__(self, *a):
             return False
+
         def stream(self, method, url):
             raise RuntimeError("simulated network blow-up")
 

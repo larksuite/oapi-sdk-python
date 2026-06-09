@@ -8,7 +8,8 @@ from .create_note_response_body import CreateNoteResponseBody
 
 class CreateNoteResponse(BaseResponse):
     _types = {
-        "data": CreateNoteResponseBody
+        "data": CreateNoteResponseBody,
+
     }
 
     def __init__(self, d=None):

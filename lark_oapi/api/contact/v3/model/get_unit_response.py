@@ -8,7 +8,8 @@ from .get_unit_response_body import GetUnitResponseBody
 
 class GetUnitResponse(BaseResponse):
     _types = {
-        "data": GetUnitResponseBody
+        "data": GetUnitResponseBody,
+
     }
 
     def __init__(self, d=None):

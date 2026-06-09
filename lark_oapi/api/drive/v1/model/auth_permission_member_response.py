@@ -8,7 +8,8 @@ from .auth_permission_member_response_body import AuthPermissionMemberResponseBo
 
 class AuthPermissionMemberResponse(BaseResponse):
     _types = {
-        "data": AuthPermissionMemberResponseBody
+        "data": AuthPermissionMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

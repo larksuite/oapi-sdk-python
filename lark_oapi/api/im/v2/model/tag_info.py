@@ -2,7 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .tag_i18n_name import TagI18nName
+from .tag_i18n_name_v2 import TagI18nNameV2
 
 
 class TagInfo(object):
@@ -11,7 +11,7 @@ class TagInfo(object):
         "tenant_id": str,
         "tag_type": str,
         "name": str,
-        "i18n_names": List[TagI18nName],
+        "i18n_names": List[TagI18nNameV2],
         "creator_id": str,
         "create_time": str,
         "update_time": str,
@@ -22,7 +22,7 @@ class TagInfo(object):
         self.tenant_id: Optional[str] = None
         self.tag_type: Optional[str] = None
         self.name: Optional[str] = None
-        self.i18n_names: Optional[List[TagI18nName]] = None
+        self.i18n_names: Optional[List[TagI18nNameV2]] = None
         self.creator_id: Optional[str] = None
         self.create_time: Optional[str] = None
         self.update_time: Optional[str] = None
@@ -53,7 +53,7 @@ class TagInfoBuilder(object):
         self._tag_info.name = name
         return self
 
-    def i18n_names(self, i18n_names: List[TagI18nName]) -> "TagInfoBuilder":
+    def i18n_names(self, i18n_names: List[TagI18nNameV2]) -> "TagInfoBuilder":
         self._tag_info.i18n_names = i18n_names
         return self
 

@@ -8,7 +8,8 @@ from .search_group_response_body import SearchGroupResponseBody
 
 class SearchGroupResponse(BaseResponse):
     _types = {
-        "data": SearchGroupResponseBody
+        "data": SearchGroupResponseBody,
+
     }
 
     def __init__(self, d=None):

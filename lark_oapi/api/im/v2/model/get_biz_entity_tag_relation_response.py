@@ -8,7 +8,8 @@ from .get_biz_entity_tag_relation_response_body import GetBizEntityTagRelationRe
 
 class GetBizEntityTagRelationResponse(BaseResponse):
     _types = {
-        "data": GetBizEntityTagRelationResponseBody
+        "data": GetBizEntityTagRelationResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_progress_batch_message_response_body import GetProgressBatchMessageRes
 
 class GetProgressBatchMessageResponse(BaseResponse):
     _types = {
-        "data": GetProgressBatchMessageResponseBody
+        "data": GetProgressBatchMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

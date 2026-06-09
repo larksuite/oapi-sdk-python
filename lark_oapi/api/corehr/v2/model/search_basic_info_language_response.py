@@ -8,7 +8,8 @@ from .search_basic_info_language_response_body import SearchBasicInfoLanguageRes
 
 class SearchBasicInfoLanguageResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoLanguageResponseBody
+        "data": SearchBasicInfoLanguageResponseBody,
+
     }
 
     def __init__(self, d=None):

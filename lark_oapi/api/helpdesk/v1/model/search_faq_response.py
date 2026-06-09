@@ -8,7 +8,8 @@ from .search_faq_response_body import SearchFaqResponseBody
 
 class SearchFaqResponse(BaseResponse):
     _types = {
-        "data": SearchFaqResponseBody
+        "data": SearchFaqResponseBody,
+
     }
 
     def __init__(self, d=None):

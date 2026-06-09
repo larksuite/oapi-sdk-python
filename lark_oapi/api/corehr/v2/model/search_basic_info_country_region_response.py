@@ -8,7 +8,8 @@ from .search_basic_info_country_region_response_body import SearchBasicInfoCount
 
 class SearchBasicInfoCountryRegionResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoCountryRegionResponseBody
+        "data": SearchBasicInfoCountryRegionResponseBody,
+
     }
 
     def __init__(self, d=None):

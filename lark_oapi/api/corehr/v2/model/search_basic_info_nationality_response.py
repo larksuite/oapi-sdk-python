@@ -8,7 +8,8 @@ from .search_basic_info_nationality_response_body import SearchBasicInfoNational
 
 class SearchBasicInfoNationalityResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoNationalityResponseBody
+        "data": SearchBasicInfoNationalityResponseBody,
+
     }
 
     def __init__(self, d=None):

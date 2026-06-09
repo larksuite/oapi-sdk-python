@@ -8,7 +8,8 @@ from .create_space_response_body import CreateSpaceResponseBody
 
 class CreateSpaceResponse(BaseResponse):
     _types = {
-        "data": CreateSpaceResponseBody
+        "data": CreateSpaceResponseBody,
+
     }
 
     def __init__(self, d=None):

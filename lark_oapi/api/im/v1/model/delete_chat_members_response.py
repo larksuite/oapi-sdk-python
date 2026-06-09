@@ -8,7 +8,8 @@ from .delete_chat_members_response_body import DeleteChatMembersResponseBody
 
 class DeleteChatMembersResponse(BaseResponse):
     _types = {
-        "data": DeleteChatMembersResponseBody
+        "data": DeleteChatMembersResponseBody,
+
     }
 
     def __init__(self, d=None):

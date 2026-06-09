@@ -8,7 +8,8 @@ from .list_app_recommend_rule_response_body import ListAppRecommendRuleResponseB
 
 class ListAppRecommendRuleResponse(BaseResponse):
     _types = {
-        "data": ListAppRecommendRuleResponseBody
+        "data": ListAppRecommendRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

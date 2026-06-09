@@ -14,25 +14,23 @@ from lark_oapi.core.log import logger
 from .throttle import Throttle
 from .update_queue import UpdateQueue
 
-
 STREAM_TERMINATED_FOOTER_ELEMENT = {
     "tag": "markdown",
     "content": "<font color='grey'>— generation interrupted</font>",
 }
-
 
 CardSnapshot = Union[Dict[str, Any], Callable[[Dict[str, Any]], Dict[str, Any]]]
 
 
 class CardStreamController:
     def __init__(
-        self,
-        *,
-        initial: Dict[str, Any],
-        ensure_created: Callable[[Dict[str, Any]], Awaitable[str]],
-        patch_card: Callable[[str, Dict[str, Any]], Awaitable[Any]],
-        min_ms: int = 100,
-        min_chars: int = 50,
+            self,
+            *,
+            initial: Dict[str, Any],
+            ensure_created: Callable[[Dict[str, Any]], Awaitable[str]],
+            patch_card: Callable[[str, Dict[str, Any]], Awaitable[Any]],
+            min_ms: int = 100,
+            min_chars: int = 50,
     ) -> None:
         self._ensure_created = ensure_created
         self._patch_card = patch_card

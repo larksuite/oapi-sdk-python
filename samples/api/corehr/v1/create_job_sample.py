@@ -27,6 +27,7 @@ def main():
                       .working_hours_type_id("6890452208593372679")
                       .effective_time("2020-01-01 00:00:00")
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .working_hours_type_id("6890452208593372679")
                       .effective_time("2020-01-01 00:00:00")
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

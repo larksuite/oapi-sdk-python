@@ -7,6 +7,7 @@ from .mail_address import MailAddress
 from .mail_address import MailAddress
 from .mail_address import MailAddress
 from .attachment import Attachment
+from .security_level import SecurityLevel
 
 
 class Message(object):
@@ -22,9 +23,18 @@ class Message(object):
         "message_state": int,
         "smtp_message_id": str,
         "message_id": str,
-        "body_plain_text": str,
         "attachments": List[Attachment],
+        "body_plain_text": str,
         "thread_id": str,
+        "body_preview": str,
+        "label_ids": List[str],
+        "folder_id": str,
+        "in_reply_to": str,
+        "reply_to": str,
+        "priority_type": str,
+        "security_level": SecurityLevel,
+        "references": str,
+        "body_calendar": str,
     }
 
     def __init__(self, d=None):
@@ -39,9 +49,18 @@ class Message(object):
         self.message_state: Optional[int] = None
         self.smtp_message_id: Optional[str] = None
         self.message_id: Optional[str] = None
-        self.body_plain_text: Optional[str] = None
         self.attachments: Optional[List[Attachment]] = None
+        self.body_plain_text: Optional[str] = None
         self.thread_id: Optional[str] = None
+        self.body_preview: Optional[str] = None
+        self.label_ids: Optional[List[str]] = None
+        self.folder_id: Optional[str] = None
+        self.in_reply_to: Optional[str] = None
+        self.reply_to: Optional[str] = None
+        self.priority_type: Optional[str] = None
+        self.security_level: Optional[SecurityLevel] = None
+        self.references: Optional[str] = None
+        self.body_calendar: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -97,16 +116,52 @@ class MessageBuilder(object):
         self._message.message_id = message_id
         return self
 
-    def body_plain_text(self, body_plain_text: str) -> "MessageBuilder":
-        self._message.body_plain_text = body_plain_text
-        return self
-
     def attachments(self, attachments: List[Attachment]) -> "MessageBuilder":
         self._message.attachments = attachments
         return self
 
+    def body_plain_text(self, body_plain_text: str) -> "MessageBuilder":
+        self._message.body_plain_text = body_plain_text
+        return self
+
     def thread_id(self, thread_id: str) -> "MessageBuilder":
         self._message.thread_id = thread_id
+        return self
+
+    def body_preview(self, body_preview: str) -> "MessageBuilder":
+        self._message.body_preview = body_preview
+        return self
+
+    def label_ids(self, label_ids: List[str]) -> "MessageBuilder":
+        self._message.label_ids = label_ids
+        return self
+
+    def folder_id(self, folder_id: str) -> "MessageBuilder":
+        self._message.folder_id = folder_id
+        return self
+
+    def in_reply_to(self, in_reply_to: str) -> "MessageBuilder":
+        self._message.in_reply_to = in_reply_to
+        return self
+
+    def reply_to(self, reply_to: str) -> "MessageBuilder":
+        self._message.reply_to = reply_to
+        return self
+
+    def priority_type(self, priority_type: str) -> "MessageBuilder":
+        self._message.priority_type = priority_type
+        return self
+
+    def security_level(self, security_level: SecurityLevel) -> "MessageBuilder":
+        self._message.security_level = security_level
+        return self
+
+    def references(self, references: str) -> "MessageBuilder":
+        self._message.references = references
+        return self
+
+    def body_calendar(self, body_calendar: str) -> "MessageBuilder":
+        self._message.body_calendar = body_calendar
         return self
 
     def build(self) -> "Message":

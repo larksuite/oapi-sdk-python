@@ -100,6 +100,7 @@ from .leave_request_created_error_message import *
 from .leave_request_created_result import *
 from .leave_request_detail import *
 from .leave_subtype import *
+from .leave_tag_conf import *
 from .leave_time import *
 from .leave_type import *
 from .location import *
@@ -145,6 +146,7 @@ from .sort_option import *
 from .subdivision import *
 from .subregion import *
 from .support_cost_center_item import *
+from .tag import *
 from .temp import *
 from .text_field_setting import *
 from .tranfer_employment_info import *
@@ -152,6 +154,7 @@ from .transfer_info import *
 from .transfer_reason import *
 from .transfer_type import *
 from .user_id import *
+from .view_employment_info import *
 from .wk_calendar_date import *
 from .wk_calendar_i18n import *
 from .wk_option import *

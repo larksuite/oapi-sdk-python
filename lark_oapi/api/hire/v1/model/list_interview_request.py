@@ -28,7 +28,7 @@ class ListInterviewRequestBuilder(object):
         list_interview_request = ListInterviewRequest()
         list_interview_request.http_method = HttpMethod.GET
         list_interview_request.uri = "/open-apis/hire/v1/interviews"
-        list_interview_request.token_types = {AccessTokenType.TENANT}
+        list_interview_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_interview_request: ListInterviewRequest = list_interview_request
 
     def page_size(self, page_size: int) -> "ListInterviewRequestBuilder":

@@ -8,7 +8,8 @@ from .query_reviewee_response_body import QueryRevieweeResponseBody
 
 class QueryRevieweeResponse(BaseResponse):
     _types = {
-        "data": QueryRevieweeResponseBody
+        "data": QueryRevieweeResponseBody,
+
     }
 
     def __init__(self, d=None):

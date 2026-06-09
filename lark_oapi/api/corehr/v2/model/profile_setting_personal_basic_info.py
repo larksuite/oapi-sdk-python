@@ -6,6 +6,7 @@ from .profile_setting_name import ProfileSettingName
 from .profile_setting_name import ProfileSettingName
 from .profile_setting_phone import ProfileSettingPhone
 from .profile_setting_custom_field import ProfileSettingCustomField
+from .profile_setting_name import ProfileSettingName
 
 
 class ProfileSettingPersonalBasicInfo(object):
@@ -33,6 +34,7 @@ class ProfileSettingPersonalBasicInfo(object):
         "leave_time": str,
         "custom_fields": List[ProfileSettingCustomField],
         "additional_nationalities": List[str],
+        "legal_name_v2s": List[ProfileSettingName],
     }
 
     def __init__(self, d=None):
@@ -59,6 +61,7 @@ class ProfileSettingPersonalBasicInfo(object):
         self.leave_time: Optional[str] = None
         self.custom_fields: Optional[List[ProfileSettingCustomField]] = None
         self.additional_nationalities: Optional[List[str]] = None
+        self.legal_name_v2s: Optional[List[ProfileSettingName]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -160,6 +163,10 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
 
     def additional_nationalities(self, additional_nationalities: List[str]) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.additional_nationalities = additional_nationalities
+        return self
+
+    def legal_name_v2s(self, legal_name_v2s: List[ProfileSettingName]) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.legal_name_v2s = legal_name_v2s
         return self
 
     def build(self) -> "ProfileSettingPersonalBasicInfo":

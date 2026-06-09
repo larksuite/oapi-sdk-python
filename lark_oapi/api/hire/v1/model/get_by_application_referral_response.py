@@ -8,7 +8,8 @@ from .get_by_application_referral_response_body import GetByApplicationReferralR
 
 class GetByApplicationReferralResponse(BaseResponse):
     _types = {
-        "data": GetByApplicationReferralResponseBody
+        "data": GetByApplicationReferralResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_process_form_variable_data_response_body import GetProcessFormVariable
 
 class GetProcessFormVariableDataResponse(BaseResponse):
     _types = {
-        "data": GetProcessFormVariableDataResponseBody
+        "data": GetProcessFormVariableDataResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_paygroup_response_body import ListPaygroupResponseBody
 
 class ListPaygroupResponse(BaseResponse):
     _types = {
-        "data": ListPaygroupResponseBody
+        "data": ListPaygroupResponseBody,
+
     }
 
     def __init__(self, d=None):

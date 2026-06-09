@@ -8,7 +8,8 @@ from .get_file_subscription_response_body import GetFileSubscriptionResponseBody
 
 class GetFileSubscriptionResponse(BaseResponse):
     _types = {
-        "data": GetFileSubscriptionResponseBody
+        "data": GetFileSubscriptionResponseBody,
+
     }
 
     def __init__(self, d=None):

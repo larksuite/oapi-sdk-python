@@ -33,13 +33,13 @@ _URL_DOWNLOAD_DEFAULT_CAP = 50 * 1024 * 1024
 
 
 async def resolve_media_key(
-    driver,
-    source: Optional[MediaSource],
-    kind: str,
-    *,
-    file_name: Optional[str] = None,
-    file_type: Optional[str] = None,
-    ssrf_allowlist: Optional[List[str]] = None,
+        driver,
+        source: Optional[MediaSource],
+        kind: str,
+        *,
+        file_name: Optional[str] = None,
+        file_type: Optional[str] = None,
+        ssrf_allowlist: Optional[List[str]] = None,
 ) -> Optional[str]:
     """Return a Lark file_key for ``source``, uploading if needed.
 
@@ -134,7 +134,7 @@ async def resolve_media_key(
 
 
 async def gather_buffer(
-    source: MediaSource, default_name: str
+        source: MediaSource, default_name: str
 ) -> Tuple[Optional[bytes], str]:
     """Collect a :class:`MediaSource`'s bytes + filename.
 
@@ -206,7 +206,7 @@ async def gather_buffer(
             import httpx  # type: ignore
 
             async with httpx.AsyncClient(
-                timeout=30, follow_redirects=False
+                    timeout=30, follow_redirects=False
             ) as client:
                 async with client.stream("GET", source.url) as r:
                     r.raise_for_status()

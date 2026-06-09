@@ -2,16 +2,16 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .app_workflow import AppWorkflow
+from .display_workflow import DisplayWorkflow
 
 
 class ListAppWorkflowResponseBody(object):
     _types = {
-        "workflows": List[AppWorkflow],
+        "workflows": List[DisplayWorkflow],
     }
 
     def __init__(self, d=None):
-        self.workflows: Optional[List[AppWorkflow]] = None
+        self.workflows: Optional[List[DisplayWorkflow]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,7 +23,7 @@ class ListAppWorkflowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_workflow_response_body = ListAppWorkflowResponseBody()
 
-    def workflows(self, workflows: List[AppWorkflow]) -> "ListAppWorkflowResponseBodyBuilder":
+    def workflows(self, workflows: List[DisplayWorkflow]) -> "ListAppWorkflowResponseBodyBuilder":
         self._list_app_workflow_response_body.workflows = workflows
         return self
 

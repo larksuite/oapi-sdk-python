@@ -8,7 +8,8 @@ from .data_change_logs_list_application_audit_log_response_body import DataChang
 
 class DataChangeLogsListApplicationAuditLogResponse(BaseResponse):
     _types = {
-        "data": DataChangeLogsListApplicationAuditLogResponseBody
+        "data": DataChangeLogsListApplicationAuditLogResponseBody,
+
     }
 
     def __init__(self, d=None):

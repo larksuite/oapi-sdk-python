@@ -8,7 +8,8 @@ from .list_social_insurance_response_body import ListSocialInsuranceResponseBody
 
 class ListSocialInsuranceResponse(BaseResponse):
     _types = {
-        "data": ListSocialInsuranceResponseBody
+        "data": ListSocialInsuranceResponseBody,
+
     }
 
     def __init__(self, d=None):

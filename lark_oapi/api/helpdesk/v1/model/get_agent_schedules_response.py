@@ -8,7 +8,8 @@ from .get_agent_schedules_response_body import GetAgentSchedulesResponseBody
 
 class GetAgentSchedulesResponse(BaseResponse):
     _types = {
-        "data": GetAgentSchedulesResponseBody
+        "data": GetAgentSchedulesResponseBody,
+
     }
 
     def __init__(self, d=None):

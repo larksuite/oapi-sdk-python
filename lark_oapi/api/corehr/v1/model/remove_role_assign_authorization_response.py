@@ -8,7 +8,8 @@ from .remove_role_assign_authorization_response_body import RemoveRoleAssignAuth
 
 class RemoveRoleAssignAuthorizationResponse(BaseResponse):
     _types = {
-        "data": RemoveRoleAssignAuthorizationResponseBody
+        "data": RemoveRoleAssignAuthorizationResponseBody,
+
     }
 
     def __init__(self, d=None):

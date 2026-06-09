@@ -8,7 +8,8 @@ from .start_service_ticket_response_body import StartServiceTicketResponseBody
 
 class StartServiceTicketResponse(BaseResponse):
     _types = {
-        "data": StartServiceTicketResponseBody
+        "data": StartServiceTicketResponseBody,
+
     }
 
     def __init__(self, d=None):

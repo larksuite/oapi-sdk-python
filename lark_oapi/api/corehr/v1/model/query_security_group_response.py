@@ -8,7 +8,8 @@ from .query_security_group_response_body import QuerySecurityGroupResponseBody
 
 class QuerySecurityGroupResponse(BaseResponse):
     _types = {
-        "data": QuerySecurityGroupResponseBody
+        "data": QuerySecurityGroupResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_access_record_response_body import ListAccessRecordResponseBody
 
 class ListAccessRecordResponse(BaseResponse):
     _types = {
-        "data": ListAccessRecordResponseBody
+        "data": ListAccessRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

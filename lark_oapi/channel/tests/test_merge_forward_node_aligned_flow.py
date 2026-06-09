@@ -84,6 +84,7 @@ async def test_single_fetch_for_deeply_nested_tree():
 @pytest.mark.asyncio
 async def test_items_without_upper_message_id_default_to_root_parent():
     """Legacy payloads (no upper_message_id) still work — items attach to root."""
+
     async def fetch(mid):
         return {"data": {"items": [
             {"message_id": mid, "msg_type": "merge_forward", "body": {"content": "{}"}},

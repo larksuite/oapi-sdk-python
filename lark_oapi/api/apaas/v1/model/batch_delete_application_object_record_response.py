@@ -8,7 +8,8 @@ from .batch_delete_application_object_record_response_body import BatchDeleteApp
 
 class BatchDeleteApplicationObjectRecordResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteApplicationObjectRecordResponseBody
+        "data": BatchDeleteApplicationObjectRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

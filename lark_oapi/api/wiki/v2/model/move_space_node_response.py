@@ -8,7 +8,8 @@ from .move_space_node_response_body import MoveSpaceNodeResponseBody
 
 class MoveSpaceNodeResponse(BaseResponse):
     _types = {
-        "data": MoveSpaceNodeResponseBody
+        "data": MoveSpaceNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -10,6 +10,7 @@ class Sender(object):
         "id_type": str,
         "sender_type": str,
         "tenant_key": str,
+        "sender_name": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class Sender(object):
         self.id_type: Optional[str] = None
         self.sender_type: Optional[str] = None
         self.tenant_key: Optional[str] = None
+        self.sender_name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class SenderBuilder(object):
 
     def tenant_key(self, tenant_key: str) -> "SenderBuilder":
         self._sender.tenant_key = tenant_key
+        return self
+
+    def sender_name(self, sender_name: str) -> "SenderBuilder":
+        self._sender.sender_name = sender_name
         return self
 
     def build(self) -> "Sender":

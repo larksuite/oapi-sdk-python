@@ -8,7 +8,8 @@ from .leave_request_history_leave_response_body import LeaveRequestHistoryLeaveR
 
 class LeaveRequestHistoryLeaveResponse(BaseResponse):
     _types = {
-        "data": LeaveRequestHistoryLeaveResponseBody
+        "data": LeaveRequestHistoryLeaveResponseBody,
+
     }
 
     def __init__(self, d=None):

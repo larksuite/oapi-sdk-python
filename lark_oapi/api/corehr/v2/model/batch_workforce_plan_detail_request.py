@@ -24,7 +24,7 @@ class BatchWorkforcePlanDetailRequestBuilder(object):
         batch_workforce_plan_detail_request = BatchWorkforcePlanDetailRequest()
         batch_workforce_plan_detail_request.http_method = HttpMethod.POST
         batch_workforce_plan_detail_request.uri = "/open-apis/corehr/v2/workforce_plan_details/batch"
-        batch_workforce_plan_detail_request.token_types = {AccessTokenType.TENANT}
+        batch_workforce_plan_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._batch_workforce_plan_detail_request: BatchWorkforcePlanDetailRequest = batch_workforce_plan_detail_request
 
     def page_token(self, page_token: str) -> "BatchWorkforcePlanDetailRequestBuilder":

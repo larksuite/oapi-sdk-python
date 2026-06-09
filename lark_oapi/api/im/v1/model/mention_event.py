@@ -9,6 +9,7 @@ class MentionEvent(object):
     _types = {
         "key": str,
         "id": UserId,
+        "mentioned_type": str,
         "name": str,
         "tenant_key": str,
     }
@@ -16,6 +17,7 @@ class MentionEvent(object):
     def __init__(self, d=None):
         self.key: Optional[str] = None
         self.id: Optional[UserId] = None
+        self.mentioned_type: Optional[str] = None
         self.name: Optional[str] = None
         self.tenant_key: Optional[str] = None
         init(self, d, self._types)
@@ -35,6 +37,10 @@ class MentionEventBuilder(object):
 
     def id(self, id: UserId) -> "MentionEventBuilder":
         self._mention_event.id = id
+        return self
+
+    def mentioned_type(self, mentioned_type: str) -> "MentionEventBuilder":
+        self._mention_event.mentioned_type = mentioned_type
         return self
 
     def name(self, name: str) -> "MentionEventBuilder":

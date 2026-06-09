@@ -8,7 +8,8 @@ from .batch_create_public_mailbox_member_response_body import BatchCreatePublicM
 
 class BatchCreatePublicMailboxMemberResponse(BaseResponse):
     _types = {
-        "data": BatchCreatePublicMailboxMemberResponseBody
+        "data": BatchCreatePublicMailboxMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

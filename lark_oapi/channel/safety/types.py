@@ -39,7 +39,7 @@ RejectReason = Literal[
     "duplicate",
     "lock_contention",
     "self_sent",
-    # Policy reasons (unified policy_ prefix)
+        # Policy reasons (unified policy_ prefix)
     "policy_dm_disabled",
     "policy_group_disabled",
     "policy_dm_not_in_allowlist",

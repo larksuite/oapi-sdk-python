@@ -8,7 +8,8 @@ from .list_task_collaborator_response_body import ListTaskCollaboratorResponseBo
 
 class ListTaskCollaboratorResponse(BaseResponse):
     _types = {
-        "data": ListTaskCollaboratorResponseBody
+        "data": ListTaskCollaboratorResponseBody,
+
     }
 
     def __init__(self, d=None):

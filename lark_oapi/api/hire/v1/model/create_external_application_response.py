@@ -8,7 +8,8 @@ from .create_external_application_response_body import CreateExternalApplication
 
 class CreateExternalApplicationResponse(BaseResponse):
     _types = {
-        "data": CreateExternalApplicationResponseBody
+        "data": CreateExternalApplicationResponseBody,
+
     }
 
     def __init__(self, d=None):

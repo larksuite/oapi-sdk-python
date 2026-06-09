@@ -28,20 +28,20 @@ from ...errors import FeishuChannelErrorCode, FeishuChannelError
 
 # IPv4 CIDR blocklist: private / loopback / link-local / multicast / reserved.
 _BLOCKED_V4 = [
-    ("0.0.0.0", 8),        # this-network
-    ("10.0.0.0", 8),       # private
-    ("127.0.0.0", 8),      # loopback
-    ("169.254.0.0", 16),   # link-local
-    ("172.16.0.0", 12),    # private
-    ("192.168.0.0", 16),   # private
-    ("100.64.0.0", 10),    # CGNAT
-    ("192.0.0.0", 24),     # protocol assignments
-    ("192.0.2.0", 24),     # TEST-NET-1
-    ("198.18.0.0", 15),    # benchmarking
+    ("0.0.0.0", 8),  # this-network
+    ("10.0.0.0", 8),  # private
+    ("127.0.0.0", 8),  # loopback
+    ("169.254.0.0", 16),  # link-local
+    ("172.16.0.0", 12),  # private
+    ("192.168.0.0", 16),  # private
+    ("100.64.0.0", 10),  # CGNAT
+    ("192.0.0.0", 24),  # protocol assignments
+    ("192.0.2.0", 24),  # TEST-NET-1
+    ("198.18.0.0", 15),  # benchmarking
     ("198.51.100.0", 24),  # TEST-NET-2
-    ("203.0.113.0", 24),   # TEST-NET-3
-    ("224.0.0.0", 4),      # multicast
-    ("240.0.0.0", 4),      # reserved
+    ("203.0.113.0", 24),  # TEST-NET-3
+    ("224.0.0.0", 4),  # multicast
+    ("240.0.0.0", 4),  # reserved
 ]
 
 
@@ -92,9 +92,9 @@ def _ipv6_blocked(ip: str) -> bool:
 
 
 async def assert_public_url(
-    url: str,
-    *,
-    allowlist: Optional[List[str]] = None,
+        url: str,
+        *,
+        allowlist: Optional[List[str]] = None,
 ) -> None:
     """Raise FeishuChannelError(ssrf_blocked) if `url` resolves to a private IP.
 

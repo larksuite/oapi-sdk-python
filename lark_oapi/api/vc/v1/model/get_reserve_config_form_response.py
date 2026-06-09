@@ -8,7 +8,8 @@ from .get_reserve_config_form_response_body import GetReserveConfigFormResponseB
 
 class GetReserveConfigFormResponse(BaseResponse):
     _types = {
-        "data": GetReserveConfigFormResponseBody
+        "data": GetReserveConfigFormResponseBody,
+
     }
 
     def __init__(self, d=None):

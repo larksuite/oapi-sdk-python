@@ -28,7 +28,6 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
-
 try:
     loop = asyncio.get_event_loop()
 except RuntimeError:

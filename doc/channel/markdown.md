@@ -1,5 +1,13 @@
 # Markdown to Post Conversion
 
+> **Migration notice:** This page documents legacy `lark_oapi.channel` markdown
+> conversion behavior. Channel has moved to
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) with the
+> `lark_channel` import path. Critical fixes for existing `lark_oapi.channel`
+> users are evaluated for backport until 2027-06-02. See the
+> [migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
 Channel sends `{"markdown": ...}` and bare string messages as Feishu post
 messages. The SDK converts markdown into a post AST before calling the message
 API.

@@ -8,7 +8,8 @@ from .query_metric_lib_response_body import QueryMetricLibResponseBody
 
 class QueryMetricLibResponse(BaseResponse):
     _types = {
-        "data": QueryMetricLibResponseBody
+        "data": QueryMetricLibResponseBody,
+
     }
 
     def __init__(self, d=None):

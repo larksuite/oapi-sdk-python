@@ -13,6 +13,8 @@ from ..model.active_company_request import ActiveCompanyRequest
 from ..model.active_company_response import ActiveCompanyResponse
 from ..model.batch_get_company_request import BatchGetCompanyRequest
 from ..model.batch_get_company_response import BatchGetCompanyResponse
+from ..model.query_multi_timeline_company_request import QueryMultiTimelineCompanyRequest
+from ..model.query_multi_timeline_company_response import QueryMultiTimelineCompanyResponse
 from ..model.query_recent_change_company_request import QueryRecentChangeCompanyRequest
 from ..model.query_recent_change_company_response import QueryRecentChangeCompanyResponse
 
@@ -92,6 +94,46 @@ class Company(object):
 
         # 反序列化
         response: BatchGetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetCompanyResponse)
+        response.raw = resp
+
+        return response
+
+    def query_multi_timeline(self, request: QueryMultiTimelineCompanyRequest,
+                             option: Optional[RequestOption] = None) -> QueryMultiTimelineCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryMultiTimelineCompanyResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_multi_timeline(self, request: QueryMultiTimelineCompanyRequest,
+                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryMultiTimelineCompanyResponse)
         response.raw = resp
 
         return response

@@ -8,7 +8,8 @@ from .recognize_vehicle_license_response_body import RecognizeVehicleLicenseResp
 
 class RecognizeVehicleLicenseResponse(BaseResponse):
     _types = {
-        "data": RecognizeVehicleLicenseResponseBody
+        "data": RecognizeVehicleLicenseResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .resource_reservation_list_export_response_body import ResourceReservationL
 
 class ResourceReservationListExportResponse(BaseResponse):
     _types = {
-        "data": ResourceReservationListExportResponseBody
+        "data": ResourceReservationListExportResponseBody,
+
     }
 
     def __init__(self, d=None):

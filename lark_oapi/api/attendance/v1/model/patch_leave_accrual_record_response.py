@@ -8,7 +8,8 @@ from .patch_leave_accrual_record_response_body import PatchLeaveAccrualRecordRes
 
 class PatchLeaveAccrualRecordResponse(BaseResponse):
     _types = {
-        "data": PatchLeaveAccrualRecordResponseBody
+        "data": PatchLeaveAccrualRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

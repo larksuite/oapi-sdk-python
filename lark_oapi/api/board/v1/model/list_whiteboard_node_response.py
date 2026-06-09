@@ -8,7 +8,8 @@ from .list_whiteboard_node_response_body import ListWhiteboardNodeResponseBody
 
 class ListWhiteboardNodeResponse(BaseResponse):
     _types = {
-        "data": ListWhiteboardNodeResponseBody
+        "data": ListWhiteboardNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

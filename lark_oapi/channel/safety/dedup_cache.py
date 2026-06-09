@@ -56,13 +56,13 @@ class SeenCache:
     """
 
     def __init__(
-        self,
-        cache: Optional[ICache] = None,
-        *,
-        ttl_seconds: int = DEFAULT_TTL_SECONDS,
-        max_entries: int = DEFAULT_MAX_ENTRIES,
-        sweep_seconds: int = DEFAULT_SWEEP_SECONDS,
-        namespace: str = DEFAULT_NAMESPACE,
+            self,
+            cache: Optional[ICache] = None,
+            *,
+            ttl_seconds: int = DEFAULT_TTL_SECONDS,
+            max_entries: int = DEFAULT_MAX_ENTRIES,
+            sweep_seconds: int = DEFAULT_SWEEP_SECONDS,
+            namespace: str = DEFAULT_NAMESPACE,
     ) -> None:
         self._cache = cache
         self._ttl = ttl_seconds

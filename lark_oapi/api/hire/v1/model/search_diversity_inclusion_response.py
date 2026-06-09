@@ -8,7 +8,8 @@ from .search_diversity_inclusion_response_body import SearchDiversityInclusionRe
 
 class SearchDiversityInclusionResponse(BaseResponse):
     _types = {
-        "data": SearchDiversityInclusionResponseBody
+        "data": SearchDiversityInclusionResponseBody,
+
     }
 
     def __init__(self, d=None):

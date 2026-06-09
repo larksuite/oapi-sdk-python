@@ -8,7 +8,8 @@ from .batch_create_app_table_response_body import BatchCreateAppTableResponseBod
 
 class BatchCreateAppTableResponse(BaseResponse):
     _types = {
-        "data": BatchCreateAppTableResponseBody
+        "data": BatchCreateAppTableResponseBody,
+
     }
 
     def __init__(self, d=None):

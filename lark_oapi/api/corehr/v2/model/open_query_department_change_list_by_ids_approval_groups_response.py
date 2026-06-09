@@ -9,7 +9,8 @@ from .open_query_department_change_list_by_ids_approval_groups_response_body imp
 
 class OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse(BaseResponse):
     _types = {
-        "data": OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBody
+        "data": OpenQueryDepartmentChangeListByIdsApprovalGroupsResponseBody,
+
     }
 
     def __init__(self, d=None):

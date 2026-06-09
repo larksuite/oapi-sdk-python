@@ -8,7 +8,8 @@ from .batch_create_temp_user_daily_shift_response_body import BatchCreateTempUse
 
 class BatchCreateTempUserDailyShiftResponse(BaseResponse):
     _types = {
-        "data": BatchCreateTempUserDailyShiftResponseBody
+        "data": BatchCreateTempUserDailyShiftResponseBody,
+
     }
 
     def __init__(self, d=None):

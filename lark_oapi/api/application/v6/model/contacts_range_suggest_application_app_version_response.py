@@ -9,7 +9,8 @@ from .contacts_range_suggest_application_app_version_response_body import \
 
 class ContactsRangeSuggestApplicationAppVersionResponse(BaseResponse):
     _types = {
-        "data": ContactsRangeSuggestApplicationAppVersionResponseBody
+        "data": ContactsRangeSuggestApplicationAppVersionResponseBody,
+
     }
 
     def __init__(self, d=None):

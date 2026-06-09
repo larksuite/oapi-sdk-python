@@ -17,6 +17,7 @@ def main():
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
         .record_id("recpCsf4ME") \
+        .ignore_consistency_check(bool) \
         .build()
 
     # 发起请求
@@ -46,6 +47,7 @@ async def amain():
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
         .record_id("recpCsf4ME") \
+        .ignore_consistency_check(bool) \
         .build()
 
     # 发起请求

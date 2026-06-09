@@ -8,7 +8,8 @@ from .list_tasklist_response_body import ListTasklistResponseBody
 
 class ListTasklistResponse(BaseResponse):
     _types = {
-        "data": ListTasklistResponseBody
+        "data": ListTasklistResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .batch_delete_follower_task_response_body import BatchDeleteFollowerTaskRes
 
 class BatchDeleteFollowerTaskResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteFollowerTaskResponseBody
+        "data": BatchDeleteFollowerTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

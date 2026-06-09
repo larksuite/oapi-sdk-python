@@ -8,7 +8,8 @@ from .get_employee_type_response_body import GetEmployeeTypeResponseBody
 
 class GetEmployeeTypeResponse(BaseResponse):
     _types = {
-        "data": GetEmployeeTypeResponseBody
+        "data": GetEmployeeTypeResponseBody,
+
     }
 
     def __init__(self, d=None):

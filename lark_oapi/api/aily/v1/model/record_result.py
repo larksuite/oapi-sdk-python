@@ -10,14 +10,14 @@ class RecordResult(object):
         "success": bool,
         "primary_key_value": str,
         "errors": List[RecordError],
-        "_id": str,
+        "id": str,
     }
 
     def __init__(self, d=None):
         self.success: Optional[bool] = None
         self.primary_key_value: Optional[str] = None
         self.errors: Optional[List[RecordError]] = None
-        self._id: Optional[str] = None
+        self.id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -41,8 +41,8 @@ class RecordResultBuilder(object):
         self._record_result.errors = errors
         return self
 
-    def _id(self, _id: str) -> "RecordResultBuilder":
-        self._record_result._id = _id
+    def id(self, id: str) -> "RecordResultBuilder":
+        self._record_result.id = id
         return self
 
     def build(self) -> "RecordResult":

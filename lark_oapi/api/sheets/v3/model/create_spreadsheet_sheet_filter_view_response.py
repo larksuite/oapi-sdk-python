@@ -8,7 +8,8 @@ from .create_spreadsheet_sheet_filter_view_response_body import CreateSpreadshee
 
 class CreateSpreadsheetSheetFilterViewResponse(BaseResponse):
     _types = {
-        "data": CreateSpreadsheetSheetFilterViewResponseBody
+        "data": CreateSpreadsheetSheetFilterViewResponseBody,
+
     }
 
     def __init__(self, d=None):

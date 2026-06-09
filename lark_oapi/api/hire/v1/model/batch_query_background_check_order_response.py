@@ -8,7 +8,8 @@ from .batch_query_background_check_order_response_body import BatchQueryBackgrou
 
 class BatchQueryBackgroundCheckOrderResponse(BaseResponse):
     _types = {
-        "data": BatchQueryBackgroundCheckOrderResponseBody
+        "data": BatchQueryBackgroundCheckOrderResponseBody,
+
     }
 
     def __init__(self, d=None):

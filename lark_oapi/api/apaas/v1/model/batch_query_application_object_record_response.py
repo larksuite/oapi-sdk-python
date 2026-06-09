@@ -8,7 +8,8 @@ from .batch_query_application_object_record_response_body import BatchQueryAppli
 
 class BatchQueryApplicationObjectRecordResponse(BaseResponse):
     _types = {
-        "data": BatchQueryApplicationObjectRecordResponseBody
+        "data": BatchQueryApplicationObjectRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

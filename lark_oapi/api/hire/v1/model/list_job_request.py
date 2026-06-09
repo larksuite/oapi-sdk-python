@@ -16,6 +16,9 @@ class ListJobRequest(BaseRequest):
         self.department_id_type: Optional[str] = None
         self.job_level_id_type: Optional[str] = None
         self.job_family_id_type: Optional[str] = None
+        self.recruiter_id_list: Optional[List[str]] = None
+        self.hiring_manager_id_list: Optional[List[str]] = None
+        self.assistant_id_list: Optional[List[str]] = None
 
     @staticmethod
     def builder() -> "ListJobRequestBuilder":
@@ -28,7 +31,7 @@ class ListJobRequestBuilder(object):
         list_job_request = ListJobRequest()
         list_job_request.http_method = HttpMethod.GET
         list_job_request.uri = "/open-apis/hire/v1/jobs"
-        list_job_request.token_types = {AccessTokenType.TENANT}
+        list_job_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_job_request: ListJobRequest = list_job_request
 
     def update_start_time(self, update_start_time: int) -> "ListJobRequestBuilder":
@@ -69,6 +72,21 @@ class ListJobRequestBuilder(object):
     def job_family_id_type(self, job_family_id_type: str) -> "ListJobRequestBuilder":
         self._list_job_request.job_family_id_type = job_family_id_type
         self._list_job_request.add_query("job_family_id_type", job_family_id_type)
+        return self
+
+    def recruiter_id_list(self, recruiter_id_list: List[str]) -> "ListJobRequestBuilder":
+        self._list_job_request.recruiter_id_list = recruiter_id_list
+        self._list_job_request.add_query("recruiter_id_list", recruiter_id_list)
+        return self
+
+    def hiring_manager_id_list(self, hiring_manager_id_list: List[str]) -> "ListJobRequestBuilder":
+        self._list_job_request.hiring_manager_id_list = hiring_manager_id_list
+        self._list_job_request.add_query("hiring_manager_id_list", hiring_manager_id_list)
+        return self
+
+    def assistant_id_list(self, assistant_id_list: List[str]) -> "ListJobRequestBuilder":
+        self._list_job_request.assistant_id_list = assistant_id_list
+        self._list_job_request.add_query("assistant_id_list", assistant_id_list)
         return self
 
     def build(self) -> ListJobRequest:

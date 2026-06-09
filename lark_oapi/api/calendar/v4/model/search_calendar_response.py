@@ -8,7 +8,8 @@ from .search_calendar_response_body import SearchCalendarResponseBody
 
 class SearchCalendarResponse(BaseResponse):
     _types = {
-        "data": SearchCalendarResponseBody
+        "data": SearchCalendarResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_shift_response_body import QueryShiftResponseBody
 
 class QueryShiftResponse(BaseResponse):
     _types = {
-        "data": QueryShiftResponseBody
+        "data": QueryShiftResponseBody,
+
     }
 
     def __init__(self, d=None):

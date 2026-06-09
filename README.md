@@ -47,6 +47,15 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
+## One-Click App Registration
+
+`lark_oapi.register_app` creates an app through the OAuth device flow. It
+returns a verification URL in `on_qr_code`; render the URL as a QR code or show
+it as a link for the user to open in Feishu/Lark.
+
+```python
+import lark_oapi as lark
+
 ## ClientAssertion Keyless Mode
 
 For self-built apps that use an external signing service, the SDK can fetch
@@ -78,14 +87,70 @@ apps only and does not support AppAccessToken-only APIs.
 
 ## Channel Module
 
-`lark_oapi.channel` is a high-level module built on top of the OpenAPI client
-and event transport. It bundles event listening, message normalization, safety
-policy, outbound sending, media upload/download, card interactions, and
-streaming replies into a single `FeishuChannel` entry point.
+def on_qr_code(info):
+    print(info["url"])
 
-Use Channel when you are building a conversational bot that needs normalized
-message events, replies, media handling, card callbacks, mention policy, or
-WebSocket/webhook transport management.
+
+result = lark.register_app(
+    on_qr_code=on_qr_code,
+    app_preset={
+        "avatar": [
+            "https://example.com/a.png",
+            "https://example.com/b.webp",
+        ],
+        "name": "{user}'s app",
+        "desc": "Created by the business platform",
+    },
+)
+
+print(result["client_id"])
+```
+
+For a real manual E2E run without mocked registration responses:
+
+```bash
+python3 samples/registration/app_preset_live_e2e.py --open
+```
+
+### `register_app` parameters
+
+| Parameter | Description | Type | Required | Default |
+| ---- | ---- | ---- | ---- | ---- |
+| `on_qr_code` | Callback when the verification URL is ready. Receives `{"url": str, "expire_in": int}` | function | Yes | - |
+| `on_status_change` | Callback on polling status changes. Status values include `polling`, `slow_down`, `domain_switched` | function | No | - |
+| `source` | Source identifier appended to the QR URL as `python-sdk/{source}` | string | No | `python-sdk` |
+| `cancel_event` | `threading.Event` used to cancel sync polling | threading.Event | No | - |
+| `domain` | Custom Feishu accounts base URL | string | No | `https://accounts.feishu.cn` |
+| `lark_domain` | Custom Lark accounts base URL used when tenant brand is Lark | string | No | `https://accounts.larksuite.com` |
+| `app_preset` | Pre-fill values for the app-creation page. All fields are optional; users can still edit them on the page. Pass raw values; the SDK URL-encodes them automatically | dict | No | - |
+| `app_preset.avatar` | App avatar URL(s). 1-6 URLs supported; the first one is selected by default. Allowed formats are handled by the Web page: png / jpg / jpeg / webp / gif | string or list[string] | No | - |
+| `app_preset.name` | App name. Supports the `{user}` placeholder, replaced by the Web page with the scanning user's name | string | No | - |
+| `app_preset.desc` | App description. Supports the `{user}` placeholder | string | No | - |
+
+## Legacy Channel Module
+
+`lark_oapi.channel` is the legacy Channel entry point kept for compatibility
+during the migration window. New Channel features ship in
+[`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) with the
+`lark_channel` import path; critical fixes for existing `lark_oapi.channel`
+users are evaluated for backport until 2027-06-02.
+
+`lark-channel-sdk` can be installed alongside `lark-oapi`. Its
+[`SecurityConfig`](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)
+defaults to compatibility mode so migrated bots can roll out with audit mode
+before strict enforcement. See the
+[migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+for the full checklist.
+
+```bash
+pip install lark-channel-sdk
+```
+
+```python
+from lark_channel import FeishuChannel
+```
+
+Existing legacy import example:
 
 ```python
 import asyncio
@@ -109,12 +174,14 @@ channel.on("message", on_message)
 asyncio.run(channel.connect())
 ```
 
-Full Channel documentation:
+Channel documentation:
 
-- [Channel module](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel.md)
-- [Channel quickstart](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/quickstart.md)
-- [Channel reference](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/reference.md)
-- [Runnable echo bot sample](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/samples/channel/echo_bot.py)
+- [Legacy Channel module](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel.md)
+- [Legacy Channel quickstart](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/quickstart.md)
+- [Legacy Channel reference](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/doc/channel/reference.md)
+- [Standalone Channel migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+- [Standalone Channel security guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)
+- [Runnable legacy echo bot sample](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/samples/channel/echo_bot.py)
 
 ## Examples
 

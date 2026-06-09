@@ -8,7 +8,8 @@ from .rollback_points_user_task_response_body import RollbackPointsUserTaskRespo
 
 class RollbackPointsUserTaskResponse(BaseResponse):
     _types = {
-        "data": RollbackPointsUserTaskResponseBody
+        "data": RollbackPointsUserTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

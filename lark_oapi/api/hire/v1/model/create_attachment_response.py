@@ -8,7 +8,8 @@ from .create_attachment_response_body import CreateAttachmentResponseBody
 
 class CreateAttachmentResponse(BaseResponse):
     _types = {
-        "data": CreateAttachmentResponseBody
+        "data": CreateAttachmentResponseBody,
+
     }
 
     def __init__(self, d=None):

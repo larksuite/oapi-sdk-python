@@ -8,7 +8,8 @@ from .list_interview_response_body import ListInterviewResponseBody
 
 class ListInterviewResponse(BaseResponse):
     _types = {
-        "data": ListInterviewResponseBody
+        "data": ListInterviewResponseBody,
+
     }
 
     def __init__(self, d=None):

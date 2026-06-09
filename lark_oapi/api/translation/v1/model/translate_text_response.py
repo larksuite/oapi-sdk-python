@@ -8,7 +8,8 @@ from .translate_text_response_body import TranslateTextResponseBody
 
 class TranslateTextResponse(BaseResponse):
     _types = {
-        "data": TranslateTextResponseBody
+        "data": TranslateTextResponseBody,
+
     }
 
     def __init__(self, d=None):

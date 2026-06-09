@@ -8,7 +8,8 @@ from .query_application_environment_variable_response_body import QueryApplicati
 
 class QueryApplicationEnvironmentVariableResponse(BaseResponse):
     _types = {
-        "data": QueryApplicationEnvironmentVariableResponseBody
+        "data": QueryApplicationEnvironmentVariableResponseBody,
+
     }
 
     def __init__(self, d=None):

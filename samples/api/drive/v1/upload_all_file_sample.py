@@ -22,6 +22,7 @@ def main():
                       .size(1024)
                       .checksum("123423882374238912356")
                       .file(file)
+                      .file_token("str")
                       .build()) \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
                       .size(1024)
                       .checksum("123423882374238912356")
                       .file(file)
+                      .file_token("str")
                       .build()) \
         .build()
 

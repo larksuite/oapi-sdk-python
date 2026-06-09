@@ -8,7 +8,8 @@ from .list_working_hours_type_response_body import ListWorkingHoursTypeResponseB
 
 class ListWorkingHoursTypeResponse(BaseResponse):
     _types = {
-        "data": ListWorkingHoursTypeResponseBody
+        "data": ListWorkingHoursTypeResponseBody,
+
     }
 
     def __init__(self, d=None):

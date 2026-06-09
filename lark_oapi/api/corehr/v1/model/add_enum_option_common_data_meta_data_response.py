@@ -8,7 +8,8 @@ from .add_enum_option_common_data_meta_data_response_body import AddEnumOptionCo
 
 class AddEnumOptionCommonDataMetaDataResponse(BaseResponse):
     _types = {
-        "data": AddEnumOptionCommonDataMetaDataResponseBody
+        "data": AddEnumOptionCommonDataMetaDataResponseBody,
+
     }
 
     def __init__(self, d=None):

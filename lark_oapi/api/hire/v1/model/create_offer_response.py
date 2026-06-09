@@ -8,7 +8,8 @@ from .create_offer_response_body import CreateOfferResponseBody
 
 class CreateOfferResponse(BaseResponse):
     _types = {
-        "data": CreateOfferResponseBody
+        "data": CreateOfferResponseBody,
+
     }
 
     def __init__(self, d=None):

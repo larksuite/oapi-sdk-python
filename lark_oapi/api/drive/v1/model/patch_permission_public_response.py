@@ -8,7 +8,8 @@ from .patch_permission_public_response_body import PatchPermissionPublicResponse
 
 class PatchPermissionPublicResponse(BaseResponse):
     _types = {
-        "data": PatchPermissionPublicResponseBody
+        "data": PatchPermissionPublicResponseBody,
+
     }
 
     def __init__(self, d=None):

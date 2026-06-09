@@ -19,6 +19,7 @@ def main():
         .record_id("recqwIwhc6") \
         .user_id_type("user_id") \
         .ignore_consistency_check(True) \
+        .client_token("str") \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \
@@ -53,6 +54,7 @@ async def amain():
         .record_id("recqwIwhc6") \
         .user_id_type("user_id") \
         .ignore_consistency_check(True) \
+        .client_token("str") \
         .request_body(AppTableRecord.builder()
                       .fields({})
                       .build()) \

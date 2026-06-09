@@ -7,6 +7,7 @@ from .application_resume_source import ApplicationResumeSource
 from .application_website_resume_source import ApplicationWebsiteResumeSource
 from .application_stage_time import ApplicationStageTime
 from .code_name_object import CodeNameObject
+from .job_basic_info import JobBasicInfo
 
 
 class Application(object):
@@ -29,6 +30,7 @@ class Application(object):
         "termination_reason_note": str,
         "application_preferred_city_list": List[CodeNameObject],
         "creator_id": str,
+        "job_info": JobBasicInfo,
     }
 
     def __init__(self, d=None):
@@ -50,6 +52,7 @@ class Application(object):
         self.termination_reason_note: Optional[str] = None
         self.application_preferred_city_list: Optional[List[CodeNameObject]] = None
         self.creator_id: Optional[str] = None
+        self.job_info: Optional[JobBasicInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -132,6 +135,10 @@ class ApplicationBuilder(object):
 
     def creator_id(self, creator_id: str) -> "ApplicationBuilder":
         self._application.creator_id = creator_id
+        return self
+
+    def job_info(self, job_info: JobBasicInfo) -> "ApplicationBuilder":
+        self._application.job_info = job_info
         return self
 
     def build(self) -> "Application":

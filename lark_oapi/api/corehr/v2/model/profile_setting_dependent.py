@@ -6,6 +6,11 @@ from .profile_setting_phone import ProfileSettingPhone
 from .profile_setting_file import ProfileSettingFile
 from .profile_setting_custom_field import ProfileSettingCustomField
 from .profile_setting_address import ProfileSettingAddress
+from .profile_setting_visa import ProfileSettingVisa
+from .profile_setting_passport import ProfileSettingPassport
+from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
+from .profile_setting_national import ProfileSettingNational
+from .profile_setting_name import ProfileSettingName
 
 
 class ProfileSettingDependent(object):
@@ -20,6 +25,17 @@ class ProfileSettingDependent(object):
         "employer": str,
         "custom_fields": List[ProfileSettingCustomField],
         "address": ProfileSettingAddress,
+        "reason": str,
+        "modify_date": str,
+        "visas": List[ProfileSettingVisa],
+        "passports": List[ProfileSettingPassport],
+        "citizenship_statuses": List[ProfileSettingCitizenshipStatus],
+        "national_ids": List[ProfileSettingNational],
+        "nationality_v2": str,
+        "spouses_working_status": str,
+        "is_this_person_covered_by_health_insurance": bool,
+        "is_this_person_allowed_for_tax_deduction": bool,
+        "name": ProfileSettingName,
     }
 
     def __init__(self, d=None):
@@ -33,6 +49,17 @@ class ProfileSettingDependent(object):
         self.employer: Optional[str] = None
         self.custom_fields: Optional[List[ProfileSettingCustomField]] = None
         self.address: Optional[ProfileSettingAddress] = None
+        self.reason: Optional[str] = None
+        self.modify_date: Optional[str] = None
+        self.visas: Optional[List[ProfileSettingVisa]] = None
+        self.passports: Optional[List[ProfileSettingPassport]] = None
+        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
+        self.national_ids: Optional[List[ProfileSettingNational]] = None
+        self.nationality_v2: Optional[str] = None
+        self.spouses_working_status: Optional[str] = None
+        self.is_this_person_covered_by_health_insurance: Optional[bool] = None
+        self.is_this_person_allowed_for_tax_deduction: Optional[bool] = None
+        self.name: Optional[ProfileSettingName] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -83,6 +110,53 @@ class ProfileSettingDependentBuilder(object):
 
     def address(self, address: ProfileSettingAddress) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.address = address
+        return self
+
+    def reason(self, reason: str) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.reason = reason
+        return self
+
+    def modify_date(self, modify_date: str) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.modify_date = modify_date
+        return self
+
+    def visas(self, visas: List[ProfileSettingVisa]) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.visas = visas
+        return self
+
+    def passports(self, passports: List[ProfileSettingPassport]) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.passports = passports
+        return self
+
+    def citizenship_statuses(self, citizenship_statuses: List[
+        ProfileSettingCitizenshipStatus]) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.citizenship_statuses = citizenship_statuses
+        return self
+
+    def national_ids(self, national_ids: List[ProfileSettingNational]) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.national_ids = national_ids
+        return self
+
+    def nationality_v2(self, nationality_v2: str) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.nationality_v2 = nationality_v2
+        return self
+
+    def spouses_working_status(self, spouses_working_status: str) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.spouses_working_status = spouses_working_status
+        return self
+
+    def is_this_person_covered_by_health_insurance(self,
+                                                   is_this_person_covered_by_health_insurance: bool) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+        return self
+
+    def is_this_person_allowed_for_tax_deduction(self,
+                                                 is_this_person_allowed_for_tax_deduction: bool) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+        return self
+
+    def name(self, name: ProfileSettingName) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.name = name
         return self
 
     def build(self) -> "ProfileSettingDependent":

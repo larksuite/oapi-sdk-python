@@ -8,7 +8,8 @@ from .get_participant_quality_list_response_body import GetParticipantQualityLis
 
 class GetParticipantQualityListResponse(BaseResponse):
     _types = {
-        "data": GetParticipantQualityListResponseBody
+        "data": GetParticipantQualityListResponseBody,
+
     }
 
     def __init__(self, d=None):

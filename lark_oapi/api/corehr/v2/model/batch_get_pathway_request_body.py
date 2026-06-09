@@ -7,10 +7,14 @@ from lark_oapi.core.construct import init
 class BatchGetPathwayRequestBody(object):
     _types = {
         "pathway_ids": List[str],
+        "pathway_codes": List[str],
+        "active": bool,
     }
 
     def __init__(self, d=None):
         self.pathway_ids: Optional[List[str]] = None
+        self.pathway_codes: Optional[List[str]] = None
+        self.active: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +28,14 @@ class BatchGetPathwayRequestBodyBuilder(object):
 
     def pathway_ids(self, pathway_ids: List[str]) -> "BatchGetPathwayRequestBodyBuilder":
         self._batch_get_pathway_request_body.pathway_ids = pathway_ids
+        return self
+
+    def pathway_codes(self, pathway_codes: List[str]) -> "BatchGetPathwayRequestBodyBuilder":
+        self._batch_get_pathway_request_body.pathway_codes = pathway_codes
+        return self
+
+    def active(self, active: bool) -> "BatchGetPathwayRequestBodyBuilder":
+        self._batch_get_pathway_request_body.active = active
         return self
 
     def build(self) -> "BatchGetPathwayRequestBody":

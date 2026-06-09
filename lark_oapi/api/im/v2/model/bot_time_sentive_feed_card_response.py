@@ -8,7 +8,8 @@ from .bot_time_sentive_feed_card_response_body import BotTimeSentiveFeedCardResp
 
 class BotTimeSentiveFeedCardResponse(BaseResponse):
     _types = {
-        "data": BotTimeSentiveFeedCardResponseBody
+        "data": BotTimeSentiveFeedCardResponseBody,
+
     }
 
     def __init__(self, d=None):

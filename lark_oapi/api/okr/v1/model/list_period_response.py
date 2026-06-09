@@ -8,7 +8,8 @@ from .list_period_response_body import ListPeriodResponseBody
 
 class ListPeriodResponse(BaseResponse):
     _types = {
-        "data": ListPeriodResponseBody
+        "data": ListPeriodResponseBody,
+
     }
 
     def __init__(self, d=None):

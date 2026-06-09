@@ -10,12 +10,14 @@ class ListAppDashboardResponseBody(object):
         "dashboards": List[AppDashboard],
         "page_token": str,
         "has_more": bool,
+        "total": int,
     }
 
     def __init__(self, d=None):
         self.dashboards: Optional[List[AppDashboard]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
+        self.total: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class ListAppDashboardResponseBodyBuilder(object):
 
     def has_more(self, has_more: bool) -> "ListAppDashboardResponseBodyBuilder":
         self._list_app_dashboard_response_body.has_more = has_more
+        return self
+
+    def total(self, total: int) -> "ListAppDashboardResponseBodyBuilder":
+        self._list_app_dashboard_response_body.total = total
         return self
 
     def build(self) -> "ListAppDashboardResponseBody":

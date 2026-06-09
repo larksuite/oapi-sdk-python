@@ -8,7 +8,8 @@ from .create_external_approval_response_body import CreateExternalApprovalRespon
 
 class CreateExternalApprovalResponse(BaseResponse):
     _types = {
-        "data": CreateExternalApprovalResponseBody
+        "data": CreateExternalApprovalResponseBody,
+
     }
 
     def __init__(self, d=None):

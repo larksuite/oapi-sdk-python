@@ -3,14 +3,13 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .device_record import DeviceRecord
+from .create_device_record_request_body import CreateDeviceRecordRequestBody
 
 
 class CreateDeviceRecordRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.user_id_type: Optional[str] = None
-        self.request_body: Optional[DeviceRecord] = None
+        self.request_body: Optional[CreateDeviceRecordRequestBody] = None
 
     @staticmethod
     def builder() -> "CreateDeviceRecordRequestBuilder":
@@ -26,12 +25,7 @@ class CreateDeviceRecordRequestBuilder(object):
         create_device_record_request.token_types = {AccessTokenType.TENANT}
         self._create_device_record_request: CreateDeviceRecordRequest = create_device_record_request
 
-    def user_id_type(self, user_id_type: str) -> "CreateDeviceRecordRequestBuilder":
-        self._create_device_record_request.user_id_type = user_id_type
-        self._create_device_record_request.add_query("user_id_type", user_id_type)
-        return self
-
-    def request_body(self, request_body: DeviceRecord) -> "CreateDeviceRecordRequestBuilder":
+    def request_body(self, request_body: CreateDeviceRecordRequestBody) -> "CreateDeviceRecordRequestBuilder":
         self._create_device_record_request.request_body = request_body
         self._create_device_record_request.body = request_body
         return self

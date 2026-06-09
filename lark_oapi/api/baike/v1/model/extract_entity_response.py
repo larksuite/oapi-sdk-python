@@ -8,7 +8,8 @@ from .extract_entity_response_body import ExtractEntityResponseBody
 
 class ExtractEntityResponse(BaseResponse):
     _types = {
-        "data": ExtractEntityResponseBody
+        "data": ExtractEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

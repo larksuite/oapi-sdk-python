@@ -8,7 +8,8 @@ from .get_application_audit_log_response_body import GetApplicationAuditLogRespo
 
 class GetApplicationAuditLogResponse(BaseResponse):
     _types = {
-        "data": GetApplicationAuditLogResponseBody
+        "data": GetApplicationAuditLogResponseBody,
+
     }
 
     def __init__(self, d=None):

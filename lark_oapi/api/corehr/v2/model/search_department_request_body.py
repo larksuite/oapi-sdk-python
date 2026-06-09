@@ -15,6 +15,7 @@ class SearchDepartmentRequestBody(object):
         "code_list": List[str],
         "get_all_version": bool,
         "fields": List[str],
+        "keyword": str,
     }
 
     def __init__(self, d=None):
@@ -27,6 +28,7 @@ class SearchDepartmentRequestBody(object):
         self.code_list: Optional[List[str]] = None
         self.get_all_version: Optional[bool] = None
         self.fields: Optional[List[str]] = None
+        self.keyword: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +74,10 @@ class SearchDepartmentRequestBodyBuilder(object):
 
     def fields(self, fields: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.fields = fields
+        return self
+
+    def keyword(self, keyword: str) -> "SearchDepartmentRequestBodyBuilder":
+        self._search_department_request_body.keyword = keyword
         return self
 
     def build(self) -> "SearchDepartmentRequestBody":

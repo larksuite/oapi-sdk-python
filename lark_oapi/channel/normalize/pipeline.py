@@ -89,18 +89,18 @@ def _message_to_dict(msg: Any) -> Dict[str, Any]:
         return msg
     out: Dict[str, Any] = {}
     for field_name in (
-        "message_id",
-        "root_id",
-        "parent_id",
-        "create_time",
-        "update_time",
-        "chat_id",
-        "thread_id",
-        "chat_type",
-        "message_type",
-        "content",
-        "mentions",
-        "user_agent",
+            "message_id",
+            "root_id",
+            "parent_id",
+            "create_time",
+            "update_time",
+            "chat_id",
+            "thread_id",
+            "chat_type",
+            "message_type",
+            "content",
+            "mentions",
+            "user_agent",
     ):
         out[field_name] = getattr(msg, field_name, None)
     return out
@@ -108,10 +108,10 @@ def _message_to_dict(msg: Any) -> Dict[str, Any]:
 
 class InboundPipeline:
     def __init__(
-        self,
-        cfg: PipelineConfig,
-        deps: PipelineDeps,
-        deduper: Optional[Deduper] = None,
+            self,
+            cfg: PipelineConfig,
+            deps: PipelineDeps,
+            deduper: Optional[Deduper] = None,
     ) -> None:
         self._cfg = cfg
         self._deps = deps
@@ -124,10 +124,10 @@ class InboundPipeline:
         )
 
     async def process(
-        self,
-        event_id: Optional[str],
-        message_event: Any,
-        sender: Any,
+            self,
+            event_id: Optional[str],
+            message_event: Any,
+            sender: Any,
     ) -> Optional[InboundMessage]:
         """Return InboundMessage or None if the event was deduped / filtered."""
         msg = _message_to_dict(message_event)
@@ -191,19 +191,19 @@ class InboundPipeline:
 
         # Async enrichment: merge_forward expansion
         if (
-            isinstance(content, MergeForwardContent)
-            and self._cfg.inbound.expand_merge_forward
-            and self._deps.fetch_message is not None
-            and message_id
+                isinstance(content, MergeForwardContent)
+                and self._cfg.inbound.expand_merge_forward
+                and self._deps.fetch_message is not None
+                and message_id
         ):
             content = await self._expander.expand(message_id)
 
         # Async enrichment: interactive card re-fetch
         if (
-            isinstance(content, InteractiveContent)
-            and self._cfg.inbound.fetch_interactive_card
-            and self._deps.fetch_message is not None
-            and message_id
+                isinstance(content, InteractiveContent)
+                and self._cfg.inbound.fetch_interactive_card
+                and self._deps.fetch_message is not None
+                and message_id
         ):
             fetched = await fetch_interactive(message_id, self._deps.fetch_message)
             if fetched is not None:

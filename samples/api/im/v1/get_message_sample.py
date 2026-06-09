@@ -16,6 +16,7 @@ def main():
     request: GetMessageRequest = GetMessageRequest.builder() \
         .message_id("om_dc13264520392913993dd051dba21dcf") \
         .user_id_type("open_id") \
+        .card_msg_content_type("user_card_content") \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     request: GetMessageRequest = GetMessageRequest.builder() \
         .message_id("om_dc13264520392913993dd051dba21dcf") \
         .user_id_type("open_id") \
+        .card_msg_content_type("user_card_content") \
         .build()
 
     # 发起请求

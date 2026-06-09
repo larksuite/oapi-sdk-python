@@ -8,7 +8,8 @@ from .batch_delete_document_block_children_response_body import BatchDeleteDocum
 
 class BatchDeleteDocumentBlockChildrenResponse(BaseResponse):
     _types = {
-        "data": BatchDeleteDocumentBlockChildrenResponseBody
+        "data": BatchDeleteDocumentBlockChildrenResponseBody,
+
     }
 
     def __init__(self, d=None):

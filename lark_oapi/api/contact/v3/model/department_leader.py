@@ -7,12 +7,12 @@ from lark_oapi.core.construct import init
 class DepartmentLeader(object):
     _types = {
         "leader_type": int,
-        "leader_i_d": str,
+        "leader_id": str,
     }
 
     def __init__(self, d=None):
         self.leader_type: Optional[int] = None
-        self.leader_i_d: Optional[str] = None
+        self.leader_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -28,8 +28,8 @@ class DepartmentLeaderBuilder(object):
         self._department_leader.leader_type = leader_type
         return self
 
-    def leader_i_d(self, leader_i_d: str) -> "DepartmentLeaderBuilder":
-        self._department_leader.leader_i_d = leader_i_d
+    def leader_id(self, leader_id: str) -> "DepartmentLeaderBuilder":
+        self._department_leader.leader_id = leader_id
         return self
 
     def build(self) -> "DepartmentLeader":

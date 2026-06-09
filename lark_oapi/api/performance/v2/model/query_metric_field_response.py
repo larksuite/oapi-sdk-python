@@ -8,7 +8,8 @@ from .query_metric_field_response_body import QueryMetricFieldResponseBody
 
 class QueryMetricFieldResponse(BaseResponse):
     _types = {
-        "data": QueryMetricFieldResponseBody
+        "data": QueryMetricFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

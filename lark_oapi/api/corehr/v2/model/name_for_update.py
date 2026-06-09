@@ -18,6 +18,15 @@ class NameForUpdate(object):
         "country_region": str,
         "name_type": str,
         "additional_name": str,
+        "wk_id": str,
+        "hereditary": str,
+        "secondary": str,
+        "social": str,
+        "tertiary": str,
+        "title": str,
+        "local_secondary": str,
+        "local_first_name_2": str,
+        "local_primary_2": str,
     }
 
     def __init__(self, d=None):
@@ -33,6 +42,15 @@ class NameForUpdate(object):
         self.country_region: Optional[str] = None
         self.name_type: Optional[str] = None
         self.additional_name: Optional[str] = None
+        self.wk_id: Optional[str] = None
+        self.hereditary: Optional[str] = None
+        self.secondary: Optional[str] = None
+        self.social: Optional[str] = None
+        self.tertiary: Optional[str] = None
+        self.title: Optional[str] = None
+        self.local_secondary: Optional[str] = None
+        self.local_first_name_2: Optional[str] = None
+        self.local_primary_2: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -90,6 +108,42 @@ class NameForUpdateBuilder(object):
 
     def additional_name(self, additional_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.additional_name = additional_name
+        return self
+
+    def wk_id(self, wk_id: str) -> "NameForUpdateBuilder":
+        self._name_for_update.wk_id = wk_id
+        return self
+
+    def hereditary(self, hereditary: str) -> "NameForUpdateBuilder":
+        self._name_for_update.hereditary = hereditary
+        return self
+
+    def secondary(self, secondary: str) -> "NameForUpdateBuilder":
+        self._name_for_update.secondary = secondary
+        return self
+
+    def social(self, social: str) -> "NameForUpdateBuilder":
+        self._name_for_update.social = social
+        return self
+
+    def tertiary(self, tertiary: str) -> "NameForUpdateBuilder":
+        self._name_for_update.tertiary = tertiary
+        return self
+
+    def title(self, title: str) -> "NameForUpdateBuilder":
+        self._name_for_update.title = title
+        return self
+
+    def local_secondary(self, local_secondary: str) -> "NameForUpdateBuilder":
+        self._name_for_update.local_secondary = local_secondary
+        return self
+
+    def local_first_name_2(self, local_first_name_2: str) -> "NameForUpdateBuilder":
+        self._name_for_update.local_first_name_2 = local_first_name_2
+        return self
+
+    def local_primary_2(self, local_primary_2: str) -> "NameForUpdateBuilder":
+        self._name_for_update.local_primary_2 = local_primary_2
         return self
 
     def build(self) -> "NameForUpdate":

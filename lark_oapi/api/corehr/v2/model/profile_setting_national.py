@@ -14,6 +14,8 @@ class ProfileSettingNational(object):
         "issued_by": str,
         "expiration_date": str,
         "custom_fields": List[ProfileSettingCustomField],
+        "series": str,
+        "effective_for_a_long_time": bool,
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,8 @@ class ProfileSettingNational(object):
         self.issued_by: Optional[str] = None
         self.expiration_date: Optional[str] = None
         self.custom_fields: Optional[List[ProfileSettingCustomField]] = None
+        self.series: Optional[str] = None
+        self.effective_for_a_long_time: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -61,6 +65,14 @@ class ProfileSettingNationalBuilder(object):
 
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.custom_fields = custom_fields
+        return self
+
+    def series(self, series: str) -> "ProfileSettingNationalBuilder":
+        self._profile_setting_national.series = series
+        return self
+
+    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "ProfileSettingNationalBuilder":
+        self._profile_setting_national.effective_for_a_long_time = effective_for_a_long_time
         return self
 
     def build(self) -> "ProfileSettingNational":

@@ -8,7 +8,8 @@ from .list_subregion_response_body import ListSubregionResponseBody
 
 class ListSubregionResponse(BaseResponse):
     _types = {
-        "data": ListSubregionResponseBody
+        "data": ListSubregionResponseBody,
+
     }
 
     def __init__(self, d=None):

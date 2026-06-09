@@ -34,6 +34,9 @@ class InputTask(object):
         "custom_fields": List[InputCustomFieldValue],
         "docx_source": DocxSource,
         "positive_reminders": List[Reminder],
+        "agent_task_status": int,
+        "agent_task_progress": str,
+        "text_deliveries": List[str],
     }
 
     def __init__(self, d=None):
@@ -55,6 +58,9 @@ class InputTask(object):
         self.custom_fields: Optional[List[InputCustomFieldValue]] = None
         self.docx_source: Optional[DocxSource] = None
         self.positive_reminders: Optional[List[Reminder]] = None
+        self.agent_task_status: Optional[int] = None
+        self.agent_task_progress: Optional[str] = None
+        self.text_deliveries: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -136,6 +142,18 @@ class InputTaskBuilder(object):
 
     def positive_reminders(self, positive_reminders: List[Reminder]) -> "InputTaskBuilder":
         self._input_task.positive_reminders = positive_reminders
+        return self
+
+    def agent_task_status(self, agent_task_status: int) -> "InputTaskBuilder":
+        self._input_task.agent_task_status = agent_task_status
+        return self
+
+    def agent_task_progress(self, agent_task_progress: str) -> "InputTaskBuilder":
+        self._input_task.agent_task_progress = agent_task_progress
+        return self
+
+    def text_deliveries(self, text_deliveries: List[str]) -> "InputTaskBuilder":
+        self._input_task.text_deliveries = text_deliveries
         return self
 
     def build(self) -> "InputTask":

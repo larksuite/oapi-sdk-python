@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .view_employment_info import ViewEmploymentInfo
 
 
 class ApplicationInfo(object):
@@ -10,6 +11,7 @@ class ApplicationInfo(object):
         "apply_initiating_time": str,
         "apply_finish_time": str,
         "process_id": str,
+        "apply_initiator": ViewEmploymentInfo,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,7 @@ class ApplicationInfo(object):
         self.apply_initiating_time: Optional[str] = None
         self.apply_finish_time: Optional[str] = None
         self.process_id: Optional[str] = None
+        self.apply_initiator: Optional[ViewEmploymentInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +45,10 @@ class ApplicationInfoBuilder(object):
 
     def process_id(self, process_id: str) -> "ApplicationInfoBuilder":
         self._application_info.process_id = process_id
+        return self
+
+    def apply_initiator(self, apply_initiator: ViewEmploymentInfo) -> "ApplicationInfoBuilder":
+        self._application_info.apply_initiator = apply_initiator
         return self
 
     def build(self) -> "ApplicationInfo":

@@ -18,6 +18,7 @@ def main():
         .sort_type("ByCreateTimeAsc") \
         .page_token("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==") \
         .page_size(20) \
+        .types("group") \
         .build()
 
     # 发起请求
@@ -48,6 +49,7 @@ async def amain():
         .sort_type("ByCreateTimeAsc") \
         .page_token("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==") \
         .page_size(20) \
+        .types("group") \
         .build()
 
     # 发起请求

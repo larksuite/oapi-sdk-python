@@ -19,8 +19,14 @@ from ..model.kickout_meeting_request import KickoutMeetingRequest
 from ..model.kickout_meeting_response import KickoutMeetingResponse
 from ..model.list_by_no_meeting_request import ListByNoMeetingRequest
 from ..model.list_by_no_meeting_response import ListByNoMeetingResponse
+from ..model.search_meeting_request import SearchMeetingRequest
+from ..model.search_meeting_response import SearchMeetingResponse
 from ..model.set_host_meeting_request import SetHostMeetingRequest
 from ..model.set_host_meeting_response import SetHostMeetingResponse
+from ..model.subscription_meeting_request import SubscriptionMeetingRequest
+from ..model.subscription_meeting_response import SubscriptionMeetingResponse
+from ..model.unsubscription_meeting_request import UnsubscriptionMeetingRequest
+from ..model.unsubscription_meeting_response import UnsubscriptionMeetingResponse
 
 
 class Meeting(object):
@@ -211,6 +217,43 @@ class Meeting(object):
 
         return response
 
+    def search(self, request: SearchMeetingRequest, option: Optional[RequestOption] = None) -> SearchMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMeetingResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchMeetingRequest,
+                      option: Optional[RequestOption] = None) -> SearchMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMeetingResponse)
+        response.raw = resp
+
+        return response
+
     def set_host(self, request: SetHostMeetingRequest,
                  option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
         if option is None:
@@ -245,6 +288,84 @@ class Meeting(object):
 
         # 反序列化
         response: SetHostMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetHostMeetingResponse)
+        response.raw = resp
+
+        return response
+
+    def subscription(self, request: SubscriptionMeetingRequest,
+                     option: Optional[RequestOption] = None) -> SubscriptionMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMeetingResponse)
+        response.raw = resp
+
+        return response
+
+    async def asubscription(self, request: SubscriptionMeetingRequest,
+                            option: Optional[RequestOption] = None) -> SubscriptionMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMeetingResponse)
+        response.raw = resp
+
+        return response
+
+    def unsubscription(self, request: UnsubscriptionMeetingRequest,
+                       option: Optional[RequestOption] = None) -> UnsubscriptionMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UnsubscriptionMeetingResponse)
+        response.raw = resp
+
+        return response
+
+    async def aunsubscription(self, request: UnsubscriptionMeetingRequest,
+                              option: Optional[RequestOption] = None) -> UnsubscriptionMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 UnsubscriptionMeetingResponse)
         response.raw = resp
 
         return response

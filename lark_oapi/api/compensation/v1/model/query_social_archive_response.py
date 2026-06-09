@@ -8,7 +8,8 @@ from .query_social_archive_response_body import QuerySocialArchiveResponseBody
 
 class QuerySocialArchiveResponse(BaseResponse):
     _types = {
-        "data": QuerySocialArchiveResponseBody
+        "data": QuerySocialArchiveResponseBody,
+
     }
 
     def __init__(self, d=None):

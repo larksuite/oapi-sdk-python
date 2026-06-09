@@ -21,6 +21,7 @@ def main():
         .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
+                      .record_id("recgcfdzKq")
                       .build()) \
         .build()
 
@@ -55,6 +56,7 @@ async def amain():
         .ignore_consistency_check(True) \
         .request_body(AppTableRecord.builder()
                       .fields({})
+                      .record_id("recgcfdzKq")
                       .build()) \
         .build()
 

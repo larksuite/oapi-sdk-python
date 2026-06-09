@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class GetUserMailboxMessageRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.format: Optional[str] = None
         self.user_mailbox_id: Optional[str] = None
         self.message_id: Optional[str] = None
 
@@ -24,6 +25,11 @@ class GetUserMailboxMessageRequestBuilder(object):
         get_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id"
         get_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_user_mailbox_message_request: GetUserMailboxMessageRequest = get_user_mailbox_message_request
+
+    def format(self, format: str) -> "GetUserMailboxMessageRequestBuilder":
+        self._get_user_mailbox_message_request.format = format
+        self._get_user_mailbox_message_request.add_query("format", format)
+        return self
 
     def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxMessageRequestBuilder":
         self._get_user_mailbox_message_request.user_mailbox_id = user_mailbox_id

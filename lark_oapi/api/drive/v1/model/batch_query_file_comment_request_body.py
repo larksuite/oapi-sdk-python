@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class BatchQueryFileCommentRequestBody(object):
     _types = {
         "comment_ids": List[str],
+        "need_reaction": bool,
     }
 
     def __init__(self, d=None):
         self.comment_ids: Optional[List[str]] = None
+        self.need_reaction: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class BatchQueryFileCommentRequestBodyBuilder(object):
 
     def comment_ids(self, comment_ids: List[str]) -> "BatchQueryFileCommentRequestBodyBuilder":
         self._batch_query_file_comment_request_body.comment_ids = comment_ids
+        return self
+
+    def need_reaction(self, need_reaction: bool) -> "BatchQueryFileCommentRequestBodyBuilder":
+        self._batch_query_file_comment_request_body.need_reaction = need_reaction
         return self
 
     def build(self) -> "BatchQueryFileCommentRequestBody":

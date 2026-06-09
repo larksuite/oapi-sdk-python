@@ -18,8 +18,8 @@ def main():
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewOVMEXPF") \
         .text_field_as_array(True) \
-        .page_token("fldwJ4YrtB") \
         .page_size(20) \
+        .page_token("fldwJ4YrtB") \
         .build()
 
     # 发起请求
@@ -50,8 +50,8 @@ async def amain():
         .table_id("tblsRc9GRRXKqhvW") \
         .view_id("vewOVMEXPF") \
         .text_field_as_array(True) \
-        .page_token("fldwJ4YrtB") \
         .page_size(20) \
+        .page_token("fldwJ4YrtB") \
         .build()
 
     # 发起请求

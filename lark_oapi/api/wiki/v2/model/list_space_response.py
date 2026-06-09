@@ -8,7 +8,8 @@ from .list_space_response_body import ListSpaceResponseBody
 
 class ListSpaceResponse(BaseResponse):
     _types = {
-        "data": ListSpaceResponseBody
+        "data": ListSpaceResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_talent_tag_response_body import ListTalentTagResponseBody
 
 class ListTalentTagResponse(BaseResponse):
     _types = {
-        "data": ListTalentTagResponseBody
+        "data": ListTalentTagResponseBody,
+
     }
 
     def __init__(self, d=None):

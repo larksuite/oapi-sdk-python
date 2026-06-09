@@ -8,7 +8,8 @@ from .deactivate_referral_account_response_body import DeactivateReferralAccount
 
 class DeactivateReferralAccountResponse(BaseResponse):
     _types = {
-        "data": DeactivateReferralAccountResponseBody
+        "data": DeactivateReferralAccountResponseBody,
+
     }
 
     def __init__(self, d=None):

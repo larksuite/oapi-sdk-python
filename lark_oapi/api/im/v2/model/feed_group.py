@@ -2,7 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .feed_group_rules import FeedGroupRules
+from .feed_group_rules_v2 import FeedGroupRulesV2
 
 
 class FeedGroup(object):
@@ -10,14 +10,14 @@ class FeedGroup(object):
         "group_id": str,
         "type": str,
         "name": str,
-        "rules": FeedGroupRules,
+        "rules": FeedGroupRulesV2,
     }
 
     def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.type: Optional[str] = None
         self.name: Optional[str] = None
-        self.rules: Optional[FeedGroupRules] = None
+        self.rules: Optional[FeedGroupRulesV2] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -41,7 +41,7 @@ class FeedGroupBuilder(object):
         self._feed_group.name = name
         return self
 
-    def rules(self, rules: FeedGroupRules) -> "FeedGroupBuilder":
+    def rules(self, rules: FeedGroupRulesV2) -> "FeedGroupBuilder":
         self._feed_group.rules = rules
         return self
 

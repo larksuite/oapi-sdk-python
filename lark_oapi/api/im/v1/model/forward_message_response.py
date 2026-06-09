@@ -8,7 +8,8 @@ from .forward_message_response_body import ForwardMessageResponseBody
 
 class ForwardMessageResponse(BaseResponse):
     _types = {
-        "data": ForwardMessageResponseBody
+        "data": ForwardMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

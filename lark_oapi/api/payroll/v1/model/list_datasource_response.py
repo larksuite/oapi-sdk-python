@@ -8,7 +8,8 @@ from .list_datasource_response_body import ListDatasourceResponseBody
 
 class ListDatasourceResponse(BaseResponse):
     _types = {
-        "data": ListDatasourceResponseBody
+        "data": ListDatasourceResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .field_extraction_contract_response_body import FieldExtractionContractResp
 
 class FieldExtractionContractResponse(BaseResponse):
     _types = {
-        "data": FieldExtractionContractResponseBody
+        "data": FieldExtractionContractResponseBody,
+
     }
 
     def __init__(self, d=None):

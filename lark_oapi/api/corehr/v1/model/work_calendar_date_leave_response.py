@@ -8,7 +8,8 @@ from .work_calendar_date_leave_response_body import WorkCalendarDateLeaveRespons
 
 class WorkCalendarDateLeaveResponse(BaseResponse):
     _types = {
-        "data": WorkCalendarDateLeaveResponseBody
+        "data": WorkCalendarDateLeaveResponseBody,
+
     }
 
     def __init__(self, d=None):

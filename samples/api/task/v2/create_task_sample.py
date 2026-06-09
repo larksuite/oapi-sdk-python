@@ -34,6 +34,9 @@ def main():
                       .custom_fields([])
                       .docx_source(DocxSource.builder().build())
                       .positive_reminders([])
+                      .agent_task_status(1)
+                      .agent_task_progress("1/4")
+                      .text_deliveries([])
                       .build()) \
         .build()
 
@@ -81,6 +84,9 @@ async def amain():
                       .custom_fields([])
                       .docx_source(DocxSource.builder().build())
                       .positive_reminders([])
+                      .agent_task_status(1)
+                      .agent_task_progress("1/4")
+                      .text_deliveries([])
                       .build()) \
         .build()
 

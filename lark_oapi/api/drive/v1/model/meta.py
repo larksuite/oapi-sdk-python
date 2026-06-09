@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .request_doc import RequestDoc
 
 
 class Meta(object):
@@ -15,6 +16,7 @@ class Meta(object):
         "latest_modify_time": int,
         "url": str,
         "sec_label_name": str,
+        "request_doc_info": RequestDoc,
     }
 
     def __init__(self, d=None):
@@ -27,6 +29,7 @@ class Meta(object):
         self.latest_modify_time: Optional[int] = None
         self.url: Optional[str] = None
         self.sec_label_name: Optional[str] = None
+        self.request_doc_info: Optional[RequestDoc] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +75,10 @@ class MetaBuilder(object):
 
     def sec_label_name(self, sec_label_name: str) -> "MetaBuilder":
         self._meta.sec_label_name = sec_label_name
+        return self
+
+    def request_doc_info(self, request_doc_info: RequestDoc) -> "MetaBuilder":
+        self._meta.request_doc_info = request_doc_info
         return self
 
     def build(self) -> "Meta":

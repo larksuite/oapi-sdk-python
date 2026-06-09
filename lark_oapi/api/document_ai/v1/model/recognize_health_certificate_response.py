@@ -8,7 +8,8 @@ from .recognize_health_certificate_response_body import RecognizeHealthCertifica
 
 class RecognizeHealthCertificateResponse(BaseResponse):
     _types = {
-        "data": RecognizeHealthCertificateResponseBody
+        "data": RecognizeHealthCertificateResponseBody,
+
     }
 
     def __init__(self, d=None):

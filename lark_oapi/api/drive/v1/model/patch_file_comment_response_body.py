@@ -6,9 +6,11 @@ from lark_oapi.core.construct import init
 
 class PatchFileCommentResponseBody(object):
     _types = {
+        "data": str,
     }
 
     def __init__(self, d=None):
+        self.data: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +21,10 @@ class PatchFileCommentResponseBody(object):
 class PatchFileCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_file_comment_response_body = PatchFileCommentResponseBody()
+
+    def data(self, data: str) -> "PatchFileCommentResponseBodyBuilder":
+        self._patch_file_comment_response_body.data = data
+        return self
 
     def build(self) -> "PatchFileCommentResponseBody":
         return self._patch_file_comment_response_body

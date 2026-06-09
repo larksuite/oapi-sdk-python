@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .mention_event import MentionEvent
+from .lark_agent_context import LarkAgentContext
 
 
 class EventMessage(object):
@@ -19,6 +20,7 @@ class EventMessage(object):
         "content": str,
         "mentions": List[MentionEvent],
         "user_agent": str,
+        "lark_agent_context": LarkAgentContext,
     }
 
     def __init__(self, d=None):
@@ -34,6 +36,7 @@ class EventMessage(object):
         self.content: Optional[str] = None
         self.mentions: Optional[List[MentionEvent]] = None
         self.user_agent: Optional[str] = None
+        self.lark_agent_context: Optional[LarkAgentContext] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -91,6 +94,10 @@ class EventMessageBuilder(object):
 
     def user_agent(self, user_agent: str) -> "EventMessageBuilder":
         self._event_message.user_agent = user_agent
+        return self
+
+    def lark_agent_context(self, lark_agent_context: LarkAgentContext) -> "EventMessageBuilder":
+        self._event_message.lark_agent_context = lark_agent_context
         return self
 
     def build(self) -> "EventMessage":

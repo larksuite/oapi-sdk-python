@@ -8,7 +8,8 @@ from .create_user_mailbox_alias_response_body import CreateUserMailboxAliasRespo
 
 class CreateUserMailboxAliasResponse(BaseResponse):
     _types = {
-        "data": CreateUserMailboxAliasResponseBody
+        "data": CreateUserMailboxAliasResponseBody,
+
     }
 
     def __init__(self, d=None):

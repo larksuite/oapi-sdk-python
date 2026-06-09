@@ -8,7 +8,8 @@ from .get_top_user_report_response_body import GetTopUserReportResponseBody
 
 class GetTopUserReportResponse(BaseResponse):
     _types = {
-        "data": GetTopUserReportResponseBody
+        "data": GetTopUserReportResponseBody,
+
     }
 
     def __init__(self, d=None):

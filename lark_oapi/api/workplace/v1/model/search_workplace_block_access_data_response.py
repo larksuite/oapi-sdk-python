@@ -8,7 +8,8 @@ from .search_workplace_block_access_data_response_body import SearchWorkplaceBlo
 
 class SearchWorkplaceBlockAccessDataResponse(BaseResponse):
     _types = {
-        "data": SearchWorkplaceBlockAccessDataResponseBody
+        "data": SearchWorkplaceBlockAccessDataResponseBody,
+
     }
 
     def __init__(self, d=None):

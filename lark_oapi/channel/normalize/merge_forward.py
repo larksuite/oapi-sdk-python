@@ -41,11 +41,11 @@ class MergeForwardExpander:
     """
 
     def __init__(
-        self,
-        fetch_message,
-        resolve_names=None,
-        max_depth: int = 3,
-        max_items: int = 50,
+            self,
+            fetch_message,
+            resolve_names=None,
+            max_depth: int = 3,
+            max_items: int = 50,
     ):
         self._fetch_message = fetch_message
         self._resolve_names = resolve_names
@@ -101,11 +101,11 @@ class MergeForwardExpander:
         return content
 
     def _materialize(
-        self,
-        parent_id: str,
-        children_map: Dict[str, List[Dict[str, Any]]],
-        name_map: Dict[str, str],
-        depth: int,
+            self,
+            parent_id: str,
+            children_map: Dict[str, List[Dict[str, Any]]],
+            name_map: Dict[str, str],
+            depth: int,
     ) -> MergeForwardContent:
         """Build one ``MergeForwardContent`` level from the pre-fetched map."""
         result = MergeForwardContent(loading=False)
@@ -133,11 +133,11 @@ class MergeForwardExpander:
         return result
 
     def _materialize_item(
-        self,
-        item: Dict[str, Any],
-        children_map: Dict[str, List[Dict[str, Any]]],
-        name_map: Dict[str, str],
-        depth: int,
+            self,
+            item: Dict[str, Any],
+            children_map: Dict[str, List[Dict[str, Any]]],
+            name_map: Dict[str, str],
+            depth: int,
     ) -> MergeForwardItem:
         mt = item.get("msg_type") or item.get("message_type") or ""
         oid = _get_sender_open_id(item)
@@ -191,7 +191,7 @@ def _extract_all_items(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 def _build_children_map(
-    items: List[Dict[str, Any]], root_id: str
+        items: List[Dict[str, Any]], root_id: str
 ) -> Dict[str, List[Dict[str, Any]]]:
     """Group items by ``upper_message_id`` (fall back to ``root_id``).
 

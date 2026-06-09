@@ -8,7 +8,8 @@ from .patch_document_block_response_body import PatchDocumentBlockResponseBody
 
 class PatchDocumentBlockResponse(BaseResponse):
     _types = {
-        "data": PatchDocumentBlockResponseBody
+        "data": PatchDocumentBlockResponseBody,
+
     }
 
     def __init__(self, d=None):

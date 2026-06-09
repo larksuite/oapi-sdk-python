@@ -22,7 +22,6 @@ from ..config import PolicyConfig
 from ..types import Identity, InboundMessage
 from .types import RejectReason
 
-
 _VALID_SENDER_IDENTITY_FIELDS = {"open_id", "user_id", "union_id"}
 
 
@@ -85,11 +84,11 @@ class PolicyGate:
         return self._evaluate_dm(msg, policy, sender_ids)
 
     def _evaluate_group(
-        self,
-        msg: InboundMessage,
-        policy: PolicyConfig,
-        bot_open_id: Optional[str],
-        sender_ids: Set[str],
+            self,
+            msg: InboundMessage,
+            policy: PolicyConfig,
+            bot_open_id: Optional[str],
+            sender_ids: Set[str],
     ) -> PolicyDecision:
         override = (policy.group_overrides or {}).get(msg.conversation.chat_id)
 
@@ -155,7 +154,7 @@ class PolicyGate:
         return PolicyDecision(True)
 
     def _evaluate_dm(
-        self, msg: InboundMessage, policy: PolicyConfig, sender_ids: Set[str]
+            self, msg: InboundMessage, policy: PolicyConfig, sender_ids: Set[str]
     ) -> PolicyDecision:
         if policy.dm_policy == "disabled":
             return PolicyDecision(False, "policy_dm_disabled")

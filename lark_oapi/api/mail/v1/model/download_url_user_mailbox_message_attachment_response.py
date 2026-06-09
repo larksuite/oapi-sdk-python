@@ -9,7 +9,8 @@ from .download_url_user_mailbox_message_attachment_response_body import \
 
 class DownloadUrlUserMailboxMessageAttachmentResponse(BaseResponse):
     _types = {
-        "data": DownloadUrlUserMailboxMessageAttachmentResponseBody
+        "data": DownloadUrlUserMailboxMessageAttachmentResponseBody,
+
     }
 
     def __init__(self, d=None):

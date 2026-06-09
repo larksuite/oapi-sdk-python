@@ -8,7 +8,8 @@ from .update_app_feed_card_batch_response_body import UpdateAppFeedCardBatchResp
 
 class UpdateAppFeedCardBatchResponse(BaseResponse):
     _types = {
-        "data": UpdateAppFeedCardBatchResponseBody
+        "data": UpdateAppFeedCardBatchResponseBody,
+
     }
 
     def __init__(self, d=None):

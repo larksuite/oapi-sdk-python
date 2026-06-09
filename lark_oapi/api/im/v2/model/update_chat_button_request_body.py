@@ -7,17 +7,17 @@ from .open_app_feed_card_buttons import OpenAppFeedCardButtons
 
 class UpdateChatButtonRequestBody(object):
     _types = {
+        "bot_id": str,
         "user_ids": List[str],
         "chat_id": str,
         "buttons": OpenAppFeedCardButtons,
-        "bot_id": str,
     }
 
     def __init__(self, d=None):
+        self.bot_id: Optional[str] = None
         self.user_ids: Optional[List[str]] = None
         self.chat_id: Optional[str] = None
         self.buttons: Optional[OpenAppFeedCardButtons] = None
-        self.bot_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,6 +29,10 @@ class UpdateChatButtonRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_chat_button_request_body = UpdateChatButtonRequestBody()
 
+    def bot_id(self, bot_id: str) -> "UpdateChatButtonRequestBodyBuilder":
+        self._update_chat_button_request_body.bot_id = bot_id
+        return self
+
     def user_ids(self, user_ids: List[str]) -> "UpdateChatButtonRequestBodyBuilder":
         self._update_chat_button_request_body.user_ids = user_ids
         return self
@@ -39,10 +43,6 @@ class UpdateChatButtonRequestBodyBuilder(object):
 
     def buttons(self, buttons: OpenAppFeedCardButtons) -> "UpdateChatButtonRequestBodyBuilder":
         self._update_chat_button_request_body.buttons = buttons
-        return self
-
-    def bot_id(self, bot_id: str) -> "UpdateChatButtonRequestBodyBuilder":
-        self._update_chat_button_request_body.bot_id = bot_id
         return self
 
     def build(self) -> "UpdateChatButtonRequestBody":

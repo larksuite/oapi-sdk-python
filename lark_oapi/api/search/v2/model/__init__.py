@@ -3,6 +3,9 @@ from .batch_item_result import *
 from .callback_action import *
 from .callback_action_value import *
 from .card_callback_request import *
+from .chat_filter import *
+from .chat_item import *
+from .chat_meta import *
 from .chunk import *
 from .connect_data_source import *
 from .connector_param import *
@@ -18,6 +21,7 @@ from .doc_passage_param import *
 from .doc_request import *
 from .doc_res_unit import *
 from .doc_response import *
+from .doc_wiki_token_filter import *
 from .enterprise_knowledge_source_comment_param import *
 from .enterprise_knowledge_source_helpdesk_param import *
 from .enterprise_knowledge_source_lingo_param import *
@@ -84,6 +88,7 @@ from .schema_user_ids_option import *
 from .seperate_passage import *
 from .simple_get_related_users_request import *
 from .simple_related_user import *
+from .sorter import *
 from .status import *
 from .system_info import *
 from .template_card_variables import *

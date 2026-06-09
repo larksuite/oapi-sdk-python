@@ -8,7 +8,8 @@ from .search_pre_hire_response_body import SearchPreHireResponseBody
 
 class SearchPreHireResponse(BaseResponse):
     _types = {
-        "data": SearchPreHireResponseBody
+        "data": SearchPreHireResponseBody,
+
     }
 
     def __init__(self, d=None):

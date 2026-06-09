@@ -8,7 +8,8 @@ from .get_meeting_recording_response_body import GetMeetingRecordingResponseBody
 
 class GetMeetingRecordingResponse(BaseResponse):
     _types = {
-        "data": GetMeetingRecordingResponseBody
+        "data": GetMeetingRecordingResponseBody,
+
     }
 
     def __init__(self, d=None):

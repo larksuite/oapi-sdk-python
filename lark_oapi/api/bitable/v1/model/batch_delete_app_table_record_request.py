@@ -9,6 +9,7 @@ from .batch_delete_app_table_record_request_body import BatchDeleteAppTableRecor
 class BatchDeleteAppTableRecordRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.ignore_consistency_check: Optional[bool] = None
         self.app_token: Optional[str] = None
         self.table_id: Optional[str] = None
         self.request_body: Optional[BatchDeleteAppTableRecordRequestBody] = None
@@ -26,6 +27,11 @@ class BatchDeleteAppTableRecordRequestBuilder(object):
         batch_delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
         batch_delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._batch_delete_app_table_record_request: BatchDeleteAppTableRecordRequest = batch_delete_app_table_record_request
+
+    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "BatchDeleteAppTableRecordRequestBuilder":
+        self._batch_delete_app_table_record_request.ignore_consistency_check = ignore_consistency_check
+        self._batch_delete_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+        return self
 
     def app_token(self, app_token: str) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.app_token = app_token

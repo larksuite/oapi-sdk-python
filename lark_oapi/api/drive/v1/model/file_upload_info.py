@@ -10,6 +10,7 @@ class FileUploadInfo(object):
         "parent_type": str,
         "parent_node": str,
         "size": int,
+        "file_token": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class FileUploadInfo(object):
         self.parent_type: Optional[str] = None
         self.parent_node: Optional[str] = None
         self.size: Optional[int] = None
+        self.file_token: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class FileUploadInfoBuilder(object):
 
     def size(self, size: int) -> "FileUploadInfoBuilder":
         self._file_upload_info.size = size
+        return self
+
+    def file_token(self, file_token: str) -> "FileUploadInfoBuilder":
+        self._file_upload_info.file_token = file_token
         return self
 
     def build(self) -> "FileUploadInfo":

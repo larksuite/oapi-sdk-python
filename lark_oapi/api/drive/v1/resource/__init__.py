@@ -9,6 +9,8 @@ from .file_view_record import *
 from .import_task import *
 from .media import *
 from .meta import *
+from .notice import *
 from .permission_member import *
 from .permission_public import *
 from .permission_public_password import *
+from .user import *

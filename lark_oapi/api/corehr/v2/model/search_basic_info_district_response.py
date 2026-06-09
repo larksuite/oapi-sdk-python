@@ -8,7 +8,8 @@ from .search_basic_info_district_response_body import SearchBasicInfoDistrictRes
 
 class SearchBasicInfoDistrictResponse(BaseResponse):
     _types = {
-        "data": SearchBasicInfoDistrictResponseBody
+        "data": SearchBasicInfoDistrictResponseBody,
+
     }
 
     def __init__(self, d=None):

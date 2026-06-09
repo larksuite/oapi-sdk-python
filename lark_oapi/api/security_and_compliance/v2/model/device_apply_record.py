@@ -13,6 +13,7 @@ class DeviceApplyRecord(object):
         "apply_status": int,
         "operator": str,
         "apply_device_ownership": int,
+        "apply_reason": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class DeviceApplyRecord(object):
         self.apply_status: Optional[int] = None
         self.operator: Optional[str] = None
         self.apply_device_ownership: Optional[int] = None
+        self.apply_reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class DeviceApplyRecordBuilder(object):
 
     def apply_device_ownership(self, apply_device_ownership: int) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.apply_device_ownership = apply_device_ownership
+        return self
+
+    def apply_reason(self, apply_reason: str) -> "DeviceApplyRecordBuilder":
+        self._device_apply_record.apply_reason = apply_reason
         return self
 
     def build(self) -> "DeviceApplyRecord":

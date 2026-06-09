@@ -8,7 +8,8 @@ from .search_talent_pool_response_body import SearchTalentPoolResponseBody
 
 class SearchTalentPoolResponse(BaseResponse):
     _types = {
-        "data": SearchTalentPoolResponseBody
+        "data": SearchTalentPoolResponseBody,
+
     }
 
     def __init__(self, d=None):

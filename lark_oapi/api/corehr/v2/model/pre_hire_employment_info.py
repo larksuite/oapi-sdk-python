@@ -89,6 +89,7 @@ class PreHireEmploymentInfo(object):
         "cost_allocation": CostAllocation,
         "reuse_feishu_account": str,
         "reused_feishu_account_id": str,
+        "work_country_id": str,
     }
 
     def __init__(self, d=None):
@@ -160,6 +161,7 @@ class PreHireEmploymentInfo(object):
         self.cost_allocation: Optional[CostAllocation] = None
         self.reuse_feishu_account: Optional[str] = None
         self.reused_feishu_account_id: Optional[str] = None
+        self.work_country_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -453,6 +455,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def reused_feishu_account_id(self, reused_feishu_account_id: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.reused_feishu_account_id = reused_feishu_account_id
+        return self
+
+    def work_country_id(self, work_country_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.work_country_id = work_country_id
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

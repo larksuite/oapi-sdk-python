@@ -12,6 +12,8 @@ class P2HireEcoExamCreatedV1Data(object):
         "account_id": str,
         "paper_id": str,
         "candidate_info": EcoExamCreateEventCandidateInfo,
+        "talent_id": str,
+        "application_id": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,8 @@ class P2HireEcoExamCreatedV1Data(object):
         self.account_id: Optional[str] = None
         self.paper_id: Optional[str] = None
         self.candidate_info: Optional[EcoExamCreateEventCandidateInfo] = None
+        self.talent_id: Optional[str] = None
+        self.application_id: Optional[str] = None
         init(self, d, self._types)
 
 

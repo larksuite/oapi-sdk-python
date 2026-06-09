@@ -8,7 +8,8 @@ from .get_public_mailbox_member_response_body import GetPublicMailboxMemberRespo
 
 class GetPublicMailboxMemberResponse(BaseResponse):
     _types = {
-        "data": GetPublicMailboxMemberResponseBody
+        "data": GetPublicMailboxMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

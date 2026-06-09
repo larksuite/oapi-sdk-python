@@ -8,7 +8,8 @@ from .recognize_tw_mainland_travel_permit_response_body import RecognizeTwMainla
 
 class RecognizeTwMainlandTravelPermitResponse(BaseResponse):
     _types = {
-        "data": RecognizeTwMainlandTravelPermitResponseBody
+        "data": RecognizeTwMainlandTravelPermitResponseBody,
+
     }
 
     def __init__(self, d=None):

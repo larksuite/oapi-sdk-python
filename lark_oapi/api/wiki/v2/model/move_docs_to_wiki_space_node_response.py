@@ -8,7 +8,8 @@ from .move_docs_to_wiki_space_node_response_body import MoveDocsToWikiSpaceNodeR
 
 class MoveDocsToWikiSpaceNodeResponse(BaseResponse):
     _types = {
-        "data": MoveDocsToWikiSpaceNodeResponseBody
+        "data": MoveDocsToWikiSpaceNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

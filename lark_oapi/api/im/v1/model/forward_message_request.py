@@ -25,7 +25,7 @@ class ForwardMessageRequestBuilder(object):
         forward_message_request = ForwardMessageRequest()
         forward_message_request.http_method = HttpMethod.POST
         forward_message_request.uri = "/open-apis/im/v1/messages/:message_id/forward"
-        forward_message_request.token_types = {AccessTokenType.TENANT}
+        forward_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._forward_message_request: ForwardMessageRequest = forward_message_request
 
     def receive_id_type(self, receive_id_type: str) -> "ForwardMessageRequestBuilder":

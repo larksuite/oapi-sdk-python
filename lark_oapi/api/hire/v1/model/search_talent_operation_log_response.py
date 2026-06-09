@@ -8,7 +8,8 @@ from .search_talent_operation_log_response_body import SearchTalentOperationLogR
 
 class SearchTalentOperationLogResponse(BaseResponse):
     _types = {
-        "data": SearchTalentOperationLogResponseBody
+        "data": SearchTalentOperationLogResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .is_in_chat_chat_members_response_body import IsInChatChatMembersResponseBo
 
 class IsInChatChatMembersResponse(BaseResponse):
     _types = {
-        "data": IsInChatChatMembersResponseBody
+        "data": IsInChatChatMembersResponseBody,
+
     }
 
     def __init__(self, d=None):

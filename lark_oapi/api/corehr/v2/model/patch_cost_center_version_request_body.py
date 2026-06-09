@@ -9,20 +9,24 @@ from .i18n import I18n
 class PatchCostCenterVersionRequestBody(object):
     _types = {
         "name": List[I18n],
+        "code": str,
         "parent_cost_center_id": str,
         "managers": List[str],
         "description": List[I18n],
         "effective_time": str,
         "operation_reason": str,
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
         self.name: Optional[List[I18n]] = None
+        self.code: Optional[str] = None
         self.parent_cost_center_id: Optional[str] = None
         self.managers: Optional[List[str]] = None
         self.description: Optional[List[I18n]] = None
         self.effective_time: Optional[str] = None
         self.operation_reason: Optional[str] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +40,10 @@ class PatchCostCenterVersionRequestBodyBuilder(object):
 
     def name(self, name: List[I18n]) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.name = name
+        return self
+
+    def code(self, code: str) -> "PatchCostCenterVersionRequestBodyBuilder":
+        self._patch_cost_center_version_request_body.code = code
         return self
 
     def parent_cost_center_id(self, parent_cost_center_id: str) -> "PatchCostCenterVersionRequestBodyBuilder":
@@ -56,6 +64,10 @@ class PatchCostCenterVersionRequestBodyBuilder(object):
 
     def operation_reason(self, operation_reason: str) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.operation_reason = operation_reason
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "PatchCostCenterVersionRequestBodyBuilder":
+        self._patch_cost_center_version_request_body.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "PatchCostCenterVersionRequestBody":

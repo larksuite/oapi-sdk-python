@@ -8,7 +8,8 @@ from .get_user_response_body import GetUserResponseBody
 
 class GetUserResponse(BaseResponse):
     _types = {
-        "data": GetUserResponseBody
+        "data": GetUserResponseBody,
+
     }
 
     def __init__(self, d=None):

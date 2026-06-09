@@ -25,7 +25,7 @@ class CreateChatRequestBuilder(object):
         create_chat_request = CreateChatRequest()
         create_chat_request.http_method = HttpMethod.POST
         create_chat_request.uri = "/open-apis/im/v1/chats"
-        create_chat_request.token_types = {AccessTokenType.TENANT}
+        create_chat_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_chat_request: CreateChatRequest = create_chat_request
 
     def user_id_type(self, user_id_type: str) -> "CreateChatRequestBuilder":

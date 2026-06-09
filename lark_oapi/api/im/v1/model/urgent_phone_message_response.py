@@ -8,7 +8,8 @@ from .urgent_phone_message_response_body import UrgentPhoneMessageResponseBody
 
 class UrgentPhoneMessageResponse(BaseResponse):
     _types = {
-        "data": UrgentPhoneMessageResponseBody
+        "data": UrgentPhoneMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

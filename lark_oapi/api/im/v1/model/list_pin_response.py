@@ -8,7 +8,8 @@ from .list_pin_response_body import ListPinResponseBody
 
 class ListPinResponse(BaseResponse):
     _types = {
-        "data": ListPinResponseBody
+        "data": ListPinResponseBody,
+
     }
 
     def __init__(self, d=None):

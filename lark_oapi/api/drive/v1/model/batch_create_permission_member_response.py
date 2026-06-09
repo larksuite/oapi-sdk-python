@@ -8,7 +8,8 @@ from .batch_create_permission_member_response_body import BatchCreatePermissionM
 
 class BatchCreatePermissionMemberResponse(BaseResponse):
     _types = {
-        "data": BatchCreatePermissionMemberResponseBody
+        "data": BatchCreatePermissionMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

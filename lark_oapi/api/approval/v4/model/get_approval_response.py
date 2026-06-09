@@ -8,7 +8,8 @@ from .get_approval_response_body import GetApprovalResponseBody
 
 class GetApprovalResponse(BaseResponse):
     _types = {
-        "data": GetApprovalResponseBody
+        "data": GetApprovalResponseBody,
+
     }
 
     def __init__(self, d=None):

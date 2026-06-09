@@ -9,7 +9,8 @@ from .open_query_position_change_list_by_ids_approval_groups_response_body impor
 
 class OpenQueryPositionChangeListByIdsApprovalGroupsResponse(BaseResponse):
     _types = {
-        "data": OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody
+        "data": OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody,
+
     }
 
     def __init__(self, d=None):

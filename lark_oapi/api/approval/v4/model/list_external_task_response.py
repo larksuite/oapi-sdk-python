@@ -8,7 +8,8 @@ from .list_external_task_response_body import ListExternalTaskResponseBody
 
 class ListExternalTaskResponse(BaseResponse):
     _types = {
-        "data": ListExternalTaskResponseBody
+        "data": ListExternalTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

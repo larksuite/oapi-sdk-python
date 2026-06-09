@@ -55,6 +55,7 @@ from .block_i18n_info import *
 from .bot import *
 from .bot_display_info import *
 from .callback import *
+from .callback_info import *
 from .client_badge_num import *
 from .cloud_doc import *
 from .cloud_doc_i18n_info import *
@@ -63,6 +64,7 @@ from .docs_block import *
 from .event import *
 from .event_and_callback_encrypt_strategy import *
 from .gadget import *
+from .larksuite_cli_app import *
 from .message_action import *
 from .message_action_i18n_info import *
 from .message_overview_item import *

@@ -8,7 +8,8 @@ from .get_process_response_body import GetProcessResponseBody
 
 class GetProcessResponse(BaseResponse):
     _types = {
-        "data": GetProcessResponseBody
+        "data": GetProcessResponseBody,
+
     }
 
     def __init__(self, d=None):

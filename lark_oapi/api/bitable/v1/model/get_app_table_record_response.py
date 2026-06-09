@@ -8,7 +8,8 @@ from .get_app_table_record_response_body import GetAppTableRecordResponseBody
 
 class GetAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": GetAppTableRecordResponseBody
+        "data": GetAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

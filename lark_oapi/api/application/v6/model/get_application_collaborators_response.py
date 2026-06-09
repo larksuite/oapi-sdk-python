@@ -8,7 +8,8 @@ from .get_application_collaborators_response_body import GetApplicationCollabora
 
 class GetApplicationCollaboratorsResponse(BaseResponse):
     _types = {
-        "data": GetApplicationCollaboratorsResponseBody
+        "data": GetApplicationCollaboratorsResponseBody,
+
     }
 
     def __init__(self, d=None):

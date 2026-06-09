@@ -8,7 +8,8 @@ from .list_collboration_share_entity_response_body import ListCollborationShareE
 
 class ListCollborationShareEntityResponse(BaseResponse):
     _types = {
-        "data": ListCollborationShareEntityResponseBody
+        "data": ListCollborationShareEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

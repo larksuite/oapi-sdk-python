@@ -8,7 +8,8 @@ from .search_chat_response_body import SearchChatResponseBody
 
 class SearchChatResponse(BaseResponse):
     _types = {
-        "data": SearchChatResponseBody
+        "data": SearchChatResponseBody,
+
     }
 
     def __init__(self, d=None):

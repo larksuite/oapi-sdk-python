@@ -8,7 +8,8 @@ from .flow_variable_data_process_response_body import FlowVariableDataProcessRes
 
 class FlowVariableDataProcessResponse(BaseResponse):
     _types = {
-        "data": FlowVariableDataProcessResponseBody
+        "data": FlowVariableDataProcessResponseBody,
+
     }
 
     def __init__(self, d=None):

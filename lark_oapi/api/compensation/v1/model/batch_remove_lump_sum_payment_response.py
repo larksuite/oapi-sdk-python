@@ -8,7 +8,8 @@ from .batch_remove_lump_sum_payment_response_body import BatchRemoveLumpSumPayme
 
 class BatchRemoveLumpSumPaymentResponse(BaseResponse):
     _types = {
-        "data": BatchRemoveLumpSumPaymentResponseBody
+        "data": BatchRemoveLumpSumPaymentResponseBody,
+
     }
 
     def __init__(self, d=None):

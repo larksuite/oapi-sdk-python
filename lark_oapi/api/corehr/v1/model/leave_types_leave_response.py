@@ -8,7 +8,8 @@ from .leave_types_leave_response_body import LeaveTypesLeaveResponseBody
 
 class LeaveTypesLeaveResponse(BaseResponse):
     _types = {
-        "data": LeaveTypesLeaveResponseBody
+        "data": LeaveTypesLeaveResponseBody,
+
     }
 
     def __init__(self, d=None):

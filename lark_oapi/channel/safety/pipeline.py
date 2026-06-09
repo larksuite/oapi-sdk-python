@@ -43,20 +43,20 @@ class SafetyPipeline:
     """Facade that wires stale / dedup / policy / lock / batch / queue."""
 
     def __init__(
-        self,
-        *,
-        loop: asyncio.AbstractEventLoop,
-        on_message: MessageDispatch,
-        on_reject: Optional[OnReject] = None,
-        policy: Optional[PolicyConfig] = None,
-        cache: Optional[ICache] = None,
-        dedup_config: Optional[DedupConfig] = None,
-        batch_config: Optional[TextBatchConfig] = None,
-        media_batch_config: Optional[MediaBatchConfig] = None,
-        queue_config: Optional[ChatQueueConfig] = None,
-        stale_window_ms: int = DEFAULT_STALE_MS,
-        processing_lock_ttl_ms: int = 5 * 60 * 1000,
-        drop_self_sent: bool = True,
+            self,
+            *,
+            loop: asyncio.AbstractEventLoop,
+            on_message: MessageDispatch,
+            on_reject: Optional[OnReject] = None,
+            policy: Optional[PolicyConfig] = None,
+            cache: Optional[ICache] = None,
+            dedup_config: Optional[DedupConfig] = None,
+            batch_config: Optional[TextBatchConfig] = None,
+            media_batch_config: Optional[MediaBatchConfig] = None,
+            queue_config: Optional[ChatQueueConfig] = None,
+            stale_window_ms: int = DEFAULT_STALE_MS,
+            processing_lock_ttl_ms: int = 5 * 60 * 1000,
+            drop_self_sent: bool = True,
     ) -> None:
         self._loop = loop
         self._on_message = on_message
@@ -123,7 +123,7 @@ class SafetyPipeline:
         """Run a message through the complete safety gauntlet."""
         # 1. Stale detector — emits RejectEvent(reason="stale") so subscribers
         #    can observe the drop.
-        if is_stale(msg.create_time * 1000 if msg.create_time < 10**12 else msg.create_time,
+        if is_stale(msg.create_time * 1000 if msg.create_time < 10 ** 12 else msg.create_time,
                     self._stale_window_ms):
             logger.debug("safety: stale drop message_id=%s", msg.id)
             self._emit_reject(msg, "stale")
@@ -140,9 +140,9 @@ class SafetyPipeline:
         #     unknown identity skips the filter so legitimate user messages
         #     during startup aren't dropped.
         if (
-            self._drop_self_sent
-            and self._bot_open_id is not None
-            and msg.sender.open_id == self._bot_open_id
+                self._drop_self_sent
+                and self._bot_open_id is not None
+                and msg.sender.open_id == self._bot_open_id
         ):
             logger.debug("safety: self-sent drop message_id=%s", msg.id)
             self._emit_reject(msg, "self_sent")
@@ -205,7 +205,7 @@ class SafetyPipeline:
                 self._lock.release(m.id)
 
     async def _message_flush_handler(
-        self, merged: InboundMessage, sources: "list[InboundMessage]"
+            self, merged: InboundMessage, sources: "list[InboundMessage]"
     ) -> None:
         try:
             await _maybe_await(self._on_message(merged))
@@ -224,10 +224,10 @@ class SafetyPipeline:
 
     # ---- tier 2: cardAction / comment (dedup + lock + serial) ----------------
     async def push_action(
-        self,
-        event_id: str,
-        queue_scope: str,
-        handler: Callable[[], Awaitable[None]],
+            self,
+            event_id: str,
+            queue_scope: str,
+            handler: Callable[[], Awaitable[None]],
     ) -> None:
         if await self._seen.has(event_id):
             logger.debug("safety: dedup drop action event_id=%s", event_id)
@@ -254,9 +254,9 @@ class SafetyPipeline:
 
     # ---- tier 3: reaction (dedup only) ---------------------------------------
     async def push_light(
-        self,
-        event_id: str,
-        handler: Callable[[], Awaitable[None]],
+            self,
+            event_id: str,
+            handler: Callable[[], Awaitable[None]],
     ) -> None:
         if await self._seen.has(event_id):
             logger.debug("safety: dedup drop light event_id=%s", event_id)

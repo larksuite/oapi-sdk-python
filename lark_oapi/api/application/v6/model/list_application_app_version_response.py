@@ -8,7 +8,8 @@ from .list_application_app_version_response_body import ListApplicationAppVersio
 
 class ListApplicationAppVersionResponse(BaseResponse):
     _types = {
-        "data": ListApplicationAppVersionResponseBody
+        "data": ListApplicationAppVersionResponseBody,
+
     }
 
     def __init__(self, d=None):

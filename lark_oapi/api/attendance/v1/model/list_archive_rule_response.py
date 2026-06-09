@@ -8,7 +8,8 @@ from .list_archive_rule_response_body import ListArchiveRuleResponseBody
 
 class ListArchiveRuleResponse(BaseResponse):
     _types = {
-        "data": ListArchiveRuleResponseBody
+        "data": ListArchiveRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

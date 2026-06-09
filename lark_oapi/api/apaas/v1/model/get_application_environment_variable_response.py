@@ -8,7 +8,8 @@ from .get_application_environment_variable_response_body import GetApplicationEn
 
 class GetApplicationEnvironmentVariableResponse(BaseResponse):
     _types = {
-        "data": GetApplicationEnvironmentVariableResponseBody
+        "data": GetApplicationEnvironmentVariableResponseBody,
+
     }
 
     def __init__(self, d=None):

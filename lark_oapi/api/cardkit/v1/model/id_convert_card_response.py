@@ -8,7 +8,8 @@ from .id_convert_card_response_body import IdConvertCardResponseBody
 
 class IdConvertCardResponse(BaseResponse):
     _types = {
-        "data": IdConvertCardResponseBody
+        "data": IdConvertCardResponseBody,
+
     }
 
     def __init__(self, d=None):

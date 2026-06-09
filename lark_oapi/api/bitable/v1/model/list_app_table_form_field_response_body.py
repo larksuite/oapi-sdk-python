@@ -2,19 +2,19 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .app_table_form_field import AppTableFormField
+from .form_field import FormField
 
 
 class ListAppTableFormFieldResponseBody(object):
     _types = {
-        "items": List[AppTableFormField],
+        "items": List[FormField],
         "page_token": str,
         "has_more": bool,
         "total": int,
     }
 
     def __init__(self, d=None):
-        self.items: Optional[List[AppTableFormField]] = None
+        self.items: Optional[List[FormField]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
         self.total: Optional[int] = None
@@ -29,7 +29,7 @@ class ListAppTableFormFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_table_form_field_response_body = ListAppTableFormFieldResponseBody()
 
-    def items(self, items: List[AppTableFormField]) -> "ListAppTableFormFieldResponseBodyBuilder":
+    def items(self, items: List[FormField]) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.items = items
         return self
 

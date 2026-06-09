@@ -8,7 +8,8 @@ from .list_app_dashboard_response_body import ListAppDashboardResponseBody
 
 class ListAppDashboardResponse(BaseResponse):
     _types = {
-        "data": ListAppDashboardResponseBody
+        "data": ListAppDashboardResponseBody,
+
     }
 
     def __init__(self, d=None):

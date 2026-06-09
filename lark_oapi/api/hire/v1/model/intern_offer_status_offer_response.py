@@ -8,7 +8,8 @@ from .intern_offer_status_offer_response_body import InternOfferStatusOfferRespo
 
 class InternOfferStatusOfferResponse(BaseResponse):
     _types = {
-        "data": InternOfferStatusOfferResponseBody
+        "data": InternOfferStatusOfferResponseBody,
+
     }
 
     def __init__(self, d=None):

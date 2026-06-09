@@ -25,7 +25,7 @@ class ForwardThreadRequestBuilder(object):
         forward_thread_request = ForwardThreadRequest()
         forward_thread_request.http_method = HttpMethod.POST
         forward_thread_request.uri = "/open-apis/im/v1/threads/:thread_id/forward"
-        forward_thread_request.token_types = {AccessTokenType.TENANT}
+        forward_thread_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._forward_thread_request: ForwardThreadRequest = forward_thread_request
 
     def receive_id_type(self, receive_id_type: str) -> "ForwardThreadRequestBuilder":

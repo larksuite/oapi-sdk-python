@@ -8,7 +8,8 @@ from .batch_query_cost_allocation_response_body import BatchQueryCostAllocationR
 
 class BatchQueryCostAllocationResponse(BaseResponse):
     _types = {
-        "data": BatchQueryCostAllocationResponseBody
+        "data": BatchQueryCostAllocationResponseBody,
+
     }
 
     def __init__(self, d=None):

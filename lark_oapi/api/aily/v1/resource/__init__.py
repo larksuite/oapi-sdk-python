@@ -5,3 +5,4 @@ from .app_data_asset import *
 from .app_data_asset_tag import *
 from .app_knowledge import *
 from .app_skill import *
+from .tenant_app_stat import *

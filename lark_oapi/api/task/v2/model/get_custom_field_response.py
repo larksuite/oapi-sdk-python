@@ -8,7 +8,8 @@ from .get_custom_field_response_body import GetCustomFieldResponseBody
 
 class GetCustomFieldResponse(BaseResponse):
     _types = {
-        "data": GetCustomFieldResponseBody
+        "data": GetCustomFieldResponseBody,
+
     }
 
     def __init__(self, d=None):

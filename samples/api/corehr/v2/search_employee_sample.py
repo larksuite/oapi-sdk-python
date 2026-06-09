@@ -59,6 +59,8 @@ def main():
                       .assignment_pay_group_id_list([])
                       .contract_type_list([])
                       .archive_cpst_plan_id_list([])
+                      .is_direct_leader(bool)
+                      .is_dotted_leader(bool)
                       .build()) \
         .build()
 
@@ -131,6 +133,8 @@ async def amain():
                       .assignment_pay_group_id_list([])
                       .contract_type_list([])
                       .archive_cpst_plan_id_list([])
+                      .is_direct_leader(bool)
+                      .is_dotted_leader(bool)
                       .build()) \
         .build()
 

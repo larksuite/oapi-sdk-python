@@ -8,7 +8,8 @@ from .patch_calendar_response_body import PatchCalendarResponseBody
 
 class PatchCalendarResponse(BaseResponse):
     _types = {
-        "data": PatchCalendarResponseBody
+        "data": PatchCalendarResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_user_role_response_body import ListUserRoleResponseBody
 
 class ListUserRoleResponse(BaseResponse):
     _types = {
-        "data": ListUserRoleResponseBody
+        "data": ListUserRoleResponseBody,
+
     }
 
     def __init__(self, d=None):

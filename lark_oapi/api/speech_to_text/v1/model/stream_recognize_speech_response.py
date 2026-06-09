@@ -8,7 +8,8 @@ from .stream_recognize_speech_response_body import StreamRecognizeSpeechResponse
 
 class StreamRecognizeSpeechResponse(BaseResponse):
     _types = {
-        "data": StreamRecognizeSpeechResponseBody
+        "data": StreamRecognizeSpeechResponseBody,
+
     }
 
     def __init__(self, d=None):

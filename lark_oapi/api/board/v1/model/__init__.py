@@ -1,4 +1,5 @@
 from .auth_info import *
+from .border_radius import *
 from .client_info import *
 from .composite_shape import *
 from .connector import *
@@ -7,6 +8,8 @@ from .connector_caption import *
 from .connector_info import *
 from .cube import *
 from .department_id import *
+from .fill_gradient import *
+from .gradient_stop import *
 from .head import *
 from .image import *
 from .lifeline import *
@@ -25,9 +28,11 @@ from .rich_text_element_text import *
 from .rich_text_element_text_style import *
 from .rich_text_paragraph import *
 from .section import *
+from .shadow import *
 from .sticky_note import *
 from .style import *
 from .svg import *
+from .syntax import *
 from .table import *
 from .table_cell import *
 from .table_cell_merge_info import *
@@ -39,6 +44,8 @@ from .download_as_image_whiteboard_request import *
 from .theme_whiteboard_request import *
 from .update_theme_whiteboard_request_body import *
 from .update_theme_whiteboard_request import *
+from .batch_delete_whiteboard_node_request_body import *
+from .batch_delete_whiteboard_node_request import *
 from .create_whiteboard_node_request_body import *
 from .create_whiteboard_node_request import *
 from .create_plantuml_whiteboard_node_request_body import *
@@ -48,6 +55,8 @@ from .download_as_image_whiteboard_response import *
 from .theme_whiteboard_response_body import *
 from .theme_whiteboard_response import *
 from .update_theme_whiteboard_response import *
+from .batch_delete_whiteboard_node_response_body import *
+from .batch_delete_whiteboard_node_response import *
 from .create_whiteboard_node_response_body import *
 from .create_whiteboard_node_response import *
 from .create_plantuml_whiteboard_node_response_body import *

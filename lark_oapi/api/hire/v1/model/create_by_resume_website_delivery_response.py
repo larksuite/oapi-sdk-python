@@ -8,7 +8,8 @@ from .create_by_resume_website_delivery_response_body import CreateByResumeWebsi
 
 class CreateByResumeWebsiteDeliveryResponse(BaseResponse):
     _types = {
-        "data": CreateByResumeWebsiteDeliveryResponseBody
+        "data": CreateByResumeWebsiteDeliveryResponseBody,
+
     }
 
     def __init__(self, d=None):

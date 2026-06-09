@@ -28,6 +28,15 @@ class DeviceRecord(object):
         "is_managed": bool,
         "mdm_device_id": str,
         "mdm_provider_name": str,
+        "lsa_info": str,
+        "device_env_info": str,
+        "created_at": int,
+        "updated_at": int,
+        "is_public": bool,
+        "source": int,
+        "cert_verified_at_unix": int,
+        "cert_serial_number": str,
+        "cert_issuer": str,
     }
 
     def __init__(self, d=None):
@@ -53,6 +62,15 @@ class DeviceRecord(object):
         self.is_managed: Optional[bool] = None
         self.mdm_device_id: Optional[str] = None
         self.mdm_provider_name: Optional[str] = None
+        self.lsa_info: Optional[str] = None
+        self.device_env_info: Optional[str] = None
+        self.created_at: Optional[int] = None
+        self.updated_at: Optional[int] = None
+        self.is_public: Optional[bool] = None
+        self.source: Optional[int] = None
+        self.cert_verified_at_unix: Optional[int] = None
+        self.cert_serial_number: Optional[str] = None
+        self.cert_issuer: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -150,6 +168,42 @@ class DeviceRecordBuilder(object):
 
     def mdm_provider_name(self, mdm_provider_name: str) -> "DeviceRecordBuilder":
         self._device_record.mdm_provider_name = mdm_provider_name
+        return self
+
+    def lsa_info(self, lsa_info: str) -> "DeviceRecordBuilder":
+        self._device_record.lsa_info = lsa_info
+        return self
+
+    def device_env_info(self, device_env_info: str) -> "DeviceRecordBuilder":
+        self._device_record.device_env_info = device_env_info
+        return self
+
+    def created_at(self, created_at: int) -> "DeviceRecordBuilder":
+        self._device_record.created_at = created_at
+        return self
+
+    def updated_at(self, updated_at: int) -> "DeviceRecordBuilder":
+        self._device_record.updated_at = updated_at
+        return self
+
+    def is_public(self, is_public: bool) -> "DeviceRecordBuilder":
+        self._device_record.is_public = is_public
+        return self
+
+    def source(self, source: int) -> "DeviceRecordBuilder":
+        self._device_record.source = source
+        return self
+
+    def cert_verified_at_unix(self, cert_verified_at_unix: int) -> "DeviceRecordBuilder":
+        self._device_record.cert_verified_at_unix = cert_verified_at_unix
+        return self
+
+    def cert_serial_number(self, cert_serial_number: str) -> "DeviceRecordBuilder":
+        self._device_record.cert_serial_number = cert_serial_number
+        return self
+
+    def cert_issuer(self, cert_issuer: str) -> "DeviceRecordBuilder":
+        self._device_record.cert_issuer = cert_issuer
         return self
 
     def build(self) -> "DeviceRecord":

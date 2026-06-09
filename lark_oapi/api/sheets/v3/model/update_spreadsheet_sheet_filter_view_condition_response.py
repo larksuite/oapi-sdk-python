@@ -9,7 +9,8 @@ from .update_spreadsheet_sheet_filter_view_condition_response_body import \
 
 class UpdateSpreadsheetSheetFilterViewConditionResponse(BaseResponse):
     _types = {
-        "data": UpdateSpreadsheetSheetFilterViewConditionResponseBody
+        "data": UpdateSpreadsheetSheetFilterViewConditionResponseBody,
+
     }
 
     def __init__(self, d=None):

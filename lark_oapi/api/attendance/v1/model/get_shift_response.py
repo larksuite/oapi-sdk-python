@@ -8,7 +8,8 @@ from .get_shift_response_body import GetShiftResponseBody
 
 class GetShiftResponse(BaseResponse):
     _types = {
-        "data": GetShiftResponseBody
+        "data": GetShiftResponseBody,
+
     }
 
     def __init__(self, d=None):

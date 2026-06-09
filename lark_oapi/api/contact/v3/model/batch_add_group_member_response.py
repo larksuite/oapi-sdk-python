@@ -8,7 +8,8 @@ from .batch_add_group_member_response_body import BatchAddGroupMemberResponseBod
 
 class BatchAddGroupMemberResponse(BaseResponse):
     _types = {
-        "data": BatchAddGroupMemberResponseBody
+        "data": BatchAddGroupMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

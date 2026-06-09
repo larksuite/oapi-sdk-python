@@ -2,16 +2,16 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .base_member import BaseMember
+from .member import Member
 
 
 class BatchCreatePermissionMemberRequestBody(object):
     _types = {
-        "members": List[BaseMember],
+        "members": List[Member],
     }
 
     def __init__(self, d=None):
-        self.members: Optional[List[BaseMember]] = None
+        self.members: Optional[List[Member]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,7 +23,7 @@ class BatchCreatePermissionMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_permission_member_request_body = BatchCreatePermissionMemberRequestBody()
 
-    def members(self, members: List[BaseMember]) -> "BatchCreatePermissionMemberRequestBodyBuilder":
+    def members(self, members: List[Member]) -> "BatchCreatePermissionMemberRequestBodyBuilder":
         self._batch_create_permission_member_request_body.members = members
         return self
 

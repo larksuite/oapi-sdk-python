@@ -8,7 +8,8 @@ from .create_task_collaborator_response_body import CreateTaskCollaboratorRespon
 
 class CreateTaskCollaboratorResponse(BaseResponse):
     _types = {
-        "data": CreateTaskCollaboratorResponseBody
+        "data": CreateTaskCollaboratorResponseBody,
+
     }
 
     def __init__(self, d=None):

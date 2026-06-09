@@ -17,7 +17,6 @@ from lark_oapi.api.im.v1.model.p2_im_message_reaction_created_v1 import (
     P2ImMessageReactionCreatedV1,
 )
 
-
 _PAYLOAD = {
     "schema": "2.0",
     "header": {

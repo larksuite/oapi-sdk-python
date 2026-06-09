@@ -30,6 +30,9 @@ def main():
                       .transfer_type_unique_identifier([])
                       .transfer_reason_unique_identifier([])
                       .exception_statuses([])
+                      .original_department_ids([])
+                      .employment_department_ids([])
+                      .select_fields([])
                       .build()) \
         .build()
 
@@ -73,6 +76,9 @@ async def amain():
                       .transfer_type_unique_identifier([])
                       .transfer_reason_unique_identifier([])
                       .exception_statuses([])
+                      .original_department_ids([])
+                      .employment_department_ids([])
+                      .select_fields([])
                       .build()) \
         .build()
 

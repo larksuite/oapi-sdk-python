@@ -3,17 +3,20 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .attachment_download_url_item import AttachmentDownloadUrlItem
+from .attachment_download_failed_reason import AttachmentDownloadFailedReason
 
 
 class DownloadUrlUserMailboxMessageAttachmentResponseBody(object):
     _types = {
         "download_urls": List[AttachmentDownloadUrlItem],
         "failed_ids": List[str],
+        "failed_reasons": List[AttachmentDownloadFailedReason],
     }
 
     def __init__(self, d=None):
         self.download_urls: Optional[List[AttachmentDownloadUrlItem]] = None
         self.failed_ids: Optional[List[str]] = None
+        self.failed_reasons: Optional[List[AttachmentDownloadFailedReason]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,6 +35,11 @@ class DownloadUrlUserMailboxMessageAttachmentResponseBodyBuilder(object):
 
     def failed_ids(self, failed_ids: List[str]) -> "DownloadUrlUserMailboxMessageAttachmentResponseBodyBuilder":
         self._download_url_user_mailbox_message_attachment_response_body.failed_ids = failed_ids
+        return self
+
+    def failed_reasons(self, failed_reasons: List[
+        AttachmentDownloadFailedReason]) -> "DownloadUrlUserMailboxMessageAttachmentResponseBodyBuilder":
+        self._download_url_user_mailbox_message_attachment_response_body.failed_reasons = failed_reasons
         return self
 
     def build(self) -> "DownloadUrlUserMailboxMessageAttachmentResponseBody":

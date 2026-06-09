@@ -2,6 +2,16 @@
 
 [English](./channel.md)
 
+> **迁移公告：** Channel 能力已迁移到独立的
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) 包，新的
+> import path 是 `lark_channel`。本文档记录为了兼容保留的旧版
+> `lark_oapi.channel` 模块。迁移窗口内，现有 `lark_oapi.channel` import
+> 继续保持兼容；新 Channel 能力只进入 `lark-channel-sdk`。现有
+> `lark_oapi.channel` 用户的关键缺陷修复会评估是否回迁，维护窗口截止到
+> 2027-06-02。完整说明见
+> [迁移手册](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> 和 [SecurityConfig 安全配置](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md)。
+
 `lark_oapi.channel` 是基于 OpenAPI `Client`、WebSocket 事件传输和 webhook 事件分发封装的高层模块。它把事件监听、消息归一化、安全策略、出站发送、媒体上传下载、卡片交互、流式回复等能力收敛到 `FeishuChannel` 一个入口。
 
 当你要开发会话式机器人，需要处理归一化消息、回复消息、媒体、卡片回调、@ 策略、WebSocket 长连接或 webhook 回调生命周期时，优先使用 Channel。如果只是做原始事件分发或直接调用 OpenAPI，可以继续使用 `WSClient`、`EventDispatcherHandler` 或 `Client`。

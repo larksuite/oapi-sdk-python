@@ -53,7 +53,7 @@ def _find_box(buf: bytes, start: int, end: int, wanted: bytes) -> Optional[Tuple
     while i + 8 <= end:
         try:
             size = struct.unpack_from(">I", buf, i)[0]
-            box_type = buf[i + 4 : i + 8]
+            box_type = buf[i + 4: i + 8]
         except struct.error:
             return None
         header_len = 8

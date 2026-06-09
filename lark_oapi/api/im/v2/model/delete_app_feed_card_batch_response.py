@@ -8,7 +8,8 @@ from .delete_app_feed_card_batch_response_body import DeleteAppFeedCardBatchResp
 
 class DeleteAppFeedCardBatchResponse(BaseResponse):
     _types = {
-        "data": DeleteAppFeedCardBatchResponseBody
+        "data": DeleteAppFeedCardBatchResponseBody,
+
     }
 
     def __init__(self, d=None):

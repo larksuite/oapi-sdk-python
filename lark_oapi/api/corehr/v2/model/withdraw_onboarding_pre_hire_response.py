@@ -8,7 +8,8 @@ from .withdraw_onboarding_pre_hire_response_body import WithdrawOnboardingPreHir
 
 class WithdrawOnboardingPreHireResponse(BaseResponse):
     _types = {
-        "data": WithdrawOnboardingPreHireResponseBody
+        "data": WithdrawOnboardingPreHireResponseBody,
+
     }
 
     def __init__(self, d=None):

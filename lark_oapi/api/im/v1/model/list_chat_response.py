@@ -8,7 +8,8 @@ from .list_chat_response_body import ListChatResponseBody
 
 class ListChatResponse(BaseResponse):
     _types = {
-        "data": ListChatResponseBody
+        "data": ListChatResponseBody,
+
     }
 
     def __init__(self, d=None):

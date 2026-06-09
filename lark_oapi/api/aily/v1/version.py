@@ -10,3 +10,4 @@ class V1(object):
         self.app_data_asset_tag: AppDataAssetTag = AppDataAssetTag(config)
         self.app_knowledge: AppKnowledge = AppKnowledge(config)
         self.app_skill: AppSkill = AppSkill(config)
+        self.tenant_app_stat: TenantAppStat = TenantAppStat(config)

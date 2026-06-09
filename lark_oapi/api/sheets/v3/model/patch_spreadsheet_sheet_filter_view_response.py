@@ -8,7 +8,8 @@ from .patch_spreadsheet_sheet_filter_view_response_body import PatchSpreadsheetS
 
 class PatchSpreadsheetSheetFilterViewResponse(BaseResponse):
     _types = {
-        "data": PatchSpreadsheetSheetFilterViewResponseBody
+        "data": PatchSpreadsheetSheetFilterViewResponseBody,
+
     }
 
     def __init__(self, d=None):

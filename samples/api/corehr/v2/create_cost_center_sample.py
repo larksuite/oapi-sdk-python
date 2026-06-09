@@ -22,6 +22,7 @@ def main():
                       .managers([])
                       .description([])
                       .effective_time("2020-01-01")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
                       .managers([])
                       .description([])
                       .effective_time("2020-01-01")
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

@@ -8,7 +8,8 @@ from .search_job_change_response_body import SearchJobChangeResponseBody
 
 class SearchJobChangeResponse(BaseResponse):
     _types = {
-        "data": SearchJobChangeResponseBody
+        "data": SearchJobChangeResponseBody,
+
     }
 
     def __init__(self, d=None):

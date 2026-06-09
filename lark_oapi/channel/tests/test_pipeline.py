@@ -19,14 +19,14 @@ def _sender(open_id="ou_sender", *, sender_type="user"):
 
 
 def _msg(
-    *,
-    message_id="om_1",
-    chat_type="p2p",
-    msg_type="text",
-    content=None,
-    parent_id=None,
-    root_id=None,
-    mentions=None,
+        *,
+        message_id="om_1",
+        chat_type="p2p",
+        msg_type="text",
+        content=None,
+        parent_id=None,
+        root_id=None,
+        mentions=None,
 ):
     return {
         "message_id": message_id,

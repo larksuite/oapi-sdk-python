@@ -8,7 +8,8 @@ from .batch_query_external_background_check_response_body import BatchQueryExter
 
 class BatchQueryExternalBackgroundCheckResponse(BaseResponse):
     _types = {
-        "data": BatchQueryExternalBackgroundCheckResponseBody
+        "data": BatchQueryExternalBackgroundCheckResponseBody,
+
     }
 
     def __init__(self, d=None):

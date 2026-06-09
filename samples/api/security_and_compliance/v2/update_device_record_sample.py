@@ -16,15 +16,10 @@ def main():
     request: UpdateDeviceRecordRequest = UpdateDeviceRecordRequest.builder() \
         .device_record_id("7089353870308032531") \
         .version("0") \
-        .user_id_type("user_id") \
-        .request_body(DeviceRecord.builder()
+        .request_body(UpdateDeviceRecordRequestBody.builder()
                       .device_ownership(0)
                       .device_status(0)
-                      .latest_user_id("ou_b25e90585ef8c1adac4b379c2e257906")
-                      .dids([])
-                      .is_managed(bool)
-                      .mdm_device_id("123abc")
-                      .mdm_provider_name("Workspace_ONE")
+                      .is_public(bool)
                       .build()) \
         .build()
 
@@ -54,15 +49,10 @@ async def amain():
     request: UpdateDeviceRecordRequest = UpdateDeviceRecordRequest.builder() \
         .device_record_id("7089353870308032531") \
         .version("0") \
-        .user_id_type("user_id") \
-        .request_body(DeviceRecord.builder()
+        .request_body(UpdateDeviceRecordRequestBody.builder()
                       .device_ownership(0)
                       .device_status(0)
-                      .latest_user_id("ou_b25e90585ef8c1adac4b379c2e257906")
-                      .dids([])
-                      .is_managed(bool)
-                      .mdm_device_id("123abc")
-                      .mdm_provider_name("Workspace_ONE")
+                      .is_public(bool)
                       .build()) \
         .build()
 

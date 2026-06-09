@@ -8,7 +8,8 @@ from .recognize_business_card_response_body import RecognizeBusinessCardResponse
 
 class RecognizeBusinessCardResponse(BaseResponse):
     _types = {
-        "data": RecognizeBusinessCardResponseBody
+        "data": RecognizeBusinessCardResponseBody,
+
     }
 
     def __init__(self, d=None):

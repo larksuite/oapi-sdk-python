@@ -8,7 +8,8 @@ from .list_calendar_acl_response_body import ListCalendarAclResponseBody
 
 class ListCalendarAclResponse(BaseResponse):
     _types = {
-        "data": ListCalendarAclResponseBody
+        "data": ListCalendarAclResponseBody,
+
     }
 
     def __init__(self, d=None):

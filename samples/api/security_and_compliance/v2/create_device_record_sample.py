@@ -14,9 +14,11 @@ def main():
 
     # 构造请求对象
     request: CreateDeviceRecordRequest = CreateDeviceRecordRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(DeviceRecord.builder()
+        .request_body(CreateDeviceRecordRequestBody.builder()
                       .device_system(0)
+                      .device_ownership(0)
+                      .device_status(0)
+                      .is_public(bool)
                       .serial_number("C02DTHRMML7H")
                       .disk_serial_number("CC344362-5990-5A68-8DDD-64A23C99FA0C")
                       .uuid("621CDFF0-13D0-5AB1-9ADC-5F560095F6ED")
@@ -24,13 +26,6 @@ def main():
                       .android_id("02a11ac4a83b918e")
                       .idfv("968F0E5C-C297-4122-ACB6-102494DEFD9A")
                       .aaid("ff3c2237-cd76-4331-9d72-0a4470854567")
-                      .device_ownership(0)
-                      .device_status(0)
-                      .latest_user_id("ou_b25e90585ef8c1adac4b379c2e257906")
-                      .dids([])
-                      .is_managed(bool)
-                      .mdm_device_id("123abc")
-                      .mdm_provider_name("Workspace_ONE")
                       .build()) \
         .build()
 
@@ -58,9 +53,11 @@ async def amain():
 
     # 构造请求对象
     request: CreateDeviceRecordRequest = CreateDeviceRecordRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(DeviceRecord.builder()
+        .request_body(CreateDeviceRecordRequestBody.builder()
                       .device_system(0)
+                      .device_ownership(0)
+                      .device_status(0)
+                      .is_public(bool)
                       .serial_number("C02DTHRMML7H")
                       .disk_serial_number("CC344362-5990-5A68-8DDD-64A23C99FA0C")
                       .uuid("621CDFF0-13D0-5AB1-9ADC-5F560095F6ED")
@@ -68,13 +65,6 @@ async def amain():
                       .android_id("02a11ac4a83b918e")
                       .idfv("968F0E5C-C297-4122-ACB6-102494DEFD9A")
                       .aaid("ff3c2237-cd76-4331-9d72-0a4470854567")
-                      .device_ownership(0)
-                      .device_status(0)
-                      .latest_user_id("ou_b25e90585ef8c1adac4b379c2e257906")
-                      .dids([])
-                      .is_managed(bool)
-                      .mdm_device_id("123abc")
-                      .mdm_provider_name("Workspace_ONE")
                       .build()) \
         .build()
 

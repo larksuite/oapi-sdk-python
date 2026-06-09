@@ -8,7 +8,8 @@ from .list_security_group_response_body import ListSecurityGroupResponseBody
 
 class ListSecurityGroupResponse(BaseResponse):
     _types = {
-        "data": ListSecurityGroupResponseBody
+        "data": ListSecurityGroupResponseBody,
+
     }
 
     def __init__(self, d=None):

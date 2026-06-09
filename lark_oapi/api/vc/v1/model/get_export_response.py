@@ -8,7 +8,8 @@ from .get_export_response_body import GetExportResponseBody
 
 class GetExportResponse(BaseResponse):
     _types = {
-        "data": GetExportResponseBody
+        "data": GetExportResponseBody,
+
     }
 
     def __init__(self, d=None):

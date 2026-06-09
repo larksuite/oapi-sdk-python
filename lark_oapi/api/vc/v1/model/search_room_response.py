@@ -8,7 +8,8 @@ from .search_room_response_body import SearchRoomResponseBody
 
 class SearchRoomResponse(BaseResponse):
     _types = {
-        "data": SearchRoomResponseBody
+        "data": SearchRoomResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .submit_v2_offboarding_response_body import SubmitV2OffboardingResponseBody
 
 class SubmitV2OffboardingResponse(BaseResponse):
     _types = {
-        "data": SubmitV2OffboardingResponseBody
+        "data": SubmitV2OffboardingResponseBody,
+
     }
 
     def __init__(self, d=None):

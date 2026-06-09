@@ -8,7 +8,8 @@ from .create_file_response_body import CreateFileResponseBody
 
 class CreateFileResponse(BaseResponse):
     _types = {
-        "data": CreateFileResponseBody
+        "data": CreateFileResponseBody,
+
     }
 
     def __init__(self, d=None):

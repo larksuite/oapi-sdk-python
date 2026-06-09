@@ -8,7 +8,8 @@ from .move_file_response_body import MoveFileResponseBody
 
 class MoveFileResponse(BaseResponse):
     _types = {
-        "data": MoveFileResponseBody
+        "data": MoveFileResponseBody,
+
     }
 
     def __init__(self, d=None):

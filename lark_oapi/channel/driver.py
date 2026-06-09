@@ -65,13 +65,13 @@ class LarkClientDriver:
 
     # -------- send ------------------------------------------------------------
     async def create_message(
-        self,
-        *,
-        receive_id_type: str,
-        receive_id: str,
-        msg_type: str,
-        content: str,
-        uuid: Optional[str] = None,
+            self,
+            *,
+            receive_id_type: str,
+            receive_id: str,
+            msg_type: str,
+            content: str,
+            uuid: Optional[str] = None,
     ) -> Dict[str, Any]:
         body = (
             CreateMessageRequestBody.builder()
@@ -91,13 +91,13 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def reply_message(
-        self,
-        *,
-        message_id: str,
-        msg_type: str,
-        content: str,
-        uuid: Optional[str] = None,
-        reply_in_thread: Optional[bool] = None,
+            self,
+            *,
+            message_id: str,
+            msg_type: str,
+            content: str,
+            uuid: Optional[str] = None,
+            reply_in_thread: Optional[bool] = None,
     ) -> Dict[str, Any]:
         body = ReplyMessageRequestBody.builder().content(content).msg_type(msg_type)
         if reply_in_thread is not None:
@@ -114,10 +114,10 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def patch_message(
-        self,
-        *,
-        message_id: str,
-        content: str,
+            self,
+            *,
+            message_id: str,
+            content: str,
     ) -> Dict[str, Any]:
         req = (
             PatchMessageRequest.builder()
@@ -129,11 +129,11 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def update_message(
-        self,
-        *,
-        message_id: str,
-        msg_type: str,
-        content: str,
+            self,
+            *,
+            message_id: str,
+            msg_type: str,
+            content: str,
     ) -> Dict[str, Any]:
         body = (
             UpdateMessageRequestBody.builder()
@@ -156,10 +156,10 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def forward_message(
-        self,
-        *,
-        message_id: str,
-        chat_id: str,
+            self,
+            *,
+            message_id: str,
+            chat_id: str,
     ) -> Dict[str, Any]:
         body = ForwardMessageRequestBody.builder().receive_id(chat_id).build()
         req = (
@@ -225,11 +225,11 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def upload_file(
-        self,
-        *,
-        data: bytes,
-        file_name: str = "",
-        file_type: str = "stream",
+            self,
+            *,
+            data: bytes,
+            file_name: str = "",
+            file_type: str = "stream",
     ) -> Dict[str, Any]:
         try:
             from lark_oapi.api.im.v1.model.create_file_request import CreateFileRequest
@@ -267,7 +267,7 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def cardkit_update_element(
-        self, *, card_id: str, element_id: str, body: Dict[str, Any]
+            self, *, card_id: str, element_id: str, body: Dict[str, Any]
     ) -> Dict[str, Any]:
         """POST ``/open-apis/cardkit/v1/card/{card_id}/element/{element_id}/content``."""
         from lark_oapi.api.cardkit.v1.model.content_card_element_request import (
@@ -294,7 +294,7 @@ class LarkClientDriver:
         return _resp_to_dict(resp)
 
     async def cardkit_update_settings(
-        self, *, card_id: str, body: Dict[str, Any]
+            self, *, card_id: str, body: Dict[str, Any]
     ) -> Dict[str, Any]:
         """POST ``/open-apis/cardkit/v1/card/{card_id}/settings``."""
         from lark_oapi.api.cardkit.v1.model.settings_card_request import (

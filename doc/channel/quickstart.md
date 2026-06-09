@@ -3,11 +3,43 @@
 This guide gets a minimal Channel echo bot running. For the full API surface,
 see [Channel module](../channel.md) and [Channel reference](./reference.md).
 
+> **Migration notice:** This page documents the legacy `lark_oapi.channel`
+> quickstart. For new projects, use
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) and the
+> `lark_channel` import path. Critical fixes for existing `lark_oapi.channel`
+> users are evaluated for backport until 2027-06-02. See the
+> [migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
 ## Install
+
+The command below installs the legacy package for unchanged `lark_oapi.channel`
+code.
 
 ```bash
 pip install lark-oapi
 ```
+
+### Migrating to the standalone package
+
+Install the standalone Channel package:
+
+```bash
+pip install lark-channel-sdk
+```
+
+Change the import:
+
+```python
+# Before
+from lark_oapi.channel import FeishuChannel
+
+# After
+from lark_channel import FeishuChannel
+```
+
+`lark-channel-sdk` can be installed alongside `lark-oapi`. Keep the old import
+until the application code has been migrated and tested.
 
 ## Prepare the Bot
 

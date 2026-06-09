@@ -24,8 +24,8 @@ def sanitize_source(raw: str) -> str:
 
 
 def build_user_agent(
-    source: Optional[str] = None,
-    extra_tags: Optional[Iterable[str]] = None,
+        source: Optional[str] = None,
+        extra_tags: Optional[Iterable[str]] = None,
 ) -> str:
     """Build the User-Agent string.
 

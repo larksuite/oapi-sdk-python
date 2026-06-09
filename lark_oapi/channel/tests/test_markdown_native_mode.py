@@ -11,7 +11,6 @@ from lark_oapi.channel.outbound.markdown.to_post import (
     markdown_to_post_ast,
 )
 
-
 # Fixture set covering structured and native markdown conversion.
 FIXTURES = {
     "01_plain": "这是普通文本，没有任何 markdown。",

@@ -8,7 +8,8 @@ from .create_entity_response_body import CreateEntityResponseBody
 
 class CreateEntityResponse(BaseResponse):
     _types = {
-        "data": CreateEntityResponseBody
+        "data": CreateEntityResponseBody,
+
     }
 
     def __init__(self, d=None):

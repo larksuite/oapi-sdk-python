@@ -8,7 +8,8 @@ from .get_meeting_list_response_body import GetMeetingListResponseBody
 
 class GetMeetingListResponse(BaseResponse):
     _types = {
-        "data": GetMeetingListResponseBody
+        "data": GetMeetingListResponseBody,
+
     }
 
     def __init__(self, d=None):

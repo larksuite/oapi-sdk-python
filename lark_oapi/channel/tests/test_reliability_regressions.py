@@ -40,8 +40,8 @@ async def test_invalid_credentials_error_has_not_connected_code():
 
     raised: Exception | None = None
     with patch(
-        "lark_oapi.ws.client.Client._get_conn_url",
-        _bad_url,
+            "lark_oapi.ws.client.Client._get_conn_url",
+            _bad_url,
     ):
         try:
             await asyncio.wait_for(ch.connect(), timeout=10)
@@ -108,7 +108,7 @@ async def test_reconnect_after_disconnect_reinitializes_ws_client():
         return None
 
     with patch("lark_oapi.channel.channel.WSClient", _FakeWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
     ):
         await ch.connect()
         assert ch.ws_client is not None, "first connect() must build a WSClient"
@@ -186,7 +186,7 @@ def test_reconnecting_event_is_dispatched_on_ws_reconnect():
         return None
 
     with patch("lark_oapi.channel.channel.WSClient", _FakeWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
     ):
         ch.start()
         ws = ch.ws_client

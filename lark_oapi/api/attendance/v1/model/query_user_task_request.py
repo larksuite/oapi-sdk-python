@@ -25,7 +25,7 @@ class QueryUserTaskRequestBuilder(object):
         query_user_task_request = QueryUserTaskRequest()
         query_user_task_request.http_method = HttpMethod.POST
         query_user_task_request.uri = "/open-apis/attendance/v1/user_tasks/query"
-        query_user_task_request.token_types = {AccessTokenType.TENANT}
+        query_user_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._query_user_task_request: QueryUserTaskRequest = query_user_task_request
 
     def employee_type(self, employee_type: str) -> "QueryUserTaskRequestBuilder":

@@ -8,7 +8,8 @@ from .list_offer_approval_template_response_body import ListOfferApprovalTemplat
 
 class ListOfferApprovalTemplateResponse(BaseResponse):
     _types = {
-        "data": ListOfferApprovalTemplateResponseBody
+        "data": ListOfferApprovalTemplateResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_by_card_user_mailbox_message_response_body import GetByCardUserMailbox
 
 class GetByCardUserMailboxMessageResponse(BaseResponse):
     _types = {
-        "data": GetByCardUserMailboxMessageResponseBody
+        "data": GetByCardUserMailboxMessageResponseBody,
+
     }
 
     def __init__(self, d=None):

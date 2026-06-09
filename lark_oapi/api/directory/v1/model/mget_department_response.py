@@ -8,7 +8,8 @@ from .mget_department_response_body import MgetDepartmentResponseBody
 
 class MgetDepartmentResponse(BaseResponse):
     _types = {
-        "data": MgetDepartmentResponseBody
+        "data": MgetDepartmentResponseBody,
+
     }
 
     def __init__(self, d=None):

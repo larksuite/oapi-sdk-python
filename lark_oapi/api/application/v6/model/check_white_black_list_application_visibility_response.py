@@ -9,7 +9,8 @@ from .check_white_black_list_application_visibility_response_body import \
 
 class CheckWhiteBlackListApplicationVisibilityResponse(BaseResponse):
     _types = {
-        "data": CheckWhiteBlackListApplicationVisibilityResponseBody
+        "data": CheckWhiteBlackListApplicationVisibilityResponseBody,
+
     }
 
     def __init__(self, d=None):

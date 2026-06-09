@@ -8,7 +8,8 @@ from .patch_national_id_type_response_body import PatchNationalIdTypeResponseBod
 
 class PatchNationalIdTypeResponse(BaseResponse):
     _types = {
-        "data": PatchNationalIdTypeResponseBody
+        "data": PatchNationalIdTypeResponseBody,
+
     }
 
     def __init__(self, d=None):

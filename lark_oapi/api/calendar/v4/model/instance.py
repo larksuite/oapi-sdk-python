@@ -30,6 +30,7 @@ class Instance(object):
         "recurring_event_id": str,
         "event_organizer": EventOrganizer,
         "attendees": List[CalendarEventAttendee],
+        "self_rsvp_status": str,
     }
 
     def __init__(self, d=None):
@@ -51,6 +52,7 @@ class Instance(object):
         self.recurring_event_id: Optional[str] = None
         self.event_organizer: Optional[EventOrganizer] = None
         self.attendees: Optional[List[CalendarEventAttendee]] = None
+        self.self_rsvp_status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -132,6 +134,10 @@ class InstanceBuilder(object):
 
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "InstanceBuilder":
         self._instance.attendees = attendees
+        return self
+
+    def self_rsvp_status(self, self_rsvp_status: str) -> "InstanceBuilder":
+        self._instance.self_rsvp_status = self_rsvp_status
         return self
 
     def build(self) -> "Instance":

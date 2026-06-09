@@ -33,6 +33,7 @@ class CombinedUpdateTalentRequestBody(object):
         "preferred_city_code_list": List[str],
         "self_evaluation": TalentSelfEvaluation,
         "customized_data": List[TalentCustomizedDataObjectValue],
+        "only_parse_resume_update_talent": bool,
     }
 
     def __init__(self, d=None):
@@ -53,6 +54,7 @@ class CombinedUpdateTalentRequestBody(object):
         self.preferred_city_code_list: Optional[List[str]] = None
         self.self_evaluation: Optional[TalentSelfEvaluation] = None
         self.customized_data: Optional[List[TalentCustomizedDataObjectValue]] = None
+        self.only_parse_resume_update_talent: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -133,6 +135,11 @@ class CombinedUpdateTalentRequestBodyBuilder(object):
     def customized_data(self, customized_data: List[
         TalentCustomizedDataObjectValue]) -> "CombinedUpdateTalentRequestBodyBuilder":
         self._combined_update_talent_request_body.customized_data = customized_data
+        return self
+
+    def only_parse_resume_update_talent(self,
+                                        only_parse_resume_update_talent: bool) -> "CombinedUpdateTalentRequestBodyBuilder":
+        self._combined_update_talent_request_body.only_parse_resume_update_talent = only_parse_resume_update_talent
         return self
 
     def build(self) -> "CombinedUpdateTalentRequestBody":

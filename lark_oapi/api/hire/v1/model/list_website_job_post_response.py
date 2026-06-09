@@ -8,7 +8,8 @@ from .list_website_job_post_response_body import ListWebsiteJobPostResponseBody
 
 class ListWebsiteJobPostResponse(BaseResponse):
     _types = {
-        "data": ListWebsiteJobPostResponseBody
+        "data": ListWebsiteJobPostResponseBody,
+
     }
 
     def __init__(self, d=None):

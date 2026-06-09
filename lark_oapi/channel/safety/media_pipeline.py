@@ -65,9 +65,9 @@ class MediaPipelineManager:
     """
 
     def __init__(
-        self,
-        config: MediaBatchConfig,
-        loop: asyncio.AbstractEventLoop,
+            self,
+            config: MediaBatchConfig,
+            loop: asyncio.AbstractEventLoop,
     ) -> None:
         self._config = config
         self._loop = loop

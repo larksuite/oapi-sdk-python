@@ -24,6 +24,7 @@ class Meeting(object):
         "participant_count_accumulated": int,
         "participants": List[MeetingParticipant],
         "ability": MeetingAbility,
+        "note_id": int,
     }
 
     def __init__(self, d=None):
@@ -42,6 +43,7 @@ class Meeting(object):
         self.participant_count_accumulated: Optional[int] = None
         self.participants: Optional[List[MeetingParticipant]] = None
         self.ability: Optional[MeetingAbility] = None
+        self.note_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -111,6 +113,10 @@ class MeetingBuilder(object):
 
     def ability(self, ability: MeetingAbility) -> "MeetingBuilder":
         self._meeting.ability = ability
+        return self
+
+    def note_id(self, note_id: int) -> "MeetingBuilder":
+        self._meeting.note_id = note_id
         return self
 
     def build(self) -> "Meeting":

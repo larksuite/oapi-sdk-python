@@ -8,7 +8,8 @@ from .department_overview_application_app_usage_response_body import DepartmentO
 
 class DepartmentOverviewApplicationAppUsageResponse(BaseResponse):
     _types = {
-        "data": DepartmentOverviewApplicationAppUsageResponseBody
+        "data": DepartmentOverviewApplicationAppUsageResponseBody,
+
     }
 
     def __init__(self, d=None):

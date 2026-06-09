@@ -8,7 +8,8 @@ from .batch_update_chat_announcement_block_response_body import BatchUpdateChatA
 
 class BatchUpdateChatAnnouncementBlockResponse(BaseResponse):
     _types = {
-        "data": BatchUpdateChatAnnouncementBlockResponseBody
+        "data": BatchUpdateChatAnnouncementBlockResponseBody,
+
     }
 
     def __init__(self, d=None):

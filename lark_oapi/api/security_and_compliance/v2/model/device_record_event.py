@@ -24,6 +24,12 @@ class DeviceRecordEvent(object):
         "device_status": int,
         "certification_level": int,
         "device_terminal_type": int,
+        "is_managed": bool,
+        "mdm_device_id": str,
+        "mdm_provider_name": str,
+        "device_env_detect_status": int,
+        "is_public": bool,
+        "source": int,
     }
 
     def __init__(self, d=None):
@@ -44,6 +50,12 @@ class DeviceRecordEvent(object):
         self.device_status: Optional[int] = None
         self.certification_level: Optional[int] = None
         self.device_terminal_type: Optional[int] = None
+        self.is_managed: Optional[bool] = None
+        self.mdm_device_id: Optional[str] = None
+        self.mdm_provider_name: Optional[str] = None
+        self.device_env_detect_status: Optional[int] = None
+        self.is_public: Optional[bool] = None
+        self.source: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -121,6 +133,30 @@ class DeviceRecordEventBuilder(object):
 
     def device_terminal_type(self, device_terminal_type: int) -> "DeviceRecordEventBuilder":
         self._device_record_event.device_terminal_type = device_terminal_type
+        return self
+
+    def is_managed(self, is_managed: bool) -> "DeviceRecordEventBuilder":
+        self._device_record_event.is_managed = is_managed
+        return self
+
+    def mdm_device_id(self, mdm_device_id: str) -> "DeviceRecordEventBuilder":
+        self._device_record_event.mdm_device_id = mdm_device_id
+        return self
+
+    def mdm_provider_name(self, mdm_provider_name: str) -> "DeviceRecordEventBuilder":
+        self._device_record_event.mdm_provider_name = mdm_provider_name
+        return self
+
+    def device_env_detect_status(self, device_env_detect_status: int) -> "DeviceRecordEventBuilder":
+        self._device_record_event.device_env_detect_status = device_env_detect_status
+        return self
+
+    def is_public(self, is_public: bool) -> "DeviceRecordEventBuilder":
+        self._device_record_event.is_public = is_public
+        return self
+
+    def source(self, source: int) -> "DeviceRecordEventBuilder":
+        self._device_record_event.source = source
         return self
 
     def build(self) -> "DeviceRecordEvent":

@@ -16,11 +16,11 @@ from typing import Callable, Optional
 
 class Throttle:
     def __init__(
-        self,
-        *,
-        min_ms: int = 100,
-        min_chars: int = 50,
-        on_fire: Callable[[], None],
+            self,
+            *,
+            min_ms: int = 100,
+            min_chars: int = 50,
+            on_fire: Callable[[], None],
     ) -> None:
         self._min_ms = min_ms
         self._min_chars = min_chars

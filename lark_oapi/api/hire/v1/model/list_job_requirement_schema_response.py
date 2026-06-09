@@ -8,7 +8,8 @@ from .list_job_requirement_schema_response_body import ListJobRequirementSchemaR
 
 class ListJobRequirementSchemaResponse(BaseResponse):
     _types = {
-        "data": ListJobRequirementSchemaResponseBody
+        "data": ListJobRequirementSchemaResponseBody,
+
     }
 
     def __init__(self, d=None):

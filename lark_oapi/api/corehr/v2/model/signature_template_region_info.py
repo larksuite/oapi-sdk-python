@@ -9,11 +9,17 @@ class SignatureTemplateRegionInfo(object):
     _types = {
         "is_global_scope": str,
         "meta_infos": List[SignatureMetaInfo],
+        "country_region_ids": List[str],
+        "country_region_subdivision_ids": List[str],
+        "subregion_l3_ids": List[str],
     }
 
     def __init__(self, d=None):
         self.is_global_scope: Optional[str] = None
         self.meta_infos: Optional[List[SignatureMetaInfo]] = None
+        self.country_region_ids: Optional[List[str]] = None
+        self.country_region_subdivision_ids: Optional[List[str]] = None
+        self.subregion_l3_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +37,19 @@ class SignatureTemplateRegionInfoBuilder(object):
 
     def meta_infos(self, meta_infos: List[SignatureMetaInfo]) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.meta_infos = meta_infos
+        return self
+
+    def country_region_ids(self, country_region_ids: List[str]) -> "SignatureTemplateRegionInfoBuilder":
+        self._signature_template_region_info.country_region_ids = country_region_ids
+        return self
+
+    def country_region_subdivision_ids(self, country_region_subdivision_ids: List[
+        str]) -> "SignatureTemplateRegionInfoBuilder":
+        self._signature_template_region_info.country_region_subdivision_ids = country_region_subdivision_ids
+        return self
+
+    def subregion_l3_ids(self, subregion_l3_ids: List[str]) -> "SignatureTemplateRegionInfoBuilder":
+        self._signature_template_region_info.subregion_l3_ids = subregion_l3_ids
         return self
 
     def build(self) -> "SignatureTemplateRegionInfo":

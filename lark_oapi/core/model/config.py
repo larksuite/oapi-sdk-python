@@ -10,6 +10,8 @@ class Config(object):
         self.app_id: Optional[str] = None
         self.app_secret: Optional[str] = None
         self.domain: str = FEISHU_DOMAIN  # 域名, 默认为 https://open.feishu.cn
+        self.timeout: Optional[
+            float] = 30  # client timeout in seconds (default 30s); override via ClientBuilder.timeout()
         self.oauth_base_url: Optional[str] = None
         self.client_assertion_provider: Optional[Any] = None
         self.timeout: Optional[float] = 30  # client timeout in seconds (default 30s); override via ClientBuilder.timeout()

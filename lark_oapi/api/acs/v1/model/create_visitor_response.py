@@ -8,7 +8,8 @@ from .create_visitor_response_body import CreateVisitorResponseBody
 
 class CreateVisitorResponse(BaseResponse):
     _types = {
-        "data": CreateVisitorResponseBody
+        "data": CreateVisitorResponseBody,
+
     }
 
     def __init__(self, d=None):

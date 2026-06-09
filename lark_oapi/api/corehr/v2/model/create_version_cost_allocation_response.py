@@ -8,7 +8,8 @@ from .create_version_cost_allocation_response_body import CreateVersionCostAlloc
 
 class CreateVersionCostAllocationResponse(BaseResponse):
     _types = {
-        "data": CreateVersionCostAllocationResponseBody
+        "data": CreateVersionCostAllocationResponseBody,
+
     }
 
     def __init__(self, d=None):

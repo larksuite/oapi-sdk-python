@@ -8,7 +8,8 @@ from .query_lump_sum_payment_response_body import QueryLumpSumPaymentResponseBod
 
 class QueryLumpSumPaymentResponse(BaseResponse):
     _types = {
-        "data": QueryLumpSumPaymentResponseBody
+        "data": QueryLumpSumPaymentResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .update_job_level_response_body import UpdateJobLevelResponseBody
 
 class UpdateJobLevelResponse(BaseResponse):
     _types = {
-        "data": UpdateJobLevelResponseBody
+        "data": UpdateJobLevelResponseBody,
+
     }
 
     def __init__(self, d=None):

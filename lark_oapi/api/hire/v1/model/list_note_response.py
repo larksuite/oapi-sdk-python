@@ -8,7 +8,8 @@ from .list_note_response_body import ListNoteResponseBody
 
 class ListNoteResponse(BaseResponse):
     _types = {
-        "data": ListNoteResponseBody
+        "data": ListNoteResponseBody,
+
     }
 
     def __init__(self, d=None):

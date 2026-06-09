@@ -8,7 +8,8 @@ from .batch_get_location_response_body import BatchGetLocationResponseBody
 
 class BatchGetLocationResponse(BaseResponse):
     _types = {
-        "data": BatchGetLocationResponseBody
+        "data": BatchGetLocationResponseBody,
+
     }
 
     def __init__(self, d=None):

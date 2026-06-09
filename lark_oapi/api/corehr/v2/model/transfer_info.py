@@ -8,6 +8,20 @@ from .job_data_cost_center import JobDataCostCenter
 from .job_data_cost_center import JobDataCostCenter
 from .tranfer_employment_info import TranferEmploymentInfo
 from .tranfer_employment_info import TranferEmploymentInfo
+from .department_lookup_name import DepartmentLookupName
+from .department_lookup_name import DepartmentLookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .employment_lookup_name import EmploymentLookupName
+from .employment_lookup_name import EmploymentLookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
 
 
 class TransferInfo(object):
@@ -87,6 +101,20 @@ class TransferInfo(object):
         "original_pathway": str,
         "target_pathway": str,
         "is_transfer_with_workforce": bool,
+        "original_department_name": DepartmentLookupName,
+        "target_department_name": DepartmentLookupName,
+        "original_worklocation_name": LookupName,
+        "target_worklocation_name": LookupName,
+        "original_direct_manager_name": EmploymentLookupName,
+        "target_direct_manager_name": EmploymentLookupName,
+        "original_job_name": LookupName,
+        "target_job_name": LookupName,
+        "original_job_family_name": LookupName,
+        "target_job_family_name": LookupName,
+        "original_job_level_name": LookupName,
+        "target_job_level_name": LookupName,
+        "original_workforce_type_name": LookupName,
+        "target_workforce_type_name": LookupName,
     }
 
     def __init__(self, d=None):
@@ -165,6 +193,20 @@ class TransferInfo(object):
         self.original_pathway: Optional[str] = None
         self.target_pathway: Optional[str] = None
         self.is_transfer_with_workforce: Optional[bool] = None
+        self.original_department_name: Optional[DepartmentLookupName] = None
+        self.target_department_name: Optional[DepartmentLookupName] = None
+        self.original_worklocation_name: Optional[LookupName] = None
+        self.target_worklocation_name: Optional[LookupName] = None
+        self.original_direct_manager_name: Optional[EmploymentLookupName] = None
+        self.target_direct_manager_name: Optional[EmploymentLookupName] = None
+        self.original_job_name: Optional[LookupName] = None
+        self.target_job_name: Optional[LookupName] = None
+        self.original_job_family_name: Optional[LookupName] = None
+        self.target_job_family_name: Optional[LookupName] = None
+        self.original_job_level_name: Optional[LookupName] = None
+        self.target_job_level_name: Optional[LookupName] = None
+        self.original_workforce_type_name: Optional[LookupName] = None
+        self.target_workforce_type_name: Optional[LookupName] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -477,6 +519,62 @@ class TransferInfoBuilder(object):
 
     def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "TransferInfoBuilder":
         self._transfer_info.is_transfer_with_workforce = is_transfer_with_workforce
+        return self
+
+    def original_department_name(self, original_department_name: DepartmentLookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_department_name = original_department_name
+        return self
+
+    def target_department_name(self, target_department_name: DepartmentLookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_department_name = target_department_name
+        return self
+
+    def original_worklocation_name(self, original_worklocation_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_worklocation_name = original_worklocation_name
+        return self
+
+    def target_worklocation_name(self, target_worklocation_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_worklocation_name = target_worklocation_name
+        return self
+
+    def original_direct_manager_name(self, original_direct_manager_name: EmploymentLookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_direct_manager_name = original_direct_manager_name
+        return self
+
+    def target_direct_manager_name(self, target_direct_manager_name: EmploymentLookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_direct_manager_name = target_direct_manager_name
+        return self
+
+    def original_job_name(self, original_job_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_job_name = original_job_name
+        return self
+
+    def target_job_name(self, target_job_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_job_name = target_job_name
+        return self
+
+    def original_job_family_name(self, original_job_family_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_job_family_name = original_job_family_name
+        return self
+
+    def target_job_family_name(self, target_job_family_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_job_family_name = target_job_family_name
+        return self
+
+    def original_job_level_name(self, original_job_level_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_job_level_name = original_job_level_name
+        return self
+
+    def target_job_level_name(self, target_job_level_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_job_level_name = target_job_level_name
+        return self
+
+    def original_workforce_type_name(self, original_workforce_type_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.original_workforce_type_name = original_workforce_type_name
+        return self
+
+    def target_workforce_type_name(self, target_workforce_type_name: LookupName) -> "TransferInfoBuilder":
+        self._transfer_info.target_workforce_type_name = target_workforce_type_name
         return self
 
     def build(self) -> "TransferInfo":

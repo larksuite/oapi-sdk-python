@@ -8,7 +8,8 @@ from .list_work_city_response_body import ListWorkCityResponseBody
 
 class ListWorkCityResponse(BaseResponse):
     _types = {
-        "data": ListWorkCityResponseBody
+        "data": ListWorkCityResponseBody,
+
     }
 
     def __init__(self, d=None):

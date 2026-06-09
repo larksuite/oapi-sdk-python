@@ -18,6 +18,7 @@ def main():
         .locale("zh-CN") \
         .user_id("f7cb567e") \
         .user_id_type("user_id") \
+        .nested_mutable_group(bool) \
         .build()
 
     # 发起请求
@@ -48,6 +49,7 @@ async def amain():
         .locale("zh-CN") \
         .user_id("f7cb567e") \
         .user_id_type("user_id") \
+        .nested_mutable_group(bool) \
         .build()
 
     # 发起请求

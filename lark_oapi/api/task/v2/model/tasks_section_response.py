@@ -8,7 +8,8 @@ from .tasks_section_response_body import TasksSectionResponseBody
 
 class TasksSectionResponse(BaseResponse):
     _types = {
-        "data": TasksSectionResponseBody
+        "data": TasksSectionResponseBody,
+
     }
 
     def __init__(self, d=None):

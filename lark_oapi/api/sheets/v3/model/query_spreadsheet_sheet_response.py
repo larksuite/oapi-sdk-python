@@ -8,7 +8,8 @@ from .query_spreadsheet_sheet_response_body import QuerySpreadsheetSheetResponse
 
 class QuerySpreadsheetSheetResponse(BaseResponse):
     _types = {
-        "data": QuerySpreadsheetSheetResponseBody
+        "data": QuerySpreadsheetSheetResponseBody,
+
     }
 
     def __init__(self, d=None):

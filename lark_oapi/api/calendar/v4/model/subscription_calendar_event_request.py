@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class SubscriptionCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
 
     @staticmethod
@@ -21,8 +22,13 @@ class SubscriptionCalendarEventRequestBuilder(object):
         subscription_calendar_event_request = SubscriptionCalendarEventRequest()
         subscription_calendar_event_request.http_method = HttpMethod.POST
         subscription_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-        subscription_calendar_event_request.token_types = {AccessTokenType.USER}
+        subscription_calendar_event_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._subscription_calendar_event_request: SubscriptionCalendarEventRequest = subscription_calendar_event_request
+
+    def user_id_type(self, user_id_type: str) -> "SubscriptionCalendarEventRequestBuilder":
+        self._subscription_calendar_event_request.user_id_type = user_id_type
+        self._subscription_calendar_event_request.add_query("user_id_type", user_id_type)
+        return self
 
     def calendar_id(self, calendar_id: str) -> "SubscriptionCalendarEventRequestBuilder":
         self._subscription_calendar_event_request.calendar_id = calendar_id

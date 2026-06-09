@@ -8,7 +8,8 @@ from .get_leave_employ_expire_record_response_body import GetLeaveEmployExpireRe
 
 class GetLeaveEmployExpireRecordResponse(BaseResponse):
     _types = {
-        "data": GetLeaveEmployExpireRecordResponseBody
+        "data": GetLeaveEmployExpireRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_post_response_body import GetPostResponseBody
 
 class GetPostResponse(BaseResponse):
     _types = {
-        "data": GetPostResponseBody
+        "data": GetPostResponseBody,
+
     }
 
     def __init__(self, d=None):

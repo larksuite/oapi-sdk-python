@@ -8,7 +8,8 @@ from .query_custom_org_response_body import QueryCustomOrgResponseBody
 
 class QueryCustomOrgResponse(BaseResponse):
     _types = {
-        "data": QueryCustomOrgResponseBody
+        "data": QueryCustomOrgResponseBody,
+
     }
 
     def __init__(self, d=None):

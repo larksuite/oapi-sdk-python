@@ -16,6 +16,7 @@ def main():
     request: BatchDeleteAppTableRecordRequest = BatchDeleteAppTableRecordRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
+        .ignore_consistency_check(bool) \
         .request_body(BatchDeleteAppTableRecordRequestBody.builder()
                       .records([])
                       .build()) \
@@ -47,6 +48,7 @@ async def amain():
     request: BatchDeleteAppTableRecordRequest = BatchDeleteAppTableRecordRequest.builder() \
         .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
         .table_id("tblsRc9GRRXKqhvW") \
+        .ignore_consistency_check(bool) \
         .request_body(BatchDeleteAppTableRecordRequestBody.builder()
                       .records([])
                       .build()) \

@@ -8,7 +8,8 @@ from .get_website_delivery_task_response_body import GetWebsiteDeliveryTaskRespo
 
 class GetWebsiteDeliveryTaskResponse(BaseResponse):
     _types = {
-        "data": GetWebsiteDeliveryTaskResponseBody
+        "data": GetWebsiteDeliveryTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

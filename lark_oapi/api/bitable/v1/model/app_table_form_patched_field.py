@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .app_rich_description_segment import AppRichDescriptionSegment
 
 
 class AppTableFormPatchedField(object):
@@ -11,6 +12,7 @@ class AppTableFormPatchedField(object):
         "description": str,
         "required": bool,
         "visible": bool,
+        "rich_description": List[AppRichDescriptionSegment],
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,7 @@ class AppTableFormPatchedField(object):
         self.description: Optional[str] = None
         self.required: Optional[bool] = None
         self.visible: Optional[bool] = None
+        self.rich_description: Optional[List[AppRichDescriptionSegment]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +51,10 @@ class AppTableFormPatchedFieldBuilder(object):
 
     def visible(self, visible: bool) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.visible = visible
+        return self
+
+    def rich_description(self, rich_description: List[AppRichDescriptionSegment]) -> "AppTableFormPatchedFieldBuilder":
+        self._app_table_form_patched_field.rich_description = rich_description
         return self
 
     def build(self) -> "AppTableFormPatchedField":

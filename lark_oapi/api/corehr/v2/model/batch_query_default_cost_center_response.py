@@ -8,7 +8,8 @@ from .batch_query_default_cost_center_response_body import BatchQueryDefaultCost
 
 class BatchQueryDefaultCostCenterResponse(BaseResponse):
     _types = {
-        "data": BatchQueryDefaultCostCenterResponseBody
+        "data": BatchQueryDefaultCostCenterResponseBody,
+
     }
 
     def __init__(self, d=None):

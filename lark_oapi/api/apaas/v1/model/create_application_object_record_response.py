@@ -8,7 +8,8 @@ from .create_application_object_record_response_body import CreateApplicationObj
 
 class CreateApplicationObjectRecordResponse(BaseResponse):
     _types = {
-        "data": CreateApplicationObjectRecordResponseBody
+        "data": CreateApplicationObjectRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

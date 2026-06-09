@@ -8,7 +8,8 @@ from .convert_common_data_id_response_body import ConvertCommonDataIdResponseBod
 
 class ConvertCommonDataIdResponse(BaseResponse):
     _types = {
-        "data": ConvertCommonDataIdResponseBody
+        "data": ConvertCommonDataIdResponseBody,
+
     }
 
     def __init__(self, d=None):

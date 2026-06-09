@@ -8,7 +8,8 @@ from .query_recent_change_company_response_body import QueryRecentChangeCompanyR
 
 class QueryRecentChangeCompanyResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangeCompanyResponseBody
+        "data": QueryRecentChangeCompanyResponseBody,
+
     }
 
     def __init__(self, d=None):

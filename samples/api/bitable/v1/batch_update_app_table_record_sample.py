@@ -18,6 +18,7 @@ def main():
         .table_id("tblsRc9GRRXKqhvW") \
         .user_id_type("user_id") \
         .ignore_consistency_check(True) \
+        .client_token("str") \
         .request_body(BatchUpdateAppTableRecordRequestBody.builder()
                       .records([])
                       .build()) \
@@ -51,6 +52,7 @@ async def amain():
         .table_id("tblsRc9GRRXKqhvW") \
         .user_id_type("user_id") \
         .ignore_consistency_check(True) \
+        .client_token("str") \
         .request_body(BatchUpdateAppTableRecordRequestBody.builder()
                       .records([])
                       .build()) \

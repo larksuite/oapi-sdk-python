@@ -25,7 +25,7 @@ class ListEvaluationTaskRequestBuilder(object):
         list_evaluation_task_request = ListEvaluationTaskRequest()
         list_evaluation_task_request.http_method = HttpMethod.GET
         list_evaluation_task_request.uri = "/open-apis/hire/v1/evaluation_tasks"
-        list_evaluation_task_request.token_types = {AccessTokenType.TENANT}
+        list_evaluation_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_evaluation_task_request: ListEvaluationTaskRequest = list_evaluation_task_request
 
     def page_size(self, page_size: int) -> "ListEvaluationTaskRequestBuilder":

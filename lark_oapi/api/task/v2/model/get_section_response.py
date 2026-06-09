@@ -8,7 +8,8 @@ from .get_section_response_body import GetSectionResponseBody
 
 class GetSectionResponse(BaseResponse):
     _types = {
-        "data": GetSectionResponseBody
+        "data": GetSectionResponseBody,
+
     }
 
     def __init__(self, d=None):

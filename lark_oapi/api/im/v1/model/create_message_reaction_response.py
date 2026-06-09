@@ -8,7 +8,8 @@ from .create_message_reaction_response_body import CreateMessageReactionResponse
 
 class CreateMessageReactionResponse(BaseResponse):
     _types = {
-        "data": CreateMessageReactionResponseBody
+        "data": CreateMessageReactionResponseBody,
+
     }
 
     def __init__(self, d=None):

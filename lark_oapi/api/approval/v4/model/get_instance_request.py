@@ -11,6 +11,7 @@ class GetInstanceRequest(BaseRequest):
         self.locale: Optional[str] = None
         self.user_id: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.nested_mutable_group: Optional[bool] = None
         self.instance_id: Optional[str] = None
 
     @staticmethod
@@ -40,6 +41,11 @@ class GetInstanceRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "GetInstanceRequestBuilder":
         self._get_instance_request.user_id_type = user_id_type
         self._get_instance_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def nested_mutable_group(self, nested_mutable_group: bool) -> "GetInstanceRequestBuilder":
+        self._get_instance_request.nested_mutable_group = nested_mutable_group
+        self._get_instance_request.add_query("nested_mutable_group", nested_mutable_group)
         return self
 
     def instance_id(self, instance_id: str) -> "GetInstanceRequestBuilder":

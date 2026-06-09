@@ -8,7 +8,8 @@ from .create_system_status_response_body import CreateSystemStatusResponseBody
 
 class CreateSystemStatusResponse(BaseResponse):
     _types = {
-        "data": CreateSystemStatusResponseBody
+        "data": CreateSystemStatusResponseBody,
+
     }
 
     def __init__(self, d=None):

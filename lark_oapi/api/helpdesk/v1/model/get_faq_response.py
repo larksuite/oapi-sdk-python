@@ -8,7 +8,8 @@ from .get_faq_response_body import GetFaqResponseBody
 
 class GetFaqResponse(BaseResponse):
     _types = {
-        "data": GetFaqResponseBody
+        "data": GetFaqResponseBody,
+
     }
 
     def __init__(self, d=None):

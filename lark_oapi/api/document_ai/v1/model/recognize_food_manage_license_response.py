@@ -8,7 +8,8 @@ from .recognize_food_manage_license_response_body import RecognizeFoodManageLice
 
 class RecognizeFoodManageLicenseResponse(BaseResponse):
     _types = {
-        "data": RecognizeFoodManageLicenseResponseBody
+        "data": RecognizeFoodManageLicenseResponseBody,
+
     }
 
     def __init__(self, d=None):

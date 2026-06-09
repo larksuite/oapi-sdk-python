@@ -8,7 +8,8 @@ from .instance_view_calendar_event_response_body import InstanceViewCalendarEven
 
 class InstanceViewCalendarEventResponse(BaseResponse):
     _types = {
-        "data": InstanceViewCalendarEventResponseBody
+        "data": InstanceViewCalendarEventResponseBody,
+
     }
 
     def __init__(self, d=None):

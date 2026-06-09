@@ -8,7 +8,8 @@ from .list_exam_marking_task_response_body import ListExamMarkingTaskResponseBod
 
 class ListExamMarkingTaskResponse(BaseResponse):
     _types = {
-        "data": ListExamMarkingTaskResponseBody
+        "data": ListExamMarkingTaskResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_additional_information_response_body import QueryAdditionalInformati
 
 class QueryAdditionalInformationResponse(BaseResponse):
     _types = {
-        "data": QueryAdditionalInformationResponseBody
+        "data": QueryAdditionalInformationResponseBody,
+
     }
 
     def __init__(self, d=None):

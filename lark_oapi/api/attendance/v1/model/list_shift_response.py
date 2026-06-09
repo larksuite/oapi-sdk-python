@@ -8,7 +8,8 @@ from .list_shift_response_body import ListShiftResponseBody
 
 class ListShiftResponse(BaseResponse):
     _types = {
-        "data": ListShiftResponseBody
+        "data": ListShiftResponseBody,
+
     }
 
     def __init__(self, d=None):

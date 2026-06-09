@@ -8,7 +8,8 @@ from .patch_job_response_body import PatchJobResponseBody
 
 class PatchJobResponse(BaseResponse):
     _types = {
-        "data": PatchJobResponseBody
+        "data": PatchJobResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -9,6 +9,7 @@ from .subscribed_event import SubscribedEvent
 from .callback import Callback
 from .event_and_callback_encrypt_strategy import EventAndCallbackEncryptStrategy
 from .app_config_security_item import AppConfigSecurityItem
+from .callback_info import CallbackInfo
 
 
 class Application(object):
@@ -38,6 +39,8 @@ class Application(object):
         "callback": Callback,
         "encryption": EventAndCallbackEncryptStrategy,
         "security": AppConfigSecurityItem,
+        "allow_refresh_token": bool,
+        "callback_info": CallbackInfo,
     }
 
     def __init__(self, d=None):
@@ -66,6 +69,8 @@ class Application(object):
         self.callback: Optional[Callback] = None
         self.encryption: Optional[EventAndCallbackEncryptStrategy] = None
         self.security: Optional[AppConfigSecurityItem] = None
+        self.allow_refresh_token: Optional[bool] = None
+        self.callback_info: Optional[CallbackInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -175,6 +180,14 @@ class ApplicationBuilder(object):
 
     def security(self, security: AppConfigSecurityItem) -> "ApplicationBuilder":
         self._application.security = security
+        return self
+
+    def allow_refresh_token(self, allow_refresh_token: bool) -> "ApplicationBuilder":
+        self._application.allow_refresh_token = allow_refresh_token
+        return self
+
+    def callback_info(self, callback_info: CallbackInfo) -> "ApplicationBuilder":
+        self._application.callback_info = callback_info
         return self
 
     def build(self) -> "Application":

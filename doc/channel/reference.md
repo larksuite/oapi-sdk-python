@@ -3,7 +3,36 @@
 This is the detailed reference for `FeishuChannel`. For a narrative guide, see
 [Channel module](../channel.md). For first-run setup, see [Channel quickstart](./quickstart.md).
 
-## Entry Point
+> **Migration notice:** This page documents the legacy `lark_oapi.channel`
+> reference. Channel has moved to
+> [`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/) with the
+> `lark_channel` import path. Critical fixes for existing `lark_oapi.channel`
+> users are evaluated for backport until 2027-06-02. See the
+> [migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+> and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
+## Maintenance status in `lark-oapi`
+
+`lark_oapi.channel` remains available for compatibility during the migration
+window, but new Channel features are added only to
+[`lark-channel-sdk`](https://pypi.org/project/lark-channel-sdk/). Critical bug
+fixes are evaluated for backport until 2027-06-02.
+
+For new projects, use the standalone package:
+
+```bash
+pip install lark-channel-sdk
+```
+
+```python
+from lark_channel import FeishuChannel
+```
+
+See the
+[migration guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/migration-from-lark-oapi.md)
+and [SecurityConfig guide](https://github.com/larksuite/channel-sdk-python/blob/main/docs/security.md).
+
+## Legacy Entry Point
 
 ```python
 from lark_oapi.channel import FeishuChannel

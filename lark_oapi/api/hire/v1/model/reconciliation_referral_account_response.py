@@ -8,7 +8,8 @@ from .reconciliation_referral_account_response_body import ReconciliationReferra
 
 class ReconciliationReferralAccountResponse(BaseResponse):
     _types = {
-        "data": ReconciliationReferralAccountResponseBody
+        "data": ReconciliationReferralAccountResponseBody,
+
     }
 
     def __init__(self, d=None):

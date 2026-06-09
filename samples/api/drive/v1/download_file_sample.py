@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: DownloadFileRequest = DownloadFileRequest.builder() \
         .file_token("boxcnabCdefg12345") \
+        .version("str") \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     # 构造请求对象
     request: DownloadFileRequest = DownloadFileRequest.builder() \
         .file_token("boxcnabCdefg12345") \
+        .version("str") \
         .build()
 
     # 发起请求

@@ -20,6 +20,7 @@ def main():
         .user_id_type("user_id") \
         .with_option(False) \
         .user_id("ou_7a4aaac5650dc0b77e85e96e7476ff1d") \
+        .nested_mutable_group(bool) \
         .build()
 
     # 发起请求
@@ -52,6 +53,7 @@ async def amain():
         .user_id_type("user_id") \
         .with_option(False) \
         .user_id("ou_7a4aaac5650dc0b77e85e96e7476ff1d") \
+        .nested_mutable_group(bool) \
         .build()
 
     # 发起请求

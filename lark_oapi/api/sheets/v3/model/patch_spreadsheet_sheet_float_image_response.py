@@ -8,7 +8,8 @@ from .patch_spreadsheet_sheet_float_image_response_body import PatchSpreadsheetS
 
 class PatchSpreadsheetSheetFloatImageResponse(BaseResponse):
     _types = {
-        "data": PatchSpreadsheetSheetFloatImageResponseBody
+        "data": PatchSpreadsheetSheetFloatImageResponseBody,
+
     }
 
     def __init__(self, d=None):

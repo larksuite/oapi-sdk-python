@@ -8,7 +8,8 @@ from .batch_update_document_block_response_body import BatchUpdateDocumentBlockR
 
 class BatchUpdateDocumentBlockResponse(BaseResponse):
     _types = {
-        "data": BatchUpdateDocumentBlockResponseBody
+        "data": BatchUpdateDocumentBlockResponseBody,
+
     }
 
     def __init__(self, d=None):

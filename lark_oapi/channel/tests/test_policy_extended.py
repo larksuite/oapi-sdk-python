@@ -13,7 +13,6 @@ from lark_oapi.channel.types import (
     TextContent,
 )
 
-
 BOT = "ou_bot"
 ADMIN = "ou_admin"
 USER = "ou_user"

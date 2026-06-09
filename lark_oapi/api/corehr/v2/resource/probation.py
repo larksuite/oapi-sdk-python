@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.edit_probation_request import EditProbationRequest
+from ..model.edit_probation_response import EditProbationResponse
 from ..model.enable_disable_assessment_probation_request import EnableDisableAssessmentProbationRequest
 from ..model.enable_disable_assessment_probation_response import EnableDisableAssessmentProbationResponse
 from ..model.search_probation_request import SearchProbationRequest
@@ -22,6 +24,43 @@ from ..model.withdraw_probation_response import WithdrawProbationResponse
 class Probation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def edit(self, request: EditProbationRequest, option: Optional[RequestOption] = None) -> EditProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: EditProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), EditProbationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aedit(self, request: EditProbationRequest,
+                    option: Optional[RequestOption] = None) -> EditProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: EditProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), EditProbationResponse)
+        response.raw = resp
+
+        return response
 
     def enable_disable_assessment(self, request: EnableDisableAssessmentProbationRequest,
                                   option: Optional[RequestOption] = None) -> EnableDisableAssessmentProbationResponse:

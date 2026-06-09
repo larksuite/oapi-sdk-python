@@ -18,6 +18,7 @@ class JobLevel(object):
         "custom_fields": List[CustomFieldData],
         "job_grade": List[str],
         "pathway_ids": List[str],
+        "view_order": int,
     }
 
     def __init__(self, d=None):
@@ -30,6 +31,7 @@ class JobLevel(object):
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.job_grade: Optional[List[str]] = None
         self.pathway_ids: Optional[List[str]] = None
+        self.view_order: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -75,6 +77,10 @@ class JobLevelBuilder(object):
 
     def pathway_ids(self, pathway_ids: List[str]) -> "JobLevelBuilder":
         self._job_level.pathway_ids = pathway_ids
+        return self
+
+    def view_order(self, view_order: int) -> "JobLevelBuilder":
+        self._job_level.view_order = view_order
         return self
 
     def build(self) -> "JobLevel":

@@ -8,7 +8,8 @@ from .update_tabs_chat_tab_response_body import UpdateTabsChatTabResponseBody
 
 class UpdateTabsChatTabResponse(BaseResponse):
     _types = {
-        "data": UpdateTabsChatTabResponseBody
+        "data": UpdateTabsChatTabResponseBody,
+
     }
 
     def __init__(self, d=None):

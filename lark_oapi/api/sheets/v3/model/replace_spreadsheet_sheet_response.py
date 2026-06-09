@@ -8,7 +8,8 @@ from .replace_spreadsheet_sheet_response_body import ReplaceSpreadsheetSheetResp
 
 class ReplaceSpreadsheetSheetResponse(BaseResponse):
     _types = {
-        "data": ReplaceSpreadsheetSheetResponseBody
+        "data": ReplaceSpreadsheetSheetResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -9,7 +9,8 @@ from .open_query_job_change_list_by_ids_approval_groups_response_body import \
 
 class OpenQueryJobChangeListByIdsApprovalGroupsResponse(BaseResponse):
     _types = {
-        "data": OpenQueryJobChangeListByIdsApprovalGroupsResponseBody
+        "data": OpenQueryJobChangeListByIdsApprovalGroupsResponseBody,
+
     }
 
     def __init__(self, d=None):

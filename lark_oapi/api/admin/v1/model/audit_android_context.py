@@ -25,7 +25,7 @@ class AuditAndroidContext(object):
         "active_ip": str,
         "active_ip_detail": str,
         "cell_base_station": str,
-        "i_p": str,
+        "ip": str,
     }
 
     def __init__(self, d=None):
@@ -48,7 +48,7 @@ class AuditAndroidContext(object):
         self.active_ip: Optional[str] = None
         self.active_ip_detail: Optional[str] = None
         self.cell_base_station: Optional[str] = None
-        self.i_p: Optional[str] = None
+        self.ip: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -136,8 +136,8 @@ class AuditAndroidContextBuilder(object):
         self._audit_android_context.cell_base_station = cell_base_station
         return self
 
-    def i_p(self, i_p: str) -> "AuditAndroidContextBuilder":
-        self._audit_android_context.i_p = i_p
+    def ip(self, ip: str) -> "AuditAndroidContextBuilder":
+        self._audit_android_context.ip = ip
         return self
 
     def build(self) -> "AuditAndroidContext":

@@ -8,7 +8,8 @@ from .patch_custom_field_option_response_body import PatchCustomFieldOptionRespo
 
 class PatchCustomFieldOptionResponse(BaseResponse):
     _types = {
-        "data": PatchCustomFieldOptionResponseBody
+        "data": PatchCustomFieldOptionResponseBody,
+
     }
 
     def __init__(self, d=None):

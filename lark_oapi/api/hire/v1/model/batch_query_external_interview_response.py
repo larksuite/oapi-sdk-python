@@ -8,7 +8,8 @@ from .batch_query_external_interview_response_body import BatchQueryExternalInte
 
 class BatchQueryExternalInterviewResponse(BaseResponse):
     _types = {
-        "data": BatchQueryExternalInterviewResponseBody
+        "data": BatchQueryExternalInterviewResponseBody,
+
     }
 
     def __init__(self, d=None):

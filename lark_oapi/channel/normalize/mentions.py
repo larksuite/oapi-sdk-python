@@ -124,8 +124,8 @@ def _mention_from_event(m: Any) -> Mention:
 
 
 def extract_mentions(
-    raw: Optional[Iterable[Any]],
-    bot_open_id: Optional[str] = None,
+        raw: Optional[Iterable[Any]],
+        bot_open_id: Optional[str] = None,
 ) -> MentionExtraction:
     """Index raw event mentions into a :class:`MentionExtraction`.
 
@@ -152,11 +152,11 @@ def extract_mentions(
 
 
 def resolve_mentions(
-    content: str,
-    ext: MentionExtraction,
-    *,
-    strip_bot_mentions: bool = False,
-    bot_open_id: Optional[str] = None,
+        content: str,
+        ext: MentionExtraction,
+        *,
+        strip_bot_mentions: bool = False,
+        bot_open_id: Optional[str] = None,
 ) -> str:
     """Replace ``@_user_N`` placeholders with ``@{name}``.
 

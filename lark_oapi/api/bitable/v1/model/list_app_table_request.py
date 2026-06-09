@@ -8,8 +8,8 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class ListAppTableRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
+        self.page_token: Optional[str] = None
         self.app_token: Optional[str] = None
 
     @staticmethod
@@ -26,14 +26,14 @@ class ListAppTableRequestBuilder(object):
         list_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_app_table_request: ListAppTableRequest = list_app_table_request
 
-    def page_token(self, page_token: str) -> "ListAppTableRequestBuilder":
-        self._list_app_table_request.page_token = page_token
-        self._list_app_table_request.add_query("page_token", page_token)
-        return self
-
     def page_size(self, page_size: int) -> "ListAppTableRequestBuilder":
         self._list_app_table_request.page_size = page_size
         self._list_app_table_request.add_query("page_size", page_size)
+        return self
+
+    def page_token(self, page_token: str) -> "ListAppTableRequestBuilder":
+        self._list_app_table_request.page_token = page_token
+        self._list_app_table_request.add_query("page_token", page_token)
         return self
 
     def app_token(self, app_token: str) -> "ListAppTableRequestBuilder":

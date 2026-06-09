@@ -8,7 +8,8 @@ from .create_functional_role_response_body import CreateFunctionalRoleResponseBo
 
 class CreateFunctionalRoleResponse(BaseResponse):
     _types = {
-        "data": CreateFunctionalRoleResponseBody
+        "data": CreateFunctionalRoleResponseBody,
+
     }
 
     def __init__(self, d=None):

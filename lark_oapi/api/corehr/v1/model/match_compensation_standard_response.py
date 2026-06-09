@@ -8,7 +8,8 @@ from .match_compensation_standard_response_body import MatchCompensationStandard
 
 class MatchCompensationStandardResponse(BaseResponse):
     _types = {
-        "data": MatchCompensationStandardResponseBody
+        "data": MatchCompensationStandardResponseBody,
+
     }
 
     def __init__(self, d=None):

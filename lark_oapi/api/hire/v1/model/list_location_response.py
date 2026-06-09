@@ -8,7 +8,8 @@ from .list_location_response_body import ListLocationResponseBody
 
 class ListLocationResponse(BaseResponse):
     _types = {
-        "data": ListLocationResponseBody
+        "data": ListLocationResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .list_mailgroup_permission_member_response_body import ListMailgroupPermiss
 
 class ListMailgroupPermissionMemberResponse(BaseResponse):
     _types = {
-        "data": ListMailgroupPermissionMemberResponseBody
+        "data": ListMailgroupPermissionMemberResponseBody,
+
     }
 
     def __init__(self, d=None):

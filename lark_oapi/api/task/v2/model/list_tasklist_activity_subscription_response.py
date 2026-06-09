@@ -8,7 +8,8 @@ from .list_tasklist_activity_subscription_response_body import ListTasklistActiv
 
 class ListTasklistActivitySubscriptionResponse(BaseResponse):
     _types = {
-        "data": ListTasklistActivitySubscriptionResponseBody
+        "data": ListTasklistActivitySubscriptionResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .get_offer_schema_response_body import GetOfferSchemaResponseBody
 
 class GetOfferSchemaResponse(BaseResponse):
     _types = {
-        "data": GetOfferSchemaResponseBody
+        "data": GetOfferSchemaResponseBody,
+
     }
 
     def __init__(self, d=None):

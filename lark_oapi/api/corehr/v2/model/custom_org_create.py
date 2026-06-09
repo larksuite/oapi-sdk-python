@@ -21,6 +21,7 @@ class CustomOrgCreate(object):
         "org_roles": List[OrgRoleUpdate],
         "match_rule_groups": List[MatchRules],
         "custom_fields": List[CustomFieldData],
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -34,6 +35,7 @@ class CustomOrgCreate(object):
         self.org_roles: Optional[List[OrgRoleUpdate]] = None
         self.match_rule_groups: Optional[List[MatchRules]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -83,6 +85,10 @@ class CustomOrgCreateBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.custom_fields = custom_fields
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CustomOrgCreateBuilder":
+        self._custom_org_create.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "CustomOrgCreate":

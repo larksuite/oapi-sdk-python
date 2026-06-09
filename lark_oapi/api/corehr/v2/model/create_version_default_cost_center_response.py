@@ -8,7 +8,8 @@ from .create_version_default_cost_center_response_body import CreateVersionDefau
 
 class CreateVersionDefaultCostCenterResponse(BaseResponse):
     _types = {
-        "data": CreateVersionDefaultCostCenterResponseBody
+        "data": CreateVersionDefaultCostCenterResponseBody,
+
     }
 
     def __init__(self, d=None):

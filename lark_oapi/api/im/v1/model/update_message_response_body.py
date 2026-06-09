@@ -23,6 +23,9 @@ class UpdateMessageResponseBody(object):
         "body": MessageBody,
         "mentions": List[Mention],
         "upper_message_id": str,
+        "message_app_link": str,
+        "message_position": int,
+        "thread_message_position": int,
     }
 
     def __init__(self, d=None):
@@ -40,6 +43,9 @@ class UpdateMessageResponseBody(object):
         self.body: Optional[MessageBody] = None
         self.mentions: Optional[List[Mention]] = None
         self.upper_message_id: Optional[str] = None
+        self.message_app_link: Optional[str] = None
+        self.message_position: Optional[int] = None
+        self.thread_message_position: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -105,6 +111,18 @@ class UpdateMessageResponseBodyBuilder(object):
 
     def upper_message_id(self, upper_message_id: str) -> "UpdateMessageResponseBodyBuilder":
         self._update_message_response_body.upper_message_id = upper_message_id
+        return self
+
+    def message_app_link(self, message_app_link: str) -> "UpdateMessageResponseBodyBuilder":
+        self._update_message_response_body.message_app_link = message_app_link
+        return self
+
+    def message_position(self, message_position: int) -> "UpdateMessageResponseBodyBuilder":
+        self._update_message_response_body.message_position = message_position
+        return self
+
+    def thread_message_position(self, thread_message_position: int) -> "UpdateMessageResponseBodyBuilder":
+        self._update_message_response_body.thread_message_position = thread_message_position
         return self
 
     def build(self) -> "UpdateMessageResponseBody":

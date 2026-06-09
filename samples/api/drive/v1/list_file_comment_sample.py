@@ -21,6 +21,7 @@ def main():
         .page_token("7153511712153412356") \
         .page_size(10) \
         .user_id_type("user_id") \
+        .need_reaction(bool) \
         .build()
 
     # 发起请求
@@ -54,6 +55,7 @@ async def amain():
         .page_token("7153511712153412356") \
         .page_size(10) \
         .user_id_type("user_id") \
+        .need_reaction(bool) \
         .build()
 
     # 发起请求

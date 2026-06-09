@@ -33,6 +33,7 @@ def main():
                       .preferred_city_code_list([])
                       .self_evaluation(TalentSelfEvaluation.builder().build())
                       .customized_data([])
+                      .only_parse_resume_update_talent(bool)
                       .build()) \
         .build()
 
@@ -79,6 +80,7 @@ async def amain():
                       .preferred_city_code_list([])
                       .self_evaluation(TalentSelfEvaluation.builder().build())
                       .customized_data([])
+                      .only_parse_resume_update_talent(bool)
                       .build()) \
         .build()
 

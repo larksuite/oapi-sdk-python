@@ -13,6 +13,7 @@ class EducationInfoForUpdate(object):
         "end_time": str,
         "field_of_study": str,
         "custom_fields": List[ObjectFieldData],
+        "degree": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class EducationInfoForUpdate(object):
         self.end_time: Optional[str] = None
         self.field_of_study: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.degree: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class EducationInfoForUpdateBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.custom_fields = custom_fields
+        return self
+
+    def degree(self, degree: str) -> "EducationInfoForUpdateBuilder":
+        self._education_info_for_update.degree = degree
         return self
 
     def build(self) -> "EducationInfoForUpdate":

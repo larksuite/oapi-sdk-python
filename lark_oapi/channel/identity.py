@@ -19,7 +19,6 @@ from lark_oapi.core.log import logger
 from .config import NameCacheConfig
 from .types import Identity
 
-
 ContactLookupResult = Dict[str, Union[Identity, str]]
 ContactLookupFn = Callable[
     [List[str]], Union[ContactLookupResult, Awaitable[ContactLookupResult]]
@@ -73,9 +72,9 @@ class IdentityResolver:
     """Async-friendly name resolver."""
 
     def __init__(
-        self,
-        lookup: Optional[ContactLookupFn],
-        cache: Optional[NameCache] = None,
+            self,
+            lookup: Optional[ContactLookupFn],
+            cache: Optional[NameCache] = None,
     ) -> None:
         self._lookup = lookup
         self._cache = cache or NameCache()

@@ -8,7 +8,8 @@ from .search_app_table_record_response_body import SearchAppTableRecordResponseB
 
 class SearchAppTableRecordResponse(BaseResponse):
     _types = {
-        "data": SearchAppTableRecordResponseBody
+        "data": SearchAppTableRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

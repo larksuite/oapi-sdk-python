@@ -8,7 +8,8 @@ from .recognize_train_invoice_response_body import RecognizeTrainInvoiceResponse
 
 class RecognizeTrainInvoiceResponse(BaseResponse):
     _types = {
-        "data": RecognizeTrainInvoiceResponseBody
+        "data": RecognizeTrainInvoiceResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_authorization_response_body import QueryAuthorizationResponseBody
 
 class QueryAuthorizationResponse(BaseResponse):
     _types = {
-        "data": QueryAuthorizationResponseBody
+        "data": QueryAuthorizationResponseBody,
+
     }
 
     def __init__(self, d=None):

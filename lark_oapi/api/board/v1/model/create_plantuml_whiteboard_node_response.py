@@ -8,7 +8,8 @@ from .create_plantuml_whiteboard_node_response_body import CreatePlantumlWhitebo
 
 class CreatePlantumlWhiteboardNodeResponse(BaseResponse):
     _types = {
-        "data": CreatePlantumlWhiteboardNodeResponseBody
+        "data": CreatePlantumlWhiteboardNodeResponseBody,
+
     }
 
     def __init__(self, d=None):

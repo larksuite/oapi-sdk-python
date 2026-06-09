@@ -158,25 +158,25 @@ class FeishuChannel:
     """
 
     def __init__(
-        self,
-        *,
-        app_id: Optional[str] = None,
-        app_secret: Optional[str] = None,
-        encrypt_key: Optional[str] = None,
-        verification_token: Optional[str] = None,
-        domain: Optional[str] = None,
-        log_level: Optional[LogLevel] = None,
-        transport: Optional[Union[str, TransportConfig]] = None,
-        policy: Optional[PolicyConfig] = None,
-        safety: Optional[SafetyConfig] = None,
-        inbound: Optional[InboundConfig] = None,
-        outbound: Optional[OutboundConfig] = None,
-        uat: Optional[UATConfig] = None,
-        token_store: Optional[TokenStore] = None,
-        dedup_store: Any = None,
-        safety_cache: Optional[ICache] = None,
-        name_lookup: Optional[Callable[[List[str]], Any]] = None,
-        config: Optional[ChannelConfig] = None,
+            self,
+            *,
+            app_id: Optional[str] = None,
+            app_secret: Optional[str] = None,
+            encrypt_key: Optional[str] = None,
+            verification_token: Optional[str] = None,
+            domain: Optional[str] = None,
+            log_level: Optional[LogLevel] = None,
+            transport: Optional[Union[str, TransportConfig]] = None,
+            policy: Optional[PolicyConfig] = None,
+            safety: Optional[SafetyConfig] = None,
+            inbound: Optional[InboundConfig] = None,
+            outbound: Optional[OutboundConfig] = None,
+            uat: Optional[UATConfig] = None,
+            token_store: Optional[TokenStore] = None,
+            dedup_store: Any = None,
+            safety_cache: Optional[ICache] = None,
+            name_lookup: Optional[Callable[[List[str]], Any]] = None,
+            config: Optional[ChannelConfig] = None,
     ) -> None:
         """Create a channel.
 
@@ -262,7 +262,7 @@ class FeishuChannel:
 
         self._identity_resolver = IdentityResolver(
             lookup=name_lookup
-            or (lambda ids: _api_helpers.default_name_lookup(self._client, ids)),
+                   or (lambda ids: _api_helpers.default_name_lookup(self._client, ids)),
             cache=NameCache(cfg.inbound.name_cache),
         )
 
@@ -335,9 +335,9 @@ class FeishuChannel:
     # Event registration
     # ------------------------------------------------------------------
     def on(
-        self,
-        name_or_map: Union[ChannelEventName, Dict[ChannelEventName, EventHandler]],
-        handler: Optional[EventHandler] = None,
+            self,
+            name_or_map: Union[ChannelEventName, Dict[ChannelEventName, EventHandler]],
+            handler: Optional[EventHandler] = None,
     ) -> Unsubscribe:
         """Register an event handler.
 
@@ -449,9 +449,9 @@ class FeishuChannel:
         return self._dispatcher
 
     async def handle_webhook_request(
-        self,
-        headers: "Mapping[str, str]",
-        body: bytes,
+            self,
+            headers: "Mapping[str, str]",
+            body: bytes,
     ) -> "tuple[int, bytes]":
         """Process a single inbound webhook request.
 
@@ -610,10 +610,10 @@ class FeishuChannel:
         await self.disconnect()
 
     async def _wait_background_start_ready(
-        self,
-        *,
-        timeout: Optional[float],
-        generation: int,
+            self,
+            *,
+            timeout: Optional[float],
+            generation: int,
     ) -> None:
         loop = asyncio.get_running_loop()
         deadline = None if timeout is None else loop.time() + timeout
@@ -738,9 +738,9 @@ class FeishuChannel:
 
     def _is_active_start(self, generation: int) -> bool:
         if (
-            generation != self._lifecycle_generation
-            or self._shutdown.is_set()
-            or self._stop_requested
+                generation != self._lifecycle_generation
+                or self._shutdown.is_set()
+                or self._stop_requested
         ):
             if generation == self._lifecycle_generation:
                 self._started = False
@@ -1082,11 +1082,11 @@ class FeishuChannel:
         b = b.register_p2_im_message_receive_v1(self._on_p2_im_message_receive_v1)
         b = b.register_p2_card_action_trigger(self._on_p2_card_action_trigger)
         for register, handler in (
-            ("register_p2_im_message_reaction_created_v1", self._on_p2_reaction_created),
-            ("register_p2_im_message_reaction_deleted_v1", self._on_p2_reaction_deleted),
-            ("register_p2_im_chat_member_bot_added_v1", self._on_p2_bot_added),
-            ("register_p2_im_chat_member_bot_deleted_v1", self._on_p2_bot_deleted),
-            ("register_p2_im_message_message_read_v1", self._on_p2_message_read),
+                ("register_p2_im_message_reaction_created_v1", self._on_p2_reaction_created),
+                ("register_p2_im_message_reaction_deleted_v1", self._on_p2_reaction_deleted),
+                ("register_p2_im_chat_member_bot_added_v1", self._on_p2_bot_added),
+                ("register_p2_im_chat_member_bot_deleted_v1", self._on_p2_bot_deleted),
+                ("register_p2_im_message_message_read_v1", self._on_p2_message_read),
         ):
             try:
                 b = getattr(b, register)(handler)
@@ -1113,7 +1113,7 @@ class FeishuChannel:
         self.schedule(self._handle_message_event(data))
 
     def _on_p2_card_action_trigger(
-        self, data: P2CardActionTrigger
+            self, data: P2CardActionTrigger
     ) -> P2CardActionTriggerResponse:
         try:
             if "cardAction" in self._handlers:
@@ -1230,11 +1230,11 @@ class FeishuChannel:
             logger.exception("FeishuChannel cardAction dispatch failed: %s", e)
 
     async def _through_action_safety(
-        self,
-        *,
-        event_id: str,
-        queue_scope: str,
-        handler: Callable[[], Any],
+            self,
+            *,
+            event_id: str,
+            queue_scope: str,
+            handler: Callable[[], Any],
     ) -> None:
         """Run ``handler`` through the safety tier-2 gate (dedup + lock +
         per-scope serial queue) when the pipeline exists; fall back to a
@@ -1255,10 +1255,10 @@ class FeishuChannel:
         await safety.push_action(event_id, queue_scope or event_id, _run)
 
     async def _through_light_safety(
-        self,
-        *,
-        event_id: str,
-        handler: Callable[[], Any],
+            self,
+            *,
+            event_id: str,
+            handler: Callable[[], Any],
     ) -> None:
         """Tier-3 variant: dedup only (reaction add/remove). Same fallback
         semantics as :meth:`_through_action_safety`."""
@@ -1423,12 +1423,12 @@ class FeishuChannel:
     # Outbound: send / stream / message ops (node-aligned)
     # ------------------------------------------------------------------
     async def upload_media(
-        self,
-        source: MediaSource,
-        *,
-        kind: Literal["image", "file"],
-        file_name: Optional[str] = None,
-        file_type: Optional[str] = None,
+            self,
+            source: MediaSource,
+            *,
+            kind: Literal["image", "file"],
+            file_name: Optional[str] = None,
+            file_type: Optional[str] = None,
     ) -> str:
         """Upload a media resource and return its Feishu ``image_key`` /
         ``file_key`` without sending a message.
@@ -1677,10 +1677,10 @@ class FeishuChannel:
         return _coerce.result_from_raw(raw, message_id=message_id)
 
     async def download_resource(
-        self,
-        file_key: str,
-        resource_type: str = "image",
-        message_id: Optional[str] = None,
+            self,
+            file_key: str,
+            resource_type: str = "image",
+            message_id: Optional[str] = None,
     ) -> Optional[bytes]:
         return await self._download_media(
             message_id=message_id or "",
@@ -1689,7 +1689,7 @@ class FeishuChannel:
         )
 
     async def _download_media(
-        self, *, message_id: str, file_key: str, resource_type: str
+            self, *, message_id: str, file_key: str, resource_type: str
     ) -> Optional[bytes]:
         return await _api_helpers.download_media(
             self._client,
@@ -1699,13 +1699,13 @@ class FeishuChannel:
         )
 
     async def download_resource_to_file(
-        self,
-        file_key: str,
-        *,
-        resource_type: str = "image",
-        message_id: Optional[str] = None,
-        dest_dir: "Path",
-        file_name: Optional[str] = None,
+            self,
+            file_key: str,
+            *,
+            resource_type: str = "image",
+            message_id: Optional[str] = None,
+            dest_dir: "Path",
+            file_name: Optional[str] = None,
     ) -> "Path":
         """Download a resource to disk and return the absolute path.
 
@@ -1777,14 +1777,14 @@ class FeishuChannel:
         name = (name or "").replace("\x00", "")
         win = PureWindowsPath(name)
         if (
-            not name
-            or name in (".", "..")
-            or os.path.isabs(name)
-            or "/" in name
-            or "\\" in name
-            or win.drive
-            or win.root
-            or any(part in ("", ".", "..") for part in win.parts)
+                not name
+                or name in (".", "..")
+                or os.path.isabs(name)
+                or "/" in name
+                or "\\" in name
+                or win.drive
+                or win.root
+                or any(part in ("", ".", "..") for part in win.parts)
         ):
             raise FeishuChannelError(
                 FeishuChannelErrorCode.DOWNLOAD_FAILED,
@@ -1852,14 +1852,14 @@ class FeishuChannel:
         return str(card_id)
 
     async def send_card_by_reference(
-        self,
-        to: str,
-        card_id: str,
-        *,
-        receive_id_type: Optional[str] = None,
-        reply_to: Optional[str] = None,
-        reply_in_thread: Optional[bool] = None,
-        reply_target_gone: str = "fresh",
+            self,
+            to: str,
+            card_id: str,
+            *,
+            receive_id_type: Optional[str] = None,
+            reply_to: Optional[str] = None,
+            reply_in_thread: Optional[bool] = None,
+            reply_target_gone: str = "fresh",
     ) -> SendResult:
         """Send a message that references a pre-allocated card (see
         :meth:`create_card_instance`)."""
@@ -1874,11 +1874,11 @@ class FeishuChannel:
         )
 
     async def update_card_element_content(
-        self,
-        card_id: str,
-        element_id: str,
-        content: str,
-        sequence: int,
+            self,
+            card_id: str,
+            element_id: str,
+            content: str,
+            sequence: int,
     ) -> None:
         """Typewriter-update a card element. ``sequence`` must strictly increase."""
         raw = await self._driver.cardkit_update_element(
@@ -1911,14 +1911,14 @@ class FeishuChannel:
     # Card streaming internals
     # ------------------------------------------------------------------
     async def _ensure_card(
-        self,
-        to,
-        rit,
-        *,
-        initial_text,
-        reply_to,
-        reply_in_thread,
-        reply_target_gone="fresh",
+            self,
+            to,
+            rit,
+            *,
+            initial_text,
+            reply_to,
+            reply_in_thread,
+            reply_target_gone="fresh",
     ) -> str:
         """Compatibility wrapper for older internal card-stream call sites."""
         return await self._ensure_card_snapshot(
@@ -1934,14 +1934,14 @@ class FeishuChannel:
         )
 
     async def _ensure_card_snapshot(
-        self,
-        to,
-        rit,
-        *,
-        snapshot,
-        reply_to,
-        reply_in_thread,
-        reply_target_gone="fresh",
+            self,
+            to,
+            rit,
+            *,
+            snapshot,
+            reply_to,
+            reply_in_thread,
+            reply_target_gone="fresh",
     ) -> str:
         result = await self._sender.send(
             OutboundCard(card=snapshot),
@@ -1995,11 +1995,11 @@ class FeishuChannel:
     # UAT (user access token) — exposed for callers that need it explicitly
     # ------------------------------------------------------------------
     async def require_user_auth(
-        self,
-        user_open_id: str,
-        scopes: list,
-        *,
-        prompt_context: Any = None,
+            self,
+            user_open_id: str,
+            scopes: list,
+            *,
+            prompt_context: Any = None,
     ) -> UAT:
         """Resolve a user access token for ``user_open_id``, running the
         device flow if needed. ``prompt_context`` must expose
@@ -2024,11 +2024,11 @@ class FeishuChannel:
             self._sent_message_context.pop(evicted, None)
 
     def _remember_sent_message_context(
-        self,
-        result: SendResult,
-        *,
-        chat_id: Optional[str],
-        receive_id_type: Optional[str],
+            self,
+            result: SendResult,
+            *,
+            chat_id: Optional[str],
+            receive_id_type: Optional[str],
     ) -> None:
         message_ids = list(result.chunk_ids or [])
         if result.message_id and result.message_id not in message_ids:

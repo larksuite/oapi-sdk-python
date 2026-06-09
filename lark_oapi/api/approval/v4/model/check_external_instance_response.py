@@ -8,7 +8,8 @@ from .check_external_instance_response_body import CheckExternalInstanceResponse
 
 class CheckExternalInstanceResponse(BaseResponse):
     _types = {
-        "data": CheckExternalInstanceResponseBody
+        "data": CheckExternalInstanceResponseBody,
+
     }
 
     def __init__(self, d=None):

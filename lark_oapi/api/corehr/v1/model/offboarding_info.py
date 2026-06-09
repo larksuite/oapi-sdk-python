@@ -7,6 +7,7 @@ from .enum import Enum
 from .enum import Enum
 from .custom_field_data import CustomFieldData
 from .enum import Enum
+from .view_employment_info import ViewEmploymentInfo
 
 
 class OffboardingInfo(object):
@@ -35,6 +36,8 @@ class OffboardingInfo(object):
         "signature_file": str,
         "last_attendance_date": str,
         "is_transfer_with_workforce": bool,
+        "employment": ViewEmploymentInfo,
+        "no_permission_fields": List[str],
     }
 
     def __init__(self, d=None):
@@ -62,6 +65,8 @@ class OffboardingInfo(object):
         self.signature_file: Optional[str] = None
         self.last_attendance_date: Optional[str] = None
         self.is_transfer_with_workforce: Optional[bool] = None
+        self.employment: Optional[ViewEmploymentInfo] = None
+        self.no_permission_fields: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -167,6 +172,14 @@ class OffboardingInfoBuilder(object):
 
     def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "OffboardingInfoBuilder":
         self._offboarding_info.is_transfer_with_workforce = is_transfer_with_workforce
+        return self
+
+    def employment(self, employment: ViewEmploymentInfo) -> "OffboardingInfoBuilder":
+        self._offboarding_info.employment = employment
+        return self
+
+    def no_permission_fields(self, no_permission_fields: List[str]) -> "OffboardingInfoBuilder":
+        self._offboarding_info.no_permission_fields = no_permission_fields
         return self
 
     def build(self) -> "OffboardingInfo":

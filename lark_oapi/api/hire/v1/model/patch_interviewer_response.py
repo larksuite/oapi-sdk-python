@@ -8,7 +8,8 @@ from .patch_interviewer_response_body import PatchInterviewerResponseBody
 
 class PatchInterviewerResponse(BaseResponse):
     _types = {
-        "data": PatchInterviewerResponseBody
+        "data": PatchInterviewerResponseBody,
+
     }
 
     def __init__(self, d=None):

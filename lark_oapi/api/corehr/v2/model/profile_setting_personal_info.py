@@ -12,6 +12,10 @@ from .profile_setting_hukou import ProfileSettingHukou
 from .profile_setting_address import ProfileSettingAddress
 from .profile_setting_custom_group import ProfileSettingCustomGroup
 from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
+from .profile_setting_person_for_country import ProfileSettingPersonForCountry
+from .profile_setting_visa import ProfileSettingVisa
+from .profile_setting_passport import ProfileSettingPassport
+from .profile_setting_national import ProfileSettingNational
 
 
 class ProfileSettingPersonalInfo(object):
@@ -26,6 +30,10 @@ class ProfileSettingPersonalInfo(object):
         "contact_addresses": List[ProfileSettingAddress],
         "custom_groups": List[ProfileSettingCustomGroup],
         "citizenship_statuses": List[ProfileSettingCitizenshipStatus],
+        "person_for_countries": List[ProfileSettingPersonForCountry],
+        "visas": List[ProfileSettingVisa],
+        "passports": List[ProfileSettingPassport],
+        "national_v2s": List[ProfileSettingNational],
     }
 
     def __init__(self, d=None):
@@ -39,6 +47,10 @@ class ProfileSettingPersonalInfo(object):
         self.contact_addresses: Optional[List[ProfileSettingAddress]] = None
         self.custom_groups: Optional[List[ProfileSettingCustomGroup]] = None
         self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
+        self.person_for_countries: Optional[List[ProfileSettingPersonForCountry]] = None
+        self.visas: Optional[List[ProfileSettingVisa]] = None
+        self.passports: Optional[List[ProfileSettingPassport]] = None
+        self.national_v2s: Optional[List[ProfileSettingNational]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -91,6 +103,23 @@ class ProfileSettingPersonalInfoBuilder(object):
     def citizenship_statuses(self, citizenship_statuses: List[
         ProfileSettingCitizenshipStatus]) -> "ProfileSettingPersonalInfoBuilder":
         self._profile_setting_personal_info.citizenship_statuses = citizenship_statuses
+        return self
+
+    def person_for_countries(self, person_for_countries: List[
+        ProfileSettingPersonForCountry]) -> "ProfileSettingPersonalInfoBuilder":
+        self._profile_setting_personal_info.person_for_countries = person_for_countries
+        return self
+
+    def visas(self, visas: List[ProfileSettingVisa]) -> "ProfileSettingPersonalInfoBuilder":
+        self._profile_setting_personal_info.visas = visas
+        return self
+
+    def passports(self, passports: List[ProfileSettingPassport]) -> "ProfileSettingPersonalInfoBuilder":
+        self._profile_setting_personal_info.passports = passports
+        return self
+
+    def national_v2s(self, national_v2s: List[ProfileSettingNational]) -> "ProfileSettingPersonalInfoBuilder":
+        self._profile_setting_personal_info.national_v2s = national_v2s
         return self
 
     def build(self) -> "ProfileSettingPersonalInfo":

@@ -8,7 +8,8 @@ from .create_tripartite_agreement_response_body import CreateTripartiteAgreement
 
 class CreateTripartiteAgreementResponse(BaseResponse):
     _types = {
-        "data": CreateTripartiteAgreementResponseBody
+        "data": CreateTripartiteAgreementResponseBody,
+
     }
 
     def __init__(self, d=None):

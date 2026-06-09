@@ -8,7 +8,8 @@ from .query_recent_change_location_response_body import QueryRecentChangeLocatio
 
 class QueryRecentChangeLocationResponse(BaseResponse):
     _types = {
-        "data": QueryRecentChangeLocationResponseBody
+        "data": QueryRecentChangeLocationResponseBody,
+
     }
 
     def __init__(self, d=None):

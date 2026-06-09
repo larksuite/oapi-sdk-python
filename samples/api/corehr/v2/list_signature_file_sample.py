@@ -22,6 +22,7 @@ def main():
         .update_time_end("2022-01-01 00:00:00") \
         .user_id_type("people_corehr_id") \
         .template_ids("7282756156156560940,6282751234556561278") \
+        .select_sign_url(bool) \
         .build()
 
     # 发起请求
@@ -56,6 +57,7 @@ async def amain():
         .update_time_end("2022-01-01 00:00:00") \
         .user_id_type("people_corehr_id") \
         .template_ids("7282756156156560940,6282751234556561278") \
+        .select_sign_url(bool) \
         .build()
 
     # 发起请求

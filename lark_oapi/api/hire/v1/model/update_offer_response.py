@@ -8,7 +8,8 @@ from .update_offer_response_body import UpdateOfferResponseBody
 
 class UpdateOfferResponse(BaseResponse):
     _types = {
-        "data": UpdateOfferResponseBody
+        "data": UpdateOfferResponseBody,
+
     }
 
     def __init__(self, d=None):

@@ -8,7 +8,8 @@ from .query_indicator_response_body import QueryIndicatorResponseBody
 
 class QueryIndicatorResponse(BaseResponse):
     _types = {
-        "data": QueryIndicatorResponseBody
+        "data": QueryIndicatorResponseBody,
+
     }
 
     def __init__(self, d=None):

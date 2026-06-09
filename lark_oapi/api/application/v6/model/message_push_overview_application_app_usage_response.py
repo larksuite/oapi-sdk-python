@@ -9,7 +9,8 @@ from .message_push_overview_application_app_usage_response_body import \
 
 class MessagePushOverviewApplicationAppUsageResponse(BaseResponse):
     _types = {
-        "data": MessagePushOverviewApplicationAppUsageResponseBody
+        "data": MessagePushOverviewApplicationAppUsageResponseBody,
+
     }
 
     def __init__(self, d=None):

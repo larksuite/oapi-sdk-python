@@ -8,7 +8,8 @@ from .create_leave_granting_record_response_body import CreateLeaveGrantingRecor
 
 class CreateLeaveGrantingRecordResponse(BaseResponse):
     _types = {
-        "data": CreateLeaveGrantingRecordResponseBody
+        "data": CreateLeaveGrantingRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

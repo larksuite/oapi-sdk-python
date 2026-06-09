@@ -32,7 +32,7 @@ def test_ensure_bg_loop_is_idempotent():
     loop = c._bg_loop
     assert loop is not None
     assert c._safety is not None
-    c._ensure_bg_loop()   # no-op
+    c._ensure_bg_loop()  # no-op
     assert c._bg_loop is loop
 
 
@@ -103,7 +103,7 @@ async def test_start_background_returns_after_ws_ready_without_waiting_for_start
         return None
 
     with patch("lark_oapi.channel.channel.WSClient", _BlockingReadyWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
     ):
         await asyncio.wait_for(c.start_background(timeout=1.0), timeout=1.0)
         assert started.is_set()
@@ -130,7 +130,7 @@ async def test_start_background_propagates_not_connected_startup_failure():
         return None
 
     with patch("lark_oapi.channel.channel.WSClient", _FailingWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_no_identity
     ):
         with pytest.raises(FeishuChannelError) as exc:
             await c.start_background(timeout=1.0)
@@ -159,7 +159,7 @@ async def test_stop_background_wakes_in_flight_start_background_waiter():
         return BotIdentity(open_id="ou_bot")
 
     with patch("lark_oapi.channel.channel.WSClient", _BlockingNotReadyWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
     ):
         start_task = asyncio.create_task(c.start_background(timeout=10.0))
         while not start_entered.wait(0.01):
@@ -221,7 +221,7 @@ def test_stop_during_blocking_start_does_not_surface_late_ws_start_exception():
         return BotIdentity(open_id="ou_bot")
 
     with patch("lark_oapi.channel.channel.WSClient", _LateFailingWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_identity
     ):
         def run_start():
             try:
@@ -262,7 +262,7 @@ def test_stop_during_pre_ws_start_prevents_late_ws_creation():
         return BotIdentity(open_id="ou_bot")
 
     with patch("lark_oapi.channel.channel.WSClient", _ShouldNotStartWS), patch(
-        "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_slow_identity
+            "lark_oapi.channel.channel.fetch_bot_identity", side_effect=_slow_identity
     ):
         def run_start():
             try:
@@ -325,7 +325,7 @@ def test_stale_pre_ws_start_cannot_be_uncancelled_by_restart():
             release_second_fetch.wait(timeout=2.0)
 
     with patch("lark_oapi.channel.channel.WSClient", _LabelledWS), patch.object(
-        c, "_fetch_bot_identity_sync", side_effect=_slow_fetch
+            c, "_fetch_bot_identity_sync", side_effect=_slow_fetch
     ):
         def run_start():
             try:
@@ -362,6 +362,7 @@ def test_bot_identity_accessor_before_resolve():
 
 def test_resolve_bot_identity_persists_to_safety_pipeline(monkeypatch):
     """When identity resolves, it should propagate into the safety PolicyGate."""
+
     async def fake_fetch(config):
         return BotIdentity(open_id="ou_bot_xyz", name="Test Bot")
 

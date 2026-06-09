@@ -34,6 +34,7 @@ def main():
                       .is_key_position(True)
                       .effective_time("2020-05-01")
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 
@@ -81,6 +82,7 @@ async def amain():
                       .is_key_position(True)
                       .effective_time("2020-05-01")
                       .custom_fields([])
+                      .is_prefer_manual_encoding(bool)
                       .build()) \
         .build()
 

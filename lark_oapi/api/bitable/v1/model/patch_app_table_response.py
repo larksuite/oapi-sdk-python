@@ -8,7 +8,8 @@ from .patch_app_table_response_body import PatchAppTableResponseBody
 
 class PatchAppTableResponse(BaseResponse):
     _types = {
-        "data": PatchAppTableResponseBody
+        "data": PatchAppTableResponseBody,
+
     }
 
     def __init__(self, d=None):

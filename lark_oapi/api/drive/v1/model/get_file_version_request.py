@@ -10,6 +10,8 @@ class GetFileVersionRequest(BaseRequest):
         super().__init__()
         self.obj_type: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.page_token: Optional[str] = None
+        self.page_size: Optional[int] = None
         self.file_token: Optional[str] = None
         self.version_id: Optional[str] = None
 
@@ -35,6 +37,16 @@ class GetFileVersionRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "GetFileVersionRequestBuilder":
         self._get_file_version_request.user_id_type = user_id_type
         self._get_file_version_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def page_token(self, page_token: str) -> "GetFileVersionRequestBuilder":
+        self._get_file_version_request.page_token = page_token
+        self._get_file_version_request.add_query("page_token", page_token)
+        return self
+
+    def page_size(self, page_size: int) -> "GetFileVersionRequestBuilder":
+        self._get_file_version_request.page_size = page_size
+        self._get_file_version_request.add_query("page_size", page_size)
         return self
 
     def file_token(self, file_token: str) -> "GetFileVersionRequestBuilder":

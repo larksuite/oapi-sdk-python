@@ -8,7 +8,8 @@ from .user_stats_fields_query_archive_rule_response_body import UserStatsFieldsQ
 
 class UserStatsFieldsQueryArchiveRuleResponse(BaseResponse):
     _types = {
-        "data": UserStatsFieldsQueryArchiveRuleResponseBody
+        "data": UserStatsFieldsQueryArchiveRuleResponseBody,
+
     }
 
     def __init__(self, d=None):

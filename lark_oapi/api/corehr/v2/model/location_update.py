@@ -21,6 +21,7 @@ class LocationUpdate(object):
         "locale": Enum,
         "time_zone_id": str,
         "display_language_id": str,
+        "is_prefer_manual_encoding": bool,
     }
 
     def __init__(self, d=None):
@@ -35,6 +36,7 @@ class LocationUpdate(object):
         self.locale: Optional[Enum] = None
         self.time_zone_id: Optional[str] = None
         self.display_language_id: Optional[str] = None
+        self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -88,6 +90,10 @@ class LocationUpdateBuilder(object):
 
     def display_language_id(self, display_language_id: str) -> "LocationUpdateBuilder":
         self._location_update.display_language_id = display_language_id
+        return self
+
+    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "LocationUpdateBuilder":
+        self._location_update.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 
     def build(self) -> "LocationUpdate":

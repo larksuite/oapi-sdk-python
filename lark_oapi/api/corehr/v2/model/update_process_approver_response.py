@@ -8,7 +8,8 @@ from .update_process_approver_response_body import UpdateProcessApproverResponse
 
 class UpdateProcessApproverResponse(BaseResponse):
     _types = {
-        "data": UpdateProcessApproverResponseBody
+        "data": UpdateProcessApproverResponseBody,
+
     }
 
     def __init__(self, d=None):

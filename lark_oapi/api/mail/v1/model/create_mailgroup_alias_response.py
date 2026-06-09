@@ -8,7 +8,8 @@ from .create_mailgroup_alias_response_body import CreateMailgroupAliasResponseBo
 
 class CreateMailgroupAliasResponse(BaseResponse):
     _types = {
-        "data": CreateMailgroupAliasResponseBody
+        "data": CreateMailgroupAliasResponseBody,
+
     }
 
     def __init__(self, d=None):

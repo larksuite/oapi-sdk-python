@@ -8,7 +8,8 @@ from .get_interview_record_response_body import GetInterviewRecordResponseBody
 
 class GetInterviewRecordResponse(BaseResponse):
     _types = {
-        "data": GetInterviewRecordResponseBody
+        "data": GetInterviewRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

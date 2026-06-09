@@ -8,7 +8,8 @@ from .list_file_view_record_response_body import ListFileViewRecordResponseBody
 
 class ListFileViewRecordResponse(BaseResponse):
     _types = {
-        "data": ListFileViewRecordResponseBody
+        "data": ListFileViewRecordResponseBody,
+
     }
 
     def __init__(self, d=None):

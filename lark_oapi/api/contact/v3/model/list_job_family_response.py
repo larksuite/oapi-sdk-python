@@ -8,7 +8,8 @@ from .list_job_family_response_body import ListJobFamilyResponseBody
 
 class ListJobFamilyResponse(BaseResponse):
     _types = {
-        "data": ListJobFamilyResponseBody
+        "data": ListJobFamilyResponseBody,
+
     }
 
     def __init__(self, d=None):
