@@ -1,6 +1,6 @@
 import json
 import urllib.parse
-from typing import Any, Optional
+from typing import Optional
 
 import httpx
 import requests
@@ -11,10 +11,6 @@ from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.model import *
 from lark_oapi.core.utils.user_agent import build_user_agent
-
-
-_REDACTED = "***"
-_SENSITIVE_KEYWORDS = ("authorization", "token", "secret", "assertion", "password", "ticket")
 
 
 class Transport(object):
@@ -43,10 +39,12 @@ class Transport(object):
             timeout=conf.timeout,
         )
 
-        logger.debug(f"{str(req.http_method.name)} {_redact_url(url)} {response.status_code}, "
-                     f"headers: {_marshal_log_value(headers)}, "
-                     f"params: {_marshal_log_value(req.queries)}, "
-                     f"body: {_marshal_log_body(data)}")
+        logger.debug(
+            f"{str(req.http_method.name)} request completed with status {response.status_code}, "
+            f"headers_count: {len(headers)}, "
+            f"params_count: {len(req.queries)}, "
+            f"body_present: {data is not None}"
+        )
 
         resp = RawResponse()
         resp.status_code = response.status_code
@@ -89,10 +87,10 @@ class Transport(object):
             )
 
             logger.debug(
-                f"{str(req.http_method.name)} {_redact_url(url)} {response.status_code}"
-                f"{f', headers: {_marshal_log_value(headers)}' if headers else ''}"
-                f"{f', params: {_marshal_log_value(req.queries)}' if req.queries else ''}"
-                f"{f', body: {_marshal_log_value(_merge_dicts(json_, files, data))}' if json_ or files or data else ''}"
+                f"{str(req.http_method.name)} request completed with status {response.status_code}, "
+                f"headers_count: {len(headers)}, "
+                f"params_count: {len(req.queries)}, "
+                f"body_present: {json_ is not None or files is not None or data is not None}"
             )
 
             resp = RawResponse()
@@ -143,70 +141,3 @@ def _build_header(request: BaseRequest, option: RequestOption, conf: Optional[Co
             headers[AUTHORIZATION] = f"Bearer {option.user_access_token}"
 
     return headers
-
-
-def _is_sensitive_key(key: Any) -> bool:
-    key = str(key).lower()
-    return any(keyword in key for keyword in _SENSITIVE_KEYWORDS)
-
-
-def _redact_sensitive(value: Any) -> Any:
-    if isinstance(value, dict):
-        return {
-            key: _REDACTED if _is_sensitive_key(key) else _redact_sensitive(item)
-            for key, item in value.items()
-        }
-    if isinstance(value, tuple):
-        if len(value) == 2 and not isinstance(value[0], (dict, list, tuple)) and _is_sensitive_key(value[0]):
-            return value[0], _REDACTED
-        return tuple(_redact_sensitive(item) for item in value)
-    if isinstance(value, list):
-        if len(value) == 2 and not isinstance(value[0], (dict, list, tuple)) and _is_sensitive_key(value[0]):
-            return [value[0], _REDACTED]
-        return [_redact_sensitive(item) for item in value]
-    return value
-
-
-def _marshal_log_value(value: Any) -> Optional[str]:
-    return JSON.marshal(_redact_sensitive(value))
-
-
-def _marshal_log_body(data: Any) -> str:
-    if data is None:
-        return "None"
-    if isinstance(data, MultipartEncoder):
-        return _REDACTED
-    if isinstance(data, bytes):
-        try:
-            return _marshal_log_value(json.loads(str(data, UTF_8)))
-        except Exception:
-            return _REDACTED
-    value = _marshal_log_value(data)
-    return value if value is not None else "None"
-
-
-def _redact_url(url: str) -> str:
-    parsed = urllib.parse.urlsplit(url)
-    if not parsed.query:
-        return url
-
-    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
-    redacted_query = [
-        (key, _REDACTED if _is_sensitive_key(key) else value)
-        for key, value in query
-    ]
-    return urllib.parse.urlunsplit((
-        parsed.scheme,
-        parsed.netloc,
-        parsed.path,
-        urllib.parse.urlencode(redacted_query),
-        parsed.fragment,
-    ))
-
-
-def _merge_dicts(*dicts):
-    res = {}
-    for d in dicts:
-        if d is not None:
-            res.update(d)
-    return res
