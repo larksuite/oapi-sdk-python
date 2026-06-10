@@ -98,13 +98,13 @@ class TokenManager(object):
 
     @staticmethod
     def _get_self_tenant_token_by_client_assertion(config: Config) -> str:
-        cache_key = f"self_tenant_token:{config.app_id}"
+        oauth_base_url = resolve_oauth_base_url(config)
+        aud = resolve_oauth_aud(config)
+        cache_key = f"self_tenant_token:client_assertion:{config.app_id}:{aud}"
         token = TokenManager.cache.get(cache_key)
         if Strings.is_not_empty(token):
             return token
 
-        oauth_base_url = resolve_oauth_base_url(config)
-        aud = resolve_oauth_aud(config)
         try:
             assertion_token = config.client_assertion_provider.retrieve_token(aud)
         except Exception as e:

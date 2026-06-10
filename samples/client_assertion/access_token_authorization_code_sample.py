@@ -24,4 +24,5 @@ resp = client.access_token.retrieve_by_authorization_code(
     code_verifier=os.environ.get("LARK_CODE_VERIFIER"),
 )
 
-print(resp.access_token)
+print("access_token received:", bool(resp.access_token))
+print("expires_in:", resp.expires_in)

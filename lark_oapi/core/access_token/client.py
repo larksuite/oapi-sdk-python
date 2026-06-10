@@ -98,15 +98,23 @@ class AccessToken(object):
         req.body = body
         raw = Transport.execute(self._config, req, option)
         resp = json.loads(str(raw.content, UTF_8))
-        if raw.status_code != 200:
+        if raw.status_code != 200 or _is_error_response(resp):
+            raise AccessTokenException(
+                raw.status_code,
+                resp.get("code") or 0,
+                resp.get("error") or resp.get("msg") or "",
+                resp.get("error_description") or resp.get("msg") or "",
+            )
+        access_token = value_if_not_empty(resp.get("access_token"))
+        if access_token is None:
             raise AccessTokenException(
                 raw.status_code,
                 resp.get("code") or 0,
                 resp.get("error") or "",
-                resp.get("error_description") or "",
+                resp.get("error_description") or "oauth token response missing access_token",
             )
         return AccessTokenResponse(
-            access_token=value_if_not_empty(resp.get("access_token")),
+            access_token=access_token,
             token_type=value_if_not_empty(resp.get("token_type")),
             expires_in=value_if_not_empty(resp.get("expires_in")),
             refresh_token=value_if_not_empty(resp.get("refresh_token")),
@@ -114,3 +122,10 @@ class AccessToken(object):
             scope=value_if_not_empty(resp.get("scope")),
             raw=raw,
         )
+
+
+def _is_error_response(resp: Dict[str, object]) -> bool:
+    if resp.get("error"):
+        return True
+    code = resp.get("code")
+    return code not in (None, "", 0, "0")

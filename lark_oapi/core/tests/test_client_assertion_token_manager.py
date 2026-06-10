@@ -52,6 +52,10 @@ def _response(payload, status=200):
     return SimpleNamespace(status_code=status, headers={"Content-Type": "application/json"}, content=json.dumps(payload).encode())
 
 
+def _client_assertion_cache_key(aud="accounts.feishu.cn"):
+    return f"self_tenant_token:client_assertion:cli_a:{aud}"
+
+
 def test_get_self_tenant_token_by_client_assertion_requests_oauth_token(monkeypatch):
     provider = RecordingProvider()
     config = _config(provider)
@@ -81,18 +85,37 @@ def test_get_self_tenant_token_by_client_assertion_requests_oauth_token(monkeypa
         "client_id": "cli_a",
     }
     assert provider.calls == ["accounts.feishu.cn"]
-    assert cache.data["self_tenant_token:cli_a"] == "tenant-token"
+    assert cache.data[_client_assertion_cache_key()] == "tenant-token"
 
 
 def test_get_self_tenant_token_by_client_assertion_cache_hit_skips_provider(monkeypatch):
     provider = RecordingProvider()
     config = _config(provider)
     cache = DictCache()
-    cache.data["self_tenant_token:cli_a"] = "cached-token"
+    cache.data[_client_assertion_cache_key()] = "cached-token"
     monkeypatch.setattr(TokenManager, "cache", cache)
 
     assert TokenManager.get_self_tenant_token(config) == "cached-token"
     assert provider.calls == []
+
+
+def test_client_assertion_tenant_token_cache_does_not_reuse_app_secret_entry(monkeypatch):
+    provider = RecordingProvider()
+    config = _config(provider)
+    cache = DictCache()
+    cache.data["self_tenant_token:cli_a"] = "cached-appsecret-token"
+    monkeypatch.setattr(TokenManager, "cache", cache)
+
+    def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
+        return _response({"access_token": "tenant-token", "expires_in": 7200})
+
+    import lark_oapi.core.http.transport as transport
+
+    monkeypatch.setattr(transport.requests, "request", fake_request)
+
+    assert TokenManager.get_self_tenant_token(config) == "tenant-token"
+    assert provider.calls == ["accounts.feishu.cn"]
+    assert cache.data[_client_assertion_cache_key()] == "tenant-token"
 
 
 def test_get_self_tenant_token_by_client_assertion_with_proxy(monkeypatch):

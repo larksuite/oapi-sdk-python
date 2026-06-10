@@ -150,6 +150,45 @@ def test_access_token_returns_access_token_exception_for_non_200(monkeypatch):
     assert err.value.error_description == "client assertion invalid"
 
 
+def test_access_token_rejects_200_error_payload(monkeypatch):
+    client = _client(RecordingProvider())
+
+    def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
+        return _response({
+            "code": 20138,
+            "msg": "authorization code is invalid",
+        })
+
+    import lark_oapi.core.http.transport as transport
+
+    monkeypatch.setattr(transport.requests, "request", fake_request)
+
+    with pytest.raises(AccessTokenException) as err:
+        client.access_token.retrieve_by_authorization_code(code="bad-code")
+
+    assert err.value.status_code == 200
+    assert err.value.code == 20138
+    assert err.value.error_description == "authorization code is invalid"
+
+
+def test_access_token_rejects_200_without_access_token(monkeypatch):
+    client = _client(RecordingProvider())
+
+    def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
+        return _response({"token_type": "Bearer", "expires_in": 7200})
+
+    import lark_oapi.core.http.transport as transport
+
+    monkeypatch.setattr(transport.requests, "request", fake_request)
+
+    with pytest.raises(AccessTokenException) as err:
+        client.access_token.retrieve_by_authorization_code(code="code")
+
+    assert err.value.status_code == 200
+    assert err.value.code == 0
+    assert err.value.error_description == "oauth token response missing access_token"
+
+
 def test_access_token_proxy_keeps_custom_headers(monkeypatch):
     provider = RecordingProvider(
         ClientAssertionToken(

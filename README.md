@@ -47,15 +47,6 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
-## One-Click App Registration
-
-`lark_oapi.register_app` creates an app through the OAuth device flow. It
-returns a verification URL in `on_qr_code`; render the URL as a QR code or show
-it as a link for the user to open in Feishu/Lark.
-
-```python
-import lark_oapi as lark
-
 ## ClientAssertion Keyless Mode
 
 For self-built apps that use an external signing service, the SDK can fetch
@@ -85,7 +76,14 @@ If you use a custom OpenAPI domain, also configure `oauth_base_url(...)` so the
 SDK can derive the OAuth audience correctly. Keyless mode is for self-built
 apps only and does not support AppAccessToken-only APIs.
 
-## Channel Module
+## One-Click App Registration
+
+`lark_oapi.register_app` creates an app through the OAuth device flow. It
+returns a verification URL in `on_qr_code`; render the URL as a QR code or show
+it as a link for the user to open in Feishu/Lark.
+
+```python
+import lark_oapi as lark
 
 def on_qr_code(info):
     print(info["url"])
