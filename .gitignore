@@ -11,3 +11,6 @@ upload.sh
 .env
 sensitive_info_result.txt
 doc/
+.env.e2e
+.env_e2e
+.env.e2e.example
