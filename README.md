@@ -76,6 +76,40 @@ result = lark.register_app(
 print(result["client_id"])
 ```
 
+### Custom scopes/events/callbacks and updating an existing app
+
+When creating an app, use `addons` to incrementally request scopes, event subscriptions,
+and callbacks on top of the platform base template. They are pre-filled into the
+confirm page shown after the user scans the QR code, and take effect once the user
+confirms:
+
+```python
+result = lark.register_app(
+    on_qr_code=on_qr_code,
+    addons={
+        "scopes": {
+            "tenant": ["im:message:send_as_bot"],
+            "user": ["calendar:calendar:read"],
+        },
+        "events": {"items": {"tenant": ["im.message.receive_v1"]}},
+        "callbacks": {"items": ["card.action.trigger"]},
+    },
+    create_only=True,
+)
+
+lark.register_app(
+    on_qr_code=on_qr_code,
+    app_id="cli_xxx",
+    addons={"scopes": {"tenant": ["drive:drive.metadata:readonly"]}},
+)
+```
+
+Notes:
+
+- `addons` is additive only: items are merged on top of the base template; base permissions can never be removed.
+- Only the 5 public config types are supported: tenant/user scopes, tenant/user events, and callbacks. Sensitive config such as event request URLs, `security.*`, or encrypt keys cannot travel through `addons`.
+- The SDK validates the shape, not the item names; names unknown to the platform catalog are ignored by the confirm page.
+
 For a real manual E2E run without mocked registration responses:
 
 ```bash
@@ -96,6 +130,14 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.avatar` | App avatar URL(s). 1-6 URLs supported; the first one is selected by default. Allowed formats are handled by the Web page: png / jpg / jpeg / webp / gif | string or list[string] | No | - |
 | `app_preset.name` | App name. Supports the `{user}` placeholder, replaced by the Web page with the scanning user's name | string | No | - |
 | `app_preset.desc` | App description. Supports the `{user}` placeholder | string | No | - |
+| `addons` | Incremental scopes/events/callbacks pre-filled into the confirm page, effective after user confirmation | dict | No | - |
+| `addons.scopes.tenant` | App-identity scopes, e.g. `im:message:send_as_bot` | list[string] | No | - |
+| `addons.scopes.user` | User-identity scopes, e.g. `calendar:calendar:read` | list[string] | No | - |
+| `addons.events.items.tenant` | App-identity events, e.g. `im.message.receive_v1` | list[string] | No | - |
+| `addons.events.items.user` | User-identity events, e.g. `calendar.calendar.event.changed_v4` | list[string] | No | - |
+| `addons.callbacks.items` | Callbacks, e.g. `card.action.trigger` | list[string] | No | - |
+| `create_only` | When `True`, the landing page only allows creating a new app and hides the select-existing-app entry. Takes precedence over `app_id` when both are set | bool | No | - |
+| `app_id` | App ID (`cli_` prefix) of an existing app. When set, the flow updates that app's config; carried on the QR URL as `clientID` | string | No | - |
 
 ## Legacy Channel Module
 

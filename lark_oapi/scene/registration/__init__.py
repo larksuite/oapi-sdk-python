@@ -1,4 +1,7 @@
 import asyncio
+import base64
+import gzip
+import json
 import threading
 import time
 from urllib.parse import urlencode, urlparse, urlunparse, parse_qs
@@ -13,14 +16,115 @@ _SDK_NAME = "python-sdk"
 _AVATAR_MAX_COUNT = 6
 
 
+def _assert_plain_object(value, path):
+    if not isinstance(value, dict):
+        raise ValueError(f"{path} must be an object")
+
+
+def _assert_allowed_keys(obj, allowed_keys, path):
+    for key in obj.keys():
+        if key not in allowed_keys:
+            raise ValueError(f"{path}.{key} is not allowed; allowed keys: {', '.join(allowed_keys)}")
+
+
+def _validate_string_list(value, path):
+    if not isinstance(value, list):
+        raise ValueError(f"{path} must be a list of strings")
+
+    for index, item in enumerate(value):
+        if not isinstance(item, str) or item == "":
+            raise ValueError(f"{path}[{index}] must be a non-empty string")
+
+    return value
+
+
+def _normalize_addons(addons):
+    _assert_plain_object(addons, "addons")
+    _assert_allowed_keys(addons, ["scopes", "events", "callbacks"], "addons")
+
+    item_count = 0
+    normalized = {}
+
+    if "scopes" in addons:
+        scopes = addons["scopes"]
+        _assert_plain_object(scopes, "addons.scopes")
+        _assert_allowed_keys(scopes, ["tenant", "user"], "addons.scopes")
+
+        normalized_scopes = {}
+        for key in ("tenant", "user"):
+            if key in scopes:
+                items = _validate_string_list(scopes[key], f"addons.scopes.{key}")
+                item_count += len(items)
+                normalized_scopes[key] = items
+        normalized["scopes"] = normalized_scopes
+
+    if "events" in addons:
+        events = addons["events"]
+        _assert_plain_object(events, "addons.events")
+        _assert_allowed_keys(events, ["items"], "addons.events")
+
+        if "items" in events:
+            event_items = events["items"]
+            _assert_plain_object(event_items, "addons.events.items")
+            _assert_allowed_keys(event_items, ["tenant", "user"], "addons.events.items")
+
+            normalized_event_items = {}
+            for key in ("tenant", "user"):
+                if key in event_items:
+                    items = _validate_string_list(event_items[key], f"addons.events.items.{key}")
+                    item_count += len(items)
+                    normalized_event_items[key] = items
+            normalized["events"] = {"items": normalized_event_items}
+
+    if "callbacks" in addons:
+        callbacks = addons["callbacks"]
+        _assert_plain_object(callbacks, "addons.callbacks")
+        _assert_allowed_keys(callbacks, ["items"], "addons.callbacks")
+
+        normalized_callbacks = {}
+        if "items" in callbacks:
+            items = _validate_string_list(callbacks["items"], "addons.callbacks.items")
+            item_count += len(items)
+            normalized_callbacks["items"] = items
+        normalized["callbacks"] = normalized_callbacks
+
+    if item_count == 0:
+        raise ValueError("addons must contain at least one scope, event or callback")
+
+    return normalized
+
+
+def _encode_addons(addons):
+    payload = json.dumps(_normalize_addons(addons), ensure_ascii=False, separators=(",", ":"))
+    compressed = gzip.compress(payload.encode("utf-8"), mtime=0)
+    return base64.urlsafe_b64encode(compressed).decode("ascii").rstrip("=")
+
+
 class _RegistrationFlow:
-    def __init__(self, on_qr_code, on_status_change, source, domain, lark_domain, app_preset=None):
+    def __init__(
+            self,
+            on_qr_code,
+            on_status_change,
+            source,
+            domain,
+            lark_domain,
+            app_preset=None,
+            addons=None,
+            create_only=None,
+            app_id=None,
+    ):
+        if app_id is not None and (not isinstance(app_id, str) or app_id == ""):
+            raise ValueError("app_id must be a non-empty string")
+
         self._on_qr_code = on_qr_code
         self._on_status_change = on_status_change
         self._source = source
         self._base_url = domain
         self._lark_url = lark_domain
         self._app_preset = app_preset
+        self._addons = addons
+        self._create_only = create_only
+        self._app_id = app_id
 
     def _apply_app_preset(self, params):
         if not self._app_preset:
@@ -49,6 +153,16 @@ class _RegistrationFlow:
         if desc is not None:
             params["desc"] = desc
 
+    def _apply_registration_options(self, params):
+        if self._addons is not None:
+            params["addons"] = _encode_addons(self._addons)
+
+        if self._create_only is True:
+            params["createOnly"] = "true"
+
+        if self._app_id is not None:
+            params["clientID"] = self._app_id
+
     def _build_qr_url(self, uri):
         parsed = urlparse(uri)
         params = parse_qs(parsed.query)
@@ -58,6 +172,7 @@ class _RegistrationFlow:
         # app_preset values only pre-fill the Web app-creation page. Callers
         # pass raw values; urlencode below handles URL encoding automatically.
         self._apply_app_preset(params)
+        self._apply_registration_options(params)
         return urlunparse(parsed._replace(query=urlencode(params, doseq=True)))
 
     def _notify_status(self, status, interval=None):
@@ -106,8 +221,30 @@ class _RegistrationFlow:
 
 
 class _SyncFlow(_RegistrationFlow):
-    def __init__(self, on_qr_code, on_status_change, source, cancel_event, domain, lark_domain, app_preset=None):
-        super().__init__(on_qr_code, on_status_change, source, domain, lark_domain, app_preset)
+    def __init__(
+            self,
+            on_qr_code,
+            on_status_change,
+            source,
+            cancel_event,
+            domain,
+            lark_domain,
+            app_preset=None,
+            addons=None,
+            create_only=None,
+            app_id=None,
+    ):
+        super().__init__(
+            on_qr_code,
+            on_status_change,
+            source,
+            domain,
+            lark_domain,
+            app_preset=app_preset,
+            addons=addons,
+            create_only=create_only,
+            app_id=app_id,
+        )
         self._cancel_event = cancel_event
 
     def _post(self, data):
@@ -244,8 +381,22 @@ def register_app(
         domain="https://accounts.feishu.cn",
         lark_domain="https://accounts.larksuite.com",
         app_preset=None,
+        addons=None,
+        create_only=None,
+        app_id=None,
 ):
-    flow = _SyncFlow(on_qr_code, on_status_change, source, cancel_event, domain, lark_domain, app_preset)
+    flow = _SyncFlow(
+        on_qr_code,
+        on_status_change,
+        source,
+        cancel_event,
+        domain,
+        lark_domain,
+        app_preset=app_preset,
+        addons=addons,
+        create_only=create_only,
+        app_id=app_id,
+    )
     return flow.run()
 
 
@@ -256,6 +407,19 @@ async def aregister_app(
         domain="https://accounts.feishu.cn",
         lark_domain="https://accounts.larksuite.com",
         app_preset=None,
+        addons=None,
+        create_only=None,
+        app_id=None,
 ):
-    flow = _AsyncFlow(on_qr_code, on_status_change, source, domain, lark_domain, app_preset)
+    flow = _AsyncFlow(
+        on_qr_code,
+        on_status_change,
+        source,
+        domain,
+        lark_domain,
+        app_preset=app_preset,
+        addons=addons,
+        create_only=create_only,
+        app_id=app_id,
+    )
     return await flow.run()
