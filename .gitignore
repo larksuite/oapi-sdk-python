@@ -10,3 +10,6 @@ upload.sh
 /tests/
 .env
 sensitive_info_result.txt
+.env.e2e
+.env_e2e
+.env.e2e.example

@@ -43,6 +43,35 @@ request = CreateMessageRequest.builder() \
 response = client.im.v1.message.create(request)
 ```
 
+## ClientAssertion 无密钥模式
+
+自建应用如果通过外部签发服务提供 `client_assertion`，SDK 可以在不配置
+`app_secret` 的情况下换取 tenant token。SDK 不生成、不解析、不签名 JWT，
+也不保存私钥；provider 只需要返回最终的 assertion 字符串。
+
+```python
+import os
+
+import lark_oapi as lark
+from lark_oapi.core.client_assertion import ClientAssertionToken
+
+
+class EnvClientAssertionProvider:
+    def retrieve_token(self, aud: str) -> ClientAssertionToken:
+        return ClientAssertionToken(os.environ["LARK_CLIENT_ASSERTION"])
+
+
+client = lark.Client.builder() \
+    .app_id(os.environ["LARK_APP_ID"]) \
+    .client_assertion_provider(EnvClientAssertionProvider()) \
+    .build()
+```
+
+如果使用自定义 OpenAPI 域名，需要同时配置 `oauth_base_url(...)`，以便 SDK
+正确生成 OAuth audience。无密钥模式仅支持自建应用，不支持只依赖
+AppAccessToken 的 API。
+
+## Channel 模块
 ## 一键创建应用
 
 `lark_oapi.register_app` 基于 OAuth device flow 创建应用。SDK 会在

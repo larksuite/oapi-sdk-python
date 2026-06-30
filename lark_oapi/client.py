@@ -8,6 +8,7 @@ from .core.const import UTF_8, APPLICATION_JSON
 from .core import logger, JSON
 from .core.model import *
 from .core.token import TokenManager, verify
+from .core.access_token import AccessToken
 from .core.http import Transport
 from .api.auth.service import AuthService
 from .api.event.service import EventService
@@ -155,6 +156,7 @@ class Client(object):
         self.performance: Optional[PerformanceService] = None
         self.security_and_compliance: Optional[SecurityAndComplianceService] = None
         self.speech_to_text: Optional[SpeechToTextService] = None
+        self.access_token: Optional[AccessToken] = None
 
     @staticmethod
     def builder() -> "ClientBuilder":
@@ -227,6 +229,14 @@ class ClientBuilder(object):
 
     def app_secret(self, app_secret: str) -> "ClientBuilder":
         self._config.app_secret = app_secret
+        return self
+
+    def client_assertion_provider(self, provider) -> "ClientBuilder":
+        self._config.client_assertion_provider = provider
+        return self
+
+    def oauth_base_url(self, oauth_base_url: str) -> "ClientBuilder":
+        self._config.oauth_base_url = oauth_base_url
         return self
 
     def domain(self, domain: str) -> "ClientBuilder":
@@ -331,6 +341,7 @@ class ClientBuilder(object):
         client.performance = PerformanceService(self._config)
         client.security_and_compliance = SecurityAndComplianceService(self._config)
         client.speech_to_text = SpeechToTextService(self._config)
+        client.access_token = AccessToken(self._config)
 
         return client
 

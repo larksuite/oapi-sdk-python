@@ -1,5 +1,6 @@
 import json
 import urllib.parse
+from typing import Optional
 
 import httpx
 import requests
@@ -38,10 +39,12 @@ class Transport(object):
             timeout=conf.timeout,
         )
 
-        logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "
-                     f"headers: {JSON.marshal(headers)}, "
-                     f"params: {JSON.marshal(req.queries)}, "
-                     f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}")
+        logger.debug(
+            f"{str(req.http_method.name)} request completed with status {response.status_code}, "
+            f"headers_count: {len(headers)}, "
+            f"params_count: {len(req.queries)}, "
+            f"body_present: {data is not None}"
+        )
 
         resp = RawResponse()
         resp.status_code = response.status_code
@@ -84,10 +87,10 @@ class Transport(object):
             )
 
             logger.debug(
-                f"{str(req.http_method.name)} {url} {response.status_code}"
-                f"{f', headers: {JSON.marshal(headers)}' if headers else ''}"
-                f"{f', params: {JSON.marshal(req.queries)}' if req.queries else ''}"
-                f"{f', body: {JSON.marshal(_merge_dicts(json_, files, data))}' if json_ or files or data else ''}"
+                f"{str(req.http_method.name)} request completed with status {response.status_code}, "
+                f"headers_count: {len(headers)}, "
+                f"params_count: {len(req.queries)}, "
+                f"body_present: {json_ is not None or files is not None or data is not None}"
             )
 
             resp = RawResponse()
@@ -110,6 +113,8 @@ def _build_url(domain: str, uri: str, paths: Dict[str, str]) -> str:
         encoded = urllib.parse.quote(str(value), safe="")
         uri = uri.replace(":" + key, encoded)
 
+    if uri.startswith("http://") or uri.startswith("https://"):
+        return uri
     return domain + uri
 
 
@@ -136,11 +141,3 @@ def _build_header(request: BaseRequest, option: RequestOption, conf: Optional[Co
             headers[AUTHORIZATION] = f"Bearer {option.user_access_token}"
 
     return headers
-
-
-def _merge_dicts(*dicts):
-    res = {}
-    for d in dicts:
-        if d is not None:
-            res.update(d)
-    return res
