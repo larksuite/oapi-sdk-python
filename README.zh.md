@@ -100,6 +100,37 @@ result = lark.register_app(
 print(result["client_id"])
 ```
 
+### 自定义权限/事件/回调与更新已有应用
+
+创建应用时，可通过 `addons` 在平台基础模板上增量申请权限、事件订阅和回调。这些配置会预填到用户扫码后的确认页中，用户确认后生效：
+
+```python
+result = lark.register_app(
+    on_qr_code=on_qr_code,
+    addons={
+        "scopes": {
+            "tenant": ["im:message:send_as_bot"],
+            "user": ["calendar:calendar:read"],
+        },
+        "events": {"items": {"tenant": ["im.message.receive_v1"]}},
+        "callbacks": {"items": ["card.action.trigger"]},
+    },
+    create_only=True,
+)
+
+lark.register_app(
+    on_qr_code=on_qr_code,
+    app_id="cli_xxx",
+    addons={"scopes": {"tenant": ["drive:drive.metadata:readonly"]}},
+)
+```
+
+注意：
+
+- `addons` 仅支持在基础模板上增量叠加，不支持删减基础权限。
+- 仅支持 5 类公开配置：应用/用户身份权限、应用/用户身份事件、回调。敏感配置（事件请求地址、`security.*`、加密 key 等）不能通过 `addons` 传入。
+- SDK 只校验数据形状，不校验权限点/事件/回调名称是否存在；平台目录中不存在的名称会被确认页忽略。
+
 如需不使用 mock、真实跑一遍手动 E2E：
 
 ```bash
@@ -120,6 +151,14 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.avatar` | 应用头像 URL，支持 1-6 个；传多个时默认选中第一个。图片格式由 Web 页面处理：png / jpg / jpeg / webp / gif | string 或 list[string] | 否 | - |
 | `app_preset.name` | 应用名称，支持 `{user}` 占位符，由 Web 页面替换为扫码用户名称 | string | 否 | - |
 | `app_preset.desc` | 应用描述，支持 `{user}` 占位符 | string | 否 | - |
+| `addons` | 增量权限/事件/回调配置，预填到扫码后的确认页，用户确认后生效 | dict | 否 | - |
+| `addons.scopes.tenant` | 应用身份权限列表，如 `im:message:send_as_bot` | list[string] | 否 | - |
+| `addons.scopes.user` | 用户身份权限列表，如 `calendar:calendar:read` | list[string] | 否 | - |
+| `addons.events.items.tenant` | 应用身份事件列表，如 `im.message.receive_v1` | list[string] | 否 | - |
+| `addons.events.items.user` | 用户身份事件列表，如 `calendar.calendar.event.changed_v4` | list[string] | 否 | - |
+| `addons.callbacks.items` | 回调列表，如 `card.action.trigger` | list[string] | 否 | - |
+| `create_only` | 为 `True` 时落地页仅允许创建新应用，隐藏「选择已有应用」入口。与 `app_id` 同时传入时优先级更高 | bool | 否 | - |
+| `app_id` | 已有应用的 App ID（`cli_` 开头）。传入后流程变为更新该应用配置；二维码 URL 上使用平台参数 `clientID` | string | 否 | - |
 
 ## 旧版 Channel 模块
 
