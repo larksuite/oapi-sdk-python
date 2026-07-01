@@ -28,12 +28,6 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
-try:
-    loop = asyncio.get_event_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
 
 def _get_by_key(headers: RepeatedCompositeFieldContainer, key: str) -> str:
     for header in headers:
@@ -139,6 +133,11 @@ class Client(object):
         # modules (e.g. FeishuChannel) pass ``["channel"]`` here.
         self._user_agent: str = build_user_agent(source=source, extra_tags=extra_ua_tags)
         self._conn: Optional[websockets.WebSocketClientProtocol] = None
+        # Event loop this client is driven on. Set when start()/start_async()
+        # begins; higher-level wrappers (e.g. FeishuChannel) read it to stop the
+        # connection loop. Replaces the former module-level ``loop`` global so
+        # nothing is captured at import time (see issues #96 / #133).
+        self._loop: Optional[asyncio.AbstractEventLoop] = None
         self._conn_url: str = ""
         self._service_id: str = ""
         self._conn_id: str = ""
@@ -162,21 +161,64 @@ class Client(object):
         logger.setLevel(log_level.value)
 
     def start(self) -> None:
+        """Start the client (blocking) on a freshly created event loop.
+
+        Backward-compatible entry point for synchronous callers (plain scripts,
+        or ``FeishuChannel`` driving this client from a worker thread). When an
+        event loop is already running in the current thread — e.g. inside an
+        async framework such as FastAPI or aiohttp — this client cannot own the
+        loop; callers must ``await client.start_async()`` instead, so we raise a
+        clear, actionable error rather than the cryptic native asyncio message.
+        """
         try:
-            loop.run_until_complete(self._connect())
+            asyncio.get_running_loop()
+        except RuntimeError:
+            pass  # no running loop in this thread — safe to own one
+        else:
+            raise RuntimeError(
+                "ws.Client.start() cannot be called while an event loop is "
+                "running in the current thread; use 'await client.start_async()' "
+                "instead (e.g. inside FastAPI/aiohttp or any async framework)."
+            )
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        self._loop = loop
+        try:
+            loop.run_until_complete(self.start_async())
+        finally:
+            # On success start_async() blocks for the connection's lifetime, so
+            # this only runs when it exits early (e.g. connect failed with no
+            # reconnect) — close the loop we created so repeated start() calls in
+            # the same thread don't leak event loops.
+            loop.close()
+
+    async def start_async(self) -> None:
+        """Start the client on the caller's running event loop (awaitable).
+
+        Async counterpart of :meth:`start`. Await it from within a running loop;
+        connection, reconnect and event dispatch behave identically to the
+        synchronous path — it simply runs on the caller's loop instead of owning
+        its own. It blocks (never returns) for the lifetime of the connection,
+        so run it as a task if startup must continue::
+
+            asyncio.create_task(client.start_async())
+        """
+        self._loop = asyncio.get_running_loop()
+        try:
+            await self._connect()
         except ClientException as e:
             logger.error(self._fmt_log("connect failed, err: {}", e))
             raise e
         except Exception as e:
             logger.error(self._fmt_log("connect failed, err: {}", e))
-            loop.run_until_complete(self._disconnect())
+            await self._disconnect()
             if self._auto_reconnect:
-                loop.run_until_complete(self._reconnect())
+                await self._reconnect()
             else:
                 raise e
 
-        loop.create_task(self._ping_loop())
-        loop.run_until_complete(_select())
+        asyncio.get_running_loop().create_task(self._ping_loop())
+        await _select()
 
     async def _ping_loop(self):
         while True:
@@ -208,7 +250,7 @@ class Client(object):
             self._service_id = service_id
 
             logger.info(self._fmt_log("connected to {}", conn_url))
-            loop.create_task(self._receive_message_loop())
+            asyncio.get_running_loop().create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
@@ -220,7 +262,7 @@ class Client(object):
                 if self._conn is None:
                     raise ConnectionClosedException("connection is closed")
                 msg = await self._conn.recv()
-                loop.create_task(self._handle_message(msg))
+                asyncio.get_running_loop().create_task(self._handle_message(msg))
         except Exception as e:
             logger.error(self._fmt_log("receive message loop exit, err: {}", e))
             await self._disconnect()
