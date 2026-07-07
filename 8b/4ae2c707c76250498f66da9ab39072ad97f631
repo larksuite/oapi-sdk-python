@@ -1,0 +1,23 @@
+README.md
+  s_20c7929904abc3::t_f248a3b6e8e65c 138,163
+README.zh.md
+  s_20c7929904abc3::t_0ac3891a43a4b2 131,156
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "8b4ae2c707c76250498f66da9ab39072ad97f631",
+  "prompts": {},
+  "sessions": {
+    "s_20c7929904abc3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1121d6f-07d2-4439-8477-db6369295fdc",
+        "model": "unknown"
+      },
+      "human_author": "mazhe.nerd <mazhe.nerd@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
