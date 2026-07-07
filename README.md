@@ -135,6 +135,7 @@ lark.register_app(
 Notes:
 
 - `addons` is additive only: items are merged on top of the base template; base permissions can never be removed.
+- `addons.preset` picks the base template: omitted or `True` keeps the default base template, while `False` switches to the minimal base template so the final config only contains what `addons` declares. With `"preset": False`, an `addons` without any incremental item is also valid.
 - Only the 5 public config types are supported: tenant/user scopes, tenant/user events, and callbacks. Sensitive config such as event request URLs, `security.*`, or encrypt keys cannot travel through `addons`.
 - The SDK validates the shape, not the item names; names unknown to the platform catalog are ignored by the confirm page.
 
@@ -159,6 +160,7 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.name` | App name. Supports the `{user}` placeholder, replaced by the Web page with the scanning user's name | string | No | - |
 | `app_preset.desc` | App description. Supports the `{user}` placeholder | string | No | - |
 | `addons` | Incremental scopes/events/callbacks pre-filled into the confirm page, effective after user confirmation | dict | No | - |
+| `addons.preset` | Base template switch. Omitted or `True` keeps the default base template; `False` switches to the minimal base template so the app only carries the configs explicitly declared in `addons` | bool | No | `True` |
 | `addons.scopes.tenant` | App-identity scopes, e.g. `im:message:send_as_bot` | list[string] | No | - |
 | `addons.scopes.user` | User-identity scopes, e.g. `calendar:calendar:read` | list[string] | No | - |
 | `addons.events.items.tenant` | App-identity events, e.g. `im.message.receive_v1` | list[string] | No | - |

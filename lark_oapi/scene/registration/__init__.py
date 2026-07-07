@@ -40,10 +40,16 @@ def _validate_string_list(value, path):
 
 def _normalize_addons(addons):
     _assert_plain_object(addons, "addons")
-    _assert_allowed_keys(addons, ["scopes", "events", "callbacks"], "addons")
+    _assert_allowed_keys(addons, ["preset", "scopes", "events", "callbacks"], "addons")
 
     item_count = 0
     normalized = {}
+
+    if "preset" in addons:
+        preset = addons["preset"]
+        if not isinstance(preset, bool):
+            raise ValueError("addons.preset must be a boolean")
+        normalized["preset"] = preset
 
     if "scopes" in addons:
         scopes = addons["scopes"]
@@ -88,8 +94,13 @@ def _normalize_addons(addons):
             normalized_callbacks["items"] = items
         normalized["callbacks"] = normalized_callbacks
 
-    if item_count == 0:
-        raise ValueError("addons must contain at least one scope, event or callback")
+    # preset=false declares the minimal base template, so an addons payload
+    # without any incremental item is still meaningful in that case.
+    if item_count == 0 and normalized.get("preset") is not False:
+        message = "addons must contain at least one scope, event or callback"
+        if "preset" in normalized:
+            message += ", or set preset to false"
+        raise ValueError(message)
 
     return normalized
 
