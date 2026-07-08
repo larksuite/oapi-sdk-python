@@ -128,6 +128,7 @@ lark.register_app(
 注意：
 
 - `addons` 仅支持在基础模板上增量叠加，不支持删减基础权限。
+- `addons.preset` 控制底座模板：缺省或 `True` 使用默认底座模板；`False` 切换为最小基础模板，最终配置只包含 `addons` 显式声明的内容。传 `"preset": False` 时，`addons` 可以不带任何增量条目。
 - 仅支持 5 类公开配置：应用/用户身份权限、应用/用户身份事件、回调。敏感配置（事件请求地址、`security.*`、加密 key 等）不能通过 `addons` 传入。
 - SDK 只校验数据形状，不校验权限点/事件/回调名称是否存在；平台目录中不存在的名称会被确认页忽略。
 
@@ -152,6 +153,7 @@ python3 samples/registration/app_preset_live_e2e.py --open
 | `app_preset.name` | 应用名称，支持 `{user}` 占位符，由 Web 页面替换为扫码用户名称 | string | 否 | - |
 | `app_preset.desc` | 应用描述，支持 `{user}` 占位符 | string | 否 | - |
 | `addons` | 增量权限/事件/回调配置，预填到扫码后的确认页，用户确认后生效 | dict | 否 | - |
+| `addons.preset` | 底座模板开关。缺省或 `True` 使用默认底座模板；`False` 切换为最小基础模板，应用配置完全由 `addons` 显式声明 | bool | 否 | `True` |
 | `addons.scopes.tenant` | 应用身份权限列表，如 `im:message:send_as_bot` | list[string] | 否 | - |
 | `addons.scopes.user` | 用户身份权限列表，如 `calendar:calendar:read` | list[string] | 否 | - |
 | `addons.events.items.tenant` | 应用身份事件列表，如 `im.message.receive_v1` | list[string] | 否 | - |

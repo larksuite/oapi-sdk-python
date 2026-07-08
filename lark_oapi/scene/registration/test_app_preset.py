@@ -230,6 +230,152 @@ class AppPresetQRCodeURLTest(unittest.TestCase):
             self._build_url(app_id="")
 
 
+class AddonsPresetEncodingTest(unittest.TestCase):
+    def test_accepts_preset_false_alone_as_minimal_base_payload(self):
+        encoded = registration._encode_addons({"preset": False})
+
+        self.assertEqual(_decode_addons(encoded), {"preset": False})
+
+    def test_keeps_preset_false_alongside_scope_entries(self):
+        addons = {"preset": False, "scopes": {"tenant": ["im:message:send_as_bot"]}}
+
+        encoded = registration._encode_addons(addons)
+
+        self.assertEqual(_decode_addons(encoded), addons)
+
+    def test_preserves_explicit_preset_true_in_payload(self):
+        addons = {"preset": True, "scopes": {"tenant": ["x"]}}
+
+        encoded = registration._encode_addons(addons)
+
+        self.assertEqual(_decode_addons(encoded), addons)
+
+    def test_rejects_non_boolean_preset_values(self):
+        # 1 和 0 在 Python 里是 bool 的父类 int 的值，容易被 isinstance(x, int)
+        # 式的校验误放行，必须与字符串、None 一样显式拒绝。
+        for value in ("false", 1, 0, None):
+            with self.subTest(value=value):
+                with self.assertRaisesRegex(ValueError, r"addons\.preset must be a boolean"):
+                    registration._encode_addons({"preset": value})
+
+    def test_preset_false_does_not_relax_top_level_key_whitelist(self):
+        with self.assertRaisesRegex(ValueError, r"addons\.security is not allowed"):
+            registration._encode_addons({
+                "preset": False,
+                "security": {"allowed_ips": ["1.2.3.4"]},
+            })
+
+    def test_rejects_preset_true_without_any_entries(self):
+        with self.assertRaisesRegex(ValueError, r"at least one scope, event or callback"):
+            registration._encode_addons({"preset": True})
+
+    def test_keeps_rejecting_empty_addons_without_preset(self):
+        # 回归护栏：引入 preset 后，缺省的空 payload 仍必须沿用既有报错，
+        # 逐字不变——preset 相关的提示语只允许出现在显式传了 preset 时。
+        match = r"^addons must contain at least one scope, event or callback$"
+        with self.assertRaisesRegex(ValueError, match):
+            registration._encode_addons({})
+        with self.assertRaisesRegex(ValueError, match):
+            registration._encode_addons({"scopes": {"tenant": []}})
+
+    def test_accepts_preset_false_with_empty_scope_lists(self):
+        addons = {"preset": False, "scopes": {"tenant": []}}
+
+        encoded = registration._encode_addons(addons)
+
+        self.assertEqual(_decode_addons(encoded), addons)
+
+    def test_omits_preset_key_when_not_provided(self):
+        encoded = registration._encode_addons({"scopes": {"tenant": ["x"]}})
+
+        self.assertNotIn("preset", _decode_addons(encoded))
+
+
+class AddonsPresetQRCodeURLTest(unittest.TestCase):
+    def test_addons_query_param_carries_preset_false(self):
+        addons = {"preset": False, "scopes": {"tenant": ["im:message:send_as_bot"]}}
+        flow = registration._RegistrationFlow(
+            on_qr_code=lambda info: None,
+            on_status_change=None,
+            source=None,
+            domain="https://accounts.feishu.cn",
+            lark_domain="https://accounts.larksuite.com",
+            app_preset=None,
+            addons=addons,
+            create_only=None,
+            app_id=None,
+        )
+
+        url = flow._build_qr_url("https://accounts.feishu.cn/page/launcher?ticket=abc")
+        query = _parse_query(url)
+
+        self.assertEqual(_decode_addons(query["addons"][0]), addons)
+        self.assertEqual(query["from"], ["sdk"])
+        self.assertEqual(query["tp"], ["sdk"])
+        self.assertEqual(query["source"], ["python-sdk"])
+        self.assertEqual(query["ticket"], ["abc"])
+
+
+def _device_flow_responses():
+    return [
+        {"supported_auth_methods": ["client_secret"]},
+        {
+            "device_code": "dev-1",
+            "verification_uri_complete": "https://accounts.feishu.cn/page/launcher",
+            "interval": 1,
+            "expires_in": 60,
+        },
+        {
+            "client_id": "cli_a",
+            "client_secret": "sec_a",
+            "user_info": {"open_id": "ou_x", "tenant_brand": "feishu"},
+        },
+    ]
+
+
+class AddonsPresetRegisterAppE2ETest(unittest.TestCase):
+    def test_sync_register_app_passes_addons_preset_to_qr_url(self):
+        responses = _device_flow_responses()
+
+        def fake_post(self, data):
+            return responses.pop(0)
+
+        addons = {"preset": False, "scopes": {"tenant": ["im:message:send_as_bot"]}}
+        captured = {}
+        with patch.object(registration._SyncFlow, "_post", fake_post):
+            result = registration.register_app(
+                on_qr_code=lambda info: captured.update(info),
+                addons=addons,
+            )
+
+        query = _parse_query(captured["url"])
+        self.assertEqual(_decode_addons(query["addons"][0]), addons)
+        self.assertEqual(result["client_id"], "cli_a")
+        self.assertEqual(result["client_secret"], "sec_a")
+
+
+class AddonsPresetAsyncRegisterAppE2ETest(unittest.IsolatedAsyncioTestCase):
+    async def test_async_register_app_passes_addons_preset_to_qr_url(self):
+        responses = _device_flow_responses()
+
+        async def fake_post(self, data):
+            return responses.pop(0)
+
+        # 近空应用场景：最小底座 + 无任何增量条目，走完整异步注册链路。
+        addons = {"preset": False}
+        captured = {}
+        with patch.object(registration._AsyncFlow, "_post", fake_post):
+            result = await registration.aregister_app(
+                on_qr_code=lambda info: captured.update(info),
+                addons=addons,
+            )
+
+        query = _parse_query(captured["url"])
+        self.assertEqual(_decode_addons(query["addons"][0]), addons)
+        self.assertEqual(result["client_id"], "cli_a")
+        self.assertEqual(result["client_secret"], "sec_a")
+
+
 class AppPresetRegisterAppE2ETest(unittest.TestCase):
     def test_sync_register_app_passes_app_preset_to_qr_url(self):
         responses = [
