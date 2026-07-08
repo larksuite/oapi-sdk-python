@@ -1,0 +1,21 @@
+lark_oapi/core/const.py
+  s_20c7929904abc3::t_474c64046cd975 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2cecb91d7cacd074667c8ddbf15488a0a70bd110",
+  "prompts": {},
+  "sessions": {
+    "s_20c7929904abc3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1121d6f-07d2-4439-8477-db6369295fdc",
+        "model": "unknown"
+      },
+      "human_author": "mazhe.nerd <mazhe.nerd@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
