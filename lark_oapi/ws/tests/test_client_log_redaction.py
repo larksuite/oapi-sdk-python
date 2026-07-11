@@ -45,6 +45,7 @@ async def test_connection_lifecycle_logs_redact_only_sensitive_query_values(monk
 
     with caplog.at_level(logging.INFO, logger="Lark"):
         await client._connect()
+        assert client._conn_url == conn_url
         await client._disconnect()
 
     lifecycle_messages = [
