@@ -80,6 +80,42 @@ def _ws_connect_kwargs():
     return {}
 
 
+def _redact_conn_url_for_log(url: str) -> str:
+    query_start = url.find("?")
+    fragment_start = url.find("#")
+    if query_start == -1 or 0 <= fragment_start < query_start:
+        return url
+
+    query_end = fragment_start
+    if query_end == -1:
+        query_end = len(url)
+
+    redacted = []
+    cursor = query_start + 1
+    while cursor <= query_end:
+        param_end = url.find("&", cursor, query_end)
+        if param_end == -1:
+            param_end = query_end
+
+        equals = url.find("=", cursor, param_end)
+        if equals != -1:
+            key = url[cursor:equals]
+            if key.isascii() and key.lower() in ("access_key", "ticket"):
+                redacted.append(url[cursor:equals + 1])
+                redacted.append("***")
+            else:
+                redacted.append(url[cursor:param_end])
+        else:
+            redacted.append(url[cursor:param_end])
+
+        if param_end == query_end:
+            break
+        redacted.append("&")
+        cursor = param_end + 1
+
+    return url[:query_start + 1] + "".join(redacted) + url[query_end:]
+
+
 def _get_ws_conn_exception_headers(e):
     headers = getattr(e, "headers", None)
     if headers is not None:
@@ -207,7 +243,7 @@ class Client(object):
             self._conn_id = conn_id
             self._service_id = service_id
 
-            logger.info(self._fmt_log("connected to {}", conn_url))
+            logger.info(self._fmt_log("connected to {}", _redact_conn_url_for_log(conn_url)))
             loop.create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
@@ -413,7 +449,7 @@ class Client(object):
             if self._conn is None:
                 return
             await self._conn.close()
-            logger.info(self._fmt_log("disconnected to {}", self._conn_url))
+            logger.info(self._fmt_log("disconnected to {}", _redact_conn_url_for_log(self._conn_url)))
         finally:
             self._conn = None
             self._conn_url = ""
