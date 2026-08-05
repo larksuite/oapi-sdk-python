@@ -24,18 +24,26 @@ class UpdateReactionCommentReactionRequestBody(object):
 
 class UpdateReactionCommentReactionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_reaction_comment_reaction_request_body = UpdateReactionCommentReactionRequestBody()
+        self._update_reaction_comment_reaction_request_body = (
+            UpdateReactionCommentReactionRequestBody()
+        )
 
     def action(self, action: str) -> "UpdateReactionCommentReactionRequestBodyBuilder":
         self._update_reaction_comment_reaction_request_body.action = action
         return self
 
-    def reply_id(self, reply_id: str) -> "UpdateReactionCommentReactionRequestBodyBuilder":
+    def reply_id(
+        self, reply_id: str
+    ) -> "UpdateReactionCommentReactionRequestBodyBuilder":
         self._update_reaction_comment_reaction_request_body.reply_id = reply_id
         return self
 
-    def reaction_type(self, reaction_type: str) -> "UpdateReactionCommentReactionRequestBodyBuilder":
-        self._update_reaction_comment_reaction_request_body.reaction_type = reaction_type
+    def reaction_type(
+        self, reaction_type: str
+    ) -> "UpdateReactionCommentReactionRequestBodyBuilder":
+        self._update_reaction_comment_reaction_request_body.reaction_type = (
+            reaction_type
+        )
         return self
 
     def build(self) -> "UpdateReactionCommentReactionRequestBody":

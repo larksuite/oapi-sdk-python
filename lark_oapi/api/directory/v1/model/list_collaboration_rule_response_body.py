@@ -25,9 +25,13 @@ class ListCollaborationRuleResponseBody(object):
 
 class ListCollaborationRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_collaboration_rule_response_body = ListCollaborationRuleResponseBody()
+        self._list_collaboration_rule_response_body = (
+            ListCollaborationRuleResponseBody()
+        )
 
-    def items(self, items: List[CollaborationRule]) -> "ListCollaborationRuleResponseBodyBuilder":
+    def items(
+        self, items: List[CollaborationRule]
+    ) -> "ListCollaborationRuleResponseBodyBuilder":
         self._list_collaboration_rule_response_body.items = items
         return self
 

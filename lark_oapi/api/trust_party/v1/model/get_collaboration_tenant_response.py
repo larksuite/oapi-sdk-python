@@ -9,7 +9,6 @@ from .get_collaboration_tenant_response_body import GetCollaborationTenantRespon
 class GetCollaborationTenantResponse(BaseResponse):
     _types = {
         "data": GetCollaborationTenantResponseBody,
-
     }
 
     def __init__(self, d=None):

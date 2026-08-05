@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_cost_center_version_response_body import CreateCostCenterVersionResponseBody
+from .create_cost_center_version_response_body import (
+    CreateCostCenterVersionResponseBody,
+)
 
 
 class CreateCostCenterVersionResponse(BaseResponse):
     _types = {
         "data": CreateCostCenterVersionResponseBody,
-
     }
 
     def __init__(self, d=None):

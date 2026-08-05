@@ -20,9 +20,13 @@ class SubmitApproveNotificationResponseBody(object):
 
 class SubmitApproveNotificationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._submit_approve_notification_response_body = SubmitApproveNotificationResponseBody()
+        self._submit_approve_notification_response_body = (
+            SubmitApproveNotificationResponseBody()
+        )
 
-    def has_access(self, has_access: bool) -> "SubmitApproveNotificationResponseBodyBuilder":
+    def has_access(
+        self, has_access: bool
+    ) -> "SubmitApproveNotificationResponseBodyBuilder":
         self._submit_approve_notification_response_body.has_access = has_access
         return self
 

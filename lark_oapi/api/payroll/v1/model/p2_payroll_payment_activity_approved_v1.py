@@ -16,9 +16,7 @@ class P2PayrollPaymentActivityApprovedV1Data(object):
 
 
 class P2PayrollPaymentActivityApprovedV1(EventContext):
-    _types = {
-        "event": P2PayrollPaymentActivityApprovedV1Data
-    }
+    _types = {"event": P2PayrollPaymentActivityApprovedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

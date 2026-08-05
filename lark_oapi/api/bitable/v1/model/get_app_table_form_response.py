@@ -9,7 +9,6 @@ from .get_app_table_form_response_body import GetAppTableFormResponseBody
 class GetAppTableFormResponse(BaseResponse):
     _types = {
         "data": GetAppTableFormResponseBody,
-
     }
 
     def __init__(self, d=None):

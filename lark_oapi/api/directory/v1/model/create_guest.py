@@ -47,7 +47,9 @@ class CreateGuestBuilder(object):
         self._create_guest.avatar_key = avatar_key
         return self
 
-    def work_country_or_region(self, work_country_or_region: str) -> "CreateGuestBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "CreateGuestBuilder":
         self._create_guest.work_country_or_region = work_country_or_region
         return self
 

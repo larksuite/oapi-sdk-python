@@ -51,7 +51,9 @@ class Talent(object):
         self.language_list: Optional[List[TalentLanguageInfo]] = None
         self.sns_list: Optional[List[TalentSnsInfo]] = None
         self.resume_source_list: Optional[List[TalentResumeSource]] = None
-        self.interview_registration_list: Optional[List[TalentInterviewRegistrationSimple]] = None
+        self.interview_registration_list: Optional[
+            List[TalentInterviewRegistrationSimple]
+        ] = None
         self.registration_list: Optional[List[RegistrationBasicInfo]] = None
         self.resume_attachment_id_list: Optional[List[str]] = None
         self.customized_data_list: Optional[List[TalentCustomizedData]] = None
@@ -84,7 +86,9 @@ class TalentBuilder(object):
         self._talent.basic_info = basic_info
         return self
 
-    def education_list(self, education_list: List[TalentEducationInfo]) -> "TalentBuilder":
+    def education_list(
+        self, education_list: List[TalentEducationInfo]
+    ) -> "TalentBuilder":
         self._talent.education_list = education_list
         return self
 
@@ -112,24 +116,33 @@ class TalentBuilder(object):
         self._talent.sns_list = sns_list
         return self
 
-    def resume_source_list(self, resume_source_list: List[TalentResumeSource]) -> "TalentBuilder":
+    def resume_source_list(
+        self, resume_source_list: List[TalentResumeSource]
+    ) -> "TalentBuilder":
         self._talent.resume_source_list = resume_source_list
         return self
 
-    def interview_registration_list(self, interview_registration_list: List[
-        TalentInterviewRegistrationSimple]) -> "TalentBuilder":
+    def interview_registration_list(
+        self, interview_registration_list: List[TalentInterviewRegistrationSimple]
+    ) -> "TalentBuilder":
         self._talent.interview_registration_list = interview_registration_list
         return self
 
-    def registration_list(self, registration_list: List[RegistrationBasicInfo]) -> "TalentBuilder":
+    def registration_list(
+        self, registration_list: List[RegistrationBasicInfo]
+    ) -> "TalentBuilder":
         self._talent.registration_list = registration_list
         return self
 
-    def resume_attachment_id_list(self, resume_attachment_id_list: List[str]) -> "TalentBuilder":
+    def resume_attachment_id_list(
+        self, resume_attachment_id_list: List[str]
+    ) -> "TalentBuilder":
         self._talent.resume_attachment_id_list = resume_attachment_id_list
         return self
 
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedData]) -> "TalentBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedData]
+    ) -> "TalentBuilder":
         self._talent.customized_data_list = customized_data_list
         return self
 

@@ -26,13 +26,19 @@ class QueryMultiTimelineLocationRequestBody(object):
 
 class QueryMultiTimelineLocationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_location_request_body = QueryMultiTimelineLocationRequestBody()
+        self._query_multi_timeline_location_request_body = (
+            QueryMultiTimelineLocationRequestBody()
+        )
 
-    def location_ids(self, location_ids: List[str]) -> "QueryMultiTimelineLocationRequestBodyBuilder":
+    def location_ids(
+        self, location_ids: List[str]
+    ) -> "QueryMultiTimelineLocationRequestBodyBuilder":
         self._query_multi_timeline_location_request_body.location_ids = location_ids
         return self
 
-    def start_date(self, start_date: str) -> "QueryMultiTimelineLocationRequestBodyBuilder":
+    def start_date(
+        self, start_date: str
+    ) -> "QueryMultiTimelineLocationRequestBodyBuilder":
         self._query_multi_timeline_location_request_body.start_date = start_date
         return self
 
@@ -40,7 +46,9 @@ class QueryMultiTimelineLocationRequestBodyBuilder(object):
         self._query_multi_timeline_location_request_body.end_date = end_date
         return self
 
-    def fields(self, fields: List[str]) -> "QueryMultiTimelineLocationRequestBodyBuilder":
+    def fields(
+        self, fields: List[str]
+    ) -> "QueryMultiTimelineLocationRequestBodyBuilder":
         self._query_multi_timeline_location_request_body.fields = fields
         return self
 

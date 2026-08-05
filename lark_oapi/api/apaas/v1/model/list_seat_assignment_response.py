@@ -9,7 +9,6 @@ from .list_seat_assignment_response_body import ListSeatAssignmentResponseBody
 class ListSeatAssignmentResponse(BaseResponse):
     _types = {
         "data": ListSeatAssignmentResponseBody,
-
     }
 
     def __init__(self, d=None):

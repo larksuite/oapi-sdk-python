@@ -45,7 +45,9 @@ class InstanceSearchApprovalBuilder(object):
         self._instance_search_approval.is_external = is_external
         return self
 
-    def external(self, external: InstanceSearchApprovalExternal) -> "InstanceSearchApprovalBuilder":
+    def external(
+        self, external: InstanceSearchApprovalExternal
+    ) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.external = external
         return self
 

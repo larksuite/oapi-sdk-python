@@ -16,7 +16,6 @@ class DeleteGroupRequest(BaseRequest):
 
 
 class DeleteGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_group_request = DeleteGroupRequest()
         delete_group_request.http_method = HttpMethod.DELETE

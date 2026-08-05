@@ -25,7 +25,9 @@ class SearchCalendarEventResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_calendar_event_response_body = SearchCalendarEventResponseBody()
 
-    def items(self, items: List[CalendarEvent]) -> "SearchCalendarEventResponseBodyBuilder":
+    def items(
+        self, items: List[CalendarEvent]
+    ) -> "SearchCalendarEventResponseBodyBuilder":
         self._search_calendar_event_response_body.items = items
         return self
 

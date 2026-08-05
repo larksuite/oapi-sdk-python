@@ -25,7 +25,9 @@ class InterviewRoundTypeAssessmentTemplate(object):
 
 class InterviewRoundTypeAssessmentTemplateBuilder(object):
     def __init__(self) -> None:
-        self._interview_round_type_assessment_template = InterviewRoundTypeAssessmentTemplate()
+        self._interview_round_type_assessment_template = (
+            InterviewRoundTypeAssessmentTemplate()
+        )
 
     def id(self, id: str) -> "InterviewRoundTypeAssessmentTemplateBuilder":
         self._interview_round_type_assessment_template.id = id

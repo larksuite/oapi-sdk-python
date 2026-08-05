@@ -22,13 +22,21 @@ class SearchBasicInfoCurrencyRequestBody(object):
 
 class SearchBasicInfoCurrencyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_currency_request_body = SearchBasicInfoCurrencyRequestBody()
+        self._search_basic_info_currency_request_body = (
+            SearchBasicInfoCurrencyRequestBody()
+        )
 
-    def currency_id_list(self, currency_id_list: List[str]) -> "SearchBasicInfoCurrencyRequestBodyBuilder":
-        self._search_basic_info_currency_request_body.currency_id_list = currency_id_list
+    def currency_id_list(
+        self, currency_id_list: List[str]
+    ) -> "SearchBasicInfoCurrencyRequestBodyBuilder":
+        self._search_basic_info_currency_request_body.currency_id_list = (
+            currency_id_list
+        )
         return self
 
-    def status_list(self, status_list: List[int]) -> "SearchBasicInfoCurrencyRequestBodyBuilder":
+    def status_list(
+        self, status_list: List[int]
+    ) -> "SearchBasicInfoCurrencyRequestBodyBuilder":
         self._search_basic_info_currency_request_body.status_list = status_list
         return self
 

@@ -16,12 +16,14 @@ class GetCalendarRequest(BaseRequest):
 
 
 class GetCalendarRequestBuilder(object):
-
     def __init__(self) -> None:
         get_calendar_request = GetCalendarRequest()
         get_calendar_request.http_method = HttpMethod.GET
         get_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id"
-        get_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_calendar_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_calendar_request: GetCalendarRequest = get_calendar_request
 
     def calendar_id(self, calendar_id: str) -> "GetCalendarRequestBuilder":

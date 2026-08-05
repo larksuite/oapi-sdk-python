@@ -42,7 +42,9 @@ class ArchiveReportMetaBuilder(object):
         self._archive_report_meta.archive_rule_id = archive_rule_id
         return self
 
-    def archive_rule_name(self, archive_rule_name: I18nMap) -> "ArchiveReportMetaBuilder":
+    def archive_rule_name(
+        self, archive_rule_name: I18nMap
+    ) -> "ArchiveReportMetaBuilder":
         self._archive_report_meta.archive_rule_name = archive_rule_name
         return self
 

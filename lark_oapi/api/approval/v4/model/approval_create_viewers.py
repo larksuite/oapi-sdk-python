@@ -34,7 +34,9 @@ class ApprovalCreateViewersBuilder(object):
         self._approval_create_viewers.viewer_user_id = viewer_user_id
         return self
 
-    def viewer_department_id(self, viewer_department_id: str) -> "ApprovalCreateViewersBuilder":
+    def viewer_department_id(
+        self, viewer_department_id: str
+    ) -> "ApprovalCreateViewersBuilder":
         self._approval_create_viewers.viewer_department_id = viewer_department_id
         return self
 

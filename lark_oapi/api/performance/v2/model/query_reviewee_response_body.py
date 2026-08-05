@@ -33,7 +33,9 @@ class QueryRevieweeResponseBodyBuilder(object):
         self._query_reviewee_response_body.semester_id = semester_id
         return self
 
-    def reviewees(self, reviewees: List[Reviewee]) -> "QueryRevieweeResponseBodyBuilder":
+    def reviewees(
+        self, reviewees: List[Reviewee]
+    ) -> "QueryRevieweeResponseBodyBuilder":
         self._query_reviewee_response_body.reviewees = reviewees
         return self
 

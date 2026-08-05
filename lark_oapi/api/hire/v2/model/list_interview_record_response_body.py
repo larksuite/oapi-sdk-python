@@ -27,7 +27,9 @@ class ListInterviewRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_interview_record_response_body = ListInterviewRecordResponseBody()
 
-    def items(self, items: List[InterviewRecord]) -> "ListInterviewRecordResponseBodyBuilder":
+    def items(
+        self, items: List[InterviewRecord]
+    ) -> "ListInterviewRecordResponseBodyBuilder":
         self._list_interview_record_response_body.items = items
         return self
 

@@ -17,7 +17,9 @@ class Item(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListItemRequest, option: Optional[RequestOption] = None) -> ListItemResponse:
+    def list(
+        self, request: ListItemRequest, option: Optional[RequestOption] = None
+    ) -> ListItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Item(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemResponse)
+        response: ListItemResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListItemResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListItemRequest, option: Optional[RequestOption] = None) -> ListItemResponse:
+    async def alist(
+        self, request: ListItemRequest, option: Optional[RequestOption] = None
+    ) -> ListItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Item(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListItemResponse)
+        response: ListItemResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListItemResponse
+        )
         response.raw = resp
 
         return response

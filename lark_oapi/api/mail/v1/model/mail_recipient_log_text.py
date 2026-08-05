@@ -29,7 +29,9 @@ class MailRecipientLogTextBuilder(object):
     def __init__(self) -> None:
         self._mail_recipient_log_text = MailRecipientLogText()
 
-    def created_timestamp(self, created_timestamp: str) -> "MailRecipientLogTextBuilder":
+    def created_timestamp(
+        self, created_timestamp: str
+    ) -> "MailRecipientLogTextBuilder":
         self._mail_recipient_log_text.created_timestamp = created_timestamp
         return self
 
@@ -41,7 +43,9 @@ class MailRecipientLogTextBuilder(object):
         self._mail_recipient_log_text.status_type = status_type
         return self
 
-    def text_values(self, text_values: List[MailRecipientLogI18nTextParam]) -> "MailRecipientLogTextBuilder":
+    def text_values(
+        self, text_values: List[MailRecipientLogI18nTextParam]
+    ) -> "MailRecipientLogTextBuilder":
         self._mail_recipient_log_text.text_values = text_values
         return self
 

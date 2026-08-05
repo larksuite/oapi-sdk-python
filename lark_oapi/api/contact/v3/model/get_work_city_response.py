@@ -9,7 +9,6 @@ from .get_work_city_response_body import GetWorkCityResponseBody
 class GetWorkCityResponse(BaseResponse):
     _types = {
         "data": GetWorkCityResponseBody,
-
     }
 
     def __init__(self, d=None):

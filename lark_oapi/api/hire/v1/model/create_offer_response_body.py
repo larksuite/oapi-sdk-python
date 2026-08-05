@@ -53,15 +53,21 @@ class CreateOfferResponseBodyBuilder(object):
         self._create_offer_response_body.offer_type = offer_type
         return self
 
-    def basic_info(self, basic_info: OfferBasicInfo) -> "CreateOfferResponseBodyBuilder":
+    def basic_info(
+        self, basic_info: OfferBasicInfo
+    ) -> "CreateOfferResponseBodyBuilder":
         self._create_offer_response_body.basic_info = basic_info
         return self
 
-    def salary_info(self, salary_info: OfferSalaryInfo) -> "CreateOfferResponseBodyBuilder":
+    def salary_info(
+        self, salary_info: OfferSalaryInfo
+    ) -> "CreateOfferResponseBodyBuilder":
         self._create_offer_response_body.salary_info = salary_info
         return self
 
-    def customized_info_list(self, customized_info_list: List[OfferCustomizedInfo]) -> "CreateOfferResponseBodyBuilder":
+    def customized_info_list(
+        self, customized_info_list: List[OfferCustomizedInfo]
+    ) -> "CreateOfferResponseBodyBuilder":
         self._create_offer_response_body.customized_info_list = customized_info_list
         return self
 

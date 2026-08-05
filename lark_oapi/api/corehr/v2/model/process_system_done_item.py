@@ -59,7 +59,9 @@ class ProcessSystemDoneItemBuilder(object):
         self._process_system_done_item.links = links
         return self
 
-    def operator_name(self, operator_name: DataengineI18n) -> "ProcessSystemDoneItemBuilder":
+    def operator_name(
+        self, operator_name: DataengineI18n
+    ) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.operator_name = operator_name
         return self
 
@@ -75,7 +77,9 @@ class ProcessSystemDoneItemBuilder(object):
         self._process_system_done_item.complete_time = complete_time
         return self
 
-    def node_definition_id(self, node_definition_id: str) -> "ProcessSystemDoneItemBuilder":
+    def node_definition_id(
+        self, node_definition_id: str
+    ) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.node_definition_id = node_definition_id
         return self
 

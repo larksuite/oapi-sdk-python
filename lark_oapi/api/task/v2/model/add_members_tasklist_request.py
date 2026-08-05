@@ -19,13 +19,19 @@ class AddMembersTasklistRequest(BaseRequest):
 
 
 class AddMembersTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         add_members_tasklist_request = AddMembersTasklistRequest()
         add_members_tasklist_request.http_method = HttpMethod.POST
-        add_members_tasklist_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid/add_members"
-        add_members_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._add_members_tasklist_request: AddMembersTasklistRequest = add_members_tasklist_request
+        add_members_tasklist_request.uri = (
+            "/open-apis/task/v2/tasklists/:tasklist_guid/add_members"
+        )
+        add_members_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._add_members_tasklist_request: AddMembersTasklistRequest = (
+            add_members_tasklist_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "AddMembersTasklistRequestBuilder":
         self._add_members_tasklist_request.user_id_type = user_id_type
@@ -37,7 +43,9 @@ class AddMembersTasklistRequestBuilder(object):
         self._add_members_tasklist_request.paths["tasklist_guid"] = str(tasklist_guid)
         return self
 
-    def request_body(self, request_body: AddMembersTasklistRequestBody) -> "AddMembersTasklistRequestBuilder":
+    def request_body(
+        self, request_body: AddMembersTasklistRequestBody
+    ) -> "AddMembersTasklistRequestBuilder":
         self._add_members_tasklist_request.request_body = request_body
         self._add_members_tasklist_request.body = request_body
         return self

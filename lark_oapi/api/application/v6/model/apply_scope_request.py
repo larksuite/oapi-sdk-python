@@ -15,7 +15,6 @@ class ApplyScopeRequest(BaseRequest):
 
 
 class ApplyScopeRequestBuilder(object):
-
     def __init__(self) -> None:
         apply_scope_request = ApplyScopeRequest()
         apply_scope_request.http_method = HttpMethod.POST

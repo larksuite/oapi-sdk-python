@@ -65,7 +65,9 @@ class UserCustomAttrValueBuilder(object):
         self._user_custom_attr_value.name = name
         return self
 
-    def generic_user(self, generic_user: CustomAttrGenericUser) -> "UserCustomAttrValueBuilder":
+    def generic_user(
+        self, generic_user: CustomAttrGenericUser
+    ) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.generic_user = generic_user
         return self
 

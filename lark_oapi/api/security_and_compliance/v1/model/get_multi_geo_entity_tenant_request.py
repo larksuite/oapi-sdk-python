@@ -15,13 +15,19 @@ class GetMultiGeoEntityTenantRequest(BaseRequest):
 
 
 class GetMultiGeoEntityTenantRequestBuilder(object):
-
     def __init__(self) -> None:
         get_multi_geo_entity_tenant_request = GetMultiGeoEntityTenantRequest()
         get_multi_geo_entity_tenant_request.http_method = HttpMethod.GET
-        get_multi_geo_entity_tenant_request.uri = "/open-apis/security_and_compliance/v1/multi_geo_entity/tenant"
-        get_multi_geo_entity_tenant_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_multi_geo_entity_tenant_request: GetMultiGeoEntityTenantRequest = get_multi_geo_entity_tenant_request
+        get_multi_geo_entity_tenant_request.uri = (
+            "/open-apis/security_and_compliance/v1/multi_geo_entity/tenant"
+        )
+        get_multi_geo_entity_tenant_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_multi_geo_entity_tenant_request: GetMultiGeoEntityTenantRequest = (
+            get_multi_geo_entity_tenant_request
+        )
 
     def build(self) -> GetMultiGeoEntityTenantRequest:
         return self._get_multi_geo_entity_tenant_request

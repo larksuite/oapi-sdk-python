@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_collboration_share_entity_request import ListCollborationShareEntityRequest
-from ..model.list_collboration_share_entity_response import ListCollborationShareEntityResponse
+from ..model.list_collboration_share_entity_request import (
+    ListCollborationShareEntityRequest,
+)
+from ..model.list_collboration_share_entity_response import (
+    ListCollborationShareEntityResponse,
+)
 
 
 class CollborationShareEntity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListCollborationShareEntityRequest,
-             option: Optional[RequestOption] = None) -> ListCollborationShareEntityResponse:
+    def list(
+        self,
+        request: ListCollborationShareEntityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollborationShareEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class CollborationShareEntity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCollborationShareEntityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ListCollborationShareEntityResponse)
+        response: ListCollborationShareEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollborationShareEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCollborationShareEntityRequest,
-                    option: Optional[RequestOption] = None) -> ListCollborationShareEntityResponse:
+    async def alist(
+        self,
+        request: ListCollborationShareEntityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollborationShareEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class CollborationShareEntity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCollborationShareEntityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ListCollborationShareEntityResponse)
+        response: ListCollborationShareEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollborationShareEntityResponse
+        )
         response.raw = resp
 
         return response

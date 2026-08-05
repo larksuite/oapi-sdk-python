@@ -19,8 +19,11 @@ class AppTableFormField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAppTableFormFieldRequest,
-             option: Optional[RequestOption] = None) -> ListAppTableFormFieldResponse:
+    def list(
+        self,
+        request: ListAppTableFormFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListAppTableFormFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class AppTableFormField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppTableFormFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListAppTableFormFieldResponse)
+        response: ListAppTableFormFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppTableFormFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppTableFormFieldRequest,
-                    option: Optional[RequestOption] = None) -> ListAppTableFormFieldResponse:
+    async def alist(
+        self,
+        request: ListAppTableFormFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListAppTableFormFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +60,18 @@ class AppTableFormField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppTableFormFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListAppTableFormFieldResponse)
+        response: ListAppTableFormFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppTableFormFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchAppTableFormFieldRequest,
-              option: Optional[RequestOption] = None) -> PatchAppTableFormFieldResponse:
+    def patch(
+        self,
+        request: PatchAppTableFormFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchAppTableFormFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +86,18 @@ class AppTableFormField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchAppTableFormFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchAppTableFormFieldResponse)
+        response: PatchAppTableFormFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAppTableFormFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchAppTableFormFieldRequest,
-                     option: Optional[RequestOption] = None) -> PatchAppTableFormFieldResponse:
+    async def apatch(
+        self,
+        request: PatchAppTableFormFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchAppTableFormFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +108,9 @@ class AppTableFormField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchAppTableFormFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchAppTableFormFieldResponse)
+        response: PatchAppTableFormFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAppTableFormFieldResponse
+        )
         response.raw = resp
 
         return response

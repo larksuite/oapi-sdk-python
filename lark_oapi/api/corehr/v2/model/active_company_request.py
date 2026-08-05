@@ -17,7 +17,6 @@ class ActiveCompanyRequest(BaseRequest):
 
 
 class ActiveCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         active_company_request = ActiveCompanyRequest()
         active_company_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class ActiveCompanyRequestBuilder(object):
         active_company_request.token_types = {AccessTokenType.TENANT}
         self._active_company_request: ActiveCompanyRequest = active_company_request
 
-    def request_body(self, request_body: ActiveCompanyRequestBody) -> "ActiveCompanyRequestBuilder":
+    def request_body(
+        self, request_body: ActiveCompanyRequestBody
+    ) -> "ActiveCompanyRequestBuilder":
         self._active_company_request.request_body = request_body
         self._active_company_request.body = request_body
         return self

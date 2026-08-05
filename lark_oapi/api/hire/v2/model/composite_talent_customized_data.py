@@ -42,7 +42,9 @@ class CompositeTalentCustomizedDataBuilder(object):
         self._composite_talent_customized_data.object_type = object_type
         return self
 
-    def children(self, children: List[TalentCustomizedDataChild]) -> "CompositeTalentCustomizedDataBuilder":
+    def children(
+        self, children: List[TalentCustomizedDataChild]
+    ) -> "CompositeTalentCustomizedDataBuilder":
         self._composite_talent_customized_data.children = children
         return self
 

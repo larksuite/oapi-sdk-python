@@ -59,7 +59,9 @@ class LumpSumPaymentForUpdateBuilder(object):
         self._lump_sum_payment_for_update.currency_id = currency_id
         return self
 
-    def issuance_frequency(self, issuance_frequency: int) -> "LumpSumPaymentForUpdateBuilder":
+    def issuance_frequency(
+        self, issuance_frequency: int
+    ) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.issuance_frequency = issuance_frequency
         return self
 
@@ -67,23 +69,39 @@ class LumpSumPaymentForUpdateBuilder(object):
         self._lump_sum_payment_for_update.remark = remark
         return self
 
-    def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentForUpdateBuilder":
-        self._lump_sum_payment_for_update.reference_period_start_date = reference_period_start_date
+    def reference_period_start_date(
+        self, reference_period_start_date: str
+    ) -> "LumpSumPaymentForUpdateBuilder":
+        self._lump_sum_payment_for_update.reference_period_start_date = (
+            reference_period_start_date
+        )
         return self
 
-    def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentForUpdateBuilder":
-        self._lump_sum_payment_for_update.reference_period_end_date = reference_period_end_date
+    def reference_period_end_date(
+        self, reference_period_end_date: str
+    ) -> "LumpSumPaymentForUpdateBuilder":
+        self._lump_sum_payment_for_update.reference_period_end_date = (
+            reference_period_end_date
+        )
         return self
 
-    def details(self, details: List[LumpSumPaymentDetailForUpdate]) -> "LumpSumPaymentForUpdateBuilder":
+    def details(
+        self, details: List[LumpSumPaymentDetailForUpdate]
+    ) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.details = details
         return self
 
-    def binding_period_decimal(self, binding_period_decimal: str) -> "LumpSumPaymentForUpdateBuilder":
-        self._lump_sum_payment_for_update.binding_period_decimal = binding_period_decimal
+    def binding_period_decimal(
+        self, binding_period_decimal: str
+    ) -> "LumpSumPaymentForUpdateBuilder":
+        self._lump_sum_payment_for_update.binding_period_decimal = (
+            binding_period_decimal
+        )
         return self
 
-    def operation_source(self, operation_source: str) -> "LumpSumPaymentForUpdateBuilder":
+    def operation_source(
+        self, operation_source: str
+    ) -> "LumpSumPaymentForUpdateBuilder":
         self._lump_sum_payment_for_update.operation_source = operation_source
         return self
 

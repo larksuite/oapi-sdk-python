@@ -39,7 +39,9 @@ class ExternalInterviewBuilder(object):
         self._external_interview.external_id = external_id
         return self
 
-    def external_application_id(self, external_application_id: str) -> "ExternalInterviewBuilder":
+    def external_application_id(
+        self, external_application_id: str
+    ) -> "ExternalInterviewBuilder":
         self._external_interview.external_application_id = external_application_id
         return self
 
@@ -59,8 +61,9 @@ class ExternalInterviewBuilder(object):
         self._external_interview.end_time = end_time
         return self
 
-    def interview_assessments(self,
-                              interview_assessments: List[ExternalInterviewAssessment]) -> "ExternalInterviewBuilder":
+    def interview_assessments(
+        self, interview_assessments: List[ExternalInterviewAssessment]
+    ) -> "ExternalInterviewBuilder":
         self._external_interview.interview_assessments = interview_assessments
         return self
 

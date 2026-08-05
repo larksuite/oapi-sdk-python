@@ -40,7 +40,9 @@ class OfferSendRecordBuilder(object):
     def __init__(self) -> None:
         self._offer_send_record = OfferSendRecord()
 
-    def offer_send_record_id(self, offer_send_record_id: str) -> "OfferSendRecordBuilder":
+    def offer_send_record_id(
+        self, offer_send_record_id: str
+    ) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_send_record_id = offer_send_record_id
         return self
 
@@ -60,15 +62,21 @@ class OfferSendRecordBuilder(object):
         self._offer_send_record.email_info = email_info
         return self
 
-    def acceptance_list(self, acceptance_list: List[Acceptance]) -> "OfferSendRecordBuilder":
+    def acceptance_list(
+        self, acceptance_list: List[Acceptance]
+    ) -> "OfferSendRecordBuilder":
         self._offer_send_record.acceptance_list = acceptance_list
         return self
 
-    def offer_file_list(self, offer_file_list: List[OfferFile]) -> "OfferSendRecordBuilder":
+    def offer_file_list(
+        self, offer_file_list: List[OfferFile]
+    ) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_file_list = offer_file_list
         return self
 
-    def offer_signature_info(self, offer_signature_info: OfferSignatureInfo) -> "OfferSendRecordBuilder":
+    def offer_signature_info(
+        self, offer_signature_info: OfferSignatureInfo
+    ) -> "OfferSendRecordBuilder":
         self._offer_send_record.offer_signature_info = offer_signature_info
         return self
 

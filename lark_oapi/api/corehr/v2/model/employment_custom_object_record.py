@@ -24,7 +24,9 @@ class EmploymentCustomObjectRecordBuilder(object):
     def __init__(self) -> None:
         self._employment_custom_object_record = EmploymentCustomObjectRecord()
 
-    def employment_id(self, employment_id: str) -> "EmploymentCustomObjectRecordBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "EmploymentCustomObjectRecordBuilder":
         self._employment_custom_object_record.employment_id = employment_id
         return self
 

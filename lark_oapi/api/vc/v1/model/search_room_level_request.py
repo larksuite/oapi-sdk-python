@@ -16,15 +16,18 @@ class SearchRoomLevelRequest(BaseRequest):
 
 
 class SearchRoomLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         search_room_level_request = SearchRoomLevelRequest()
         search_room_level_request.http_method = HttpMethod.GET
         search_room_level_request.uri = "/open-apis/vc/v1/room_levels/search"
         search_room_level_request.token_types = {AccessTokenType.TENANT}
-        self._search_room_level_request: SearchRoomLevelRequest = search_room_level_request
+        self._search_room_level_request: SearchRoomLevelRequest = (
+            search_room_level_request
+        )
 
-    def custom_level_ids(self, custom_level_ids: str) -> "SearchRoomLevelRequestBuilder":
+    def custom_level_ids(
+        self, custom_level_ids: str
+    ) -> "SearchRoomLevelRequestBuilder":
         self._search_room_level_request.custom_level_ids = custom_level_ids
         self._search_room_level_request.add_query("custom_level_ids", custom_level_ids)
         return self

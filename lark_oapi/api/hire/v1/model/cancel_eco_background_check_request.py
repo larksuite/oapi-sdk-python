@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .cancel_eco_background_check_request_body import CancelEcoBackgroundCheckRequestBody
+from .cancel_eco_background_check_request_body import (
+    CancelEcoBackgroundCheckRequestBody,
+)
 
 
 class CancelEcoBackgroundCheckRequest(BaseRequest):
@@ -17,16 +19,20 @@ class CancelEcoBackgroundCheckRequest(BaseRequest):
 
 
 class CancelEcoBackgroundCheckRequestBuilder(object):
-
     def __init__(self) -> None:
         cancel_eco_background_check_request = CancelEcoBackgroundCheckRequest()
         cancel_eco_background_check_request.http_method = HttpMethod.POST
-        cancel_eco_background_check_request.uri = "/open-apis/hire/v1/eco_background_checks/cancel"
+        cancel_eco_background_check_request.uri = (
+            "/open-apis/hire/v1/eco_background_checks/cancel"
+        )
         cancel_eco_background_check_request.token_types = {AccessTokenType.TENANT}
-        self._cancel_eco_background_check_request: CancelEcoBackgroundCheckRequest = cancel_eco_background_check_request
+        self._cancel_eco_background_check_request: CancelEcoBackgroundCheckRequest = (
+            cancel_eco_background_check_request
+        )
 
-    def request_body(self,
-                     request_body: CancelEcoBackgroundCheckRequestBody) -> "CancelEcoBackgroundCheckRequestBuilder":
+    def request_body(
+        self, request_body: CancelEcoBackgroundCheckRequestBody
+    ) -> "CancelEcoBackgroundCheckRequestBuilder":
         self._cancel_eco_background_check_request.request_body = request_body
         self._cancel_eco_background_check_request.body = request_body
         return self

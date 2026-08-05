@@ -32,7 +32,9 @@ class RegistrationBasicInfoBuilder(object):
         self._registration_basic_info.id = id
         return self
 
-    def registration_time(self, registration_time: int) -> "RegistrationBasicInfoBuilder":
+    def registration_time(
+        self, registration_time: int
+    ) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.registration_time = registration_time
         return self
 

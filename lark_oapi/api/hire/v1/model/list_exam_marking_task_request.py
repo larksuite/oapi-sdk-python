@@ -20,13 +20,14 @@ class ListExamMarkingTaskRequest(BaseRequest):
 
 
 class ListExamMarkingTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         list_exam_marking_task_request = ListExamMarkingTaskRequest()
         list_exam_marking_task_request.http_method = HttpMethod.GET
         list_exam_marking_task_request.uri = "/open-apis/hire/v1/exam_marking_tasks"
         list_exam_marking_task_request.token_types = {AccessTokenType.TENANT}
-        self._list_exam_marking_task_request: ListExamMarkingTaskRequest = list_exam_marking_task_request
+        self._list_exam_marking_task_request: ListExamMarkingTaskRequest = (
+            list_exam_marking_task_request
+        )
 
     def page_size(self, page_size: int) -> "ListExamMarkingTaskRequestBuilder":
         self._list_exam_marking_task_request.page_size = page_size
@@ -43,9 +44,13 @@ class ListExamMarkingTaskRequestBuilder(object):
         self._list_exam_marking_task_request.add_query("user_id", user_id)
         return self
 
-    def activity_status(self, activity_status: int) -> "ListExamMarkingTaskRequestBuilder":
+    def activity_status(
+        self, activity_status: int
+    ) -> "ListExamMarkingTaskRequestBuilder":
         self._list_exam_marking_task_request.activity_status = activity_status
-        self._list_exam_marking_task_request.add_query("activity_status", activity_status)
+        self._list_exam_marking_task_request.add_query(
+            "activity_status", activity_status
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListExamMarkingTaskRequestBuilder":

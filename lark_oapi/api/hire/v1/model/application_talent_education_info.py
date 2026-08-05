@@ -50,7 +50,9 @@ class ApplicationTalentEducationInfoBuilder(object):
         self._application_talent_education_info.school = school
         return self
 
-    def field_of_study(self, field_of_study: str) -> "ApplicationTalentEducationInfoBuilder":
+    def field_of_study(
+        self, field_of_study: str
+    ) -> "ApplicationTalentEducationInfoBuilder":
         self._application_talent_education_info.field_of_study = field_of_study
         return self
 
@@ -62,11 +64,15 @@ class ApplicationTalentEducationInfoBuilder(object):
         self._application_talent_education_info.end_time = end_time
         return self
 
-    def education_type(self, education_type: int) -> "ApplicationTalentEducationInfoBuilder":
+    def education_type(
+        self, education_type: int
+    ) -> "ApplicationTalentEducationInfoBuilder":
         self._application_talent_education_info.education_type = education_type
         return self
 
-    def academic_ranking(self, academic_ranking: int) -> "ApplicationTalentEducationInfoBuilder":
+    def academic_ranking(
+        self, academic_ranking: int
+    ) -> "ApplicationTalentEducationInfoBuilder":
         self._application_talent_education_info.academic_ranking = academic_ranking
         return self
 

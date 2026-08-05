@@ -31,7 +31,9 @@ class AllowedRollbaclkTaskItemTypeBuilder(object):
         self._allowed_rollbaclk_task_item_type.id = id
         return self
 
-    def activity_label(self, activity_label: List[I18n]) -> "AllowedRollbaclkTaskItemTypeBuilder":
+    def activity_label(
+        self, activity_label: List[I18n]
+    ) -> "AllowedRollbaclkTaskItemTypeBuilder":
         self._allowed_rollbaclk_task_item_type.activity_label = activity_label
         return self
 

@@ -49,7 +49,9 @@ class DepartmentEventBuilder(object):
         self._department_event.name = name
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "DepartmentEventBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "DepartmentEventBuilder":
         self._department_event.parent_department_id = parent_department_id
         return self
 
@@ -85,7 +87,9 @@ class DepartmentEventBuilder(object):
         self._department_event.leaders = leaders
         return self
 
-    def department_hrbps(self, department_hrbps: List[UserId]) -> "DepartmentEventBuilder":
+    def department_hrbps(
+        self, department_hrbps: List[UserId]
+    ) -> "DepartmentEventBuilder":
         self._department_event.department_hrbps = department_hrbps
         return self
 

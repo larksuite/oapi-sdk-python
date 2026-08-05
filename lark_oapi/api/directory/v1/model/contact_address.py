@@ -46,7 +46,9 @@ class ContactAddressBuilder(object):
         self._contact_address.address = address
         return self
 
-    def contact_address_type(self, contact_address_type: str) -> "ContactAddressBuilder":
+    def contact_address_type(
+        self, contact_address_type: str
+    ) -> "ContactAddressBuilder":
         self._contact_address.contact_address_type = contact_address_type
         return self
 

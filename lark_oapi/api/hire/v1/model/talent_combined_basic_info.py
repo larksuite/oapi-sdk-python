@@ -58,7 +58,9 @@ class TalentCombinedBasicInfoBuilder(object):
         self._talent_combined_basic_info.mobile = mobile
         return self
 
-    def mobile_country_code(self, mobile_country_code: str) -> "TalentCombinedBasicInfoBuilder":
+    def mobile_country_code(
+        self, mobile_country_code: str
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.mobile_country_code = mobile_country_code
         return self
 
@@ -66,15 +68,21 @@ class TalentCombinedBasicInfoBuilder(object):
         self._talent_combined_basic_info.email = email
         return self
 
-    def identification_type(self, identification_type: int) -> "TalentCombinedBasicInfoBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "TalentCombinedBasicInfoBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.identification_number = identification_number
         return self
 
-    def identification(self, identification: TalentIdentificationInfo) -> "TalentCombinedBasicInfoBuilder":
+    def identification(
+        self, identification: TalentIdentificationInfo
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.identification = identification
         return self
 
@@ -94,16 +102,21 @@ class TalentCombinedBasicInfoBuilder(object):
         self._talent_combined_basic_info.nationality_id = nationality_id
         return self
 
-    def current_city_code(self, current_city_code: str) -> "TalentCombinedBasicInfoBuilder":
+    def current_city_code(
+        self, current_city_code: str
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.current_city_code = current_city_code
         return self
 
-    def hometown_city_code(self, hometown_city_code: str) -> "TalentCombinedBasicInfoBuilder":
+    def hometown_city_code(
+        self, hometown_city_code: str
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.hometown_city_code = hometown_city_code
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedBasicInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.customized_data = customized_data
         return self
 

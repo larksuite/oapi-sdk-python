@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_biz_entity_tag_relation_request_body import UpdateBizEntityTagRelationRequestBody
+from .update_biz_entity_tag_relation_request_body import (
+    UpdateBizEntityTagRelationRequestBody,
+)
 
 
 class UpdateBizEntityTagRelationRequest(BaseRequest):
@@ -17,16 +19,18 @@ class UpdateBizEntityTagRelationRequest(BaseRequest):
 
 
 class UpdateBizEntityTagRelationRequestBuilder(object):
-
     def __init__(self) -> None:
         update_biz_entity_tag_relation_request = UpdateBizEntityTagRelationRequest()
         update_biz_entity_tag_relation_request.http_method = HttpMethod.PUT
-        update_biz_entity_tag_relation_request.uri = "/open-apis/im/v2/biz_entity_tag_relation"
+        update_biz_entity_tag_relation_request.uri = (
+            "/open-apis/im/v2/biz_entity_tag_relation"
+        )
         update_biz_entity_tag_relation_request.token_types = {AccessTokenType.TENANT}
         self._update_biz_entity_tag_relation_request: UpdateBizEntityTagRelationRequest = update_biz_entity_tag_relation_request
 
-    def request_body(self,
-                     request_body: UpdateBizEntityTagRelationRequestBody) -> "UpdateBizEntityTagRelationRequestBuilder":
+    def request_body(
+        self, request_body: UpdateBizEntityTagRelationRequestBody
+    ) -> "UpdateBizEntityTagRelationRequestBuilder":
         self._update_biz_entity_tag_relation_request.request_body = request_body
         self._update_biz_entity_tag_relation_request.body = request_body
         return self

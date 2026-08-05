@@ -16,13 +16,19 @@ class ThemeWhiteboardRequest(BaseRequest):
 
 
 class ThemeWhiteboardRequestBuilder(object):
-
     def __init__(self) -> None:
         theme_whiteboard_request = ThemeWhiteboardRequest()
         theme_whiteboard_request.http_method = HttpMethod.GET
-        theme_whiteboard_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/theme"
-        theme_whiteboard_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._theme_whiteboard_request: ThemeWhiteboardRequest = theme_whiteboard_request
+        theme_whiteboard_request.uri = (
+            "/open-apis/board/v1/whiteboards/:whiteboard_id/theme"
+        )
+        theme_whiteboard_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._theme_whiteboard_request: ThemeWhiteboardRequest = (
+            theme_whiteboard_request
+        )
 
     def whiteboard_id(self, whiteboard_id: str) -> "ThemeWhiteboardRequestBuilder":
         self._theme_whiteboard_request.whiteboard_id = whiteboard_id

@@ -42,7 +42,9 @@ class ResidentTaxBuilder(object):
         self._resident_tax.tax_country_region_id = tax_country_region_id
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "ResidentTaxBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "ResidentTaxBuilder":
         self._resident_tax.custom_fields = custom_fields
         return self
 

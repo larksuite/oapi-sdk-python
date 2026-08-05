@@ -89,7 +89,9 @@ class EmployeeWorkEntityBuilder(object):
     def __init__(self) -> None:
         self._employee_work_entity = EmployeeWorkEntity()
 
-    def work_country_or_region(self, work_country_or_region: str) -> "EmployeeWorkEntityBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.work_country_or_region = work_country_or_region
         return self
 
@@ -149,7 +151,9 @@ class EmployeeWorkEntityBuilder(object):
         self._employee_work_entity.probation_period = probation_period
         return self
 
-    def regularization_date(self, regularization_date: str) -> "EmployeeWorkEntityBuilder":
+    def regularization_date(
+        self, regularization_date: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.regularization_date = regularization_date
         return self
 
@@ -161,7 +165,9 @@ class EmployeeWorkEntityBuilder(object):
         self._employee_work_entity.convert_status = convert_status
         return self
 
-    def contract_subject(self, contract_subject: Company) -> "EmployeeWorkEntityBuilder":
+    def contract_subject(
+        self, contract_subject: Company
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.contract_subject = contract_subject
         return self
 
@@ -169,16 +175,24 @@ class EmployeeWorkEntityBuilder(object):
         self._employee_work_entity.contract_type = contract_type
         return self
 
-    def contract_start_date(self, contract_start_date: str) -> "EmployeeWorkEntityBuilder":
+    def contract_start_date(
+        self, contract_start_date: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.contract_start_date = contract_start_date
         return self
 
-    def contract_expiration_date(self, contract_expiration_date: str) -> "EmployeeWorkEntityBuilder":
+    def contract_expiration_date(
+        self, contract_expiration_date: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.contract_expiration_date = contract_expiration_date
         return self
 
-    def labor_contract_signing_times(self, labor_contract_signing_times: str) -> "EmployeeWorkEntityBuilder":
-        self._employee_work_entity.labor_contract_signing_times = labor_contract_signing_times
+    def labor_contract_signing_times(
+        self, labor_contract_signing_times: str
+    ) -> "EmployeeWorkEntityBuilder":
+        self._employee_work_entity.labor_contract_signing_times = (
+            labor_contract_signing_times
+        )
         return self
 
     def resign_date(self, resign_date: str) -> "EmployeeWorkEntityBuilder":
@@ -197,11 +211,15 @@ class EmployeeWorkEntityBuilder(object):
         self._employee_work_entity.resign_type = resign_type
         return self
 
-    def cancelled_entry_type(self, cancelled_entry_type: str) -> "EmployeeWorkEntityBuilder":
+    def cancelled_entry_type(
+        self, cancelled_entry_type: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.cancelled_entry_type = cancelled_entry_type
         return self
 
-    def cancelled_entry_remark(self, cancelled_entry_remark: str) -> "EmployeeWorkEntityBuilder":
+    def cancelled_entry_remark(
+        self, cancelled_entry_remark: str
+    ) -> "EmployeeWorkEntityBuilder":
         self._employee_work_entity.cancelled_entry_remark = cancelled_entry_remark
         return self
 

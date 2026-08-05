@@ -17,15 +17,20 @@ class FileRecognizeSpeechRequest(BaseRequest):
 
 
 class FileRecognizeSpeechRequestBuilder(object):
-
     def __init__(self) -> None:
         file_recognize_speech_request = FileRecognizeSpeechRequest()
         file_recognize_speech_request.http_method = HttpMethod.POST
-        file_recognize_speech_request.uri = "/open-apis/speech_to_text/v1/speech/file_recognize"
+        file_recognize_speech_request.uri = (
+            "/open-apis/speech_to_text/v1/speech/file_recognize"
+        )
         file_recognize_speech_request.token_types = {AccessTokenType.TENANT}
-        self._file_recognize_speech_request: FileRecognizeSpeechRequest = file_recognize_speech_request
+        self._file_recognize_speech_request: FileRecognizeSpeechRequest = (
+            file_recognize_speech_request
+        )
 
-    def request_body(self, request_body: FileRecognizeSpeechRequestBody) -> "FileRecognizeSpeechRequestBuilder":
+    def request_body(
+        self, request_body: FileRecognizeSpeechRequestBody
+    ) -> "FileRecognizeSpeechRequestBuilder":
         self._file_recognize_speech_request.request_body = request_body
         self._file_recognize_speech_request.body = request_body
         return self

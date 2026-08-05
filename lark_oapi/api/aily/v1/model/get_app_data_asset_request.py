@@ -20,22 +20,36 @@ class GetAppDataAssetRequest(BaseRequest):
 
 
 class GetAppDataAssetRequestBuilder(object):
-
     def __init__(self) -> None:
         get_app_data_asset_request = GetAppDataAssetRequest()
         get_app_data_asset_request.http_method = HttpMethod.GET
-        get_app_data_asset_request.uri = "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
-        get_app_data_asset_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_app_data_asset_request: GetAppDataAssetRequest = get_app_data_asset_request
+        get_app_data_asset_request.uri = (
+            "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
+        )
+        get_app_data_asset_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_app_data_asset_request: GetAppDataAssetRequest = (
+            get_app_data_asset_request
+        )
 
-    def with_data_asset_item(self, with_data_asset_item: bool) -> "GetAppDataAssetRequestBuilder":
+    def with_data_asset_item(
+        self, with_data_asset_item: bool
+    ) -> "GetAppDataAssetRequestBuilder":
         self._get_app_data_asset_request.with_data_asset_item = with_data_asset_item
-        self._get_app_data_asset_request.add_query("with_data_asset_item", with_data_asset_item)
+        self._get_app_data_asset_request.add_query(
+            "with_data_asset_item", with_data_asset_item
+        )
         return self
 
-    def with_connect_status(self, with_connect_status: bool) -> "GetAppDataAssetRequestBuilder":
+    def with_connect_status(
+        self, with_connect_status: bool
+    ) -> "GetAppDataAssetRequestBuilder":
         self._get_app_data_asset_request.with_connect_status = with_connect_status
-        self._get_app_data_asset_request.add_query("with_connect_status", with_connect_status)
+        self._get_app_data_asset_request.add_query(
+            "with_connect_status", with_connect_status
+        )
         return self
 
     def tenant_type(self, tenant_type: str) -> "GetAppDataAssetRequestBuilder":

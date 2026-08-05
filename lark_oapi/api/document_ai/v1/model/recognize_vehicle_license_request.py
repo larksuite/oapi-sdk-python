@@ -17,15 +17,20 @@ class RecognizeVehicleLicenseRequest(BaseRequest):
 
 
 class RecognizeVehicleLicenseRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_vehicle_license_request = RecognizeVehicleLicenseRequest()
         recognize_vehicle_license_request.http_method = HttpMethod.POST
-        recognize_vehicle_license_request.uri = "/open-apis/document_ai/v1/vehicle_license/recognize"
+        recognize_vehicle_license_request.uri = (
+            "/open-apis/document_ai/v1/vehicle_license/recognize"
+        )
         recognize_vehicle_license_request.token_types = {AccessTokenType.TENANT}
-        self._recognize_vehicle_license_request: RecognizeVehicleLicenseRequest = recognize_vehicle_license_request
+        self._recognize_vehicle_license_request: RecognizeVehicleLicenseRequest = (
+            recognize_vehicle_license_request
+        )
 
-    def request_body(self, request_body: RecognizeVehicleLicenseRequestBody) -> "RecognizeVehicleLicenseRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeVehicleLicenseRequestBody
+    ) -> "RecognizeVehicleLicenseRequestBuilder":
         self._recognize_vehicle_license_request.request_body = request_body
         self._recognize_vehicle_license_request.body = request_body
         return self

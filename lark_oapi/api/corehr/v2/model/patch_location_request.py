@@ -19,7 +19,6 @@ class PatchLocationRequest(BaseRequest):
 
 
 class PatchLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_location_request = PatchLocationRequest()
         patch_location_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class PatchLocationRequestBuilder(object):
         self._patch_location_request.paths["location_id"] = str(location_id)
         return self
 
-    def request_body(self, request_body: LocationUpdate) -> "PatchLocationRequestBuilder":
+    def request_body(
+        self, request_body: LocationUpdate
+    ) -> "PatchLocationRequestBuilder":
         self._patch_location_request.request_body = request_body
         self._patch_location_request.body = request_body
         return self

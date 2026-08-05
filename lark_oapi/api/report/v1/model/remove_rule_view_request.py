@@ -19,11 +19,12 @@ class RemoveRuleViewRequest(BaseRequest):
 
 
 class RemoveRuleViewRequestBuilder(object):
-
     def __init__(self) -> None:
         remove_rule_view_request = RemoveRuleViewRequest()
         remove_rule_view_request.http_method = HttpMethod.POST
-        remove_rule_view_request.uri = "/open-apis/report/v1/rules/:rule_id/views/remove"
+        remove_rule_view_request.uri = (
+            "/open-apis/report/v1/rules/:rule_id/views/remove"
+        )
         remove_rule_view_request.token_types = {AccessTokenType.TENANT}
         self._remove_rule_view_request: RemoveRuleViewRequest = remove_rule_view_request
 
@@ -37,7 +38,9 @@ class RemoveRuleViewRequestBuilder(object):
         self._remove_rule_view_request.paths["rule_id"] = str(rule_id)
         return self
 
-    def request_body(self, request_body: RemoveRuleViewRequestBody) -> "RemoveRuleViewRequestBuilder":
+    def request_body(
+        self, request_body: RemoveRuleViewRequestBody
+    ) -> "RemoveRuleViewRequestBuilder":
         self._remove_rule_view_request.request_body = request_body
         self._remove_rule_view_request.body = request_body
         return self

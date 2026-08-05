@@ -17,15 +17,23 @@ class CreateAppAvatarUploadRequest(BaseRequest):
 
 
 class CreateAppAvatarUploadRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_avatar_upload_request = CreateAppAvatarUploadRequest()
         create_app_avatar_upload_request.http_method = HttpMethod.POST
-        create_app_avatar_upload_request.uri = "/open-apis/application/v7/app_avatar/upload"
-        create_app_avatar_upload_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_app_avatar_upload_request: CreateAppAvatarUploadRequest = create_app_avatar_upload_request
+        create_app_avatar_upload_request.uri = (
+            "/open-apis/application/v7/app_avatar/upload"
+        )
+        create_app_avatar_upload_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_app_avatar_upload_request: CreateAppAvatarUploadRequest = (
+            create_app_avatar_upload_request
+        )
 
-    def request_body(self, request_body: CreateAppAvatarUploadRequestBody) -> "CreateAppAvatarUploadRequestBuilder":
+    def request_body(
+        self, request_body: CreateAppAvatarUploadRequestBody
+    ) -> "CreateAppAvatarUploadRequestBuilder":
         self._create_app_avatar_upload_request.request_body = request_body
         self._create_app_avatar_upload_request.body = request_body
         return self

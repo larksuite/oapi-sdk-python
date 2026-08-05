@@ -16,7 +16,6 @@ class GetLocationRequest(BaseRequest):
 
 
 class GetLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_location_request = GetLocationRequest()
         get_location_request.http_method = HttpMethod.GET

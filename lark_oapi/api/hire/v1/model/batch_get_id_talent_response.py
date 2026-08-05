@@ -9,7 +9,6 @@ from .batch_get_id_talent_response_body import BatchGetIdTalentResponseBody
 class BatchGetIdTalentResponse(BaseResponse):
     _types = {
         "data": BatchGetIdTalentResponseBody,
-
     }
 
     def __init__(self, d=None):

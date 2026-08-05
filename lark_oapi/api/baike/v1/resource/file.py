@@ -19,7 +19,9 @@ class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
+    def download(
+        self, request: DownloadFileRequest, option: Optional[RequestOption] = None
+    ) -> DownloadFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -46,8 +48,9 @@ class File(object):
         response.raw = resp
         return response
 
-    async def adownload(self, request: DownloadFileRequest,
-                        option: Optional[RequestOption] = None) -> DownloadFileResponse:
+    async def adownload(
+        self, request: DownloadFileRequest, option: Optional[RequestOption] = None
+    ) -> DownloadFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,7 +73,9 @@ class File(object):
         response.raw = resp
         return response
 
-    def upload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
+    def upload(
+        self, request: UploadFileRequest, option: Optional[RequestOption] = None
+    ) -> UploadFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,12 +92,16 @@ class File(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)
+        response: UploadFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
+    async def aupload(
+        self, request: UploadFileRequest, option: Optional[RequestOption] = None
+    ) -> UploadFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -106,7 +115,9 @@ class File(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)
+        response: UploadFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadFileResponse
+        )
         response.raw = resp
 
         return response

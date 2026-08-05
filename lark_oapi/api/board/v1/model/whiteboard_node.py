@@ -131,7 +131,9 @@ class WhiteboardNodeBuilder(object):
         self._whiteboard_node.image = image
         return self
 
-    def composite_shape(self, composite_shape: CompositeShape) -> "WhiteboardNodeBuilder":
+    def composite_shape(
+        self, composite_shape: CompositeShape
+    ) -> "WhiteboardNodeBuilder":
         self._whiteboard_node.composite_shape = composite_shape
         return self
 

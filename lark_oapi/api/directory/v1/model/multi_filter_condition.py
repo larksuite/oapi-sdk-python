@@ -29,7 +29,9 @@ class MultiFilterConditionBuilder(object):
         self._multi_filter_condition.expr = expr
         return self
 
-    def conditions(self, conditions: List[FilterCondition]) -> "MultiFilterConditionBuilder":
+    def conditions(
+        self, conditions: List[FilterCondition]
+    ) -> "MultiFilterConditionBuilder":
         self._multi_filter_condition.conditions = conditions
         return self
 

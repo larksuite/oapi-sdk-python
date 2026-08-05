@@ -51,7 +51,9 @@ class DatasourceBuilder(object):
         self._datasource.fields = fields
         return self
 
-    def i18n_description(self, i18n_description: List[I18nContent]) -> "DatasourceBuilder":
+    def i18n_description(
+        self, i18n_description: List[I18nContent]
+    ) -> "DatasourceBuilder":
         self._datasource.i18n_description = i18n_description
         return self
 

@@ -18,22 +18,36 @@ class CreateProcessQueryFlowDataTemplateRequest(BaseRequest):
 
 
 class CreateProcessQueryFlowDataTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_process_query_flow_data_template_request = CreateProcessQueryFlowDataTemplateRequest()
+        create_process_query_flow_data_template_request = (
+            CreateProcessQueryFlowDataTemplateRequest()
+        )
         create_process_query_flow_data_template_request.http_method = HttpMethod.POST
-        create_process_query_flow_data_template_request.uri = "/open-apis/corehr/v2/query_flow_data_template"
-        create_process_query_flow_data_template_request.token_types = {AccessTokenType.TENANT}
+        create_process_query_flow_data_template_request.uri = (
+            "/open-apis/corehr/v2/query_flow_data_template"
+        )
+        create_process_query_flow_data_template_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._create_process_query_flow_data_template_request: CreateProcessQueryFlowDataTemplateRequest = create_process_query_flow_data_template_request
 
-    def user_id_type(self, user_id_type: str) -> "CreateProcessQueryFlowDataTemplateRequestBuilder":
-        self._create_process_query_flow_data_template_request.user_id_type = user_id_type
-        self._create_process_query_flow_data_template_request.add_query("user_id_type", user_id_type)
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "CreateProcessQueryFlowDataTemplateRequestBuilder":
+        self._create_process_query_flow_data_template_request.user_id_type = (
+            user_id_type
+        )
+        self._create_process_query_flow_data_template_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: QueryProcessFlowDataTemplateReq) -> "CreateProcessQueryFlowDataTemplateRequestBuilder":
-        self._create_process_query_flow_data_template_request.request_body = request_body
+    def request_body(
+        self, request_body: QueryProcessFlowDataTemplateReq
+    ) -> "CreateProcessQueryFlowDataTemplateRequestBuilder":
+        self._create_process_query_flow_data_template_request.request_body = (
+            request_body
+        )
         self._create_process_query_flow_data_template_request.body = request_body
         return self
 

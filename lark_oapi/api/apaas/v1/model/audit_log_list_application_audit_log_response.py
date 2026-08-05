@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .audit_log_list_application_audit_log_response_body import AuditLogListApplicationAuditLogResponseBody
+from .audit_log_list_application_audit_log_response_body import (
+    AuditLogListApplicationAuditLogResponseBody,
+)
 
 
 class AuditLogListApplicationAuditLogResponse(BaseResponse):
     _types = {
         "data": AuditLogListApplicationAuditLogResponseBody,
-
     }
 
     def __init__(self, d=None):

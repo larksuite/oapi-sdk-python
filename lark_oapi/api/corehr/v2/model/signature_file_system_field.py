@@ -40,15 +40,21 @@ class SignatureFileSystemFieldBuilder(object):
         self._signature_file_system_field.deadline = deadline
         return self
 
-    def ordered_node_keys(self, ordered_node_keys: List[str]) -> "SignatureFileSystemFieldBuilder":
+    def ordered_node_keys(
+        self, ordered_node_keys: List[str]
+    ) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.ordered_node_keys = ordered_node_keys
         return self
 
-    def deadline_timestamp(self, deadline_timestamp: str) -> "SignatureFileSystemFieldBuilder":
+    def deadline_timestamp(
+        self, deadline_timestamp: str
+    ) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.deadline_timestamp = deadline_timestamp
         return self
 
-    def auto_stamp_timestamp(self, auto_stamp_timestamp: str) -> "SignatureFileSystemFieldBuilder":
+    def auto_stamp_timestamp(
+        self, auto_stamp_timestamp: str
+    ) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.auto_stamp_timestamp = auto_stamp_timestamp
         return self
 

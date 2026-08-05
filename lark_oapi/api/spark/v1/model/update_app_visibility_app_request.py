@@ -19,13 +19,16 @@ class UpdateAppVisibilityAppRequest(BaseRequest):
 
 
 class UpdateAppVisibilityAppRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_visibility_app_request = UpdateAppVisibilityAppRequest()
         update_app_visibility_app_request.http_method = HttpMethod.PUT
-        update_app_visibility_app_request.uri = "/open-apis/spark/v1/apps/:app_id/access-scope"
+        update_app_visibility_app_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/access-scope"
+        )
         update_app_visibility_app_request.token_types = {AccessTokenType.USER}
-        self._update_app_visibility_app_request: UpdateAppVisibilityAppRequest = update_app_visibility_app_request
+        self._update_app_visibility_app_request: UpdateAppVisibilityAppRequest = (
+            update_app_visibility_app_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateAppVisibilityAppRequestBuilder":
         self._update_app_visibility_app_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class UpdateAppVisibilityAppRequestBuilder(object):
         self._update_app_visibility_app_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: UpdateAppVisibilityAppRequestBody) -> "UpdateAppVisibilityAppRequestBuilder":
+    def request_body(
+        self, request_body: UpdateAppVisibilityAppRequestBody
+    ) -> "UpdateAppVisibilityAppRequestBuilder":
         self._update_app_visibility_app_request.request_body = request_body
         self._update_app_visibility_app_request.body = request_body
         return self

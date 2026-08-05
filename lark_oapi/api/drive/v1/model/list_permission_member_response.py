@@ -9,7 +9,6 @@ from .list_permission_member_response_body import ListPermissionMemberResponseBo
 class ListPermissionMemberResponse(BaseResponse):
     _types = {
         "data": ListPermissionMemberResponseBody,
-
     }
 
     def __init__(self, d=None):

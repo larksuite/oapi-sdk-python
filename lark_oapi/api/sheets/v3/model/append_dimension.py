@@ -34,7 +34,9 @@ class AppendDimensionBuilder(object):
         self._append_dimension.length = length
         return self
 
-    def inherit_from_before(self, inherit_from_before: bool) -> "AppendDimensionBuilder":
+    def inherit_from_before(
+        self, inherit_from_before: bool
+    ) -> "AppendDimensionBuilder":
         self._append_dimension.inherit_from_before = inherit_from_before
         return self
 

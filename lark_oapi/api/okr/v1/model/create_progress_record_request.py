@@ -18,20 +18,26 @@ class CreateProgressRecordRequest(BaseRequest):
 
 
 class CreateProgressRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         create_progress_record_request = CreateProgressRecordRequest()
         create_progress_record_request.http_method = HttpMethod.POST
         create_progress_record_request.uri = "/open-apis/okr/v1/progress_records"
-        create_progress_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_progress_record_request: CreateProgressRecordRequest = create_progress_record_request
+        create_progress_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_progress_record_request: CreateProgressRecordRequest = (
+            create_progress_record_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateProgressRecordRequestBuilder":
         self._create_progress_record_request.user_id_type = user_id_type
         self._create_progress_record_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateProgressRecordRequestBody) -> "CreateProgressRecordRequestBuilder":
+    def request_body(
+        self, request_body: CreateProgressRecordRequestBody
+    ) -> "CreateProgressRecordRequestBuilder":
         self._create_progress_record_request.request_body = request_body
         self._create_progress_record_request.body = request_body
         return self

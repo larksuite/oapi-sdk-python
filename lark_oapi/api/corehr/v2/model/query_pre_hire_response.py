@@ -9,7 +9,6 @@ from .query_pre_hire_response_body import QueryPreHireResponseBody
 class QueryPreHireResponse(BaseResponse):
     _types = {
         "data": QueryPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

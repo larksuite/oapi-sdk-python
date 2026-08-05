@@ -32,35 +32,58 @@ class BatchGetEmployeesJobDataRequestBody(object):
 
 class BatchGetEmployeesJobDataRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_get_employees_job_data_request_body = BatchGetEmployeesJobDataRequestBody()
+        self._batch_get_employees_job_data_request_body = (
+            BatchGetEmployeesJobDataRequestBody()
+        )
 
-    def employment_ids(self, employment_ids: List[str]) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+    def employment_ids(
+        self, employment_ids: List[str]
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
         self._batch_get_employees_job_data_request_body.employment_ids = employment_ids
         return self
 
-    def get_all_version(self, get_all_version: bool) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
-        self._batch_get_employees_job_data_request_body.get_all_version = get_all_version
+    def get_all_version(
+        self, get_all_version: bool
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.get_all_version = (
+            get_all_version
+        )
         return self
 
-    def effective_date_start(self, effective_date_start: str) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
-        self._batch_get_employees_job_data_request_body.effective_date_start = effective_date_start
+    def effective_date_start(
+        self, effective_date_start: str
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.effective_date_start = (
+            effective_date_start
+        )
         return self
 
-    def effective_date_end(self, effective_date_end: str) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
-        self._batch_get_employees_job_data_request_body.effective_date_end = effective_date_end
+    def effective_date_end(
+        self, effective_date_end: str
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.effective_date_end = (
+            effective_date_end
+        )
         return self
 
     def data_date(self, data_date: str) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
         self._batch_get_employees_job_data_request_body.data_date = data_date
         return self
 
-    def primary_job_data(self, primary_job_data: bool) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
-        self._batch_get_employees_job_data_request_body.primary_job_data = primary_job_data
+    def primary_job_data(
+        self, primary_job_data: bool
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.primary_job_data = (
+            primary_job_data
+        )
         return self
 
-    def assignment_start_reasons(self,
-                                 assignment_start_reasons: List[str]) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
-        self._batch_get_employees_job_data_request_body.assignment_start_reasons = assignment_start_reasons
+    def assignment_start_reasons(
+        self, assignment_start_reasons: List[str]
+    ) -> "BatchGetEmployeesJobDataRequestBodyBuilder":
+        self._batch_get_employees_job_data_request_body.assignment_start_reasons = (
+            assignment_start_reasons
+        )
         return self
 
     def build(self) -> "BatchGetEmployeesJobDataRequestBody":

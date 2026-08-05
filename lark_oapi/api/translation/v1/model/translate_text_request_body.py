@@ -29,7 +29,9 @@ class TranslateTextRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._translate_text_request_body = TranslateTextRequestBody()
 
-    def source_language(self, source_language: str) -> "TranslateTextRequestBodyBuilder":
+    def source_language(
+        self, source_language: str
+    ) -> "TranslateTextRequestBodyBuilder":
         self._translate_text_request_body.source_language = source_language
         return self
 
@@ -37,7 +39,9 @@ class TranslateTextRequestBodyBuilder(object):
         self._translate_text_request_body.text = text
         return self
 
-    def target_language(self, target_language: str) -> "TranslateTextRequestBodyBuilder":
+    def target_language(
+        self, target_language: str
+    ) -> "TranslateTextRequestBodyBuilder":
         self._translate_text_request_body.target_language = target_language
         return self
 

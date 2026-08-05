@@ -9,7 +9,6 @@ from .get_shift_response_body import GetShiftResponseBody
 class GetShiftResponse(BaseResponse):
     _types = {
         "data": GetShiftResponseBody,
-
     }
 
     def __init__(self, d=None):

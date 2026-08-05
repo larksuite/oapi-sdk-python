@@ -56,7 +56,9 @@ class GetChatAnnouncementResponseBodyBuilder(object):
         self._get_chat_announcement_response_body.owner_id = owner_id
         return self
 
-    def owner_id_type(self, owner_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def owner_id_type(
+        self, owner_id_type: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.owner_id_type = owner_id_type
         return self
 
@@ -64,19 +66,27 @@ class GetChatAnnouncementResponseBodyBuilder(object):
         self._get_chat_announcement_response_body.modifier_id = modifier_id
         return self
 
-    def modifier_id_type(self, modifier_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def modifier_id_type(
+        self, modifier_id_type: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.modifier_id_type = modifier_id_type
         return self
 
-    def announcement_type(self, announcement_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def announcement_type(
+        self, announcement_type: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.announcement_type = announcement_type
         return self
 
-    def create_time_v2(self, create_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def create_time_v2(
+        self, create_time_v2: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.create_time_v2 = create_time_v2
         return self
 
-    def update_time_v2(self, update_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def update_time_v2(
+        self, update_time_v2: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.update_time_v2 = update_time_v2
         return self
 

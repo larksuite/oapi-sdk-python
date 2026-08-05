@@ -30,19 +30,27 @@ class UpdateProgressRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_progress_record_response_body = UpdateProgressRecordResponseBody()
 
-    def progress_id(self, progress_id: int) -> "UpdateProgressRecordResponseBodyBuilder":
+    def progress_id(
+        self, progress_id: int
+    ) -> "UpdateProgressRecordResponseBodyBuilder":
         self._update_progress_record_response_body.progress_id = progress_id
         return self
 
-    def modify_time(self, modify_time: int) -> "UpdateProgressRecordResponseBodyBuilder":
+    def modify_time(
+        self, modify_time: int
+    ) -> "UpdateProgressRecordResponseBodyBuilder":
         self._update_progress_record_response_body.modify_time = modify_time
         return self
 
-    def content(self, content: ContentBlock) -> "UpdateProgressRecordResponseBodyBuilder":
+    def content(
+        self, content: ContentBlock
+    ) -> "UpdateProgressRecordResponseBodyBuilder":
         self._update_progress_record_response_body.content = content
         return self
 
-    def progress_rate(self, progress_rate: ProgressRateNew) -> "UpdateProgressRecordResponseBodyBuilder":
+    def progress_rate(
+        self, progress_rate: ProgressRateNew
+    ) -> "UpdateProgressRecordResponseBodyBuilder":
         self._update_progress_record_response_body.progress_rate = progress_rate
         return self
 

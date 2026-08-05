@@ -21,13 +21,19 @@ class SearchCalendarEventRequest(BaseRequest):
 
 
 class SearchCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         search_calendar_event_request = SearchCalendarEventRequest()
         search_calendar_event_request.http_method = HttpMethod.POST
-        search_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
-        search_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._search_calendar_event_request: SearchCalendarEventRequest = search_calendar_event_request
+        search_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
+        )
+        search_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._search_calendar_event_request: SearchCalendarEventRequest = (
+            search_calendar_event_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "SearchCalendarEventRequestBuilder":
         self._search_calendar_event_request.user_id_type = user_id_type
@@ -49,7 +55,9 @@ class SearchCalendarEventRequestBuilder(object):
         self._search_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
-    def request_body(self, request_body: SearchCalendarEventRequestBody) -> "SearchCalendarEventRequestBuilder":
+    def request_body(
+        self, request_body: SearchCalendarEventRequestBody
+    ) -> "SearchCalendarEventRequestBuilder":
         self._search_calendar_event_request.request_body = request_body
         self._search_calendar_event_request.body = request_body
         return self

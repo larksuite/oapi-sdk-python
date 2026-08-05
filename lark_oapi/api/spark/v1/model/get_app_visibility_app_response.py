@@ -9,7 +9,6 @@ from .get_app_visibility_app_response_body import GetAppVisibilityAppResponseBod
 class GetAppVisibilityAppResponse(BaseResponse):
     _types = {
         "data": GetAppVisibilityAppResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .create_oidc_refresh_access_token_request_body import CreateOidcRefreshAccessTokenRequestBody
+from .create_oidc_refresh_access_token_request_body import (
+    CreateOidcRefreshAccessTokenRequestBody,
+)
 
 
 class CreateOidcRefreshAccessTokenRequest(BaseRequest):
@@ -17,16 +19,18 @@ class CreateOidcRefreshAccessTokenRequest(BaseRequest):
 
 
 class CreateOidcRefreshAccessTokenRequestBuilder(object):
-
     def __init__(self) -> None:
         create_oidc_refresh_access_token_request = CreateOidcRefreshAccessTokenRequest()
         create_oidc_refresh_access_token_request.http_method = HttpMethod.POST
-        create_oidc_refresh_access_token_request.uri = "/open-apis/authen/v1/oidc/refresh_access_token"
+        create_oidc_refresh_access_token_request.uri = (
+            "/open-apis/authen/v1/oidc/refresh_access_token"
+        )
         create_oidc_refresh_access_token_request.token_types = {AccessTokenType.APP}
         self._create_oidc_refresh_access_token_request: CreateOidcRefreshAccessTokenRequest = create_oidc_refresh_access_token_request
 
-    def request_body(self,
-                     request_body: CreateOidcRefreshAccessTokenRequestBody) -> "CreateOidcRefreshAccessTokenRequestBuilder":
+    def request_body(
+        self, request_body: CreateOidcRefreshAccessTokenRequestBody
+    ) -> "CreateOidcRefreshAccessTokenRequestBuilder":
         self._create_oidc_refresh_access_token_request.request_body = request_body
         self._create_oidc_refresh_access_token_request.body = request_body
         return self

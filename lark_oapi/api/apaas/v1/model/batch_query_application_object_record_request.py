@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_query_application_object_record_request_body import BatchQueryApplicationObjectRecordRequestBody
+from .batch_query_application_object_record_request_body import (
+    BatchQueryApplicationObjectRecordRequestBody,
+)
 
 
 class BatchQueryApplicationObjectRecordRequest(BaseRequest):
@@ -19,26 +21,40 @@ class BatchQueryApplicationObjectRecordRequest(BaseRequest):
 
 
 class BatchQueryApplicationObjectRecordRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_query_application_object_record_request = BatchQueryApplicationObjectRecordRequest()
+        batch_query_application_object_record_request = (
+            BatchQueryApplicationObjectRecordRequest()
+        )
         batch_query_application_object_record_request.http_method = HttpMethod.POST
         batch_query_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_query"
-        batch_query_application_object_record_request.token_types = {AccessTokenType.TENANT}
+        batch_query_application_object_record_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._batch_query_application_object_record_request: BatchQueryApplicationObjectRecordRequest = batch_query_application_object_record_request
 
-    def namespace(self, namespace: str) -> "BatchQueryApplicationObjectRecordRequestBuilder":
+    def namespace(
+        self, namespace: str
+    ) -> "BatchQueryApplicationObjectRecordRequestBuilder":
         self._batch_query_application_object_record_request.namespace = namespace
-        self._batch_query_application_object_record_request.paths["namespace"] = str(namespace)
+        self._batch_query_application_object_record_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def object_api_name(self, object_api_name: str) -> "BatchQueryApplicationObjectRecordRequestBuilder":
-        self._batch_query_application_object_record_request.object_api_name = object_api_name
-        self._batch_query_application_object_record_request.paths["object_api_name"] = str(object_api_name)
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "BatchQueryApplicationObjectRecordRequestBuilder":
+        self._batch_query_application_object_record_request.object_api_name = (
+            object_api_name
+        )
+        self._batch_query_application_object_record_request.paths["object_api_name"] = (
+            str(object_api_name)
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchQueryApplicationObjectRecordRequestBody) -> "BatchQueryApplicationObjectRecordRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryApplicationObjectRecordRequestBody
+    ) -> "BatchQueryApplicationObjectRecordRequestBuilder":
         self._batch_query_application_object_record_request.request_body = request_body
         self._batch_query_application_object_record_request.body = request_body
         return self

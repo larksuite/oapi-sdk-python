@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_application_object_record_request_body import QueryApplicationObjectRecordRequestBody
+from .query_application_object_record_request_body import (
+    QueryApplicationObjectRecordRequestBody,
+)
 
 
 class QueryApplicationObjectRecordRequest(BaseRequest):
@@ -20,7 +22,6 @@ class QueryApplicationObjectRecordRequest(BaseRequest):
 
 
 class QueryApplicationObjectRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         query_application_object_record_request = QueryApplicationObjectRecordRequest()
         query_application_object_record_request.http_method = HttpMethod.POST
@@ -30,12 +31,18 @@ class QueryApplicationObjectRecordRequestBuilder(object):
 
     def namespace(self, namespace: str) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.namespace = namespace
-        self._query_application_object_record_request.paths["namespace"] = str(namespace)
+        self._query_application_object_record_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def object_api_name(self, object_api_name: str) -> "QueryApplicationObjectRecordRequestBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.object_api_name = object_api_name
-        self._query_application_object_record_request.paths["object_api_name"] = str(object_api_name)
+        self._query_application_object_record_request.paths["object_api_name"] = str(
+            object_api_name
+        )
         return self
 
     def id(self, id: str) -> "QueryApplicationObjectRecordRequestBuilder":
@@ -43,8 +50,9 @@ class QueryApplicationObjectRecordRequestBuilder(object):
         self._query_application_object_record_request.paths["id"] = str(id)
         return self
 
-    def request_body(self,
-                     request_body: QueryApplicationObjectRecordRequestBody) -> "QueryApplicationObjectRecordRequestBuilder":
+    def request_body(
+        self, request_body: QueryApplicationObjectRecordRequestBody
+    ) -> "QueryApplicationObjectRecordRequestBuilder":
         self._query_application_object_record_request.request_body = request_body
         self._query_application_object_record_request.body = request_body
         return self

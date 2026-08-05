@@ -36,7 +36,9 @@ class JobRequirementSchemaBuilder(object):
         self._job_requirement_schema.name = name
         return self
 
-    def object_list(self, object_list: List[CommonSchema]) -> "JobRequirementSchemaBuilder":
+    def object_list(
+        self, object_list: List[CommonSchema]
+    ) -> "JobRequirementSchemaBuilder":
         self._job_requirement_schema.object_list = object_list
         return self
 

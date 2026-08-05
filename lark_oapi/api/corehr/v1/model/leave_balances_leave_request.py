@@ -22,13 +22,14 @@ class LeaveBalancesLeaveRequest(BaseRequest):
 
 
 class LeaveBalancesLeaveRequestBuilder(object):
-
     def __init__(self) -> None:
         leave_balances_leave_request = LeaveBalancesLeaveRequest()
         leave_balances_leave_request.http_method = HttpMethod.GET
         leave_balances_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_balances"
         leave_balances_leave_request.token_types = {AccessTokenType.TENANT}
-        self._leave_balances_leave_request: LeaveBalancesLeaveRequest = leave_balances_leave_request
+        self._leave_balances_leave_request: LeaveBalancesLeaveRequest = (
+            leave_balances_leave_request
+        )
 
     def page_token(self, page_token: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.page_token = page_token
@@ -45,9 +46,13 @@ class LeaveBalancesLeaveRequestBuilder(object):
         self._leave_balances_leave_request.add_query("as_of_date", as_of_date)
         return self
 
-    def employment_id_list(self, employment_id_list: List[str]) -> "LeaveBalancesLeaveRequestBuilder":
+    def employment_id_list(
+        self, employment_id_list: List[str]
+    ) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.employment_id_list = employment_id_list
-        self._leave_balances_leave_request.add_query("employment_id_list", employment_id_list)
+        self._leave_balances_leave_request.add_query(
+            "employment_id_list", employment_id_list
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "LeaveBalancesLeaveRequestBuilder":
@@ -60,9 +65,13 @@ class LeaveBalancesLeaveRequestBuilder(object):
         self._leave_balances_leave_request.add_query("time_zone", time_zone)
         return self
 
-    def include_offboard(self, include_offboard: bool) -> "LeaveBalancesLeaveRequestBuilder":
+    def include_offboard(
+        self, include_offboard: bool
+    ) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.include_offboard = include_offboard
-        self._leave_balances_leave_request.add_query("include_offboard", include_offboard)
+        self._leave_balances_leave_request.add_query(
+            "include_offboard", include_offboard
+        )
         return self
 
     def build(self) -> LeaveBalancesLeaveRequest:

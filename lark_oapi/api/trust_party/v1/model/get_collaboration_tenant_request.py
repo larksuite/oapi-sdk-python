@@ -16,17 +16,27 @@ class GetCollaborationTenantRequest(BaseRequest):
 
 
 class GetCollaborationTenantRequestBuilder(object):
-
     def __init__(self) -> None:
         get_collaboration_tenant_request = GetCollaborationTenantRequest()
         get_collaboration_tenant_request.http_method = HttpMethod.GET
-        get_collaboration_tenant_request.uri = "/open-apis/trust_party/v1/collaboration_tenants/:target_tenant_key"
-        get_collaboration_tenant_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_collaboration_tenant_request: GetCollaborationTenantRequest = get_collaboration_tenant_request
+        get_collaboration_tenant_request.uri = (
+            "/open-apis/trust_party/v1/collaboration_tenants/:target_tenant_key"
+        )
+        get_collaboration_tenant_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_collaboration_tenant_request: GetCollaborationTenantRequest = (
+            get_collaboration_tenant_request
+        )
 
-    def target_tenant_key(self, target_tenant_key: str) -> "GetCollaborationTenantRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "GetCollaborationTenantRequestBuilder":
         self._get_collaboration_tenant_request.target_tenant_key = target_tenant_key
-        self._get_collaboration_tenant_request.paths["target_tenant_key"] = str(target_tenant_key)
+        self._get_collaboration_tenant_request.paths["target_tenant_key"] = str(
+            target_tenant_key
+        )
         return self
 
     def build(self) -> GetCollaborationTenantRequest:

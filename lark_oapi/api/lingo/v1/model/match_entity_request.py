@@ -18,12 +18,14 @@ class MatchEntityRequest(BaseRequest):
 
 
 class MatchEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         match_entity_request = MatchEntityRequest()
         match_entity_request.http_method = HttpMethod.POST
         match_entity_request.uri = "/open-apis/lingo/v1/entities/match"
-        match_entity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        match_entity_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._match_entity_request: MatchEntityRequest = match_entity_request
 
     def repo_id(self, repo_id: int) -> "MatchEntityRequestBuilder":
@@ -31,7 +33,9 @@ class MatchEntityRequestBuilder(object):
         self._match_entity_request.add_query("repo_id", repo_id)
         return self
 
-    def request_body(self, request_body: MatchEntityRequestBody) -> "MatchEntityRequestBuilder":
+    def request_body(
+        self, request_body: MatchEntityRequestBody
+    ) -> "MatchEntityRequestBuilder":
         self._match_entity_request.request_body = request_body
         self._match_entity_request.body = request_body
         return self

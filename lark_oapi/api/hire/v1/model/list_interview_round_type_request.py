@@ -16,13 +16,16 @@ class ListInterviewRoundTypeRequest(BaseRequest):
 
 
 class ListInterviewRoundTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_interview_round_type_request = ListInterviewRoundTypeRequest()
         list_interview_round_type_request.http_method = HttpMethod.GET
-        list_interview_round_type_request.uri = "/open-apis/hire/v1/interview_round_types"
+        list_interview_round_type_request.uri = (
+            "/open-apis/hire/v1/interview_round_types"
+        )
         list_interview_round_type_request.token_types = {AccessTokenType.TENANT}
-        self._list_interview_round_type_request: ListInterviewRoundTypeRequest = list_interview_round_type_request
+        self._list_interview_round_type_request: ListInterviewRoundTypeRequest = (
+            list_interview_round_type_request
+        )
 
     def process_type(self, process_type: int) -> "ListInterviewRoundTypeRequestBuilder":
         self._list_interview_round_type_request.process_type = process_type

@@ -43,11 +43,15 @@ class PreHireBuilder(object):
         self._pre_hire.person_info = person_info
         return self
 
-    def employment_info(self, employment_info: PreHireEmploymentInfo) -> "PreHireBuilder":
+    def employment_info(
+        self, employment_info: PreHireEmploymentInfo
+    ) -> "PreHireBuilder":
         self._pre_hire.employment_info = employment_info
         return self
 
-    def onboarding_info(self, onboarding_info: PreHireOnboardingInfo) -> "PreHireBuilder":
+    def onboarding_info(
+        self, onboarding_info: PreHireOnboardingInfo
+    ) -> "PreHireBuilder":
         self._pre_hire.onboarding_info = onboarding_info
         return self
 

@@ -28,7 +28,9 @@ class ApplicationOfferCustomValueBuilder(object):
         self._application_offer_custom_value.object_id = object_id
         return self
 
-    def customize_value(self, customize_value: str) -> "ApplicationOfferCustomValueBuilder":
+    def customize_value(
+        self, customize_value: str
+    ) -> "ApplicationOfferCustomValueBuilder":
         self._application_offer_custom_value.customize_value = customize_value
         return self
 

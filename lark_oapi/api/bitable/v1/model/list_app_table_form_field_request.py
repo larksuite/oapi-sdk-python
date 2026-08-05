@@ -20,13 +20,17 @@ class ListAppTableFormFieldRequest(BaseRequest):
 
 
 class ListAppTableFormFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_table_form_field_request = ListAppTableFormFieldRequest()
         list_app_table_form_field_request.http_method = HttpMethod.GET
         list_app_table_form_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields"
-        list_app_table_form_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_app_table_form_field_request: ListAppTableFormFieldRequest = list_app_table_form_field_request
+        list_app_table_form_field_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_app_table_form_field_request: ListAppTableFormFieldRequest = (
+            list_app_table_form_field_request
+        )
 
     def page_size(self, page_size: int) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.page_size = page_size

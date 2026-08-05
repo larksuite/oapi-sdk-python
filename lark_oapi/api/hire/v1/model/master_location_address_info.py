@@ -26,11 +26,15 @@ class MasterLocationAddressInfoBuilder(object):
     def __init__(self) -> None:
         self._master_location_address_info = MasterLocationAddressInfo()
 
-    def location_info(self, location_info: MasterLocationInfo) -> "MasterLocationAddressInfoBuilder":
+    def location_info(
+        self, location_info: MasterLocationInfo
+    ) -> "MasterLocationAddressInfoBuilder":
         self._master_location_address_info.location_info = location_info
         return self
 
-    def address_info(self, address_info: MasterLocationInfo) -> "MasterLocationAddressInfoBuilder":
+    def address_info(
+        self, address_info: MasterLocationInfo
+    ) -> "MasterLocationAddressInfoBuilder":
         self._master_location_address_info.address_info = address_info
         return self
 

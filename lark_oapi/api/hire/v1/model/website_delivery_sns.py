@@ -31,7 +31,9 @@ class WebsiteDeliverySnsBuilder(object):
         self._website_delivery_sns.sns_type = sns_type
         return self
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliverySnsBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliverySnsBuilder":
         self._website_delivery_sns.customized_data = customized_data
         return self
 

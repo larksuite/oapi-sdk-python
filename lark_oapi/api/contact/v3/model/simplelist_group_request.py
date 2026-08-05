@@ -18,13 +18,14 @@ class SimplelistGroupRequest(BaseRequest):
 
 
 class SimplelistGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         simplelist_group_request = SimplelistGroupRequest()
         simplelist_group_request.http_method = HttpMethod.GET
         simplelist_group_request.uri = "/open-apis/contact/v3/group/simplelist"
         simplelist_group_request.token_types = {AccessTokenType.TENANT}
-        self._simplelist_group_request: SimplelistGroupRequest = simplelist_group_request
+        self._simplelist_group_request: SimplelistGroupRequest = (
+            simplelist_group_request
+        )
 
     def page_size(self, page_size: int) -> "SimplelistGroupRequestBuilder":
         self._simplelist_group_request.page_size = page_size

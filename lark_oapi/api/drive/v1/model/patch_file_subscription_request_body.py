@@ -24,7 +24,9 @@ class PatchFileSubscriptionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_file_subscription_request_body = PatchFileSubscriptionRequestBody()
 
-    def is_subscribe(self, is_subscribe: bool) -> "PatchFileSubscriptionRequestBodyBuilder":
+    def is_subscribe(
+        self, is_subscribe: bool
+    ) -> "PatchFileSubscriptionRequestBodyBuilder":
         self._patch_file_subscription_request_body.is_subscribe = is_subscribe
         return self
 

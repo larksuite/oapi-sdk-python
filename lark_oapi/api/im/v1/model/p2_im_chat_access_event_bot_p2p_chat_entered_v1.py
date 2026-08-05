@@ -23,9 +23,7 @@ class P2ImChatAccessEventBotP2pChatEnteredV1Data(object):
 
 
 class P2ImChatAccessEventBotP2pChatEnteredV1(EventContext):
-    _types = {
-        "event": P2ImChatAccessEventBotP2pChatEnteredV1Data
-    }
+    _types = {"event": P2ImChatAccessEventBotP2pChatEnteredV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

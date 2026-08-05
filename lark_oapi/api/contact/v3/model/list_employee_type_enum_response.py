@@ -9,7 +9,6 @@ from .list_employee_type_enum_response_body import ListEmployeeTypeEnumResponseB
 class ListEmployeeTypeEnumResponse(BaseResponse):
     _types = {
         "data": ListEmployeeTypeEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

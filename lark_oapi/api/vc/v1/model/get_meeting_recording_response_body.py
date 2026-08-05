@@ -23,7 +23,9 @@ class GetMeetingRecordingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_meeting_recording_response_body = GetMeetingRecordingResponseBody()
 
-    def recording(self, recording: MeetingRecording) -> "GetMeetingRecordingResponseBodyBuilder":
+    def recording(
+        self, recording: MeetingRecording
+    ) -> "GetMeetingRecordingResponseBodyBuilder":
         self._get_meeting_recording_response_body.recording = recording
         return self
 

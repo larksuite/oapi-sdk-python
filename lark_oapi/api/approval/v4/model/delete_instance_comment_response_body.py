@@ -20,7 +20,9 @@ class DeleteInstanceCommentResponseBody(object):
 
 class DeleteInstanceCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_instance_comment_response_body = DeleteInstanceCommentResponseBody()
+        self._delete_instance_comment_response_body = (
+            DeleteInstanceCommentResponseBody()
+        )
 
     def comment_id(self, comment_id: int) -> "DeleteInstanceCommentResponseBodyBuilder":
         self._delete_instance_comment_response_body.comment_id = comment_id

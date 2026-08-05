@@ -47,7 +47,9 @@ class LocationDistrictBuilder(object):
         self._location_district.country_code = country_code
         return self
 
-    def district_name_info(self, district_name_info: LocationNameInfo) -> "LocationDistrictBuilder":
+    def district_name_info(
+        self, district_name_info: LocationNameInfo
+    ) -> "LocationDistrictBuilder":
         self._location_district.district_name_info = district_name_info
         return self
 

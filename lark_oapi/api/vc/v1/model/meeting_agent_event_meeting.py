@@ -53,7 +53,9 @@ class MeetingAgentEventMeetingBuilder(object):
         self._meeting_agent_event_meeting.end_time = end_time
         return self
 
-    def host_user(self, host_user: MeetingAgentEventUser) -> "MeetingAgentEventMeetingBuilder":
+    def host_user(
+        self, host_user: MeetingAgentEventUser
+    ) -> "MeetingAgentEventMeetingBuilder":
         self._meeting_agent_event_meeting.host_user = host_user
         return self
 

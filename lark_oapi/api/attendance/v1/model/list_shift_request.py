@@ -17,7 +17,6 @@ class ListShiftRequest(BaseRequest):
 
 
 class ListShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         list_shift_request = ListShiftRequest()
         list_shift_request.http_method = HttpMethod.GET

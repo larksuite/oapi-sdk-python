@@ -3,6 +3,8 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .app_table_column import AppTableColumn
+from .app_table_index import AppTableIndex
+from .app_table_constraint import AppTableConstraint
 
 
 class GetTableDetailAppTableResponseBody(object):
@@ -10,12 +12,22 @@ class GetTableDetailAppTableResponseBody(object):
         "name": str,
         "description": str,
         "columns": List[AppTableColumn],
+        "indexes": List[AppTableIndex],
+        "constraints": List[AppTableConstraint],
+        "estimated_row_count": int,
+        "size_bytes": int,
+        "ddl": str,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.columns: Optional[List[AppTableColumn]] = None
+        self.indexes: Optional[List[AppTableIndex]] = None
+        self.constraints: Optional[List[AppTableConstraint]] = None
+        self.estimated_row_count: Optional[int] = None
+        self.size_bytes: Optional[int] = None
+        self.ddl: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,18 +37,54 @@ class GetTableDetailAppTableResponseBody(object):
 
 class GetTableDetailAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_table_detail_app_table_response_body = GetTableDetailAppTableResponseBody()
+        self._get_table_detail_app_table_response_body = (
+            GetTableDetailAppTableResponseBody()
+        )
 
     def name(self, name: str) -> "GetTableDetailAppTableResponseBodyBuilder":
         self._get_table_detail_app_table_response_body.name = name
         return self
 
-    def description(self, description: str) -> "GetTableDetailAppTableResponseBodyBuilder":
+    def description(
+        self, description: str
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
         self._get_table_detail_app_table_response_body.description = description
         return self
 
-    def columns(self, columns: List[AppTableColumn]) -> "GetTableDetailAppTableResponseBodyBuilder":
+    def columns(
+        self, columns: List[AppTableColumn]
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
         self._get_table_detail_app_table_response_body.columns = columns
+        return self
+
+    def indexes(
+        self, indexes: List[AppTableIndex]
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
+        self._get_table_detail_app_table_response_body.indexes = indexes
+        return self
+
+    def constraints(
+        self, constraints: List[AppTableConstraint]
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
+        self._get_table_detail_app_table_response_body.constraints = constraints
+        return self
+
+    def estimated_row_count(
+        self, estimated_row_count: int
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
+        self._get_table_detail_app_table_response_body.estimated_row_count = (
+            estimated_row_count
+        )
+        return self
+
+    def size_bytes(
+        self, size_bytes: int
+    ) -> "GetTableDetailAppTableResponseBodyBuilder":
+        self._get_table_detail_app_table_response_body.size_bytes = size_bytes
+        return self
+
+    def ddl(self, ddl: str) -> "GetTableDetailAppTableResponseBodyBuilder":
+        self._get_table_detail_app_table_response_body.ddl = ddl
         return self
 
     def build(self) -> "GetTableDetailAppTableResponseBody":

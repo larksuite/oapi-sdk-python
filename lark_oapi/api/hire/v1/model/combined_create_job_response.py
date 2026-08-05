@@ -9,7 +9,6 @@ from .combined_create_job_response_body import CombinedCreateJobResponseBody
 class CombinedCreateJobResponse(BaseResponse):
     _types = {
         "data": CombinedCreateJobResponseBody,
-
     }
 
     def __init__(self, d=None):

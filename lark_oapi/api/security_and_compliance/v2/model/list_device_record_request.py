@@ -43,13 +43,16 @@ class ListDeviceRecordRequest(BaseRequest):
 
 
 class ListDeviceRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         list_device_record_request = ListDeviceRecordRequest()
         list_device_record_request.http_method = HttpMethod.GET
-        list_device_record_request.uri = "/open-apis/security_and_compliance/v2/device_records"
+        list_device_record_request.uri = (
+            "/open-apis/security_and_compliance/v2/device_records"
+        )
         list_device_record_request.token_types = {AccessTokenType.TENANT}
-        self._list_device_record_request: ListDeviceRecordRequest = list_device_record_request
+        self._list_device_record_request: ListDeviceRecordRequest = (
+            list_device_record_request
+        )
 
     def page_size(self, page_size: int) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.page_size = page_size
@@ -61,7 +64,9 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("page_token", page_token)
         return self
 
-    def device_record_id(self, device_record_id: int) -> "ListDeviceRecordRequestBuilder":
+    def device_record_id(
+        self, device_record_id: int
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.device_record_id = device_record_id
         self._list_device_record_request.add_query("device_record_id", device_record_id)
         return self
@@ -86,9 +91,13 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("serial_number", serial_number)
         return self
 
-    def disk_serial_number(self, disk_serial_number: str) -> "ListDeviceRecordRequestBuilder":
+    def disk_serial_number(
+        self, disk_serial_number: str
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.disk_serial_number = disk_serial_number
-        self._list_device_record_request.add_query("disk_serial_number", disk_serial_number)
+        self._list_device_record_request.add_query(
+            "disk_serial_number", disk_serial_number
+        )
         return self
 
     def mac_address(self, mac_address: str) -> "ListDeviceRecordRequestBuilder":
@@ -116,7 +125,9 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("aaid", aaid)
         return self
 
-    def device_ownership(self, device_ownership: int) -> "ListDeviceRecordRequestBuilder":
+    def device_ownership(
+        self, device_ownership: int
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.device_ownership = device_ownership
         self._list_device_record_request.add_query("device_ownership", device_ownership)
         return self
@@ -126,9 +137,13 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("device_status", device_status)
         return self
 
-    def device_terminal_type(self, device_terminal_type: int) -> "ListDeviceRecordRequestBuilder":
+    def device_terminal_type(
+        self, device_terminal_type: int
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.device_terminal_type = device_terminal_type
-        self._list_device_record_request.add_query("device_terminal_type", device_terminal_type)
+        self._list_device_record_request.add_query(
+            "device_terminal_type", device_terminal_type
+        )
         return self
 
     def os(self, os: int) -> "ListDeviceRecordRequestBuilder":
@@ -156,19 +171,33 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("mdm_device_id", mdm_device_id)
         return self
 
-    def mdm_provider_name(self, mdm_provider_name: str) -> "ListDeviceRecordRequestBuilder":
+    def mdm_provider_name(
+        self, mdm_provider_name: str
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.mdm_provider_name = mdm_provider_name
-        self._list_device_record_request.add_query("mdm_provider_name", mdm_provider_name)
+        self._list_device_record_request.add_query(
+            "mdm_provider_name", mdm_provider_name
+        )
         return self
 
-    def lsa_client_status(self, lsa_client_status: int) -> "ListDeviceRecordRequestBuilder":
+    def lsa_client_status(
+        self, lsa_client_status: int
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.lsa_client_status = lsa_client_status
-        self._list_device_record_request.add_query("lsa_client_status", lsa_client_status)
+        self._list_device_record_request.add_query(
+            "lsa_client_status", lsa_client_status
+        )
         return self
 
-    def device_env_detect_status(self, device_env_detect_status: int) -> "ListDeviceRecordRequestBuilder":
-        self._list_device_record_request.device_env_detect_status = device_env_detect_status
-        self._list_device_record_request.add_query("device_env_detect_status", device_env_detect_status)
+    def device_env_detect_status(
+        self, device_env_detect_status: int
+    ) -> "ListDeviceRecordRequestBuilder":
+        self._list_device_record_request.device_env_detect_status = (
+            device_env_detect_status
+        )
+        self._list_device_record_request.add_query(
+            "device_env_detect_status", device_env_detect_status
+        )
         return self
 
     def is_public(self, is_public: bool) -> "ListDeviceRecordRequestBuilder":
@@ -181,9 +210,13 @@ class ListDeviceRecordRequestBuilder(object):
         self._list_device_record_request.add_query("source", source)
         return self
 
-    def cert_serial_number(self, cert_serial_number: str) -> "ListDeviceRecordRequestBuilder":
+    def cert_serial_number(
+        self, cert_serial_number: str
+    ) -> "ListDeviceRecordRequestBuilder":
         self._list_device_record_request.cert_serial_number = cert_serial_number
-        self._list_device_record_request.add_query("cert_serial_number", cert_serial_number)
+        self._list_device_record_request.add_query(
+            "cert_serial_number", cert_serial_number
+        )
         return self
 
     def cert_issuer(self, cert_issuer: str) -> "ListDeviceRecordRequestBuilder":

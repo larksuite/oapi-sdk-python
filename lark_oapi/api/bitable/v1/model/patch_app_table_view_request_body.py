@@ -29,7 +29,9 @@ class PatchAppTableViewRequestBodyBuilder(object):
         self._patch_app_table_view_request_body.view_name = view_name
         return self
 
-    def property(self, property: AppTableViewProperty) -> "PatchAppTableViewRequestBodyBuilder":
+    def property(
+        self, property: AppTableViewProperty
+    ) -> "PatchAppTableViewRequestBodyBuilder":
         self._patch_app_table_view_request_body.property = property
         return self
 

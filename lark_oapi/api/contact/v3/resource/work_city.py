@@ -19,7 +19,9 @@ class WorkCity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetWorkCityRequest, option: Optional[RequestOption] = None) -> GetWorkCityResponse:
+    def get(
+        self, request: GetWorkCityRequest, option: Optional[RequestOption] = None
+    ) -> GetWorkCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class WorkCity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetWorkCityResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWorkCityResponse)
+        response: GetWorkCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWorkCityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetWorkCityRequest, option: Optional[RequestOption] = None) -> GetWorkCityResponse:
+    async def aget(
+        self, request: GetWorkCityRequest, option: Optional[RequestOption] = None
+    ) -> GetWorkCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class WorkCity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetWorkCityResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWorkCityResponse)
+        response: GetWorkCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWorkCityResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListWorkCityRequest, option: Optional[RequestOption] = None) -> ListWorkCityResponse:
+    def list(
+        self, request: ListWorkCityRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class WorkCity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkCityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkCityResponse)
+        response: ListWorkCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkCityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWorkCityRequest, option: Optional[RequestOption] = None) -> ListWorkCityResponse:
+    async def alist(
+        self, request: ListWorkCityRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class WorkCity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkCityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkCityResponse)
+        response: ListWorkCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkCityResponse
+        )
         response.raw = resp
 
         return response

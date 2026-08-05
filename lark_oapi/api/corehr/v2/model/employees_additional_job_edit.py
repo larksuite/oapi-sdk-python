@@ -60,15 +60,23 @@ class EmployeesAdditionalJobEditBuilder(object):
     def __init__(self) -> None:
         self._employees_additional_job_edit = EmployeesAdditionalJobEdit()
 
-    def employee_type_id(self, employee_type_id: str) -> "EmployeesAdditionalJobEditBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.employee_type_id = employee_type_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "EmployeesAdditionalJobEditBuilder":
-        self._employees_additional_job_edit.working_hours_type_id = working_hours_type_id
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
+        self._employees_additional_job_edit.working_hours_type_id = (
+            working_hours_type_id
+        )
         return self
 
-    def work_location_id(self, work_location_id: str) -> "EmployeesAdditionalJobEditBuilder":
+    def work_location_id(
+        self, work_location_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.work_location_id = work_location_id
         return self
 
@@ -100,31 +108,45 @@ class EmployeesAdditionalJobEditBuilder(object):
         self._employees_additional_job_edit.end_date = end_date
         return self
 
-    def direct_manager_id(self, direct_manager_id: str) -> "EmployeesAdditionalJobEditBuilder":
+    def direct_manager_id(
+        self, direct_manager_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.direct_manager_id = direct_manager_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeesAdditionalJobEditBuilder":
-        self._employees_additional_job_edit.dotted_line_manager_id = dotted_line_manager_id
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
+        self._employees_additional_job_edit.dotted_line_manager_id = (
+            dotted_line_manager_id
+        )
         return self
 
     def work_shift(self, work_shift: Enum) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.work_shift = work_shift
         return self
 
-    def compensation_type(self, compensation_type: Enum) -> "EmployeesAdditionalJobEditBuilder":
+    def compensation_type(
+        self, compensation_type: Enum
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.compensation_type = compensation_type
         return self
 
-    def service_company(self, service_company: str) -> "EmployeesAdditionalJobEditBuilder":
+    def service_company(
+        self, service_company: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.service_company = service_company
         return self
 
-    def weekly_working_hours(self, weekly_working_hours: str) -> "EmployeesAdditionalJobEditBuilder":
+    def weekly_working_hours(
+        self, weekly_working_hours: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.weekly_working_hours = weekly_working_hours
         return self
 
-    def work_calendar_id(self, work_calendar_id: str) -> "EmployeesAdditionalJobEditBuilder":
+    def work_calendar_id(
+        self, work_calendar_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.work_calendar_id = work_calendar_id
         return self
 
@@ -132,7 +154,9 @@ class EmployeesAdditionalJobEditBuilder(object):
         self._employees_additional_job_edit.position_id = position_id
         return self
 
-    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeesAdditionalJobEditBuilder":
+    def employee_subtype_id(
+        self, employee_subtype_id: str
+    ) -> "EmployeesAdditionalJobEditBuilder":
         self._employees_additional_job_edit.employee_subtype_id = employee_subtype_id
         return self
 

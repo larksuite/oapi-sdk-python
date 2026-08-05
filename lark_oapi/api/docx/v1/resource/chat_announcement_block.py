@@ -9,20 +9,33 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_update_chat_announcement_block_request import BatchUpdateChatAnnouncementBlockRequest
-from ..model.batch_update_chat_announcement_block_response import BatchUpdateChatAnnouncementBlockResponse
+from ..model.batch_update_chat_announcement_block_request import (
+    BatchUpdateChatAnnouncementBlockRequest,
+)
+from ..model.batch_update_chat_announcement_block_response import (
+    BatchUpdateChatAnnouncementBlockResponse,
+)
 from ..model.get_chat_announcement_block_request import GetChatAnnouncementBlockRequest
-from ..model.get_chat_announcement_block_response import GetChatAnnouncementBlockResponse
-from ..model.list_chat_announcement_block_request import ListChatAnnouncementBlockRequest
-from ..model.list_chat_announcement_block_response import ListChatAnnouncementBlockResponse
+from ..model.get_chat_announcement_block_response import (
+    GetChatAnnouncementBlockResponse,
+)
+from ..model.list_chat_announcement_block_request import (
+    ListChatAnnouncementBlockRequest,
+)
+from ..model.list_chat_announcement_block_response import (
+    ListChatAnnouncementBlockResponse,
+)
 
 
 class ChatAnnouncementBlock(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update(self, request: BatchUpdateChatAnnouncementBlockRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateChatAnnouncementBlockResponse:
+    def batch_update(
+        self,
+        request: BatchUpdateChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +50,18 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchUpdateChatAnnouncementBlockResponse)
+        response: BatchUpdateChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_update(self, request: BatchUpdateChatAnnouncementBlockRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateChatAnnouncementBlockResponse:
+    async def abatch_update(
+        self,
+        request: BatchUpdateChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +72,18 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchUpdateChatAnnouncementBlockResponse)
+        response: BatchUpdateChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetChatAnnouncementBlockRequest,
-            option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockResponse:
+    def get(
+        self,
+        request: GetChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +98,18 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetChatAnnouncementBlockResponse)
+        response: GetChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetChatAnnouncementBlockRequest,
-                   option: Optional[RequestOption] = None) -> GetChatAnnouncementBlockResponse:
+    async def aget(
+        self,
+        request: GetChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +120,18 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetChatAnnouncementBlockResponse)
+        response: GetChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListChatAnnouncementBlockRequest,
-             option: Optional[RequestOption] = None) -> ListChatAnnouncementBlockResponse:
+    def list(
+        self,
+        request: ListChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +146,18 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListChatAnnouncementBlockResponse)
+        response: ListChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListChatAnnouncementBlockRequest,
-                    option: Optional[RequestOption] = None) -> ListChatAnnouncementBlockResponse:
+    async def alist(
+        self,
+        request: ListChatAnnouncementBlockRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListChatAnnouncementBlockResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +168,9 @@ class ChatAnnouncementBlock(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListChatAnnouncementBlockResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListChatAnnouncementBlockResponse)
+        response: ListChatAnnouncementBlockResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListChatAnnouncementBlockResponse
+        )
         response.raw = resp
 
         return response

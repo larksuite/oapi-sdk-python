@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_table_records_app_table_request_body import BatchUpdateTableRecordsAppTableRequestBody
+from .batch_update_table_records_app_table_request_body import (
+    BatchUpdateTableRecordsAppTableRequestBody,
+)
 
 
 class BatchUpdateTableRecordsAppTableRequest(BaseRequest):
@@ -21,12 +23,17 @@ class BatchUpdateTableRecordsAppTableRequest(BaseRequest):
 
 
 class BatchUpdateTableRecordsAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_update_table_records_app_table_request = BatchUpdateTableRecordsAppTableRequest()
+        batch_update_table_records_app_table_request = (
+            BatchUpdateTableRecordsAppTableRequest()
+        )
         batch_update_table_records_app_table_request.http_method = HttpMethod.PATCH
-        batch_update_table_records_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records_batch_update"
-        batch_update_table_records_app_table_request.token_types = {AccessTokenType.USER}
+        batch_update_table_records_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records_batch_update"
+        )
+        batch_update_table_records_app_table_request.token_types = {
+            AccessTokenType.USER
+        }
         self._batch_update_table_records_app_table_request: BatchUpdateTableRecordsAppTableRequest = batch_update_table_records_app_table_request
 
     def env(self, env: str) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
@@ -34,9 +41,15 @@ class BatchUpdateTableRecordsAppTableRequestBuilder(object):
         self._batch_update_table_records_app_table_request.add_query("env", env)
         return self
 
-    def user_identifier_type(self, user_identifier_type: str) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
-        self._batch_update_table_records_app_table_request.user_identifier_type = user_identifier_type
-        self._batch_update_table_records_app_table_request.add_query("user_identifier_type", user_identifier_type)
+    def user_identifier_type(
+        self, user_identifier_type: str
+    ) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
+        self._batch_update_table_records_app_table_request.user_identifier_type = (
+            user_identifier_type
+        )
+        self._batch_update_table_records_app_table_request.add_query(
+            "user_identifier_type", user_identifier_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
@@ -44,13 +57,18 @@ class BatchUpdateTableRecordsAppTableRequestBuilder(object):
         self._batch_update_table_records_app_table_request.paths["app_id"] = str(app_id)
         return self
 
-    def table_name(self, table_name: str) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
+    def table_name(
+        self, table_name: str
+    ) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
         self._batch_update_table_records_app_table_request.table_name = table_name
-        self._batch_update_table_records_app_table_request.paths["table_name"] = str(table_name)
+        self._batch_update_table_records_app_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchUpdateTableRecordsAppTableRequestBody) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateTableRecordsAppTableRequestBody
+    ) -> "BatchUpdateTableRecordsAppTableRequestBuilder":
         self._batch_update_table_records_app_table_request.request_body = request_body
         self._batch_update_table_records_app_table_request.body = request_body
         return self

@@ -22,13 +22,19 @@ class ApplicationOfferBasicInfoCustomizedObjectOptionValue(object):
 
 class ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder(object):
     def __init__(self) -> None:
-        self._application_offer_basic_info_customized_object_option_value = ApplicationOfferBasicInfoCustomizedObjectOptionValue()
+        self._application_offer_basic_info_customized_object_option_value = (
+            ApplicationOfferBasicInfoCustomizedObjectOptionValue()
+        )
 
-    def zh_cn(self, zh_cn: str) -> "ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder":
+    def zh_cn(
+        self, zh_cn: str
+    ) -> "ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder":
         self._application_offer_basic_info_customized_object_option_value.zh_cn = zh_cn
         return self
 
-    def en_us(self, en_us: str) -> "ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder":
+    def en_us(
+        self, en_us: str
+    ) -> "ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder":
         self._application_offer_basic_info_customized_object_option_value.en_us = en_us
         return self
 

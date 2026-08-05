@@ -28,15 +28,21 @@ class FilterDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._filter_department_request_body = FilterDepartmentRequestBody()
 
-    def filter(self, filter: MultiFilterCondition) -> "FilterDepartmentRequestBodyBuilder":
+    def filter(
+        self, filter: MultiFilterCondition
+    ) -> "FilterDepartmentRequestBodyBuilder":
         self._filter_department_request_body.filter = filter
         return self
 
-    def required_fields(self, required_fields: List[str]) -> "FilterDepartmentRequestBodyBuilder":
+    def required_fields(
+        self, required_fields: List[str]
+    ) -> "FilterDepartmentRequestBodyBuilder":
         self._filter_department_request_body.required_fields = required_fields
         return self
 
-    def page_request(self, page_request: PageCondition) -> "FilterDepartmentRequestBodyBuilder":
+    def page_request(
+        self, page_request: PageCondition
+    ) -> "FilterDepartmentRequestBodyBuilder":
         self._filter_department_request_body.page_request = page_request
         return self
 

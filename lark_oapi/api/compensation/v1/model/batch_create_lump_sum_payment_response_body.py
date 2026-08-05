@@ -21,11 +21,16 @@ class BatchCreateLumpSumPaymentResponseBody(object):
 
 class BatchCreateLumpSumPaymentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_create_lump_sum_payment_response_body = BatchCreateLumpSumPaymentResponseBody()
+        self._batch_create_lump_sum_payment_response_body = (
+            BatchCreateLumpSumPaymentResponseBody()
+        )
 
-    def operate_results(self, operate_results: List[
-        LumpSumPaymentOperateResult]) -> "BatchCreateLumpSumPaymentResponseBodyBuilder":
-        self._batch_create_lump_sum_payment_response_body.operate_results = operate_results
+    def operate_results(
+        self, operate_results: List[LumpSumPaymentOperateResult]
+    ) -> "BatchCreateLumpSumPaymentResponseBodyBuilder":
+        self._batch_create_lump_sum_payment_response_body.operate_results = (
+            operate_results
+        )
         return self
 
     def build(self) -> "BatchCreateLumpSumPaymentResponseBody":

@@ -38,15 +38,21 @@ class QueryUserApprovalRequestBodyBuilder(object):
         self._query_user_approval_request_body.user_ids = user_ids
         return self
 
-    def check_date_from(self, check_date_from: int) -> "QueryUserApprovalRequestBodyBuilder":
+    def check_date_from(
+        self, check_date_from: int
+    ) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.check_date_from = check_date_from
         return self
 
-    def check_date_to(self, check_date_to: int) -> "QueryUserApprovalRequestBodyBuilder":
+    def check_date_to(
+        self, check_date_to: int
+    ) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.check_date_to = check_date_to
         return self
 
-    def check_date_type(self, check_date_type: str) -> "QueryUserApprovalRequestBodyBuilder":
+    def check_date_type(
+        self, check_date_type: str
+    ) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.check_date_type = check_date_type
         return self
 
@@ -54,11 +60,15 @@ class QueryUserApprovalRequestBodyBuilder(object):
         self._query_user_approval_request_body.status = status
         return self
 
-    def check_time_from(self, check_time_from: str) -> "QueryUserApprovalRequestBodyBuilder":
+    def check_time_from(
+        self, check_time_from: str
+    ) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.check_time_from = check_time_from
         return self
 
-    def check_time_to(self, check_time_to: str) -> "QueryUserApprovalRequestBodyBuilder":
+    def check_time_to(
+        self, check_time_to: str
+    ) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.check_time_to = check_time_to
         return self
 

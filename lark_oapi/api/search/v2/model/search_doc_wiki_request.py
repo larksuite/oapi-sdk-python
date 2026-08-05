@@ -17,15 +17,19 @@ class SearchDocWikiRequest(BaseRequest):
 
 
 class SearchDocWikiRequestBuilder(object):
-
     def __init__(self) -> None:
         search_doc_wiki_request = SearchDocWikiRequest()
         search_doc_wiki_request.http_method = HttpMethod.POST
         search_doc_wiki_request.uri = "/open-apis/search/v2/doc_wiki/search"
-        search_doc_wiki_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        search_doc_wiki_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._search_doc_wiki_request: SearchDocWikiRequest = search_doc_wiki_request
 
-    def request_body(self, request_body: SearchDocWikiRequestBody) -> "SearchDocWikiRequestBuilder":
+    def request_body(
+        self, request_body: SearchDocWikiRequestBody
+    ) -> "SearchDocWikiRequestBuilder":
         self._search_doc_wiki_request.request_body = request_body
         self._search_doc_wiki_request.body = request_body
         return self

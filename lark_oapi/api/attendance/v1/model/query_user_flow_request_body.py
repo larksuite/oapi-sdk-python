@@ -30,7 +30,9 @@ class QueryUserFlowRequestBodyBuilder(object):
         self._query_user_flow_request_body.user_ids = user_ids
         return self
 
-    def check_time_from(self, check_time_from: str) -> "QueryUserFlowRequestBodyBuilder":
+    def check_time_from(
+        self, check_time_from: str
+    ) -> "QueryUserFlowRequestBodyBuilder":
         self._query_user_flow_request_body.check_time_from = check_time_from
         return self
 

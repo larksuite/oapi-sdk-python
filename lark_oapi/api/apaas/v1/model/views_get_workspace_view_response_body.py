@@ -26,7 +26,9 @@ class ViewsGetWorkspaceViewResponseBody(object):
 
 class ViewsGetWorkspaceViewResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._views_get_workspace_view_response_body = ViewsGetWorkspaceViewResponseBody()
+        self._views_get_workspace_view_response_body = (
+            ViewsGetWorkspaceViewResponseBody()
+        )
 
     def has_more(self, has_more: bool) -> "ViewsGetWorkspaceViewResponseBodyBuilder":
         self._views_get_workspace_view_response_body.has_more = has_more

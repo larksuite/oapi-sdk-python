@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_refresh_access_token_request import CreateRefreshAccessTokenRequest
-from ..model.create_refresh_access_token_response import CreateRefreshAccessTokenResponse
+from ..model.create_refresh_access_token_response import (
+    CreateRefreshAccessTokenResponse,
+)
 
 
 class RefreshAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateRefreshAccessTokenRequest,
-               option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
+    def create(
+        self,
+        request: CreateRefreshAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class RefreshAccessToken(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateRefreshAccessTokenResponse)
+        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateRefreshAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateRefreshAccessTokenRequest,
-                      option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
+    async def acreate(
+        self,
+        request: CreateRefreshAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class RefreshAccessToken(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateRefreshAccessTokenResponse)
+        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateRefreshAccessTokenResponse
+        )
         response.raw = resp
 
         return response

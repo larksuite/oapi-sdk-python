@@ -13,6 +13,13 @@ from .personal_profile_for_update import PersonalProfileForUpdate
 from .emergency_contact_for_update import EmergencyContactForUpdate
 from .address_for_update import AddressForUpdate
 from .object_field_data import ObjectFieldData
+from .name_for_update import NameForUpdate
+from .person_for_country_for_update import PersonForCountryForUpdate
+from .passport_for_update import PassportForUpdate
+from .visa_for_update import VisaForUpdate
+from .national_id_for_update import NationalIdForUpdate
+from .name_for_update import NameForUpdate
+from .tax_info_mys_for_update import TaxInfoMysForUpdate
 
 
 class BasicInfo(object):
@@ -57,6 +64,16 @@ class BasicInfo(object):
         "custom_fields": List[ObjectFieldData],
         "expected_graduate_date": str,
         "political_affiliation": str,
+        "legal_names": List[NameForUpdate],
+        "person_for_countries": List[PersonForCountryForUpdate],
+        "passports": List[PassportForUpdate],
+        "visas": List[VisaForUpdate],
+        "national_id_v2s": List[NationalIdForUpdate],
+        "preferred_name_v2": NameForUpdate,
+        "mother_name": str,
+        "city_of_birth": str,
+        "region_of_birth": str,
+        "tax_info_mys": TaxInfoMysForUpdate,
     }
 
     def __init__(self, d=None):
@@ -100,6 +117,16 @@ class BasicInfo(object):
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.expected_graduate_date: Optional[str] = None
         self.political_affiliation: Optional[str] = None
+        self.legal_names: Optional[List[NameForUpdate]] = None
+        self.person_for_countries: Optional[List[PersonForCountryForUpdate]] = None
+        self.passports: Optional[List[PassportForUpdate]] = None
+        self.visas: Optional[List[VisaForUpdate]] = None
+        self.national_id_v2s: Optional[List[NationalIdForUpdate]] = None
+        self.preferred_name_v2: Optional[NameForUpdate] = None
+        self.mother_name: Optional[str] = None
+        self.city_of_birth: Optional[str] = None
+        self.region_of_birth: Optional[str] = None
+        self.tax_info_mys: Optional[TaxInfoMysForUpdate] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -119,7 +146,9 @@ class BasicInfoBuilder(object):
         self._basic_info.phone_number = phone_number
         return self
 
-    def international_area_code(self, international_area_code: str) -> "BasicInfoBuilder":
+    def international_area_code(
+        self, international_area_code: str
+    ) -> "BasicInfoBuilder":
         self._basic_info.international_area_code = international_area_code
         return self
 
@@ -155,11 +184,15 @@ class BasicInfoBuilder(object):
         self._basic_info.nationality_v2_id = nationality_v2_id
         return self
 
-    def additional_nationality_id_list(self, additional_nationality_id_list: List[str]) -> "BasicInfoBuilder":
+    def additional_nationality_id_list(
+        self, additional_nationality_id_list: List[str]
+    ) -> "BasicInfoBuilder":
         self._basic_info.additional_nationality_id_list = additional_nationality_id_list
         return self
 
-    def citizenship_status_id_list(self, citizenship_status_id_list: List[str]) -> "BasicInfoBuilder":
+    def citizenship_status_id_list(
+        self, citizenship_status_id_list: List[str]
+    ) -> "BasicInfoBuilder":
         self._basic_info.citizenship_status_id_list = citizenship_status_id_list
         return self
 
@@ -183,7 +216,9 @@ class BasicInfoBuilder(object):
         self._basic_info.additional_name = additional_name
         return self
 
-    def resident_tax_list(self, resident_tax_list: List[ResidentTaxForUpdate]) -> "BasicInfoBuilder":
+    def resident_tax_list(
+        self, resident_tax_list: List[ResidentTaxForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.resident_tax_list = resident_tax_list
         return self
 
@@ -211,7 +246,9 @@ class BasicInfoBuilder(object):
         self._basic_info.martyr_card_number = martyr_card_number
         return self
 
-    def dependent_list(self, dependent_list: List[DependentForUpdate]) -> "BasicInfoBuilder":
+    def dependent_list(
+        self, dependent_list: List[DependentForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.dependent_list = dependent_list
         return self
 
@@ -219,19 +256,27 @@ class BasicInfoBuilder(object):
         self._basic_info.religion = religion
         return self
 
-    def bank_account_list(self, bank_account_list: List[BankAccountForUpdate]) -> "BasicInfoBuilder":
+    def bank_account_list(
+        self, bank_account_list: List[BankAccountForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.bank_account_list = bank_account_list
         return self
 
-    def national_id_list(self, national_id_list: List[NationalIdForUpdate]) -> "BasicInfoBuilder":
+    def national_id_list(
+        self, national_id_list: List[NationalIdForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.national_id_list = national_id_list
         return self
 
-    def personal_profile_list(self, personal_profile_list: List[PersonalProfileForUpdate]) -> "BasicInfoBuilder":
+    def personal_profile_list(
+        self, personal_profile_list: List[PersonalProfileForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.personal_profile_list = personal_profile_list
         return self
 
-    def emergency_contact_list(self, emergency_contact_list: List[EmergencyContactForUpdate]) -> "BasicInfoBuilder":
+    def emergency_contact_list(
+        self, emergency_contact_list: List[EmergencyContactForUpdate]
+    ) -> "BasicInfoBuilder":
         self._basic_info.emergency_contact_list = emergency_contact_list
         return self
 
@@ -269,6 +314,50 @@ class BasicInfoBuilder(object):
 
     def political_affiliation(self, political_affiliation: str) -> "BasicInfoBuilder":
         self._basic_info.political_affiliation = political_affiliation
+        return self
+
+    def legal_names(self, legal_names: List[NameForUpdate]) -> "BasicInfoBuilder":
+        self._basic_info.legal_names = legal_names
+        return self
+
+    def person_for_countries(
+        self, person_for_countries: List[PersonForCountryForUpdate]
+    ) -> "BasicInfoBuilder":
+        self._basic_info.person_for_countries = person_for_countries
+        return self
+
+    def passports(self, passports: List[PassportForUpdate]) -> "BasicInfoBuilder":
+        self._basic_info.passports = passports
+        return self
+
+    def visas(self, visas: List[VisaForUpdate]) -> "BasicInfoBuilder":
+        self._basic_info.visas = visas
+        return self
+
+    def national_id_v2s(
+        self, national_id_v2s: List[NationalIdForUpdate]
+    ) -> "BasicInfoBuilder":
+        self._basic_info.national_id_v2s = national_id_v2s
+        return self
+
+    def preferred_name_v2(self, preferred_name_v2: NameForUpdate) -> "BasicInfoBuilder":
+        self._basic_info.preferred_name_v2 = preferred_name_v2
+        return self
+
+    def mother_name(self, mother_name: str) -> "BasicInfoBuilder":
+        self._basic_info.mother_name = mother_name
+        return self
+
+    def city_of_birth(self, city_of_birth: str) -> "BasicInfoBuilder":
+        self._basic_info.city_of_birth = city_of_birth
+        return self
+
+    def region_of_birth(self, region_of_birth: str) -> "BasicInfoBuilder":
+        self._basic_info.region_of_birth = region_of_birth
+        return self
+
+    def tax_info_mys(self, tax_info_mys: TaxInfoMysForUpdate) -> "BasicInfoBuilder":
+        self._basic_info.tax_info_mys = tax_info_mys
         return self
 
     def build(self) -> "BasicInfo":

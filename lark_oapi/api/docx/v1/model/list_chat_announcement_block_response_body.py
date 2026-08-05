@@ -25,17 +25,25 @@ class ListChatAnnouncementBlockResponseBody(object):
 
 class ListChatAnnouncementBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_chat_announcement_block_response_body = ListChatAnnouncementBlockResponseBody()
+        self._list_chat_announcement_block_response_body = (
+            ListChatAnnouncementBlockResponseBody()
+        )
 
-    def items(self, items: List[Block]) -> "ListChatAnnouncementBlockResponseBodyBuilder":
+    def items(
+        self, items: List[Block]
+    ) -> "ListChatAnnouncementBlockResponseBodyBuilder":
         self._list_chat_announcement_block_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "ListChatAnnouncementBlockResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListChatAnnouncementBlockResponseBodyBuilder":
         self._list_chat_announcement_block_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "ListChatAnnouncementBlockResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListChatAnnouncementBlockResponseBodyBuilder":
         self._list_chat_announcement_block_response_body.has_more = has_more
         return self
 

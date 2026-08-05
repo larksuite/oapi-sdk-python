@@ -66,7 +66,9 @@ class GroupBuilder(object):
         self._group.type = type
         return self
 
-    def dynamic_group_rule(self, dynamic_group_rule: DynamicGroupRule) -> "GroupBuilder":
+    def dynamic_group_rule(
+        self, dynamic_group_rule: DynamicGroupRule
+    ) -> "GroupBuilder":
         self._group.dynamic_group_rule = dynamic_group_rule
         return self
 

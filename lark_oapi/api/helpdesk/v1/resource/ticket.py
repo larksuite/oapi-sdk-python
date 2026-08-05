@@ -29,8 +29,11 @@ class Ticket(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def answer_user_query(self, request: AnswerUserQueryTicketRequest,
-                          option: Optional[RequestOption] = None) -> AnswerUserQueryTicketResponse:
+    def answer_user_query(
+        self,
+        request: AnswerUserQueryTicketRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AnswerUserQueryTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,14 +48,18 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AnswerUserQueryTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 AnswerUserQueryTicketResponse)
+        response: AnswerUserQueryTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AnswerUserQueryTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aanswer_user_query(self, request: AnswerUserQueryTicketRequest,
-                                 option: Optional[RequestOption] = None) -> AnswerUserQueryTicketResponse:
+    async def aanswer_user_query(
+        self,
+        request: AnswerUserQueryTicketRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AnswerUserQueryTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -63,14 +70,18 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AnswerUserQueryTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 AnswerUserQueryTicketResponse)
+        response: AnswerUserQueryTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AnswerUserQueryTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    def customized_fields(self, request: CustomizedFieldsTicketRequest,
-                          option: Optional[RequestOption] = None) -> CustomizedFieldsTicketResponse:
+    def customized_fields(
+        self,
+        request: CustomizedFieldsTicketRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CustomizedFieldsTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -85,14 +96,18 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CustomizedFieldsTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CustomizedFieldsTicketResponse)
+        response: CustomizedFieldsTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CustomizedFieldsTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acustomized_fields(self, request: CustomizedFieldsTicketRequest,
-                                 option: Optional[RequestOption] = None) -> CustomizedFieldsTicketResponse:
+    async def acustomized_fields(
+        self,
+        request: CustomizedFieldsTicketRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CustomizedFieldsTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -103,13 +118,16 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CustomizedFieldsTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CustomizedFieldsTicketResponse)
+        response: CustomizedFieldsTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CustomizedFieldsTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetTicketRequest, option: Optional[RequestOption] = None) -> GetTicketResponse:
+    def get(
+        self, request: GetTicketRequest, option: Optional[RequestOption] = None
+    ) -> GetTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -124,12 +142,16 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTicketResponse)
+        response: GetTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTicketRequest, option: Optional[RequestOption] = None) -> GetTicketResponse:
+    async def aget(
+        self, request: GetTicketRequest, option: Optional[RequestOption] = None
+    ) -> GetTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -140,12 +162,16 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTicketResponse)
+        response: GetTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTicketRequest, option: Optional[RequestOption] = None) -> ListTicketResponse:
+    def list(
+        self, request: ListTicketRequest, option: Optional[RequestOption] = None
+    ) -> ListTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -160,12 +186,16 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTicketResponse)
+        response: ListTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTicketRequest, option: Optional[RequestOption] = None) -> ListTicketResponse:
+    async def alist(
+        self, request: ListTicketRequest, option: Optional[RequestOption] = None
+    ) -> ListTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -176,13 +206,16 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTicketResponse)
+        response: ListTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    def start_service(self, request: StartServiceTicketRequest,
-                      option: Optional[RequestOption] = None) -> StartServiceTicketResponse:
+    def start_service(
+        self, request: StartServiceTicketRequest, option: Optional[RequestOption] = None
+    ) -> StartServiceTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -197,13 +230,16 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: StartServiceTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), StartServiceTicketResponse)
+        response: StartServiceTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StartServiceTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def astart_service(self, request: StartServiceTicketRequest,
-                             option: Optional[RequestOption] = None) -> StartServiceTicketResponse:
+    async def astart_service(
+        self, request: StartServiceTicketRequest, option: Optional[RequestOption] = None
+    ) -> StartServiceTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -214,13 +250,16 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: StartServiceTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), StartServiceTicketResponse)
+        response: StartServiceTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StartServiceTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    def ticket_image(self, request: TicketImageTicketRequest,
-                     option: Optional[RequestOption] = None) -> TicketImageTicketResponse:
+    def ticket_image(
+        self, request: TicketImageTicketRequest, option: Optional[RequestOption] = None
+    ) -> TicketImageTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -242,13 +281,16 @@ class Ticket(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), TicketImageTicketResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), TicketImageTicketResponse
+            )
 
         response.raw = resp
         return response
 
-    async def aticket_image(self, request: TicketImageTicketRequest,
-                            option: Optional[RequestOption] = None) -> TicketImageTicketResponse:
+    async def aticket_image(
+        self, request: TicketImageTicketRequest, option: Optional[RequestOption] = None
+    ) -> TicketImageTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -266,12 +308,16 @@ class Ticket(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), TicketImageTicketResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), TicketImageTicketResponse
+            )
 
         response.raw = resp
         return response
 
-    def update(self, request: UpdateTicketRequest, option: Optional[RequestOption] = None) -> UpdateTicketResponse:
+    def update(
+        self, request: UpdateTicketRequest, option: Optional[RequestOption] = None
+    ) -> UpdateTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -286,13 +332,16 @@ class Ticket(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTicketResponse)
+        response: UpdateTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTicketResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateTicketRequest,
-                      option: Optional[RequestOption] = None) -> UpdateTicketResponse:
+    async def aupdate(
+        self, request: UpdateTicketRequest, option: Optional[RequestOption] = None
+    ) -> UpdateTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -303,7 +352,9 @@ class Ticket(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTicketResponse)
+        response: UpdateTicketResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTicketResponse
+        )
         response.raw = resp
 
         return response

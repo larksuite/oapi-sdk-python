@@ -9,7 +9,6 @@ from .basic_batch_user_response_body import BasicBatchUserResponseBody
 class BasicBatchUserResponse(BaseResponse):
     _types = {
         "data": BasicBatchUserResponseBody,
-
     }
 
     def __init__(self, d=None):

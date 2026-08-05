@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_calendar_event_meeting_minute_request import CreateCalendarEventMeetingMinuteRequest
-from ..model.create_calendar_event_meeting_minute_response import CreateCalendarEventMeetingMinuteResponse
+from ..model.create_calendar_event_meeting_minute_request import (
+    CreateCalendarEventMeetingMinuteRequest,
+)
+from ..model.create_calendar_event_meeting_minute_response import (
+    CreateCalendarEventMeetingMinuteResponse,
+)
 
 
 class CalendarEventMeetingMinute(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCalendarEventMeetingMinuteRequest,
-               option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
+    def create(
+        self,
+        request: CreateCalendarEventMeetingMinuteRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateCalendarEventMeetingMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class CalendarEventMeetingMinute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateCalendarEventMeetingMinuteResponse)
+        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCalendarEventMeetingMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateCalendarEventMeetingMinuteRequest,
-                      option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
+    async def acreate(
+        self,
+        request: CreateCalendarEventMeetingMinuteRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateCalendarEventMeetingMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class CalendarEventMeetingMinute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateCalendarEventMeetingMinuteResponse)
+        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCalendarEventMeetingMinuteResponse
+        )
         response.raw = resp
 
         return response

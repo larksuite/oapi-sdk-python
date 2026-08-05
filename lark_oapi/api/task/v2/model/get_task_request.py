@@ -17,7 +17,6 @@ class GetTaskRequest(BaseRequest):
 
 
 class GetTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         get_task_request = GetTaskRequest()
         get_task_request.http_method = HttpMethod.GET

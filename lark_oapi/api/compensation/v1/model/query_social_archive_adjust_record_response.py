@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_social_archive_adjust_record_response_body import QuerySocialArchiveAdjustRecordResponseBody
+from .query_social_archive_adjust_record_response_body import (
+    QuerySocialArchiveAdjustRecordResponseBody,
+)
 
 
 class QuerySocialArchiveAdjustRecordResponse(BaseResponse):
     _types = {
         "data": QuerySocialArchiveAdjustRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

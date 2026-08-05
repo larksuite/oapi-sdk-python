@@ -30,7 +30,9 @@ class JobConfig(object):
         self.recommended_evaluator_id_list: Optional[List[str]] = None
         self.update_option_list: Optional[List[int]] = None
         self.assessment_template_biz_id: Optional[str] = None
-        self.interview_round_conf_list: Optional[List[JobConfigInterviewRoundConf]] = None
+        self.interview_round_conf_list: Optional[List[JobConfigInterviewRoundConf]] = (
+            None
+        )
         self.jr_id_list: Optional[List[str]] = None
         self.interview_registration_schema_id: Optional[str] = None
         self.onboard_registration_schema_id: Optional[str] = None
@@ -57,7 +59,9 @@ class JobConfigBuilder(object):
         self._job_config.offer_process_conf = offer_process_conf
         return self
 
-    def recommended_evaluator_id_list(self, recommended_evaluator_id_list: List[str]) -> "JobConfigBuilder":
+    def recommended_evaluator_id_list(
+        self, recommended_evaluator_id_list: List[str]
+    ) -> "JobConfigBuilder":
         self._job_config.recommended_evaluator_id_list = recommended_evaluator_id_list
         return self
 
@@ -65,12 +69,15 @@ class JobConfigBuilder(object):
         self._job_config.update_option_list = update_option_list
         return self
 
-    def assessment_template_biz_id(self, assessment_template_biz_id: str) -> "JobConfigBuilder":
+    def assessment_template_biz_id(
+        self, assessment_template_biz_id: str
+    ) -> "JobConfigBuilder":
         self._job_config.assessment_template_biz_id = assessment_template_biz_id
         return self
 
-    def interview_round_conf_list(self,
-                                  interview_round_conf_list: List[JobConfigInterviewRoundConf]) -> "JobConfigBuilder":
+    def interview_round_conf_list(
+        self, interview_round_conf_list: List[JobConfigInterviewRoundConf]
+    ) -> "JobConfigBuilder":
         self._job_config.interview_round_conf_list = interview_round_conf_list
         return self
 
@@ -78,16 +85,23 @@ class JobConfigBuilder(object):
         self._job_config.jr_id_list = jr_id_list
         return self
 
-    def interview_registration_schema_id(self, interview_registration_schema_id: str) -> "JobConfigBuilder":
-        self._job_config.interview_registration_schema_id = interview_registration_schema_id
+    def interview_registration_schema_id(
+        self, interview_registration_schema_id: str
+    ) -> "JobConfigBuilder":
+        self._job_config.interview_registration_schema_id = (
+            interview_registration_schema_id
+        )
         return self
 
-    def onboard_registration_schema_id(self, onboard_registration_schema_id: str) -> "JobConfigBuilder":
+    def onboard_registration_schema_id(
+        self, onboard_registration_schema_id: str
+    ) -> "JobConfigBuilder":
         self._job_config.onboard_registration_schema_id = onboard_registration_schema_id
         return self
 
-    def interview_round_type_conf_list(self,
-                                       interview_round_type_conf_list: List[JobConfigRoundType]) -> "JobConfigBuilder":
+    def interview_round_type_conf_list(
+        self, interview_round_type_conf_list: List[JobConfigRoundType]
+    ) -> "JobConfigBuilder":
         self._job_config.interview_round_type_conf_list = interview_round_type_conf_list
         return self
 
@@ -95,13 +109,18 @@ class JobConfigBuilder(object):
         self._job_config.related_job_id_list = related_job_id_list
         return self
 
-    def interview_appointment_config(self,
-                                     interview_appointment_config: InterviewAppointmentConfig) -> "JobConfigBuilder":
+    def interview_appointment_config(
+        self, interview_appointment_config: InterviewAppointmentConfig
+    ) -> "JobConfigBuilder":
         self._job_config.interview_appointment_config = interview_appointment_config
         return self
 
-    def portal_website_apply_form_schema_id(self, portal_website_apply_form_schema_id: str) -> "JobConfigBuilder":
-        self._job_config.portal_website_apply_form_schema_id = portal_website_apply_form_schema_id
+    def portal_website_apply_form_schema_id(
+        self, portal_website_apply_form_schema_id: str
+    ) -> "JobConfigBuilder":
+        self._job_config.portal_website_apply_form_schema_id = (
+            portal_website_apply_form_schema_id
+        )
         return self
 
     def build(self) -> "JobConfig":

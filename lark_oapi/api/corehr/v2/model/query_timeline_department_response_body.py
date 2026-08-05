@@ -21,9 +21,13 @@ class QueryTimelineDepartmentResponseBody(object):
 
 class QueryTimelineDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_timeline_department_response_body = QueryTimelineDepartmentResponseBody()
+        self._query_timeline_department_response_body = (
+            QueryTimelineDepartmentResponseBody()
+        )
 
-    def items(self, items: List[DepartmentTimeline]) -> "QueryTimelineDepartmentResponseBodyBuilder":
+    def items(
+        self, items: List[DepartmentTimeline]
+    ) -> "QueryTimelineDepartmentResponseBodyBuilder":
         self._query_timeline_department_response_body.items = items
         return self
 

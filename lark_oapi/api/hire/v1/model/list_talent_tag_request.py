@@ -21,7 +21,6 @@ class ListTalentTagRequest(BaseRequest):
 
 
 class ListTalentTagRequestBuilder(object):
-
     def __init__(self) -> None:
         list_talent_tag_request = ListTalentTagRequest()
         list_talent_tag_request.http_method = HttpMethod.GET

@@ -17,12 +17,16 @@ class GetCustomFieldRequest(BaseRequest):
 
 
 class GetCustomFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         get_custom_field_request = GetCustomFieldRequest()
         get_custom_field_request.http_method = HttpMethod.GET
-        get_custom_field_request.uri = "/open-apis/task/v2/custom_fields/:custom_field_guid"
-        get_custom_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_custom_field_request.uri = (
+            "/open-apis/task/v2/custom_fields/:custom_field_guid"
+        )
+        get_custom_field_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_custom_field_request: GetCustomFieldRequest = get_custom_field_request
 
     def user_id_type(self, user_id_type: str) -> "GetCustomFieldRequestBuilder":
@@ -30,9 +34,13 @@ class GetCustomFieldRequestBuilder(object):
         self._get_custom_field_request.add_query("user_id_type", user_id_type)
         return self
 
-    def custom_field_guid(self, custom_field_guid: str) -> "GetCustomFieldRequestBuilder":
+    def custom_field_guid(
+        self, custom_field_guid: str
+    ) -> "GetCustomFieldRequestBuilder":
         self._get_custom_field_request.custom_field_guid = custom_field_guid
-        self._get_custom_field_request.paths["custom_field_guid"] = str(custom_field_guid)
+        self._get_custom_field_request.paths["custom_field_guid"] = str(
+            custom_field_guid
+        )
         return self
 
     def build(self) -> GetCustomFieldRequest:

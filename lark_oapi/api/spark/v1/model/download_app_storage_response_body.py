@@ -22,7 +22,9 @@ class DownloadAppStorageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._download_app_storage_response_body = DownloadAppStorageResponseBody()
 
-    def content_type(self, content_type: str) -> "DownloadAppStorageResponseBodyBuilder":
+    def content_type(
+        self, content_type: str
+    ) -> "DownloadAppStorageResponseBodyBuilder":
         self._download_app_storage_response_body.content_type = content_type
         return self
 

@@ -32,9 +32,13 @@ class EmploymentListCustomColumnSystemSetting(object):
 
 class EmploymentListCustomColumnSystemSettingBuilder(object):
     def __init__(self) -> None:
-        self._employment_list_custom_column_system_setting = EmploymentListCustomColumnSystemSetting()
+        self._employment_list_custom_column_system_setting = (
+            EmploymentListCustomColumnSystemSetting()
+        )
 
-    def api_name(self, api_name: str) -> "EmploymentListCustomColumnSystemSettingBuilder":
+    def api_name(
+        self, api_name: str
+    ) -> "EmploymentListCustomColumnSystemSettingBuilder":
         self._employment_list_custom_column_system_setting.api_name = api_name
         return self
 
@@ -46,19 +50,27 @@ class EmploymentListCustomColumnSystemSettingBuilder(object):
         self._employment_list_custom_column_system_setting.type = type
         return self
 
-    def sortable(self, sortable: bool) -> "EmploymentListCustomColumnSystemSettingBuilder":
+    def sortable(
+        self, sortable: bool
+    ) -> "EmploymentListCustomColumnSystemSettingBuilder":
         self._employment_list_custom_column_system_setting.sortable = sortable
         return self
 
-    def filterable(self, filterable: str) -> "EmploymentListCustomColumnSystemSettingBuilder":
+    def filterable(
+        self, filterable: str
+    ) -> "EmploymentListCustomColumnSystemSettingBuilder":
         self._employment_list_custom_column_system_setting.filterable = filterable
         return self
 
-    def operators(self, operators: List[str]) -> "EmploymentListCustomColumnSystemSettingBuilder":
+    def operators(
+        self, operators: List[str]
+    ) -> "EmploymentListCustomColumnSystemSettingBuilder":
         self._employment_list_custom_column_system_setting.operators = operators
         return self
 
-    def displayable(self, displayable: bool) -> "EmploymentListCustomColumnSystemSettingBuilder":
+    def displayable(
+        self, displayable: bool
+    ) -> "EmploymentListCustomColumnSystemSettingBuilder":
         self._employment_list_custom_column_system_setting.displayable = displayable
         return self
 

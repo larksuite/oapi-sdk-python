@@ -13,7 +13,9 @@ class DeleteEmployeeOptions(object):
     }
 
     def __init__(self, d=None):
-        self.resigned_employee_resource_receiver: Optional[ResignedUserResouceReceiver] = None
+        self.resigned_employee_resource_receiver: Optional[
+            ResignedUserResouceReceiver
+        ] = None
         self.operator: Optional[Operator] = None
         init(self, d, self._types)
 
@@ -26,9 +28,12 @@ class DeleteEmployeeOptionsBuilder(object):
     def __init__(self) -> None:
         self._delete_employee_options = DeleteEmployeeOptions()
 
-    def resigned_employee_resource_receiver(self,
-                                            resigned_employee_resource_receiver: ResignedUserResouceReceiver) -> "DeleteEmployeeOptionsBuilder":
-        self._delete_employee_options.resigned_employee_resource_receiver = resigned_employee_resource_receiver
+    def resigned_employee_resource_receiver(
+        self, resigned_employee_resource_receiver: ResignedUserResouceReceiver
+    ) -> "DeleteEmployeeOptionsBuilder":
+        self._delete_employee_options.resigned_employee_resource_receiver = (
+            resigned_employee_resource_receiver
+        )
         return self
 
     def operator(self, operator: Operator) -> "DeleteEmployeeOptionsBuilder":

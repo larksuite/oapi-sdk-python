@@ -20,7 +20,6 @@ class ListFaqRequest(BaseRequest):
 
 
 class ListFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         list_faq_request = ListFaqRequest()
         list_faq_request.http_method = HttpMethod.GET

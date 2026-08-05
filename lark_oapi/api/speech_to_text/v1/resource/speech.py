@@ -19,8 +19,11 @@ class Speech(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def file_recognize(self, request: FileRecognizeSpeechRequest,
-                       option: Optional[RequestOption] = None) -> FileRecognizeSpeechResponse:
+    def file_recognize(
+        self,
+        request: FileRecognizeSpeechRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FileRecognizeSpeechResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class Speech(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FileRecognizeSpeechResponse = JSON.unmarshal(str(resp.content, UTF_8), FileRecognizeSpeechResponse)
+        response: FileRecognizeSpeechResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FileRecognizeSpeechResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afile_recognize(self, request: FileRecognizeSpeechRequest,
-                              option: Optional[RequestOption] = None) -> FileRecognizeSpeechResponse:
+    async def afile_recognize(
+        self,
+        request: FileRecognizeSpeechRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FileRecognizeSpeechResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class Speech(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FileRecognizeSpeechResponse = JSON.unmarshal(str(resp.content, UTF_8), FileRecognizeSpeechResponse)
+        response: FileRecognizeSpeechResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FileRecognizeSpeechResponse
+        )
         response.raw = resp
 
         return response
 
-    def stream_recognize(self, request: StreamRecognizeSpeechRequest,
-                         option: Optional[RequestOption] = None) -> StreamRecognizeSpeechResponse:
+    def stream_recognize(
+        self,
+        request: StreamRecognizeSpeechRequest,
+        option: Optional[RequestOption] = None,
+    ) -> StreamRecognizeSpeechResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class Speech(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: StreamRecognizeSpeechResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 StreamRecognizeSpeechResponse)
+        response: StreamRecognizeSpeechResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StreamRecognizeSpeechResponse
+        )
         response.raw = resp
 
         return response
 
-    async def astream_recognize(self, request: StreamRecognizeSpeechRequest,
-                                option: Optional[RequestOption] = None) -> StreamRecognizeSpeechResponse:
+    async def astream_recognize(
+        self,
+        request: StreamRecognizeSpeechRequest,
+        option: Optional[RequestOption] = None,
+    ) -> StreamRecognizeSpeechResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +108,9 @@ class Speech(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: StreamRecognizeSpeechResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 StreamRecognizeSpeechResponse)
+        response: StreamRecognizeSpeechResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StreamRecognizeSpeechResponse
+        )
         response.raw = resp
 
         return response

@@ -16,17 +16,24 @@ class DeleteExchangeBindingRequest(BaseRequest):
 
 
 class DeleteExchangeBindingRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_exchange_binding_request = DeleteExchangeBindingRequest()
         delete_exchange_binding_request.http_method = HttpMethod.DELETE
-        delete_exchange_binding_request.uri = "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+        delete_exchange_binding_request.uri = (
+            "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+        )
         delete_exchange_binding_request.token_types = {AccessTokenType.USER}
-        self._delete_exchange_binding_request: DeleteExchangeBindingRequest = delete_exchange_binding_request
+        self._delete_exchange_binding_request: DeleteExchangeBindingRequest = (
+            delete_exchange_binding_request
+        )
 
-    def exchange_binding_id(self, exchange_binding_id: str) -> "DeleteExchangeBindingRequestBuilder":
+    def exchange_binding_id(
+        self, exchange_binding_id: str
+    ) -> "DeleteExchangeBindingRequestBuilder":
         self._delete_exchange_binding_request.exchange_binding_id = exchange_binding_id
-        self._delete_exchange_binding_request.paths["exchange_binding_id"] = str(exchange_binding_id)
+        self._delete_exchange_binding_request.paths["exchange_binding_id"] = str(
+            exchange_binding_id
+        )
         return self
 
     def build(self) -> DeleteExchangeBindingRequest:

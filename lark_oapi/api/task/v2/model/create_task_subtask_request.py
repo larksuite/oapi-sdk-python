@@ -19,13 +19,17 @@ class CreateTaskSubtaskRequest(BaseRequest):
 
 
 class CreateTaskSubtaskRequestBuilder(object):
-
     def __init__(self) -> None:
         create_task_subtask_request = CreateTaskSubtaskRequest()
         create_task_subtask_request.http_method = HttpMethod.POST
         create_task_subtask_request.uri = "/open-apis/task/v2/tasks/:task_guid/subtasks"
-        create_task_subtask_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_task_subtask_request: CreateTaskSubtaskRequest = create_task_subtask_request
+        create_task_subtask_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_task_subtask_request: CreateTaskSubtaskRequest = (
+            create_task_subtask_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateTaskSubtaskRequestBuilder":
         self._create_task_subtask_request.user_id_type = user_id_type
@@ -37,7 +41,9 @@ class CreateTaskSubtaskRequestBuilder(object):
         self._create_task_subtask_request.paths["task_guid"] = str(task_guid)
         return self
 
-    def request_body(self, request_body: InputTask) -> "CreateTaskSubtaskRequestBuilder":
+    def request_body(
+        self, request_body: InputTask
+    ) -> "CreateTaskSubtaskRequestBuilder":
         self._create_task_subtask_request.request_body = request_body
         self._create_task_subtask_request.body = request_body
         return self

@@ -9,7 +9,6 @@ from .get_chat_moderation_response_body import GetChatModerationResponseBody
 class GetChatModerationResponse(BaseResponse):
     _types = {
         "data": GetChatModerationResponseBody,
-
     }
 
     def __init__(self, d=None):

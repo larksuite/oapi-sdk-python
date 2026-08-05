@@ -18,20 +18,32 @@ class CreateCustomFieldOptionRequest(BaseRequest):
 
 
 class CreateCustomFieldOptionRequestBuilder(object):
-
     def __init__(self) -> None:
         create_custom_field_option_request = CreateCustomFieldOptionRequest()
         create_custom_field_option_request.http_method = HttpMethod.POST
-        create_custom_field_option_request.uri = "/open-apis/task/v2/custom_fields/:custom_field_guid/options"
-        create_custom_field_option_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_custom_field_option_request: CreateCustomFieldOptionRequest = create_custom_field_option_request
+        create_custom_field_option_request.uri = (
+            "/open-apis/task/v2/custom_fields/:custom_field_guid/options"
+        )
+        create_custom_field_option_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_custom_field_option_request: CreateCustomFieldOptionRequest = (
+            create_custom_field_option_request
+        )
 
-    def custom_field_guid(self, custom_field_guid: str) -> "CreateCustomFieldOptionRequestBuilder":
+    def custom_field_guid(
+        self, custom_field_guid: str
+    ) -> "CreateCustomFieldOptionRequestBuilder":
         self._create_custom_field_option_request.custom_field_guid = custom_field_guid
-        self._create_custom_field_option_request.paths["custom_field_guid"] = str(custom_field_guid)
+        self._create_custom_field_option_request.paths["custom_field_guid"] = str(
+            custom_field_guid
+        )
         return self
 
-    def request_body(self, request_body: InputOption) -> "CreateCustomFieldOptionRequestBuilder":
+    def request_body(
+        self, request_body: InputOption
+    ) -> "CreateCustomFieldOptionRequestBuilder":
         self._create_custom_field_option_request.request_body = request_body
         self._create_custom_field_option_request.body = request_body
         return self

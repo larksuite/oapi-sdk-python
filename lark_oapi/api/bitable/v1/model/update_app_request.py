@@ -18,7 +18,6 @@ class UpdateAppRequest(BaseRequest):
 
 
 class UpdateAppRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_request = UpdateAppRequest()
         update_app_request.http_method = HttpMethod.PUT
@@ -31,7 +30,9 @@ class UpdateAppRequestBuilder(object):
         self._update_app_request.paths["app_token"] = str(app_token)
         return self
 
-    def request_body(self, request_body: UpdateAppRequestBody) -> "UpdateAppRequestBuilder":
+    def request_body(
+        self, request_body: UpdateAppRequestBody
+    ) -> "UpdateAppRequestBuilder":
         self._update_app_request.request_body = request_body
         self._update_app_request.body = request_body
         return self

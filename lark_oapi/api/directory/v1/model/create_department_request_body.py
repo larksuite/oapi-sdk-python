@@ -23,7 +23,9 @@ class CreateDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_department_request_body = CreateDepartmentRequestBody()
 
-    def department(self, department: CreateDepartment) -> "CreateDepartmentRequestBodyBuilder":
+    def department(
+        self, department: CreateDepartment
+    ) -> "CreateDepartmentRequestBodyBuilder":
         self._create_department_request_body.department = department
         return self
 

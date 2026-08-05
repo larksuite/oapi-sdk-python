@@ -19,13 +19,17 @@ class ListTaskFollowerRequest(BaseRequest):
 
 
 class ListTaskFollowerRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_follower_request = ListTaskFollowerRequest()
         list_task_follower_request.http_method = HttpMethod.GET
         list_task_follower_request.uri = "/open-apis/task/v1/tasks/:task_id/followers"
-        list_task_follower_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_task_follower_request: ListTaskFollowerRequest = list_task_follower_request
+        list_task_follower_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_task_follower_request: ListTaskFollowerRequest = (
+            list_task_follower_request
+        )
 
     def page_size(self, page_size: int) -> "ListTaskFollowerRequestBuilder":
         self._list_task_follower_request.page_size = page_size

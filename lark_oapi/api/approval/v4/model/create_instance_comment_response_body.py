@@ -20,7 +20,9 @@ class CreateInstanceCommentResponseBody(object):
 
 class CreateInstanceCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_instance_comment_response_body = CreateInstanceCommentResponseBody()
+        self._create_instance_comment_response_body = (
+            CreateInstanceCommentResponseBody()
+        )
 
     def comment_id(self, comment_id: int) -> "CreateInstanceCommentResponseBodyBuilder":
         self._create_instance_comment_response_body.comment_id = comment_id

@@ -20,22 +20,36 @@ class ToBeResignedEmployeeRequest(BaseRequest):
 
 
 class ToBeResignedEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         to_be_resigned_employee_request = ToBeResignedEmployeeRequest()
         to_be_resigned_employee_request.http_method = HttpMethod.PATCH
-        to_be_resigned_employee_request.uri = "/open-apis/directory/v1/employees/:employee_id/to_be_resigned"
-        to_be_resigned_employee_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._to_be_resigned_employee_request: ToBeResignedEmployeeRequest = to_be_resigned_employee_request
+        to_be_resigned_employee_request.uri = (
+            "/open-apis/directory/v1/employees/:employee_id/to_be_resigned"
+        )
+        to_be_resigned_employee_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._to_be_resigned_employee_request: ToBeResignedEmployeeRequest = (
+            to_be_resigned_employee_request
+        )
 
-    def employee_id_type(self, employee_id_type: str) -> "ToBeResignedEmployeeRequestBuilder":
+    def employee_id_type(
+        self, employee_id_type: str
+    ) -> "ToBeResignedEmployeeRequestBuilder":
         self._to_be_resigned_employee_request.employee_id_type = employee_id_type
-        self._to_be_resigned_employee_request.add_query("employee_id_type", employee_id_type)
+        self._to_be_resigned_employee_request.add_query(
+            "employee_id_type", employee_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ToBeResignedEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ToBeResignedEmployeeRequestBuilder":
         self._to_be_resigned_employee_request.department_id_type = department_id_type
-        self._to_be_resigned_employee_request.add_query("department_id_type", department_id_type)
+        self._to_be_resigned_employee_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def employee_id(self, employee_id: str) -> "ToBeResignedEmployeeRequestBuilder":
@@ -43,7 +57,9 @@ class ToBeResignedEmployeeRequestBuilder(object):
         self._to_be_resigned_employee_request.paths["employee_id"] = str(employee_id)
         return self
 
-    def request_body(self, request_body: ToBeResignedEmployeeRequestBody) -> "ToBeResignedEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: ToBeResignedEmployeeRequestBody
+    ) -> "ToBeResignedEmployeeRequestBuilder":
         self._to_be_resigned_employee_request.request_body = request_body
         self._to_be_resigned_employee_request.body = request_body
         return self

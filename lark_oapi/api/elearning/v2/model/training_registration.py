@@ -78,7 +78,9 @@ class TrainingRegistrationBuilder(object):
         self._training_registration.learning_state = learning_state
         return self
 
-    def completion_condition(self, completion_condition: CompletionCondition) -> "TrainingRegistrationBuilder":
+    def completion_condition(
+        self, completion_condition: CompletionCondition
+    ) -> "TrainingRegistrationBuilder":
         self._training_registration.completion_condition = completion_condition
         return self
 
@@ -86,7 +88,9 @@ class TrainingRegistrationBuilder(object):
         self._training_registration.meeting_duration = meeting_duration
         return self
 
-    def playback_duration(self, playback_duration: int) -> "TrainingRegistrationBuilder":
+    def playback_duration(
+        self, playback_duration: int
+    ) -> "TrainingRegistrationBuilder":
         self._training_registration.playback_duration = playback_duration
         return self
 

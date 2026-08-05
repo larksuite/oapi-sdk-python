@@ -19,13 +19,14 @@ class LeaveTypesLeaveRequest(BaseRequest):
 
 
 class LeaveTypesLeaveRequestBuilder(object):
-
     def __init__(self) -> None:
         leave_types_leave_request = LeaveTypesLeaveRequest()
         leave_types_leave_request.http_method = HttpMethod.GET
         leave_types_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_types"
         leave_types_leave_request.token_types = {AccessTokenType.TENANT}
-        self._leave_types_leave_request: LeaveTypesLeaveRequest = leave_types_leave_request
+        self._leave_types_leave_request: LeaveTypesLeaveRequest = (
+            leave_types_leave_request
+        )
 
     def page_token(self, page_token: str) -> "LeaveTypesLeaveRequestBuilder":
         self._leave_types_leave_request.page_token = page_token

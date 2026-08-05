@@ -19,7 +19,6 @@ class QueryIndicatorRequest(BaseRequest):
 
 
 class QueryIndicatorRequestBuilder(object):
-
     def __init__(self) -> None:
         query_indicator_request = QueryIndicatorRequest()
         query_indicator_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class QueryIndicatorRequestBuilder(object):
         self._query_indicator_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryIndicatorRequestBody) -> "QueryIndicatorRequestBuilder":
+    def request_body(
+        self, request_body: QueryIndicatorRequestBody
+    ) -> "QueryIndicatorRequestBuilder":
         self._query_indicator_request.request_body = request_body
         self._query_indicator_request.body = request_body
         return self

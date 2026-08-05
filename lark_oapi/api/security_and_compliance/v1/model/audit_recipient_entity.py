@@ -35,7 +35,9 @@ class AuditRecipientEntityBuilder(object):
         self._audit_recipient_entity.recipient_value = recipient_value
         return self
 
-    def recipient_detail(self, recipient_detail: AuditRecipientDetail) -> "AuditRecipientEntityBuilder":
+    def recipient_detail(
+        self, recipient_detail: AuditRecipientDetail
+    ) -> "AuditRecipientEntityBuilder":
         self._audit_recipient_entity.recipient_detail = recipient_detail
         return self
 

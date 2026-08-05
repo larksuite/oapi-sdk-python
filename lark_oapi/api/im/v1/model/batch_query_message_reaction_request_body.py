@@ -25,17 +25,27 @@ class BatchQueryMessageReactionRequestBody(object):
 
 class BatchQueryMessageReactionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_query_message_reaction_request_body = BatchQueryMessageReactionRequestBody()
+        self._batch_query_message_reaction_request_body = (
+            BatchQueryMessageReactionRequestBody()
+        )
 
-    def queries(self, queries: List[MessageQuery]) -> "BatchQueryMessageReactionRequestBodyBuilder":
+    def queries(
+        self, queries: List[MessageQuery]
+    ) -> "BatchQueryMessageReactionRequestBodyBuilder":
         self._batch_query_message_reaction_request_body.queries = queries
         return self
 
-    def page_size_per_message(self, page_size_per_message: int) -> "BatchQueryMessageReactionRequestBodyBuilder":
-        self._batch_query_message_reaction_request_body.page_size_per_message = page_size_per_message
+    def page_size_per_message(
+        self, page_size_per_message: int
+    ) -> "BatchQueryMessageReactionRequestBodyBuilder":
+        self._batch_query_message_reaction_request_body.page_size_per_message = (
+            page_size_per_message
+        )
         return self
 
-    def reaction_type(self, reaction_type: str) -> "BatchQueryMessageReactionRequestBodyBuilder":
+    def reaction_type(
+        self, reaction_type: str
+    ) -> "BatchQueryMessageReactionRequestBodyBuilder":
         self._batch_query_message_reaction_request_body.reaction_type = reaction_type
         return self
 

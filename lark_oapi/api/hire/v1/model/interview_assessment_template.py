@@ -36,7 +36,9 @@ class InterviewAssessmentTemplateBuilder(object):
         self._interview_assessment_template.name = name
         return self
 
-    def args(self, args: InterviewAssessmentTemplateArgs) -> "InterviewAssessmentTemplateBuilder":
+    def args(
+        self, args: InterviewAssessmentTemplateArgs
+    ) -> "InterviewAssessmentTemplateBuilder":
         self._interview_assessment_template.args = args
         return self
 

@@ -52,7 +52,9 @@ class KaCardTemplateBuilder(object):
         self._ka_card_template.template_owner = template_owner
         return self
 
-    def template_version_name(self, template_version_name: str) -> "KaCardTemplateBuilder":
+    def template_version_name(
+        self, template_version_name: str
+    ) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_version_name = template_version_name
         return self
 
@@ -72,7 +74,9 @@ class KaCardTemplateBuilder(object):
         self._ka_card_template.host_config = host_config
         return self
 
-    def template_versions(self, template_versions: List[str]) -> "KaCardTemplateBuilder":
+    def template_versions(
+        self, template_versions: List[str]
+    ) -> "KaCardTemplateBuilder":
         self._ka_card_template.template_versions = template_versions
         return self
 

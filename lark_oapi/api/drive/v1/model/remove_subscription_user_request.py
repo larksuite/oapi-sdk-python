@@ -16,13 +16,19 @@ class RemoveSubscriptionUserRequest(BaseRequest):
 
 
 class RemoveSubscriptionUserRequestBuilder(object):
-
     def __init__(self) -> None:
         remove_subscription_user_request = RemoveSubscriptionUserRequest()
         remove_subscription_user_request.http_method = HttpMethod.DELETE
-        remove_subscription_user_request.uri = "/open-apis/drive/v1/user/remove_subscription"
-        remove_subscription_user_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._remove_subscription_user_request: RemoveSubscriptionUserRequest = remove_subscription_user_request
+        remove_subscription_user_request.uri = (
+            "/open-apis/drive/v1/user/remove_subscription"
+        )
+        remove_subscription_user_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._remove_subscription_user_request: RemoveSubscriptionUserRequest = (
+            remove_subscription_user_request
+        )
 
     def event_type(self, event_type: str) -> "RemoveSubscriptionUserRequestBuilder":
         self._remove_subscription_user_request.event_type = event_type

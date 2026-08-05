@@ -29,7 +29,9 @@ class VisibleScopeInfoBuilder(object):
         self._visible_scope_info.visible_status = visible_status
         return self
 
-    def scope_group_list(self, scope_group_list: List[VisibleScopeGroup]) -> "VisibleScopeInfoBuilder":
+    def scope_group_list(
+        self, scope_group_list: List[VisibleScopeGroup]
+    ) -> "VisibleScopeInfoBuilder":
         self._visible_scope_info.scope_group_list = scope_group_list
         return self
 

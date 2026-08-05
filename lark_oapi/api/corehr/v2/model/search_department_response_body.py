@@ -11,6 +11,7 @@ class SearchDepartmentResponseBody(object):
         "page_token": str,
         "has_more": bool,
         "reject_export": bool,
+        "total_count": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class SearchDepartmentResponseBody(object):
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
         self.reject_export: Optional[bool] = None
+        self.total_count: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -41,8 +43,14 @@ class SearchDepartmentResponseBodyBuilder(object):
         self._search_department_response_body.has_more = has_more
         return self
 
-    def reject_export(self, reject_export: bool) -> "SearchDepartmentResponseBodyBuilder":
+    def reject_export(
+        self, reject_export: bool
+    ) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.reject_export = reject_export
+        return self
+
+    def total_count(self, total_count: str) -> "SearchDepartmentResponseBodyBuilder":
+        self._search_department_response_body.total_count = total_count
         return self
 
     def build(self) -> "SearchDepartmentResponseBody":

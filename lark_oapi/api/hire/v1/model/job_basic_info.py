@@ -63,7 +63,9 @@ class JobBasicInfoBuilder(object):
         self._job_basic_info.requirement = requirement
         return self
 
-    def recruitment_type(self, recruitment_type: JobDetailRecruitmentType) -> "JobBasicInfoBuilder":
+    def recruitment_type(
+        self, recruitment_type: JobDetailRecruitmentType
+    ) -> "JobBasicInfoBuilder":
         self._job_basic_info.recruitment_type = recruitment_type
         return self
 

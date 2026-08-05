@@ -48,11 +48,15 @@ class AdminUserExtContactStatBuilder(object):
         self._admin_user_ext_contact_stat.department_name = department_name
         return self
 
-    def ref_contact_ucnt(self, ref_contact_ucnt: str) -> "AdminUserExtContactStatBuilder":
+    def ref_contact_ucnt(
+        self, ref_contact_ucnt: str
+    ) -> "AdminUserExtContactStatBuilder":
         self._admin_user_ext_contact_stat.ref_contact_ucnt = ref_contact_ucnt
         return self
 
-    def ref_contact_tcnt(self, ref_contact_tcnt: str) -> "AdminUserExtContactStatBuilder":
+    def ref_contact_tcnt(
+        self, ref_contact_tcnt: str
+    ) -> "AdminUserExtContactStatBuilder":
         self._admin_user_ext_contact_stat.ref_contact_tcnt = ref_contact_tcnt
         return self
 

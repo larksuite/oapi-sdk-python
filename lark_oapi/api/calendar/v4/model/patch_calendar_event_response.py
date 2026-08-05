@@ -9,7 +9,6 @@ from .patch_calendar_event_response_body import PatchCalendarEventResponseBody
 class PatchCalendarEventResponse(BaseResponse):
     _types = {
         "data": PatchCalendarEventResponseBody,
-
     }
 
     def __init__(self, d=None):

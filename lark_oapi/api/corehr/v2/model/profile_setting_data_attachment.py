@@ -26,12 +26,15 @@ class ProfileSettingDataAttachmentBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_data_attachment = ProfileSettingDataAttachment()
 
-    def personal_records(self,
-                         personal_records: List[ProfileSettingPersonalRecord]) -> "ProfileSettingDataAttachmentBuilder":
+    def personal_records(
+        self, personal_records: List[ProfileSettingPersonalRecord]
+    ) -> "ProfileSettingDataAttachmentBuilder":
         self._profile_setting_data_attachment.personal_records = personal_records
         return self
 
-    def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingDataAttachmentBuilder":
+    def custom_groups(
+        self, custom_groups: List[ProfileSettingCustomGroup]
+    ) -> "ProfileSettingDataAttachmentBuilder":
         self._profile_setting_data_attachment.custom_groups = custom_groups
         return self
 

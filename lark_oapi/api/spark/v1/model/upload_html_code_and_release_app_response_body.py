@@ -20,7 +20,9 @@ class UploadHtmlCodeAndReleaseAppResponseBody(object):
 
 class UploadHtmlCodeAndReleaseAppResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_html_code_and_release_app_response_body = UploadHtmlCodeAndReleaseAppResponseBody()
+        self._upload_html_code_and_release_app_response_body = (
+            UploadHtmlCodeAndReleaseAppResponseBody()
+        )
 
     def url(self, url: str) -> "UploadHtmlCodeAndReleaseAppResponseBodyBuilder":
         self._upload_html_code_and_release_app_response_body.url = url

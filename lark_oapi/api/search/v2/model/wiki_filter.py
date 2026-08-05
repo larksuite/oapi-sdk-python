@@ -98,7 +98,9 @@ class WikiFilterBuilder(object):
         self._wiki_filter.my_comment_time = my_comment_time
         return self
 
-    def original_creator_ids(self, original_creator_ids: List[str]) -> "WikiFilterBuilder":
+    def original_creator_ids(
+        self, original_creator_ids: List[str]
+    ) -> "WikiFilterBuilder":
         self._wiki_filter.original_creator_ids = original_creator_ids
         return self
 

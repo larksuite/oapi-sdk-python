@@ -24,7 +24,9 @@ class CreateNotificationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_notification_response_body = CreateNotificationResponseBody()
 
-    def notification_id(self, notification_id: str) -> "CreateNotificationResponseBodyBuilder":
+    def notification_id(
+        self, notification_id: str
+    ) -> "CreateNotificationResponseBodyBuilder":
         self._create_notification_response_body.notification_id = notification_id
         return self
 

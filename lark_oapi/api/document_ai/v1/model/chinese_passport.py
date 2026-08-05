@@ -23,7 +23,9 @@ class ChinesePassportBuilder(object):
     def __init__(self) -> None:
         self._chinese_passport = ChinesePassport()
 
-    def entities(self, entities: List[ChinesePassportEntity]) -> "ChinesePassportBuilder":
+    def entities(
+        self, entities: List[ChinesePassportEntity]
+    ) -> "ChinesePassportBuilder":
         self._chinese_passport.entities = entities
         return self
 

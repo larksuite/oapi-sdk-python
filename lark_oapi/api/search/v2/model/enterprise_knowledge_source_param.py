@@ -4,12 +4,23 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .enterprise_knowledge_source_space_param import EnterpriseKnowledgeSourceSpaceParam
 from .enterprise_knowledge_source_wiki_param import EnterpriseKnowledgeSourceWikiParam
-from .enterprise_knowledge_source_message_param import EnterpriseKnowledgeSourceMessageParam
-from .enterprise_knowledge_source_helpdesk_param import EnterpriseKnowledgeSourceHelpdeskParam
+from .enterprise_knowledge_source_message_param import (
+    EnterpriseKnowledgeSourceMessageParam,
+)
+from .enterprise_knowledge_source_helpdesk_param import (
+    EnterpriseKnowledgeSourceHelpdeskParam,
+)
 from .enterprise_knowledge_source_lingo_param import EnterpriseKnowledgeSourceLingoParam
-from .enterprise_knowledge_source_comment_param import EnterpriseKnowledgeSourceCommentParam
-from .enterprise_knowledge_source_minutes_param import EnterpriseKnowledgeSourceMinutesParam
+from .enterprise_knowledge_source_comment_param import (
+    EnterpriseKnowledgeSourceCommentParam,
+)
+from .enterprise_knowledge_source_minutes_param import (
+    EnterpriseKnowledgeSourceMinutesParam,
+)
 from .enterprise_knowledge_source_mail_param import EnterpriseKnowledgeSourceMailParam
+from .enterprise_knowledge_source_approval_param import (
+    EnterpriseKnowledgeSourceApprovalParam,
+)
 
 
 class EnterpriseKnowledgeSourceParam(object):
@@ -22,6 +33,7 @@ class EnterpriseKnowledgeSourceParam(object):
         "comment": EnterpriseKnowledgeSourceCommentParam,
         "minutes": EnterpriseKnowledgeSourceMinutesParam,
         "mail": EnterpriseKnowledgeSourceMailParam,
+        "approval": EnterpriseKnowledgeSourceApprovalParam,
     }
 
     def __init__(self, d=None):
@@ -33,6 +45,7 @@ class EnterpriseKnowledgeSourceParam(object):
         self.comment: Optional[EnterpriseKnowledgeSourceCommentParam] = None
         self.minutes: Optional[EnterpriseKnowledgeSourceMinutesParam] = None
         self.mail: Optional[EnterpriseKnowledgeSourceMailParam] = None
+        self.approval: Optional[EnterpriseKnowledgeSourceApprovalParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,37 +57,58 @@ class EnterpriseKnowledgeSourceParamBuilder(object):
     def __init__(self) -> None:
         self._enterprise_knowledge_source_param = EnterpriseKnowledgeSourceParam()
 
-    def space(self, space: EnterpriseKnowledgeSourceSpaceParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def space(
+        self, space: EnterpriseKnowledgeSourceSpaceParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.space = space
         return self
 
-    def wiki(self, wiki: EnterpriseKnowledgeSourceWikiParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def wiki(
+        self, wiki: EnterpriseKnowledgeSourceWikiParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.wiki = wiki
         return self
 
-    def message(self, message: EnterpriseKnowledgeSourceMessageParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def message(
+        self, message: EnterpriseKnowledgeSourceMessageParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.message = message
         return self
 
-    def helpdesk_faq(self,
-                     helpdesk_faq: EnterpriseKnowledgeSourceHelpdeskParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def helpdesk_faq(
+        self, helpdesk_faq: EnterpriseKnowledgeSourceHelpdeskParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.helpdesk_faq = helpdesk_faq
         return self
 
-    def lingo(self, lingo: EnterpriseKnowledgeSourceLingoParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def lingo(
+        self, lingo: EnterpriseKnowledgeSourceLingoParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.lingo = lingo
         return self
 
-    def comment(self, comment: EnterpriseKnowledgeSourceCommentParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def comment(
+        self, comment: EnterpriseKnowledgeSourceCommentParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.comment = comment
         return self
 
-    def minutes(self, minutes: EnterpriseKnowledgeSourceMinutesParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def minutes(
+        self, minutes: EnterpriseKnowledgeSourceMinutesParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.minutes = minutes
         return self
 
-    def mail(self, mail: EnterpriseKnowledgeSourceMailParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def mail(
+        self, mail: EnterpriseKnowledgeSourceMailParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.mail = mail
+        return self
+
+    def approval(
+        self, approval: EnterpriseKnowledgeSourceApprovalParam
+    ) -> "EnterpriseKnowledgeSourceParamBuilder":
+        self._enterprise_knowledge_source_param.approval = approval
         return self
 
     def build(self) -> "EnterpriseKnowledgeSourceParam":

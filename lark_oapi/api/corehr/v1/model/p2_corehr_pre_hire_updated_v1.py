@@ -18,9 +18,7 @@ class P2CorehrPreHireUpdatedV1Data(object):
 
 
 class P2CorehrPreHireUpdatedV1(EventContext):
-    _types = {
-        "event": P2CorehrPreHireUpdatedV1Data
-    }
+    _types = {"event": P2CorehrPreHireUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

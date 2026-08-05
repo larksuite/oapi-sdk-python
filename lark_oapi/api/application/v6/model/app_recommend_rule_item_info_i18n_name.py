@@ -28,7 +28,9 @@ class AppRecommendRuleItemInfoI18nName(object):
 
 class AppRecommendRuleItemInfoI18nNameBuilder(object):
     def __init__(self) -> None:
-        self._app_recommend_rule_item_info_i18n_name = AppRecommendRuleItemInfoI18nName()
+        self._app_recommend_rule_item_info_i18n_name = (
+            AppRecommendRuleItemInfoI18nName()
+        )
 
     def zh_cn(self, zh_cn: str) -> "AppRecommendRuleItemInfoI18nNameBuilder":
         self._app_recommend_rule_item_info_i18n_name.zh_cn = zh_cn

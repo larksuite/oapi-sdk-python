@@ -17,7 +17,6 @@ class CreateAppRequest(BaseRequest):
 
 
 class CreateAppRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_request = CreateAppRequest()
         create_app_request.http_method = HttpMethod.POST

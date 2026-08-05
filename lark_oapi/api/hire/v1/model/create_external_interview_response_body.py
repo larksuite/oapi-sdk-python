@@ -21,10 +21,16 @@ class CreateExternalInterviewResponseBody(object):
 
 class CreateExternalInterviewResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_external_interview_response_body = CreateExternalInterviewResponseBody()
+        self._create_external_interview_response_body = (
+            CreateExternalInterviewResponseBody()
+        )
 
-    def external_interview(self, external_interview: ExternalInterview) -> "CreateExternalInterviewResponseBodyBuilder":
-        self._create_external_interview_response_body.external_interview = external_interview
+    def external_interview(
+        self, external_interview: ExternalInterview
+    ) -> "CreateExternalInterviewResponseBodyBuilder":
+        self._create_external_interview_response_body.external_interview = (
+            external_interview
+        )
         return self
 
     def build(self) -> "CreateExternalInterviewResponseBody":

@@ -39,11 +39,15 @@ class EmployeePostAuthBuilder(object):
         self._employee_post_auth.domain_keys = domain_keys
         return self
 
-    def col_permission_entities(self, col_permission_entities: List[str]) -> "EmployeePostAuthBuilder":
+    def col_permission_entities(
+        self, col_permission_entities: List[str]
+    ) -> "EmployeePostAuthBuilder":
         self._employee_post_auth.col_permission_entities = col_permission_entities
         return self
 
-    def row_permission_entities(self, row_permission_entities: List[str]) -> "EmployeePostAuthBuilder":
+    def row_permission_entities(
+        self, row_permission_entities: List[str]
+    ) -> "EmployeePostAuthBuilder":
         self._employee_post_auth.row_permission_entities = row_permission_entities
         return self
 

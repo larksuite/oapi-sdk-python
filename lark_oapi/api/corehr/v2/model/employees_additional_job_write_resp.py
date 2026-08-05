@@ -66,19 +66,29 @@ class EmployeesAdditionalJobWriteRespBuilder(object):
         self._employees_additional_job_write_resp.id = id
         return self
 
-    def employee_type_id(self, employee_type_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.employee_type_id = employee_type_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
-        self._employees_additional_job_write_resp.working_hours_type_id = working_hours_type_id
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.working_hours_type_id = (
+            working_hours_type_id
+        )
         return self
 
-    def work_location_id(self, work_location_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def work_location_id(
+        self, work_location_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.work_location_id = work_location_id
         return self
 
-    def department_id(self, department_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.department_id = department_id
         return self
 
@@ -86,15 +96,21 @@ class EmployeesAdditionalJobWriteRespBuilder(object):
         self._employees_additional_job_write_resp.job_id = job_id
         return self
 
-    def job_level_id(self, job_level_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def job_level_id(
+        self, job_level_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.job_level_id = job_level_id
         return self
 
-    def job_family_id(self, job_family_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def job_family_id(
+        self, job_family_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.job_family_id = job_family_id
         return self
 
-    def employment_id(self, employment_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.employment_id = employment_id
         return self
 
@@ -106,31 +122,47 @@ class EmployeesAdditionalJobWriteRespBuilder(object):
         self._employees_additional_job_write_resp.end_date = end_date
         return self
 
-    def direct_manager_id(self, direct_manager_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def direct_manager_id(
+        self, direct_manager_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.direct_manager_id = direct_manager_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
-        self._employees_additional_job_write_resp.dotted_line_manager_id = dotted_line_manager_id
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.dotted_line_manager_id = (
+            dotted_line_manager_id
+        )
         return self
 
     def work_shift(self, work_shift: Enum) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.work_shift = work_shift
         return self
 
-    def compensation_type(self, compensation_type: Enum) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def compensation_type(
+        self, compensation_type: Enum
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.compensation_type = compensation_type
         return self
 
-    def service_company(self, service_company: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def service_company(
+        self, service_company: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.service_company = service_company
         return self
 
-    def weekly_working_hours(self, weekly_working_hours: str) -> "EmployeesAdditionalJobWriteRespBuilder":
-        self._employees_additional_job_write_resp.weekly_working_hours = weekly_working_hours
+    def weekly_working_hours(
+        self, weekly_working_hours: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.weekly_working_hours = (
+            weekly_working_hours
+        )
         return self
 
-    def work_calendar_id(self, work_calendar_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+    def work_calendar_id(
+        self, work_calendar_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.work_calendar_id = work_calendar_id
         return self
 
@@ -138,8 +170,12 @@ class EmployeesAdditionalJobWriteRespBuilder(object):
         self._employees_additional_job_write_resp.position_id = position_id
         return self
 
-    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
-        self._employees_additional_job_write_resp.employee_subtype_id = employee_subtype_id
+    def employee_subtype_id(
+        self, employee_subtype_id: str
+    ) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.employee_subtype_id = (
+            employee_subtype_id
+        )
         return self
 
     def build(self) -> "EmployeesAdditionalJobWriteResp":

@@ -23,13 +23,17 @@ class ListAppDataAssetRequest(BaseRequest):
 
 
 class ListAppDataAssetRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_data_asset_request = ListAppDataAssetRequest()
         list_app_data_asset_request.http_method = HttpMethod.GET
         list_app_data_asset_request.uri = "/open-apis/aily/v1/apps/:app_id/data_assets"
-        list_app_data_asset_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_app_data_asset_request: ListAppDataAssetRequest = list_app_data_asset_request
+        list_app_data_asset_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_app_data_asset_request: ListAppDataAssetRequest = (
+            list_app_data_asset_request
+        )
 
     def page_size(self, page_size: int) -> "ListAppDataAssetRequestBuilder":
         self._list_app_data_asset_request.page_size = page_size
@@ -46,24 +50,38 @@ class ListAppDataAssetRequestBuilder(object):
         self._list_app_data_asset_request.add_query("keyword", keyword)
         return self
 
-    def data_asset_ids(self, data_asset_ids: List[str]) -> "ListAppDataAssetRequestBuilder":
+    def data_asset_ids(
+        self, data_asset_ids: List[str]
+    ) -> "ListAppDataAssetRequestBuilder":
         self._list_app_data_asset_request.data_asset_ids = data_asset_ids
         self._list_app_data_asset_request.add_query("data_asset_ids", data_asset_ids)
         return self
 
-    def data_asset_tag_ids(self, data_asset_tag_ids: List[str]) -> "ListAppDataAssetRequestBuilder":
+    def data_asset_tag_ids(
+        self, data_asset_tag_ids: List[str]
+    ) -> "ListAppDataAssetRequestBuilder":
         self._list_app_data_asset_request.data_asset_tag_ids = data_asset_tag_ids
-        self._list_app_data_asset_request.add_query("data_asset_tag_ids", data_asset_tag_ids)
+        self._list_app_data_asset_request.add_query(
+            "data_asset_tag_ids", data_asset_tag_ids
+        )
         return self
 
-    def with_data_asset_item(self, with_data_asset_item: bool) -> "ListAppDataAssetRequestBuilder":
+    def with_data_asset_item(
+        self, with_data_asset_item: bool
+    ) -> "ListAppDataAssetRequestBuilder":
         self._list_app_data_asset_request.with_data_asset_item = with_data_asset_item
-        self._list_app_data_asset_request.add_query("with_data_asset_item", with_data_asset_item)
+        self._list_app_data_asset_request.add_query(
+            "with_data_asset_item", with_data_asset_item
+        )
         return self
 
-    def with_connect_status(self, with_connect_status: bool) -> "ListAppDataAssetRequestBuilder":
+    def with_connect_status(
+        self, with_connect_status: bool
+    ) -> "ListAppDataAssetRequestBuilder":
         self._list_app_data_asset_request.with_connect_status = with_connect_status
-        self._list_app_data_asset_request.add_query("with_connect_status", with_connect_status)
+        self._list_app_data_asset_request.add_query(
+            "with_connect_status", with_connect_status
+        )
         return self
 
     def app_id(self, app_id: str) -> "ListAppDataAssetRequestBuilder":

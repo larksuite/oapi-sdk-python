@@ -15,7 +15,9 @@ class BatchQueryMessageReactionResponseBody(object):
     }
 
     def __init__(self, d=None):
-        self.success_msg_reaction_details: Optional[List[SuccessMsgReactionDetails]] = None
+        self.success_msg_reaction_details: Optional[List[SuccessMsgReactionDetails]] = (
+            None
+        )
         self.success_msg_reaction_counts: Optional[List[SuccessMsgReactionCount]] = None
         self.fail_msg_reaction_details: Optional[List[FailMsgReactionDetails]] = None
         init(self, d, self._types)
@@ -27,21 +29,30 @@ class BatchQueryMessageReactionResponseBody(object):
 
 class BatchQueryMessageReactionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_query_message_reaction_response_body = BatchQueryMessageReactionResponseBody()
+        self._batch_query_message_reaction_response_body = (
+            BatchQueryMessageReactionResponseBody()
+        )
 
-    def success_msg_reaction_details(self, success_msg_reaction_details: List[
-        SuccessMsgReactionDetails]) -> "BatchQueryMessageReactionResponseBodyBuilder":
+    def success_msg_reaction_details(
+        self, success_msg_reaction_details: List[SuccessMsgReactionDetails]
+    ) -> "BatchQueryMessageReactionResponseBodyBuilder":
         self._batch_query_message_reaction_response_body.success_msg_reaction_details = success_msg_reaction_details
         return self
 
-    def success_msg_reaction_counts(self, success_msg_reaction_counts: List[
-        SuccessMsgReactionCount]) -> "BatchQueryMessageReactionResponseBodyBuilder":
-        self._batch_query_message_reaction_response_body.success_msg_reaction_counts = success_msg_reaction_counts
+    def success_msg_reaction_counts(
+        self, success_msg_reaction_counts: List[SuccessMsgReactionCount]
+    ) -> "BatchQueryMessageReactionResponseBodyBuilder":
+        self._batch_query_message_reaction_response_body.success_msg_reaction_counts = (
+            success_msg_reaction_counts
+        )
         return self
 
-    def fail_msg_reaction_details(self, fail_msg_reaction_details: List[
-        FailMsgReactionDetails]) -> "BatchQueryMessageReactionResponseBodyBuilder":
-        self._batch_query_message_reaction_response_body.fail_msg_reaction_details = fail_msg_reaction_details
+    def fail_msg_reaction_details(
+        self, fail_msg_reaction_details: List[FailMsgReactionDetails]
+    ) -> "BatchQueryMessageReactionResponseBodyBuilder":
+        self._batch_query_message_reaction_response_body.fail_msg_reaction_details = (
+            fail_msg_reaction_details
+        )
         return self
 
     def build(self) -> "BatchQueryMessageReactionResponseBody":

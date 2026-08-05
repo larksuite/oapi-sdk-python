@@ -26,21 +26,29 @@ class GenerateCaldavConfSettingResponseBody(object):
 
 class GenerateCaldavConfSettingResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._generate_caldav_conf_setting_response_body = GenerateCaldavConfSettingResponseBody()
+        self._generate_caldav_conf_setting_response_body = (
+            GenerateCaldavConfSettingResponseBody()
+        )
 
     def password(self, password: str) -> "GenerateCaldavConfSettingResponseBodyBuilder":
         self._generate_caldav_conf_setting_response_body.password = password
         return self
 
-    def user_name(self, user_name: str) -> "GenerateCaldavConfSettingResponseBodyBuilder":
+    def user_name(
+        self, user_name: str
+    ) -> "GenerateCaldavConfSettingResponseBodyBuilder":
         self._generate_caldav_conf_setting_response_body.user_name = user_name
         return self
 
-    def server_address(self, server_address: str) -> "GenerateCaldavConfSettingResponseBodyBuilder":
+    def server_address(
+        self, server_address: str
+    ) -> "GenerateCaldavConfSettingResponseBodyBuilder":
         self._generate_caldav_conf_setting_response_body.server_address = server_address
         return self
 
-    def device_name(self, device_name: str) -> "GenerateCaldavConfSettingResponseBodyBuilder":
+    def device_name(
+        self, device_name: str
+    ) -> "GenerateCaldavConfSettingResponseBodyBuilder":
         self._generate_caldav_conf_setting_response_body.device_name = device_name
         return self
 

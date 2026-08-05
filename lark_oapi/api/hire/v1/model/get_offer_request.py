@@ -21,7 +21,6 @@ class GetOfferRequest(BaseRequest):
 
 
 class GetOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         get_offer_request = GetOfferRequest()
         get_offer_request.http_method = HttpMethod.GET
@@ -49,9 +48,13 @@ class GetOfferRequestBuilder(object):
         self._get_offer_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "GetOfferRequestBuilder":
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "GetOfferRequestBuilder":
         self._get_offer_request.employee_type_id_type = employee_type_id_type
-        self._get_offer_request.add_query("employee_type_id_type", employee_type_id_type)
+        self._get_offer_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
     def offer_id(self, offer_id: str) -> "GetOfferRequestBuilder":

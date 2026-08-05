@@ -32,7 +32,9 @@ class AppRecommendRuleVisibilityInfoBuilder(object):
         self._app_recommend_rule_visibility_info.is_all = is_all
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "AppRecommendRuleVisibilityInfoBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "AppRecommendRuleVisibilityInfoBuilder":
         self._app_recommend_rule_visibility_info.department_ids = department_ids
         return self
 
@@ -40,7 +42,9 @@ class AppRecommendRuleVisibilityInfoBuilder(object):
         self._app_recommend_rule_visibility_info.user_ids = user_ids
         return self
 
-    def group_ids(self, group_ids: List[str]) -> "AppRecommendRuleVisibilityInfoBuilder":
+    def group_ids(
+        self, group_ids: List[str]
+    ) -> "AppRecommendRuleVisibilityInfoBuilder":
         self._app_recommend_rule_visibility_info.group_ids = group_ids
         return self
 

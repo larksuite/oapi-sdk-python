@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .instance_view_calendar_event_response_body import InstanceViewCalendarEventResponseBody
+from .instance_view_calendar_event_response_body import (
+    InstanceViewCalendarEventResponseBody,
+)
 
 
 class InstanceViewCalendarEventResponse(BaseResponse):
     _types = {
         "data": InstanceViewCalendarEventResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .put_top_notice_chat_top_notice_request_body import PutTopNoticeChatTopNoticeRequestBody
+from .put_top_notice_chat_top_notice_request_body import (
+    PutTopNoticeChatTopNoticeRequestBody,
+)
 
 
 class PutTopNoticeChatTopNoticeRequest(BaseRequest):
@@ -18,12 +20,16 @@ class PutTopNoticeChatTopNoticeRequest(BaseRequest):
 
 
 class PutTopNoticeChatTopNoticeRequestBuilder(object):
-
     def __init__(self) -> None:
         put_top_notice_chat_top_notice_request = PutTopNoticeChatTopNoticeRequest()
         put_top_notice_chat_top_notice_request.http_method = HttpMethod.POST
-        put_top_notice_chat_top_notice_request.uri = "/open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice"
-        put_top_notice_chat_top_notice_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        put_top_notice_chat_top_notice_request.uri = (
+            "/open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice"
+        )
+        put_top_notice_chat_top_notice_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._put_top_notice_chat_top_notice_request: PutTopNoticeChatTopNoticeRequest = put_top_notice_chat_top_notice_request
 
     def chat_id(self, chat_id: str) -> "PutTopNoticeChatTopNoticeRequestBuilder":
@@ -31,8 +37,9 @@ class PutTopNoticeChatTopNoticeRequestBuilder(object):
         self._put_top_notice_chat_top_notice_request.paths["chat_id"] = str(chat_id)
         return self
 
-    def request_body(self,
-                     request_body: PutTopNoticeChatTopNoticeRequestBody) -> "PutTopNoticeChatTopNoticeRequestBuilder":
+    def request_body(
+        self, request_body: PutTopNoticeChatTopNoticeRequestBody
+    ) -> "PutTopNoticeChatTopNoticeRequestBuilder":
         self._put_top_notice_chat_top_notice_request.request_body = request_body
         self._put_top_notice_chat_top_notice_request.body = request_body
         return self

@@ -85,7 +85,9 @@ class SiteApplicationResumeBuilder(object):
         self._site_application_resume.email = email
         return self
 
-    def site_attachment_id(self, site_attachment_id: str) -> "SiteApplicationResumeBuilder":
+    def site_attachment_id(
+        self, site_attachment_id: str
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.site_attachment_id = site_attachment_id
         return self
 
@@ -101,31 +103,45 @@ class SiteApplicationResumeBuilder(object):
         self._site_application_resume.working_year = working_year
         return self
 
-    def education_list(self, education_list: List[SiteResumeEducation]) -> "SiteApplicationResumeBuilder":
+    def education_list(
+        self, education_list: List[SiteResumeEducation]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.education_list = education_list
         return self
 
-    def career_list(self, career_list: List[SiteResumeCareer]) -> "SiteApplicationResumeBuilder":
+    def career_list(
+        self, career_list: List[SiteResumeCareer]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.career_list = career_list
         return self
 
-    def project_list(self, project_list: List[SiteResumeProject]) -> "SiteApplicationResumeBuilder":
+    def project_list(
+        self, project_list: List[SiteResumeProject]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.project_list = project_list
         return self
 
-    def internship_list(self, internship_list: List[SiteResumeInternship]) -> "SiteApplicationResumeBuilder":
+    def internship_list(
+        self, internship_list: List[SiteResumeInternship]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.internship_list = internship_list
         return self
 
-    def work_list(self, work_list: List[SiteResumeWork]) -> "SiteApplicationResumeBuilder":
+    def work_list(
+        self, work_list: List[SiteResumeWork]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.work_list = work_list
         return self
 
-    def award_list(self, award_list: List[SiteResumeAward]) -> "SiteApplicationResumeBuilder":
+    def award_list(
+        self, award_list: List[SiteResumeAward]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.award_list = award_list
         return self
 
-    def language_skill_list(self, language_skill_list: List[SiteResumeLanguageSkill]) -> "SiteApplicationResumeBuilder":
+    def language_skill_list(
+        self, language_skill_list: List[SiteResumeLanguageSkill]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.language_skill_list = language_skill_list
         return self
 
@@ -133,15 +149,21 @@ class SiteApplicationResumeBuilder(object):
         self._site_application_resume.sns_list = sns_list
         return self
 
-    def identification(self, identification: SiteResumeIdentification) -> "SiteApplicationResumeBuilder":
+    def identification(
+        self, identification: SiteResumeIdentification
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.identification = identification
         return self
 
-    def competition_list(self, competition_list: List[SiteResumeCompetition]) -> "SiteApplicationResumeBuilder":
+    def competition_list(
+        self, competition_list: List[SiteResumeCompetition]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.competition_list = competition_list
         return self
 
-    def certificate_list(self, certificate_list: List[SiteResumeCertificate]) -> "SiteApplicationResumeBuilder":
+    def certificate_list(
+        self, certificate_list: List[SiteResumeCertificate]
+    ) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.certificate_list = certificate_list
         return self
 

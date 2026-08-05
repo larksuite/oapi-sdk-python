@@ -41,7 +41,9 @@ class InlineLinkPreviewBuilder(object):
         self._inline_link_preview.url_type = url_type
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "InlineLinkPreviewBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "InlineLinkPreviewBuilder":
         self._inline_link_preview.text_element_style = text_element_style
         return self
 

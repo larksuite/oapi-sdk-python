@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .unsubscribe_user_mailbox_event_request_body import UnsubscribeUserMailboxEventRequestBody
+from .unsubscribe_user_mailbox_event_request_body import (
+    UnsubscribeUserMailboxEventRequestBody,
+)
 
 
 class UnsubscribeUserMailboxEventRequest(BaseRequest):
@@ -18,21 +20,27 @@ class UnsubscribeUserMailboxEventRequest(BaseRequest):
 
 
 class UnsubscribeUserMailboxEventRequestBuilder(object):
-
     def __init__(self) -> None:
         unsubscribe_user_mailbox_event_request = UnsubscribeUserMailboxEventRequest()
         unsubscribe_user_mailbox_event_request.http_method = HttpMethod.POST
-        unsubscribe_user_mailbox_event_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/event/unsubscribe"
+        unsubscribe_user_mailbox_event_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/event/unsubscribe"
+        )
         unsubscribe_user_mailbox_event_request.token_types = {AccessTokenType.USER}
         self._unsubscribe_user_mailbox_event_request: UnsubscribeUserMailboxEventRequest = unsubscribe_user_mailbox_event_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "UnsubscribeUserMailboxEventRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "UnsubscribeUserMailboxEventRequestBuilder":
         self._unsubscribe_user_mailbox_event_request.user_mailbox_id = user_mailbox_id
-        self._unsubscribe_user_mailbox_event_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._unsubscribe_user_mailbox_event_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: UnsubscribeUserMailboxEventRequestBody) -> "UnsubscribeUserMailboxEventRequestBuilder":
+    def request_body(
+        self, request_body: UnsubscribeUserMailboxEventRequestBody
+    ) -> "UnsubscribeUserMailboxEventRequestBuilder":
         self._unsubscribe_user_mailbox_event_request.request_body = request_body
         self._unsubscribe_user_mailbox_event_request.body = request_body
         return self

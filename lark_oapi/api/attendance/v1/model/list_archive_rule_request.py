@@ -17,13 +17,17 @@ class ListArchiveRuleRequest(BaseRequest):
 
 
 class ListArchiveRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_archive_rule_request = ListArchiveRuleRequest()
         list_archive_rule_request.http_method = HttpMethod.GET
         list_archive_rule_request.uri = "/open-apis/attendance/v1/archive_rule"
-        list_archive_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_archive_rule_request: ListArchiveRuleRequest = list_archive_rule_request
+        list_archive_rule_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_archive_rule_request: ListArchiveRuleRequest = (
+            list_archive_rule_request
+        )
 
     def page_size(self, page_size: int) -> "ListArchiveRuleRequestBuilder":
         self._list_archive_rule_request.page_size = page_size

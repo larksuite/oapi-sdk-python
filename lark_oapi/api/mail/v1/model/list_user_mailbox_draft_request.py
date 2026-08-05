@@ -18,13 +18,16 @@ class ListUserMailboxDraftRequest(BaseRequest):
 
 
 class ListUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_mailbox_draft_request = ListUserMailboxDraftRequest()
         list_user_mailbox_draft_request.http_method = HttpMethod.GET
-        list_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts"
+        list_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts"
+        )
         list_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._list_user_mailbox_draft_request: ListUserMailboxDraftRequest = list_user_mailbox_draft_request
+        self._list_user_mailbox_draft_request: ListUserMailboxDraftRequest = (
+            list_user_mailbox_draft_request
+        )
 
     def page_size(self, page_size: int) -> "ListUserMailboxDraftRequestBuilder":
         self._list_user_mailbox_draft_request.page_size = page_size
@@ -36,9 +39,13 @@ class ListUserMailboxDraftRequestBuilder(object):
         self._list_user_mailbox_draft_request.add_query("page_token", page_token)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListUserMailboxDraftRequestBuilder":
         self._list_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._list_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._list_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> ListUserMailboxDraftRequest:

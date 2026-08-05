@@ -18,20 +18,28 @@ class PatchApplicationBaseRequest(BaseRequest):
 
 
 class PatchApplicationBaseRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_application_base_request = PatchApplicationBaseRequest()
         patch_application_base_request.http_method = HttpMethod.PATCH
-        patch_application_base_request.uri = "/open-apis/application/v7/applications/:app_id/base"
-        patch_application_base_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_application_base_request: PatchApplicationBaseRequest = patch_application_base_request
+        patch_application_base_request.uri = (
+            "/open-apis/application/v7/applications/:app_id/base"
+        )
+        patch_application_base_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_application_base_request: PatchApplicationBaseRequest = (
+            patch_application_base_request
+        )
 
     def app_id(self, app_id: str) -> "PatchApplicationBaseRequestBuilder":
         self._patch_application_base_request.app_id = app_id
         self._patch_application_base_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: PatchApplicationBaseRequestBody) -> "PatchApplicationBaseRequestBuilder":
+    def request_body(
+        self, request_body: PatchApplicationBaseRequestBody
+    ) -> "PatchApplicationBaseRequestBuilder":
         self._patch_application_base_request.request_body = request_body
         self._patch_application_base_request.body = request_body
         return self

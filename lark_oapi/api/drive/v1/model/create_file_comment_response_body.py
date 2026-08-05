@@ -69,7 +69,9 @@ class CreateFileCommentResponseBodyBuilder(object):
         self._create_file_comment_response_body.solved_time = solved_time
         return self
 
-    def solver_user_id(self, solver_user_id: str) -> "CreateFileCommentResponseBodyBuilder":
+    def solver_user_id(
+        self, solver_user_id: str
+    ) -> "CreateFileCommentResponseBodyBuilder":
         self._create_file_comment_response_body.solver_user_id = solver_user_id
         return self
 
@@ -89,7 +91,9 @@ class CreateFileCommentResponseBodyBuilder(object):
         self._create_file_comment_response_body.quote = quote
         return self
 
-    def reply_list(self, reply_list: ReplyList) -> "CreateFileCommentResponseBodyBuilder":
+    def reply_list(
+        self, reply_list: ReplyList
+    ) -> "CreateFileCommentResponseBodyBuilder":
         self._create_file_comment_response_body.reply_list = reply_list
         return self
 

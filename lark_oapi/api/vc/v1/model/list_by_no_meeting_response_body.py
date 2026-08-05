@@ -35,7 +35,9 @@ class ListByNoMeetingResponseBodyBuilder(object):
         self._list_by_no_meeting_response_body.page_token = page_token
         return self
 
-    def meeting_briefs(self, meeting_briefs: List[Meeting]) -> "ListByNoMeetingResponseBodyBuilder":
+    def meeting_briefs(
+        self, meeting_briefs: List[Meeting]
+    ) -> "ListByNoMeetingResponseBodyBuilder":
         self._list_by_no_meeting_response_body.meeting_briefs = meeting_briefs
         return self
 

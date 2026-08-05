@@ -16,7 +16,6 @@ class DeletePinRequest(BaseRequest):
 
 
 class DeletePinRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_pin_request = DeletePinRequest()
         delete_pin_request.http_method = HttpMethod.DELETE

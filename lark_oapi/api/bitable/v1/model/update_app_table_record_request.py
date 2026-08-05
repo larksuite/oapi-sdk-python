@@ -23,22 +23,34 @@ class UpdateAppTableRecordRequest(BaseRequest):
 
 
 class UpdateAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_table_record_request = UpdateAppTableRecordRequest()
         update_app_table_record_request.http_method = HttpMethod.PUT
-        update_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
-        update_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_app_table_record_request: UpdateAppTableRecordRequest = update_app_table_record_request
+        update_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+        )
+        update_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_app_table_record_request: UpdateAppTableRecordRequest = (
+            update_app_table_record_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateAppTableRecordRequestBuilder":
         self._update_app_table_record_request.user_id_type = user_id_type
         self._update_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
-    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "UpdateAppTableRecordRequestBuilder":
-        self._update_app_table_record_request.ignore_consistency_check = ignore_consistency_check
-        self._update_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+    def ignore_consistency_check(
+        self, ignore_consistency_check: bool
+    ) -> "UpdateAppTableRecordRequestBuilder":
+        self._update_app_table_record_request.ignore_consistency_check = (
+            ignore_consistency_check
+        )
+        self._update_app_table_record_request.add_query(
+            "ignore_consistency_check", ignore_consistency_check
+        )
         return self
 
     def client_token(self, client_token: str) -> "UpdateAppTableRecordRequestBuilder":
@@ -61,7 +73,9 @@ class UpdateAppTableRecordRequestBuilder(object):
         self._update_app_table_record_request.paths["record_id"] = str(record_id)
         return self
 
-    def request_body(self, request_body: AppTableRecord) -> "UpdateAppTableRecordRequestBuilder":
+    def request_body(
+        self, request_body: AppTableRecord
+    ) -> "UpdateAppTableRecordRequestBuilder":
         self._update_app_table_record_request.request_body = request_body
         self._update_app_table_record_request.body = request_body
         return self

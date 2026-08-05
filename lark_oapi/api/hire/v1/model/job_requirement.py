@@ -124,15 +124,21 @@ class JobRequirementBuilder(object):
         self._job_requirement.department_id = department_id
         return self
 
-    def recruiter_id_list(self, recruiter_id_list: List[str]) -> "JobRequirementBuilder":
+    def recruiter_id_list(
+        self, recruiter_id_list: List[str]
+    ) -> "JobRequirementBuilder":
         self._job_requirement.recruiter_id_list = recruiter_id_list
         return self
 
-    def jr_hiring_manager_id_list(self, jr_hiring_manager_id_list: List[str]) -> "JobRequirementBuilder":
+    def jr_hiring_manager_id_list(
+        self, jr_hiring_manager_id_list: List[str]
+    ) -> "JobRequirementBuilder":
         self._job_requirement.jr_hiring_manager_id_list = jr_hiring_manager_id_list
         return self
 
-    def direct_leader_id_list(self, direct_leader_id_list: List[str]) -> "JobRequirementBuilder":
+    def direct_leader_id_list(
+        self, direct_leader_id_list: List[str]
+    ) -> "JobRequirementBuilder":
         self._job_requirement.direct_leader_id_list = direct_leader_id_list
         return self
 
@@ -168,7 +174,9 @@ class JobRequirementBuilder(object):
         self._job_requirement.description = description
         return self
 
-    def customized_data_list(self, customized_data_list: List[JobRequirementCustomizedData]) -> "JobRequirementBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[JobRequirementCustomizedData]
+    ) -> "JobRequirementBuilder":
         self._job_requirement.customized_data_list = customized_data_list
         return self
 
@@ -192,7 +200,9 @@ class JobRequirementBuilder(object):
         self._job_requirement.position_id = position_id
         return self
 
-    def update_option(self, update_option: JobRequirementUpdateOption) -> "JobRequirementBuilder":
+    def update_option(
+        self, update_option: JobRequirementUpdateOption
+    ) -> "JobRequirementBuilder":
         self._job_requirement.update_option = update_option
         return self
 

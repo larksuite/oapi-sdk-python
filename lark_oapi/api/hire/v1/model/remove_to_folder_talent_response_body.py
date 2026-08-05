@@ -24,7 +24,9 @@ class RemoveToFolderTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_to_folder_talent_response_body = RemoveToFolderTalentResponseBody()
 
-    def talent_id_list(self, talent_id_list: List[str]) -> "RemoveToFolderTalentResponseBodyBuilder":
+    def talent_id_list(
+        self, talent_id_list: List[str]
+    ) -> "RemoveToFolderTalentResponseBodyBuilder":
         self._remove_to_folder_talent_response_body.talent_id_list = talent_id_list
         return self
 

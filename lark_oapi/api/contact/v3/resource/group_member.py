@@ -25,7 +25,9 @@ class GroupMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add(self, request: AddGroupMemberRequest, option: Optional[RequestOption] = None) -> AddGroupMemberResponse:
+    def add(
+        self, request: AddGroupMemberRequest, option: Optional[RequestOption] = None
+    ) -> AddGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +42,16 @@ class GroupMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), AddGroupMemberResponse)
+        response: AddGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd(self, request: AddGroupMemberRequest,
-                   option: Optional[RequestOption] = None) -> AddGroupMemberResponse:
+    async def aadd(
+        self, request: AddGroupMemberRequest, option: Optional[RequestOption] = None
+    ) -> AddGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,13 +62,18 @@ class GroupMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), AddGroupMemberResponse)
+        response: AddGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_add(self, request: BatchAddGroupMemberRequest,
-                  option: Optional[RequestOption] = None) -> BatchAddGroupMemberResponse:
+    def batch_add(
+        self,
+        request: BatchAddGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchAddGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,13 +88,18 @@ class GroupMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchAddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchAddGroupMemberResponse)
+        response: BatchAddGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchAddGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_add(self, request: BatchAddGroupMemberRequest,
-                         option: Optional[RequestOption] = None) -> BatchAddGroupMemberResponse:
+    async def abatch_add(
+        self,
+        request: BatchAddGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchAddGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,13 +110,18 @@ class GroupMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchAddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchAddGroupMemberResponse)
+        response: BatchAddGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchAddGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_remove(self, request: BatchRemoveGroupMemberRequest,
-                     option: Optional[RequestOption] = None) -> BatchRemoveGroupMemberResponse:
+    def batch_remove(
+        self,
+        request: BatchRemoveGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,14 +136,18 @@ class GroupMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BatchRemoveGroupMemberResponse)
+        response: BatchRemoveGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_remove(self, request: BatchRemoveGroupMemberRequest,
-                            option: Optional[RequestOption] = None) -> BatchRemoveGroupMemberResponse:
+    async def abatch_remove(
+        self,
+        request: BatchRemoveGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,14 +158,16 @@ class GroupMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BatchRemoveGroupMemberResponse)
+        response: BatchRemoveGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove(self, request: RemoveGroupMemberRequest,
-               option: Optional[RequestOption] = None) -> RemoveGroupMemberResponse:
+    def remove(
+        self, request: RemoveGroupMemberRequest, option: Optional[RequestOption] = None
+    ) -> RemoveGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +182,16 @@ class GroupMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveGroupMemberResponse)
+        response: RemoveGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove(self, request: RemoveGroupMemberRequest,
-                      option: Optional[RequestOption] = None) -> RemoveGroupMemberResponse:
+    async def aremove(
+        self, request: RemoveGroupMemberRequest, option: Optional[RequestOption] = None
+    ) -> RemoveGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,13 +202,18 @@ class GroupMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveGroupMemberResponse)
+        response: RemoveGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def simplelist(self, request: SimplelistGroupMemberRequest,
-                   option: Optional[RequestOption] = None) -> SimplelistGroupMemberResponse:
+    def simplelist(
+        self,
+        request: SimplelistGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SimplelistGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,14 +228,18 @@ class GroupMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SimplelistGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 SimplelistGroupMemberResponse)
+        response: SimplelistGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SimplelistGroupMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asimplelist(self, request: SimplelistGroupMemberRequest,
-                          option: Optional[RequestOption] = None) -> SimplelistGroupMemberResponse:
+    async def asimplelist(
+        self,
+        request: SimplelistGroupMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SimplelistGroupMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -212,8 +250,9 @@ class GroupMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SimplelistGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 SimplelistGroupMemberResponse)
+        response: SimplelistGroupMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SimplelistGroupMemberResponse
+        )
         response.raw = resp
 
         return response

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_refresh_access_token_response_body import CreateRefreshAccessTokenResponseBody
+from .create_refresh_access_token_response_body import (
+    CreateRefreshAccessTokenResponseBody,
+)
 
 
 class CreateRefreshAccessTokenResponse(BaseResponse):
     _types = {
         "data": CreateRefreshAccessTokenResponseBody,
-
     }
 
     def __init__(self, d=None):

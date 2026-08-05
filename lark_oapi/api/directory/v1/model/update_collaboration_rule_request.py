@@ -19,25 +19,43 @@ class UpdateCollaborationRuleRequest(BaseRequest):
 
 
 class UpdateCollaborationRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         update_collaboration_rule_request = UpdateCollaborationRuleRequest()
         update_collaboration_rule_request.http_method = HttpMethod.PUT
-        update_collaboration_rule_request.uri = "/open-apis/directory/v1/collaboration_rules/:collaboration_rule_id"
-        update_collaboration_rule_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_collaboration_rule_request: UpdateCollaborationRuleRequest = update_collaboration_rule_request
+        update_collaboration_rule_request.uri = (
+            "/open-apis/directory/v1/collaboration_rules/:collaboration_rule_id"
+        )
+        update_collaboration_rule_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_collaboration_rule_request: UpdateCollaborationRuleRequest = (
+            update_collaboration_rule_request
+        )
 
-    def target_tenant_key(self, target_tenant_key: str) -> "UpdateCollaborationRuleRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "UpdateCollaborationRuleRequestBuilder":
         self._update_collaboration_rule_request.target_tenant_key = target_tenant_key
-        self._update_collaboration_rule_request.add_query("target_tenant_key", target_tenant_key)
+        self._update_collaboration_rule_request.add_query(
+            "target_tenant_key", target_tenant_key
+        )
         return self
 
-    def collaboration_rule_id(self, collaboration_rule_id: str) -> "UpdateCollaborationRuleRequestBuilder":
-        self._update_collaboration_rule_request.collaboration_rule_id = collaboration_rule_id
-        self._update_collaboration_rule_request.paths["collaboration_rule_id"] = str(collaboration_rule_id)
+    def collaboration_rule_id(
+        self, collaboration_rule_id: str
+    ) -> "UpdateCollaborationRuleRequestBuilder":
+        self._update_collaboration_rule_request.collaboration_rule_id = (
+            collaboration_rule_id
+        )
+        self._update_collaboration_rule_request.paths["collaboration_rule_id"] = str(
+            collaboration_rule_id
+        )
         return self
 
-    def request_body(self, request_body: UpdateCollaborationRuleRequestBody) -> "UpdateCollaborationRuleRequestBuilder":
+    def request_body(
+        self, request_body: UpdateCollaborationRuleRequestBody
+    ) -> "UpdateCollaborationRuleRequestBuilder":
         self._update_collaboration_rule_request.request_body = request_body
         self._update_collaboration_rule_request.body = request_body
         return self

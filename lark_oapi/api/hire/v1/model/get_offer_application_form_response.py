@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_offer_application_form_response_body import GetOfferApplicationFormResponseBody
+from .get_offer_application_form_response_body import (
+    GetOfferApplicationFormResponseBody,
+)
 
 
 class GetOfferApplicationFormResponse(BaseResponse):
     _types = {
         "data": GetOfferApplicationFormResponseBody,
-
     }
 
     def __init__(self, d=None):

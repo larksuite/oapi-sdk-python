@@ -23,9 +23,13 @@ class AuditLogListApplicationAuditLogResponseBody(object):
 
 class AuditLogListApplicationAuditLogResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._audit_log_list_application_audit_log_response_body = AuditLogListApplicationAuditLogResponseBody()
+        self._audit_log_list_application_audit_log_response_body = (
+            AuditLogListApplicationAuditLogResponseBody()
+        )
 
-    def items(self, items: List[AuditLogEsField]) -> "AuditLogListApplicationAuditLogResponseBodyBuilder":
+    def items(
+        self, items: List[AuditLogEsField]
+    ) -> "AuditLogListApplicationAuditLogResponseBodyBuilder":
         self._audit_log_list_application_audit_log_response_body.items = items
         return self
 

@@ -18,13 +18,16 @@ class ListAppRecommendRuleRequest(BaseRequest):
 
 
 class ListAppRecommendRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_recommend_rule_request = ListAppRecommendRuleRequest()
         list_app_recommend_rule_request.http_method = HttpMethod.GET
-        list_app_recommend_rule_request.uri = "/open-apis/application/v6/app_recommend_rules"
+        list_app_recommend_rule_request.uri = (
+            "/open-apis/application/v6/app_recommend_rules"
+        )
         list_app_recommend_rule_request.token_types = {AccessTokenType.TENANT}
-        self._list_app_recommend_rule_request: ListAppRecommendRuleRequest = list_app_recommend_rule_request
+        self._list_app_recommend_rule_request: ListAppRecommendRuleRequest = (
+            list_app_recommend_rule_request
+        )
 
     def page_size(self, page_size: int) -> "ListAppRecommendRuleRequestBuilder":
         self._list_app_recommend_rule_request.page_size = page_size

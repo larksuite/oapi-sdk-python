@@ -18,12 +18,14 @@ class BatchGetOkrRequest(BaseRequest):
 
 
 class BatchGetOkrRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_okr_request = BatchGetOkrRequest()
         batch_get_okr_request.http_method = HttpMethod.GET
         batch_get_okr_request.uri = "/open-apis/okr/v1/okrs/batch_get"
-        batch_get_okr_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_get_okr_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_get_okr_request: BatchGetOkrRequest = batch_get_okr_request
 
     def user_id_type(self, user_id_type: str) -> "BatchGetOkrRequestBuilder":

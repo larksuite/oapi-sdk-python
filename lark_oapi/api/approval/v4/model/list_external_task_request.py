@@ -19,13 +19,14 @@ class ListExternalTaskRequest(BaseRequest):
 
 
 class ListExternalTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         list_external_task_request = ListExternalTaskRequest()
         list_external_task_request.http_method = HttpMethod.GET
         list_external_task_request.uri = "/open-apis/approval/v4/external_tasks"
         list_external_task_request.token_types = {AccessTokenType.TENANT}
-        self._list_external_task_request: ListExternalTaskRequest = list_external_task_request
+        self._list_external_task_request: ListExternalTaskRequest = (
+            list_external_task_request
+        )
 
     def page_size(self, page_size: int) -> "ListExternalTaskRequestBuilder":
         self._list_external_task_request.page_size = page_size
@@ -37,7 +38,9 @@ class ListExternalTaskRequestBuilder(object):
         self._list_external_task_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: ListExternalTaskRequestBody) -> "ListExternalTaskRequestBuilder":
+    def request_body(
+        self, request_body: ListExternalTaskRequestBody
+    ) -> "ListExternalTaskRequestBuilder":
         self._list_external_task_request.request_body = request_body
         self._list_external_task_request.body = request_body
         return self

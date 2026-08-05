@@ -20,7 +20,6 @@ class QueryInstanceRequest(BaseRequest):
 
 
 class QueryInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         query_instance_request = QueryInstanceRequest()
         query_instance_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class QueryInstanceRequestBuilder(object):
         self._query_instance_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: InstanceSearch) -> "QueryInstanceRequestBuilder":
+    def request_body(
+        self, request_body: InstanceSearch
+    ) -> "QueryInstanceRequestBuilder":
         self._query_instance_request.request_body = request_body
         self._query_instance_request.body = request_body
         return self

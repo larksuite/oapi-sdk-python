@@ -17,22 +17,34 @@ class UnsubscriptionCalendarEventRequest(BaseRequest):
 
 
 class UnsubscriptionCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         unsubscription_calendar_event_request = UnsubscriptionCalendarEventRequest()
         unsubscription_calendar_event_request.http_method = HttpMethod.POST
-        unsubscription_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
-        unsubscription_calendar_event_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        unsubscription_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
+        )
+        unsubscription_calendar_event_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._unsubscription_calendar_event_request: UnsubscriptionCalendarEventRequest = unsubscription_calendar_event_request
 
-    def user_id_type(self, user_id_type: str) -> "UnsubscriptionCalendarEventRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "UnsubscriptionCalendarEventRequestBuilder":
         self._unsubscription_calendar_event_request.user_id_type = user_id_type
-        self._unsubscription_calendar_event_request.add_query("user_id_type", user_id_type)
+        self._unsubscription_calendar_event_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def calendar_id(self, calendar_id: str) -> "UnsubscriptionCalendarEventRequestBuilder":
+    def calendar_id(
+        self, calendar_id: str
+    ) -> "UnsubscriptionCalendarEventRequestBuilder":
         self._unsubscription_calendar_event_request.calendar_id = calendar_id
-        self._unsubscription_calendar_event_request.paths["calendar_id"] = str(calendar_id)
+        self._unsubscription_calendar_event_request.paths["calendar_id"] = str(
+            calendar_id
+        )
         return self
 
     def build(self) -> UnsubscriptionCalendarEventRequest:

@@ -21,11 +21,16 @@ class RecognizeHealthCertificateResponseBody(object):
 
 class RecognizeHealthCertificateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_health_certificate_response_body = RecognizeHealthCertificateResponseBody()
+        self._recognize_health_certificate_response_body = (
+            RecognizeHealthCertificateResponseBody()
+        )
 
-    def health_certificate(self,
-                           health_certificate: HealthCertificate) -> "RecognizeHealthCertificateResponseBodyBuilder":
-        self._recognize_health_certificate_response_body.health_certificate = health_certificate
+    def health_certificate(
+        self, health_certificate: HealthCertificate
+    ) -> "RecognizeHealthCertificateResponseBodyBuilder":
+        self._recognize_health_certificate_response_body.health_certificate = (
+            health_certificate
+        )
         return self
 
     def build(self) -> "RecognizeHealthCertificateResponseBody":

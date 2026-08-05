@@ -17,7 +17,9 @@ class Subject(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSubjectRequest, option: Optional[RequestOption] = None) -> ListSubjectResponse:
+    def list(
+        self, request: ListSubjectRequest, option: Optional[RequestOption] = None
+    ) -> ListSubjectResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Subject(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSubjectResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubjectResponse)
+        response: ListSubjectResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSubjectResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSubjectRequest, option: Optional[RequestOption] = None) -> ListSubjectResponse:
+    async def alist(
+        self, request: ListSubjectRequest, option: Optional[RequestOption] = None
+    ) -> ListSubjectResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Subject(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSubjectResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubjectResponse)
+        response: ListSubjectResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSubjectResponse
+        )
         response.raw = resp
 
         return response

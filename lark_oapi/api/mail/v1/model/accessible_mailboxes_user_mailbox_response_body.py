@@ -21,11 +21,16 @@ class AccessibleMailboxesUserMailboxResponseBody(object):
 
 class AccessibleMailboxesUserMailboxResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._accessible_mailboxes_user_mailbox_response_body = AccessibleMailboxesUserMailboxResponseBody()
+        self._accessible_mailboxes_user_mailbox_response_body = (
+            AccessibleMailboxesUserMailboxResponseBody()
+        )
 
-    def accessible_mailboxes(self, accessible_mailboxes: List[
-        EmailInfo]) -> "AccessibleMailboxesUserMailboxResponseBodyBuilder":
-        self._accessible_mailboxes_user_mailbox_response_body.accessible_mailboxes = accessible_mailboxes
+    def accessible_mailboxes(
+        self, accessible_mailboxes: List[EmailInfo]
+    ) -> "AccessibleMailboxesUserMailboxResponseBodyBuilder":
+        self._accessible_mailboxes_user_mailbox_response_body.accessible_mailboxes = (
+            accessible_mailboxes
+        )
         return self
 
     def build(self) -> "AccessibleMailboxesUserMailboxResponseBody":

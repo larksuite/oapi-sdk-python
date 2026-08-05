@@ -107,7 +107,9 @@ class RuleBuilder(object):
         self._rule.need_report_user_ids = need_report_user_ids
         return self
 
-    def need_report_department_ids(self, need_report_department_ids: List[str]) -> "RuleBuilder":
+    def need_report_department_ids(
+        self, need_report_department_ids: List[str]
+    ) -> "RuleBuilder":
         self._rule.need_report_department_ids = need_report_department_ids
         return self
 

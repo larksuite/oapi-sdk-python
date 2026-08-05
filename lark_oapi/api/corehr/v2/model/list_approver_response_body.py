@@ -35,7 +35,9 @@ class ListApproverResponseBodyBuilder(object):
         self._list_approver_response_body.has_more = has_more
         return self
 
-    def approver_list(self, approver_list: List[ApproverInfo]) -> "ListApproverResponseBodyBuilder":
+    def approver_list(
+        self, approver_list: List[ApproverInfo]
+    ) -> "ListApproverResponseBodyBuilder":
         self._list_approver_response_body.approver_list = approver_list
         return self
 

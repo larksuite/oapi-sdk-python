@@ -15,10 +15,18 @@ from ..model.delete_cost_center_request import DeleteCostCenterRequest
 from ..model.delete_cost_center_response import DeleteCostCenterResponse
 from ..model.patch_cost_center_request import PatchCostCenterRequest
 from ..model.patch_cost_center_response import PatchCostCenterResponse
-from ..model.query_multi_timeline_cost_center_request import QueryMultiTimelineCostCenterRequest
-from ..model.query_multi_timeline_cost_center_response import QueryMultiTimelineCostCenterResponse
-from ..model.query_recent_change_cost_center_request import QueryRecentChangeCostCenterRequest
-from ..model.query_recent_change_cost_center_response import QueryRecentChangeCostCenterResponse
+from ..model.query_multi_timeline_cost_center_request import (
+    QueryMultiTimelineCostCenterRequest,
+)
+from ..model.query_multi_timeline_cost_center_response import (
+    QueryMultiTimelineCostCenterResponse,
+)
+from ..model.query_recent_change_cost_center_request import (
+    QueryRecentChangeCostCenterRequest,
+)
+from ..model.query_recent_change_cost_center_response import (
+    QueryRecentChangeCostCenterResponse,
+)
 from ..model.search_cost_center_request import SearchCostCenterRequest
 from ..model.search_cost_center_response import SearchCostCenterResponse
 from ..model.tree_cost_center_request import TreeCostCenterRequest
@@ -29,8 +37,9 @@ class CostCenter(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCostCenterRequest,
-               option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
+    def create(
+        self, request: CreateCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> CreateCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,13 +54,16 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterResponse)
+        response: CreateCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateCostCenterRequest,
-                      option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
+    async def acreate(
+        self, request: CreateCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> CreateCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,13 +74,16 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterResponse)
+        response: CreateCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteCostCenterRequest,
-               option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
+    def delete(
+        self, request: DeleteCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> DeleteCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,13 +98,16 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterResponse)
+        response: DeleteCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteCostCenterRequest,
-                      option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
+    async def adelete(
+        self, request: DeleteCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> DeleteCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,12 +118,16 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterResponse)
+        response: DeleteCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchCostCenterRequest, option: Optional[RequestOption] = None) -> PatchCostCenterResponse:
+    def patch(
+        self, request: PatchCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> PatchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,13 +142,16 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterResponse)
+        response: PatchCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchCostCenterRequest,
-                     option: Optional[RequestOption] = None) -> PatchCostCenterResponse:
+    async def apatch(
+        self, request: PatchCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> PatchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,13 +162,18 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterResponse)
+        response: PatchCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineCostCenterRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineCostCenterResponse:
+    def query_multi_timeline(
+        self,
+        request: QueryMultiTimelineCostCenterRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -158,14 +188,18 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        QueryMultiTimelineCostCenterResponse)
+        response: QueryMultiTimelineCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineCostCenterRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineCostCenterResponse:
+    async def aquery_multi_timeline(
+        self,
+        request: QueryMultiTimelineCostCenterRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -176,14 +210,18 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        QueryMultiTimelineCostCenterResponse)
+        response: QueryMultiTimelineCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeCostCenterRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeCostCenterResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeCostCenterRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -198,14 +236,18 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       QueryRecentChangeCostCenterResponse)
+        response: QueryRecentChangeCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeCostCenterRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeCostCenterResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeCostCenterRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -216,14 +258,16 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       QueryRecentChangeCostCenterResponse)
+        response: QueryRecentChangeCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchCostCenterRequest,
-               option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
+    def search(
+        self, request: SearchCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> SearchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -238,13 +282,16 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCostCenterResponse)
+        response: SearchCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchCostCenterRequest,
-                      option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
+    async def asearch(
+        self, request: SearchCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> SearchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -255,12 +302,16 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCostCenterResponse)
+        response: SearchCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    def tree(self, request: TreeCostCenterRequest, option: Optional[RequestOption] = None) -> TreeCostCenterResponse:
+    def tree(
+        self, request: TreeCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> TreeCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -275,13 +326,16 @@ class CostCenter(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TreeCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeCostCenterResponse)
+        response: TreeCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TreeCostCenterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atree(self, request: TreeCostCenterRequest,
-                    option: Optional[RequestOption] = None) -> TreeCostCenterResponse:
+    async def atree(
+        self, request: TreeCostCenterRequest, option: Optional[RequestOption] = None
+    ) -> TreeCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -292,7 +346,9 @@ class CostCenter(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TreeCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeCostCenterResponse)
+        response: TreeCostCenterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TreeCostCenterResponse
+        )
         response.raw = resp
 
         return response

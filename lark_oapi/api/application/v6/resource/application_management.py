@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.update_application_management_request import UpdateApplicationManagementRequest
-from ..model.update_application_management_response import UpdateApplicationManagementResponse
+from ..model.update_application_management_request import (
+    UpdateApplicationManagementRequest,
+)
+from ..model.update_application_management_response import (
+    UpdateApplicationManagementResponse,
+)
 
 
 class ApplicationManagement(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateApplicationManagementRequest,
-               option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
+    def update(
+        self,
+        request: UpdateApplicationManagementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateApplicationManagementResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ApplicationManagement(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateApplicationManagementResponse)
+        response: UpdateApplicationManagementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateApplicationManagementResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateApplicationManagementRequest,
-                      option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
+    async def aupdate(
+        self,
+        request: UpdateApplicationManagementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateApplicationManagementResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ApplicationManagement(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateApplicationManagementResponse)
+        response: UpdateApplicationManagementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateApplicationManagementResponse
+        )
         response.raw = resp
 
         return response

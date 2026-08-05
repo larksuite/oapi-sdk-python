@@ -16,7 +16,6 @@ class GetMailgroupRequest(BaseRequest):
 
 
 class GetMailgroupRequestBuilder(object):
-
     def __init__(self) -> None:
         get_mailgroup_request = GetMailgroupRequest()
         get_mailgroup_request.http_method = HttpMethod.GET

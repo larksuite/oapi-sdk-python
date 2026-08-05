@@ -21,13 +21,19 @@ class ListUserMailboxMessageRequest(BaseRequest):
 
 
 class ListUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_mailbox_message_request = ListUserMailboxMessageRequest()
         list_user_mailbox_message_request.http_method = HttpMethod.GET
-        list_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages"
-        list_user_mailbox_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_user_mailbox_message_request: ListUserMailboxMessageRequest = list_user_mailbox_message_request
+        list_user_mailbox_message_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages"
+        )
+        list_user_mailbox_message_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_user_mailbox_message_request: ListUserMailboxMessageRequest = (
+            list_user_mailbox_message_request
+        )
 
     def page_size(self, page_size: int) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.page_size = page_size
@@ -54,9 +60,13 @@ class ListUserMailboxMessageRequestBuilder(object):
         self._list_user_mailbox_message_request.add_query("label_id", label_id)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxMessageRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListUserMailboxMessageRequestBuilder":
         self._list_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._list_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._list_user_mailbox_message_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> ListUserMailboxMessageRequest:

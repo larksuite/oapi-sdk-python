@@ -27,7 +27,9 @@ class GetMeetingListResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_meeting_list_response_body = GetMeetingListResponseBody()
 
-    def meeting_list(self, meeting_list: List[MeetingInfo]) -> "GetMeetingListResponseBodyBuilder":
+    def meeting_list(
+        self, meeting_list: List[MeetingInfo]
+    ) -> "GetMeetingListResponseBodyBuilder":
         self._get_meeting_list_response_body.meeting_list = meeting_list
         return self
 

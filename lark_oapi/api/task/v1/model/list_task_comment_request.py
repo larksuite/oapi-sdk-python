@@ -20,13 +20,17 @@ class ListTaskCommentRequest(BaseRequest):
 
 
 class ListTaskCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_comment_request = ListTaskCommentRequest()
         list_task_comment_request.http_method = HttpMethod.GET
         list_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments"
-        list_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_task_comment_request: ListTaskCommentRequest = list_task_comment_request
+        list_task_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_task_comment_request: ListTaskCommentRequest = (
+            list_task_comment_request
+        )
 
     def page_size(self, page_size: int) -> "ListTaskCommentRequestBuilder":
         self._list_task_comment_request.page_size = page_size

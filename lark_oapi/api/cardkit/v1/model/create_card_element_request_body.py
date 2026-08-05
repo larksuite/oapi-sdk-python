@@ -34,7 +34,9 @@ class CreateCardElementRequestBodyBuilder(object):
         self._create_card_element_request_body.type = type
         return self
 
-    def target_element_id(self, target_element_id: str) -> "CreateCardElementRequestBodyBuilder":
+    def target_element_id(
+        self, target_element_id: str
+    ) -> "CreateCardElementRequestBodyBuilder":
         self._create_card_element_request_body.target_element_id = target_element_id
         return self
 

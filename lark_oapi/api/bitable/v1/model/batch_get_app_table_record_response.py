@@ -9,7 +9,6 @@ from .batch_get_app_table_record_response_body import BatchGetAppTableRecordResp
 class BatchGetAppTableRecordResponse(BaseResponse):
     _types = {
         "data": BatchGetAppTableRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

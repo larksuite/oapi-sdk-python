@@ -16,19 +16,26 @@ class DeleteEmployeesInternationalAssignmentRequest(BaseRequest):
 
 
 class DeleteEmployeesInternationalAssignmentRequestBuilder(object):
-
     def __init__(self) -> None:
-        delete_employees_international_assignment_request = DeleteEmployeesInternationalAssignmentRequest()
-        delete_employees_international_assignment_request.http_method = HttpMethod.DELETE
+        delete_employees_international_assignment_request = (
+            DeleteEmployeesInternationalAssignmentRequest()
+        )
+        delete_employees_international_assignment_request.http_method = (
+            HttpMethod.DELETE
+        )
         delete_employees_international_assignment_request.uri = "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-        delete_employees_international_assignment_request.token_types = {AccessTokenType.TENANT}
+        delete_employees_international_assignment_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._delete_employees_international_assignment_request: DeleteEmployeesInternationalAssignmentRequest = delete_employees_international_assignment_request
 
-    def international_assignment_id(self,
-                                    international_assignment_id: str) -> "DeleteEmployeesInternationalAssignmentRequestBuilder":
+    def international_assignment_id(
+        self, international_assignment_id: str
+    ) -> "DeleteEmployeesInternationalAssignmentRequestBuilder":
         self._delete_employees_international_assignment_request.international_assignment_id = international_assignment_id
-        self._delete_employees_international_assignment_request.paths["international_assignment_id"] = str(
-            international_assignment_id)
+        self._delete_employees_international_assignment_request.paths[
+            "international_assignment_id"
+        ] = str(international_assignment_id)
         return self
 
     def build(self) -> DeleteEmployeesInternationalAssignmentRequest:

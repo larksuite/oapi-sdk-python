@@ -41,7 +41,9 @@ class CostAllocationPlanBuilder(object):
         self._cost_allocation_plan.names = names
         return self
 
-    def applicable_country_region(self, applicable_country_region: str) -> "CostAllocationPlanBuilder":
+    def applicable_country_region(
+        self, applicable_country_region: str
+    ) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.applicable_country_region = applicable_country_region
         return self
 

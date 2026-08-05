@@ -25,11 +25,15 @@ class ParentsDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._parents_department_response_body = ParentsDepartmentResponseBody()
 
-    def items(self, items: List[DepartmentParents]) -> "ParentsDepartmentResponseBodyBuilder":
+    def items(
+        self, items: List[DepartmentParents]
+    ) -> "ParentsDepartmentResponseBodyBuilder":
         self._parents_department_response_body.items = items
         return self
 
-    def reject_export(self, reject_export: bool) -> "ParentsDepartmentResponseBodyBuilder":
+    def reject_export(
+        self, reject_export: bool
+    ) -> "ParentsDepartmentResponseBodyBuilder":
         self._parents_department_response_body.reject_export = reject_export
         return self
 

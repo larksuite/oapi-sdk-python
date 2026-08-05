@@ -20,7 +20,6 @@ class QueryCustomOrgRequest(BaseRequest):
 
 
 class QueryCustomOrgRequestBuilder(object):
-
     def __init__(self) -> None:
         query_custom_org_request = QueryCustomOrgRequest()
         query_custom_org_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class QueryCustomOrgRequestBuilder(object):
         self._query_custom_org_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryCustomOrgRequestBody) -> "QueryCustomOrgRequestBuilder":
+    def request_body(
+        self, request_body: QueryCustomOrgRequestBody
+    ) -> "QueryCustomOrgRequestBuilder":
         self._query_custom_org_request.request_body = request_body
         self._query_custom_org_request.body = request_body
         return self

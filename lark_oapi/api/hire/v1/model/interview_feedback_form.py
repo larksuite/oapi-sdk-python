@@ -51,12 +51,17 @@ class InterviewFeedbackFormBuilder(object):
         self._interview_feedback_form.type = type
         return self
 
-    def score_calculation_config(self,
-                                 score_calculation_config: ScoreCalculationConfig) -> "InterviewFeedbackFormBuilder":
-        self._interview_feedback_form.score_calculation_config = score_calculation_config
+    def score_calculation_config(
+        self, score_calculation_config: ScoreCalculationConfig
+    ) -> "InterviewFeedbackFormBuilder":
+        self._interview_feedback_form.score_calculation_config = (
+            score_calculation_config
+        )
         return self
 
-    def modules(self, modules: List[InterviewFeedbackFormModule]) -> "InterviewFeedbackFormBuilder":
+    def modules(
+        self, modules: List[InterviewFeedbackFormModule]
+    ) -> "InterviewFeedbackFormBuilder":
         self._interview_feedback_form.modules = modules
         return self
 

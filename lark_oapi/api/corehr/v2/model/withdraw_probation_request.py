@@ -19,13 +19,14 @@ class WithdrawProbationRequest(BaseRequest):
 
 
 class WithdrawProbationRequestBuilder(object):
-
     def __init__(self) -> None:
         withdraw_probation_request = WithdrawProbationRequest()
         withdraw_probation_request.http_method = HttpMethod.POST
         withdraw_probation_request.uri = "/open-apis/corehr/v2/probation/withdraw"
         withdraw_probation_request.token_types = {AccessTokenType.TENANT}
-        self._withdraw_probation_request: WithdrawProbationRequest = withdraw_probation_request
+        self._withdraw_probation_request: WithdrawProbationRequest = (
+            withdraw_probation_request
+        )
 
     def client_token(self, client_token: str) -> "WithdrawProbationRequestBuilder":
         self._withdraw_probation_request.client_token = client_token
@@ -37,7 +38,9 @@ class WithdrawProbationRequestBuilder(object):
         self._withdraw_probation_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: WithdrawProbationRequestBody) -> "WithdrawProbationRequestBuilder":
+    def request_body(
+        self, request_body: WithdrawProbationRequestBody
+    ) -> "WithdrawProbationRequestBuilder":
         self._withdraw_probation_request.request_body = request_body
         self._withdraw_probation_request.body = request_body
         return self

@@ -17,22 +17,32 @@ class DeleteUserMailboxMailContactRequest(BaseRequest):
 
 
 class DeleteUserMailboxMailContactRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_user_mailbox_mail_contact_request = DeleteUserMailboxMailContactRequest()
         delete_user_mailbox_mail_contact_request.http_method = HttpMethod.DELETE
         delete_user_mailbox_mail_contact_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/mail_contacts/:mail_contact_id"
-        delete_user_mailbox_mail_contact_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_user_mailbox_mail_contact_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._delete_user_mailbox_mail_contact_request: DeleteUserMailboxMailContactRequest = delete_user_mailbox_mail_contact_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxMailContactRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "DeleteUserMailboxMailContactRequestBuilder":
         self._delete_user_mailbox_mail_contact_request.user_mailbox_id = user_mailbox_id
-        self._delete_user_mailbox_mail_contact_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._delete_user_mailbox_mail_contact_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def mail_contact_id(self, mail_contact_id: str) -> "DeleteUserMailboxMailContactRequestBuilder":
+    def mail_contact_id(
+        self, mail_contact_id: str
+    ) -> "DeleteUserMailboxMailContactRequestBuilder":
         self._delete_user_mailbox_mail_contact_request.mail_contact_id = mail_contact_id
-        self._delete_user_mailbox_mail_contact_request.paths["mail_contact_id"] = str(mail_contact_id)
+        self._delete_user_mailbox_mail_contact_request.paths["mail_contact_id"] = str(
+            mail_contact_id
+        )
         return self
 
     def build(self) -> DeleteUserMailboxMailContactRequest:

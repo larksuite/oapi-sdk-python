@@ -16,7 +16,6 @@ class GetShiftRequest(BaseRequest):
 
 
 class GetShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         get_shift_request = GetShiftRequest()
         get_shift_request.http_method = HttpMethod.GET

@@ -19,7 +19,9 @@ class Tag(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTagRequest, option: Optional[RequestOption] = None) -> CreateTagResponse:
+    def create(
+        self, request: CreateTagRequest, option: Optional[RequestOption] = None
+    ) -> CreateTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Tag(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTagResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTagResponse)
+        response: CreateTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTagResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTagRequest, option: Optional[RequestOption] = None) -> CreateTagResponse:
+    async def acreate(
+        self, request: CreateTagRequest, option: Optional[RequestOption] = None
+    ) -> CreateTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Tag(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTagResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTagResponse)
+        response: CreateTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTagResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchTagRequest, option: Optional[RequestOption] = None) -> PatchTagResponse:
+    def patch(
+        self, request: PatchTagRequest, option: Optional[RequestOption] = None
+    ) -> PatchTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class Tag(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchTagResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTagResponse)
+        response: PatchTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTagResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchTagRequest, option: Optional[RequestOption] = None) -> PatchTagResponse:
+    async def apatch(
+        self, request: PatchTagRequest, option: Optional[RequestOption] = None
+    ) -> PatchTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class Tag(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchTagResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTagResponse)
+        response: PatchTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTagResponse
+        )
         response.raw = resp
 
         return response

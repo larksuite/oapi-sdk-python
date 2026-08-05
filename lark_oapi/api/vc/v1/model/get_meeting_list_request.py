@@ -27,12 +27,14 @@ class GetMeetingListRequest(BaseRequest):
 
 
 class GetMeetingListRequestBuilder(object):
-
     def __init__(self) -> None:
         get_meeting_list_request = GetMeetingListRequest()
         get_meeting_list_request.http_method = HttpMethod.GET
         get_meeting_list_request.uri = "/open-apis/vc/v1/meeting_list"
-        get_meeting_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_meeting_list_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_meeting_list_request: GetMeetingListRequest = get_meeting_list_request
 
     def start_time(self, start_time: int) -> "GetMeetingListRequestBuilder":
@@ -80,9 +82,15 @@ class GetMeetingListRequestBuilder(object):
         self._get_meeting_list_request.add_query("page_token", page_token)
         return self
 
-    def include_external_meetings(self, include_external_meetings: bool) -> "GetMeetingListRequestBuilder":
-        self._get_meeting_list_request.include_external_meetings = include_external_meetings
-        self._get_meeting_list_request.add_query("include_external_meetings", include_external_meetings)
+    def include_external_meetings(
+        self, include_external_meetings: bool
+    ) -> "GetMeetingListRequestBuilder":
+        self._get_meeting_list_request.include_external_meetings = (
+            include_external_meetings
+        )
+        self._get_meeting_list_request.add_query(
+            "include_external_meetings", include_external_meetings
+        )
         return self
 
     def include_webinar(self, include_webinar: bool) -> "GetMeetingListRequestBuilder":

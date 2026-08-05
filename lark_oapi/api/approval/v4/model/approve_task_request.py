@@ -18,7 +18,6 @@ class ApproveTaskRequest(BaseRequest):
 
 
 class ApproveTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         approve_task_request = ApproveTaskRequest()
         approve_task_request.http_method = HttpMethod.POST

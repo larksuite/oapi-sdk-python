@@ -20,9 +20,13 @@ class AddManagersChatManagersRequestBody(object):
 
 class AddManagersChatManagersRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._add_managers_chat_managers_request_body = AddManagersChatManagersRequestBody()
+        self._add_managers_chat_managers_request_body = (
+            AddManagersChatManagersRequestBody()
+        )
 
-    def manager_ids(self, manager_ids: List[str]) -> "AddManagersChatManagersRequestBodyBuilder":
+    def manager_ids(
+        self, manager_ids: List[str]
+    ) -> "AddManagersChatManagersRequestBodyBuilder":
         self._add_managers_chat_managers_request_body.manager_ids = manager_ids
         return self
 

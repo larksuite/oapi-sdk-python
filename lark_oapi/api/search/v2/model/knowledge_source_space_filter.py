@@ -28,7 +28,9 @@ class KnowledgeSourceSpaceFilterBuilder(object):
         self._knowledge_source_space_filter.doc_tokens = doc_tokens
         return self
 
-    def folder_tokens(self, folder_tokens: List[str]) -> "KnowledgeSourceSpaceFilterBuilder":
+    def folder_tokens(
+        self, folder_tokens: List[str]
+    ) -> "KnowledgeSourceSpaceFilterBuilder":
         self._knowledge_source_space_filter.folder_tokens = folder_tokens
         return self
 

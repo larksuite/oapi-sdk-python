@@ -17,7 +17,9 @@ class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
+    def query(
+        self, request: QueryTaskRequest, option: Optional[RequestOption] = None
+    ) -> QueryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
+        response: QueryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
+    async def aquery(
+        self, request: QueryTaskRequest, option: Optional[RequestOption] = None
+    ) -> QueryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
+        response: QueryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryTaskResponse
+        )
         response.raw = resp
 
         return response

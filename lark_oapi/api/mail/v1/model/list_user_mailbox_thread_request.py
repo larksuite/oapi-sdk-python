@@ -21,13 +21,19 @@ class ListUserMailboxThreadRequest(BaseRequest):
 
 
 class ListUserMailboxThreadRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_mailbox_thread_request = ListUserMailboxThreadRequest()
         list_user_mailbox_thread_request.http_method = HttpMethod.GET
-        list_user_mailbox_thread_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads"
-        list_user_mailbox_thread_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_user_mailbox_thread_request: ListUserMailboxThreadRequest = list_user_mailbox_thread_request
+        list_user_mailbox_thread_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads"
+        )
+        list_user_mailbox_thread_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_user_mailbox_thread_request: ListUserMailboxThreadRequest = (
+            list_user_mailbox_thread_request
+        )
 
     def page_size(self, page_size: int) -> "ListUserMailboxThreadRequestBuilder":
         self._list_user_mailbox_thread_request.page_size = page_size
@@ -54,9 +60,13 @@ class ListUserMailboxThreadRequestBuilder(object):
         self._list_user_mailbox_thread_request.add_query("label_id", label_id)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxThreadRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListUserMailboxThreadRequestBuilder":
         self._list_user_mailbox_thread_request.user_mailbox_id = user_mailbox_id
-        self._list_user_mailbox_thread_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._list_user_mailbox_thread_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> ListUserMailboxThreadRequest:

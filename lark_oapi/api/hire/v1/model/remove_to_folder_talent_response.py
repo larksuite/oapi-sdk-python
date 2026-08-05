@@ -9,7 +9,6 @@ from .remove_to_folder_talent_response_body import RemoveToFolderTalentResponseB
 class RemoveToFolderTalentResponse(BaseResponse):
     _types = {
         "data": RemoveToFolderTalentResponseBody,
-
     }
 
     def __init__(self, d=None):

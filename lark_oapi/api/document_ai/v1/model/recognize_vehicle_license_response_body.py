@@ -21,9 +21,13 @@ class RecognizeVehicleLicenseResponseBody(object):
 
 class RecognizeVehicleLicenseResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_vehicle_license_response_body = RecognizeVehicleLicenseResponseBody()
+        self._recognize_vehicle_license_response_body = (
+            RecognizeVehicleLicenseResponseBody()
+        )
 
-    def vehicle_license(self, vehicle_license: VehicleLicense) -> "RecognizeVehicleLicenseResponseBodyBuilder":
+    def vehicle_license(
+        self, vehicle_license: VehicleLicense
+    ) -> "RecognizeVehicleLicenseResponseBodyBuilder":
         self._recognize_vehicle_license_response_body.vehicle_license = vehicle_license
         return self
 

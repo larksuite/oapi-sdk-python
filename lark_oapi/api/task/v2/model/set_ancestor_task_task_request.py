@@ -18,20 +18,28 @@ class SetAncestorTaskTaskRequest(BaseRequest):
 
 
 class SetAncestorTaskTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         set_ancestor_task_task_request = SetAncestorTaskTaskRequest()
         set_ancestor_task_task_request.http_method = HttpMethod.POST
-        set_ancestor_task_task_request.uri = "/open-apis/task/v2/tasks/:task_guid/set_ancestor_task"
-        set_ancestor_task_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._set_ancestor_task_task_request: SetAncestorTaskTaskRequest = set_ancestor_task_task_request
+        set_ancestor_task_task_request.uri = (
+            "/open-apis/task/v2/tasks/:task_guid/set_ancestor_task"
+        )
+        set_ancestor_task_task_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._set_ancestor_task_task_request: SetAncestorTaskTaskRequest = (
+            set_ancestor_task_task_request
+        )
 
     def task_guid(self, task_guid: str) -> "SetAncestorTaskTaskRequestBuilder":
         self._set_ancestor_task_task_request.task_guid = task_guid
         self._set_ancestor_task_task_request.paths["task_guid"] = str(task_guid)
         return self
 
-    def request_body(self, request_body: SetAncestorTaskTaskRequestBody) -> "SetAncestorTaskTaskRequestBuilder":
+    def request_body(
+        self, request_body: SetAncestorTaskTaskRequestBody
+    ) -> "SetAncestorTaskTaskRequestBuilder":
         self._set_ancestor_task_task_request.request_body = request_body
         self._set_ancestor_task_task_request.body = request_body
         return self

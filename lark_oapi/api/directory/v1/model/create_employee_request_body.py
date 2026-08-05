@@ -30,7 +30,9 @@ class CreateEmployeeRequestBodyBuilder(object):
         self._create_employee_request_body.employee = employee
         return self
 
-    def options(self, options: CreateEmployeeOptions) -> "CreateEmployeeRequestBodyBuilder":
+    def options(
+        self, options: CreateEmployeeOptions
+    ) -> "CreateEmployeeRequestBodyBuilder":
         self._create_employee_request_body.options = options
         return self
 

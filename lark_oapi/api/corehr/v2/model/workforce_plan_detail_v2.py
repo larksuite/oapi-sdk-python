@@ -35,8 +35,12 @@ class WorkforcePlanDetailV2(object):
         self.vacancy: Optional[str] = None
         self.vacancy_including_individuals_to_be_added_and_removed: Optional[str] = None
         self.fulfillment_rate: Optional[str] = None
-        self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[str] = None
-        self.estimated_active_individuals_details: Optional[List[WorkforcePlanEaiDetail]] = None
+        self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[
+            str
+        ] = None
+        self.estimated_active_individuals_details: Optional[
+            List[WorkforcePlanEaiDetail]
+        ] = None
         self.multi_period_values: Optional[List[WorkforcePlanMultiPeriodValue]] = None
         self.is_missing_dimension: Optional[bool] = None
         self.is_all_zero_value: Optional[bool] = None
@@ -51,11 +55,17 @@ class WorkforcePlanDetailV2Builder(object):
     def __init__(self) -> None:
         self._workforce_plan_detail_v2 = WorkforcePlanDetailV2()
 
-    def workforce_plan_detail_id(self, workforce_plan_detail_id: str) -> "WorkforcePlanDetailV2Builder":
-        self._workforce_plan_detail_v2.workforce_plan_detail_id = workforce_plan_detail_id
+    def workforce_plan_detail_id(
+        self, workforce_plan_detail_id: str
+    ) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.workforce_plan_detail_id = (
+            workforce_plan_detail_id
+        )
         return self
 
-    def dimension_info_datas(self, dimension_info_datas: List[DimensionInfoData]) -> "WorkforcePlanDetailV2Builder":
+    def dimension_info_datas(
+        self, dimension_info_datas: List[DimensionInfoData]
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.dimension_info_datas = dimension_info_datas
         return self
 
@@ -63,24 +73,33 @@ class WorkforcePlanDetailV2Builder(object):
         self._workforce_plan_detail_v2.workforce_plan = workforce_plan
         return self
 
-    def active_individuals(self, active_individuals: str) -> "WorkforcePlanDetailV2Builder":
+    def active_individuals(
+        self, active_individuals: str
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.active_individuals = active_individuals
         return self
 
-    def individuals_to_be_added(self, individuals_to_be_added: str) -> "WorkforcePlanDetailV2Builder":
+    def individuals_to_be_added(
+        self, individuals_to_be_added: str
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.individuals_to_be_added = individuals_to_be_added
         return self
 
-    def individuals_to_be_removed(self, individuals_to_be_removed: str) -> "WorkforcePlanDetailV2Builder":
-        self._workforce_plan_detail_v2.individuals_to_be_removed = individuals_to_be_removed
+    def individuals_to_be_removed(
+        self, individuals_to_be_removed: str
+    ) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.individuals_to_be_removed = (
+            individuals_to_be_removed
+        )
         return self
 
     def vacancy(self, vacancy: str) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.vacancy = vacancy
         return self
 
-    def vacancy_including_individuals_to_be_added_and_removed(self,
-                                                              vacancy_including_individuals_to_be_added_and_removed: str) -> "WorkforcePlanDetailV2Builder":
+    def vacancy_including_individuals_to_be_added_and_removed(
+        self, vacancy_including_individuals_to_be_added_and_removed: str
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.vacancy_including_individuals_to_be_added_and_removed = vacancy_including_individuals_to_be_added_and_removed
         return self
 
@@ -88,26 +107,35 @@ class WorkforcePlanDetailV2Builder(object):
         self._workforce_plan_detail_v2.fulfillment_rate = fulfillment_rate
         return self
 
-    def fulfillment_rate_including_individuals_to_be_added_and_removed(self,
-                                                                       fulfillment_rate_including_individuals_to_be_added_and_removed: str) -> "WorkforcePlanDetailV2Builder":
+    def fulfillment_rate_including_individuals_to_be_added_and_removed(
+        self, fulfillment_rate_including_individuals_to_be_added_and_removed: str
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.fulfillment_rate_including_individuals_to_be_added_and_removed = fulfillment_rate_including_individuals_to_be_added_and_removed
         return self
 
-    def estimated_active_individuals_details(self, estimated_active_individuals_details: List[
-        WorkforcePlanEaiDetail]) -> "WorkforcePlanDetailV2Builder":
-        self._workforce_plan_detail_v2.estimated_active_individuals_details = estimated_active_individuals_details
+    def estimated_active_individuals_details(
+        self, estimated_active_individuals_details: List[WorkforcePlanEaiDetail]
+    ) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.estimated_active_individuals_details = (
+            estimated_active_individuals_details
+        )
         return self
 
-    def multi_period_values(self,
-                            multi_period_values: List[WorkforcePlanMultiPeriodValue]) -> "WorkforcePlanDetailV2Builder":
+    def multi_period_values(
+        self, multi_period_values: List[WorkforcePlanMultiPeriodValue]
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.multi_period_values = multi_period_values
         return self
 
-    def is_missing_dimension(self, is_missing_dimension: bool) -> "WorkforcePlanDetailV2Builder":
+    def is_missing_dimension(
+        self, is_missing_dimension: bool
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.is_missing_dimension = is_missing_dimension
         return self
 
-    def is_all_zero_value(self, is_all_zero_value: bool) -> "WorkforcePlanDetailV2Builder":
+    def is_all_zero_value(
+        self, is_all_zero_value: bool
+    ) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.is_all_zero_value = is_all_zero_value
         return self
 

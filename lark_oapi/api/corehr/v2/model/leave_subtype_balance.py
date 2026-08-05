@@ -57,11 +57,15 @@ class LeaveSubtypeBalanceBuilder(object):
         self._leave_subtype_balance.leave_type_id = leave_type_id
         return self
 
-    def leave_type_name(self, leave_type_name: List[I18n]) -> "LeaveSubtypeBalanceBuilder":
+    def leave_type_name(
+        self, leave_type_name: List[I18n]
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.leave_type_name = leave_type_name
         return self
 
-    def historical_cycles_left(self, historical_cycles_left: str) -> "LeaveSubtypeBalanceBuilder":
+    def historical_cycles_left(
+        self, historical_cycles_left: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.historical_cycles_left = historical_cycles_left
         return self
 
@@ -77,15 +81,21 @@ class LeaveSubtypeBalanceBuilder(object):
         self._leave_subtype_balance.leave_balance = leave_balance
         return self
 
-    def leave_duration_unit(self, leave_duration_unit: int) -> "LeaveSubtypeBalanceBuilder":
+    def leave_duration_unit(
+        self, leave_duration_unit: int
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.leave_duration_unit = leave_duration_unit
         return self
 
-    def history_cycle_accrual(self, history_cycle_accrual: str) -> "LeaveSubtypeBalanceBuilder":
+    def history_cycle_accrual(
+        self, history_cycle_accrual: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.history_cycle_accrual = history_cycle_accrual
         return self
 
-    def balance_in_current_cycle(self, balance_in_current_cycle: str) -> "LeaveSubtypeBalanceBuilder":
+    def balance_in_current_cycle(
+        self, balance_in_current_cycle: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.balance_in_current_cycle = balance_in_current_cycle
         return self
 
@@ -93,29 +103,44 @@ class LeaveSubtypeBalanceBuilder(object):
         self._leave_subtype_balance.taken = taken
         return self
 
-    def taken_history_cycle(self, taken_history_cycle: str) -> "LeaveSubtypeBalanceBuilder":
+    def taken_history_cycle(
+        self, taken_history_cycle: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.taken_history_cycle = taken_history_cycle
         return self
 
-    def offboarding_balance(self, offboarding_balance: str) -> "LeaveSubtypeBalanceBuilder":
+    def offboarding_balance(
+        self, offboarding_balance: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.offboarding_balance = offboarding_balance
         return self
 
-    def taken_current_date(self, taken_current_date: str) -> "LeaveSubtypeBalanceBuilder":
+    def taken_current_date(
+        self, taken_current_date: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.taken_current_date = taken_current_date
         return self
 
-    def offboarding_granted(self, offboarding_granted: str) -> "LeaveSubtypeBalanceBuilder":
+    def offboarding_granted(
+        self, offboarding_granted: str
+    ) -> "LeaveSubtypeBalanceBuilder":
         self._leave_subtype_balance.offboarding_granted = offboarding_granted
         return self
 
-    def leave_balance_excluding_under_approval(self,
-                                               leave_balance_excluding_under_approval: str) -> "LeaveSubtypeBalanceBuilder":
-        self._leave_subtype_balance.leave_balance_excluding_under_approval = leave_balance_excluding_under_approval
+    def leave_balance_excluding_under_approval(
+        self, leave_balance_excluding_under_approval: str
+    ) -> "LeaveSubtypeBalanceBuilder":
+        self._leave_subtype_balance.leave_balance_excluding_under_approval = (
+            leave_balance_excluding_under_approval
+        )
         return self
 
-    def leave_quantity_under_approval(self, leave_quantity_under_approval: str) -> "LeaveSubtypeBalanceBuilder":
-        self._leave_subtype_balance.leave_quantity_under_approval = leave_quantity_under_approval
+    def leave_quantity_under_approval(
+        self, leave_quantity_under_approval: str
+    ) -> "LeaveSubtypeBalanceBuilder":
+        self._leave_subtype_balance.leave_quantity_under_approval = (
+            leave_quantity_under_approval
+        )
         return self
 
     def build(self) -> "LeaveSubtypeBalance":

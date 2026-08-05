@@ -41,7 +41,9 @@ class ArchiveReportDataBuilder(object):
         self._archive_report_data.end_time = end_time
         return self
 
-    def field_datas(self, field_datas: List[ArchiveFieldData]) -> "ArchiveReportDataBuilder":
+    def field_datas(
+        self, field_datas: List[ArchiveFieldData]
+    ) -> "ArchiveReportDataBuilder":
         self._archive_report_data.field_datas = field_datas
         return self
 

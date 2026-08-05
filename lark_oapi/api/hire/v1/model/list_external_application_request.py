@@ -18,13 +18,16 @@ class ListExternalApplicationRequest(BaseRequest):
 
 
 class ListExternalApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_external_application_request = ListExternalApplicationRequest()
         list_external_application_request.http_method = HttpMethod.GET
-        list_external_application_request.uri = "/open-apis/hire/v1/external_applications"
+        list_external_application_request.uri = (
+            "/open-apis/hire/v1/external_applications"
+        )
         list_external_application_request.token_types = {AccessTokenType.TENANT}
-        self._list_external_application_request: ListExternalApplicationRequest = list_external_application_request
+        self._list_external_application_request: ListExternalApplicationRequest = (
+            list_external_application_request
+        )
 
     def talent_id(self, talent_id: str) -> "ListExternalApplicationRequestBuilder":
         self._list_external_application_request.talent_id = talent_id

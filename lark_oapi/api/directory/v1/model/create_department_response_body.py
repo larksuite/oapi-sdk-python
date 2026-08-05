@@ -22,7 +22,9 @@ class CreateDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_department_response_body = CreateDepartmentResponseBody()
 
-    def department_id(self, department_id: str) -> "CreateDepartmentResponseBodyBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "CreateDepartmentResponseBodyBuilder":
         self._create_department_response_body.department_id = department_id
         return self
 

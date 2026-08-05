@@ -22,7 +22,9 @@ class EmployeesAdditionalJobBatchReqDate(object):
 
 class EmployeesAdditionalJobBatchReqDateBuilder(object):
     def __init__(self) -> None:
-        self._employees_additional_job_batch_req_date = EmployeesAdditionalJobBatchReqDate()
+        self._employees_additional_job_batch_req_date = (
+            EmployeesAdditionalJobBatchReqDate()
+        )
 
     def start(self, start: str) -> "EmployeesAdditionalJobBatchReqDateBuilder":
         self._employees_additional_job_batch_req_date.start = start

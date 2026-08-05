@@ -22,13 +22,19 @@ class CreateRefreshAccessTokenRequestBody(object):
 
 class CreateRefreshAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_refresh_access_token_request_body = CreateRefreshAccessTokenRequestBody()
+        self._create_refresh_access_token_request_body = (
+            CreateRefreshAccessTokenRequestBody()
+        )
 
-    def grant_type(self, grant_type: str) -> "CreateRefreshAccessTokenRequestBodyBuilder":
+    def grant_type(
+        self, grant_type: str
+    ) -> "CreateRefreshAccessTokenRequestBodyBuilder":
         self._create_refresh_access_token_request_body.grant_type = grant_type
         return self
 
-    def refresh_token(self, refresh_token: str) -> "CreateRefreshAccessTokenRequestBodyBuilder":
+    def refresh_token(
+        self, refresh_token: str
+    ) -> "CreateRefreshAccessTokenRequestBodyBuilder":
         self._create_refresh_access_token_request_body.refresh_token = refresh_token
         return self
 

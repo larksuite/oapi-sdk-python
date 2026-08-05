@@ -25,8 +25,9 @@ class Minute(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def artifacts(self, request: ArtifactsMinuteRequest,
-                  option: Optional[RequestOption] = None) -> ArtifactsMinuteResponse:
+    def artifacts(
+        self, request: ArtifactsMinuteRequest, option: Optional[RequestOption] = None
+    ) -> ArtifactsMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +42,16 @@ class Minute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ArtifactsMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), ArtifactsMinuteResponse)
+        response: ArtifactsMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ArtifactsMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aartifacts(self, request: ArtifactsMinuteRequest,
-                         option: Optional[RequestOption] = None) -> ArtifactsMinuteResponse:
+    async def aartifacts(
+        self, request: ArtifactsMinuteRequest, option: Optional[RequestOption] = None
+    ) -> ArtifactsMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,12 +62,16 @@ class Minute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ArtifactsMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), ArtifactsMinuteResponse)
+        response: ArtifactsMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ArtifactsMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetMinuteRequest, option: Optional[RequestOption] = None) -> GetMinuteResponse:
+    def get(
+        self, request: GetMinuteRequest, option: Optional[RequestOption] = None
+    ) -> GetMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,12 +86,16 @@ class Minute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteResponse)
+        response: GetMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetMinuteRequest, option: Optional[RequestOption] = None) -> GetMinuteResponse:
+    async def aget(
+        self, request: GetMinuteRequest, option: Optional[RequestOption] = None
+    ) -> GetMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,12 +106,16 @@ class Minute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteResponse)
+        response: GetMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchMinuteRequest, option: Optional[RequestOption] = None) -> SearchMinuteResponse:
+    def search(
+        self, request: SearchMinuteRequest, option: Optional[RequestOption] = None
+    ) -> SearchMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,13 +130,16 @@ class Minute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMinuteResponse)
+        response: SearchMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchMinuteRequest,
-                      option: Optional[RequestOption] = None) -> SearchMinuteResponse:
+    async def asearch(
+        self, request: SearchMinuteRequest, option: Optional[RequestOption] = None
+    ) -> SearchMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,13 +150,16 @@ class Minute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMinuteResponse)
+        response: SearchMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    def subscription(self, request: SubscriptionMinuteRequest,
-                     option: Optional[RequestOption] = None) -> SubscriptionMinuteResponse:
+    def subscription(
+        self, request: SubscriptionMinuteRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -152,13 +174,16 @@ class Minute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMinuteResponse)
+        response: SubscriptionMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscription(self, request: SubscriptionMinuteRequest,
-                            option: Optional[RequestOption] = None) -> SubscriptionMinuteResponse:
+    async def asubscription(
+        self, request: SubscriptionMinuteRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -169,13 +194,18 @@ class Minute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMinuteResponse)
+        response: SubscriptionMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    def unsubscription(self, request: UnsubscriptionMinuteRequest,
-                       option: Optional[RequestOption] = None) -> UnsubscriptionMinuteResponse:
+    def unsubscription(
+        self,
+        request: UnsubscriptionMinuteRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,13 +220,18 @@ class Minute(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscriptionMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscriptionMinuteResponse)
+        response: UnsubscriptionMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionMinuteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aunsubscription(self, request: UnsubscriptionMinuteRequest,
-                              option: Optional[RequestOption] = None) -> UnsubscriptionMinuteResponse:
+    async def aunsubscription(
+        self,
+        request: UnsubscriptionMinuteRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -207,7 +242,9 @@ class Minute(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscriptionMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscriptionMinuteResponse)
+        response: UnsubscriptionMinuteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionMinuteResponse
+        )
         response.raw = resp
 
         return response

@@ -16,13 +16,19 @@ class TaskSubscriptionTaskV2Request(BaseRequest):
 
 
 class TaskSubscriptionTaskV2RequestBuilder(object):
-
     def __init__(self) -> None:
         task_subscription_task_v2_request = TaskSubscriptionTaskV2Request()
         task_subscription_task_v2_request.http_method = HttpMethod.POST
-        task_subscription_task_v2_request.uri = "/open-apis/task/v2/task_v2/task_subscription"
-        task_subscription_task_v2_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._task_subscription_task_v2_request: TaskSubscriptionTaskV2Request = task_subscription_task_v2_request
+        task_subscription_task_v2_request.uri = (
+            "/open-apis/task/v2/task_v2/task_subscription"
+        )
+        task_subscription_task_v2_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._task_subscription_task_v2_request: TaskSubscriptionTaskV2Request = (
+            task_subscription_task_v2_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "TaskSubscriptionTaskV2RequestBuilder":
         self._task_subscription_task_v2_request.user_id_type = user_id_type

@@ -49,7 +49,9 @@ class OvertimeApprovalBuilder(object):
         self._overtime_approval.create_time = create_time
         return self
 
-    def approval_daily_details(self, approval_daily_details: List[ApprovalDailyDetail]) -> "OvertimeApprovalBuilder":
+    def approval_daily_details(
+        self, approval_daily_details: List[ApprovalDailyDetail]
+    ) -> "OvertimeApprovalBuilder":
         self._overtime_approval.approval_daily_details = approval_daily_details
         return self
 

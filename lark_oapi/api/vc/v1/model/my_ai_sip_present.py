@@ -71,7 +71,9 @@ class MyAiSipPresentBuilder(object):
         self._my_ai_sip_present.card_template_id = card_template_id
         return self
 
-    def card_variables(self, card_variables: MyAiSipCardVariables) -> "MyAiSipPresentBuilder":
+    def card_variables(
+        self, card_variables: MyAiSipCardVariables
+    ) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.card_variables = card_variables
         return self
 

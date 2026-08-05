@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_tasklist_activity_subscription_response_body import GetTasklistActivitySubscriptionResponseBody
+from .get_tasklist_activity_subscription_response_body import (
+    GetTasklistActivitySubscriptionResponseBody,
+)
 
 
 class GetTasklistActivitySubscriptionResponse(BaseResponse):
     _types = {
         "data": GetTasklistActivitySubscriptionResponseBody,
-
     }
 
     def __init__(self, d=None):

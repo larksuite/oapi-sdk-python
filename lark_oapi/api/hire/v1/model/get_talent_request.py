@@ -17,7 +17,6 @@ class GetTalentRequest(BaseRequest):
 
 
 class GetTalentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_talent_request = GetTalentRequest()
         get_talent_request.http_method = HttpMethod.GET

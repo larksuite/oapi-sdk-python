@@ -23,7 +23,9 @@ class OfferApplyFormFormulaExtraMapInfo(object):
 
 class OfferApplyFormFormulaExtraMapInfoBuilder(object):
     def __init__(self) -> None:
-        self._offer_apply_form_formula_extra_map_info = OfferApplyFormFormulaExtraMapInfo()
+        self._offer_apply_form_formula_extra_map_info = (
+            OfferApplyFormFormulaExtraMapInfo()
+        )
 
     def key(self, key: str) -> "OfferApplyFormFormulaExtraMapInfoBuilder":
         self._offer_apply_form_formula_extra_map_info.key = key

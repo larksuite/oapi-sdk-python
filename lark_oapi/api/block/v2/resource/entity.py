@@ -19,7 +19,9 @@ class Entity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateEntityRequest, option: Optional[RequestOption] = None) -> CreateEntityResponse:
+    def create(
+        self, request: CreateEntityRequest, option: Optional[RequestOption] = None
+    ) -> CreateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
+        response: CreateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateEntityRequest,
-                      option: Optional[RequestOption] = None) -> CreateEntityResponse:
+    async def acreate(
+        self, request: CreateEntityRequest, option: Optional[RequestOption] = None
+    ) -> CreateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
+        response: CreateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateEntityRequest, option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+    def update(
+        self, request: UpdateEntityRequest, option: Optional[RequestOption] = None
+    ) -> UpdateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,13 +80,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)
+        response: UpdateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateEntityRequest,
-                      option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+    async def aupdate(
+        self, request: UpdateEntityRequest, option: Optional[RequestOption] = None
+    ) -> UpdateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,7 +100,9 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)
+        response: UpdateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateEntityResponse
+        )
         response.raw = resp
 
         return response

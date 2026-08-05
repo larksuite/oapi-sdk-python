@@ -28,7 +28,9 @@ class MatchingRuleDimensionItemBuilder(object):
     def __init__(self) -> None:
         self._matching_rule_dimension_item = MatchingRuleDimensionItem()
 
-    def dimension_api_name(self, dimension_api_name: str) -> "MatchingRuleDimensionItemBuilder":
+    def dimension_api_name(
+        self, dimension_api_name: str
+    ) -> "MatchingRuleDimensionItemBuilder":
         self._matching_rule_dimension_item.dimension_api_name = dimension_api_name
         return self
 
@@ -36,11 +38,15 @@ class MatchingRuleDimensionItemBuilder(object):
         self._matching_rule_dimension_item.value_boolean = value_boolean
         return self
 
-    def value_enum_ids(self, value_enum_ids: List[str]) -> "MatchingRuleDimensionItemBuilder":
+    def value_enum_ids(
+        self, value_enum_ids: List[str]
+    ) -> "MatchingRuleDimensionItemBuilder":
         self._matching_rule_dimension_item.value_enum_ids = value_enum_ids
         return self
 
-    def value_lookup_ids(self, value_lookup_ids: List[str]) -> "MatchingRuleDimensionItemBuilder":
+    def value_lookup_ids(
+        self, value_lookup_ids: List[str]
+    ) -> "MatchingRuleDimensionItemBuilder":
         self._matching_rule_dimension_item.value_lookup_ids = value_lookup_ids
         return self
 

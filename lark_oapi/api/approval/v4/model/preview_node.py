@@ -72,7 +72,9 @@ class PreviewNodeBuilder(object):
         self._preview_node.is_empty_logic = is_empty_logic
         return self
 
-    def is_approver_type_free(self, is_approver_type_free: bool) -> "PreviewNodeBuilder":
+    def is_approver_type_free(
+        self, is_approver_type_free: bool
+    ) -> "PreviewNodeBuilder":
         self._preview_node.is_approver_type_free = is_approver_type_free
         return self
 

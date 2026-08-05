@@ -17,15 +17,18 @@ class AddSignInstanceRequest(BaseRequest):
 
 
 class AddSignInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         add_sign_instance_request = AddSignInstanceRequest()
         add_sign_instance_request.http_method = HttpMethod.POST
         add_sign_instance_request.uri = "/open-apis/approval/v4/instances/add_sign"
         add_sign_instance_request.token_types = {AccessTokenType.TENANT}
-        self._add_sign_instance_request: AddSignInstanceRequest = add_sign_instance_request
+        self._add_sign_instance_request: AddSignInstanceRequest = (
+            add_sign_instance_request
+        )
 
-    def request_body(self, request_body: AddSignInstanceRequestBody) -> "AddSignInstanceRequestBuilder":
+    def request_body(
+        self, request_body: AddSignInstanceRequestBody
+    ) -> "AddSignInstanceRequestBuilder":
         self._add_sign_instance_request.request_body = request_body
         self._add_sign_instance_request.body = request_body
         return self

@@ -18,7 +18,6 @@ class BatchUserRequest(BaseRequest):
 
 
 class BatchUserRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_user_request = BatchUserRequest()
         batch_user_request.http_method = HttpMethod.GET

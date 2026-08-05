@@ -59,7 +59,9 @@ class MyAiPresentBuilder(object):
         self._my_ai_present.card_template_id = card_template_id
         return self
 
-    def card_variables(self, card_variables: MyAiPresentCardVariables) -> "MyAiPresentBuilder":
+    def card_variables(
+        self, card_variables: MyAiPresentCardVariables
+    ) -> "MyAiPresentBuilder":
         self._my_ai_present.card_variables = card_variables
         return self
 

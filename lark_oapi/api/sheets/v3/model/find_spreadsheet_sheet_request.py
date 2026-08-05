@@ -19,17 +19,27 @@ class FindSpreadsheetSheetRequest(BaseRequest):
 
 
 class FindSpreadsheetSheetRequestBuilder(object):
-
     def __init__(self) -> None:
         find_spreadsheet_sheet_request = FindSpreadsheetSheetRequest()
         find_spreadsheet_sheet_request.http_method = HttpMethod.POST
-        find_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
-        find_spreadsheet_sheet_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._find_spreadsheet_sheet_request: FindSpreadsheetSheetRequest = find_spreadsheet_sheet_request
+        find_spreadsheet_sheet_request.uri = (
+            "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+        )
+        find_spreadsheet_sheet_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._find_spreadsheet_sheet_request: FindSpreadsheetSheetRequest = (
+            find_spreadsheet_sheet_request
+        )
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "FindSpreadsheetSheetRequestBuilder":
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "FindSpreadsheetSheetRequestBuilder":
         self._find_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
-        self._find_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+        self._find_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "FindSpreadsheetSheetRequestBuilder":

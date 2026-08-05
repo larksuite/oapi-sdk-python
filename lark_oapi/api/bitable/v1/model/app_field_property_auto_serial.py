@@ -29,7 +29,9 @@ class AppFieldPropertyAutoSerialBuilder(object):
         self._app_field_property_auto_serial.type = type
         return self
 
-    def options(self, options: List[AppFieldPropertyAutoSerialOptions]) -> "AppFieldPropertyAutoSerialBuilder":
+    def options(
+        self, options: List[AppFieldPropertyAutoSerialOptions]
+    ) -> "AppFieldPropertyAutoSerialBuilder":
         self._app_field_property_auto_serial.options = options
         return self
 

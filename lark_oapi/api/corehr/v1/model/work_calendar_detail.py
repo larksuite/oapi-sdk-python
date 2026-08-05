@@ -31,7 +31,9 @@ class WorkCalendarDetailBuilder(object):
         self._work_calendar_detail.calendar_id = calendar_id
         return self
 
-    def calendar_name(self, calendar_name: WkCalendarI18n) -> "WorkCalendarDetailBuilder":
+    def calendar_name(
+        self, calendar_name: WkCalendarI18n
+    ) -> "WorkCalendarDetailBuilder":
         self._work_calendar_detail.calendar_name = calendar_name
         return self
 

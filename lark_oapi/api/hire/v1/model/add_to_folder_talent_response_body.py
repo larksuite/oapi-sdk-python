@@ -24,7 +24,9 @@ class AddToFolderTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._add_to_folder_talent_response_body = AddToFolderTalentResponseBody()
 
-    def talent_id_list(self, talent_id_list: List[str]) -> "AddToFolderTalentResponseBodyBuilder":
+    def talent_id_list(
+        self, talent_id_list: List[str]
+    ) -> "AddToFolderTalentResponseBodyBuilder":
         self._add_to_folder_talent_response_body.talent_id_list = talent_id_list
         return self
 

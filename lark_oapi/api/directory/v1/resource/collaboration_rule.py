@@ -23,8 +23,11 @@ class CollaborationRule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCollaborationRuleRequest,
-               option: Optional[RequestOption] = None) -> CreateCollaborationRuleResponse:
+    def create(
+        self,
+        request: CreateCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +42,18 @@ class CollaborationRule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   CreateCollaborationRuleResponse)
+        response: CreateCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateCollaborationRuleRequest,
-                      option: Optional[RequestOption] = None) -> CreateCollaborationRuleResponse:
+    async def acreate(
+        self,
+        request: CreateCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +64,18 @@ class CollaborationRule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   CreateCollaborationRuleResponse)
+        response: CreateCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteCollaborationRuleRequest,
-               option: Optional[RequestOption] = None) -> DeleteCollaborationRuleResponse:
+    def delete(
+        self,
+        request: DeleteCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +90,18 @@ class CollaborationRule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   DeleteCollaborationRuleResponse)
+        response: DeleteCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteCollaborationRuleRequest,
-                      option: Optional[RequestOption] = None) -> DeleteCollaborationRuleResponse:
+    async def adelete(
+        self,
+        request: DeleteCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +112,18 @@ class CollaborationRule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   DeleteCollaborationRuleResponse)
+        response: DeleteCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListCollaborationRuleRequest,
-             option: Optional[RequestOption] = None) -> ListCollaborationRuleResponse:
+    def list(
+        self,
+        request: ListCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +138,18 @@ class CollaborationRule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListCollaborationRuleResponse)
+        response: ListCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCollaborationRuleRequest,
-                    option: Optional[RequestOption] = None) -> ListCollaborationRuleResponse:
+    async def alist(
+        self,
+        request: ListCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +160,18 @@ class CollaborationRule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListCollaborationRuleResponse)
+        response: ListCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateCollaborationRuleRequest,
-               option: Optional[RequestOption] = None) -> UpdateCollaborationRuleResponse:
+    def update(
+        self,
+        request: UpdateCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +186,18 @@ class CollaborationRule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   UpdateCollaborationRuleResponse)
+        response: UpdateCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateCollaborationRuleRequest,
-                      option: Optional[RequestOption] = None) -> UpdateCollaborationRuleResponse:
+    async def aupdate(
+        self,
+        request: UpdateCollaborationRuleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateCollaborationRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,8 +208,9 @@ class CollaborationRule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateCollaborationRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   UpdateCollaborationRuleResponse)
+        response: UpdateCollaborationRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateCollaborationRuleResponse
+        )
         response.raw = resp
 
         return response

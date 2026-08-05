@@ -33,7 +33,9 @@ class ApprovalConfigEventBuilder(object):
         self._approval_config_event.approval_switch = approval_switch
         return self
 
-    def approval_condition(self, approval_condition: int) -> "ApprovalConfigEventBuilder":
+    def approval_condition(
+        self, approval_condition: int
+    ) -> "ApprovalConfigEventBuilder":
         self._approval_config_event.approval_condition = approval_condition
         return self
 
@@ -41,7 +43,9 @@ class ApprovalConfigEventBuilder(object):
         self._approval_config_event.meeting_duration = meeting_duration
         return self
 
-    def approvers(self, approvers: List[SubscribeUserEvent]) -> "ApprovalConfigEventBuilder":
+    def approvers(
+        self, approvers: List[SubscribeUserEvent]
+    ) -> "ApprovalConfigEventBuilder":
         self._approval_config_event.approvers = approvers
         return self
 

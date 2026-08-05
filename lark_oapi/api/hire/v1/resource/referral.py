@@ -10,7 +10,9 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_by_application_referral_request import GetByApplicationReferralRequest
-from ..model.get_by_application_referral_response import GetByApplicationReferralResponse
+from ..model.get_by_application_referral_response import (
+    GetByApplicationReferralResponse,
+)
 from ..model.search_referral_request import SearchReferralRequest
 from ..model.search_referral_response import SearchReferralResponse
 
@@ -19,8 +21,11 @@ class Referral(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_by_application(self, request: GetByApplicationReferralRequest,
-                           option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+    def get_by_application(
+        self,
+        request: GetByApplicationReferralRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByApplicationReferralResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +40,18 @@ class Referral(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationReferralResponse)
+        response: GetByApplicationReferralResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByApplicationReferralResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_by_application(self, request: GetByApplicationReferralRequest,
-                                  option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+    async def aget_by_application(
+        self,
+        request: GetByApplicationReferralRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByApplicationReferralResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,13 +62,16 @@ class Referral(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationReferralResponse)
+        response: GetByApplicationReferralResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByApplicationReferralResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchReferralRequest, option: Optional[RequestOption] = None) -> SearchReferralResponse:
+    def search(
+        self, request: SearchReferralRequest, option: Optional[RequestOption] = None
+    ) -> SearchReferralResponse:
         if option is None:
             option = RequestOption()
 
@@ -74,13 +86,16 @@ class Referral(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
+        response: SearchReferralResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchReferralResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchReferralRequest,
-                      option: Optional[RequestOption] = None) -> SearchReferralResponse:
+    async def asearch(
+        self, request: SearchReferralRequest, option: Optional[RequestOption] = None
+    ) -> SearchReferralResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,7 +106,9 @@ class Referral(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
+        response: SearchReferralResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchReferralResponse
+        )
         response.raw = resp
 
         return response

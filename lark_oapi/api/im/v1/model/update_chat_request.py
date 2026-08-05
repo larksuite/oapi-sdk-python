@@ -19,7 +19,6 @@ class UpdateChatRequest(BaseRequest):
 
 
 class UpdateChatRequestBuilder(object):
-
     def __init__(self) -> None:
         update_chat_request = UpdateChatRequest()
         update_chat_request.http_method = HttpMethod.PUT
@@ -37,7 +36,9 @@ class UpdateChatRequestBuilder(object):
         self._update_chat_request.paths["chat_id"] = str(chat_id)
         return self
 
-    def request_body(self, request_body: UpdateChatRequestBody) -> "UpdateChatRequestBuilder":
+    def request_body(
+        self, request_body: UpdateChatRequestBody
+    ) -> "UpdateChatRequestBuilder":
         self._update_chat_request.request_body = request_body
         self._update_chat_request.body = request_body
         return self

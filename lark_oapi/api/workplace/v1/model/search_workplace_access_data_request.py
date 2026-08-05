@@ -19,13 +19,16 @@ class SearchWorkplaceAccessDataRequest(BaseRequest):
 
 
 class SearchWorkplaceAccessDataRequestBuilder(object):
-
     def __init__(self) -> None:
         search_workplace_access_data_request = SearchWorkplaceAccessDataRequest()
         search_workplace_access_data_request.http_method = HttpMethod.POST
-        search_workplace_access_data_request.uri = "/open-apis/workplace/v1/workplace_access_data/search"
+        search_workplace_access_data_request.uri = (
+            "/open-apis/workplace/v1/workplace_access_data/search"
+        )
         search_workplace_access_data_request.token_types = {AccessTokenType.TENANT}
-        self._search_workplace_access_data_request: SearchWorkplaceAccessDataRequest = search_workplace_access_data_request
+        self._search_workplace_access_data_request: SearchWorkplaceAccessDataRequest = (
+            search_workplace_access_data_request
+        )
 
     def from_date(self, from_date: str) -> "SearchWorkplaceAccessDataRequestBuilder":
         self._search_workplace_access_data_request.from_date = from_date

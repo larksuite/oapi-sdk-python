@@ -9,7 +9,6 @@ from .search_meeting_response_body import SearchMeetingResponseBody
 class SearchMeetingResponse(BaseResponse):
     _types = {
         "data": SearchMeetingResponseBody,
-
     }
 
     def __init__(self, d=None):

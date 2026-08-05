@@ -6,9 +6,7 @@ from lark_oapi.core.model import BaseResponse
 
 
 class DeleteSystemStatusResponse(BaseResponse):
-    _types = {
-
-    }
+    _types = {}
 
     def __init__(self, d=None):
         super().__init__(d)

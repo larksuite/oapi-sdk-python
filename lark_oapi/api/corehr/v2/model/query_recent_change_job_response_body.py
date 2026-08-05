@@ -40,7 +40,9 @@ class QueryRecentChangeJobResponseBodyBuilder(object):
         self._query_recent_change_job_response_body.has_more = has_more
         return self
 
-    def deleted_job_ids(self, deleted_job_ids: List[str]) -> "QueryRecentChangeJobResponseBodyBuilder":
+    def deleted_job_ids(
+        self, deleted_job_ids: List[str]
+    ) -> "QueryRecentChangeJobResponseBodyBuilder":
         self._query_recent_change_job_response_body.deleted_job_ids = deleted_job_ids
         return self
 

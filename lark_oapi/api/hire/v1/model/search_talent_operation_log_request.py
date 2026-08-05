@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .search_talent_operation_log_request_body import SearchTalentOperationLogRequestBody
+from .search_talent_operation_log_request_body import (
+    SearchTalentOperationLogRequestBody,
+)
 
 
 class SearchTalentOperationLogRequest(BaseRequest):
@@ -20,13 +22,16 @@ class SearchTalentOperationLogRequest(BaseRequest):
 
 
 class SearchTalentOperationLogRequestBuilder(object):
-
     def __init__(self) -> None:
         search_talent_operation_log_request = SearchTalentOperationLogRequest()
         search_talent_operation_log_request.http_method = HttpMethod.POST
-        search_talent_operation_log_request.uri = "/open-apis/hire/v1/talent_operation_logs/search"
+        search_talent_operation_log_request.uri = (
+            "/open-apis/hire/v1/talent_operation_logs/search"
+        )
         search_talent_operation_log_request.token_types = {AccessTokenType.TENANT}
-        self._search_talent_operation_log_request: SearchTalentOperationLogRequest = search_talent_operation_log_request
+        self._search_talent_operation_log_request: SearchTalentOperationLogRequest = (
+            search_talent_operation_log_request
+        )
 
     def page_token(self, page_token: str) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.page_token = page_token
@@ -38,13 +43,18 @@ class SearchTalentOperationLogRequestBuilder(object):
         self._search_talent_operation_log_request.add_query("page_size", page_size)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "SearchTalentOperationLogRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.user_id_type = user_id_type
-        self._search_talent_operation_log_request.add_query("user_id_type", user_id_type)
+        self._search_talent_operation_log_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: SearchTalentOperationLogRequestBody) -> "SearchTalentOperationLogRequestBuilder":
+    def request_body(
+        self, request_body: SearchTalentOperationLogRequestBody
+    ) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.request_body = request_body
         self._search_talent_operation_log_request.body = request_body
         return self

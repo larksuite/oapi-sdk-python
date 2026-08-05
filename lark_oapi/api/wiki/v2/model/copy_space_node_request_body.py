@@ -26,11 +26,15 @@ class CopySpaceNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_space_node_request_body = CopySpaceNodeRequestBody()
 
-    def target_parent_token(self, target_parent_token: str) -> "CopySpaceNodeRequestBodyBuilder":
+    def target_parent_token(
+        self, target_parent_token: str
+    ) -> "CopySpaceNodeRequestBodyBuilder":
         self._copy_space_node_request_body.target_parent_token = target_parent_token
         return self
 
-    def target_space_id(self, target_space_id: str) -> "CopySpaceNodeRequestBodyBuilder":
+    def target_space_id(
+        self, target_space_id: str
+    ) -> "CopySpaceNodeRequestBodyBuilder":
         self._copy_space_node_request_body.target_space_id = target_space_id
         return self
 

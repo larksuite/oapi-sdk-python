@@ -17,7 +17,9 @@ class Content(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetContentRequest, option: Optional[RequestOption] = None) -> GetContentResponse:
+    def get(
+        self, request: GetContentRequest, option: Optional[RequestOption] = None
+    ) -> GetContentResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Content(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetContentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContentResponse)
+        response: GetContentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetContentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetContentRequest, option: Optional[RequestOption] = None) -> GetContentResponse:
+    async def aget(
+        self, request: GetContentRequest, option: Optional[RequestOption] = None
+    ) -> GetContentResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Content(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetContentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContentResponse)
+        response: GetContentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetContentResponse
+        )
         response.raw = resp
 
         return response

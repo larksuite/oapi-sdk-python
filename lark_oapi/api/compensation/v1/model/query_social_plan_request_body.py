@@ -28,7 +28,9 @@ class QuerySocialPlanRequestBodyBuilder(object):
         self._query_social_plan_request_body.plan_ids = plan_ids
         return self
 
-    def effective_date(self, effective_date: str) -> "QuerySocialPlanRequestBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "QuerySocialPlanRequestBodyBuilder":
         self._query_social_plan_request_body.effective_date = effective_date
         return self
 

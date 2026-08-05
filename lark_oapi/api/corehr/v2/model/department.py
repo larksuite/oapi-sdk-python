@@ -137,7 +137,9 @@ class DepartmentBuilder(object):
         self._department.description = description
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DepartmentBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "DepartmentBuilder":
         self._department.custom_fields = custom_fields
         return self
 

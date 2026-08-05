@@ -9,7 +9,6 @@ from .get_space_response_body import GetSpaceResponseBody
 class GetSpaceResponse(BaseResponse):
     _types = {
         "data": GetSpaceResponseBody,
-
     }
 
     def __init__(self, d=None):

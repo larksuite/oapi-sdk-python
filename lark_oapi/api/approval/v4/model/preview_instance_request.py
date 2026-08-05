@@ -18,20 +18,23 @@ class PreviewInstanceRequest(BaseRequest):
 
 
 class PreviewInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         preview_instance_request = PreviewInstanceRequest()
         preview_instance_request.http_method = HttpMethod.POST
         preview_instance_request.uri = "/open-apis/approval/v4/instances/preview"
         preview_instance_request.token_types = {AccessTokenType.TENANT}
-        self._preview_instance_request: PreviewInstanceRequest = preview_instance_request
+        self._preview_instance_request: PreviewInstanceRequest = (
+            preview_instance_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "PreviewInstanceRequestBuilder":
         self._preview_instance_request.user_id_type = user_id_type
         self._preview_instance_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: PreviewInstanceRequestBody) -> "PreviewInstanceRequestBuilder":
+    def request_body(
+        self, request_body: PreviewInstanceRequestBody
+    ) -> "PreviewInstanceRequestBuilder":
         self._preview_instance_request.request_body = request_body
         self._preview_instance_request.body = request_body
         return self

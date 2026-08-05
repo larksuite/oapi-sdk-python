@@ -16,7 +16,9 @@ from .model.p2_corehr_custom_org_updated_v2 import P2CorehrCustomOrgUpdatedV2
 from .model.p2_corehr_department_created_v2 import P2CorehrDepartmentCreatedV2
 from .model.p2_corehr_department_updated_v2 import P2CorehrDepartmentUpdatedV2
 from .model.p2_corehr_employee_domain_event_v2 import P2CorehrEmployeeDomainEventV2
-from .model.p2_corehr_job_change_status_updated_v2 import P2CorehrJobChangeStatusUpdatedV2
+from .model.p2_corehr_job_change_status_updated_v2 import (
+    P2CorehrJobChangeStatusUpdatedV2,
+)
 from .model.p2_corehr_job_change_updated_v2 import P2CorehrJobChangeUpdatedV2
 from .model.p2_corehr_job_family_created_v2 import P2CorehrJobFamilyCreatedV2
 from .model.p2_corehr_job_family_deleted_v2 import P2CorehrJobFamilyDeletedV2
@@ -30,8 +32,12 @@ from .model.p2_corehr_job_level_updated_v2 import P2CorehrJobLevelUpdatedV2
 from .model.p2_corehr_location_created_v2 import P2CorehrLocationCreatedV2
 from .model.p2_corehr_location_deleted_v2 import P2CorehrLocationDeletedV2
 from .model.p2_corehr_location_updated_v2 import P2CorehrLocationUpdatedV2
-from .model.p2_corehr_offboarding_checklist_updated_v2 import P2CorehrOffboardingChecklistUpdatedV2
-from .model.p2_corehr_offboarding_status_updated_v2 import P2CorehrOffboardingStatusUpdatedV2
+from .model.p2_corehr_offboarding_checklist_updated_v2 import (
+    P2CorehrOffboardingChecklistUpdatedV2,
+)
+from .model.p2_corehr_offboarding_status_updated_v2 import (
+    P2CorehrOffboardingStatusUpdatedV2,
+)
 from .model.p2_corehr_offboarding_updated_v2 import P2CorehrOffboardingUpdatedV2
 from .model.p2_corehr_pathway_created_v2 import P2CorehrPathwayCreatedV2
 from .model.p2_corehr_pathway_deleted_v2 import P2CorehrPathwayDeletedV2
@@ -39,18 +45,28 @@ from .model.p2_corehr_pathway_updated_v2 import P2CorehrPathwayUpdatedV2
 from .model.p2_corehr_position_created_v2 import P2CorehrPositionCreatedV2
 from .model.p2_corehr_position_deleted_v2 import P2CorehrPositionDeletedV2
 from .model.p2_corehr_position_updated_v2 import P2CorehrPositionUpdatedV2
-from .model.p2_corehr_pre_hire_onboarding_task_changed_v2 import P2CorehrPreHireOnboardingTaskChangedV2
+from .model.p2_corehr_pre_hire_onboarding_task_changed_v2 import (
+    P2CorehrPreHireOnboardingTaskChangedV2,
+)
 from .model.p2_corehr_probation_updated_v2 import P2CorehrProbationUpdatedV2
 from .model.p2_corehr_process_updated_v2 import P2CorehrProcessUpdatedV2
-from .model.p2_corehr_process_approver_updated_v2 import P2CorehrProcessApproverUpdatedV2
+from .model.p2_corehr_process_approver_updated_v2 import (
+    P2CorehrProcessApproverUpdatedV2,
+)
 from .model.p2_corehr_process_cc_updated_v2 import P2CorehrProcessCcUpdatedV2
 from .model.p2_corehr_process_node_updated_v2 import P2CorehrProcessNodeUpdatedV2
 from .model.p2_corehr_process_status_update_v2 import P2CorehrProcessStatusUpdateV2
-from .model.p2_corehr_process_comment_info_updated_v2 import P2CorehrProcessCommentInfoUpdatedV2
-from .model.p2_corehr_signature_file_status_updated_v2 import P2CorehrSignatureFileStatusUpdatedV2
+from .model.p2_corehr_process_comment_info_updated_v2 import (
+    P2CorehrProcessCommentInfoUpdatedV2,
+)
+from .model.p2_corehr_signature_file_status_updated_v2 import (
+    P2CorehrSignatureFileStatusUpdatedV2,
+)
 
 
-class P2CorehrApprovalGroupsUpdatedV2Processor(IEventProcessor[P2CorehrApprovalGroupsUpdatedV2]):
+class P2CorehrApprovalGroupsUpdatedV2Processor(
+    IEventProcessor[P2CorehrApprovalGroupsUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrApprovalGroupsUpdatedV2], None]):
         self.f = f
 
@@ -94,7 +110,9 @@ class P2CorehrCompanyUpdatedV2Processor(IEventProcessor[P2CorehrCompanyUpdatedV2
         self.f(data)
 
 
-class P2CorehrCostCenterCreatedV2Processor(IEventProcessor[P2CorehrCostCenterCreatedV2]):
+class P2CorehrCostCenterCreatedV2Processor(
+    IEventProcessor[P2CorehrCostCenterCreatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrCostCenterCreatedV2], None]):
         self.f = f
 
@@ -105,7 +123,9 @@ class P2CorehrCostCenterCreatedV2Processor(IEventProcessor[P2CorehrCostCenterCre
         self.f(data)
 
 
-class P2CorehrCostCenterDeletedV2Processor(IEventProcessor[P2CorehrCostCenterDeletedV2]):
+class P2CorehrCostCenterDeletedV2Processor(
+    IEventProcessor[P2CorehrCostCenterDeletedV2]
+):
     def __init__(self, f: Callable[[P2CorehrCostCenterDeletedV2], None]):
         self.f = f
 
@@ -116,7 +136,9 @@ class P2CorehrCostCenterDeletedV2Processor(IEventProcessor[P2CorehrCostCenterDel
         self.f(data)
 
 
-class P2CorehrCostCenterUpdatedV2Processor(IEventProcessor[P2CorehrCostCenterUpdatedV2]):
+class P2CorehrCostCenterUpdatedV2Processor(
+    IEventProcessor[P2CorehrCostCenterUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrCostCenterUpdatedV2], None]):
         self.f = f
 
@@ -160,7 +182,9 @@ class P2CorehrCustomOrgUpdatedV2Processor(IEventProcessor[P2CorehrCustomOrgUpdat
         self.f(data)
 
 
-class P2CorehrDepartmentCreatedV2Processor(IEventProcessor[P2CorehrDepartmentCreatedV2]):
+class P2CorehrDepartmentCreatedV2Processor(
+    IEventProcessor[P2CorehrDepartmentCreatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrDepartmentCreatedV2], None]):
         self.f = f
 
@@ -171,7 +195,9 @@ class P2CorehrDepartmentCreatedV2Processor(IEventProcessor[P2CorehrDepartmentCre
         self.f(data)
 
 
-class P2CorehrDepartmentUpdatedV2Processor(IEventProcessor[P2CorehrDepartmentUpdatedV2]):
+class P2CorehrDepartmentUpdatedV2Processor(
+    IEventProcessor[P2CorehrDepartmentUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrDepartmentUpdatedV2], None]):
         self.f = f
 
@@ -182,7 +208,9 @@ class P2CorehrDepartmentUpdatedV2Processor(IEventProcessor[P2CorehrDepartmentUpd
         self.f(data)
 
 
-class P2CorehrEmployeeDomainEventV2Processor(IEventProcessor[P2CorehrEmployeeDomainEventV2]):
+class P2CorehrEmployeeDomainEventV2Processor(
+    IEventProcessor[P2CorehrEmployeeDomainEventV2]
+):
     def __init__(self, f: Callable[[P2CorehrEmployeeDomainEventV2], None]):
         self.f = f
 
@@ -193,7 +221,9 @@ class P2CorehrEmployeeDomainEventV2Processor(IEventProcessor[P2CorehrEmployeeDom
         self.f(data)
 
 
-class P2CorehrJobChangeStatusUpdatedV2Processor(IEventProcessor[P2CorehrJobChangeStatusUpdatedV2]):
+class P2CorehrJobChangeStatusUpdatedV2Processor(
+    IEventProcessor[P2CorehrJobChangeStatusUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrJobChangeStatusUpdatedV2], None]):
         self.f = f
 
@@ -347,7 +377,9 @@ class P2CorehrLocationUpdatedV2Processor(IEventProcessor[P2CorehrLocationUpdated
         self.f(data)
 
 
-class P2CorehrOffboardingChecklistUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingChecklistUpdatedV2]):
+class P2CorehrOffboardingChecklistUpdatedV2Processor(
+    IEventProcessor[P2CorehrOffboardingChecklistUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrOffboardingChecklistUpdatedV2], None]):
         self.f = f
 
@@ -358,7 +390,9 @@ class P2CorehrOffboardingChecklistUpdatedV2Processor(IEventProcessor[P2CorehrOff
         self.f(data)
 
 
-class P2CorehrOffboardingStatusUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingStatusUpdatedV2]):
+class P2CorehrOffboardingStatusUpdatedV2Processor(
+    IEventProcessor[P2CorehrOffboardingStatusUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrOffboardingStatusUpdatedV2], None]):
         self.f = f
 
@@ -369,7 +403,9 @@ class P2CorehrOffboardingStatusUpdatedV2Processor(IEventProcessor[P2CorehrOffboa
         self.f(data)
 
 
-class P2CorehrOffboardingUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingUpdatedV2]):
+class P2CorehrOffboardingUpdatedV2Processor(
+    IEventProcessor[P2CorehrOffboardingUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrOffboardingUpdatedV2], None]):
         self.f = f
 
@@ -446,7 +482,9 @@ class P2CorehrPositionUpdatedV2Processor(IEventProcessor[P2CorehrPositionUpdated
         self.f(data)
 
 
-class P2CorehrPreHireOnboardingTaskChangedV2Processor(IEventProcessor[P2CorehrPreHireOnboardingTaskChangedV2]):
+class P2CorehrPreHireOnboardingTaskChangedV2Processor(
+    IEventProcessor[P2CorehrPreHireOnboardingTaskChangedV2]
+):
     def __init__(self, f: Callable[[P2CorehrPreHireOnboardingTaskChangedV2], None]):
         self.f = f
 
@@ -479,7 +517,9 @@ class P2CorehrProcessUpdatedV2Processor(IEventProcessor[P2CorehrProcessUpdatedV2
         self.f(data)
 
 
-class P2CorehrProcessApproverUpdatedV2Processor(IEventProcessor[P2CorehrProcessApproverUpdatedV2]):
+class P2CorehrProcessApproverUpdatedV2Processor(
+    IEventProcessor[P2CorehrProcessApproverUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrProcessApproverUpdatedV2], None]):
         self.f = f
 
@@ -501,7 +541,9 @@ class P2CorehrProcessCcUpdatedV2Processor(IEventProcessor[P2CorehrProcessCcUpdat
         self.f(data)
 
 
-class P2CorehrProcessNodeUpdatedV2Processor(IEventProcessor[P2CorehrProcessNodeUpdatedV2]):
+class P2CorehrProcessNodeUpdatedV2Processor(
+    IEventProcessor[P2CorehrProcessNodeUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrProcessNodeUpdatedV2], None]):
         self.f = f
 
@@ -512,7 +554,9 @@ class P2CorehrProcessNodeUpdatedV2Processor(IEventProcessor[P2CorehrProcessNodeU
         self.f(data)
 
 
-class P2CorehrProcessStatusUpdateV2Processor(IEventProcessor[P2CorehrProcessStatusUpdateV2]):
+class P2CorehrProcessStatusUpdateV2Processor(
+    IEventProcessor[P2CorehrProcessStatusUpdateV2]
+):
     def __init__(self, f: Callable[[P2CorehrProcessStatusUpdateV2], None]):
         self.f = f
 
@@ -523,7 +567,9 @@ class P2CorehrProcessStatusUpdateV2Processor(IEventProcessor[P2CorehrProcessStat
         self.f(data)
 
 
-class P2CorehrProcessCommentInfoUpdatedV2Processor(IEventProcessor[P2CorehrProcessCommentInfoUpdatedV2]):
+class P2CorehrProcessCommentInfoUpdatedV2Processor(
+    IEventProcessor[P2CorehrProcessCommentInfoUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrProcessCommentInfoUpdatedV2], None]):
         self.f = f
 
@@ -534,7 +580,9 @@ class P2CorehrProcessCommentInfoUpdatedV2Processor(IEventProcessor[P2CorehrProce
         self.f(data)
 
 
-class P2CorehrSignatureFileStatusUpdatedV2Processor(IEventProcessor[P2CorehrSignatureFileStatusUpdatedV2]):
+class P2CorehrSignatureFileStatusUpdatedV2Processor(
+    IEventProcessor[P2CorehrSignatureFileStatusUpdatedV2]
+):
     def __init__(self, f: Callable[[P2CorehrSignatureFileStatusUpdatedV2], None]):
         self.f = f
 

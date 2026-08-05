@@ -19,17 +19,25 @@ class ReplaceSpreadsheetSheetRequest(BaseRequest):
 
 
 class ReplaceSpreadsheetSheetRequestBuilder(object):
-
     def __init__(self) -> None:
         replace_spreadsheet_sheet_request = ReplaceSpreadsheetSheetRequest()
         replace_spreadsheet_sheet_request.http_method = HttpMethod.POST
         replace_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
-        replace_spreadsheet_sheet_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._replace_spreadsheet_sheet_request: ReplaceSpreadsheetSheetRequest = replace_spreadsheet_sheet_request
+        replace_spreadsheet_sheet_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._replace_spreadsheet_sheet_request: ReplaceSpreadsheetSheetRequest = (
+            replace_spreadsheet_sheet_request
+        )
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "ReplaceSpreadsheetSheetRequestBuilder":
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "ReplaceSpreadsheetSheetRequestBuilder":
         self._replace_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
-        self._replace_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+        self._replace_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "ReplaceSpreadsheetSheetRequestBuilder":
@@ -37,7 +45,9 @@ class ReplaceSpreadsheetSheetRequestBuilder(object):
         self._replace_spreadsheet_sheet_request.paths["sheet_id"] = str(sheet_id)
         return self
 
-    def request_body(self, request_body: Replace) -> "ReplaceSpreadsheetSheetRequestBuilder":
+    def request_body(
+        self, request_body: Replace
+    ) -> "ReplaceSpreadsheetSheetRequestBuilder":
         self._replace_spreadsheet_sheet_request.request_body = request_body
         self._replace_spreadsheet_sheet_request.body = request_body
         return self

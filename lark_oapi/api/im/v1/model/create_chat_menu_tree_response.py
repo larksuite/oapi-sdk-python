@@ -9,7 +9,6 @@ from .create_chat_menu_tree_response_body import CreateChatMenuTreeResponseBody
 class CreateChatMenuTreeResponse(BaseResponse):
     _types = {
         "data": CreateChatMenuTreeResponseBody,
-
     }
 
     def __init__(self, d=None):

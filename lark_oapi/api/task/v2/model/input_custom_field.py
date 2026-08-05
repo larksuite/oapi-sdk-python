@@ -62,23 +62,33 @@ class InputCustomFieldBuilder(object):
         self._input_custom_field.type = type
         return self
 
-    def number_setting(self, number_setting: NumberSetting) -> "InputCustomFieldBuilder":
+    def number_setting(
+        self, number_setting: NumberSetting
+    ) -> "InputCustomFieldBuilder":
         self._input_custom_field.number_setting = number_setting
         return self
 
-    def member_setting(self, member_setting: MemberSetting) -> "InputCustomFieldBuilder":
+    def member_setting(
+        self, member_setting: MemberSetting
+    ) -> "InputCustomFieldBuilder":
         self._input_custom_field.member_setting = member_setting
         return self
 
-    def datetime_setting(self, datetime_setting: DatetimeSetting) -> "InputCustomFieldBuilder":
+    def datetime_setting(
+        self, datetime_setting: DatetimeSetting
+    ) -> "InputCustomFieldBuilder":
         self._input_custom_field.datetime_setting = datetime_setting
         return self
 
-    def single_select_setting(self, single_select_setting: SelectSetting) -> "InputCustomFieldBuilder":
+    def single_select_setting(
+        self, single_select_setting: SelectSetting
+    ) -> "InputCustomFieldBuilder":
         self._input_custom_field.single_select_setting = single_select_setting
         return self
 
-    def multi_select_setting(self, multi_select_setting: SelectSetting) -> "InputCustomFieldBuilder":
+    def multi_select_setting(
+        self, multi_select_setting: SelectSetting
+    ) -> "InputCustomFieldBuilder":
         self._input_custom_field.multi_select_setting = multi_select_setting
         return self
 

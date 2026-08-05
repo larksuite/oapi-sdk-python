@@ -35,7 +35,9 @@ class RichTextElementLinkBuilder(object):
         self._rich_text_element_link.text = text
         return self
 
-    def text_style(self, text_style: RichTextElementTextStyle) -> "RichTextElementLinkBuilder":
+    def text_style(
+        self, text_style: RichTextElementTextStyle
+    ) -> "RichTextElementLinkBuilder":
         self._rich_text_element_link.text_style = text_style
         return self
 

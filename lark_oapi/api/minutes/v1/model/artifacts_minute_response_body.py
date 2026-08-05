@@ -36,11 +36,15 @@ class ArtifactsMinuteResponseBodyBuilder(object):
         self._artifacts_minute_response_body.summary = summary
         return self
 
-    def minute_chapters(self, minute_chapters: List[MinuteChapter]) -> "ArtifactsMinuteResponseBodyBuilder":
+    def minute_chapters(
+        self, minute_chapters: List[MinuteChapter]
+    ) -> "ArtifactsMinuteResponseBodyBuilder":
         self._artifacts_minute_response_body.minute_chapters = minute_chapters
         return self
 
-    def minute_todos(self, minute_todos: List[MinuteTodo]) -> "ArtifactsMinuteResponseBodyBuilder":
+    def minute_todos(
+        self, minute_todos: List[MinuteTodo]
+    ) -> "ArtifactsMinuteResponseBodyBuilder":
         self._artifacts_minute_response_body.minute_todos = minute_todos
         return self
 

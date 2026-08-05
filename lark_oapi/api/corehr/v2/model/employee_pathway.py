@@ -55,7 +55,9 @@ class EmployeePathwayBuilder(object):
         self._employee_pathway.active = active
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeePathwayBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "EmployeePathwayBuilder":
         self._employee_pathway.custom_fields = custom_fields
         return self
 

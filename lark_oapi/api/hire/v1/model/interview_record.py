@@ -45,7 +45,9 @@ class InterviewRecord(object):
         self.code_question_list: Optional[List[InterviewQuestion]] = None
         self.interviewer: Optional[IdNameObject] = None
         self.image_list: Optional[List[AttachmentV2]] = None
-        self.dimension_assessment_list: Optional[List[InterviewDimensionAssessment]] = None
+        self.dimension_assessment_list: Optional[List[InterviewDimensionAssessment]] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -81,7 +83,9 @@ class InterviewRecordBuilder(object):
         self._interview_record.commit_status = commit_status
         return self
 
-    def feedback_submit_time(self, feedback_submit_time: int) -> "InterviewRecordBuilder":
+    def feedback_submit_time(
+        self, feedback_submit_time: int
+    ) -> "InterviewRecordBuilder":
         self._interview_record.feedback_submit_time = feedback_submit_time
         return self
 
@@ -89,19 +93,27 @@ class InterviewRecordBuilder(object):
         self._interview_record.conclusion = conclusion
         return self
 
-    def interview_score(self, interview_score: InterviewScore) -> "InterviewRecordBuilder":
+    def interview_score(
+        self, interview_score: InterviewScore
+    ) -> "InterviewRecordBuilder":
         self._interview_record.interview_score = interview_score
         return self
 
-    def assessment_score(self, assessment_score: AssessmentScoreInfo) -> "InterviewRecordBuilder":
+    def assessment_score(
+        self, assessment_score: AssessmentScoreInfo
+    ) -> "InterviewRecordBuilder":
         self._interview_record.assessment_score = assessment_score
         return self
 
-    def question_list(self, question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
+    def question_list(
+        self, question_list: List[InterviewQuestion]
+    ) -> "InterviewRecordBuilder":
         self._interview_record.question_list = question_list
         return self
 
-    def code_question_list(self, code_question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
+    def code_question_list(
+        self, code_question_list: List[InterviewQuestion]
+    ) -> "InterviewRecordBuilder":
         self._interview_record.code_question_list = code_question_list
         return self
 
@@ -113,8 +125,9 @@ class InterviewRecordBuilder(object):
         self._interview_record.image_list = image_list
         return self
 
-    def dimension_assessment_list(self, dimension_assessment_list: List[
-        InterviewDimensionAssessment]) -> "InterviewRecordBuilder":
+    def dimension_assessment_list(
+        self, dimension_assessment_list: List[InterviewDimensionAssessment]
+    ) -> "InterviewRecordBuilder":
         self._interview_record.dimension_assessment_list = dimension_assessment_list
         return self
 

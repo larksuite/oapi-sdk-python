@@ -38,7 +38,9 @@ class NumberSettingBuilder(object):
         self._number_setting.custom_symbol = custom_symbol
         return self
 
-    def custom_symbol_position(self, custom_symbol_position: str) -> "NumberSettingBuilder":
+    def custom_symbol_position(
+        self, custom_symbol_position: str
+    ) -> "NumberSettingBuilder":
         self._number_setting.custom_symbol_position = custom_symbol_position
         return self
 

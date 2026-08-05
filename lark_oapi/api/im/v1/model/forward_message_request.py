@@ -20,12 +20,14 @@ class ForwardMessageRequest(BaseRequest):
 
 
 class ForwardMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         forward_message_request = ForwardMessageRequest()
         forward_message_request.http_method = HttpMethod.POST
         forward_message_request.uri = "/open-apis/im/v1/messages/:message_id/forward"
-        forward_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        forward_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._forward_message_request: ForwardMessageRequest = forward_message_request
 
     def receive_id_type(self, receive_id_type: str) -> "ForwardMessageRequestBuilder":
@@ -43,7 +45,9 @@ class ForwardMessageRequestBuilder(object):
         self._forward_message_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self, request_body: ForwardMessageRequestBody) -> "ForwardMessageRequestBuilder":
+    def request_body(
+        self, request_body: ForwardMessageRequestBody
+    ) -> "ForwardMessageRequestBuilder":
         self._forward_message_request.request_body = request_body
         self._forward_message_request.body = request_body
         return self

@@ -96,7 +96,9 @@ class CreateChatRequestBodyBuilder(object):
         self._create_chat_request_body.bot_id_list = bot_id_list
         return self
 
-    def group_message_type(self, group_message_type: str) -> "CreateChatRequestBodyBuilder":
+    def group_message_type(
+        self, group_message_type: str
+    ) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.group_message_type = group_message_type
         return self
 
@@ -112,15 +114,23 @@ class CreateChatRequestBodyBuilder(object):
         self._create_chat_request_body.external = external
         return self
 
-    def join_message_visibility(self, join_message_visibility: str) -> "CreateChatRequestBodyBuilder":
+    def join_message_visibility(
+        self, join_message_visibility: str
+    ) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.join_message_visibility = join_message_visibility
         return self
 
-    def leave_message_visibility(self, leave_message_visibility: str) -> "CreateChatRequestBodyBuilder":
-        self._create_chat_request_body.leave_message_visibility = leave_message_visibility
+    def leave_message_visibility(
+        self, leave_message_visibility: str
+    ) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.leave_message_visibility = (
+            leave_message_visibility
+        )
         return self
 
-    def membership_approval(self, membership_approval: str) -> "CreateChatRequestBodyBuilder":
+    def membership_approval(
+        self, membership_approval: str
+    ) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.membership_approval = membership_approval
         return self
 
@@ -132,7 +142,9 @@ class CreateChatRequestBodyBuilder(object):
         self._create_chat_request_body.toolkit_ids = toolkit_ids
         return self
 
-    def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "CreateChatRequestBodyBuilder":
+    def restricted_mode_setting(
+        self, restricted_mode_setting: RestrictedModeSetting
+    ) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.restricted_mode_setting = restricted_mode_setting
         return self
 
@@ -140,8 +152,12 @@ class CreateChatRequestBodyBuilder(object):
         self._create_chat_request_body.urgent_setting = urgent_setting
         return self
 
-    def video_conference_setting(self, video_conference_setting: str) -> "CreateChatRequestBodyBuilder":
-        self._create_chat_request_body.video_conference_setting = video_conference_setting
+    def video_conference_setting(
+        self, video_conference_setting: str
+    ) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.video_conference_setting = (
+            video_conference_setting
+        )
         return self
 
     def edit_permission(self, edit_permission: str) -> "CreateChatRequestBodyBuilder":
@@ -152,12 +168,18 @@ class CreateChatRequestBodyBuilder(object):
         self._create_chat_request_body.chat_tags = chat_tags
         return self
 
-    def pin_manage_setting(self, pin_manage_setting: str) -> "CreateChatRequestBodyBuilder":
+    def pin_manage_setting(
+        self, pin_manage_setting: str
+    ) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.pin_manage_setting = pin_manage_setting
         return self
 
-    def hide_member_count_setting(self, hide_member_count_setting: str) -> "CreateChatRequestBodyBuilder":
-        self._create_chat_request_body.hide_member_count_setting = hide_member_count_setting
+    def hide_member_count_setting(
+        self, hide_member_count_setting: str
+    ) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.hide_member_count_setting = (
+            hide_member_count_setting
+        )
         return self
 
     def build(self) -> "CreateChatRequestBody":

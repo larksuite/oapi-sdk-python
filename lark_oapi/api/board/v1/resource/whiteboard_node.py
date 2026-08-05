@@ -9,12 +9,20 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_delete_whiteboard_node_request import BatchDeleteWhiteboardNodeRequest
-from ..model.batch_delete_whiteboard_node_response import BatchDeleteWhiteboardNodeResponse
+from ..model.batch_delete_whiteboard_node_request import (
+    BatchDeleteWhiteboardNodeRequest,
+)
+from ..model.batch_delete_whiteboard_node_response import (
+    BatchDeleteWhiteboardNodeResponse,
+)
 from ..model.create_whiteboard_node_request import CreateWhiteboardNodeRequest
 from ..model.create_whiteboard_node_response import CreateWhiteboardNodeResponse
-from ..model.create_plantuml_whiteboard_node_request import CreatePlantumlWhiteboardNodeRequest
-from ..model.create_plantuml_whiteboard_node_response import CreatePlantumlWhiteboardNodeResponse
+from ..model.create_plantuml_whiteboard_node_request import (
+    CreatePlantumlWhiteboardNodeRequest,
+)
+from ..model.create_plantuml_whiteboard_node_response import (
+    CreatePlantumlWhiteboardNodeResponse,
+)
 from ..model.list_whiteboard_node_request import ListWhiteboardNodeRequest
 from ..model.list_whiteboard_node_response import ListWhiteboardNodeResponse
 
@@ -23,8 +31,11 @@ class WhiteboardNode(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteWhiteboardNodeRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteWhiteboardNodeResponse:
+    def batch_delete(
+        self,
+        request: BatchDeleteWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +50,18 @@ class WhiteboardNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchDeleteWhiteboardNodeResponse)
+        response: BatchDeleteWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_delete(self, request: BatchDeleteWhiteboardNodeRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteWhiteboardNodeResponse:
+    async def abatch_delete(
+        self,
+        request: BatchDeleteWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +72,18 @@ class WhiteboardNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchDeleteWhiteboardNodeResponse)
+        response: BatchDeleteWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateWhiteboardNodeRequest,
-               option: Optional[RequestOption] = None) -> CreateWhiteboardNodeResponse:
+    def create(
+        self,
+        request: CreateWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +98,18 @@ class WhiteboardNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateWhiteboardNodeResponse)
+        response: CreateWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateWhiteboardNodeRequest,
-                      option: Optional[RequestOption] = None) -> CreateWhiteboardNodeResponse:
+    async def acreate(
+        self,
+        request: CreateWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,13 +120,18 @@ class WhiteboardNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateWhiteboardNodeResponse)
+        response: CreateWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def create_plantuml(self, request: CreatePlantumlWhiteboardNodeRequest,
-                        option: Optional[RequestOption] = None) -> CreatePlantumlWhiteboardNodeResponse:
+    def create_plantuml(
+        self,
+        request: CreatePlantumlWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePlantumlWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +146,18 @@ class WhiteboardNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreatePlantumlWhiteboardNodeResponse)
+        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePlantumlWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate_plantuml(self, request: CreatePlantumlWhiteboardNodeRequest,
-                               option: Optional[RequestOption] = None) -> CreatePlantumlWhiteboardNodeResponse:
+    async def acreate_plantuml(
+        self,
+        request: CreatePlantumlWhiteboardNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePlantumlWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,14 +168,16 @@ class WhiteboardNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreatePlantumlWhiteboardNodeResponse)
+        response: CreatePlantumlWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePlantumlWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListWhiteboardNodeRequest,
-             option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
+    def list(
+        self, request: ListWhiteboardNodeRequest, option: Optional[RequestOption] = None
+    ) -> ListWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,13 +192,16 @@ class WhiteboardNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWhiteboardNodeResponse)
+        response: ListWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWhiteboardNodeRequest,
-                    option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
+    async def alist(
+        self, request: ListWhiteboardNodeRequest, option: Optional[RequestOption] = None
+    ) -> ListWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -174,7 +212,9 @@ class WhiteboardNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWhiteboardNodeResponse)
+        response: ListWhiteboardNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWhiteboardNodeResponse
+        )
         response.raw = resp
 
         return response

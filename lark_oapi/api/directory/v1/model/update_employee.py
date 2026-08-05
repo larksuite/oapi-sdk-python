@@ -83,7 +83,9 @@ class UpdateEmployee(object):
         self.gender: Optional[int] = None
         self.residential_address: Optional[str] = None
         self.contact_addresses: Optional[List[ContactAddress]] = None
-        self.employee_order_in_departments: Optional[List[UpsertUserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[
+            List[UpsertUserDepartmentSortInfo]
+        ] = None
         self.background_image_key: Optional[str] = None
         self.description: Optional[str] = None
         self.leader_id: Optional[str] = None
@@ -178,16 +180,23 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.residential_address = residential_address
         return self
 
-    def contact_addresses(self, contact_addresses: List[ContactAddress]) -> "UpdateEmployeeBuilder":
+    def contact_addresses(
+        self, contact_addresses: List[ContactAddress]
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.contact_addresses = contact_addresses
         return self
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UpsertUserDepartmentSortInfo]) -> "UpdateEmployeeBuilder":
-        self._update_employee.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UpsertUserDepartmentSortInfo]
+    ) -> "UpdateEmployeeBuilder":
+        self._update_employee.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
-    def background_image_key(self, background_image_key: str) -> "UpdateEmployeeBuilder":
+    def background_image_key(
+        self, background_image_key: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.background_image_key = background_image_key
         return self
 
@@ -199,11 +208,15 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.leader_id = leader_id
         return self
 
-    def dotted_line_leader_ids(self, dotted_line_leader_ids: List[str]) -> "UpdateEmployeeBuilder":
+    def dotted_line_leader_ids(
+        self, dotted_line_leader_ids: List[str]
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.dotted_line_leader_ids = dotted_line_leader_ids
         return self
 
-    def work_country_or_region(self, work_country_or_region: str) -> "UpdateEmployeeBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.work_country_or_region = work_country_or_region
         return self
 
@@ -291,11 +304,15 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.resign_type = resign_type
         return self
 
-    def cancelled_entry_type(self, cancelled_entry_type: str) -> "UpdateEmployeeBuilder":
+    def cancelled_entry_type(
+        self, cancelled_entry_type: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.cancelled_entry_type = cancelled_entry_type
         return self
 
-    def cancelled_entry_remark(self, cancelled_entry_remark: str) -> "UpdateEmployeeBuilder":
+    def cancelled_entry_remark(
+        self, cancelled_entry_remark: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.cancelled_entry_remark = cancelled_entry_remark
         return self
 
@@ -323,7 +340,9 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.politics_status = politics_status
         return self
 
-    def registered_residence_type(self, registered_residence_type: str) -> "UpdateEmployeeBuilder":
+    def registered_residence_type(
+        self, registered_residence_type: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.registered_residence_type = registered_residence_type
         return self
 
@@ -331,11 +350,15 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.location = location
         return self
 
-    def social_security_number(self, social_security_number: str) -> "UpdateEmployeeBuilder":
+    def social_security_number(
+        self, social_security_number: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.social_security_number = social_security_number
         return self
 
-    def provident_fund_number(self, provident_fund_number: str) -> "UpdateEmployeeBuilder":
+    def provident_fund_number(
+        self, provident_fund_number: str
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.provident_fund_number = provident_fund_number
         return self
 
@@ -347,15 +370,21 @@ class UpdateEmployeeBuilder(object):
         self._update_employee.frozen_reason = frozen_reason
         return self
 
-    def custom_field_value_map(self, custom_field_value_map: Dict[str, CustomFieldValue]) -> "UpdateEmployeeBuilder":
+    def custom_field_value_map(
+        self, custom_field_value_map: Dict[str, CustomFieldValue]
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.custom_field_value_map = custom_field_value_map
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "UpdateEmployeeBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.custom_field_values = custom_field_values
         return self
 
-    def virtual_org_infos(self, virtual_org_infos: List[UpsertUserVirtualOrgInfo]) -> "UpdateEmployeeBuilder":
+    def virtual_org_infos(
+        self, virtual_org_infos: List[UpsertUserVirtualOrgInfo]
+    ) -> "UpdateEmployeeBuilder":
         self._update_employee.virtual_org_infos = virtual_org_infos
         return self
 

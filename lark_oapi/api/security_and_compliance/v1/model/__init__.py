@@ -41,7 +41,6 @@ from .download_token import *
 from .email import *
 from .email_filter import *
 from .failed_info import *
-from .file import *
 from .file_risk_detection_record import *
 from .file_risk_detection_record_result import *
 from .geo_info import *

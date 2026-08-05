@@ -18,21 +18,28 @@ class CreateApplicationPublishRequest(BaseRequest):
 
 
 class CreateApplicationPublishRequestBuilder(object):
-
     def __init__(self) -> None:
         create_application_publish_request = CreateApplicationPublishRequest()
         create_application_publish_request.http_method = HttpMethod.POST
-        create_application_publish_request.uri = "/open-apis/application/v7/applications/:app_id/publish"
-        create_application_publish_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_application_publish_request: CreateApplicationPublishRequest = create_application_publish_request
+        create_application_publish_request.uri = (
+            "/open-apis/application/v7/applications/:app_id/publish"
+        )
+        create_application_publish_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_application_publish_request: CreateApplicationPublishRequest = (
+            create_application_publish_request
+        )
 
     def app_id(self, app_id: str) -> "CreateApplicationPublishRequestBuilder":
         self._create_application_publish_request.app_id = app_id
         self._create_application_publish_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self,
-                     request_body: CreateApplicationPublishRequestBody) -> "CreateApplicationPublishRequestBuilder":
+    def request_body(
+        self, request_body: CreateApplicationPublishRequestBody
+    ) -> "CreateApplicationPublishRequestBuilder":
         self._create_application_publish_request.request_body = request_body
         self._create_application_publish_request.body = request_body
         return self

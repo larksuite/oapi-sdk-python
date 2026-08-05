@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_mailgroup_permission_member_response_body import CreateMailgroupPermissionMemberResponseBody
+from .create_mailgroup_permission_member_response_body import (
+    CreateMailgroupPermissionMemberResponseBody,
+)
 
 
 class CreateMailgroupPermissionMemberResponse(BaseResponse):
     _types = {
         "data": CreateMailgroupPermissionMemberResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -3,6 +3,7 @@ from .mailgroup_alias import *
 from .mailgroup_manager import *
 from .mailgroup_member import *
 from .mailgroup_permission_member import *
+from .multi_entity import *
 from .public_mailbox import *
 from .public_mailbox_alias import *
 from .public_mailbox_member import *
@@ -17,6 +18,7 @@ from .user_mailbox_mail_contact import *
 from .user_mailbox_message import *
 from .user_mailbox_message_attachment import *
 from .user_mailbox_rule import *
+from .user_mailbox_sent_message import *
 from .user_mailbox_setting import *
 from .user_mailbox_template import *
 from .user_mailbox_template_attachment import *

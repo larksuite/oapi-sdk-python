@@ -37,7 +37,9 @@ class SegmentValueBuilder(object):
         self._segment_value.end_time = end_time
         return self
 
-    def reference_values(self, reference_values: List[I18nContent]) -> "SegmentValueBuilder":
+    def reference_values(
+        self, reference_values: List[I18nContent]
+    ) -> "SegmentValueBuilder":
         self._segment_value.reference_values = reference_values
         return self
 

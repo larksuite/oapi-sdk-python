@@ -9,7 +9,6 @@ from .views_get_workspace_view_response_body import ViewsGetWorkspaceViewRespons
 class ViewsGetWorkspaceViewResponse(BaseResponse):
     _types = {
         "data": ViewsGetWorkspaceViewResponseBody,
-
     }
 
     def __init__(self, d=None):

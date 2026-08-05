@@ -28,22 +28,36 @@ class TransformOnboardingTaskPreHireRequestBody(object):
 
 class TransformOnboardingTaskPreHireRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._transform_onboarding_task_pre_hire_request_body = TransformOnboardingTaskPreHireRequestBody()
+        self._transform_onboarding_task_pre_hire_request_body = (
+            TransformOnboardingTaskPreHireRequestBody()
+        )
 
-    def pre_hire_id(self, pre_hire_id: str) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
+    def pre_hire_id(
+        self, pre_hire_id: str
+    ) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
         self._transform_onboarding_task_pre_hire_request_body.pre_hire_id = pre_hire_id
         return self
 
-    def task_code(self, task_code: str) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
+    def task_code(
+        self, task_code: str
+    ) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
         self._transform_onboarding_task_pre_hire_request_body.task_code = task_code
         return self
 
-    def transform_type(self, transform_type: str) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
-        self._transform_onboarding_task_pre_hire_request_body.transform_type = transform_type
+    def transform_type(
+        self, transform_type: str
+    ) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
+        self._transform_onboarding_task_pre_hire_request_body.transform_type = (
+            transform_type
+        )
         return self
 
-    def review_decision(self, review_decision: str) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
-        self._transform_onboarding_task_pre_hire_request_body.review_decision = review_decision
+    def review_decision(
+        self, review_decision: str
+    ) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":
+        self._transform_onboarding_task_pre_hire_request_body.review_decision = (
+            review_decision
+        )
         return self
 
     def reason(self, reason: str) -> "TransformOnboardingTaskPreHireRequestBodyBuilder":

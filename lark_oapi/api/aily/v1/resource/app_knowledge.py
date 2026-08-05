@@ -17,7 +17,9 @@ class AppKnowledge(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def ask(self, request: AskAppKnowledgeRequest, option: Optional[RequestOption] = None) -> AskAppKnowledgeResponse:
+    def ask(
+        self, request: AskAppKnowledgeRequest, option: Optional[RequestOption] = None
+    ) -> AskAppKnowledgeResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class AppKnowledge(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AskAppKnowledgeResponse = JSON.unmarshal(str(resp.content, UTF_8), AskAppKnowledgeResponse)
+        response: AskAppKnowledgeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AskAppKnowledgeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aask(self, request: AskAppKnowledgeRequest,
-                   option: Optional[RequestOption] = None) -> AskAppKnowledgeResponse:
+    async def aask(
+        self, request: AskAppKnowledgeRequest, option: Optional[RequestOption] = None
+    ) -> AskAppKnowledgeResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class AppKnowledge(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AskAppKnowledgeResponse = JSON.unmarshal(str(resp.content, UTF_8), AskAppKnowledgeResponse)
+        response: AskAppKnowledgeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AskAppKnowledgeResponse
+        )
         response.raw = resp
 
         return response

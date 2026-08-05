@@ -17,8 +17,11 @@ class ApplicationAbility(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchApplicationAbilityRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationAbilityResponse:
+    def patch(
+        self,
+        request: PatchApplicationAbilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationAbilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ApplicationAbility(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationAbilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   PatchApplicationAbilityResponse)
+        response: PatchApplicationAbilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationAbilityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationAbilityRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationAbilityResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationAbilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationAbilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ApplicationAbility(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationAbilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   PatchApplicationAbilityResponse)
+        response: PatchApplicationAbilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationAbilityResponse
+        )
         response.raw = resp
 
         return response

@@ -29,7 +29,9 @@ class EmployeePersonForCountryBuilder(object):
         self._employee_person_for_country.employment_id = employment_id
         return self
 
-    def person_for_countries(self, person_for_countries: List[PersonForCountry]) -> "EmployeePersonForCountryBuilder":
+    def person_for_countries(
+        self, person_for_countries: List[PersonForCountry]
+    ) -> "EmployeePersonForCountryBuilder":
         self._employee_person_for_country.person_for_countries = person_for_countries
         return self
 

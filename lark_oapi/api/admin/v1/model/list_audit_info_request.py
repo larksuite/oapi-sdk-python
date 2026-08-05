@@ -28,7 +28,6 @@ class ListAuditInfoRequest(BaseRequest):
 
 
 class ListAuditInfoRequestBuilder(object):
-
     def __init__(self) -> None:
         list_audit_info_request = ListAuditInfoRequest()
         list_audit_info_request.http_method = HttpMethod.GET
@@ -96,9 +95,15 @@ class ListAuditInfoRequestBuilder(object):
         self._list_audit_info_request.add_query("object_value", object_value)
         return self
 
-    def ext_filter_object_by_ccm_token(self, ext_filter_object_by_ccm_token: str) -> "ListAuditInfoRequestBuilder":
-        self._list_audit_info_request.ext_filter_object_by_ccm_token = ext_filter_object_by_ccm_token
-        self._list_audit_info_request.add_query("ext_filter_object_by_ccm_token", ext_filter_object_by_ccm_token)
+    def ext_filter_object_by_ccm_token(
+        self, ext_filter_object_by_ccm_token: str
+    ) -> "ListAuditInfoRequestBuilder":
+        self._list_audit_info_request.ext_filter_object_by_ccm_token = (
+            ext_filter_object_by_ccm_token
+        )
+        self._list_audit_info_request.add_query(
+            "ext_filter_object_by_ccm_token", ext_filter_object_by_ccm_token
+        )
         return self
 
     def build(self) -> ListAuditInfoRequest:

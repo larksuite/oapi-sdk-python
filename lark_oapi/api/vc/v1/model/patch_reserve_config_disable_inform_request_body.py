@@ -23,15 +23,22 @@ class PatchReserveConfigDisableInformRequestBody(object):
 
 class PatchReserveConfigDisableInformRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_reserve_config_disable_inform_request_body = PatchReserveConfigDisableInformRequestBody()
+        self._patch_reserve_config_disable_inform_request_body = (
+            PatchReserveConfigDisableInformRequestBody()
+        )
 
-    def scope_type(self, scope_type: int) -> "PatchReserveConfigDisableInformRequestBodyBuilder":
+    def scope_type(
+        self, scope_type: int
+    ) -> "PatchReserveConfigDisableInformRequestBodyBuilder":
         self._patch_reserve_config_disable_inform_request_body.scope_type = scope_type
         return self
 
-    def disable_inform(self,
-                       disable_inform: DisableInformConfig) -> "PatchReserveConfigDisableInformRequestBodyBuilder":
-        self._patch_reserve_config_disable_inform_request_body.disable_inform = disable_inform
+    def disable_inform(
+        self, disable_inform: DisableInformConfig
+    ) -> "PatchReserveConfigDisableInformRequestBodyBuilder":
+        self._patch_reserve_config_disable_inform_request_body.disable_inform = (
+            disable_inform
+        )
         return self
 
     def build(self) -> "PatchReserveConfigDisableInformRequestBody":

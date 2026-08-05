@@ -20,13 +20,16 @@ class SimplelistGroupMemberRequest(BaseRequest):
 
 
 class SimplelistGroupMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         simplelist_group_member_request = SimplelistGroupMemberRequest()
         simplelist_group_member_request.http_method = HttpMethod.GET
-        simplelist_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/simplelist"
+        simplelist_group_member_request.uri = (
+            "/open-apis/contact/v3/group/:group_id/member/simplelist"
+        )
         simplelist_group_member_request.token_types = {AccessTokenType.TENANT}
-        self._simplelist_group_member_request: SimplelistGroupMemberRequest = simplelist_group_member_request
+        self._simplelist_group_member_request: SimplelistGroupMemberRequest = (
+            simplelist_group_member_request
+        )
 
     def page_size(self, page_size: int) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.page_size = page_size
@@ -38,9 +41,13 @@ class SimplelistGroupMemberRequestBuilder(object):
         self._simplelist_group_member_request.add_query("page_token", page_token)
         return self
 
-    def member_id_type(self, member_id_type: str) -> "SimplelistGroupMemberRequestBuilder":
+    def member_id_type(
+        self, member_id_type: str
+    ) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.member_id_type = member_id_type
-        self._simplelist_group_member_request.add_query("member_id_type", member_id_type)
+        self._simplelist_group_member_request.add_query(
+            "member_id_type", member_id_type
+        )
         return self
 
     def member_type(self, member_type: str) -> "SimplelistGroupMemberRequestBuilder":

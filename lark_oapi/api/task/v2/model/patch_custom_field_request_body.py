@@ -25,11 +25,15 @@ class PatchCustomFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_custom_field_request_body = PatchCustomFieldRequestBody()
 
-    def custom_field(self, custom_field: InputCustomField) -> "PatchCustomFieldRequestBodyBuilder":
+    def custom_field(
+        self, custom_field: InputCustomField
+    ) -> "PatchCustomFieldRequestBodyBuilder":
         self._patch_custom_field_request_body.custom_field = custom_field
         return self
 
-    def update_fields(self, update_fields: List[str]) -> "PatchCustomFieldRequestBodyBuilder":
+    def update_fields(
+        self, update_fields: List[str]
+    ) -> "PatchCustomFieldRequestBodyBuilder":
         self._patch_custom_field_request_body.update_fields = update_fields
         return self
 

@@ -19,7 +19,9 @@ class Person(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreatePersonRequest, option: Optional[RequestOption] = None) -> CreatePersonResponse:
+    def create(
+        self, request: CreatePersonRequest, option: Optional[RequestOption] = None
+    ) -> CreatePersonResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class Person(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePersonResponse)
+        response: CreatePersonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePersonResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePersonRequest,
-                      option: Optional[RequestOption] = None) -> CreatePersonResponse:
+    async def acreate(
+        self, request: CreatePersonRequest, option: Optional[RequestOption] = None
+    ) -> CreatePersonResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class Person(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePersonResponse)
+        response: CreatePersonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePersonResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
+    def patch(
+        self, request: PatchPersonRequest, option: Optional[RequestOption] = None
+    ) -> PatchPersonResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,12 +80,16 @@ class Person(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)
+        response: PatchPersonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPersonResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
+    async def apatch(
+        self, request: PatchPersonRequest, option: Optional[RequestOption] = None
+    ) -> PatchPersonResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +100,9 @@ class Person(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)
+        response: PatchPersonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPersonResponse
+        )
         response.raw = resp
 
         return response

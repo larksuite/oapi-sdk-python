@@ -82,7 +82,9 @@ class QueryShiftResponseBodyBuilder(object):
         self._query_shift_response_body.punch_times = punch_times
         return self
 
-    def sub_shift_leader_ids(self, sub_shift_leader_ids: List[str]) -> "QueryShiftResponseBodyBuilder":
+    def sub_shift_leader_ids(
+        self, sub_shift_leader_ids: List[str]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.sub_shift_leader_ids = sub_shift_leader_ids
         return self
 
@@ -90,11 +92,15 @@ class QueryShiftResponseBodyBuilder(object):
         self._query_shift_response_body.is_flexible = is_flexible
         return self
 
-    def flexible_minutes(self, flexible_minutes: int) -> "QueryShiftResponseBodyBuilder":
+    def flexible_minutes(
+        self, flexible_minutes: int
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.flexible_minutes = flexible_minutes
         return self
 
-    def flexible_rule(self, flexible_rule: List[FlexibleRule]) -> "QueryShiftResponseBodyBuilder":
+    def flexible_rule(
+        self, flexible_rule: List[FlexibleRule]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.flexible_rule = flexible_rule
         return self
 
@@ -102,19 +108,27 @@ class QueryShiftResponseBodyBuilder(object):
         self._query_shift_response_body.no_need_off = no_need_off
         return self
 
-    def punch_time_rule(self, punch_time_rule: List[PunchTimeRule]) -> "QueryShiftResponseBodyBuilder":
+    def punch_time_rule(
+        self, punch_time_rule: List[PunchTimeRule]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.punch_time_rule = punch_time_rule
         return self
 
-    def late_off_late_on_rule(self, late_off_late_on_rule: List[LateOffLateOnRule]) -> "QueryShiftResponseBodyBuilder":
+    def late_off_late_on_rule(
+        self, late_off_late_on_rule: List[LateOffLateOnRule]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.late_off_late_on_rule = late_off_late_on_rule
         return self
 
-    def rest_time_rule(self, rest_time_rule: List[RestRule]) -> "QueryShiftResponseBodyBuilder":
+    def rest_time_rule(
+        self, rest_time_rule: List[RestRule]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.rest_time_rule = rest_time_rule
         return self
 
-    def overtime_rule(self, overtime_rule: List[OvertimeRule]) -> "QueryShiftResponseBodyBuilder":
+    def overtime_rule(
+        self, overtime_rule: List[OvertimeRule]
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.overtime_rule = overtime_rule
         return self
 
@@ -122,35 +136,54 @@ class QueryShiftResponseBodyBuilder(object):
         self._query_shift_response_body.day_type = day_type
         return self
 
-    def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "QueryShiftResponseBodyBuilder":
-        self._query_shift_response_body.overtime_rest_time_rule = overtime_rest_time_rule
+    def overtime_rest_time_rule(
+        self, overtime_rest_time_rule: List[RestRule]
+    ) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.overtime_rest_time_rule = (
+            overtime_rest_time_rule
+        )
         return self
 
-    def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "QueryShiftResponseBodyBuilder":
-        self._query_shift_response_body.late_minutes_as_serious_late = late_minutes_as_serious_late
+    def late_minutes_as_serious_late(
+        self, late_minutes_as_serious_late: int
+    ) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.late_minutes_as_serious_late = (
+            late_minutes_as_serious_late
+        )
         return self
 
-    def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "QueryShiftResponseBodyBuilder":
+    def shift_middle_time_rule(
+        self, shift_middle_time_rule: ShiftMiddleTimeRule
+    ) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.shift_middle_time_rule = shift_middle_time_rule
         return self
 
-    def shift_attendance_time_config(self,
-                                     shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "QueryShiftResponseBodyBuilder":
-        self._query_shift_response_body.shift_attendance_time_config = shift_attendance_time_config
+    def shift_attendance_time_config(
+        self, shift_attendance_time_config: ShiftAttendanceTimeConfig
+    ) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.shift_attendance_time_config = (
+            shift_attendance_time_config
+        )
         return self
 
-    def late_off_late_on_setting(self,
-                                 late_off_late_on_setting: LateOffLateOnSetting) -> "QueryShiftResponseBodyBuilder":
-        self._query_shift_response_body.late_off_late_on_setting = late_off_late_on_setting
+    def late_off_late_on_setting(
+        self, late_off_late_on_setting: LateOffLateOnSetting
+    ) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.late_off_late_on_setting = (
+            late_off_late_on_setting
+        )
         return self
 
     def id(self, id: str) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.id = id
         return self
 
-    def rest_time_flexible_configs(self, rest_time_flexible_configs: List[
-        RestTimeFlexibleConfig]) -> "QueryShiftResponseBodyBuilder":
-        self._query_shift_response_body.rest_time_flexible_configs = rest_time_flexible_configs
+    def rest_time_flexible_configs(
+        self, rest_time_flexible_configs: List[RestTimeFlexibleConfig]
+    ) -> "QueryShiftResponseBodyBuilder":
+        self._query_shift_response_body.rest_time_flexible_configs = (
+            rest_time_flexible_configs
+        )
         return self
 
     def build(self) -> "QueryShiftResponseBody":

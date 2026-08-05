@@ -31,8 +31,12 @@ class GroupedSummaryItem(object):
         self.vacancy: Optional[str] = None
         self.vacancy_including_individuals_to_be_added_and_removed: Optional[str] = None
         self.fulfillment_rate: Optional[str] = None
-        self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[str] = None
-        self.estimated_active_individuals_details: Optional[List[WorkforcePlanEaiDetail]] = None
+        self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[
+            str
+        ] = None
+        self.estimated_active_individuals_details: Optional[
+            List[WorkforcePlanEaiDetail]
+        ] = None
         self.multi_period_values: Optional[List[WorkforcePlanMultiPeriodValue]] = None
         init(self, d, self._types)
 
@@ -45,7 +49,9 @@ class GroupedSummaryItemBuilder(object):
     def __init__(self) -> None:
         self._grouped_summary_item = GroupedSummaryItem()
 
-    def dimension_info_datas(self, dimension_info_datas: List[DimensionInfoData]) -> "GroupedSummaryItemBuilder":
+    def dimension_info_datas(
+        self, dimension_info_datas: List[DimensionInfoData]
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.dimension_info_datas = dimension_info_datas
         return self
 
@@ -53,15 +59,21 @@ class GroupedSummaryItemBuilder(object):
         self._grouped_summary_item.workforce_plan = workforce_plan
         return self
 
-    def active_individuals(self, active_individuals: str) -> "GroupedSummaryItemBuilder":
+    def active_individuals(
+        self, active_individuals: str
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.active_individuals = active_individuals
         return self
 
-    def individuals_to_be_added(self, individuals_to_be_added: str) -> "GroupedSummaryItemBuilder":
+    def individuals_to_be_added(
+        self, individuals_to_be_added: str
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.individuals_to_be_added = individuals_to_be_added
         return self
 
-    def individuals_to_be_removed(self, individuals_to_be_removed: str) -> "GroupedSummaryItemBuilder":
+    def individuals_to_be_removed(
+        self, individuals_to_be_removed: str
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.individuals_to_be_removed = individuals_to_be_removed
         return self
 
@@ -69,8 +81,9 @@ class GroupedSummaryItemBuilder(object):
         self._grouped_summary_item.vacancy = vacancy
         return self
 
-    def vacancy_including_individuals_to_be_added_and_removed(self,
-                                                              vacancy_including_individuals_to_be_added_and_removed: str) -> "GroupedSummaryItemBuilder":
+    def vacancy_including_individuals_to_be_added_and_removed(
+        self, vacancy_including_individuals_to_be_added_and_removed: str
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.vacancy_including_individuals_to_be_added_and_removed = vacancy_including_individuals_to_be_added_and_removed
         return self
 
@@ -78,18 +91,23 @@ class GroupedSummaryItemBuilder(object):
         self._grouped_summary_item.fulfillment_rate = fulfillment_rate
         return self
 
-    def fulfillment_rate_including_individuals_to_be_added_and_removed(self,
-                                                                       fulfillment_rate_including_individuals_to_be_added_and_removed: str) -> "GroupedSummaryItemBuilder":
+    def fulfillment_rate_including_individuals_to_be_added_and_removed(
+        self, fulfillment_rate_including_individuals_to_be_added_and_removed: str
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.fulfillment_rate_including_individuals_to_be_added_and_removed = fulfillment_rate_including_individuals_to_be_added_and_removed
         return self
 
-    def estimated_active_individuals_details(self, estimated_active_individuals_details: List[
-        WorkforcePlanEaiDetail]) -> "GroupedSummaryItemBuilder":
-        self._grouped_summary_item.estimated_active_individuals_details = estimated_active_individuals_details
+    def estimated_active_individuals_details(
+        self, estimated_active_individuals_details: List[WorkforcePlanEaiDetail]
+    ) -> "GroupedSummaryItemBuilder":
+        self._grouped_summary_item.estimated_active_individuals_details = (
+            estimated_active_individuals_details
+        )
         return self
 
-    def multi_period_values(self,
-                            multi_period_values: List[WorkforcePlanMultiPeriodValue]) -> "GroupedSummaryItemBuilder":
+    def multi_period_values(
+        self, multi_period_values: List[WorkforcePlanMultiPeriodValue]
+    ) -> "GroupedSummaryItemBuilder":
         self._grouped_summary_item.multi_period_values = multi_period_values
         return self
 

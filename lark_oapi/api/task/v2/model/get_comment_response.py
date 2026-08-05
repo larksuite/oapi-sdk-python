@@ -9,7 +9,6 @@ from .get_comment_response_body import GetCommentResponseBody
 class GetCommentResponse(BaseResponse):
     _types = {
         "data": GetCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -81,11 +81,17 @@ class EventCardBuilder(object):
         self._event_card.need_meeting_notes = need_meeting_notes
         return self
 
-    def scenario_context_schema_version(self, scenario_context_schema_version: str) -> "EventCardBuilder":
-        self._event_card.scenario_context_schema_version = scenario_context_schema_version
+    def scenario_context_schema_version(
+        self, scenario_context_schema_version: str
+    ) -> "EventCardBuilder":
+        self._event_card.scenario_context_schema_version = (
+            scenario_context_schema_version
+        )
         return self
 
-    def scenario_context(self, scenario_context: CalendarUnderstandScenarioContext) -> "EventCardBuilder":
+    def scenario_context(
+        self, scenario_context: CalendarUnderstandScenarioContext
+    ) -> "EventCardBuilder":
         self._event_card.scenario_context = scenario_context
         return self
 

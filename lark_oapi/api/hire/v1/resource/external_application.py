@@ -10,21 +10,30 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_external_application_request import CreateExternalApplicationRequest
-from ..model.create_external_application_response import CreateExternalApplicationResponse
+from ..model.create_external_application_response import (
+    CreateExternalApplicationResponse,
+)
 from ..model.delete_external_application_request import DeleteExternalApplicationRequest
-from ..model.delete_external_application_response import DeleteExternalApplicationResponse
+from ..model.delete_external_application_response import (
+    DeleteExternalApplicationResponse,
+)
 from ..model.list_external_application_request import ListExternalApplicationRequest
 from ..model.list_external_application_response import ListExternalApplicationResponse
 from ..model.update_external_application_request import UpdateExternalApplicationRequest
-from ..model.update_external_application_response import UpdateExternalApplicationResponse
+from ..model.update_external_application_response import (
+    UpdateExternalApplicationResponse,
+)
 
 
 class ExternalApplication(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExternalApplicationRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalApplicationResponse:
+    def create(
+        self,
+        request: CreateExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +48,18 @@ class ExternalApplication(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateExternalApplicationResponse)
+        response: CreateExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateExternalApplicationRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalApplicationResponse:
+    async def acreate(
+        self,
+        request: CreateExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +70,18 @@ class ExternalApplication(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateExternalApplicationResponse)
+        response: CreateExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteExternalApplicationRequest,
-               option: Optional[RequestOption] = None) -> DeleteExternalApplicationResponse:
+    def delete(
+        self,
+        request: DeleteExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +96,18 @@ class ExternalApplication(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteExternalApplicationResponse)
+        response: DeleteExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteExternalApplicationRequest,
-                      option: Optional[RequestOption] = None) -> DeleteExternalApplicationResponse:
+    async def adelete(
+        self,
+        request: DeleteExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +118,18 @@ class ExternalApplication(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteExternalApplicationResponse)
+        response: DeleteExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListExternalApplicationRequest,
-             option: Optional[RequestOption] = None) -> ListExternalApplicationResponse:
+    def list(
+        self,
+        request: ListExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +144,18 @@ class ExternalApplication(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListExternalApplicationResponse)
+        response: ListExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListExternalApplicationRequest,
-                    option: Optional[RequestOption] = None) -> ListExternalApplicationResponse:
+    async def alist(
+        self,
+        request: ListExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +166,18 @@ class ExternalApplication(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListExternalApplicationResponse)
+        response: ListExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateExternalApplicationRequest,
-               option: Optional[RequestOption] = None) -> UpdateExternalApplicationResponse:
+    def update(
+        self,
+        request: UpdateExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +192,18 @@ class ExternalApplication(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UpdateExternalApplicationResponse)
+        response: UpdateExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateExternalApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateExternalApplicationRequest,
-                      option: Optional[RequestOption] = None) -> UpdateExternalApplicationResponse:
+    async def aupdate(
+        self,
+        request: UpdateExternalApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateExternalApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,8 +214,9 @@ class ExternalApplication(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UpdateExternalApplicationResponse)
+        response: UpdateExternalApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateExternalApplicationResponse
+        )
         response.raw = resp
 
         return response

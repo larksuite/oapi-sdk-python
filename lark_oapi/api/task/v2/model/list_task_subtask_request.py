@@ -19,13 +19,17 @@ class ListTaskSubtaskRequest(BaseRequest):
 
 
 class ListTaskSubtaskRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_subtask_request = ListTaskSubtaskRequest()
         list_task_subtask_request.http_method = HttpMethod.GET
         list_task_subtask_request.uri = "/open-apis/task/v2/tasks/:task_guid/subtasks"
-        list_task_subtask_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_task_subtask_request: ListTaskSubtaskRequest = list_task_subtask_request
+        list_task_subtask_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_task_subtask_request: ListTaskSubtaskRequest = (
+            list_task_subtask_request
+        )
 
     def page_size(self, page_size: int) -> "ListTaskSubtaskRequestBuilder":
         self._list_task_subtask_request.page_size = page_size

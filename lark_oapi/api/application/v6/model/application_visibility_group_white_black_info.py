@@ -24,18 +24,30 @@ class ApplicationVisibilityGroupWhiteBlackInfo(object):
 
 class ApplicationVisibilityGroupWhiteBlackInfoBuilder(object):
     def __init__(self) -> None:
-        self._application_visibility_group_white_black_info = ApplicationVisibilityGroupWhiteBlackInfo()
+        self._application_visibility_group_white_black_info = (
+            ApplicationVisibilityGroupWhiteBlackInfo()
+        )
 
-    def group_id(self, group_id: str) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
+    def group_id(
+        self, group_id: str
+    ) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
         self._application_visibility_group_white_black_info.group_id = group_id
         return self
 
-    def in_white_list(self, in_white_list: bool) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
-        self._application_visibility_group_white_black_info.in_white_list = in_white_list
+    def in_white_list(
+        self, in_white_list: bool
+    ) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
+        self._application_visibility_group_white_black_info.in_white_list = (
+            in_white_list
+        )
         return self
 
-    def in_black_list(self, in_black_list: bool) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
-        self._application_visibility_group_white_black_info.in_black_list = in_black_list
+    def in_black_list(
+        self, in_black_list: bool
+    ) -> "ApplicationVisibilityGroupWhiteBlackInfoBuilder":
+        self._application_visibility_group_white_black_info.in_black_list = (
+            in_black_list
+        )
         return self
 
     def build(self) -> "ApplicationVisibilityGroupWhiteBlackInfo":

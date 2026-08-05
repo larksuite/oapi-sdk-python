@@ -11,6 +11,7 @@ class SearchMinuteResponseBody(object):
         "total": int,
         "has_more": bool,
         "page_token": str,
+        "notice": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class SearchMinuteResponseBody(object):
         self.total: Optional[int] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
+        self.notice: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,7 +31,9 @@ class SearchMinuteResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_minute_response_body = SearchMinuteResponseBody()
 
-    def items(self, items: List[MinutesSearchItem]) -> "SearchMinuteResponseBodyBuilder":
+    def items(
+        self, items: List[MinutesSearchItem]
+    ) -> "SearchMinuteResponseBodyBuilder":
         self._search_minute_response_body.items = items
         return self
 
@@ -43,6 +47,10 @@ class SearchMinuteResponseBodyBuilder(object):
 
     def page_token(self, page_token: str) -> "SearchMinuteResponseBodyBuilder":
         self._search_minute_response_body.page_token = page_token
+        return self
+
+    def notice(self, notice: str) -> "SearchMinuteResponseBodyBuilder":
+        self._search_minute_response_body.notice = notice
         return self
 
     def build(self) -> "SearchMinuteResponseBody":

@@ -35,7 +35,6 @@ from .file_block_change_info import *
 from .file_change_info import *
 from .file_comment import *
 from .file_comment_reply import *
-from .file_favorite import *
 from .file_subscription import *
 from .file_view_record import *
 from .file_comment_v2_batch_query_reaction_data import *

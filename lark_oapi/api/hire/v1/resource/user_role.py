@@ -17,7 +17,9 @@ class UserRole(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListUserRoleRequest, option: Optional[RequestOption] = None) -> ListUserRoleResponse:
+    def list(
+        self, request: ListUserRoleRequest, option: Optional[RequestOption] = None
+    ) -> ListUserRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class UserRole(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserRoleResponse)
+        response: ListUserRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserRoleRequest, option: Optional[RequestOption] = None) -> ListUserRoleResponse:
+    async def alist(
+        self, request: ListUserRoleRequest, option: Optional[RequestOption] = None
+    ) -> ListUserRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class UserRole(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserRoleResponse)
+        response: ListUserRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserRoleResponse
+        )
         response.raw = resp
 
         return response

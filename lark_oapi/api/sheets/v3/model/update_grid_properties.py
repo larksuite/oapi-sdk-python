@@ -28,7 +28,9 @@ class UpdateGridPropertiesBuilder(object):
         self._update_grid_properties.frozen_row_count = frozen_row_count
         return self
 
-    def frozen_column_count(self, frozen_column_count: int) -> "UpdateGridPropertiesBuilder":
+    def frozen_column_count(
+        self, frozen_column_count: int
+    ) -> "UpdateGridPropertiesBuilder":
         self._update_grid_properties.frozen_column_count = frozen_column_count
         return self
 

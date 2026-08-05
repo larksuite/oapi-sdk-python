@@ -23,14 +23,21 @@ class FlowVariableDataProcessResponseBody(object):
 
 class FlowVariableDataProcessResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._flow_variable_data_process_response_body = FlowVariableDataProcessResponseBody()
+        self._flow_variable_data_process_response_body = (
+            FlowVariableDataProcessResponseBody()
+        )
 
-    def field_variable_values(self, field_variable_values: List[
-        FieldVariableValue]) -> "FlowVariableDataProcessResponseBodyBuilder":
-        self._flow_variable_data_process_response_body.field_variable_values = field_variable_values
+    def field_variable_values(
+        self, field_variable_values: List[FieldVariableValue]
+    ) -> "FlowVariableDataProcessResponseBodyBuilder":
+        self._flow_variable_data_process_response_body.field_variable_values = (
+            field_variable_values
+        )
         return self
 
-    def process_id(self, process_id: str) -> "FlowVariableDataProcessResponseBodyBuilder":
+    def process_id(
+        self, process_id: str
+    ) -> "FlowVariableDataProcessResponseBodyBuilder":
         self._flow_variable_data_process_response_body.process_id = process_id
         return self
 

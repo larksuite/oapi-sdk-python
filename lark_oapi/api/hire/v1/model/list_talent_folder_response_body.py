@@ -35,7 +35,9 @@ class ListTalentFolderResponseBodyBuilder(object):
         self._list_talent_folder_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[TalentFolderForList]) -> "ListTalentFolderResponseBodyBuilder":
+    def items(
+        self, items: List[TalentFolderForList]
+    ) -> "ListTalentFolderResponseBodyBuilder":
         self._list_talent_folder_response_body.items = items
         return self
 

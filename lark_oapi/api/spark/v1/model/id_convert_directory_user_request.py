@@ -17,15 +17,23 @@ class IdConvertDirectoryUserRequest(BaseRequest):
 
 
 class IdConvertDirectoryUserRequestBuilder(object):
-
     def __init__(self) -> None:
         id_convert_directory_user_request = IdConvertDirectoryUserRequest()
         id_convert_directory_user_request.http_method = HttpMethod.POST
-        id_convert_directory_user_request.uri = "/open-apis/spark/v1/directory/user/id_convert"
-        id_convert_directory_user_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._id_convert_directory_user_request: IdConvertDirectoryUserRequest = id_convert_directory_user_request
+        id_convert_directory_user_request.uri = (
+            "/open-apis/spark/v1/directory/user/id_convert"
+        )
+        id_convert_directory_user_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._id_convert_directory_user_request: IdConvertDirectoryUserRequest = (
+            id_convert_directory_user_request
+        )
 
-    def request_body(self, request_body: IdConvertDirectoryUserRequestBody) -> "IdConvertDirectoryUserRequestBuilder":
+    def request_body(
+        self, request_body: IdConvertDirectoryUserRequestBody
+    ) -> "IdConvertDirectoryUserRequestBuilder":
         self._id_convert_directory_user_request.request_body = request_body
         self._id_convert_directory_user_request.body = request_body
         return self

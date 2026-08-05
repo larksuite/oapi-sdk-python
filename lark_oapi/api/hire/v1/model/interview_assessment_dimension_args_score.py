@@ -28,7 +28,9 @@ class InterviewAssessmentDimensionArgsScore(object):
 
 class InterviewAssessmentDimensionArgsScoreBuilder(object):
     def __init__(self) -> None:
-        self._interview_assessment_dimension_args_score = InterviewAssessmentDimensionArgsScore()
+        self._interview_assessment_dimension_args_score = (
+            InterviewAssessmentDimensionArgsScore()
+        )
 
     def id(self, id: str) -> "InterviewAssessmentDimensionArgsScoreBuilder":
         self._interview_assessment_dimension_args_score.id = id
@@ -38,7 +40,9 @@ class InterviewAssessmentDimensionArgsScoreBuilder(object):
         self._interview_assessment_dimension_args_score.name = name
         return self
 
-    def description(self, description: I18n) -> "InterviewAssessmentDimensionArgsScoreBuilder":
+    def description(
+        self, description: I18n
+    ) -> "InterviewAssessmentDimensionArgsScoreBuilder":
         self._interview_assessment_dimension_args_score.description = description
         return self
 

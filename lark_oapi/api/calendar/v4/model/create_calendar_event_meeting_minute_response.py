@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_calendar_event_meeting_minute_response_body import CreateCalendarEventMeetingMinuteResponseBody
+from .create_calendar_event_meeting_minute_response_body import (
+    CreateCalendarEventMeetingMinuteResponseBody,
+)
 
 
 class CreateCalendarEventMeetingMinuteResponse(BaseResponse):
     _types = {
         "data": CreateCalendarEventMeetingMinuteResponseBody,
-
     }
 
     def __init__(self, d=None):

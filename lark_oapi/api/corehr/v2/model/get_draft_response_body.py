@@ -35,7 +35,9 @@ class GetDraftResponseBodyBuilder(object):
         self._get_draft_response_body.draft_status = draft_status
         return self
 
-    def process_infos(self, process_infos: List[ProcessInfo]) -> "GetDraftResponseBodyBuilder":
+    def process_infos(
+        self, process_infos: List[ProcessInfo]
+    ) -> "GetDraftResponseBodyBuilder":
         self._get_draft_response_body.process_infos = process_infos
         return self
 

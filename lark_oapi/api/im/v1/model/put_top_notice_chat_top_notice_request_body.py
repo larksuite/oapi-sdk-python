@@ -21,10 +21,16 @@ class PutTopNoticeChatTopNoticeRequestBody(object):
 
 class PutTopNoticeChatTopNoticeRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._put_top_notice_chat_top_notice_request_body = PutTopNoticeChatTopNoticeRequestBody()
+        self._put_top_notice_chat_top_notice_request_body = (
+            PutTopNoticeChatTopNoticeRequestBody()
+        )
 
-    def chat_top_notice(self, chat_top_notice: List[ChatTopNotice]) -> "PutTopNoticeChatTopNoticeRequestBodyBuilder":
-        self._put_top_notice_chat_top_notice_request_body.chat_top_notice = chat_top_notice
+    def chat_top_notice(
+        self, chat_top_notice: List[ChatTopNotice]
+    ) -> "PutTopNoticeChatTopNoticeRequestBodyBuilder":
+        self._put_top_notice_chat_top_notice_request_body.chat_top_notice = (
+            chat_top_notice
+        )
         return self
 
     def build(self) -> "PutTopNoticeChatTopNoticeRequestBody":

@@ -23,8 +23,11 @@ class UserMigration(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def cancel(self, request: CancelUserMigrationRequest,
-               option: Optional[RequestOption] = None) -> CancelUserMigrationResponse:
+    def cancel(
+        self,
+        request: CancelUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,13 +42,18 @@ class UserMigration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CancelUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelUserMigrationResponse)
+        response: CancelUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acancel(self, request: CancelUserMigrationRequest,
-                      option: Optional[RequestOption] = None) -> CancelUserMigrationResponse:
+    async def acancel(
+        self,
+        request: CancelUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,13 +64,18 @@ class UserMigration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CancelUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelUserMigrationResponse)
+        response: CancelUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateUserMigrationRequest,
-               option: Optional[RequestOption] = None) -> CreateUserMigrationResponse:
+    def create(
+        self,
+        request: CreateUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +90,18 @@ class UserMigration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMigrationResponse)
+        response: CreateUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserMigrationRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserMigrationResponse:
+    async def acreate(
+        self,
+        request: CreateUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,12 +112,16 @@ class UserMigration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserMigrationResponse)
+        response: CreateUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetUserMigrationRequest, option: Optional[RequestOption] = None) -> GetUserMigrationResponse:
+    def get(
+        self, request: GetUserMigrationRequest, option: Optional[RequestOption] = None
+    ) -> GetUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,13 +136,16 @@ class UserMigration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMigrationResponse)
+        response: GetUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserMigrationRequest,
-                   option: Optional[RequestOption] = None) -> GetUserMigrationResponse:
+    async def aget(
+        self, request: GetUserMigrationRequest, option: Optional[RequestOption] = None
+    ) -> GetUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,13 +156,18 @@ class UserMigration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMigrationResponse)
+        response: GetUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchUserMigrationRequest,
-               option: Optional[RequestOption] = None) -> SearchUserMigrationResponse:
+    def search(
+        self,
+        request: SearchUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -152,13 +182,18 @@ class UserMigration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchUserMigrationResponse)
+        response: SearchUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchUserMigrationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchUserMigrationRequest,
-                      option: Optional[RequestOption] = None) -> SearchUserMigrationResponse:
+    async def asearch(
+        self,
+        request: SearchUserMigrationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchUserMigrationResponse:
         if option is None:
             option = RequestOption()
 
@@ -169,7 +204,9 @@ class UserMigration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchUserMigrationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchUserMigrationResponse)
+        response: SearchUserMigrationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchUserMigrationResponse
+        )
         response.raw = resp
 
         return response

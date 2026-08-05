@@ -22,42 +22,76 @@ class CalendarByScopeLeaveRequest(BaseRequest):
 
 
 class CalendarByScopeLeaveRequestBuilder(object):
-
     def __init__(self) -> None:
         calendar_by_scope_leave_request = CalendarByScopeLeaveRequest()
         calendar_by_scope_leave_request.http_method = HttpMethod.GET
-        calendar_by_scope_leave_request.uri = "/open-apis/corehr/v1/leaves/calendar_by_scope"
-        calendar_by_scope_leave_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._calendar_by_scope_leave_request: CalendarByScopeLeaveRequest = calendar_by_scope_leave_request
+        calendar_by_scope_leave_request.uri = (
+            "/open-apis/corehr/v1/leaves/calendar_by_scope"
+        )
+        calendar_by_scope_leave_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._calendar_by_scope_leave_request: CalendarByScopeLeaveRequest = (
+            calendar_by_scope_leave_request
+        )
 
-    def wk_department_id(self, wk_department_id: str) -> "CalendarByScopeLeaveRequestBuilder":
+    def wk_department_id(
+        self, wk_department_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
         self._calendar_by_scope_leave_request.wk_department_id = wk_department_id
-        self._calendar_by_scope_leave_request.add_query("wk_department_id", wk_department_id)
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_department_id", wk_department_id
+        )
         return self
 
-    def wk_country_region_id(self, wk_country_region_id: str) -> "CalendarByScopeLeaveRequestBuilder":
-        self._calendar_by_scope_leave_request.wk_country_region_id = wk_country_region_id
-        self._calendar_by_scope_leave_request.add_query("wk_country_region_id", wk_country_region_id)
+    def wk_country_region_id(
+        self, wk_country_region_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
+        self._calendar_by_scope_leave_request.wk_country_region_id = (
+            wk_country_region_id
+        )
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_country_region_id", wk_country_region_id
+        )
         return self
 
-    def wk_employee_type_id(self, wk_employee_type_id: str) -> "CalendarByScopeLeaveRequestBuilder":
+    def wk_employee_type_id(
+        self, wk_employee_type_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
         self._calendar_by_scope_leave_request.wk_employee_type_id = wk_employee_type_id
-        self._calendar_by_scope_leave_request.add_query("wk_employee_type_id", wk_employee_type_id)
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_employee_type_id", wk_employee_type_id
+        )
         return self
 
-    def wk_work_location_id(self, wk_work_location_id: str) -> "CalendarByScopeLeaveRequestBuilder":
+    def wk_work_location_id(
+        self, wk_work_location_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
         self._calendar_by_scope_leave_request.wk_work_location_id = wk_work_location_id
-        self._calendar_by_scope_leave_request.add_query("wk_work_location_id", wk_work_location_id)
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_work_location_id", wk_work_location_id
+        )
         return self
 
-    def wk_working_hours_type_id(self, wk_working_hours_type_id: str) -> "CalendarByScopeLeaveRequestBuilder":
-        self._calendar_by_scope_leave_request.wk_working_hours_type_id = wk_working_hours_type_id
-        self._calendar_by_scope_leave_request.add_query("wk_working_hours_type_id", wk_working_hours_type_id)
+    def wk_working_hours_type_id(
+        self, wk_working_hours_type_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
+        self._calendar_by_scope_leave_request.wk_working_hours_type_id = (
+            wk_working_hours_type_id
+        )
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_working_hours_type_id", wk_working_hours_type_id
+        )
         return self
 
-    def wk_job_family_id(self, wk_job_family_id: str) -> "CalendarByScopeLeaveRequestBuilder":
+    def wk_job_family_id(
+        self, wk_job_family_id: str
+    ) -> "CalendarByScopeLeaveRequestBuilder":
         self._calendar_by_scope_leave_request.wk_job_family_id = wk_job_family_id
-        self._calendar_by_scope_leave_request.add_query("wk_job_family_id", wk_job_family_id)
+        self._calendar_by_scope_leave_request.add_query(
+            "wk_job_family_id", wk_job_family_id
+        )
         return self
 
     def wk_company_id(self, wk_company_id: str) -> "CalendarByScopeLeaveRequestBuilder":

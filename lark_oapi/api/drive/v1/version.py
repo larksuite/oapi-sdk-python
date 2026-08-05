@@ -17,5 +17,7 @@ class V1(object):
         self.notice: Notice = Notice(config)
         self.permission_member: PermissionMember = PermissionMember(config)
         self.permission_public: PermissionPublic = PermissionPublic(config)
-        self.permission_public_password: PermissionPublicPassword = PermissionPublicPassword(config)
+        self.permission_public_password: PermissionPublicPassword = (
+            PermissionPublicPassword(config)
+        )
         self.user: User = User(config)

@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.recognize_food_manage_license_request import RecognizeFoodManageLicenseRequest
-from ..model.recognize_food_manage_license_response import RecognizeFoodManageLicenseResponse
+from ..model.recognize_food_manage_license_request import (
+    RecognizeFoodManageLicenseRequest,
+)
+from ..model.recognize_food_manage_license_response import (
+    RecognizeFoodManageLicenseResponse,
+)
 
 
 class FoodManageLicense(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeFoodManageLicenseRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeFoodManageLicenseResponse:
+    def recognize(
+        self,
+        request: RecognizeFoodManageLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeFoodManageLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class FoodManageLicense(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeFoodManageLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecognizeFoodManageLicenseResponse)
+        response: RecognizeFoodManageLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeFoodManageLicenseResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeFoodManageLicenseRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeFoodManageLicenseResponse:
+    async def arecognize(
+        self,
+        request: RecognizeFoodManageLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeFoodManageLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +67,9 @@ class FoodManageLicense(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeFoodManageLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecognizeFoodManageLicenseResponse)
+        response: RecognizeFoodManageLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeFoodManageLicenseResponse
+        )
         response.raw = resp
 
         return response

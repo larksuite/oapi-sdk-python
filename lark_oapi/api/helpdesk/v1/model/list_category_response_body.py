@@ -23,7 +23,9 @@ class ListCategoryResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_category_response_body = ListCategoryResponseBody()
 
-    def categories(self, categories: List[Category]) -> "ListCategoryResponseBodyBuilder":
+    def categories(
+        self, categories: List[Category]
+    ) -> "ListCategoryResponseBodyBuilder":
         self._list_category_response_body.categories = categories
         return self
 

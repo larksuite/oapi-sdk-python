@@ -42,7 +42,9 @@ class LeaveRequestDetailBuilder(object):
         self._leave_request_detail.leave_duration = leave_duration
         return self
 
-    def leave_duration_unit(self, leave_duration_unit: int) -> "LeaveRequestDetailBuilder":
+    def leave_duration_unit(
+        self, leave_duration_unit: int
+    ) -> "LeaveRequestDetailBuilder":
         self._leave_request_detail.leave_duration_unit = leave_duration_unit
         return self
 

@@ -22,7 +22,6 @@ class GetApprovalRequest(BaseRequest):
 
 
 class GetApprovalRequestBuilder(object):
-
     def __init__(self) -> None:
         get_approval_request = GetApprovalRequest()
         get_approval_request.http_method = HttpMethod.GET
@@ -55,9 +54,13 @@ class GetApprovalRequestBuilder(object):
         self._get_approval_request.add_query("user_id", user_id)
         return self
 
-    def nested_mutable_group(self, nested_mutable_group: bool) -> "GetApprovalRequestBuilder":
+    def nested_mutable_group(
+        self, nested_mutable_group: bool
+    ) -> "GetApprovalRequestBuilder":
         self._get_approval_request.nested_mutable_group = nested_mutable_group
-        self._get_approval_request.add_query("nested_mutable_group", nested_mutable_group)
+        self._get_approval_request.add_query(
+            "nested_mutable_group", nested_mutable_group
+        )
         return self
 
     def approval_code(self, approval_code: str) -> "GetApprovalRequestBuilder":

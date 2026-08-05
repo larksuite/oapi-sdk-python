@@ -184,15 +184,21 @@ class LeaveRequestBuilder(object):
         self._leave_request.leave_process_id = leave_process_id
         return self
 
-    def leave_correct_process_id(self, leave_correct_process_id: List[str]) -> "LeaveRequestBuilder":
+    def leave_correct_process_id(
+        self, leave_correct_process_id: List[str]
+    ) -> "LeaveRequestBuilder":
         self._leave_request.leave_correct_process_id = leave_correct_process_id
         return self
 
-    def leave_cancel_process_id(self, leave_cancel_process_id: List[str]) -> "LeaveRequestBuilder":
+    def leave_cancel_process_id(
+        self, leave_cancel_process_id: List[str]
+    ) -> "LeaveRequestBuilder":
         self._leave_request.leave_cancel_process_id = leave_cancel_process_id
         return self
 
-    def leave_return_process_id(self, leave_return_process_id: List[str]) -> "LeaveRequestBuilder":
+    def leave_return_process_id(
+        self, leave_return_process_id: List[str]
+    ) -> "LeaveRequestBuilder":
         self._leave_request.leave_return_process_id = leave_return_process_id
         return self
 
@@ -200,11 +206,15 @@ class LeaveRequestBuilder(object):
         self._leave_request.wd_paid_type = wd_paid_type
         return self
 
-    def leave_correct_process_info(self, leave_correct_process_info: List[LeaveProcessInfo]) -> "LeaveRequestBuilder":
+    def leave_correct_process_info(
+        self, leave_correct_process_info: List[LeaveProcessInfo]
+    ) -> "LeaveRequestBuilder":
         self._leave_request.leave_correct_process_info = leave_correct_process_info
         return self
 
-    def workday_extend_infos(self, workday_extend_infos: List[LeaveExtendItem]) -> "LeaveRequestBuilder":
+    def workday_extend_infos(
+        self, workday_extend_infos: List[LeaveExtendItem]
+    ) -> "LeaveRequestBuilder":
         self._leave_request.workday_extend_infos = workday_extend_infos
         return self
 

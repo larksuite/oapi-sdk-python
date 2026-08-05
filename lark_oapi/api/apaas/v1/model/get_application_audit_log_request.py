@@ -17,13 +17,16 @@ class GetApplicationAuditLogRequest(BaseRequest):
 
 
 class GetApplicationAuditLogRequestBuilder(object):
-
     def __init__(self) -> None:
         get_application_audit_log_request = GetApplicationAuditLogRequest()
         get_application_audit_log_request.http_method = HttpMethod.GET
-        get_application_audit_log_request.uri = "/open-apis/apaas/v1/applications/:namespace/audit_log"
+        get_application_audit_log_request.uri = (
+            "/open-apis/apaas/v1/applications/:namespace/audit_log"
+        )
         get_application_audit_log_request.token_types = {AccessTokenType.USER}
-        self._get_application_audit_log_request: GetApplicationAuditLogRequest = get_application_audit_log_request
+        self._get_application_audit_log_request: GetApplicationAuditLogRequest = (
+            get_application_audit_log_request
+        )
 
     def log_id(self, log_id: str) -> "GetApplicationAuditLogRequestBuilder":
         self._get_application_audit_log_request.log_id = log_id

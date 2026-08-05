@@ -23,7 +23,9 @@ class CreateAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_table_record_response_body = CreateAppTableRecordResponseBody()
 
-    def record(self, record: AppTableRecord) -> "CreateAppTableRecordResponseBodyBuilder":
+    def record(
+        self, record: AppTableRecord
+    ) -> "CreateAppTableRecordResponseBodyBuilder":
         self._create_app_table_record_response_body.record = record
         return self
 

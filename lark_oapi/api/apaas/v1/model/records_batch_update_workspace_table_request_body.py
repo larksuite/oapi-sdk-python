@@ -20,9 +20,13 @@ class RecordsBatchUpdateWorkspaceTableRequestBody(object):
 
 class RecordsBatchUpdateWorkspaceTableRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._records_batch_update_workspace_table_request_body = RecordsBatchUpdateWorkspaceTableRequestBody()
+        self._records_batch_update_workspace_table_request_body = (
+            RecordsBatchUpdateWorkspaceTableRequestBody()
+        )
 
-    def records(self, records: str) -> "RecordsBatchUpdateWorkspaceTableRequestBodyBuilder":
+    def records(
+        self, records: str
+    ) -> "RecordsBatchUpdateWorkspaceTableRequestBodyBuilder":
         self._records_batch_update_workspace_table_request_body.records = records
         return self
 

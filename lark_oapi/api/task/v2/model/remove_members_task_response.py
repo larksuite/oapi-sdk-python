@@ -9,7 +9,6 @@ from .remove_members_task_response_body import RemoveMembersTaskResponseBody
 class RemoveMembersTaskResponse(BaseResponse):
     _types = {
         "data": RemoveMembersTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

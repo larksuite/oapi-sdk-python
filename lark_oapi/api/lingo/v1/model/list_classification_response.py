@@ -9,7 +9,6 @@ from .list_classification_response_body import ListClassificationResponseBody
 class ListClassificationResponse(BaseResponse):
     _types = {
         "data": ListClassificationResponseBody,
-
     }
 
     def __init__(self, d=None):

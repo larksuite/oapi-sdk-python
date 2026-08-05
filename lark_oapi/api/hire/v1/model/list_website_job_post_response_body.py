@@ -27,7 +27,9 @@ class ListWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_website_job_post_response_body = ListWebsiteJobPostResponseBody()
 
-    def items(self, items: List[WebsiteJobPost]) -> "ListWebsiteJobPostResponseBodyBuilder":
+    def items(
+        self, items: List[WebsiteJobPost]
+    ) -> "ListWebsiteJobPostResponseBodyBuilder":
         self._list_website_job_post_response_body.items = items
         return self
 

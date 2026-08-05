@@ -57,7 +57,9 @@ class AppliOfferOnboardProfileBuilder(object):
         self._appli_offer_onboard_profile.department = department
         return self
 
-    def recruitment_type(self, recruitment_type: RecruitmentType) -> "AppliOfferOnboardProfileBuilder":
+    def recruitment_type(
+        self, recruitment_type: RecruitmentType
+    ) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.recruitment_type = recruitment_type
         return self
 
@@ -69,24 +71,35 @@ class AppliOfferOnboardProfileBuilder(object):
         self._appli_offer_onboard_profile.level = level
         return self
 
-    def onboard_address(self, onboard_address: AppliOfferOnboardProfileAdd) -> "AppliOfferOnboardProfileBuilder":
+    def onboard_address(
+        self, onboard_address: AppliOfferOnboardProfileAdd
+    ) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.onboard_address = onboard_address
         return self
 
-    def work_address(self, work_address: AppliOfferOnboardProfileAdd) -> "AppliOfferOnboardProfileBuilder":
+    def work_address(
+        self, work_address: AppliOfferOnboardProfileAdd
+    ) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.work_address = work_address
         return self
 
-    def leader(self, leader: AppliOfferBasicInfoUser) -> "AppliOfferOnboardProfileBuilder":
+    def leader(
+        self, leader: AppliOfferBasicInfoUser
+    ) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.leader = leader
         return self
 
-    def is_work_address_same_to_onboard(self,
-                                        is_work_address_same_to_onboard: bool) -> "AppliOfferOnboardProfileBuilder":
-        self._appli_offer_onboard_profile.is_work_address_same_to_onboard = is_work_address_same_to_onboard
+    def is_work_address_same_to_onboard(
+        self, is_work_address_same_to_onboard: bool
+    ) -> "AppliOfferOnboardProfileBuilder":
+        self._appli_offer_onboard_profile.is_work_address_same_to_onboard = (
+            is_work_address_same_to_onboard
+        )
         return self
 
-    def probation_month(self, probation_month: int) -> "AppliOfferOnboardProfileBuilder":
+    def probation_month(
+        self, probation_month: int
+    ) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.probation_month = probation_month
         return self
 

@@ -9,7 +9,6 @@ from .cancel_aily_session_run_response_body import CancelAilySessionRunResponseB
 class CancelAilySessionRunResponse(BaseResponse):
     _types = {
         "data": CancelAilySessionRunResponseBody,
-
     }
 
     def __init__(self, d=None):

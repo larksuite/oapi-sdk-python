@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .set_room_access_code_room_config_response_body import SetRoomAccessCodeRoomConfigResponseBody
+from .set_room_access_code_room_config_response_body import (
+    SetRoomAccessCodeRoomConfigResponseBody,
+)
 
 
 class SetRoomAccessCodeRoomConfigResponse(BaseResponse):
     _types = {
         "data": SetRoomAccessCodeRoomConfigResponseBody,
-
     }
 
     def __init__(self, d=None):

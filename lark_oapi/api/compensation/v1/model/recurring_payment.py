@@ -88,7 +88,9 @@ class RecurringPaymentBuilder(object):
         self._recurring_payment.remark = remark
         return self
 
-    def issuance_country_region_id(self, issuance_country_region_id: str) -> "RecurringPaymentBuilder":
+    def issuance_country_region_id(
+        self, issuance_country_region_id: str
+    ) -> "RecurringPaymentBuilder":
         self._recurring_payment.issuance_country_region_id = issuance_country_region_id
         return self
 

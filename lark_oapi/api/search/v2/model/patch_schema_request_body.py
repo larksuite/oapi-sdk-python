@@ -30,7 +30,9 @@ class PatchSchemaRequestBodyBuilder(object):
         self._patch_schema_request_body.display = display
         return self
 
-    def properties(self, properties: List[PatchSchemaProperty]) -> "PatchSchemaRequestBodyBuilder":
+    def properties(
+        self, properties: List[PatchSchemaProperty]
+    ) -> "PatchSchemaRequestBodyBuilder":
         self._patch_schema_request_body.properties = properties
         return self
 

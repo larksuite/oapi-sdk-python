@@ -55,7 +55,9 @@ class ApplicationOfferBasicInfoUserBuilder(object):
         self._application_offer_basic_info_user.avatar = avatar
         return self
 
-    def department(self, department: Department) -> "ApplicationOfferBasicInfoUserBuilder":
+    def department(
+        self, department: Department
+    ) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.department = department
         return self
 
@@ -71,7 +73,9 @@ class ApplicationOfferBasicInfoUserBuilder(object):
         self._application_offer_basic_info_user.email = email
         return self
 
-    def in_app_scope(self, in_app_scope: bool) -> "ApplicationOfferBasicInfoUserBuilder":
+    def in_app_scope(
+        self, in_app_scope: bool
+    ) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.in_app_scope = in_app_scope
         return self
 

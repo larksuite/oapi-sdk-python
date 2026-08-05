@@ -17,7 +17,9 @@ class Employee(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListEmployeeRequest, option: Optional[RequestOption] = None) -> ListEmployeeResponse:
+    def list(
+        self, request: ListEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> ListEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Employee(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEmployeeResponse)
+        response: ListEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListEmployeeRequest, option: Optional[RequestOption] = None) -> ListEmployeeResponse:
+    async def alist(
+        self, request: ListEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> ListEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Employee(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEmployeeResponse)
+        response: ListEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEmployeeResponse
+        )
         response.raw = resp
 
         return response

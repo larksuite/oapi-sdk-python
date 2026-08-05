@@ -68,7 +68,9 @@ class InterviewRecordBuilder(object):
         self._interview_record.attachments = attachments
         return self
 
-    def module_assessments(self, module_assessments: List[ModuleAssessment]) -> "InterviewRecordBuilder":
+    def module_assessments(
+        self, module_assessments: List[ModuleAssessment]
+    ) -> "InterviewRecordBuilder":
         self._interview_record.module_assessments = module_assessments
         return self
 

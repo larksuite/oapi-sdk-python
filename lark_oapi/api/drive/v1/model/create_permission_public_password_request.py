@@ -17,12 +17,18 @@ class CreatePermissionPublicPasswordRequest(BaseRequest):
 
 
 class CreatePermissionPublicPasswordRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_permission_public_password_request = CreatePermissionPublicPasswordRequest()
+        create_permission_public_password_request = (
+            CreatePermissionPublicPasswordRequest()
+        )
         create_permission_public_password_request.http_method = HttpMethod.POST
-        create_permission_public_password_request.uri = "/open-apis/drive/v1/permissions/:token/public/password"
-        create_permission_public_password_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_permission_public_password_request.uri = (
+            "/open-apis/drive/v1/permissions/:token/public/password"
+        )
+        create_permission_public_password_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._create_permission_public_password_request: CreatePermissionPublicPasswordRequest = create_permission_public_password_request
 
     def type(self, type: str) -> "CreatePermissionPublicPasswordRequestBuilder":

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_delete_app_table_record_request_body import BatchDeleteAppTableRecordRequestBody
+from .batch_delete_app_table_record_request_body import (
+    BatchDeleteAppTableRecordRequestBody,
+)
 
 
 class BatchDeleteAppTableRecordRequest(BaseRequest):
@@ -20,17 +22,25 @@ class BatchDeleteAppTableRecordRequest(BaseRequest):
 
 
 class BatchDeleteAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_delete_app_table_record_request = BatchDeleteAppTableRecordRequest()
         batch_delete_app_table_record_request.http_method = HttpMethod.POST
         batch_delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
-        batch_delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_delete_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_delete_app_table_record_request: BatchDeleteAppTableRecordRequest = batch_delete_app_table_record_request
 
-    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "BatchDeleteAppTableRecordRequestBuilder":
-        self._batch_delete_app_table_record_request.ignore_consistency_check = ignore_consistency_check
-        self._batch_delete_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+    def ignore_consistency_check(
+        self, ignore_consistency_check: bool
+    ) -> "BatchDeleteAppTableRecordRequestBuilder":
+        self._batch_delete_app_table_record_request.ignore_consistency_check = (
+            ignore_consistency_check
+        )
+        self._batch_delete_app_table_record_request.add_query(
+            "ignore_consistency_check", ignore_consistency_check
+        )
         return self
 
     def app_token(self, app_token: str) -> "BatchDeleteAppTableRecordRequestBuilder":
@@ -43,8 +53,9 @@ class BatchDeleteAppTableRecordRequestBuilder(object):
         self._batch_delete_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
-    def request_body(self,
-                     request_body: BatchDeleteAppTableRecordRequestBody) -> "BatchDeleteAppTableRecordRequestBuilder":
+    def request_body(
+        self, request_body: BatchDeleteAppTableRecordRequestBody
+    ) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.request_body = request_body
         self._batch_delete_app_table_record_request.body = request_body
         return self

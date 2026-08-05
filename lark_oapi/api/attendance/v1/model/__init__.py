@@ -19,6 +19,7 @@ from .create_bpm_out_record import *
 from .create_bpm_remedy_records import *
 from .department_id import *
 from .duration_item import *
+from .employee_identity import *
 from .export_archive_user_record_req import *
 from .field import *
 from .file import *
@@ -36,8 +37,11 @@ from .lang_text import *
 from .late_off_late_on_rule import *
 from .late_off_late_on_setting import *
 from .leave_accrual_record import *
+from .leave_column_value import *
 from .leave_employ_expire_record import *
 from .leave_need_punch_cfg import *
+from .leave_record import *
+from .leave_record_time import *
 from .location import *
 from .location_info import *
 from .location_info_event import *
@@ -71,7 +75,7 @@ from .report_row import *
 from .report_value import *
 from .rest_rule import *
 from .rest_time_flexible_config import *
-from .rulemanager_time_code_display_name import *
+from .rulemanager_time_code import *
 from .rulemanager_time_code_group_info import *
 from .rulemanager_time_code_info import *
 from .scan_wifi_info import *
@@ -85,6 +89,8 @@ from .shift_middle_time_rule import *
 from .statistics_field import *
 from .status_change import *
 from .submission_column_value import *
+from .submission_row import *
+from .submission_row_children import *
 from .submission_summary_stats import *
 from .submission_summary_stats_detail import *
 from .task_result import *
@@ -106,7 +112,8 @@ from .user_out_approval import *
 from .user_overtime_work import *
 from .user_remedy_approval import *
 from .user_setting import *
-from .user_shift_change import *
+from .user_shift_change_approval import *
+from .user_shift_change_detail import *
 from .user_shift_groups_list import *
 from .user_stats_data import *
 from .user_stats_data_cell import *

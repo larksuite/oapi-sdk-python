@@ -5,8 +5,7 @@ from lark_oapi.core.construct import init
 
 
 class QuoteContainer(object):
-    _types = {
-    }
+    _types = {}
 
     def __init__(self, d=None):
         init(self, d, self._types)

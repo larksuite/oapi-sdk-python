@@ -26,11 +26,15 @@ class UpdateProgressRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_progress_record_request_body = UpdateProgressRecordRequestBody()
 
-    def content(self, content: ContentBlock) -> "UpdateProgressRecordRequestBodyBuilder":
+    def content(
+        self, content: ContentBlock
+    ) -> "UpdateProgressRecordRequestBodyBuilder":
         self._update_progress_record_request_body.content = content
         return self
 
-    def progress_rate(self, progress_rate: ProgressRateNew) -> "UpdateProgressRecordRequestBodyBuilder":
+    def progress_rate(
+        self, progress_rate: ProgressRateNew
+    ) -> "UpdateProgressRecordRequestBodyBuilder":
         self._update_progress_record_request_body.progress_rate = progress_rate
         return self
 

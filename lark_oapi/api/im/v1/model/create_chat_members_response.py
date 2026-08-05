@@ -9,7 +9,6 @@ from .create_chat_members_response_body import CreateChatMembersResponseBody
 class CreateChatMembersResponse(BaseResponse):
     _types = {
         "data": CreateChatMembersResponseBody,
-
     }
 
     def __init__(self, d=None):

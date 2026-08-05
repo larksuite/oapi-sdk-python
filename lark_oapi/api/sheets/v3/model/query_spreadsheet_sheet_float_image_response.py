@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_spreadsheet_sheet_float_image_response_body import QuerySpreadsheetSheetFloatImageResponseBody
+from .query_spreadsheet_sheet_float_image_response_body import (
+    QuerySpreadsheetSheetFloatImageResponseBody,
+)
 
 
 class QuerySpreadsheetSheetFloatImageResponse(BaseResponse):
     _types = {
         "data": QuerySpreadsheetSheetFloatImageResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -19,15 +19,20 @@ class ListPublicMailboxMemberRequest(BaseRequest):
 
 
 class ListPublicMailboxMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         list_public_mailbox_member_request = ListPublicMailboxMemberRequest()
         list_public_mailbox_member_request.http_method = HttpMethod.GET
-        list_public_mailbox_member_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members"
+        list_public_mailbox_member_request.uri = (
+            "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members"
+        )
         list_public_mailbox_member_request.token_types = {AccessTokenType.TENANT}
-        self._list_public_mailbox_member_request: ListPublicMailboxMemberRequest = list_public_mailbox_member_request
+        self._list_public_mailbox_member_request: ListPublicMailboxMemberRequest = (
+            list_public_mailbox_member_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "ListPublicMailboxMemberRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListPublicMailboxMemberRequestBuilder":
         self._list_public_mailbox_member_request.user_id_type = user_id_type
         self._list_public_mailbox_member_request.add_query("user_id_type", user_id_type)
         return self
@@ -42,9 +47,13 @@ class ListPublicMailboxMemberRequestBuilder(object):
         self._list_public_mailbox_member_request.add_query("page_size", page_size)
         return self
 
-    def public_mailbox_id(self, public_mailbox_id: str) -> "ListPublicMailboxMemberRequestBuilder":
+    def public_mailbox_id(
+        self, public_mailbox_id: str
+    ) -> "ListPublicMailboxMemberRequestBuilder":
         self._list_public_mailbox_member_request.public_mailbox_id = public_mailbox_id
-        self._list_public_mailbox_member_request.paths["public_mailbox_id"] = str(public_mailbox_id)
+        self._list_public_mailbox_member_request.paths["public_mailbox_id"] = str(
+            public_mailbox_id
+        )
         return self
 
     def build(self) -> ListPublicMailboxMemberRequest:

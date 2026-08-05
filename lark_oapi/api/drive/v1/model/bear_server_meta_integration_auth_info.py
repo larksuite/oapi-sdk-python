@@ -34,9 +34,13 @@ class BearServerMetaIntegrationAuthInfo(object):
 
 class BearServerMetaIntegrationAuthInfoBuilder(object):
     def __init__(self) -> None:
-        self._bear_server_meta_integration_auth_info = BearServerMetaIntegrationAuthInfo()
+        self._bear_server_meta_integration_auth_info = (
+            BearServerMetaIntegrationAuthInfo()
+        )
 
-    def session_key(self, session_key: str) -> "BearServerMetaIntegrationAuthInfoBuilder":
+    def session_key(
+        self, session_key: str
+    ) -> "BearServerMetaIntegrationAuthInfoBuilder":
         self._bear_server_meta_integration_auth_info.session_key = session_key
         return self
 
@@ -44,7 +48,9 @@ class BearServerMetaIntegrationAuthInfoBuilder(object):
         self._bear_server_meta_integration_auth_info.user_id = user_id
         return self
 
-    def open_app_id(self, open_app_id: str) -> "BearServerMetaIntegrationAuthInfoBuilder":
+    def open_app_id(
+        self, open_app_id: str
+    ) -> "BearServerMetaIntegrationAuthInfoBuilder":
         self._bear_server_meta_integration_auth_info.open_app_id = open_app_id
         return self
 
@@ -52,7 +58,9 @@ class BearServerMetaIntegrationAuthInfoBuilder(object):
         self._bear_server_meta_integration_auth_info.region = region
         return self
 
-    def open_bot_id(self, open_bot_id: str) -> "BearServerMetaIntegrationAuthInfoBuilder":
+    def open_bot_id(
+        self, open_bot_id: str
+    ) -> "BearServerMetaIntegrationAuthInfoBuilder":
         self._bear_server_meta_integration_auth_info.open_bot_id = open_bot_id
         return self
 
@@ -64,7 +72,9 @@ class BearServerMetaIntegrationAuthInfoBuilder(object):
         self._bear_server_meta_integration_auth_info.auth_type = auth_type
         return self
 
-    def extra(self, extra: Dict[str, str]) -> "BearServerMetaIntegrationAuthInfoBuilder":
+    def extra(
+        self, extra: Dict[str, str]
+    ) -> "BearServerMetaIntegrationAuthInfoBuilder":
         self._bear_server_meta_integration_auth_info.extra = extra
         return self
 

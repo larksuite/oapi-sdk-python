@@ -19,13 +19,14 @@ class PatchApplicationRequest(BaseRequest):
 
 
 class PatchApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_application_request = PatchApplicationRequest()
         patch_application_request.http_method = HttpMethod.PATCH
         patch_application_request.uri = "/open-apis/application/v6/applications/:app_id"
         patch_application_request.token_types = {AccessTokenType.TENANT}
-        self._patch_application_request: PatchApplicationRequest = patch_application_request
+        self._patch_application_request: PatchApplicationRequest = (
+            patch_application_request
+        )
 
     def lang(self, lang: str) -> "PatchApplicationRequestBuilder":
         self._patch_application_request.lang = lang
@@ -37,7 +38,9 @@ class PatchApplicationRequestBuilder(object):
         self._patch_application_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: Application) -> "PatchApplicationRequestBuilder":
+    def request_body(
+        self, request_body: Application
+    ) -> "PatchApplicationRequestBuilder":
         self._patch_application_request.request_body = request_body
         self._patch_application_request.body = request_body
         return self

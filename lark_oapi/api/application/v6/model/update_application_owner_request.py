@@ -19,13 +19,19 @@ class UpdateApplicationOwnerRequest(BaseRequest):
 
 
 class UpdateApplicationOwnerRequestBuilder(object):
-
     def __init__(self) -> None:
         update_application_owner_request = UpdateApplicationOwnerRequest()
         update_application_owner_request.http_method = HttpMethod.PUT
-        update_application_owner_request.uri = "/open-apis/application/v6/applications/:app_id/owner"
-        update_application_owner_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._update_application_owner_request: UpdateApplicationOwnerRequest = update_application_owner_request
+        update_application_owner_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/owner"
+        )
+        update_application_owner_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._update_application_owner_request: UpdateApplicationOwnerRequest = (
+            update_application_owner_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateApplicationOwnerRequestBuilder":
         self._update_application_owner_request.user_id_type = user_id_type
@@ -37,7 +43,9 @@ class UpdateApplicationOwnerRequestBuilder(object):
         self._update_application_owner_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: UpdateApplicationOwnerRequestBody) -> "UpdateApplicationOwnerRequestBuilder":
+    def request_body(
+        self, request_body: UpdateApplicationOwnerRequestBody
+    ) -> "UpdateApplicationOwnerRequestBuilder":
         self._update_application_owner_request.request_body = request_body
         self._update_application_owner_request.body = request_body
         return self

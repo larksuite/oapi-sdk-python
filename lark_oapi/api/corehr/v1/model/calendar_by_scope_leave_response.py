@@ -9,7 +9,6 @@ from .calendar_by_scope_leave_response_body import CalendarByScopeLeaveResponseB
 class CalendarByScopeLeaveResponse(BaseResponse):
     _types = {
         "data": CalendarByScopeLeaveResponseBody,
-
     }
 
     def __init__(self, d=None):

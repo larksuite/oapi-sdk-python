@@ -68,7 +68,9 @@ class SignatureFileBuilder(object):
         self._signature_file.pre_hire_id = pre_hire_id
         return self
 
-    def signature_file_state(self, signature_file_state: Enum) -> "SignatureFileBuilder":
+    def signature_file_state(
+        self, signature_file_state: Enum
+    ) -> "SignatureFileBuilder":
         self._signature_file.signature_file_state = signature_file_state
         return self
 

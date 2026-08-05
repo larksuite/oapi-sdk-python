@@ -53,7 +53,9 @@ class ScoreSettingBuilder(object):
         self._score_setting.score_type = score_type
         return self
 
-    def fix_score_options(self, fix_score_options: List[FixScoreOption]) -> "ScoreSettingBuilder":
+    def fix_score_options(
+        self, fix_score_options: List[FixScoreOption]
+    ) -> "ScoreSettingBuilder":
         self._score_setting.fix_score_options = fix_score_options
         return self
 

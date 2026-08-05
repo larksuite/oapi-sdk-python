@@ -84,19 +84,27 @@ class GetProcessResponseBodyBuilder(object):
         self._get_process_response_body.status = status
         return self
 
-    def flow_template_id(self, flow_template_id: str) -> "GetProcessResponseBodyBuilder":
+    def flow_template_id(
+        self, flow_template_id: str
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_template_id = flow_template_id
         return self
 
-    def flow_template_name(self, flow_template_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
+    def flow_template_name(
+        self, flow_template_name: DataengineI18n
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_template_name = flow_template_name
         return self
 
-    def flow_definition_id(self, flow_definition_id: str) -> "GetProcessResponseBodyBuilder":
+    def flow_definition_id(
+        self, flow_definition_id: str
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_definition_id = flow_definition_id
         return self
 
-    def flow_definition_name(self, flow_definition_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
+    def flow_definition_name(
+        self, flow_definition_name: DataengineI18n
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.flow_definition_name = flow_definition_name
         return self
 
@@ -104,7 +112,9 @@ class GetProcessResponseBodyBuilder(object):
         self._get_process_response_body.initiator_id = initiator_id
         return self
 
-    def initiator_name(self, initiator_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
+    def initiator_name(
+        self, initiator_name: DataengineI18n
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.initiator_name = initiator_name
         return self
 
@@ -120,7 +130,9 @@ class GetProcessResponseBodyBuilder(object):
         self._get_process_response_body.start_links = start_links
         return self
 
-    def abstracts(self, abstracts: List[ProcessAbstractItem]) -> "GetProcessResponseBodyBuilder":
+    def abstracts(
+        self, abstracts: List[ProcessAbstractItem]
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.abstracts = abstracts
         return self
 
@@ -132,7 +144,9 @@ class GetProcessResponseBodyBuilder(object):
         self._get_process_response_body.cc_list = cc_list
         return self
 
-    def done_list(self, done_list: List[ProcessDoneItem]) -> "GetProcessResponseBodyBuilder":
+    def done_list(
+        self, done_list: List[ProcessDoneItem]
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.done_list = done_list
         return self
 
@@ -140,28 +154,41 @@ class GetProcessResponseBodyBuilder(object):
         self._get_process_response_body.properties = properties
         return self
 
-    def system_todos(self, system_todos: List[ProcessSystemTodoItem]) -> "GetProcessResponseBodyBuilder":
+    def system_todos(
+        self, system_todos: List[ProcessSystemTodoItem]
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.system_todos = system_todos
         return self
 
-    def system_done_list(self, system_done_list: List[ProcessSystemDoneItem]) -> "GetProcessResponseBodyBuilder":
+    def system_done_list(
+        self, system_done_list: List[ProcessSystemDoneItem]
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.system_done_list = system_done_list
         return self
 
-    def comment_infos(self, comment_infos: List[ProcessCommentInfo]) -> "GetProcessResponseBodyBuilder":
+    def comment_infos(
+        self, comment_infos: List[ProcessCommentInfo]
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.comment_infos = comment_infos
         return self
 
-    def original_process_id(self, original_process_id: str) -> "GetProcessResponseBodyBuilder":
+    def original_process_id(
+        self, original_process_id: str
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.original_process_id = original_process_id
         return self
 
-    def is_last_completed_correct_process(self,
-                                          is_last_completed_correct_process: bool) -> "GetProcessResponseBodyBuilder":
-        self._get_process_response_body.is_last_completed_correct_process = is_last_completed_correct_process
+    def is_last_completed_correct_process(
+        self, is_last_completed_correct_process: bool
+    ) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.is_last_completed_correct_process = (
+            is_last_completed_correct_process
+        )
         return self
 
-    def process_name(self, process_name: DataengineI18n) -> "GetProcessResponseBodyBuilder":
+    def process_name(
+        self, process_name: DataengineI18n
+    ) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.process_name = process_name
         return self
 

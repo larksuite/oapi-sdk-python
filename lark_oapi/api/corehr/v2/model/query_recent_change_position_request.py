@@ -19,13 +19,16 @@ class QueryRecentChangePositionRequest(BaseRequest):
 
 
 class QueryRecentChangePositionRequestBuilder(object):
-
     def __init__(self) -> None:
         query_recent_change_position_request = QueryRecentChangePositionRequest()
         query_recent_change_position_request.http_method = HttpMethod.GET
-        query_recent_change_position_request.uri = "/open-apis/corehr/v2/positions/query_recent_change"
+        query_recent_change_position_request.uri = (
+            "/open-apis/corehr/v2/positions/query_recent_change"
+        )
         query_recent_change_position_request.token_types = {AccessTokenType.TENANT}
-        self._query_recent_change_position_request: QueryRecentChangePositionRequest = query_recent_change_position_request
+        self._query_recent_change_position_request: QueryRecentChangePositionRequest = (
+            query_recent_change_position_request
+        )
 
     def page_size(self, page_size: int) -> "QueryRecentChangePositionRequestBuilder":
         self._query_recent_change_position_request.page_size = page_size

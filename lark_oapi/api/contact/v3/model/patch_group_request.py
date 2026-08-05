@@ -20,7 +20,6 @@ class PatchGroupRequest(BaseRequest):
 
 
 class PatchGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_group_request = PatchGroupRequest()
         patch_group_request.http_method = HttpMethod.PATCH

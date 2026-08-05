@@ -35,7 +35,9 @@ class AilyKnowledgeWikiSpaceBuilder(object):
         self._aily_knowledge_wiki_space.space_id = space_id
         return self
 
-    def sub_docs(self, sub_docs: List[AilyKnowledgeDocs]) -> "AilyKnowledgeWikiSpaceBuilder":
+    def sub_docs(
+        self, sub_docs: List[AilyKnowledgeDocs]
+    ) -> "AilyKnowledgeWikiSpaceBuilder":
         self._aily_knowledge_wiki_space.sub_docs = sub_docs
         return self
 

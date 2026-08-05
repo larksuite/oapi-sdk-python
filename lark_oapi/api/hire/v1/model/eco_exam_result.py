@@ -38,11 +38,15 @@ class EcoExamResultBuilder(object):
         self._eco_exam_result.result_time = result_time
         return self
 
-    def report_list(self, report_list: List[EcoExamResultReport]) -> "EcoExamResultBuilder":
+    def report_list(
+        self, report_list: List[EcoExamResultReport]
+    ) -> "EcoExamResultBuilder":
         self._eco_exam_result.report_list = report_list
         return self
 
-    def detail_list(self, detail_list: List[EcoExamResultDetail]) -> "EcoExamResultBuilder":
+    def detail_list(
+        self, detail_list: List[EcoExamResultDetail]
+    ) -> "EcoExamResultBuilder":
         self._eco_exam_result.detail_list = detail_list
         return self
 

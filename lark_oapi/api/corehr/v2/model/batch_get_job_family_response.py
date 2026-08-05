@@ -9,7 +9,6 @@ from .batch_get_job_family_response_body import BatchGetJobFamilyResponseBody
 class BatchGetJobFamilyResponse(BaseResponse):
     _types = {
         "data": BatchGetJobFamilyResponseBody,
-
     }
 
     def __init__(self, d=None):

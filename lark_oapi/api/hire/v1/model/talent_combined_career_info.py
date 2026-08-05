@@ -65,8 +65,9 @@ class TalentCombinedCareerInfoBuilder(object):
         self._talent_combined_career_info.career_type = career_type
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedCareerInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.customized_data = customized_data
         return self
 

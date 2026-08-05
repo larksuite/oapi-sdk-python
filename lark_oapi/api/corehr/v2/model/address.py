@@ -98,11 +98,15 @@ class AddressBuilder(object):
     def __init__(self) -> None:
         self._address = Address()
 
-    def full_address_local_script(self, full_address_local_script: str) -> "AddressBuilder":
+    def full_address_local_script(
+        self, full_address_local_script: str
+    ) -> "AddressBuilder":
         self._address.full_address_local_script = full_address_local_script
         return self
 
-    def full_address_western_script(self, full_address_western_script: str) -> "AddressBuilder":
+    def full_address_western_script(
+        self, full_address_western_script: str
+    ) -> "AddressBuilder":
         self._address.full_address_western_script = full_address_western_script
         return self
 

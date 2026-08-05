@@ -17,8 +17,11 @@ class ApprovalInfo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def process(self, request: ProcessApprovalInfoRequest,
-                option: Optional[RequestOption] = None) -> ProcessApprovalInfoResponse:
+    def process(
+        self,
+        request: ProcessApprovalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ProcessApprovalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class ApprovalInfo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ProcessApprovalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ProcessApprovalInfoResponse)
+        response: ProcessApprovalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ProcessApprovalInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aprocess(self, request: ProcessApprovalInfoRequest,
-                       option: Optional[RequestOption] = None) -> ProcessApprovalInfoResponse:
+    async def aprocess(
+        self,
+        request: ProcessApprovalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ProcessApprovalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class ApprovalInfo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ProcessApprovalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ProcessApprovalInfoResponse)
+        response: ProcessApprovalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ProcessApprovalInfoResponse
+        )
         response.raw = resp
 
         return response

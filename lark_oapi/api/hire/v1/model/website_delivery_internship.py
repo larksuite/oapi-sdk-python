@@ -53,8 +53,9 @@ class WebsiteDeliveryInternshipBuilder(object):
         self._website_delivery_internship.company = company
         return self
 
-    def customized_data(self,
-                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryInternshipBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryInternshipBuilder":
         self._website_delivery_internship.customized_data = customized_data
         return self
 

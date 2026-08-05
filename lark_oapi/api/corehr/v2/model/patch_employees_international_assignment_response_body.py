@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .employees_international_assignment_resp import EmployeesInternationalAssignmentResp
+from .employees_international_assignment_resp import (
+    EmployeesInternationalAssignmentResp,
+)
 
 
 class PatchEmployeesInternationalAssignmentResponseBody(object):
@@ -11,7 +13,9 @@ class PatchEmployeesInternationalAssignmentResponseBody(object):
     }
 
     def __init__(self, d=None):
-        self.international_assignment: Optional[EmployeesInternationalAssignmentResp] = None
+        self.international_assignment: Optional[
+            EmployeesInternationalAssignmentResp
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -21,10 +25,13 @@ class PatchEmployeesInternationalAssignmentResponseBody(object):
 
 class PatchEmployeesInternationalAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_employees_international_assignment_response_body = PatchEmployeesInternationalAssignmentResponseBody()
+        self._patch_employees_international_assignment_response_body = (
+            PatchEmployeesInternationalAssignmentResponseBody()
+        )
 
-    def international_assignment(self,
-                                 international_assignment: EmployeesInternationalAssignmentResp) -> "PatchEmployeesInternationalAssignmentResponseBodyBuilder":
+    def international_assignment(
+        self, international_assignment: EmployeesInternationalAssignmentResp
+    ) -> "PatchEmployeesInternationalAssignmentResponseBodyBuilder":
         self._patch_employees_international_assignment_response_body.international_assignment = international_assignment
         return self
 

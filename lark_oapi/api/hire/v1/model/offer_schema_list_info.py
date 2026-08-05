@@ -23,7 +23,9 @@ class OfferSchemaListInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_schema_list_info = OfferSchemaListInfo()
 
-    def schema_list(self, schema_list: List[OfferSchemaChild]) -> "OfferSchemaListInfoBuilder":
+    def schema_list(
+        self, schema_list: List[OfferSchemaChild]
+    ) -> "OfferSchemaListInfoBuilder":
         self._offer_schema_list_info.schema_list = schema_list
         return self
 

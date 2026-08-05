@@ -35,7 +35,9 @@ class JobDataCostCenterBuilder(object):
         self._job_data_cost_center.rate = rate
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobDataCostCenterBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.custom_fields = custom_fields
         return self
 

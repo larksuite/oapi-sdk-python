@@ -52,19 +52,31 @@ class UpdateMailgroupResponseBodyBuilder(object):
         self._update_mailgroup_response_body.description = description
         return self
 
-    def direct_members_count(self, direct_members_count: str) -> "UpdateMailgroupResponseBodyBuilder":
+    def direct_members_count(
+        self, direct_members_count: str
+    ) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.direct_members_count = direct_members_count
         return self
 
-    def include_external_member(self, include_external_member: bool) -> "UpdateMailgroupResponseBodyBuilder":
-        self._update_mailgroup_response_body.include_external_member = include_external_member
+    def include_external_member(
+        self, include_external_member: bool
+    ) -> "UpdateMailgroupResponseBodyBuilder":
+        self._update_mailgroup_response_body.include_external_member = (
+            include_external_member
+        )
         return self
 
-    def include_all_company_member(self, include_all_company_member: bool) -> "UpdateMailgroupResponseBodyBuilder":
-        self._update_mailgroup_response_body.include_all_company_member = include_all_company_member
+    def include_all_company_member(
+        self, include_all_company_member: bool
+    ) -> "UpdateMailgroupResponseBodyBuilder":
+        self._update_mailgroup_response_body.include_all_company_member = (
+            include_all_company_member
+        )
         return self
 
-    def who_can_send_mail(self, who_can_send_mail: str) -> "UpdateMailgroupResponseBodyBuilder":
+    def who_can_send_mail(
+        self, who_can_send_mail: str
+    ) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.who_can_send_mail = who_can_send_mail
         return self
 

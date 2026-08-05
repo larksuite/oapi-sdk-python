@@ -9,7 +9,6 @@ from .get_user_mailbox_thread_response_body import GetUserMailboxThreadResponseB
 class GetUserMailboxThreadResponse(BaseResponse):
     _types = {
         "data": GetUserMailboxThreadResponseBody,
-
     }
 
     def __init__(self, d=None):

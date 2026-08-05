@@ -92,8 +92,12 @@ class UserReport2022Builder(object):
         self._user_report2022.msg_busy_date = msg_busy_date
         return self
 
-    def msg_busy_date_send_msg_count(self, msg_busy_date_send_msg_count: str) -> "UserReport2022Builder":
-        self._user_report2022.msg_busy_date_send_msg_count = msg_busy_date_send_msg_count
+    def msg_busy_date_send_msg_count(
+        self, msg_busy_date_send_msg_count: str
+    ) -> "UserReport2022Builder":
+        self._user_report2022.msg_busy_date_send_msg_count = (
+            msg_busy_date_send_msg_count
+        )
         return self
 
     def p2p_chat_count(self, p2p_chat_count: str) -> "UserReport2022Builder":
@@ -104,27 +108,39 @@ class UserReport2022Builder(object):
         self._user_report2022.talked_chat_count = talked_chat_count
         return self
 
-    def positive_reaction_count(self, positive_reaction_count: str) -> "UserReport2022Builder":
+    def positive_reaction_count(
+        self, positive_reaction_count: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.positive_reaction_count = positive_reaction_count
         return self
 
-    def first_positive_reaction(self, first_positive_reaction: str) -> "UserReport2022Builder":
+    def first_positive_reaction(
+        self, first_positive_reaction: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.first_positive_reaction = first_positive_reaction
         return self
 
-    def second_positive_reaction(self, second_positive_reaction: str) -> "UserReport2022Builder":
+    def second_positive_reaction(
+        self, second_positive_reaction: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.second_positive_reaction = second_positive_reaction
         return self
 
-    def third_positive_reaction(self, third_positive_reaction: str) -> "UserReport2022Builder":
+    def third_positive_reaction(
+        self, third_positive_reaction: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.third_positive_reaction = third_positive_reaction
         return self
 
-    def fourth_positive_reaction(self, fourth_positive_reaction: str) -> "UserReport2022Builder":
+    def fourth_positive_reaction(
+        self, fourth_positive_reaction: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.fourth_positive_reaction = fourth_positive_reaction
         return self
 
-    def fifth_positive_reaction(self, fifth_positive_reaction: str) -> "UserReport2022Builder":
+    def fifth_positive_reaction(
+        self, fifth_positive_reaction: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.fifth_positive_reaction = fifth_positive_reaction
         return self
 
@@ -132,7 +148,9 @@ class UserReport2022Builder(object):
         self._user_report2022.create_file_count = create_file_count
         return self
 
-    def created_file_view_count(self, created_file_view_count: str) -> "UserReport2022Builder":
+    def created_file_view_count(
+        self, created_file_view_count: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.created_file_view_count = created_file_view_count
         return self
 
@@ -148,15 +166,21 @@ class UserReport2022Builder(object):
         self._user_report2022.event_busy_date = event_busy_date
         return self
 
-    def event_busy_date_event_count(self, event_busy_date_event_count: str) -> "UserReport2022Builder":
+    def event_busy_date_event_count(
+        self, event_busy_date_event_count: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.event_busy_date_event_count = event_busy_date_event_count
         return self
 
-    def event_start_time_range1(self, event_start_time_range1: str) -> "UserReport2022Builder":
+    def event_start_time_range1(
+        self, event_start_time_range1: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.event_start_time_range1 = event_start_time_range1
         return self
 
-    def conference_create_count(self, conference_create_count: str) -> "UserReport2022Builder":
+    def conference_create_count(
+        self, conference_create_count: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.conference_create_count = conference_create_count
         return self
 
@@ -172,11 +196,15 @@ class UserReport2022Builder(object):
         self._user_report2022.okr_cum_kr_count = okr_cum_kr_count
         return self
 
-    def okr_aligned_user_count(self, okr_aligned_user_count: str) -> "UserReport2022Builder":
+    def okr_aligned_user_count(
+        self, okr_aligned_user_count: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.okr_aligned_user_count = okr_aligned_user_count
         return self
 
-    def people_interview_num(self, people_interview_num: str) -> "UserReport2022Builder":
+    def people_interview_num(
+        self, people_interview_num: str
+    ) -> "UserReport2022Builder":
         self._user_report2022.people_interview_num = people_interview_num
         return self
 

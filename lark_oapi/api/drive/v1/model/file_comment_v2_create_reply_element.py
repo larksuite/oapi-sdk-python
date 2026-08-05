@@ -36,7 +36,9 @@ class FileCommentV2CreateReplyElementBuilder(object):
         self._file_comment_v2_create_reply_element.text = text
         return self
 
-    def mention_user(self, mention_user: str) -> "FileCommentV2CreateReplyElementBuilder":
+    def mention_user(
+        self, mention_user: str
+    ) -> "FileCommentV2CreateReplyElementBuilder":
         self._file_comment_v2_create_reply_element.mention_user = mention_user
         return self
 

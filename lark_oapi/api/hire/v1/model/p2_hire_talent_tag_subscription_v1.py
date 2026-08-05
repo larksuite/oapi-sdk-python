@@ -28,9 +28,7 @@ class P2HireTalentTagSubscriptionV1Data(object):
 
 
 class P2HireTalentTagSubscriptionV1(EventContext):
-    _types = {
-        "event": P2HireTalentTagSubscriptionV1Data
-    }
+    _types = {"event": P2HireTalentTagSubscriptionV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

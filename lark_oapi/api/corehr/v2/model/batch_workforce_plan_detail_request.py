@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_workforce_plan_detail_request_body import BatchWorkforcePlanDetailRequestBody
+from .batch_workforce_plan_detail_request_body import (
+    BatchWorkforcePlanDetailRequestBody,
+)
 
 
 class BatchWorkforcePlanDetailRequest(BaseRequest):
@@ -19,13 +21,19 @@ class BatchWorkforcePlanDetailRequest(BaseRequest):
 
 
 class BatchWorkforcePlanDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_workforce_plan_detail_request = BatchWorkforcePlanDetailRequest()
         batch_workforce_plan_detail_request.http_method = HttpMethod.POST
-        batch_workforce_plan_detail_request.uri = "/open-apis/corehr/v2/workforce_plan_details/batch"
-        batch_workforce_plan_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._batch_workforce_plan_detail_request: BatchWorkforcePlanDetailRequest = batch_workforce_plan_detail_request
+        batch_workforce_plan_detail_request.uri = (
+            "/open-apis/corehr/v2/workforce_plan_details/batch"
+        )
+        batch_workforce_plan_detail_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._batch_workforce_plan_detail_request: BatchWorkforcePlanDetailRequest = (
+            batch_workforce_plan_detail_request
+        )
 
     def page_token(self, page_token: str) -> "BatchWorkforcePlanDetailRequestBuilder":
         self._batch_workforce_plan_detail_request.page_token = page_token
@@ -37,8 +45,9 @@ class BatchWorkforcePlanDetailRequestBuilder(object):
         self._batch_workforce_plan_detail_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self,
-                     request_body: BatchWorkforcePlanDetailRequestBody) -> "BatchWorkforcePlanDetailRequestBuilder":
+    def request_body(
+        self, request_body: BatchWorkforcePlanDetailRequestBody
+    ) -> "BatchWorkforcePlanDetailRequestBuilder":
         self._batch_workforce_plan_detail_request.request_body = request_body
         self._batch_workforce_plan_detail_request.body = request_body
         return self

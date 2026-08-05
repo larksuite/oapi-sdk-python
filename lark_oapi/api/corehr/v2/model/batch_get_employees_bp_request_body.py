@@ -24,7 +24,9 @@ class BatchGetEmployeesBpRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_employees_bp_request_body = BatchGetEmployeesBpRequestBody()
 
-    def employment_ids(self, employment_ids: List[str]) -> "BatchGetEmployeesBpRequestBodyBuilder":
+    def employment_ids(
+        self, employment_ids: List[str]
+    ) -> "BatchGetEmployeesBpRequestBodyBuilder":
         self._batch_get_employees_bp_request_body.employment_ids = employment_ids
         return self
 

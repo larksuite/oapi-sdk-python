@@ -32,35 +32,62 @@ class BatchQueryBackgroundCheckOrderRequestBody(object):
 
 class BatchQueryBackgroundCheckOrderRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_query_background_check_order_request_body = BatchQueryBackgroundCheckOrderRequestBody()
+        self._batch_query_background_check_order_request_body = (
+            BatchQueryBackgroundCheckOrderRequestBody()
+        )
 
-    def background_check_order_id_list(self, background_check_order_id_list: List[
-        str]) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+    def background_check_order_id_list(
+        self, background_check_order_id_list: List[str]
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
         self._batch_query_background_check_order_request_body.background_check_order_id_list = background_check_order_id_list
         return self
 
-    def update_start_time(self, update_start_time: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.update_start_time = update_start_time
+    def update_start_time(
+        self, update_start_time: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.update_start_time = (
+            update_start_time
+        )
         return self
 
-    def update_end_time(self, update_end_time: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.update_end_time = update_end_time
+    def update_end_time(
+        self, update_end_time: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.update_end_time = (
+            update_end_time
+        )
         return self
 
-    def begin_start_time(self, begin_start_time: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.begin_start_time = begin_start_time
+    def begin_start_time(
+        self, begin_start_time: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.begin_start_time = (
+            begin_start_time
+        )
         return self
 
-    def begin_end_time(self, begin_end_time: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.begin_end_time = begin_end_time
+    def begin_end_time(
+        self, begin_end_time: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.begin_end_time = (
+            begin_end_time
+        )
         return self
 
-    def application_id(self, application_id: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.application_id = application_id
+    def application_id(
+        self, application_id: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.application_id = (
+            application_id
+        )
         return self
 
-    def order_status(self, order_status: str) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
-        self._batch_query_background_check_order_request_body.order_status = order_status
+    def order_status(
+        self, order_status: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBodyBuilder":
+        self._batch_query_background_check_order_request_body.order_status = (
+            order_status
+        )
         return self
 
     def build(self) -> "BatchQueryBackgroundCheckOrderRequestBody":

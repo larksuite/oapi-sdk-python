@@ -35,7 +35,9 @@ class ListExamMarkingTaskResponseBodyBuilder(object):
         self._list_exam_marking_task_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[ExamMarkingTask]) -> "ListExamMarkingTaskResponseBodyBuilder":
+    def items(
+        self, items: List[ExamMarkingTask]
+    ) -> "ListExamMarkingTaskResponseBodyBuilder":
         self._list_exam_marking_task_response_body.items = items
         return self
 

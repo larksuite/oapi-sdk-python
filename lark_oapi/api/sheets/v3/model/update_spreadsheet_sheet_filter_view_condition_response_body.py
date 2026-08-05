@@ -21,11 +21,16 @@ class UpdateSpreadsheetSheetFilterViewConditionResponseBody(object):
 
 class UpdateSpreadsheetSheetFilterViewConditionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_spreadsheet_sheet_filter_view_condition_response_body = UpdateSpreadsheetSheetFilterViewConditionResponseBody()
+        self._update_spreadsheet_sheet_filter_view_condition_response_body = (
+            UpdateSpreadsheetSheetFilterViewConditionResponseBody()
+        )
 
-    def condition(self,
-                  condition: FilterViewCondition) -> "UpdateSpreadsheetSheetFilterViewConditionResponseBodyBuilder":
-        self._update_spreadsheet_sheet_filter_view_condition_response_body.condition = condition
+    def condition(
+        self, condition: FilterViewCondition
+    ) -> "UpdateSpreadsheetSheetFilterViewConditionResponseBodyBuilder":
+        self._update_spreadsheet_sheet_filter_view_condition_response_body.condition = (
+            condition
+        )
         return self
 
     def build(self) -> "UpdateSpreadsheetSheetFilterViewConditionResponseBody":

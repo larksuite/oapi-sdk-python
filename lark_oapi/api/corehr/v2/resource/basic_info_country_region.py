@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_basic_info_country_region_request import SearchBasicInfoCountryRegionRequest
-from ..model.search_basic_info_country_region_response import SearchBasicInfoCountryRegionResponse
+from ..model.search_basic_info_country_region_request import (
+    SearchBasicInfoCountryRegionRequest,
+)
+from ..model.search_basic_info_country_region_response import (
+    SearchBasicInfoCountryRegionResponse,
+)
 
 
 class BasicInfoCountryRegion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoCountryRegionRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoCountryRegionResponse:
+    def search(
+        self,
+        request: SearchBasicInfoCountryRegionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class BasicInfoCountryRegion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        SearchBasicInfoCountryRegionResponse)
+        response: SearchBasicInfoCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCountryRegionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchBasicInfoCountryRegionRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoCountryRegionResponse:
+    async def asearch(
+        self,
+        request: SearchBasicInfoCountryRegionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class BasicInfoCountryRegion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        SearchBasicInfoCountryRegionResponse)
+        response: SearchBasicInfoCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCountryRegionResponse
+        )
         response.raw = resp
 
         return response

@@ -22,14 +22,19 @@ class BatchRemoveAuthorizationApplicationRoleMemberRequestBody(object):
 
 class BatchRemoveAuthorizationApplicationRoleMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_remove_authorization_application_role_member_request_body = BatchRemoveAuthorizationApplicationRoleMemberRequestBody()
+        self._batch_remove_authorization_application_role_member_request_body = (
+            BatchRemoveAuthorizationApplicationRoleMemberRequestBody()
+        )
 
-    def user_ids(self, user_ids: List[str]) -> "BatchRemoveAuthorizationApplicationRoleMemberRequestBodyBuilder":
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "BatchRemoveAuthorizationApplicationRoleMemberRequestBodyBuilder":
         self._batch_remove_authorization_application_role_member_request_body.user_ids = user_ids
         return self
 
-    def department_ids(self,
-                       department_ids: List[str]) -> "BatchRemoveAuthorizationApplicationRoleMemberRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "BatchRemoveAuthorizationApplicationRoleMemberRequestBodyBuilder":
         self._batch_remove_authorization_application_role_member_request_body.department_ids = department_ids
         return self
 

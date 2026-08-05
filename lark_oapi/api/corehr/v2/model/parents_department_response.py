@@ -9,7 +9,6 @@ from .parents_department_response_body import ParentsDepartmentResponseBody
 class ParentsDepartmentResponse(BaseResponse):
     _types = {
         "data": ParentsDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -18,20 +18,25 @@ class BatchCreateUserFlowRequest(BaseRequest):
 
 
 class BatchCreateUserFlowRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_create_user_flow_request = BatchCreateUserFlowRequest()
         batch_create_user_flow_request.http_method = HttpMethod.POST
-        batch_create_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/batch_create"
+        batch_create_user_flow_request.uri = (
+            "/open-apis/attendance/v1/user_flows/batch_create"
+        )
         batch_create_user_flow_request.token_types = {AccessTokenType.TENANT}
-        self._batch_create_user_flow_request: BatchCreateUserFlowRequest = batch_create_user_flow_request
+        self._batch_create_user_flow_request: BatchCreateUserFlowRequest = (
+            batch_create_user_flow_request
+        )
 
     def employee_type(self, employee_type: str) -> "BatchCreateUserFlowRequestBuilder":
         self._batch_create_user_flow_request.employee_type = employee_type
         self._batch_create_user_flow_request.add_query("employee_type", employee_type)
         return self
 
-    def request_body(self, request_body: BatchCreateUserFlowRequestBody) -> "BatchCreateUserFlowRequestBuilder":
+    def request_body(
+        self, request_body: BatchCreateUserFlowRequestBody
+    ) -> "BatchCreateUserFlowRequestBuilder":
         self._batch_create_user_flow_request.request_body = request_body
         self._batch_create_user_flow_request.body = request_body
         return self

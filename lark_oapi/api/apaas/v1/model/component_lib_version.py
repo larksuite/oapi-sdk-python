@@ -70,7 +70,9 @@ class ComponentLibVersionBuilder(object):
         self._component_lib_version.isv_link = isv_link
         return self
 
-    def is_isv_market_version(self, is_isv_market_version: bool) -> "ComponentLibVersionBuilder":
+    def is_isv_market_version(
+        self, is_isv_market_version: bool
+    ) -> "ComponentLibVersionBuilder":
         self._component_lib_version.is_isv_market_version = is_isv_market_version
         return self
 
@@ -78,7 +80,9 @@ class ComponentLibVersionBuilder(object):
         self._component_lib_version.link = link
         return self
 
-    def is_market_version(self, is_market_version: bool) -> "ComponentLibVersionBuilder":
+    def is_market_version(
+        self, is_market_version: bool
+    ) -> "ComponentLibVersionBuilder":
         self._component_lib_version.is_market_version = is_market_version
         return self
 

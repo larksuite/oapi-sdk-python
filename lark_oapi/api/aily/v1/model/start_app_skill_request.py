@@ -19,12 +19,16 @@ class StartAppSkillRequest(BaseRequest):
 
 
 class StartAppSkillRequestBuilder(object):
-
     def __init__(self) -> None:
         start_app_skill_request = StartAppSkillRequest()
         start_app_skill_request.http_method = HttpMethod.POST
-        start_app_skill_request.uri = "/open-apis/aily/v1/apps/:app_id/skills/:skill_id/start"
-        start_app_skill_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        start_app_skill_request.uri = (
+            "/open-apis/aily/v1/apps/:app_id/skills/:skill_id/start"
+        )
+        start_app_skill_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._start_app_skill_request: StartAppSkillRequest = start_app_skill_request
 
     def app_id(self, app_id: str) -> "StartAppSkillRequestBuilder":
@@ -37,7 +41,9 @@ class StartAppSkillRequestBuilder(object):
         self._start_app_skill_request.paths["skill_id"] = str(skill_id)
         return self
 
-    def request_body(self, request_body: StartAppSkillRequestBody) -> "StartAppSkillRequestBuilder":
+    def request_body(
+        self, request_body: StartAppSkillRequestBody
+    ) -> "StartAppSkillRequestBuilder":
         self._start_app_skill_request.request_body = request_body
         self._start_app_skill_request.body = request_body
         return self

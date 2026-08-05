@@ -19,7 +19,6 @@ class ListBpRequest(BaseRequest):
 
 
 class ListBpRequestBuilder(object):
-
     def __init__(self) -> None:
         list_bp_request = ListBpRequest()
         list_bp_request.http_method = HttpMethod.GET

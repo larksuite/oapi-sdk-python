@@ -23,7 +23,9 @@ class UpdateTextElementsRequestBuilder(object):
     def __init__(self) -> None:
         self._update_text_elements_request = UpdateTextElementsRequest()
 
-    def elements(self, elements: List[TextElement]) -> "UpdateTextElementsRequestBuilder":
+    def elements(
+        self, elements: List[TextElement]
+    ) -> "UpdateTextElementsRequestBuilder":
         self._update_text_elements_request.elements = elements
         return self
 

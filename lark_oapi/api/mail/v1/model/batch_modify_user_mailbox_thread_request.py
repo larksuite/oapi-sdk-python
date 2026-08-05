@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_modify_user_mailbox_thread_request_body import BatchModifyUserMailboxThreadRequestBody
+from .batch_modify_user_mailbox_thread_request_body import (
+    BatchModifyUserMailboxThreadRequestBody,
+)
 
 
 class BatchModifyUserMailboxThreadRequest(BaseRequest):
@@ -18,21 +20,30 @@ class BatchModifyUserMailboxThreadRequest(BaseRequest):
 
 
 class BatchModifyUserMailboxThreadRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_modify_user_mailbox_thread_request = BatchModifyUserMailboxThreadRequest()
         batch_modify_user_mailbox_thread_request.http_method = HttpMethod.POST
-        batch_modify_user_mailbox_thread_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/batch_modify"
-        batch_modify_user_mailbox_thread_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_modify_user_mailbox_thread_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/batch_modify"
+        )
+        batch_modify_user_mailbox_thread_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_modify_user_mailbox_thread_request: BatchModifyUserMailboxThreadRequest = batch_modify_user_mailbox_thread_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "BatchModifyUserMailboxThreadRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "BatchModifyUserMailboxThreadRequestBuilder":
         self._batch_modify_user_mailbox_thread_request.user_mailbox_id = user_mailbox_id
-        self._batch_modify_user_mailbox_thread_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._batch_modify_user_mailbox_thread_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchModifyUserMailboxThreadRequestBody) -> "BatchModifyUserMailboxThreadRequestBuilder":
+    def request_body(
+        self, request_body: BatchModifyUserMailboxThreadRequestBody
+    ) -> "BatchModifyUserMailboxThreadRequestBuilder":
         self._batch_modify_user_mailbox_thread_request.request_body = request_body
         self._batch_modify_user_mailbox_thread_request.body = request_body
         return self

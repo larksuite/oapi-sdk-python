@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .recognize_health_certificate_request_body import RecognizeHealthCertificateRequestBody
+from .recognize_health_certificate_request_body import (
+    RecognizeHealthCertificateRequestBody,
+)
 
 
 class RecognizeHealthCertificateRequest(BaseRequest):
@@ -17,16 +19,21 @@ class RecognizeHealthCertificateRequest(BaseRequest):
 
 
 class RecognizeHealthCertificateRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_health_certificate_request = RecognizeHealthCertificateRequest()
         recognize_health_certificate_request.http_method = HttpMethod.POST
-        recognize_health_certificate_request.uri = "/open-apis/document_ai/v1/health_certificate/recognize"
-        recognize_health_certificate_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        recognize_health_certificate_request.uri = (
+            "/open-apis/document_ai/v1/health_certificate/recognize"
+        )
+        recognize_health_certificate_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._recognize_health_certificate_request: RecognizeHealthCertificateRequest = recognize_health_certificate_request
 
-    def request_body(self,
-                     request_body: RecognizeHealthCertificateRequestBody) -> "RecognizeHealthCertificateRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeHealthCertificateRequestBody
+    ) -> "RecognizeHealthCertificateRequestBuilder":
         self._recognize_health_certificate_request.request_body = request_body
         self._recognize_health_certificate_request.body = request_body
         return self

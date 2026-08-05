@@ -36,7 +36,9 @@ class AppConfigSecurityBuilder(object):
         self._app_config_security.remove = remove
         return self
 
-    def allow_refresh_token(self, allow_refresh_token: bool) -> "AppConfigSecurityBuilder":
+    def allow_refresh_token(
+        self, allow_refresh_token: bool
+    ) -> "AppConfigSecurityBuilder":
         self._app_config_security.allow_refresh_token = allow_refresh_token
         return self
 

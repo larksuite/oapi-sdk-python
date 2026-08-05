@@ -37,7 +37,9 @@ class JobDataCustomOrgBuilder(object):
         self._job_data_custom_org.start_reason = start_reason
         return self
 
-    def custom_org_with_rates(self, custom_org_with_rates: List[CreateEmpCustomOrg]) -> "JobDataCustomOrgBuilder":
+    def custom_org_with_rates(
+        self, custom_org_with_rates: List[CreateEmpCustomOrg]
+    ) -> "JobDataCustomOrgBuilder":
         self._job_data_custom_org.custom_org_with_rates = custom_org_with_rates
         return self
 

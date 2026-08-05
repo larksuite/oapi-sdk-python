@@ -35,7 +35,9 @@ class ReviewerInfoBuilder(object):
     def __init__(self) -> None:
         self._reviewer_info = ReviewerInfo()
 
-    def invite_distribute_type(self, invite_distribute_type: int) -> "ReviewerInfoBuilder":
+    def invite_distribute_type(
+        self, invite_distribute_type: int
+    ) -> "ReviewerInfoBuilder":
         self._reviewer_info.invite_distribute_type = invite_distribute_type
         return self
 
@@ -43,8 +45,12 @@ class ReviewerInfoBuilder(object):
         self._reviewer_info.invite_avg_diff = invite_avg_diff
         return self
 
-    def invite_relationship_with_reviewee(self, invite_relationship_with_reviewee: str) -> "ReviewerInfoBuilder":
-        self._reviewer_info.invite_relationship_with_reviewee = invite_relationship_with_reviewee
+    def invite_relationship_with_reviewee(
+        self, invite_relationship_with_reviewee: str
+    ) -> "ReviewerInfoBuilder":
+        self._reviewer_info.invite_relationship_with_reviewee = (
+            invite_relationship_with_reviewee
+        )
         return self
 
     def invite_invitedby(self, invite_invitedby: str) -> "ReviewerInfoBuilder":
@@ -55,12 +61,18 @@ class ReviewerInfoBuilder(object):
         self._reviewer_info.cooperation_project = cooperation_project
         return self
 
-    def cooperation_project_name(self, cooperation_project_name: I18n) -> "ReviewerInfoBuilder":
+    def cooperation_project_name(
+        self, cooperation_project_name: I18n
+    ) -> "ReviewerInfoBuilder":
         self._reviewer_info.cooperation_project_name = cooperation_project_name
         return self
 
-    def direct_project_leader_role_id(self, direct_project_leader_role_id: str) -> "ReviewerInfoBuilder":
-        self._reviewer_info.direct_project_leader_role_id = direct_project_leader_role_id
+    def direct_project_leader_role_id(
+        self, direct_project_leader_role_id: str
+    ) -> "ReviewerInfoBuilder":
+        self._reviewer_info.direct_project_leader_role_id = (
+            direct_project_leader_role_id
+        )
         return self
 
     def build(self) -> "ReviewerInfo":

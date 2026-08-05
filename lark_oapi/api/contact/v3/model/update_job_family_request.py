@@ -18,13 +18,16 @@ class UpdateJobFamilyRequest(BaseRequest):
 
 
 class UpdateJobFamilyRequestBuilder(object):
-
     def __init__(self) -> None:
         update_job_family_request = UpdateJobFamilyRequest()
         update_job_family_request.http_method = HttpMethod.PUT
-        update_job_family_request.uri = "/open-apis/contact/v3/job_families/:job_family_id"
+        update_job_family_request.uri = (
+            "/open-apis/contact/v3/job_families/:job_family_id"
+        )
         update_job_family_request.token_types = {AccessTokenType.TENANT}
-        self._update_job_family_request: UpdateJobFamilyRequest = update_job_family_request
+        self._update_job_family_request: UpdateJobFamilyRequest = (
+            update_job_family_request
+        )
 
     def job_family_id(self, job_family_id: str) -> "UpdateJobFamilyRequestBuilder":
         self._update_job_family_request.job_family_id = job_family_id

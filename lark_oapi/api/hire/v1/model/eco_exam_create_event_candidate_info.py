@@ -31,7 +31,9 @@ class EcoExamCreateEventCandidateInfoBuilder(object):
         self._eco_exam_create_event_candidate_info.name = name
         return self
 
-    def mobile(self, mobile: EcoExamCreateEventMobile) -> "EcoExamCreateEventCandidateInfoBuilder":
+    def mobile(
+        self, mobile: EcoExamCreateEventMobile
+    ) -> "EcoExamCreateEventCandidateInfoBuilder":
         self._eco_exam_create_event_candidate_info.mobile = mobile
         return self
 

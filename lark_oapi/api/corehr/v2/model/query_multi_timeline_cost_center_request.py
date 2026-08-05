@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_multi_timeline_cost_center_request_body import QueryMultiTimelineCostCenterRequestBody
+from .query_multi_timeline_cost_center_request_body import (
+    QueryMultiTimelineCostCenterRequestBody,
+)
 
 
 class QueryMultiTimelineCostCenterRequest(BaseRequest):
@@ -20,11 +22,12 @@ class QueryMultiTimelineCostCenterRequest(BaseRequest):
 
 
 class QueryMultiTimelineCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
         query_multi_timeline_cost_center_request = QueryMultiTimelineCostCenterRequest()
         query_multi_timeline_cost_center_request.http_method = HttpMethod.POST
-        query_multi_timeline_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers/query_multi_timeline"
+        query_multi_timeline_cost_center_request.uri = (
+            "/open-apis/corehr/v2/cost_centers/query_multi_timeline"
+        )
         query_multi_timeline_cost_center_request.token_types = {AccessTokenType.TENANT}
         self._query_multi_timeline_cost_center_request: QueryMultiTimelineCostCenterRequest = query_multi_timeline_cost_center_request
 
@@ -33,18 +36,27 @@ class QueryMultiTimelineCostCenterRequestBuilder(object):
         self._query_multi_timeline_cost_center_request.add_query("page_size", page_size)
         return self
 
-    def page_token(self, page_token: str) -> "QueryMultiTimelineCostCenterRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryMultiTimelineCostCenterRequestBuilder":
         self._query_multi_timeline_cost_center_request.page_token = page_token
-        self._query_multi_timeline_cost_center_request.add_query("page_token", page_token)
+        self._query_multi_timeline_cost_center_request.add_query(
+            "page_token", page_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "QueryMultiTimelineCostCenterRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "QueryMultiTimelineCostCenterRequestBuilder":
         self._query_multi_timeline_cost_center_request.user_id_type = user_id_type
-        self._query_multi_timeline_cost_center_request.add_query("user_id_type", user_id_type)
+        self._query_multi_timeline_cost_center_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: QueryMultiTimelineCostCenterRequestBody) -> "QueryMultiTimelineCostCenterRequestBuilder":
+    def request_body(
+        self, request_body: QueryMultiTimelineCostCenterRequestBody
+    ) -> "QueryMultiTimelineCostCenterRequestBuilder":
         self._query_multi_timeline_cost_center_request.request_body = request_body
         self._query_multi_timeline_cost_center_request.body = request_body
         return self

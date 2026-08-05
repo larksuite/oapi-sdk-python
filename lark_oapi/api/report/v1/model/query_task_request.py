@@ -18,7 +18,6 @@ class QueryTaskRequest(BaseRequest):
 
 
 class QueryTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         query_task_request = QueryTaskRequest()
         query_task_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class QueryTaskRequestBuilder(object):
         self._query_task_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryTaskRequestBody) -> "QueryTaskRequestBuilder":
+    def request_body(
+        self, request_body: QueryTaskRequestBody
+    ) -> "QueryTaskRequestBuilder":
         self._query_task_request.request_body = request_body
         self._query_task_request.body = request_body
         return self

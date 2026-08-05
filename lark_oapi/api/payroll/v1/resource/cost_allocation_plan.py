@@ -17,8 +17,11 @@ class CostAllocationPlan(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListCostAllocationPlanRequest,
-             option: Optional[RequestOption] = None) -> ListCostAllocationPlanResponse:
+    def list(
+        self,
+        request: ListCostAllocationPlanRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCostAllocationPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class CostAllocationPlan(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCostAllocationPlanResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListCostAllocationPlanResponse)
+        response: ListCostAllocationPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCostAllocationPlanResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCostAllocationPlanRequest,
-                    option: Optional[RequestOption] = None) -> ListCostAllocationPlanResponse:
+    async def alist(
+        self,
+        request: ListCostAllocationPlanRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCostAllocationPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class CostAllocationPlan(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCostAllocationPlanResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListCostAllocationPlanResponse)
+        response: ListCostAllocationPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCostAllocationPlanResponse
+        )
         response.raw = resp
 
         return response

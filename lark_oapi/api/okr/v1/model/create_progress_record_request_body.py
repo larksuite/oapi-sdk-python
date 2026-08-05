@@ -38,7 +38,9 @@ class CreateProgressRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_progress_record_request_body = CreateProgressRecordRequestBody()
 
-    def source_title(self, source_title: str) -> "CreateProgressRecordRequestBodyBuilder":
+    def source_title(
+        self, source_title: str
+    ) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.source_title = source_title
         return self
 
@@ -54,19 +56,27 @@ class CreateProgressRecordRequestBodyBuilder(object):
         self._create_progress_record_request_body.target_type = target_type
         return self
 
-    def content(self, content: ContentBlock) -> "CreateProgressRecordRequestBodyBuilder":
+    def content(
+        self, content: ContentBlock
+    ) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.content = content
         return self
 
-    def source_url_pc(self, source_url_pc: str) -> "CreateProgressRecordRequestBodyBuilder":
+    def source_url_pc(
+        self, source_url_pc: str
+    ) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.source_url_pc = source_url_pc
         return self
 
-    def source_url_mobile(self, source_url_mobile: str) -> "CreateProgressRecordRequestBodyBuilder":
+    def source_url_mobile(
+        self, source_url_mobile: str
+    ) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.source_url_mobile = source_url_mobile
         return self
 
-    def progress_rate(self, progress_rate: ProgressRateNew) -> "CreateProgressRecordRequestBodyBuilder":
+    def progress_rate(
+        self, progress_rate: ProgressRateNew
+    ) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.progress_rate = progress_rate
         return self
 

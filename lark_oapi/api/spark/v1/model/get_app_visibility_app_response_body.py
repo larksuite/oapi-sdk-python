@@ -41,7 +41,9 @@ class GetAppVisibilityAppResponseBodyBuilder(object):
         self._get_app_visibility_app_response_body.users = users
         return self
 
-    def departments(self, departments: List[str]) -> "GetAppVisibilityAppResponseBodyBuilder":
+    def departments(
+        self, departments: List[str]
+    ) -> "GetAppVisibilityAppResponseBodyBuilder":
         self._get_app_visibility_app_response_body.departments = departments
         return self
 
@@ -49,11 +51,15 @@ class GetAppVisibilityAppResponseBodyBuilder(object):
         self._get_app_visibility_app_response_body.chats = chats
         return self
 
-    def apply_config(self, apply_config: ApplyConfig) -> "GetAppVisibilityAppResponseBodyBuilder":
+    def apply_config(
+        self, apply_config: ApplyConfig
+    ) -> "GetAppVisibilityAppResponseBodyBuilder":
         self._get_app_visibility_app_response_body.apply_config = apply_config
         return self
 
-    def require_login(self, require_login: bool) -> "GetAppVisibilityAppResponseBodyBuilder":
+    def require_login(
+        self, require_login: bool
+    ) -> "GetAppVisibilityAppResponseBodyBuilder":
         self._get_app_visibility_app_response_body.require_login = require_login
         return self
 

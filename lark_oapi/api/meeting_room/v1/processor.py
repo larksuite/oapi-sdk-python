@@ -3,13 +3,23 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_meeting_room_meeting_room_created_v1 import P2MeetingRoomMeetingRoomCreatedV1
-from .model.p2_meeting_room_meeting_room_deleted_v1 import P2MeetingRoomMeetingRoomDeletedV1
-from .model.p2_meeting_room_meeting_room_status_changed_v1 import P2MeetingRoomMeetingRoomStatusChangedV1
-from .model.p2_meeting_room_meeting_room_updated_v1 import P2MeetingRoomMeetingRoomUpdatedV1
+from .model.p2_meeting_room_meeting_room_created_v1 import (
+    P2MeetingRoomMeetingRoomCreatedV1,
+)
+from .model.p2_meeting_room_meeting_room_deleted_v1 import (
+    P2MeetingRoomMeetingRoomDeletedV1,
+)
+from .model.p2_meeting_room_meeting_room_status_changed_v1 import (
+    P2MeetingRoomMeetingRoomStatusChangedV1,
+)
+from .model.p2_meeting_room_meeting_room_updated_v1 import (
+    P2MeetingRoomMeetingRoomUpdatedV1,
+)
 
 
-class P2MeetingRoomMeetingRoomCreatedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomCreatedV1]):
+class P2MeetingRoomMeetingRoomCreatedV1Processor(
+    IEventProcessor[P2MeetingRoomMeetingRoomCreatedV1]
+):
     def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomCreatedV1], None]):
         self.f = f
 
@@ -20,7 +30,9 @@ class P2MeetingRoomMeetingRoomCreatedV1Processor(IEventProcessor[P2MeetingRoomMe
         self.f(data)
 
 
-class P2MeetingRoomMeetingRoomDeletedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomDeletedV1]):
+class P2MeetingRoomMeetingRoomDeletedV1Processor(
+    IEventProcessor[P2MeetingRoomMeetingRoomDeletedV1]
+):
     def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomDeletedV1], None]):
         self.f = f
 
@@ -31,7 +43,9 @@ class P2MeetingRoomMeetingRoomDeletedV1Processor(IEventProcessor[P2MeetingRoomMe
         self.f(data)
 
 
-class P2MeetingRoomMeetingRoomStatusChangedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomStatusChangedV1]):
+class P2MeetingRoomMeetingRoomStatusChangedV1Processor(
+    IEventProcessor[P2MeetingRoomMeetingRoomStatusChangedV1]
+):
     def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomStatusChangedV1], None]):
         self.f = f
 
@@ -42,7 +56,9 @@ class P2MeetingRoomMeetingRoomStatusChangedV1Processor(IEventProcessor[P2Meeting
         self.f(data)
 
 
-class P2MeetingRoomMeetingRoomUpdatedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomUpdatedV1]):
+class P2MeetingRoomMeetingRoomUpdatedV1Processor(
+    IEventProcessor[P2MeetingRoomMeetingRoomUpdatedV1]
+):
     def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomUpdatedV1], None]):
         self.f = f
 

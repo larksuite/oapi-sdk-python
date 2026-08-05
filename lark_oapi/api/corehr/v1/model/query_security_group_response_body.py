@@ -23,7 +23,9 @@ class QuerySecurityGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_security_group_response_body = QuerySecurityGroupResponseBody()
 
-    def hrbp_list(self, hrbp_list: List[Hrbp]) -> "QuerySecurityGroupResponseBodyBuilder":
+    def hrbp_list(
+        self, hrbp_list: List[Hrbp]
+    ) -> "QuerySecurityGroupResponseBodyBuilder":
         self._query_security_group_response_body.hrbp_list = hrbp_list
         return self
 

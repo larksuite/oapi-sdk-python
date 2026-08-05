@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_version_default_cost_center_request_body import UpdateVersionDefaultCostCenterRequestBody
+from .update_version_default_cost_center_request_body import (
+    UpdateVersionDefaultCostCenterRequestBody,
+)
 
 
 class UpdateVersionDefaultCostCenterRequest(BaseRequest):
@@ -19,26 +21,40 @@ class UpdateVersionDefaultCostCenterRequest(BaseRequest):
 
 
 class UpdateVersionDefaultCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
-        update_version_default_cost_center_request = UpdateVersionDefaultCostCenterRequest()
+        update_version_default_cost_center_request = (
+            UpdateVersionDefaultCostCenterRequest()
+        )
         update_version_default_cost_center_request.http_method = HttpMethod.POST
-        update_version_default_cost_center_request.uri = "/open-apis/corehr/v2/default_cost_centers/update_version"
-        update_version_default_cost_center_request.token_types = {AccessTokenType.TENANT}
+        update_version_default_cost_center_request.uri = (
+            "/open-apis/corehr/v2/default_cost_centers/update_version"
+        )
+        update_version_default_cost_center_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._update_version_default_cost_center_request: UpdateVersionDefaultCostCenterRequest = update_version_default_cost_center_request
 
-    def client_token(self, client_token: str) -> "UpdateVersionDefaultCostCenterRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "UpdateVersionDefaultCostCenterRequestBuilder":
         self._update_version_default_cost_center_request.client_token = client_token
-        self._update_version_default_cost_center_request.add_query("client_token", client_token)
+        self._update_version_default_cost_center_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "UpdateVersionDefaultCostCenterRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "UpdateVersionDefaultCostCenterRequestBuilder":
         self._update_version_default_cost_center_request.user_id_type = user_id_type
-        self._update_version_default_cost_center_request.add_query("user_id_type", user_id_type)
+        self._update_version_default_cost_center_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: UpdateVersionDefaultCostCenterRequestBody) -> "UpdateVersionDefaultCostCenterRequestBuilder":
+    def request_body(
+        self, request_body: UpdateVersionDefaultCostCenterRequestBody
+    ) -> "UpdateVersionDefaultCostCenterRequestBuilder":
         self._update_version_default_cost_center_request.request_body = request_body
         self._update_version_default_cost_center_request.body = request_body
         return self

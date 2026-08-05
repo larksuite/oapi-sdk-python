@@ -19,7 +19,9 @@ class JobTitle(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetJobTitleRequest, option: Optional[RequestOption] = None) -> GetJobTitleResponse:
+    def get(
+        self, request: GetJobTitleRequest, option: Optional[RequestOption] = None
+    ) -> GetJobTitleResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class JobTitle(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobTitleResponse)
+        response: GetJobTitleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetJobTitleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetJobTitleRequest, option: Optional[RequestOption] = None) -> GetJobTitleResponse:
+    async def aget(
+        self, request: GetJobTitleRequest, option: Optional[RequestOption] = None
+    ) -> GetJobTitleResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class JobTitle(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobTitleResponse)
+        response: GetJobTitleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetJobTitleResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListJobTitleRequest, option: Optional[RequestOption] = None) -> ListJobTitleResponse:
+    def list(
+        self, request: ListJobTitleRequest, option: Optional[RequestOption] = None
+    ) -> ListJobTitleResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class JobTitle(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobTitleResponse)
+        response: ListJobTitleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobTitleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListJobTitleRequest, option: Optional[RequestOption] = None) -> ListJobTitleResponse:
+    async def alist(
+        self, request: ListJobTitleRequest, option: Optional[RequestOption] = None
+    ) -> ListJobTitleResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class JobTitle(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobTitleResponse)
+        response: ListJobTitleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobTitleResponse
+        )
         response.raw = resp
 
         return response

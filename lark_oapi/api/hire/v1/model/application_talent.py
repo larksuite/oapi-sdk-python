@@ -61,7 +61,9 @@ class ApplicationTalentBuilder(object):
         self._application_talent.id = id
         return self
 
-    def basic_info(self, basic_info: ApplicationTalentBasicInfo) -> "ApplicationTalentBuilder":
+    def basic_info(
+        self, basic_info: ApplicationTalentBasicInfo
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.basic_info = basic_info
         return self
 
@@ -69,44 +71,63 @@ class ApplicationTalentBuilder(object):
         self._application_talent.self_evaluation = self_evaluation
         return self
 
-    def education_list(self, education_list: List[AppliTalentEducationInfo]) -> "ApplicationTalentBuilder":
+    def education_list(
+        self, education_list: List[AppliTalentEducationInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.education_list = education_list
         return self
 
-    def career_list(self, career_list: List[ApplicationTalentCareerInfo]) -> "ApplicationTalentBuilder":
+    def career_list(
+        self, career_list: List[ApplicationTalentCareerInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.career_list = career_list
         return self
 
-    def project_list(self, project_list: List[ApplicationTalentProjectInfo]) -> "ApplicationTalentBuilder":
+    def project_list(
+        self, project_list: List[ApplicationTalentProjectInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.project_list = project_list
         return self
 
-    def works_list(self, works_list: List[ApplicationTalentWorksInfo]) -> "ApplicationTalentBuilder":
+    def works_list(
+        self, works_list: List[ApplicationTalentWorksInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.works_list = works_list
         return self
 
-    def award_list(self, award_list: List[ApplicationTalentAwardInfo]) -> "ApplicationTalentBuilder":
+    def award_list(
+        self, award_list: List[ApplicationTalentAwardInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.award_list = award_list
         return self
 
-    def competition_list(self, competition_list: List[AppliTalentCompetitionInfo]) -> "ApplicationTalentBuilder":
+    def competition_list(
+        self, competition_list: List[AppliTalentCompetitionInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.competition_list = competition_list
         return self
 
-    def certificate_list(self, certificate_list: List[AppliTalentCertificateInfo]) -> "ApplicationTalentBuilder":
+    def certificate_list(
+        self, certificate_list: List[AppliTalentCertificateInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.certificate_list = certificate_list
         return self
 
-    def language_list(self, language_list: List[ApplicationTalentLanguageInfo]) -> "ApplicationTalentBuilder":
+    def language_list(
+        self, language_list: List[ApplicationTalentLanguageInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.language_list = language_list
         return self
 
-    def sns_list(self, sns_list: List[ApplicationTalentSnsInfo]) -> "ApplicationTalentBuilder":
+    def sns_list(
+        self, sns_list: List[ApplicationTalentSnsInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.sns_list = sns_list
         return self
 
-    def attachment_resume_list(self,
-                               attachment_resume_list: List[AppliTalentAttachResumeInfo]) -> "ApplicationTalentBuilder":
+    def attachment_resume_list(
+        self, attachment_resume_list: List[AppliTalentAttachResumeInfo]
+    ) -> "ApplicationTalentBuilder":
         self._application_talent.attachment_resume_list = attachment_resume_list
         return self
 

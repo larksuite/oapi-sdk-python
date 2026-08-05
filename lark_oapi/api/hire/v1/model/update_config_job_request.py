@@ -19,13 +19,14 @@ class UpdateConfigJobRequest(BaseRequest):
 
 
 class UpdateConfigJobRequestBuilder(object):
-
     def __init__(self) -> None:
         update_config_job_request = UpdateConfigJobRequest()
         update_config_job_request.http_method = HttpMethod.POST
         update_config_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/update_config"
         update_config_job_request.token_types = {AccessTokenType.TENANT}
-        self._update_config_job_request: UpdateConfigJobRequest = update_config_job_request
+        self._update_config_job_request: UpdateConfigJobRequest = (
+            update_config_job_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateConfigJobRequestBuilder":
         self._update_config_job_request.user_id_type = user_id_type

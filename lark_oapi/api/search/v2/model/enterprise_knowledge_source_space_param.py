@@ -26,17 +26,25 @@ class EnterpriseKnowledgeSourceSpaceParam(object):
 
 class EnterpriseKnowledgeSourceSpaceParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_space_param = EnterpriseKnowledgeSourceSpaceParam()
+        self._enterprise_knowledge_source_space_param = (
+            EnterpriseKnowledgeSourceSpaceParam()
+        )
 
-    def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
+    def searchable(
+        self, searchable: bool
+    ) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
         self._enterprise_knowledge_source_space_param.searchable = searchable
         return self
 
-    def filter(self, filter: KnowledgeSourceSpaceFilter) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
+    def filter(
+        self, filter: KnowledgeSourceSpaceFilter
+    ) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
         self._enterprise_knowledge_source_space_param.filter = filter
         return self
 
-    def reject(self, reject: KnowledgeSourceSpaceReject) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
+    def reject(
+        self, reject: KnowledgeSourceSpaceReject
+    ) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
         self._enterprise_knowledge_source_space_param.reject = reject
         return self
 

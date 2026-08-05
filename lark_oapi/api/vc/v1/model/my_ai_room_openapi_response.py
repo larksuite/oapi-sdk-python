@@ -32,7 +32,9 @@ class MyAiRoomOpenapiResponseBuilder(object):
         self._my_ai_room_openapi_response.response_type = response_type
         return self
 
-    def schedule_event_id(self, schedule_event_id: str) -> "MyAiRoomOpenapiResponseBuilder":
+    def schedule_event_id(
+        self, schedule_event_id: str
+    ) -> "MyAiRoomOpenapiResponseBuilder":
         self._my_ai_room_openapi_response.schedule_event_id = schedule_event_id
         return self
 

@@ -18,20 +18,29 @@ class TransferApprovalTaskRequest(BaseRequest):
 
 
 class TransferApprovalTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         transfer_approval_task_request = TransferApprovalTaskRequest()
         transfer_approval_task_request.http_method = HttpMethod.POST
-        transfer_approval_task_request.uri = "/open-apis/apaas/v1/approval_tasks/:approval_task_id/transfer"
+        transfer_approval_task_request.uri = (
+            "/open-apis/apaas/v1/approval_tasks/:approval_task_id/transfer"
+        )
         transfer_approval_task_request.token_types = {AccessTokenType.TENANT}
-        self._transfer_approval_task_request: TransferApprovalTaskRequest = transfer_approval_task_request
+        self._transfer_approval_task_request: TransferApprovalTaskRequest = (
+            transfer_approval_task_request
+        )
 
-    def approval_task_id(self, approval_task_id: str) -> "TransferApprovalTaskRequestBuilder":
+    def approval_task_id(
+        self, approval_task_id: str
+    ) -> "TransferApprovalTaskRequestBuilder":
         self._transfer_approval_task_request.approval_task_id = approval_task_id
-        self._transfer_approval_task_request.paths["approval_task_id"] = str(approval_task_id)
+        self._transfer_approval_task_request.paths["approval_task_id"] = str(
+            approval_task_id
+        )
         return self
 
-    def request_body(self, request_body: TransferApprovalTaskRequestBody) -> "TransferApprovalTaskRequestBuilder":
+    def request_body(
+        self, request_body: TransferApprovalTaskRequestBody
+    ) -> "TransferApprovalTaskRequestBuilder":
         self._transfer_approval_task_request.request_body = request_body
         self._transfer_approval_task_request.body = request_body
         return self

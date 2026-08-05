@@ -33,7 +33,9 @@ class RoomDigitalSignageBuilder(object):
     def __init__(self) -> None:
         self._room_digital_signage = RoomDigitalSignage()
 
-    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "RoomDigitalSignageBuilder":
+    def if_cover_child_scope(
+        self, if_cover_child_scope: bool
+    ) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.if_cover_child_scope = if_cover_child_scope
         return self
 
@@ -53,7 +55,9 @@ class RoomDigitalSignageBuilder(object):
         self._room_digital_signage.stop_display = stop_display
         return self
 
-    def materials(self, materials: List[RoomDigitalSignageMaterial]) -> "RoomDigitalSignageBuilder":
+    def materials(
+        self, materials: List[RoomDigitalSignageMaterial]
+    ) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.materials = materials
         return self
 

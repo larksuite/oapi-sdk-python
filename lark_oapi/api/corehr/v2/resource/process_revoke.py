@@ -17,8 +17,11 @@ class ProcessRevoke(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateProcessRevokeRequest,
-               option: Optional[RequestOption] = None) -> UpdateProcessRevokeResponse:
+    def update(
+        self,
+        request: UpdateProcessRevokeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProcessRevokeResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class ProcessRevoke(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessRevokeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessRevokeResponse)
+        response: UpdateProcessRevokeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessRevokeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateProcessRevokeRequest,
-                      option: Optional[RequestOption] = None) -> UpdateProcessRevokeResponse:
+    async def aupdate(
+        self,
+        request: UpdateProcessRevokeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProcessRevokeResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class ProcessRevoke(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessRevokeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessRevokeResponse)
+        response: UpdateProcessRevokeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessRevokeResponse
+        )
         response.raw = resp
 
         return response

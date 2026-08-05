@@ -29,7 +29,9 @@ class SearchMeetingRequestBodyBuilder(object):
         self._search_meeting_request_body.query = query
         return self
 
-    def meeting_filter(self, meeting_filter: MeetingFilter) -> "SearchMeetingRequestBodyBuilder":
+    def meeting_filter(
+        self, meeting_filter: MeetingFilter
+    ) -> "SearchMeetingRequestBodyBuilder":
         self._search_meeting_request_body.meeting_filter = meeting_filter
         return self
 

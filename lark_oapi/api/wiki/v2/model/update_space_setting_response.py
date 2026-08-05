@@ -9,7 +9,6 @@ from .update_space_setting_response_body import UpdateSpaceSettingResponseBody
 class UpdateSpaceSettingResponse(BaseResponse):
     _types = {
         "data": UpdateSpaceSettingResponseBody,
-
     }
 
     def __init__(self, d=None):

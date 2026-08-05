@@ -19,7 +19,6 @@ class PatchFeedCardRequest(BaseRequest):
 
 
 class PatchFeedCardRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_feed_card_request = PatchFeedCardRequest()
         patch_feed_card_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class PatchFeedCardRequestBuilder(object):
         self._patch_feed_card_request.paths["feed_card_id"] = str(feed_card_id)
         return self
 
-    def request_body(self, request_body: PatchFeedCardRequestBody) -> "PatchFeedCardRequestBuilder":
+    def request_body(
+        self, request_body: PatchFeedCardRequestBody
+    ) -> "PatchFeedCardRequestBuilder":
         self._patch_feed_card_request.request_body = request_body
         self._patch_feed_card_request.body = request_body
         return self

@@ -21,9 +21,13 @@ class ReplaceSpreadsheetSheetResponseBody(object):
 
 class ReplaceSpreadsheetSheetResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._replace_spreadsheet_sheet_response_body = ReplaceSpreadsheetSheetResponseBody()
+        self._replace_spreadsheet_sheet_response_body = (
+            ReplaceSpreadsheetSheetResponseBody()
+        )
 
-    def replace_result(self, replace_result: FindReplaceResult) -> "ReplaceSpreadsheetSheetResponseBodyBuilder":
+    def replace_result(
+        self, replace_result: FindReplaceResult
+    ) -> "ReplaceSpreadsheetSheetResponseBodyBuilder":
         self._replace_spreadsheet_sheet_response_body.replace_result = replace_result
         return self
 

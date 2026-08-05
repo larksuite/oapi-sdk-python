@@ -224,7 +224,9 @@ class GroupBuilder(object):
         self._group.out_punch_need_approval = out_punch_need_approval
         return self
 
-    def out_punch_need_post_approval(self, out_punch_need_post_approval: bool) -> "GroupBuilder":
+    def out_punch_need_post_approval(
+        self, out_punch_need_post_approval: bool
+    ) -> "GroupBuilder":
         self._group.out_punch_need_post_approval = out_punch_need_post_approval
         return self
 
@@ -236,11 +238,15 @@ class GroupBuilder(object):
         self._group.out_punch_need_photo = out_punch_need_photo
         return self
 
-    def out_punch_allowed_hide_addr(self, out_punch_allowed_hide_addr: bool) -> "GroupBuilder":
+    def out_punch_allowed_hide_addr(
+        self, out_punch_allowed_hide_addr: bool
+    ) -> "GroupBuilder":
         self._group.out_punch_allowed_hide_addr = out_punch_allowed_hide_addr
         return self
 
-    def out_punch_allowed_adjust_addr(self, out_punch_allowed_adjust_addr: bool) -> "GroupBuilder":
+    def out_punch_allowed_adjust_addr(
+        self, out_punch_allowed_adjust_addr: bool
+    ) -> "GroupBuilder":
         self._group.out_punch_allowed_adjust_addr = out_punch_allowed_adjust_addr
         return self
 
@@ -284,7 +290,9 @@ class GroupBuilder(object):
         self._group.allow_remedy_type_early = allow_remedy_type_early
         return self
 
-    def allow_remedy_type_normal(self, allow_remedy_type_normal: bool) -> "GroupBuilder":
+    def allow_remedy_type_normal(
+        self, allow_remedy_type_normal: bool
+    ) -> "GroupBuilder":
         self._group.allow_remedy_type_normal = allow_remedy_type_normal
         return self
 
@@ -324,7 +332,9 @@ class GroupBuilder(object):
         self._group.replace_basic_pic = replace_basic_pic
         return self
 
-    def anti_cheat_punch_config(self, anti_cheat_punch_config: AntiCheatConfig) -> "GroupBuilder":
+    def anti_cheat_punch_config(
+        self, anti_cheat_punch_config: AntiCheatConfig
+    ) -> "GroupBuilder":
         self._group.anti_cheat_punch_config = anti_cheat_punch_config
         return self
 
@@ -356,15 +366,21 @@ class GroupBuilder(object):
         self._group.calendar_id = calendar_id
         return self
 
-    def need_punch_special_days(self, need_punch_special_days: List[PunchSpecialDateShift]) -> "GroupBuilder":
+    def need_punch_special_days(
+        self, need_punch_special_days: List[PunchSpecialDateShift]
+    ) -> "GroupBuilder":
         self._group.need_punch_special_days = need_punch_special_days
         return self
 
-    def no_need_punch_special_days(self, no_need_punch_special_days: List[PunchSpecialDateShift]) -> "GroupBuilder":
+    def no_need_punch_special_days(
+        self, no_need_punch_special_days: List[PunchSpecialDateShift]
+    ) -> "GroupBuilder":
         self._group.no_need_punch_special_days = no_need_punch_special_days
         return self
 
-    def work_day_no_punch_as_lack(self, work_day_no_punch_as_lack: bool) -> "GroupBuilder":
+    def work_day_no_punch_as_lack(
+        self, work_day_no_punch_as_lack: bool
+    ) -> "GroupBuilder":
         self._group.work_day_no_punch_as_lack = work_day_no_punch_as_lack
         return self
 
@@ -376,7 +392,9 @@ class GroupBuilder(object):
         self._group.remedy_period_type = remedy_period_type
         return self
 
-    def remedy_period_custom_date(self, remedy_period_custom_date: int) -> "GroupBuilder":
+    def remedy_period_custom_date(
+        self, remedy_period_custom_date: int
+    ) -> "GroupBuilder":
         self._group.remedy_period_custom_date = remedy_period_custom_date
         return self
 
@@ -396,7 +414,9 @@ class GroupBuilder(object):
         self._group.member_effect_time = member_effect_time
         return self
 
-    def rest_clock_in_need_approval(self, rest_clock_in_need_approval: bool) -> "GroupBuilder":
+    def rest_clock_in_need_approval(
+        self, rest_clock_in_need_approval: bool
+    ) -> "GroupBuilder":
         self._group.rest_clock_in_need_approval = rest_clock_in_need_approval
         return self
 
@@ -404,7 +424,9 @@ class GroupBuilder(object):
         self._group.clock_in_need_photo = clock_in_need_photo
         return self
 
-    def member_status_change(self, member_status_change: MemberStatusChange) -> "GroupBuilder":
+    def member_status_change(
+        self, member_status_change: MemberStatusChange
+    ) -> "GroupBuilder":
         self._group.member_status_change = member_status_change
         return self
 
@@ -412,7 +434,9 @@ class GroupBuilder(object):
         self._group.leave_need_punch = leave_need_punch
         return self
 
-    def leave_need_punch_cfg(self, leave_need_punch_cfg: LeaveNeedPunchCfg) -> "GroupBuilder":
+    def leave_need_punch_cfg(
+        self, leave_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GroupBuilder":
         self._group.leave_need_punch_cfg = leave_need_punch_cfg
         return self
 
@@ -420,7 +444,9 @@ class GroupBuilder(object):
         self._group.go_out_need_punch = go_out_need_punch
         return self
 
-    def go_out_need_punch_cfg(self, go_out_need_punch_cfg: LeaveNeedPunchCfg) -> "GroupBuilder":
+    def go_out_need_punch_cfg(
+        self, go_out_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GroupBuilder":
         self._group.go_out_need_punch_cfg = go_out_need_punch_cfg
         return self
 
@@ -428,15 +454,21 @@ class GroupBuilder(object):
         self._group.travel_need_punch = travel_need_punch
         return self
 
-    def travel_need_punch_cfg(self, travel_need_punch_cfg: LeaveNeedPunchCfg) -> "GroupBuilder":
+    def travel_need_punch_cfg(
+        self, travel_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GroupBuilder":
         self._group.travel_need_punch_cfg = travel_need_punch_cfg
         return self
 
-    def need_punch_members(self, need_punch_members: List[PunchMember]) -> "GroupBuilder":
+    def need_punch_members(
+        self, need_punch_members: List[PunchMember]
+    ) -> "GroupBuilder":
         self._group.need_punch_members = need_punch_members
         return self
 
-    def no_need_punch_members(self, no_need_punch_members: List[PunchMember]) -> "GroupBuilder":
+    def no_need_punch_members(
+        self, no_need_punch_members: List[PunchMember]
+    ) -> "GroupBuilder":
         self._group.no_need_punch_members = no_need_punch_members
         return self
 
@@ -456,7 +488,9 @@ class GroupBuilder(object):
         self._group.bind_default_user_ids = bind_default_user_ids
         return self
 
-    def overtime_clock_cfg(self, overtime_clock_cfg: OvertimeClockCfg) -> "GroupBuilder":
+    def overtime_clock_cfg(
+        self, overtime_clock_cfg: OvertimeClockCfg
+    ) -> "GroupBuilder":
         self._group.overtime_clock_cfg = overtime_clock_cfg
         return self
 
@@ -468,7 +502,9 @@ class GroupBuilder(object):
         self._group.allow_apply_punch = allow_apply_punch
         return self
 
-    def clock_in_abnormal_settings(self, clock_in_abnormal_settings: ClockInAbnormalSettings) -> "GroupBuilder":
+    def clock_in_abnormal_settings(
+        self, clock_in_abnormal_settings: ClockInAbnormalSettings
+    ) -> "GroupBuilder":
         self._group.clock_in_abnormal_settings = clock_in_abnormal_settings
         return self
 

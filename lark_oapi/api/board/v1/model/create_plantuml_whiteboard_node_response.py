@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_plantuml_whiteboard_node_response_body import CreatePlantumlWhiteboardNodeResponseBody
+from .create_plantuml_whiteboard_node_response_body import (
+    CreatePlantumlWhiteboardNodeResponseBody,
+)
 
 
 class CreatePlantumlWhiteboardNodeResponse(BaseResponse):
     _types = {
         "data": CreatePlantumlWhiteboardNodeResponseBody,
-
     }
 
     def __init__(self, d=None):

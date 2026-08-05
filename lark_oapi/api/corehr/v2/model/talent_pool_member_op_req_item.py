@@ -42,7 +42,9 @@ class TalentPoolMemberOpReqItemBuilder(object):
         self._talent_pool_member_op_req_item.reason = reason
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "TalentPoolMemberOpReqItemBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "TalentPoolMemberOpReqItemBuilder":
         self._talent_pool_member_op_req_item.custom_fields = custom_fields
         return self
 

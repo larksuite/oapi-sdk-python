@@ -30,7 +30,9 @@ class BatchQueryMetaResponseBodyBuilder(object):
         self._batch_query_meta_response_body.metas = metas
         return self
 
-    def failed_list(self, failed_list: List[MetaFailed]) -> "BatchQueryMetaResponseBodyBuilder":
+    def failed_list(
+        self, failed_list: List[MetaFailed]
+    ) -> "BatchQueryMetaResponseBodyBuilder":
         self._batch_query_meta_response_body.failed_list = failed_list
         return self
 

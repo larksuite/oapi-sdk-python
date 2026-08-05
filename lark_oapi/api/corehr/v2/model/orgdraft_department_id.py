@@ -28,7 +28,9 @@ class OrgdraftDepartmentIdBuilder(object):
         self._orgdraft_department_id.department_id = department_id
         return self
 
-    def draft_department_id(self, draft_department_id: str) -> "OrgdraftDepartmentIdBuilder":
+    def draft_department_id(
+        self, draft_department_id: str
+    ) -> "OrgdraftDepartmentIdBuilder":
         self._orgdraft_department_id.draft_department_id = draft_department_id
         return self
 

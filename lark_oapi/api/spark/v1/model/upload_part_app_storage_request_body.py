@@ -40,7 +40,9 @@ class UploadPartAppStorageRequestBodyBuilder(object):
         self._upload_part_app_storage_request_body.file = file
         return self
 
-    def chunk_check_sum(self, chunk_check_sum: str) -> "UploadPartAppStorageRequestBodyBuilder":
+    def chunk_check_sum(
+        self, chunk_check_sum: str
+    ) -> "UploadPartAppStorageRequestBodyBuilder":
         self._upload_part_app_storage_request_body.chunk_check_sum = chunk_check_sum
         return self
 

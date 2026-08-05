@@ -19,8 +19,9 @@ class ChatModeration(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetChatModerationRequest,
-            option: Optional[RequestOption] = None) -> GetChatModerationResponse:
+    def get(
+        self, request: GetChatModerationRequest, option: Optional[RequestOption] = None
+    ) -> GetChatModerationResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class ChatModeration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatModerationResponse)
+        response: GetChatModerationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatModerationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetChatModerationRequest,
-                   option: Optional[RequestOption] = None) -> GetChatModerationResponse:
+    async def aget(
+        self, request: GetChatModerationRequest, option: Optional[RequestOption] = None
+    ) -> GetChatModerationResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,18 @@ class ChatModeration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatModerationResponse)
+        response: GetChatModerationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatModerationResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateChatModerationRequest,
-               option: Optional[RequestOption] = None) -> UpdateChatModerationResponse:
+    def update(
+        self,
+        request: UpdateChatModerationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateChatModerationResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +82,18 @@ class ChatModeration(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatModerationResponse)
+        response: UpdateChatModerationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateChatModerationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateChatModerationRequest,
-                      option: Optional[RequestOption] = None) -> UpdateChatModerationResponse:
+    async def aupdate(
+        self,
+        request: UpdateChatModerationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateChatModerationResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +104,9 @@ class ChatModeration(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatModerationResponse)
+        response: UpdateChatModerationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateChatModerationResponse
+        )
         response.raw = resp
 
         return response

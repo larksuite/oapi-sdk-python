@@ -47,7 +47,9 @@ class DistrictBuilder(object):
         self._district.has_sub_district = has_sub_district
         return self
 
-    def parent_districts(self, parent_districts: List[DistrictBaseInfo]) -> "DistrictBuilder":
+    def parent_districts(
+        self, parent_districts: List[DistrictBaseInfo]
+    ) -> "DistrictBuilder":
         self._district.parent_districts = parent_districts
         return self
 

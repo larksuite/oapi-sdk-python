@@ -22,8 +22,12 @@ class UrgentSmsMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._urgent_sms_message_response_body = UrgentSmsMessageResponseBody()
 
-    def invalid_user_id_list(self, invalid_user_id_list: List[str]) -> "UrgentSmsMessageResponseBodyBuilder":
-        self._urgent_sms_message_response_body.invalid_user_id_list = invalid_user_id_list
+    def invalid_user_id_list(
+        self, invalid_user_id_list: List[str]
+    ) -> "UrgentSmsMessageResponseBodyBuilder":
+        self._urgent_sms_message_response_body.invalid_user_id_list = (
+            invalid_user_id_list
+        )
         return self
 
     def build(self) -> "UrgentSmsMessageResponseBody":

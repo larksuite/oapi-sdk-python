@@ -18,13 +18,16 @@ class ListWorkspaceEnumRequest(BaseRequest):
 
 
 class ListWorkspaceEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         list_workspace_enum_request = ListWorkspaceEnumRequest()
         list_workspace_enum_request.http_method = HttpMethod.GET
-        list_workspace_enum_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/enums"
+        list_workspace_enum_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/enums"
+        )
         list_workspace_enum_request.token_types = {AccessTokenType.USER}
-        self._list_workspace_enum_request: ListWorkspaceEnumRequest = list_workspace_enum_request
+        self._list_workspace_enum_request: ListWorkspaceEnumRequest = (
+            list_workspace_enum_request
+        )
 
     def page_size(self, page_size: int) -> "ListWorkspaceEnumRequestBuilder":
         self._list_workspace_enum_request.page_size = page_size

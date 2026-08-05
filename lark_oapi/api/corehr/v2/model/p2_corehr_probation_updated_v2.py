@@ -20,9 +20,7 @@ class P2CorehrProbationUpdatedV2Data(object):
 
 
 class P2CorehrProbationUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrProbationUpdatedV2Data
-    }
+    _types = {"event": P2CorehrProbationUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -25,18 +25,27 @@ class GetResourceReservationListResponseBody(object):
 
 class GetResourceReservationListResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_resource_reservation_list_response_body = GetResourceReservationListResponseBody()
+        self._get_resource_reservation_list_response_body = (
+            GetResourceReservationListResponseBody()
+        )
 
-    def room_reservation_list(self, room_reservation_list: List[
-        RoomMeetingReservation]) -> "GetResourceReservationListResponseBodyBuilder":
-        self._get_resource_reservation_list_response_body.room_reservation_list = room_reservation_list
+    def room_reservation_list(
+        self, room_reservation_list: List[RoomMeetingReservation]
+    ) -> "GetResourceReservationListResponseBodyBuilder":
+        self._get_resource_reservation_list_response_body.room_reservation_list = (
+            room_reservation_list
+        )
         return self
 
-    def page_token(self, page_token: str) -> "GetResourceReservationListResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "GetResourceReservationListResponseBodyBuilder":
         self._get_resource_reservation_list_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "GetResourceReservationListResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "GetResourceReservationListResponseBodyBuilder":
         self._get_resource_reservation_list_response_body.has_more = has_more
         return self
 

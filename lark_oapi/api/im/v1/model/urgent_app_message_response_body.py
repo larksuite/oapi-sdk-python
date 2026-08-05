@@ -22,8 +22,12 @@ class UrgentAppMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._urgent_app_message_response_body = UrgentAppMessageResponseBody()
 
-    def invalid_user_id_list(self, invalid_user_id_list: List[str]) -> "UrgentAppMessageResponseBodyBuilder":
-        self._urgent_app_message_response_body.invalid_user_id_list = invalid_user_id_list
+    def invalid_user_id_list(
+        self, invalid_user_id_list: List[str]
+    ) -> "UrgentAppMessageResponseBodyBuilder":
+        self._urgent_app_message_response_body.invalid_user_id_list = (
+            invalid_user_id_list
+        )
         return self
 
     def build(self) -> "UrgentAppMessageResponseBody":

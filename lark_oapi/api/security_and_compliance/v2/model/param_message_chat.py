@@ -25,7 +25,9 @@ class ParamMessageChatBuilder(object):
     def __init__(self) -> None:
         self._param_message_chat = ParamMessageChat()
 
-    def create_time_range(self, create_time_range: TimeRange) -> "ParamMessageChatBuilder":
+    def create_time_range(
+        self, create_time_range: TimeRange
+    ) -> "ParamMessageChatBuilder":
         self._param_message_chat.create_time_range = create_time_range
         return self
 

@@ -27,15 +27,21 @@ class UserFieldContentBuilder(object):
     def __init__(self) -> None:
         self._user_field_content = UserFieldContent()
 
-    def field_content(self, field_content: Dict[str, FieldContentEntity]) -> "UserFieldContentBuilder":
+    def field_content(
+        self, field_content: Dict[str, FieldContentEntity]
+    ) -> "UserFieldContentBuilder":
         self._user_field_content.field_content = field_content
         return self
 
-    def visible_field(self, visible_field: Dict[str, bool]) -> "UserFieldContentBuilder":
+    def visible_field(
+        self, visible_field: Dict[str, bool]
+    ) -> "UserFieldContentBuilder":
         self._user_field_content.visible_field = visible_field
         return self
 
-    def user_field_position(self, user_field_position: int) -> "UserFieldContentBuilder":
+    def user_field_position(
+        self, user_field_position: int
+    ) -> "UserFieldContentBuilder":
         self._user_field_content.user_field_position = user_field_position
         return self
 

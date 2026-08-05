@@ -62,7 +62,9 @@ class PersonForCountryBuilder(object):
         self._person_for_country.ethnicity_race = ethnicity_race
         return self
 
-    def marital_status_date(self, marital_status_date: str) -> "PersonForCountryBuilder":
+    def marital_status_date(
+        self, marital_status_date: str
+    ) -> "PersonForCountryBuilder":
         self._person_for_country.marital_status_date = marital_status_date
         return self
 

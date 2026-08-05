@@ -26,15 +26,21 @@ class SetAncestorTaskTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._set_ancestor_task_task_request_body = SetAncestorTaskTaskRequestBody()
 
-    def ancestor_guid(self, ancestor_guid: str) -> "SetAncestorTaskTaskRequestBodyBuilder":
+    def ancestor_guid(
+        self, ancestor_guid: str
+    ) -> "SetAncestorTaskTaskRequestBodyBuilder":
         self._set_ancestor_task_task_request_body.ancestor_guid = ancestor_guid
         return self
 
-    def user_id_type(self, user_id_type: str) -> "SetAncestorTaskTaskRequestBodyBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "SetAncestorTaskTaskRequestBodyBuilder":
         self._set_ancestor_task_task_request_body.user_id_type = user_id_type
         return self
 
-    def target_user_id(self, target_user_id: str) -> "SetAncestorTaskTaskRequestBodyBuilder":
+    def target_user_id(
+        self, target_user_id: str
+    ) -> "SetAncestorTaskTaskRequestBodyBuilder":
         self._set_ancestor_task_task_request_body.target_user_id = target_user_id
         return self
 

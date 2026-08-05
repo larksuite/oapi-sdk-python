@@ -29,7 +29,9 @@ class AccountingItemValueBuilder(object):
         self._accounting_item_value.original_value = original_value
         return self
 
-    def reference_values(self, reference_values: List[I18nContent]) -> "AccountingItemValueBuilder":
+    def reference_values(
+        self, reference_values: List[I18nContent]
+    ) -> "AccountingItemValueBuilder":
         self._accounting_item_value.reference_values = reference_values
         return self
 

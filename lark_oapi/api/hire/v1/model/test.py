@@ -115,7 +115,9 @@ class TestBuilder(object):
         self._test.report_url_list = report_url_list
         return self
 
-    def result_detail_list(self, result_detail_list: List[TestResultDetail]) -> "TestBuilder":
+    def result_detail_list(
+        self, result_detail_list: List[TestResultDetail]
+    ) -> "TestBuilder":
         self._test.result_detail_list = result_detail_list
         return self
 

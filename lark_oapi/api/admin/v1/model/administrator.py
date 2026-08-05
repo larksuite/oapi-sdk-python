@@ -30,7 +30,9 @@ class AdministratorBuilder(object):
         self._administrator.user_id = user_id
         return self
 
-    def is_super_administrator(self, is_super_administrator: bool) -> "AdministratorBuilder":
+    def is_super_administrator(
+        self, is_super_administrator: bool
+    ) -> "AdministratorBuilder":
         self._administrator.is_super_administrator = is_super_administrator
         return self
 

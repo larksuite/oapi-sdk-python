@@ -23,7 +23,9 @@ class BatchGetIdTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_id_talent_response_body = BatchGetIdTalentResponseBody()
 
-    def talent_list(self, talent_list: List[TalentBatchInfo]) -> "BatchGetIdTalentResponseBodyBuilder":
+    def talent_list(
+        self, talent_list: List[TalentBatchInfo]
+    ) -> "BatchGetIdTalentResponseBodyBuilder":
         self._batch_get_id_talent_response_body.talent_list = talent_list
         return self
 

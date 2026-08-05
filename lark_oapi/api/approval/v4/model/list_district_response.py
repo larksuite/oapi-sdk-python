@@ -9,7 +9,6 @@ from .list_district_response_body import ListDistrictResponseBody
 class ListDistrictResponse(BaseResponse):
     _types = {
         "data": ListDistrictResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -16,7 +16,6 @@ class GetUnitRequest(BaseRequest):
 
 
 class GetUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         get_unit_request = GetUnitRequest()
         get_unit_request.http_method = HttpMethod.GET

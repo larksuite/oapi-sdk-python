@@ -50,11 +50,15 @@ class AppTableCreateHeaderBuilder(object):
         self._app_table_create_header.field_id = field_id
         return self
 
-    def property(self, property: AppTableFieldProperty) -> "AppTableCreateHeaderBuilder":
+    def property(
+        self, property: AppTableFieldProperty
+    ) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.property = property
         return self
 
-    def description(self, description: AppTableFieldDescription) -> "AppTableCreateHeaderBuilder":
+    def description(
+        self, description: AppTableFieldDescription
+    ) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.description = description
         return self
 

@@ -24,17 +24,25 @@ class TenantRestrictionDeviceAllowListPolicy(object):
 
 class TenantRestrictionDeviceAllowListPolicyBuilder(object):
     def __init__(self) -> None:
-        self._tenant_restriction_device_allow_list_policy = TenantRestrictionDeviceAllowListPolicy()
+        self._tenant_restriction_device_allow_list_policy = (
+            TenantRestrictionDeviceAllowListPolicy()
+        )
 
-    def self_only(self, self_only: bool) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
+    def self_only(
+        self, self_only: bool
+    ) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
         self._tenant_restriction_device_allow_list_policy.self_only = self_only
         return self
 
-    def allow_tenants(self, allow_tenants: List[str]) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
+    def allow_tenants(
+        self, allow_tenants: List[str]
+    ) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
         self._tenant_restriction_device_allow_list_policy.allow_tenants = allow_tenants
         return self
 
-    def observe_mode(self, observe_mode: bool) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
+    def observe_mode(
+        self, observe_mode: bool
+    ) -> "TenantRestrictionDeviceAllowListPolicyBuilder":
         self._tenant_restriction_device_allow_list_policy.observe_mode = observe_mode
         return self
 

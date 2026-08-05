@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
 from .eco_exam_create_event_candidate_info import EcoExamCreateEventCandidateInfo
+from .eco_exam_create_event_job_info import EcoExamCreateEventJobInfo
 
 
 class P2HireEcoExamCreatedV1Data(object):
@@ -14,6 +15,7 @@ class P2HireEcoExamCreatedV1Data(object):
         "candidate_info": EcoExamCreateEventCandidateInfo,
         "talent_id": str,
         "application_id": str,
+        "job_info": EcoExamCreateEventJobInfo,
     }
 
     def __init__(self, d=None):
@@ -23,13 +25,12 @@ class P2HireEcoExamCreatedV1Data(object):
         self.candidate_info: Optional[EcoExamCreateEventCandidateInfo] = None
         self.talent_id: Optional[str] = None
         self.application_id: Optional[str] = None
+        self.job_info: Optional[EcoExamCreateEventJobInfo] = None
         init(self, d, self._types)
 
 
 class P2HireEcoExamCreatedV1(EventContext):
-    _types = {
-        "event": P2HireEcoExamCreatedV1Data
-    }
+    _types = {"event": P2HireEcoExamCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

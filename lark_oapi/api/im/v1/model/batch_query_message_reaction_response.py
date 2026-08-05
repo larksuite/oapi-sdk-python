@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_query_message_reaction_response_body import BatchQueryMessageReactionResponseBody
+from .batch_query_message_reaction_response_body import (
+    BatchQueryMessageReactionResponseBody,
+)
 
 
 class BatchQueryMessageReactionResponse(BaseResponse):
     _types = {
         "data": BatchQueryMessageReactionResponseBody,
-
     }
 
     def __init__(self, d=None):

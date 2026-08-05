@@ -28,7 +28,9 @@ class CollaborationDepartmentIdBuilder(object):
         self._collaboration_department_id.department_id = department_id
         return self
 
-    def open_department_id(self, open_department_id: str) -> "CollaborationDepartmentIdBuilder":
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "CollaborationDepartmentIdBuilder":
         self._collaboration_department_id.open_department_id = open_department_id
         return self
 

@@ -16,7 +16,6 @@ class GetJobLevelRequest(BaseRequest):
 
 
 class GetJobLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         get_job_level_request = GetJobLevelRequest()
         get_job_level_request.http_method = HttpMethod.GET

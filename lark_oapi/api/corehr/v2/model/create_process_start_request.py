@@ -19,25 +19,32 @@ class CreateProcessStartRequest(BaseRequest):
 
 
 class CreateProcessStartRequestBuilder(object):
-
     def __init__(self) -> None:
         create_process_start_request = CreateProcessStartRequest()
         create_process_start_request.http_method = HttpMethod.POST
         create_process_start_request.uri = "/open-apis/corehr/v2/process_start"
         create_process_start_request.token_types = {AccessTokenType.TENANT}
-        self._create_process_start_request: CreateProcessStartRequest = create_process_start_request
+        self._create_process_start_request: CreateProcessStartRequest = (
+            create_process_start_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateProcessStartRequestBuilder":
         self._create_process_start_request.user_id_type = user_id_type
         self._create_process_start_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "CreateProcessStartRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateProcessStartRequestBuilder":
         self._create_process_start_request.department_id_type = department_id_type
-        self._create_process_start_request.add_query("department_id_type", department_id_type)
+        self._create_process_start_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: StartProcessParam) -> "CreateProcessStartRequestBuilder":
+    def request_body(
+        self, request_body: StartProcessParam
+    ) -> "CreateProcessStartRequestBuilder":
         self._create_process_start_request.request_body = request_body
         self._create_process_start_request.body = request_body
         return self

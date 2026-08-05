@@ -31,9 +31,7 @@ class P2ImChatMemberUserAddedV1Data(object):
 
 
 class P2ImChatMemberUserAddedV1(EventContext):
-    _types = {
-        "event": P2ImChatMemberUserAddedV1Data
-    }
+    _types = {"event": P2ImChatMemberUserAddedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

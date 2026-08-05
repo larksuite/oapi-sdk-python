@@ -23,7 +23,9 @@ class GetSubdivisionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_subdivision_response_body = GetSubdivisionResponseBody()
 
-    def subdivision(self, subdivision: Subdivision) -> "GetSubdivisionResponseBodyBuilder":
+    def subdivision(
+        self, subdivision: Subdivision
+    ) -> "GetSubdivisionResponseBodyBuilder":
         self._get_subdivision_response_body.subdivision = subdivision
         return self
 

@@ -10,6 +10,7 @@ class EmployeeBasicQueryInfo(object):
         "preferred_name": str,
         "email": str,
         "employee_number": str,
+        "department_id": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class EmployeeBasicQueryInfo(object):
         self.preferred_name: Optional[str] = None
         self.email: Optional[str] = None
         self.employee_number: Optional[str] = None
+        self.department_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class EmployeeBasicQueryInfoBuilder(object):
 
     def employee_number(self, employee_number: str) -> "EmployeeBasicQueryInfoBuilder":
         self._employee_basic_query_info.employee_number = employee_number
+        return self
+
+    def department_id(self, department_id: str) -> "EmployeeBasicQueryInfoBuilder":
+        self._employee_basic_query_info.department_id = department_id
         return self
 
     def build(self) -> "EmployeeBasicQueryInfo":

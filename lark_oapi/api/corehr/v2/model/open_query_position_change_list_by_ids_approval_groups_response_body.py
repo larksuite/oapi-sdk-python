@@ -15,18 +15,25 @@ class OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody(object):
         init(self, d, self._types)
 
     @staticmethod
-    def builder() -> "OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder":
+    def builder() -> (
+        "OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder"
+    ):
         return OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder()
 
 
 class OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._open_query_position_change_list_by_ids_approval_groups_response_body = OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody()
+        self._open_query_position_change_list_by_ids_approval_groups_response_body = (
+            OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody()
+        )
 
-    def position_changes(self, position_changes: List[
-        PositionChange]) -> "OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder":
+    def position_changes(
+        self, position_changes: List[PositionChange]
+    ) -> "OpenQueryPositionChangeListByIdsApprovalGroupsResponseBodyBuilder":
         self._open_query_position_change_list_by_ids_approval_groups_response_body.position_changes = position_changes
         return self
 
     def build(self) -> "OpenQueryPositionChangeListByIdsApprovalGroupsResponseBody":
-        return self._open_query_position_change_list_by_ids_approval_groups_response_body
+        return (
+            self._open_query_position_change_list_by_ids_approval_groups_response_body
+        )

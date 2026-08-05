@@ -77,7 +77,9 @@ class PlanDetailBuilder(object):
         self._plan_detail.currency_id = currency_id
         return self
 
-    def probation_salary_status(self, probation_salary_status: bool) -> "PlanDetailBuilder":
+    def probation_salary_status(
+        self, probation_salary_status: bool
+    ) -> "PlanDetailBuilder":
         self._plan_detail.probation_salary_status = probation_salary_status
         return self
 
@@ -85,7 +87,9 @@ class PlanDetailBuilder(object):
         self._plan_detail.plan_items = plan_items
         return self
 
-    def plan_indicators(self, plan_indicators: List[PlanIndicator]) -> "PlanDetailBuilder":
+    def plan_indicators(
+        self, plan_indicators: List[PlanIndicator]
+    ) -> "PlanDetailBuilder":
         self._plan_detail.plan_indicators = plan_indicators
         return self
 
@@ -93,7 +97,9 @@ class PlanDetailBuilder(object):
         self._plan_detail.i18n_names = i18n_names
         return self
 
-    def i18n_descriptions(self, i18n_descriptions: List[I18nContent]) -> "PlanDetailBuilder":
+    def i18n_descriptions(
+        self, i18n_descriptions: List[I18nContent]
+    ) -> "PlanDetailBuilder":
         self._plan_detail.i18n_descriptions = i18n_descriptions
         return self
 

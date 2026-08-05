@@ -21,9 +21,7 @@ class P2ApplicationBotMenuV6Data(object):
 
 
 class P2ApplicationBotMenuV6(EventContext):
-    _types = {
-        "event": P2ApplicationBotMenuV6Data
-    }
+    _types = {"event": P2ApplicationBotMenuV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)

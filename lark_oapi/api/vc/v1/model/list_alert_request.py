@@ -21,7 +21,6 @@ class ListAlertRequest(BaseRequest):
 
 
 class ListAlertRequestBuilder(object):
-
     def __init__(self) -> None:
         list_alert_request = ListAlertRequest()
         list_alert_request.http_method = HttpMethod.GET

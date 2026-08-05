@@ -33,36 +33,58 @@ class EditEmpCustomOrgEmployeeCustomOrgRequestBody(object):
 
 class EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._edit_emp_custom_org_employee_custom_org_request_body = EditEmpCustomOrgEmployeeCustomOrgRequestBody()
+        self._edit_emp_custom_org_employee_custom_org_request_body = (
+            EditEmpCustomOrgEmployeeCustomOrgRequestBody()
+        )
 
-    def user_id(self, user_id: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+    def user_id(
+        self, user_id: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
         self._edit_emp_custom_org_employee_custom_org_request_body.user_id = user_id
         return self
 
-    def object_api_name(self, object_api_name: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._edit_emp_custom_org_employee_custom_org_request_body.object_api_name = object_api_name
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._edit_emp_custom_org_employee_custom_org_request_body.object_api_name = (
+            object_api_name
+        )
         return self
 
-    def job_data_custom_org_id(self,
-                               job_data_custom_org_id: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+    def job_data_custom_org_id(
+        self, job_data_custom_org_id: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
         self._edit_emp_custom_org_employee_custom_org_request_body.job_data_custom_org_id = job_data_custom_org_id
         return self
 
-    def version_id(self, version_id: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._edit_emp_custom_org_employee_custom_org_request_body.version_id = version_id
+    def version_id(
+        self, version_id: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._edit_emp_custom_org_employee_custom_org_request_body.version_id = (
+            version_id
+        )
         return self
 
-    def custom_org_with_rates(self, custom_org_with_rates: List[
-        CustomOrgWithRate]) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+    def custom_org_with_rates(
+        self, custom_org_with_rates: List[CustomOrgWithRate]
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
         self._edit_emp_custom_org_employee_custom_org_request_body.custom_org_with_rates = custom_org_with_rates
         return self
 
-    def effective_time(self, effective_time: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._edit_emp_custom_org_employee_custom_org_request_body.effective_time = effective_time
+    def effective_time(
+        self, effective_time: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._edit_emp_custom_org_employee_custom_org_request_body.effective_time = (
+            effective_time
+        )
         return self
 
-    def start_reason(self, start_reason: str) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._edit_emp_custom_org_employee_custom_org_request_body.start_reason = start_reason
+    def start_reason(
+        self, start_reason: str
+    ) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._edit_emp_custom_org_employee_custom_org_request_body.start_reason = (
+            start_reason
+        )
         return self
 
     def build(self) -> "EditEmpCustomOrgEmployeeCustomOrgRequestBody":

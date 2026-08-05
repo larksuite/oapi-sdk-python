@@ -17,8 +17,11 @@ class DirectoryUser(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def id_convert(self, request: IdConvertDirectoryUserRequest,
-                   option: Optional[RequestOption] = None) -> IdConvertDirectoryUserResponse:
+    def id_convert(
+        self,
+        request: IdConvertDirectoryUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> IdConvertDirectoryUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class DirectoryUser(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: IdConvertDirectoryUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  IdConvertDirectoryUserResponse)
+        response: IdConvertDirectoryUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IdConvertDirectoryUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aid_convert(self, request: IdConvertDirectoryUserRequest,
-                          option: Optional[RequestOption] = None) -> IdConvertDirectoryUserResponse:
+    async def aid_convert(
+        self,
+        request: IdConvertDirectoryUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> IdConvertDirectoryUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class DirectoryUser(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: IdConvertDirectoryUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  IdConvertDirectoryUserResponse)
+        response: IdConvertDirectoryUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IdConvertDirectoryUserResponse
+        )
         response.raw = resp
 
         return response

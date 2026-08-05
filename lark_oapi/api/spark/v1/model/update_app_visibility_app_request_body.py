@@ -31,13 +31,17 @@ class UpdateAppVisibilityAppRequestBody(object):
 
 class UpdateAppVisibilityAppRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_app_visibility_app_request_body = UpdateAppVisibilityAppRequestBody()
+        self._update_app_visibility_app_request_body = (
+            UpdateAppVisibilityAppRequestBody()
+        )
 
     def users(self, users: List[str]) -> "UpdateAppVisibilityAppRequestBodyBuilder":
         self._update_app_visibility_app_request_body.users = users
         return self
 
-    def departments(self, departments: List[str]) -> "UpdateAppVisibilityAppRequestBodyBuilder":
+    def departments(
+        self, departments: List[str]
+    ) -> "UpdateAppVisibilityAppRequestBodyBuilder":
         self._update_app_visibility_app_request_body.departments = departments
         return self
 
@@ -45,11 +49,15 @@ class UpdateAppVisibilityAppRequestBodyBuilder(object):
         self._update_app_visibility_app_request_body.chats = chats
         return self
 
-    def apply_config(self, apply_config: ApplyConfig) -> "UpdateAppVisibilityAppRequestBodyBuilder":
+    def apply_config(
+        self, apply_config: ApplyConfig
+    ) -> "UpdateAppVisibilityAppRequestBodyBuilder":
         self._update_app_visibility_app_request_body.apply_config = apply_config
         return self
 
-    def require_login(self, require_login: bool) -> "UpdateAppVisibilityAppRequestBodyBuilder":
+    def require_login(
+        self, require_login: bool
+    ) -> "UpdateAppVisibilityAppRequestBodyBuilder":
         self._update_app_visibility_app_request_body.require_login = require_login
         return self
 

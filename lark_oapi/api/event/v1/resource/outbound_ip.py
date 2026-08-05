@@ -17,7 +17,9 @@ class OutboundIp(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListOutboundIpRequest, option: Optional[RequestOption] = None) -> ListOutboundIpResponse:
+    def list(
+        self, request: ListOutboundIpRequest, option: Optional[RequestOption] = None
+    ) -> ListOutboundIpResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class OutboundIp(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListOutboundIpResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOutboundIpResponse)
+        response: ListOutboundIpResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListOutboundIpResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListOutboundIpRequest,
-                    option: Optional[RequestOption] = None) -> ListOutboundIpResponse:
+    async def alist(
+        self, request: ListOutboundIpRequest, option: Optional[RequestOption] = None
+    ) -> ListOutboundIpResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class OutboundIp(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListOutboundIpResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOutboundIpResponse)
+        response: ListOutboundIpResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListOutboundIpResponse
+        )
         response.raw = resp
 
         return response

@@ -36,7 +36,9 @@ class ResourceWaitlistBuilder(object):
     def __init__(self) -> None:
         self._resource_waitlist = ResourceWaitlist()
 
-    def resource_waitlist_id(self, resource_waitlist_id: str) -> "ResourceWaitlistBuilder":
+    def resource_waitlist_id(
+        self, resource_waitlist_id: str
+    ) -> "ResourceWaitlistBuilder":
         self._resource_waitlist.resource_waitlist_id = resource_waitlist_id
         return self
 
@@ -52,15 +54,21 @@ class ResourceWaitlistBuilder(object):
         self._resource_waitlist.max_capacity = max_capacity
         return self
 
-    def last_wait_time_type(self, last_wait_time_type: str) -> "ResourceWaitlistBuilder":
+    def last_wait_time_type(
+        self, last_wait_time_type: str
+    ) -> "ResourceWaitlistBuilder":
         self._resource_waitlist.last_wait_time_type = last_wait_time_type
         return self
 
-    def equipment_require_type(self, equipment_require_type: str) -> "ResourceWaitlistBuilder":
+    def equipment_require_type(
+        self, equipment_require_type: str
+    ) -> "ResourceWaitlistBuilder":
         self._resource_waitlist.equipment_require_type = equipment_require_type
         return self
 
-    def building_zone_codes(self, building_zone_codes: List[str]) -> "ResourceWaitlistBuilder":
+    def building_zone_codes(
+        self, building_zone_codes: List[str]
+    ) -> "ResourceWaitlistBuilder":
         self._resource_waitlist.building_zone_codes = building_zone_codes
         return self
 

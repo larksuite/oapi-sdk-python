@@ -65,7 +65,9 @@ class DeviceApplyRecordBuilder(object):
         self._device_apply_record.apply_id = apply_id
         return self
 
-    def device_terminal_type(self, device_terminal_type: str) -> "DeviceApplyRecordBuilder":
+    def device_terminal_type(
+        self, device_terminal_type: str
+    ) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_terminal_type = device_terminal_type
         return self
 

@@ -21,7 +21,9 @@ class GetChatAnnouncementBlockResponseBody(object):
 
 class GetChatAnnouncementBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_chat_announcement_block_response_body = GetChatAnnouncementBlockResponseBody()
+        self._get_chat_announcement_block_response_body = (
+            GetChatAnnouncementBlockResponseBody()
+        )
 
     def block(self, block: Block) -> "GetChatAnnouncementBlockResponseBodyBuilder":
         self._get_chat_announcement_block_response_body.block = block

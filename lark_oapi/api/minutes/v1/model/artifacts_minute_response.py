@@ -9,7 +9,6 @@ from .artifacts_minute_response_body import ArtifactsMinuteResponseBody
 class ArtifactsMinuteResponse(BaseResponse):
     _types = {
         "data": ArtifactsMinuteResponseBody,
-
     }
 
     def __init__(self, d=None):

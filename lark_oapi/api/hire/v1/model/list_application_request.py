@@ -18,6 +18,7 @@ class ListApplicationRequest(BaseRequest):
         self.page_size: Optional[int] = None
         self.update_start_time: Optional[int] = None
         self.update_end_time: Optional[int] = None
+        self.keyword: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListApplicationRequestBuilder":
@@ -25,13 +26,17 @@ class ListApplicationRequest(BaseRequest):
 
 
 class ListApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_application_request = ListApplicationRequest()
         list_application_request.http_method = HttpMethod.GET
         list_application_request.uri = "/open-apis/hire/v1/applications"
-        list_application_request.token_types = {AccessTokenType.TENANT}
-        self._list_application_request: ListApplicationRequest = list_application_request
+        list_application_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_application_request: ListApplicationRequest = (
+            list_application_request
+        )
 
     def process_id(self, process_id: str) -> "ListApplicationRequestBuilder":
         self._list_application_request.process_id = process_id
@@ -73,7 +78,9 @@ class ListApplicationRequestBuilder(object):
         self._list_application_request.add_query("page_size", page_size)
         return self
 
-    def update_start_time(self, update_start_time: int) -> "ListApplicationRequestBuilder":
+    def update_start_time(
+        self, update_start_time: int
+    ) -> "ListApplicationRequestBuilder":
         self._list_application_request.update_start_time = update_start_time
         self._list_application_request.add_query("update_start_time", update_start_time)
         return self
@@ -81,6 +88,11 @@ class ListApplicationRequestBuilder(object):
     def update_end_time(self, update_end_time: int) -> "ListApplicationRequestBuilder":
         self._list_application_request.update_end_time = update_end_time
         self._list_application_request.add_query("update_end_time", update_end_time)
+        return self
+
+    def keyword(self, keyword: str) -> "ListApplicationRequestBuilder":
+        self._list_application_request.keyword = keyword
+        self._list_application_request.add_query("keyword", keyword)
         return self
 
     def build(self) -> ListApplicationRequest:

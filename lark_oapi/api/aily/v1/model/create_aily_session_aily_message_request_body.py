@@ -31,13 +31,21 @@ class CreateAilySessionAilyMessageRequestBody(object):
 
 class CreateAilySessionAilyMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_aily_session_aily_message_request_body = CreateAilySessionAilyMessageRequestBody()
+        self._create_aily_session_aily_message_request_body = (
+            CreateAilySessionAilyMessageRequestBody()
+        )
 
-    def idempotent_id(self, idempotent_id: str) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
-        self._create_aily_session_aily_message_request_body.idempotent_id = idempotent_id
+    def idempotent_id(
+        self, idempotent_id: str
+    ) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
+        self._create_aily_session_aily_message_request_body.idempotent_id = (
+            idempotent_id
+        )
         return self
 
-    def content_type(self, content_type: str) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
+    def content_type(
+        self, content_type: str
+    ) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
         self._create_aily_session_aily_message_request_body.content_type = content_type
         return self
 
@@ -45,15 +53,23 @@ class CreateAilySessionAilyMessageRequestBodyBuilder(object):
         self._create_aily_session_aily_message_request_body.content = content
         return self
 
-    def file_ids(self, file_ids: List[str]) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
+    def file_ids(
+        self, file_ids: List[str]
+    ) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
         self._create_aily_session_aily_message_request_body.file_ids = file_ids
         return self
 
-    def quote_message_id(self, quote_message_id: str) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
-        self._create_aily_session_aily_message_request_body.quote_message_id = quote_message_id
+    def quote_message_id(
+        self, quote_message_id: str
+    ) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
+        self._create_aily_session_aily_message_request_body.quote_message_id = (
+            quote_message_id
+        )
         return self
 
-    def mentions(self, mentions: List[AilyMention]) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
+    def mentions(
+        self, mentions: List[AilyMention]
+    ) -> "CreateAilySessionAilyMessageRequestBodyBuilder":
         self._create_aily_session_aily_message_request_body.mentions = mentions
         return self
 

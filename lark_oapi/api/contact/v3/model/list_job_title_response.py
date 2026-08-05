@@ -9,7 +9,6 @@ from .list_job_title_response_body import ListJobTitleResponseBody
 class ListJobTitleResponse(BaseResponse):
     _types = {
         "data": ListJobTitleResponseBody,
-
     }
 
     def __init__(self, d=None):

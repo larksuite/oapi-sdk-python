@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_by_param_authorization_response_body import GetByParamAuthorizationResponseBody
+from .get_by_param_authorization_response_body import (
+    GetByParamAuthorizationResponseBody,
+)
 
 
 class GetByParamAuthorizationResponse(BaseResponse):
     _types = {
         "data": GetByParamAuthorizationResponseBody,
-
     }
 
     def __init__(self, d=None):

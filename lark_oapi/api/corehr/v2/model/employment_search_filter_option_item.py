@@ -28,7 +28,9 @@ class EmploymentSearchFilterOptionItemBuilder(object):
     def __init__(self) -> None:
         self._employment_search_filter_option_item = EmploymentSearchFilterOptionItem()
 
-    def employment_id(self, employment_id: str) -> "EmploymentSearchFilterOptionItemBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "EmploymentSearchFilterOptionItemBuilder":
         self._employment_search_filter_option_item.employment_id = employment_id
         return self
 
@@ -36,7 +38,9 @@ class EmploymentSearchFilterOptionItemBuilder(object):
         self._employment_search_filter_option_item.name = name
         return self
 
-    def employee_number(self, employee_number: str) -> "EmploymentSearchFilterOptionItemBuilder":
+    def employee_number(
+        self, employee_number: str
+    ) -> "EmploymentSearchFilterOptionItemBuilder":
         self._employment_search_filter_option_item.employee_number = employee_number
         return self
 

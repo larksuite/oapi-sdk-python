@@ -18,7 +18,6 @@ class CreatePathwayRequest(BaseRequest):
 
 
 class CreatePathwayRequestBuilder(object):
-
     def __init__(self) -> None:
         create_pathway_request = CreatePathwayRequest()
         create_pathway_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class CreatePathwayRequestBuilder(object):
         self._create_pathway_request.add_query("client_token", client_token)
         return self
 
-    def request_body(self, request_body: PathwayCreate) -> "CreatePathwayRequestBuilder":
+    def request_body(
+        self, request_body: PathwayCreate
+    ) -> "CreatePathwayRequestBuilder":
         self._create_pathway_request.request_body = request_body
         self._create_pathway_request.body = request_body
         return self

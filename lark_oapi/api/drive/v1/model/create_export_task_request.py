@@ -17,15 +17,21 @@ class CreateExportTaskRequest(BaseRequest):
 
 
 class CreateExportTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         create_export_task_request = CreateExportTaskRequest()
         create_export_task_request.http_method = HttpMethod.POST
         create_export_task_request.uri = "/open-apis/drive/v1/export_tasks"
-        create_export_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_export_task_request: CreateExportTaskRequest = create_export_task_request
+        create_export_task_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_export_task_request: CreateExportTaskRequest = (
+            create_export_task_request
+        )
 
-    def request_body(self, request_body: ExportTask) -> "CreateExportTaskRequestBuilder":
+    def request_body(
+        self, request_body: ExportTask
+    ) -> "CreateExportTaskRequestBuilder":
         self._create_export_task_request.request_body = request_body
         self._create_export_task_request.body = request_body
         return self

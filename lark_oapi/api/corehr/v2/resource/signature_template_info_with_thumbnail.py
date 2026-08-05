@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_signature_template_info_with_thumbnail_request import ListSignatureTemplateInfoWithThumbnailRequest
-from ..model.list_signature_template_info_with_thumbnail_response import ListSignatureTemplateInfoWithThumbnailResponse
+from ..model.list_signature_template_info_with_thumbnail_request import (
+    ListSignatureTemplateInfoWithThumbnailRequest,
+)
+from ..model.list_signature_template_info_with_thumbnail_response import (
+    ListSignatureTemplateInfoWithThumbnailResponse,
+)
 
 
 class SignatureTemplateInfoWithThumbnail(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSignatureTemplateInfoWithThumbnailRequest,
-             option: Optional[RequestOption] = None) -> ListSignatureTemplateInfoWithThumbnailResponse:
+    def list(
+        self,
+        request: ListSignatureTemplateInfoWithThumbnailRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListSignatureTemplateInfoWithThumbnailResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class SignatureTemplateInfoWithThumbnail(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSignatureTemplateInfoWithThumbnailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                  ListSignatureTemplateInfoWithThumbnailResponse)
+        response: ListSignatureTemplateInfoWithThumbnailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSignatureTemplateInfoWithThumbnailResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSignatureTemplateInfoWithThumbnailRequest,
-                    option: Optional[RequestOption] = None) -> ListSignatureTemplateInfoWithThumbnailResponse:
+    async def alist(
+        self,
+        request: ListSignatureTemplateInfoWithThumbnailRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListSignatureTemplateInfoWithThumbnailResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class SignatureTemplateInfoWithThumbnail(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSignatureTemplateInfoWithThumbnailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                  ListSignatureTemplateInfoWithThumbnailResponse)
+        response: ListSignatureTemplateInfoWithThumbnailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSignatureTemplateInfoWithThumbnailResponse
+        )
         response.raw = resp
 
         return response

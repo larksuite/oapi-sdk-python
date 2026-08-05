@@ -3,8 +3,12 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_corehr_common_data_id_user_mapping_changed_v1 import P2CorehrCommonDataIdUserMappingChangedV1
-from .model.p2_corehr_common_data_meta_data_updated_v1 import P2CorehrCommonDataMetaDataUpdatedV1
+from .model.p2_corehr_common_data_id_user_mapping_changed_v1 import (
+    P2CorehrCommonDataIdUserMappingChangedV1,
+)
+from .model.p2_corehr_common_data_meta_data_updated_v1 import (
+    P2CorehrCommonDataMetaDataUpdatedV1,
+)
 from .model.p2_corehr_contract_created_v1 import P2CorehrContractCreatedV1
 from .model.p2_corehr_contract_deleted_v1 import P2CorehrContractDeletedV1
 from .model.p2_corehr_contract_updated_v1 import P2CorehrContractUpdatedV1
@@ -26,14 +30,18 @@ from .model.p2_corehr_job_data_deleted_v1 import P2CorehrJobDataDeletedV1
 from .model.p2_corehr_job_data_employed_v1 import P2CorehrJobDataEmployedV1
 from .model.p2_corehr_job_data_updated_v1 import P2CorehrJobDataUpdatedV1
 from .model.p2_corehr_offboarding_updated_v1 import P2CorehrOffboardingUpdatedV1
-from .model.p2_corehr_org_role_authorization_updated_v1 import P2CorehrOrgRoleAuthorizationUpdatedV1
+from .model.p2_corehr_org_role_authorization_updated_v1 import (
+    P2CorehrOrgRoleAuthorizationUpdatedV1,
+)
 from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
 from .model.p2_corehr_person_deleted_v1 import P2CorehrPersonDeletedV1
 from .model.p2_corehr_person_updated_v1 import P2CorehrPersonUpdatedV1
 from .model.p2_corehr_pre_hire_updated_v1 import P2CorehrPreHireUpdatedV1
 
 
-class P2CorehrCommonDataIdUserMappingChangedV1Processor(IEventProcessor[P2CorehrCommonDataIdUserMappingChangedV1]):
+class P2CorehrCommonDataIdUserMappingChangedV1Processor(
+    IEventProcessor[P2CorehrCommonDataIdUserMappingChangedV1]
+):
     def __init__(self, f: Callable[[P2CorehrCommonDataIdUserMappingChangedV1], None]):
         self.f = f
 
@@ -44,7 +52,9 @@ class P2CorehrCommonDataIdUserMappingChangedV1Processor(IEventProcessor[P2Corehr
         self.f(data)
 
 
-class P2CorehrCommonDataMetaDataUpdatedV1Processor(IEventProcessor[P2CorehrCommonDataMetaDataUpdatedV1]):
+class P2CorehrCommonDataMetaDataUpdatedV1Processor(
+    IEventProcessor[P2CorehrCommonDataMetaDataUpdatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrCommonDataMetaDataUpdatedV1], None]):
         self.f = f
 
@@ -88,7 +98,9 @@ class P2CorehrContractUpdatedV1Processor(IEventProcessor[P2CorehrContractUpdated
         self.f(data)
 
 
-class P2CorehrDepartmentCreatedV1Processor(IEventProcessor[P2CorehrDepartmentCreatedV1]):
+class P2CorehrDepartmentCreatedV1Processor(
+    IEventProcessor[P2CorehrDepartmentCreatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrDepartmentCreatedV1], None]):
         self.f = f
 
@@ -99,7 +111,9 @@ class P2CorehrDepartmentCreatedV1Processor(IEventProcessor[P2CorehrDepartmentCre
         self.f(data)
 
 
-class P2CorehrDepartmentDeletedV1Processor(IEventProcessor[P2CorehrDepartmentDeletedV1]):
+class P2CorehrDepartmentDeletedV1Processor(
+    IEventProcessor[P2CorehrDepartmentDeletedV1]
+):
     def __init__(self, f: Callable[[P2CorehrDepartmentDeletedV1], None]):
         self.f = f
 
@@ -110,7 +124,9 @@ class P2CorehrDepartmentDeletedV1Processor(IEventProcessor[P2CorehrDepartmentDel
         self.f(data)
 
 
-class P2CorehrDepartmentUpdatedV1Processor(IEventProcessor[P2CorehrDepartmentUpdatedV1]):
+class P2CorehrDepartmentUpdatedV1Processor(
+    IEventProcessor[P2CorehrDepartmentUpdatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrDepartmentUpdatedV1], None]):
         self.f = f
 
@@ -121,7 +137,9 @@ class P2CorehrDepartmentUpdatedV1Processor(IEventProcessor[P2CorehrDepartmentUpd
         self.f(data)
 
 
-class P2CorehrEmploymentConvertedV1Processor(IEventProcessor[P2CorehrEmploymentConvertedV1]):
+class P2CorehrEmploymentConvertedV1Processor(
+    IEventProcessor[P2CorehrEmploymentConvertedV1]
+):
     def __init__(self, f: Callable[[P2CorehrEmploymentConvertedV1], None]):
         self.f = f
 
@@ -132,7 +150,9 @@ class P2CorehrEmploymentConvertedV1Processor(IEventProcessor[P2CorehrEmploymentC
         self.f(data)
 
 
-class P2CorehrEmploymentCreatedV1Processor(IEventProcessor[P2CorehrEmploymentCreatedV1]):
+class P2CorehrEmploymentCreatedV1Processor(
+    IEventProcessor[P2CorehrEmploymentCreatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrEmploymentCreatedV1], None]):
         self.f = f
 
@@ -143,7 +163,9 @@ class P2CorehrEmploymentCreatedV1Processor(IEventProcessor[P2CorehrEmploymentCre
         self.f(data)
 
 
-class P2CorehrEmploymentDeletedV1Processor(IEventProcessor[P2CorehrEmploymentDeletedV1]):
+class P2CorehrEmploymentDeletedV1Processor(
+    IEventProcessor[P2CorehrEmploymentDeletedV1]
+):
     def __init__(self, f: Callable[[P2CorehrEmploymentDeletedV1], None]):
         self.f = f
 
@@ -154,7 +176,9 @@ class P2CorehrEmploymentDeletedV1Processor(IEventProcessor[P2CorehrEmploymentDel
         self.f(data)
 
 
-class P2CorehrEmploymentResignedV1Processor(IEventProcessor[P2CorehrEmploymentResignedV1]):
+class P2CorehrEmploymentResignedV1Processor(
+    IEventProcessor[P2CorehrEmploymentResignedV1]
+):
     def __init__(self, f: Callable[[P2CorehrEmploymentResignedV1], None]):
         self.f = f
 
@@ -165,7 +189,9 @@ class P2CorehrEmploymentResignedV1Processor(IEventProcessor[P2CorehrEmploymentRe
         self.f(data)
 
 
-class P2CorehrEmploymentUpdatedV1Processor(IEventProcessor[P2CorehrEmploymentUpdatedV1]):
+class P2CorehrEmploymentUpdatedV1Processor(
+    IEventProcessor[P2CorehrEmploymentUpdatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrEmploymentUpdatedV1], None]):
         self.f = f
 
@@ -275,7 +301,9 @@ class P2CorehrJobDataUpdatedV1Processor(IEventProcessor[P2CorehrJobDataUpdatedV1
         self.f(data)
 
 
-class P2CorehrOffboardingUpdatedV1Processor(IEventProcessor[P2CorehrOffboardingUpdatedV1]):
+class P2CorehrOffboardingUpdatedV1Processor(
+    IEventProcessor[P2CorehrOffboardingUpdatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrOffboardingUpdatedV1], None]):
         self.f = f
 
@@ -286,7 +314,9 @@ class P2CorehrOffboardingUpdatedV1Processor(IEventProcessor[P2CorehrOffboardingU
         self.f(data)
 
 
-class P2CorehrOrgRoleAuthorizationUpdatedV1Processor(IEventProcessor[P2CorehrOrgRoleAuthorizationUpdatedV1]):
+class P2CorehrOrgRoleAuthorizationUpdatedV1Processor(
+    IEventProcessor[P2CorehrOrgRoleAuthorizationUpdatedV1]
+):
     def __init__(self, f: Callable[[P2CorehrOrgRoleAuthorizationUpdatedV1], None]):
         self.f = f
 

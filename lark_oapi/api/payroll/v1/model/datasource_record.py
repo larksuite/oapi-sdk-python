@@ -29,7 +29,9 @@ class DatasourceRecordBuilder(object):
         self._datasource_record.active_status = active_status
         return self
 
-    def field_values(self, field_values: List[DatasourceRecordField]) -> "DatasourceRecordBuilder":
+    def field_values(
+        self, field_values: List[DatasourceRecordField]
+    ) -> "DatasourceRecordBuilder":
         self._datasource_record.field_values = field_values
         return self
 

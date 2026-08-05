@@ -52,7 +52,9 @@ class ManageableInstanceNodeBuilder(object):
         self._manageable_instance_node.start_user_id = start_user_id
         return self
 
-    def current_user_ids(self, current_user_ids: List[str]) -> "ManageableInstanceNodeBuilder":
+    def current_user_ids(
+        self, current_user_ids: List[str]
+    ) -> "ManageableInstanceNodeBuilder":
         self._manageable_instance_node.current_user_ids = current_user_ids
         return self
 

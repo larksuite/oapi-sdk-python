@@ -29,7 +29,9 @@ class SaveDatasourceRecordRequestBodyBuilder(object):
         self._save_datasource_record_request_body.source_code = source_code
         return self
 
-    def records(self, records: List[DatasourceRecord]) -> "SaveDatasourceRecordRequestBodyBuilder":
+    def records(
+        self, records: List[DatasourceRecord]
+    ) -> "SaveDatasourceRecordRequestBodyBuilder":
         self._save_datasource_record_request_body.records = records
         return self
 

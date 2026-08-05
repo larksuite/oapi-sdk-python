@@ -18,7 +18,6 @@ class ListCategoryRequest(BaseRequest):
 
 
 class ListCategoryRequestBuilder(object):
-
     def __init__(self) -> None:
         list_category_request = ListCategoryRequest()
         list_category_request.http_method = HttpMethod.GET

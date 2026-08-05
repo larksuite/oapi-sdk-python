@@ -41,8 +41,12 @@ class SuccessMsgReactionDetailsBuilder(object):
         self._success_msg_reaction_details.page_token = page_token
         return self
 
-    def message_reaction_items(self, message_reaction_items: List[Reaction]) -> "SuccessMsgReactionDetailsBuilder":
-        self._success_msg_reaction_details.message_reaction_items = message_reaction_items
+    def message_reaction_items(
+        self, message_reaction_items: List[Reaction]
+    ) -> "SuccessMsgReactionDetailsBuilder":
+        self._success_msg_reaction_details.message_reaction_items = (
+            message_reaction_items
+        )
         return self
 
     def build(self) -> "SuccessMsgReactionDetails":

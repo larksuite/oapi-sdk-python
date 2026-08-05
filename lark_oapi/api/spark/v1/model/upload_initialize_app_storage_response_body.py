@@ -24,17 +24,25 @@ class UploadInitializeAppStorageResponseBody(object):
 
 class UploadInitializeAppStorageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_initialize_app_storage_response_body = UploadInitializeAppStorageResponseBody()
+        self._upload_initialize_app_storage_response_body = (
+            UploadInitializeAppStorageResponseBody()
+        )
 
-    def upload_id(self, upload_id: str) -> "UploadInitializeAppStorageResponseBodyBuilder":
+    def upload_id(
+        self, upload_id: str
+    ) -> "UploadInitializeAppStorageResponseBodyBuilder":
         self._upload_initialize_app_storage_response_body.upload_id = upload_id
         return self
 
-    def chunk_size(self, chunk_size: int) -> "UploadInitializeAppStorageResponseBodyBuilder":
+    def chunk_size(
+        self, chunk_size: int
+    ) -> "UploadInitializeAppStorageResponseBodyBuilder":
         self._upload_initialize_app_storage_response_body.chunk_size = chunk_size
         return self
 
-    def chunk_numbers(self, chunk_numbers: int) -> "UploadInitializeAppStorageResponseBodyBuilder":
+    def chunk_numbers(
+        self, chunk_numbers: int
+    ) -> "UploadInitializeAppStorageResponseBodyBuilder":
         self._upload_initialize_app_storage_response_body.chunk_numbers = chunk_numbers
         return self
 

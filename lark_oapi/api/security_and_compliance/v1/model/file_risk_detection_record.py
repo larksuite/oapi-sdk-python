@@ -38,7 +38,9 @@ class FileRiskDetectionRecordBuilder(object):
         self._file_risk_detection_record.file_url = file_url
         return self
 
-    def file_url_expire_time(self, file_url_expire_time: int) -> "FileRiskDetectionRecordBuilder":
+    def file_url_expire_time(
+        self, file_url_expire_time: int
+    ) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.file_url_expire_time = file_url_expire_time
         return self
 

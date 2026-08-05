@@ -17,8 +17,11 @@ class ApplicationOwner(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateApplicationOwnerRequest,
-               option: Optional[RequestOption] = None) -> UpdateApplicationOwnerResponse:
+    def update(
+        self,
+        request: UpdateApplicationOwnerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateApplicationOwnerResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ApplicationOwner(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateApplicationOwnerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateApplicationOwnerResponse)
+        response: UpdateApplicationOwnerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateApplicationOwnerResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateApplicationOwnerRequest,
-                      option: Optional[RequestOption] = None) -> UpdateApplicationOwnerResponse:
+    async def aupdate(
+        self,
+        request: UpdateApplicationOwnerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateApplicationOwnerResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ApplicationOwner(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateApplicationOwnerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateApplicationOwnerResponse)
+        response: UpdateApplicationOwnerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateApplicationOwnerResponse
+        )
         response.raw = resp
 
         return response

@@ -23,7 +23,9 @@ class PatchEmployeeTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_employee_type_response_body = PatchEmployeeTypeResponseBody()
 
-    def employee_type(self, employee_type: EmployeeType) -> "PatchEmployeeTypeResponseBodyBuilder":
+    def employee_type(
+        self, employee_type: EmployeeType
+    ) -> "PatchEmployeeTypeResponseBodyBuilder":
         self._patch_employee_type_response_body.employee_type = employee_type
         return self
 

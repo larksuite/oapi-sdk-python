@@ -49,7 +49,9 @@ class MentionDocBuilder(object):
         self._mention_doc.title = title
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "MentionDocBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "MentionDocBuilder":
         self._mention_doc.text_element_style = text_element_style
         return self
 

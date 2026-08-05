@@ -19,12 +19,16 @@ class UpdateAppRoleRequest(BaseRequest):
 
 
 class UpdateAppRoleRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_role_request = UpdateAppRoleRequest()
         update_app_role_request.http_method = HttpMethod.PUT
-        update_app_role_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id"
-        update_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        update_app_role_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/roles/:role_id"
+        )
+        update_app_role_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._update_app_role_request: UpdateAppRoleRequest = update_app_role_request
 
     def app_token(self, app_token: str) -> "UpdateAppRoleRequestBuilder":

@@ -24,7 +24,9 @@ class UpdateAilySessionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_aily_session_request_body = UpdateAilySessionRequestBody()
 
-    def channel_context(self, channel_context: str) -> "UpdateAilySessionRequestBodyBuilder":
+    def channel_context(
+        self, channel_context: str
+    ) -> "UpdateAilySessionRequestBodyBuilder":
         self._update_aily_session_request_body.channel_context = channel_context
         return self
 

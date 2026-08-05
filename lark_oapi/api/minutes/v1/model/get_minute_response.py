@@ -9,7 +9,6 @@ from .get_minute_response_body import GetMinuteResponseBody
 class GetMinuteResponse(BaseResponse):
     _types = {
         "data": GetMinuteResponseBody,
-
     }
 
     def __init__(self, d=None):

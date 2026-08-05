@@ -28,7 +28,9 @@ class PatchPublicMailboxResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_public_mailbox_response_body = PatchPublicMailboxResponseBody()
 
-    def public_mailbox_id(self, public_mailbox_id: str) -> "PatchPublicMailboxResponseBodyBuilder":
+    def public_mailbox_id(
+        self, public_mailbox_id: str
+    ) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.public_mailbox_id = public_mailbox_id
         return self
 

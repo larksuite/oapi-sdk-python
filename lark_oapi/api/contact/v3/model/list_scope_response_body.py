@@ -30,7 +30,9 @@ class ListScopeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_scope_response_body = ListScopeResponseBody()
 
-    def department_ids(self, department_ids: List[str]) -> "ListScopeResponseBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "ListScopeResponseBodyBuilder":
         self._list_scope_response_body.department_ids = department_ids
         return self
 

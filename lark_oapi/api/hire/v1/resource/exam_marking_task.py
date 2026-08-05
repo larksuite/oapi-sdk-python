@@ -17,8 +17,11 @@ class ExamMarkingTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListExamMarkingTaskRequest,
-             option: Optional[RequestOption] = None) -> ListExamMarkingTaskResponse:
+    def list(
+        self,
+        request: ListExamMarkingTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListExamMarkingTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class ExamMarkingTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListExamMarkingTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListExamMarkingTaskResponse)
+        response: ListExamMarkingTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExamMarkingTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListExamMarkingTaskRequest,
-                    option: Optional[RequestOption] = None) -> ListExamMarkingTaskResponse:
+    async def alist(
+        self,
+        request: ListExamMarkingTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListExamMarkingTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class ExamMarkingTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListExamMarkingTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListExamMarkingTaskResponse)
+        response: ListExamMarkingTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExamMarkingTaskResponse
+        )
         response.raw = resp
 
         return response

@@ -25,9 +25,7 @@ class P2HireEcoAccountCreatedV1Data(object):
 
 
 class P2HireEcoAccountCreatedV1(EventContext):
-    _types = {
-        "event": P2HireEcoAccountCreatedV1Data
-    }
+    _types = {"event": P2HireEcoAccountCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

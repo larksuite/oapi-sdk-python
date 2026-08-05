@@ -9,7 +9,6 @@ from .create_pin_response_body import CreatePinResponseBody
 class CreatePinResponse(BaseResponse):
     _types = {
         "data": CreatePinResponseBody,
-
     }
 
     def __init__(self, d=None):

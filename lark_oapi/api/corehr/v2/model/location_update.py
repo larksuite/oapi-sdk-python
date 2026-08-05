@@ -76,7 +76,9 @@ class LocationUpdateBuilder(object):
         self._location_update.location_usages = location_usages
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "LocationUpdateBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "LocationUpdateBuilder":
         self._location_update.working_hours_type_id = working_hours_type_id
         return self
 
@@ -92,7 +94,9 @@ class LocationUpdateBuilder(object):
         self._location_update.display_language_id = display_language_id
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "LocationUpdateBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "LocationUpdateBuilder":
         self._location_update.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

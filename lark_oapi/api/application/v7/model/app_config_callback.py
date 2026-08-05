@@ -40,7 +40,9 @@ class AppConfigCallbackBuilder(object):
         self._app_config_callback.add_callbacks = add_callbacks
         return self
 
-    def remove_callbacks(self, remove_callbacks: List[str]) -> "AppConfigCallbackBuilder":
+    def remove_callbacks(
+        self, remove_callbacks: List[str]
+    ) -> "AppConfigCallbackBuilder":
         self._app_config_callback.remove_callbacks = remove_callbacks
         return self
 

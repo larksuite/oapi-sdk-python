@@ -19,13 +19,16 @@ class PatchCostCenterRequest(BaseRequest):
 
 
 class PatchCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_cost_center_request = PatchCostCenterRequest()
         patch_cost_center_request.http_method = HttpMethod.PATCH
-        patch_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers/:cost_center_id"
+        patch_cost_center_request.uri = (
+            "/open-apis/corehr/v2/cost_centers/:cost_center_id"
+        )
         patch_cost_center_request.token_types = {AccessTokenType.TENANT}
-        self._patch_cost_center_request: PatchCostCenterRequest = patch_cost_center_request
+        self._patch_cost_center_request: PatchCostCenterRequest = (
+            patch_cost_center_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "PatchCostCenterRequestBuilder":
         self._patch_cost_center_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class PatchCostCenterRequestBuilder(object):
         self._patch_cost_center_request.paths["cost_center_id"] = str(cost_center_id)
         return self
 
-    def request_body(self, request_body: PatchCostCenterRequestBody) -> "PatchCostCenterRequestBuilder":
+    def request_body(
+        self, request_body: PatchCostCenterRequestBody
+    ) -> "PatchCostCenterRequestBuilder":
         self._patch_cost_center_request.request_body = request_body
         self._patch_cost_center_request.body = request_body
         return self

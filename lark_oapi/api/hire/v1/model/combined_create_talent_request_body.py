@@ -64,15 +64,21 @@ class CombinedCreateTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._combined_create_talent_request_body = CombinedCreateTalentRequestBody()
 
-    def init_source_id(self, init_source_id: str) -> "CombinedCreateTalentRequestBodyBuilder":
+    def init_source_id(
+        self, init_source_id: str
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.init_source_id = init_source_id
         return self
 
-    def resume_source_id(self, resume_source_id: str) -> "CombinedCreateTalentRequestBodyBuilder":
+    def resume_source_id(
+        self, resume_source_id: str
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.resume_source_id = resume_source_id
         return self
 
-    def folder_id_list(self, folder_id_list: List[str]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def folder_id_list(
+        self, folder_id_list: List[str]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.folder_id_list = folder_id_list
         return self
 
@@ -80,58 +86,87 @@ class CombinedCreateTalentRequestBodyBuilder(object):
         self._combined_create_talent_request_body.creator_id = creator_id
         return self
 
-    def creator_account_type(self, creator_account_type: int) -> "CombinedCreateTalentRequestBodyBuilder":
-        self._combined_create_talent_request_body.creator_account_type = creator_account_type
+    def creator_account_type(
+        self, creator_account_type: int
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
+        self._combined_create_talent_request_body.creator_account_type = (
+            creator_account_type
+        )
         return self
 
-    def resume_attachment_id(self, resume_attachment_id: str) -> "CombinedCreateTalentRequestBodyBuilder":
-        self._combined_create_talent_request_body.resume_attachment_id = resume_attachment_id
+    def resume_attachment_id(
+        self, resume_attachment_id: str
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
+        self._combined_create_talent_request_body.resume_attachment_id = (
+            resume_attachment_id
+        )
         return self
 
-    def basic_info(self, basic_info: TalentCombinedBasicInfo) -> "CombinedCreateTalentRequestBodyBuilder":
+    def basic_info(
+        self, basic_info: TalentCombinedBasicInfo
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.basic_info = basic_info
         return self
 
-    def education_list(self,
-                       education_list: List[TalentCombinedEducationInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def education_list(
+        self, education_list: List[TalentCombinedEducationInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.education_list = education_list
         return self
 
-    def career_list(self, career_list: List[TalentCombinedCareerInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def career_list(
+        self, career_list: List[TalentCombinedCareerInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.career_list = career_list
         return self
 
-    def project_list(self, project_list: List[TalentCombinedProjectInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def project_list(
+        self, project_list: List[TalentCombinedProjectInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.project_list = project_list
         return self
 
-    def works_list(self, works_list: List[TalentCombinedWorkInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def works_list(
+        self, works_list: List[TalentCombinedWorkInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.works_list = works_list
         return self
 
-    def award_list(self, award_list: List[TalentCombinedAwardInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def award_list(
+        self, award_list: List[TalentCombinedAwardInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.award_list = award_list
         return self
 
-    def language_list(self,
-                      language_list: List[TalentCombinedLanguageInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def language_list(
+        self, language_list: List[TalentCombinedLanguageInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.language_list = language_list
         return self
 
-    def sns_list(self, sns_list: List[TalentCombinedSnsInfo]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def sns_list(
+        self, sns_list: List[TalentCombinedSnsInfo]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.sns_list = sns_list
         return self
 
-    def preferred_city_code_list(self, preferred_city_code_list: List[str]) -> "CombinedCreateTalentRequestBodyBuilder":
-        self._combined_create_talent_request_body.preferred_city_code_list = preferred_city_code_list
+    def preferred_city_code_list(
+        self, preferred_city_code_list: List[str]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
+        self._combined_create_talent_request_body.preferred_city_code_list = (
+            preferred_city_code_list
+        )
         return self
 
-    def self_evaluation(self, self_evaluation: TalentSelfEvaluation) -> "CombinedCreateTalentRequestBodyBuilder":
+    def self_evaluation(
+        self, self_evaluation: TalentSelfEvaluation
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.self_evaluation = self_evaluation
         return self
 
-    def customized_data(self, customized_data: List[
-        TalentCustomizedDataObjectValue]) -> "CombinedCreateTalentRequestBodyBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "CombinedCreateTalentRequestBodyBuilder":
         self._combined_create_talent_request_body.customized_data = customized_data
         return self
 

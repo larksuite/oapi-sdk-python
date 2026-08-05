@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .contacts_range_configuration_application_response_body import ContactsRangeConfigurationApplicationResponseBody
+from .contacts_range_configuration_application_response_body import (
+    ContactsRangeConfigurationApplicationResponseBody,
+)
 
 
 class ContactsRangeConfigurationApplicationResponse(BaseResponse):
     _types = {
         "data": ContactsRangeConfigurationApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

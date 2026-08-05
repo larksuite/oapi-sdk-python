@@ -20,13 +20,19 @@ class ListCostAllocationDetailRequest(BaseRequest):
 
 
 class ListCostAllocationDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         list_cost_allocation_detail_request = ListCostAllocationDetailRequest()
         list_cost_allocation_detail_request.http_method = HttpMethod.GET
-        list_cost_allocation_detail_request.uri = "/open-apis/payroll/v1/cost_allocation_details"
-        list_cost_allocation_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_cost_allocation_detail_request: ListCostAllocationDetailRequest = list_cost_allocation_detail_request
+        list_cost_allocation_detail_request.uri = (
+            "/open-apis/payroll/v1/cost_allocation_details"
+        )
+        list_cost_allocation_detail_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_cost_allocation_detail_request: ListCostAllocationDetailRequest = (
+            list_cost_allocation_detail_request
+        )
 
     def page_size(self, page_size: int) -> "ListCostAllocationDetailRequestBuilder":
         self._list_cost_allocation_detail_request.page_size = page_size
@@ -38,9 +44,15 @@ class ListCostAllocationDetailRequestBuilder(object):
         self._list_cost_allocation_detail_request.add_query("page_token", page_token)
         return self
 
-    def cost_allocation_plan_id(self, cost_allocation_plan_id: str) -> "ListCostAllocationDetailRequestBuilder":
-        self._list_cost_allocation_detail_request.cost_allocation_plan_id = cost_allocation_plan_id
-        self._list_cost_allocation_detail_request.add_query("cost_allocation_plan_id", cost_allocation_plan_id)
+    def cost_allocation_plan_id(
+        self, cost_allocation_plan_id: str
+    ) -> "ListCostAllocationDetailRequestBuilder":
+        self._list_cost_allocation_detail_request.cost_allocation_plan_id = (
+            cost_allocation_plan_id
+        )
+        self._list_cost_allocation_detail_request.add_query(
+            "cost_allocation_plan_id", cost_allocation_plan_id
+        )
         return self
 
     def pay_period(self, pay_period: str) -> "ListCostAllocationDetailRequestBuilder":

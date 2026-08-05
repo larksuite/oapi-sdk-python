@@ -23,7 +23,9 @@ class NameToIdDataBuilder(object):
     def __init__(self) -> None:
         self._name_to_id_data = NameToIdData()
 
-    def matched_names(self, matched_names: List[MatchedNameItem]) -> "NameToIdDataBuilder":
+    def matched_names(
+        self, matched_names: List[MatchedNameItem]
+    ) -> "NameToIdDataBuilder":
         self._name_to_id_data.matched_names = matched_names
         return self
 

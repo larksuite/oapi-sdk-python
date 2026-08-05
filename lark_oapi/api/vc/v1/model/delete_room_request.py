@@ -16,7 +16,6 @@ class DeleteRoomRequest(BaseRequest):
 
 
 class DeleteRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_room_request = DeleteRoomRequest()
         delete_room_request.http_method = HttpMethod.DELETE

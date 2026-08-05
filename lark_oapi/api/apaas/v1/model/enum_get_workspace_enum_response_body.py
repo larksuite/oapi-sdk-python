@@ -35,7 +35,9 @@ class EnumGetWorkspaceEnumResponseBodyBuilder(object):
         self._enum_get_workspace_enum_response_body.name = name
         return self
 
-    def description(self, description: str) -> "EnumGetWorkspaceEnumResponseBodyBuilder":
+    def description(
+        self, description: str
+    ) -> "EnumGetWorkspaceEnumResponseBodyBuilder":
         self._enum_get_workspace_enum_response_body.description = description
         return self
 
@@ -47,7 +49,9 @@ class EnumGetWorkspaceEnumResponseBodyBuilder(object):
         self._enum_get_workspace_enum_response_body.created_at = created_at
         return self
 
-    def created_by(self, created_by: WorkspaceUserInfo) -> "EnumGetWorkspaceEnumResponseBodyBuilder":
+    def created_by(
+        self, created_by: WorkspaceUserInfo
+    ) -> "EnumGetWorkspaceEnumResponseBodyBuilder":
         self._enum_get_workspace_enum_response_body.created_by = created_by
         return self
 

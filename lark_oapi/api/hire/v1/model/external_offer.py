@@ -47,7 +47,9 @@ class ExternalOfferBuilder(object):
         self._external_offer.external_id = external_id
         return self
 
-    def external_application_id(self, external_application_id: str) -> "ExternalOfferBuilder":
+    def external_application_id(
+        self, external_application_id: str
+    ) -> "ExternalOfferBuilder":
         self._external_offer.external_application_id = external_application_id
         return self
 
@@ -67,11 +69,15 @@ class ExternalOfferBuilder(object):
         self._external_offer.offer_status = offer_status
         return self
 
-    def attachment_id_list(self, attachment_id_list: List[str]) -> "ExternalOfferBuilder":
+    def attachment_id_list(
+        self, attachment_id_list: List[str]
+    ) -> "ExternalOfferBuilder":
         self._external_offer.attachment_id_list = attachment_id_list
         return self
 
-    def attachment_list(self, attachment_list: List[ExternalCommonAttachment]) -> "ExternalOfferBuilder":
+    def attachment_list(
+        self, attachment_list: List[ExternalCommonAttachment]
+    ) -> "ExternalOfferBuilder":
         self._external_offer.attachment_list = attachment_list
         return self
 

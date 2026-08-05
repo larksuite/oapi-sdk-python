@@ -41,8 +41,9 @@ class TalentCompetitionInfoBuilder(object):
         self._talent_competition_info.desc = desc
         return self
 
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentCompetitionInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.customized_data_list = customized_data_list
         return self
 

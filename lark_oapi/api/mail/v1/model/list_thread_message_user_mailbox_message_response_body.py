@@ -21,9 +21,13 @@ class ListThreadMessageUserMailboxMessageResponseBody(object):
 
 class ListThreadMessageUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_thread_message_user_mailbox_message_response_body = ListThreadMessageUserMailboxMessageResponseBody()
+        self._list_thread_message_user_mailbox_message_response_body = (
+            ListThreadMessageUserMailboxMessageResponseBody()
+        )
 
-    def items(self, items: List[MessageMeta]) -> "ListThreadMessageUserMailboxMessageResponseBodyBuilder":
+    def items(
+        self, items: List[MessageMeta]
+    ) -> "ListThreadMessageUserMailboxMessageResponseBodyBuilder":
         self._list_thread_message_user_mailbox_message_response_body.items = items
         return self
 

@@ -21,7 +21,6 @@ class ListSemesterRequest(BaseRequest):
 
 
 class ListSemesterRequestBuilder(object):
-
     def __init__(self) -> None:
         list_semester_request = ListSemesterRequest()
         list_semester_request.http_method = HttpMethod.GET

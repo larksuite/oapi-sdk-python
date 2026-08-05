@@ -34,7 +34,9 @@ class FunctionalRoleMemberBuilder(object):
         self._functional_role_member.scope_type = scope_type
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "FunctionalRoleMemberBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "FunctionalRoleMemberBuilder":
         self._functional_role_member.department_ids = department_ids
         return self
 

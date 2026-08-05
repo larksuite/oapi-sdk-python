@@ -189,7 +189,9 @@ class EmploymentBuilder(object):
         self._employment.employment_status = employment_status
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmploymentBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EmploymentBuilder":
         self._employment.custom_fields = custom_fields
         return self
 
@@ -201,11 +203,15 @@ class EmploymentBuilder(object):
         self._employment.email_address = email_address
         return self
 
-    def reason_for_offboarding(self, reason_for_offboarding: Enum) -> "EmploymentBuilder":
+    def reason_for_offboarding(
+        self, reason_for_offboarding: Enum
+    ) -> "EmploymentBuilder":
         self._employment.reason_for_offboarding = reason_for_offboarding
         return self
 
-    def cost_center_list(self, cost_center_list: List[JobDataCostCenter]) -> "EmploymentBuilder":
+    def cost_center_list(
+        self, cost_center_list: List[JobDataCostCenter]
+    ) -> "EmploymentBuilder":
         self._employment.cost_center_list = cost_center_list
         return self
 

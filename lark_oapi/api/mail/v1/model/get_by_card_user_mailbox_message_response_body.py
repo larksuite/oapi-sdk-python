@@ -25,13 +25,19 @@ class GetByCardUserMailboxMessageResponseBody(object):
 
 class GetByCardUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_by_card_user_mailbox_message_response_body = GetByCardUserMailboxMessageResponseBody()
+        self._get_by_card_user_mailbox_message_response_body = (
+            GetByCardUserMailboxMessageResponseBody()
+        )
 
-    def owner_info(self, owner_info: UserInfo) -> "GetByCardUserMailboxMessageResponseBodyBuilder":
+    def owner_info(
+        self, owner_info: UserInfo
+    ) -> "GetByCardUserMailboxMessageResponseBodyBuilder":
         self._get_by_card_user_mailbox_message_response_body.owner_info = owner_info
         return self
 
-    def message_ids(self, message_ids: List[str]) -> "GetByCardUserMailboxMessageResponseBodyBuilder":
+    def message_ids(
+        self, message_ids: List[str]
+    ) -> "GetByCardUserMailboxMessageResponseBodyBuilder":
         self._get_by_card_user_mailbox_message_response_body.message_ids = message_ids
         return self
 

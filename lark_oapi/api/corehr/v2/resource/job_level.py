@@ -11,16 +11,21 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_get_job_level_request import BatchGetJobLevelRequest
 from ..model.batch_get_job_level_response import BatchGetJobLevelResponse
-from ..model.query_recent_change_job_level_request import QueryRecentChangeJobLevelRequest
-from ..model.query_recent_change_job_level_response import QueryRecentChangeJobLevelResponse
+from ..model.query_recent_change_job_level_request import (
+    QueryRecentChangeJobLevelRequest,
+)
+from ..model.query_recent_change_job_level_response import (
+    QueryRecentChangeJobLevelResponse,
+)
 
 
 class JobLevel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobLevelRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
+    def batch_get(
+        self, request: BatchGetJobLevelRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +40,16 @@ class JobLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobLevelResponse)
+        response: BatchGetJobLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetJobLevelRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
+    async def abatch_get(
+        self, request: BatchGetJobLevelRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class JobLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobLevelResponse)
+        response: BatchGetJobLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeJobLevelRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeJobLevelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class JobLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangeJobLevelResponse)
+        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobLevelRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobLevelResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeJobLevelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +108,9 @@ class JobLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangeJobLevelResponse)
+        response: QueryRecentChangeJobLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobLevelResponse
+        )
         response.raw = resp
 
         return response

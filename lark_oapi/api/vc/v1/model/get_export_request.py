@@ -16,7 +16,6 @@ class GetExportRequest(BaseRequest):
 
 
 class GetExportRequestBuilder(object):
-
     def __init__(self) -> None:
         get_export_request = GetExportRequest()
         get_export_request.http_method = HttpMethod.GET

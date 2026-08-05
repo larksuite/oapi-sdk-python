@@ -32,11 +32,15 @@ class PatchProtectedRangeBuilder(object):
         self._patch_protected_range.description = description
         return self
 
-    def protected_rows(self, protected_rows: ProtectedRows) -> "PatchProtectedRangeBuilder":
+    def protected_rows(
+        self, protected_rows: ProtectedRows
+    ) -> "PatchProtectedRangeBuilder":
         self._patch_protected_range.protected_rows = protected_rows
         return self
 
-    def protected_columns(self, protected_columns: ProtectedColumns) -> "PatchProtectedRangeBuilder":
+    def protected_columns(
+        self, protected_columns: ProtectedColumns
+    ) -> "PatchProtectedRangeBuilder":
         self._patch_protected_range.protected_columns = protected_columns
         return self
 

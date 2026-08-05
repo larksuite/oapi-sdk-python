@@ -22,7 +22,9 @@ class ApplicationTalentAttachmentResumeInfo(object):
 
 class ApplicationTalentAttachmentResumeInfoBuilder(object):
     def __init__(self) -> None:
-        self._application_talent_attachment_resume_info = ApplicationTalentAttachmentResumeInfo()
+        self._application_talent_attachment_resume_info = (
+            ApplicationTalentAttachmentResumeInfo()
+        )
 
     def id(self, id: str) -> "ApplicationTalentAttachmentResumeInfoBuilder":
         self._application_talent_attachment_resume_info.id = id

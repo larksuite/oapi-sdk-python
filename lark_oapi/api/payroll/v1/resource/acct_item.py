@@ -17,7 +17,9 @@ class AcctItem(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAcctItemRequest, option: Optional[RequestOption] = None) -> ListAcctItemResponse:
+    def list(
+        self, request: ListAcctItemRequest, option: Optional[RequestOption] = None
+    ) -> ListAcctItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class AcctItem(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAcctItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAcctItemResponse)
+        response: ListAcctItemResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAcctItemResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAcctItemRequest, option: Optional[RequestOption] = None) -> ListAcctItemResponse:
+    async def alist(
+        self, request: ListAcctItemRequest, option: Optional[RequestOption] = None
+    ) -> ListAcctItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class AcctItem(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAcctItemResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAcctItemResponse)
+        response: ListAcctItemResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAcctItemResponse
+        )
         response.raw = resp
 
         return response

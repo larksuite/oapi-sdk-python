@@ -41,7 +41,9 @@ class UserTaskBuilder(object):
         self._user_task.task_start_time = task_start_time
         return self
 
-    def workflow_instance(self, workflow_instance: UserTaskWfInstanceType) -> "UserTaskBuilder":
+    def workflow_instance(
+        self, workflow_instance: UserTaskWfInstanceType
+    ) -> "UserTaskBuilder":
         self._user_task.workflow_instance = workflow_instance
         return self
 

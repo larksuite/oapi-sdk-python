@@ -20,17 +20,26 @@ class BatchQueryExternalOfferRequest(BaseRequest):
 
 
 class BatchQueryExternalOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_query_external_offer_request = BatchQueryExternalOfferRequest()
         batch_query_external_offer_request.http_method = HttpMethod.POST
-        batch_query_external_offer_request.uri = "/open-apis/hire/v1/external_offers/batch_query"
+        batch_query_external_offer_request.uri = (
+            "/open-apis/hire/v1/external_offers/batch_query"
+        )
         batch_query_external_offer_request.token_types = {AccessTokenType.TENANT}
-        self._batch_query_external_offer_request: BatchQueryExternalOfferRequest = batch_query_external_offer_request
+        self._batch_query_external_offer_request: BatchQueryExternalOfferRequest = (
+            batch_query_external_offer_request
+        )
 
-    def external_application_id(self, external_application_id: str) -> "BatchQueryExternalOfferRequestBuilder":
-        self._batch_query_external_offer_request.external_application_id = external_application_id
-        self._batch_query_external_offer_request.add_query("external_application_id", external_application_id)
+    def external_application_id(
+        self, external_application_id: str
+    ) -> "BatchQueryExternalOfferRequestBuilder":
+        self._batch_query_external_offer_request.external_application_id = (
+            external_application_id
+        )
+        self._batch_query_external_offer_request.add_query(
+            "external_application_id", external_application_id
+        )
         return self
 
     def page_size(self, page_size: int) -> "BatchQueryExternalOfferRequestBuilder":
@@ -43,7 +52,9 @@ class BatchQueryExternalOfferRequestBuilder(object):
         self._batch_query_external_offer_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: BatchQueryExternalOfferRequestBody) -> "BatchQueryExternalOfferRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryExternalOfferRequestBody
+    ) -> "BatchQueryExternalOfferRequestBuilder":
         self._batch_query_external_offer_request.request_body = request_body
         self._batch_query_external_offer_request.body = request_body
         return self

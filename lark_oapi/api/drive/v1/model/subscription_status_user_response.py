@@ -9,7 +9,6 @@ from .subscription_status_user_response_body import SubscriptionStatusUserRespon
 class SubscriptionStatusUserResponse(BaseResponse):
     _types = {
         "data": SubscriptionStatusUserResponseBody,
-
     }
 
     def __init__(self, d=None):

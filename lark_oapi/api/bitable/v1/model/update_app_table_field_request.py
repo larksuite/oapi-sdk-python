@@ -21,13 +21,19 @@ class UpdateAppTableFieldRequest(BaseRequest):
 
 
 class UpdateAppTableFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_table_field_request = UpdateAppTableFieldRequest()
         update_app_table_field_request.http_method = HttpMethod.PUT
-        update_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
-        update_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_app_table_field_request: UpdateAppTableFieldRequest = update_app_table_field_request
+        update_app_table_field_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
+        )
+        update_app_table_field_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_app_table_field_request: UpdateAppTableFieldRequest = (
+            update_app_table_field_request
+        )
 
     def client_token(self, client_token: str) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.client_token = client_token
@@ -49,7 +55,9 @@ class UpdateAppTableFieldRequestBuilder(object):
         self._update_app_table_field_request.paths["field_id"] = str(field_id)
         return self
 
-    def request_body(self, request_body: AppTableField) -> "UpdateAppTableFieldRequestBuilder":
+    def request_body(
+        self, request_body: AppTableField
+    ) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.request_body = request_body
         self._update_app_table_field_request.body = request_body
         return self

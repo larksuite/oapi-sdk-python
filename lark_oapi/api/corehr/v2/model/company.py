@@ -76,7 +76,9 @@ class CompanyBuilder(object):
         self._company.company_id = company_id
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "CompanyBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "CompanyBuilder":
         self._company.hiberarchy_common = hiberarchy_common
         return self
 
@@ -88,7 +90,9 @@ class CompanyBuilder(object):
         self._company.industry_list = industry_list
         return self
 
-    def legal_representative(self, legal_representative: List[I18n]) -> "CompanyBuilder":
+    def legal_representative(
+        self, legal_representative: List[I18n]
+    ) -> "CompanyBuilder":
         self._company.legal_representative = legal_representative
         return self
 
@@ -128,7 +132,9 @@ class CompanyBuilder(object):
         self._company.fax = fax
         return self
 
-    def registered_office_address(self, registered_office_address: List[I18n]) -> "CompanyBuilder":
+    def registered_office_address(
+        self, registered_office_address: List[I18n]
+    ) -> "CompanyBuilder":
         self._company.registered_office_address = registered_office_address
         return self
 
@@ -136,7 +142,9 @@ class CompanyBuilder(object):
         self._company.office_address = office_address
         return self
 
-    def registered_office_address_info(self, registered_office_address_info: Address) -> "CompanyBuilder":
+    def registered_office_address_info(
+        self, registered_office_address_info: Address
+    ) -> "CompanyBuilder":
         self._company.registered_office_address_info = registered_office_address_info
         return self
 

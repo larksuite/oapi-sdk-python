@@ -25,8 +25,11 @@ class NationalIdType(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateNationalIdTypeRequest,
-               option: Optional[RequestOption] = None) -> CreateNationalIdTypeResponse:
+    def create(
+        self,
+        request: CreateNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +44,18 @@ class NationalIdType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNationalIdTypeResponse)
+        response: CreateNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateNationalIdTypeRequest,
-                      option: Optional[RequestOption] = None) -> CreateNationalIdTypeResponse:
+    async def acreate(
+        self,
+        request: CreateNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +66,18 @@ class NationalIdType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNationalIdTypeResponse)
+        response: CreateNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteNationalIdTypeRequest,
-               option: Optional[RequestOption] = None) -> DeleteNationalIdTypeResponse:
+    def delete(
+        self,
+        request: DeleteNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +92,18 @@ class NationalIdType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNationalIdTypeResponse)
+        response: DeleteNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteNationalIdTypeRequest,
-                      option: Optional[RequestOption] = None) -> DeleteNationalIdTypeResponse:
+    async def adelete(
+        self,
+        request: DeleteNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,13 +114,16 @@ class NationalIdType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNationalIdTypeResponse)
+        response: DeleteNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetNationalIdTypeRequest,
-            option: Optional[RequestOption] = None) -> GetNationalIdTypeResponse:
+    def get(
+        self, request: GetNationalIdTypeRequest, option: Optional[RequestOption] = None
+    ) -> GetNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +138,16 @@ class NationalIdType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNationalIdTypeResponse)
+        response: GetNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetNationalIdTypeRequest,
-                   option: Optional[RequestOption] = None) -> GetNationalIdTypeResponse:
+    async def aget(
+        self, request: GetNationalIdTypeRequest, option: Optional[RequestOption] = None
+    ) -> GetNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,13 +158,16 @@ class NationalIdType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNationalIdTypeResponse)
+        response: GetNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListNationalIdTypeRequest,
-             option: Optional[RequestOption] = None) -> ListNationalIdTypeResponse:
+    def list(
+        self, request: ListNationalIdTypeRequest, option: Optional[RequestOption] = None
+    ) -> ListNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,13 +182,16 @@ class NationalIdType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListNationalIdTypeResponse)
+        response: ListNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListNationalIdTypeRequest,
-                    option: Optional[RequestOption] = None) -> ListNationalIdTypeResponse:
+    async def alist(
+        self, request: ListNationalIdTypeRequest, option: Optional[RequestOption] = None
+    ) -> ListNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -172,13 +202,18 @@ class NationalIdType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListNationalIdTypeResponse)
+        response: ListNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchNationalIdTypeRequest,
-              option: Optional[RequestOption] = None) -> PatchNationalIdTypeResponse:
+    def patch(
+        self,
+        request: PatchNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -193,13 +228,18 @@ class NationalIdType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNationalIdTypeResponse)
+        response: PatchNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchNationalIdTypeRequest,
-                     option: Optional[RequestOption] = None) -> PatchNationalIdTypeResponse:
+    async def apatch(
+        self,
+        request: PatchNationalIdTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchNationalIdTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,7 +250,9 @@ class NationalIdType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNationalIdTypeResponse)
+        response: PatchNationalIdTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchNationalIdTypeResponse
+        )
         response.raw = resp
 
         return response

@@ -18,11 +18,12 @@ class RecordsDeleteWorkspaceTableRequest(BaseRequest):
 
 
 class RecordsDeleteWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         records_delete_workspace_table_request = RecordsDeleteWorkspaceTableRequest()
         records_delete_workspace_table_request.http_method = HttpMethod.DELETE
-        records_delete_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        records_delete_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        )
         records_delete_workspace_table_request.token_types = {AccessTokenType.USER}
         self._records_delete_workspace_table_request: RecordsDeleteWorkspaceTableRequest = records_delete_workspace_table_request
 
@@ -31,14 +32,22 @@ class RecordsDeleteWorkspaceTableRequestBuilder(object):
         self._records_delete_workspace_table_request.add_query("filter", filter)
         return self
 
-    def workspace_id(self, workspace_id: str) -> "RecordsDeleteWorkspaceTableRequestBuilder":
+    def workspace_id(
+        self, workspace_id: str
+    ) -> "RecordsDeleteWorkspaceTableRequestBuilder":
         self._records_delete_workspace_table_request.workspace_id = workspace_id
-        self._records_delete_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._records_delete_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
-    def table_name(self, table_name: str) -> "RecordsDeleteWorkspaceTableRequestBuilder":
+    def table_name(
+        self, table_name: str
+    ) -> "RecordsDeleteWorkspaceTableRequestBuilder":
         self._records_delete_workspace_table_request.table_name = table_name
-        self._records_delete_workspace_table_request.paths["table_name"] = str(table_name)
+        self._records_delete_workspace_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
     def build(self) -> RecordsDeleteWorkspaceTableRequest:

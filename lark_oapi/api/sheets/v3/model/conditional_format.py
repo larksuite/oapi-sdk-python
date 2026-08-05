@@ -30,11 +30,15 @@ class ConditionalFormatBuilder(object):
     def __init__(self) -> None:
         self._conditional_format = ConditionalFormat()
 
-    def conditional_format_id(self, conditional_format_id: str) -> "ConditionalFormatBuilder":
+    def conditional_format_id(
+        self, conditional_format_id: str
+    ) -> "ConditionalFormatBuilder":
         self._conditional_format.conditional_format_id = conditional_format_id
         return self
 
-    def conditional_format_rule(self, conditional_format_rule: ConditionalFormatRule) -> "ConditionalFormatBuilder":
+    def conditional_format_rule(
+        self, conditional_format_rule: ConditionalFormatRule
+    ) -> "ConditionalFormatBuilder":
         self._conditional_format.conditional_format_rule = conditional_format_rule
         return self
 

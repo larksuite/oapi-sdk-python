@@ -30,21 +30,35 @@ class ParticipantQualityListExportRequestBody(object):
 
 class ParticipantQualityListExportRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._participant_quality_list_export_request_body = ParticipantQualityListExportRequestBody()
+        self._participant_quality_list_export_request_body = (
+            ParticipantQualityListExportRequestBody()
+        )
 
-    def meeting_start_time(self, meeting_start_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
-        self._participant_quality_list_export_request_body.meeting_start_time = meeting_start_time
+    def meeting_start_time(
+        self, meeting_start_time: int
+    ) -> "ParticipantQualityListExportRequestBodyBuilder":
+        self._participant_quality_list_export_request_body.meeting_start_time = (
+            meeting_start_time
+        )
         return self
 
-    def meeting_end_time(self, meeting_end_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
-        self._participant_quality_list_export_request_body.meeting_end_time = meeting_end_time
+    def meeting_end_time(
+        self, meeting_end_time: int
+    ) -> "ParticipantQualityListExportRequestBodyBuilder":
+        self._participant_quality_list_export_request_body.meeting_end_time = (
+            meeting_end_time
+        )
         return self
 
-    def meeting_no(self, meeting_no: str) -> "ParticipantQualityListExportRequestBodyBuilder":
+    def meeting_no(
+        self, meeting_no: str
+    ) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.meeting_no = meeting_no
         return self
 
-    def join_time(self, join_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
+    def join_time(
+        self, join_time: int
+    ) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.join_time = join_time
         return self
 

@@ -23,7 +23,9 @@ class GetDailyReportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_daily_report_response_body = GetDailyReportResponseBody()
 
-    def meeting_report(self, meeting_report: Report) -> "GetDailyReportResponseBodyBuilder":
+    def meeting_report(
+        self, meeting_report: Report
+    ) -> "GetDailyReportResponseBodyBuilder":
         self._get_daily_report_response_body.meeting_report = meeting_report
         return self
 

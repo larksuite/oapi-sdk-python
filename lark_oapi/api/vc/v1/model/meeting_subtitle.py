@@ -47,7 +47,9 @@ class MeetingSubtitleBuilder(object):
         self._meeting_subtitle.speaker_device_id = speaker_device_id
         return self
 
-    def ssd_speaker(self, ssd_speaker: MeetingSubtitleSsdSpeaker) -> "MeetingSubtitleBuilder":
+    def ssd_speaker(
+        self, ssd_speaker: MeetingSubtitleSsdSpeaker
+    ) -> "MeetingSubtitleBuilder":
         self._meeting_subtitle.ssd_speaker = ssd_speaker
         return self
 

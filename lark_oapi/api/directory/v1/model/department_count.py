@@ -30,24 +30,35 @@ class DepartmentCountBuilder(object):
     def __init__(self) -> None:
         self._department_count = DepartmentCount()
 
-    def recursive_members_count(self, recursive_members_count: str) -> "DepartmentCountBuilder":
+    def recursive_members_count(
+        self, recursive_members_count: str
+    ) -> "DepartmentCountBuilder":
         self._department_count.recursive_members_count = recursive_members_count
         return self
 
-    def direct_members_count(self, direct_members_count: str) -> "DepartmentCountBuilder":
+    def direct_members_count(
+        self, direct_members_count: str
+    ) -> "DepartmentCountBuilder":
         self._department_count.direct_members_count = direct_members_count
         return self
 
-    def recursive_members_count_exclude_leaders(self,
-                                                recursive_members_count_exclude_leaders: str) -> "DepartmentCountBuilder":
-        self._department_count.recursive_members_count_exclude_leaders = recursive_members_count_exclude_leaders
+    def recursive_members_count_exclude_leaders(
+        self, recursive_members_count_exclude_leaders: str
+    ) -> "DepartmentCountBuilder":
+        self._department_count.recursive_members_count_exclude_leaders = (
+            recursive_members_count_exclude_leaders
+        )
         return self
 
-    def recursive_departments_count(self, recursive_departments_count: str) -> "DepartmentCountBuilder":
+    def recursive_departments_count(
+        self, recursive_departments_count: str
+    ) -> "DepartmentCountBuilder":
         self._department_count.recursive_departments_count = recursive_departments_count
         return self
 
-    def direct_departments_count(self, direct_departments_count: str) -> "DepartmentCountBuilder":
+    def direct_departments_count(
+        self, direct_departments_count: str
+    ) -> "DepartmentCountBuilder":
         self._department_count.direct_departments_count = direct_departments_count
         return self
 

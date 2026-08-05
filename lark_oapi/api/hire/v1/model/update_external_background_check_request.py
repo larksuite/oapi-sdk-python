@@ -18,22 +18,29 @@ class UpdateExternalBackgroundCheckRequest(BaseRequest):
 
 
 class UpdateExternalBackgroundCheckRequestBuilder(object):
-
     def __init__(self) -> None:
-        update_external_background_check_request = UpdateExternalBackgroundCheckRequest()
+        update_external_background_check_request = (
+            UpdateExternalBackgroundCheckRequest()
+        )
         update_external_background_check_request.http_method = HttpMethod.PUT
         update_external_background_check_request.uri = "/open-apis/hire/v1/external_background_checks/:external_background_check_id"
         update_external_background_check_request.token_types = {AccessTokenType.TENANT}
         self._update_external_background_check_request: UpdateExternalBackgroundCheckRequest = update_external_background_check_request
 
-    def external_background_check_id(self,
-                                     external_background_check_id: str) -> "UpdateExternalBackgroundCheckRequestBuilder":
-        self._update_external_background_check_request.external_background_check_id = external_background_check_id
-        self._update_external_background_check_request.paths["external_background_check_id"] = str(
-            external_background_check_id)
+    def external_background_check_id(
+        self, external_background_check_id: str
+    ) -> "UpdateExternalBackgroundCheckRequestBuilder":
+        self._update_external_background_check_request.external_background_check_id = (
+            external_background_check_id
+        )
+        self._update_external_background_check_request.paths[
+            "external_background_check_id"
+        ] = str(external_background_check_id)
         return self
 
-    def request_body(self, request_body: ExternalBackgroundCheck) -> "UpdateExternalBackgroundCheckRequestBuilder":
+    def request_body(
+        self, request_body: ExternalBackgroundCheck
+    ) -> "UpdateExternalBackgroundCheckRequestBuilder":
         self._update_external_background_check_request.request_body = request_body
         self._update_external_background_check_request.body = request_body
         return self

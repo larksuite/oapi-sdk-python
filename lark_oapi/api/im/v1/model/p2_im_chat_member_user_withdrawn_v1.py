@@ -31,9 +31,7 @@ class P2ImChatMemberUserWithdrawnV1Data(object):
 
 
 class P2ImChatMemberUserWithdrawnV1(EventContext):
-    _types = {
-        "event": P2ImChatMemberUserWithdrawnV1Data
-    }
+    _types = {"event": P2ImChatMemberUserWithdrawnV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

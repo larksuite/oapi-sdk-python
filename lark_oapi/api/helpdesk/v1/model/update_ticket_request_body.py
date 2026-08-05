@@ -47,8 +47,9 @@ class UpdateTicketRequestBodyBuilder(object):
         self._update_ticket_request_body.comment = comment
         return self
 
-    def customized_fields(self,
-                          customized_fields: List[CustomizedFieldDisplayItem]) -> "UpdateTicketRequestBodyBuilder":
+    def customized_fields(
+        self, customized_fields: List[CustomizedFieldDisplayItem]
+    ) -> "UpdateTicketRequestBodyBuilder":
         self._update_ticket_request_body.customized_fields = customized_fields
         return self
 

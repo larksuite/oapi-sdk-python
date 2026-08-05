@@ -45,11 +45,15 @@ class NationalIdForUpdateBuilder(object):
         self._national_id_for_update.country_region_id = country_region_id
         return self
 
-    def national_id_type_id(self, national_id_type_id: str) -> "NationalIdForUpdateBuilder":
+    def national_id_type_id(
+        self, national_id_type_id: str
+    ) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.national_id_type_id = national_id_type_id
         return self
 
-    def national_id_number(self, national_id_number: str) -> "NationalIdForUpdateBuilder":
+    def national_id_number(
+        self, national_id_number: str
+    ) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.national_id_number = national_id_number
         return self
 
@@ -65,7 +69,9 @@ class NationalIdForUpdateBuilder(object):
         self._national_id_for_update.issued_by = issued_by
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdForUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.custom_fields = custom_fields
         return self
 
@@ -77,8 +83,12 @@ class NationalIdForUpdateBuilder(object):
         self._national_id_for_update.series = series
         return self
 
-    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "NationalIdForUpdateBuilder":
-        self._national_id_for_update.effective_for_a_long_time = effective_for_a_long_time
+    def effective_for_a_long_time(
+        self, effective_for_a_long_time: bool
+    ) -> "NationalIdForUpdateBuilder":
+        self._national_id_for_update.effective_for_a_long_time = (
+            effective_for_a_long_time
+        )
         return self
 
     def build(self) -> "NationalIdForUpdate":

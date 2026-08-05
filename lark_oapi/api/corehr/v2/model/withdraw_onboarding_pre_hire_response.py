@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .withdraw_onboarding_pre_hire_response_body import WithdrawOnboardingPreHireResponseBody
+from .withdraw_onboarding_pre_hire_response_body import (
+    WithdrawOnboardingPreHireResponseBody,
+)
 
 
 class WithdrawOnboardingPreHireResponse(BaseResponse):
     _types = {
         "data": WithdrawOnboardingPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

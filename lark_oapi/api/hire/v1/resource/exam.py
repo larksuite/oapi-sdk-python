@@ -17,7 +17,9 @@ class Exam(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExamRequest, option: Optional[RequestOption] = None) -> CreateExamResponse:
+    def create(
+        self, request: CreateExamRequest, option: Optional[RequestOption] = None
+    ) -> CreateExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Exam(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateExamResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExamResponse)
+        response: CreateExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExamResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateExamRequest, option: Optional[RequestOption] = None) -> CreateExamResponse:
+    async def acreate(
+        self, request: CreateExamRequest, option: Optional[RequestOption] = None
+    ) -> CreateExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Exam(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateExamResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExamResponse)
+        response: CreateExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExamResponse
+        )
         response.raw = resp
 
         return response

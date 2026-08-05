@@ -35,7 +35,9 @@ class BatchQueryAgencyResponseBodyBuilder(object):
         self._batch_query_agency_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[AgencySupplier]) -> "BatchQueryAgencyResponseBodyBuilder":
+    def items(
+        self, items: List[AgencySupplier]
+    ) -> "BatchQueryAgencyResponseBodyBuilder":
         self._batch_query_agency_response_body.items = items
         return self
 

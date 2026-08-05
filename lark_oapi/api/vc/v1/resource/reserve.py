@@ -25,7 +25,9 @@ class Reserve(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def apply(self, request: ApplyReserveRequest, option: Optional[RequestOption] = None) -> ApplyReserveResponse:
+    def apply(
+        self, request: ApplyReserveRequest, option: Optional[RequestOption] = None
+    ) -> ApplyReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +42,16 @@ class Reserve(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ApplyReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), ApplyReserveResponse)
+        response: ApplyReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ApplyReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aapply(self, request: ApplyReserveRequest,
-                     option: Optional[RequestOption] = None) -> ApplyReserveResponse:
+    async def aapply(
+        self, request: ApplyReserveRequest, option: Optional[RequestOption] = None
+    ) -> ApplyReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,12 +62,16 @@ class Reserve(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ApplyReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), ApplyReserveResponse)
+        response: ApplyReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ApplyReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteReserveRequest, option: Optional[RequestOption] = None) -> DeleteReserveResponse:
+    def delete(
+        self, request: DeleteReserveRequest, option: Optional[RequestOption] = None
+    ) -> DeleteReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +86,16 @@ class Reserve(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteReserveResponse)
+        response: DeleteReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteReserveRequest,
-                      option: Optional[RequestOption] = None) -> DeleteReserveResponse:
+    async def adelete(
+        self, request: DeleteReserveRequest, option: Optional[RequestOption] = None
+    ) -> DeleteReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,12 +106,16 @@ class Reserve(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteReserveResponse)
+        response: DeleteReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetReserveRequest, option: Optional[RequestOption] = None) -> GetReserveResponse:
+    def get(
+        self, request: GetReserveRequest, option: Optional[RequestOption] = None
+    ) -> GetReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,12 +130,16 @@ class Reserve(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveResponse)
+        response: GetReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetReserveRequest, option: Optional[RequestOption] = None) -> GetReserveResponse:
+    async def aget(
+        self, request: GetReserveRequest, option: Optional[RequestOption] = None
+    ) -> GetReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -130,13 +150,18 @@ class Reserve(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveResponse)
+        response: GetReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_active_meeting(self, request: GetActiveMeetingReserveRequest,
-                           option: Optional[RequestOption] = None) -> GetActiveMeetingReserveResponse:
+    def get_active_meeting(
+        self,
+        request: GetActiveMeetingReserveRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetActiveMeetingReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -151,14 +176,18 @@ class Reserve(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetActiveMeetingReserveResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetActiveMeetingReserveResponse)
+        response: GetActiveMeetingReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetActiveMeetingReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_active_meeting(self, request: GetActiveMeetingReserveRequest,
-                                  option: Optional[RequestOption] = None) -> GetActiveMeetingReserveResponse:
+    async def aget_active_meeting(
+        self,
+        request: GetActiveMeetingReserveRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetActiveMeetingReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -169,13 +198,16 @@ class Reserve(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetActiveMeetingReserveResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetActiveMeetingReserveResponse)
+        response: GetActiveMeetingReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetActiveMeetingReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateReserveRequest, option: Optional[RequestOption] = None) -> UpdateReserveResponse:
+    def update(
+        self, request: UpdateReserveRequest, option: Optional[RequestOption] = None
+    ) -> UpdateReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,13 +222,16 @@ class Reserve(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateReserveResponse)
+        response: UpdateReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateReserveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateReserveRequest,
-                      option: Optional[RequestOption] = None) -> UpdateReserveResponse:
+    async def aupdate(
+        self, request: UpdateReserveRequest, option: Optional[RequestOption] = None
+    ) -> UpdateReserveResponse:
         if option is None:
             option = RequestOption()
 
@@ -207,7 +242,9 @@ class Reserve(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateReserveResponse)
+        response: UpdateReserveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateReserveResponse
+        )
         response.raw = resp
 
         return response

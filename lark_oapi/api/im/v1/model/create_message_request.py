@@ -18,12 +18,14 @@ class CreateMessageRequest(BaseRequest):
 
 
 class CreateMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         create_message_request = CreateMessageRequest()
         create_message_request.http_method = HttpMethod.POST
         create_message_request.uri = "/open-apis/im/v1/messages"
-        create_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_message_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._create_message_request: CreateMessageRequest = create_message_request
 
     def receive_id_type(self, receive_id_type: str) -> "CreateMessageRequestBuilder":
@@ -31,7 +33,9 @@ class CreateMessageRequestBuilder(object):
         self._create_message_request.add_query("receive_id_type", receive_id_type)
         return self
 
-    def request_body(self, request_body: CreateMessageRequestBody) -> "CreateMessageRequestBuilder":
+    def request_body(
+        self, request_body: CreateMessageRequestBody
+    ) -> "CreateMessageRequestBuilder":
         self._create_message_request.request_body = request_body
         self._create_message_request.body = request_body
         return self

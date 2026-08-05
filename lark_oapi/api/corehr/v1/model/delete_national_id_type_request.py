@@ -16,17 +16,24 @@ class DeleteNationalIdTypeRequest(BaseRequest):
 
 
 class DeleteNationalIdTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_national_id_type_request = DeleteNationalIdTypeRequest()
         delete_national_id_type_request.http_method = HttpMethod.DELETE
-        delete_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types/:national_id_type_id"
+        delete_national_id_type_request.uri = (
+            "/open-apis/corehr/v1/national_id_types/:national_id_type_id"
+        )
         delete_national_id_type_request.token_types = {AccessTokenType.TENANT}
-        self._delete_national_id_type_request: DeleteNationalIdTypeRequest = delete_national_id_type_request
+        self._delete_national_id_type_request: DeleteNationalIdTypeRequest = (
+            delete_national_id_type_request
+        )
 
-    def national_id_type_id(self, national_id_type_id: str) -> "DeleteNationalIdTypeRequestBuilder":
+    def national_id_type_id(
+        self, national_id_type_id: str
+    ) -> "DeleteNationalIdTypeRequestBuilder":
         self._delete_national_id_type_request.national_id_type_id = national_id_type_id
-        self._delete_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
+        self._delete_national_id_type_request.paths["national_id_type_id"] = str(
+            national_id_type_id
+        )
         return self
 
     def build(self) -> DeleteNationalIdTypeRequest:

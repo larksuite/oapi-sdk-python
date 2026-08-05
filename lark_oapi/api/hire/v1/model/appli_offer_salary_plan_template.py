@@ -40,7 +40,9 @@ class AppliOfferSalaryPlanTemplateBuilder(object):
         self._appli_offer_salary_plan_template.currency = currency
         return self
 
-    def salary_content(self, salary_content: str) -> "AppliOfferSalaryPlanTemplateBuilder":
+    def salary_content(
+        self, salary_content: str
+    ) -> "AppliOfferSalaryPlanTemplateBuilder":
         self._appli_offer_salary_plan_template.salary_content = salary_content
         return self
 

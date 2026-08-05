@@ -21,11 +21,16 @@ class BotTimeSentiveFeedCardResponseBody(object):
 
 class BotTimeSentiveFeedCardResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._bot_time_sentive_feed_card_response_body = BotTimeSentiveFeedCardResponseBody()
+        self._bot_time_sentive_feed_card_response_body = (
+            BotTimeSentiveFeedCardResponseBody()
+        )
 
-    def failed_user_reasons(self,
-                            failed_user_reasons: List[FailedReason]) -> "BotTimeSentiveFeedCardResponseBodyBuilder":
-        self._bot_time_sentive_feed_card_response_body.failed_user_reasons = failed_user_reasons
+    def failed_user_reasons(
+        self, failed_user_reasons: List[FailedReason]
+    ) -> "BotTimeSentiveFeedCardResponseBodyBuilder":
+        self._bot_time_sentive_feed_card_response_body.failed_user_reasons = (
+            failed_user_reasons
+        )
         return self
 
     def build(self) -> "BotTimeSentiveFeedCardResponseBody":

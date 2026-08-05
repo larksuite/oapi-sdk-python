@@ -20,9 +20,13 @@ class BatchTrashUserMailboxThreadRequestBody(object):
 
 class BatchTrashUserMailboxThreadRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_trash_user_mailbox_thread_request_body = BatchTrashUserMailboxThreadRequestBody()
+        self._batch_trash_user_mailbox_thread_request_body = (
+            BatchTrashUserMailboxThreadRequestBody()
+        )
 
-    def thread_ids(self, thread_ids: List[str]) -> "BatchTrashUserMailboxThreadRequestBodyBuilder":
+    def thread_ids(
+        self, thread_ids: List[str]
+    ) -> "BatchTrashUserMailboxThreadRequestBodyBuilder":
         self._batch_trash_user_mailbox_thread_request_body.thread_ids = thread_ids
         return self
 

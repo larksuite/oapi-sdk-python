@@ -20,7 +20,6 @@ class ListEntityRequest(BaseRequest):
 
 
 class ListEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         list_entity_request = ListEntityRequest()
         list_entity_request.http_method = HttpMethod.GET

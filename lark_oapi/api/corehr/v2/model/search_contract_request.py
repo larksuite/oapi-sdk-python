@@ -20,7 +20,6 @@ class SearchContractRequest(BaseRequest):
 
 
 class SearchContractRequestBuilder(object):
-
     def __init__(self) -> None:
         search_contract_request = SearchContractRequest()
         search_contract_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class SearchContractRequestBuilder(object):
         self._search_contract_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchContractRequestBody) -> "SearchContractRequestBuilder":
+    def request_body(
+        self, request_body: SearchContractRequestBody
+    ) -> "SearchContractRequestBuilder":
         self._search_contract_request.request_body = request_body
         self._search_contract_request.body = request_body
         return self

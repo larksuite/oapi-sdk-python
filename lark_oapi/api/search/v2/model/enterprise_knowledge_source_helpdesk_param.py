@@ -23,13 +23,19 @@ class EnterpriseKnowledgeSourceHelpdeskParam(object):
 
 class EnterpriseKnowledgeSourceHelpdeskParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_helpdesk_param = EnterpriseKnowledgeSourceHelpdeskParam()
+        self._enterprise_knowledge_source_helpdesk_param = (
+            EnterpriseKnowledgeSourceHelpdeskParam()
+        )
 
-    def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceHelpdeskParamBuilder":
+    def searchable(
+        self, searchable: bool
+    ) -> "EnterpriseKnowledgeSourceHelpdeskParamBuilder":
         self._enterprise_knowledge_source_helpdesk_param.searchable = searchable
         return self
 
-    def filter(self, filter: KnowledgeSourceHelpdeskFilter) -> "EnterpriseKnowledgeSourceHelpdeskParamBuilder":
+    def filter(
+        self, filter: KnowledgeSourceHelpdeskFilter
+    ) -> "EnterpriseKnowledgeSourceHelpdeskParamBuilder":
         self._enterprise_knowledge_source_helpdesk_param.filter = filter
         return self
 

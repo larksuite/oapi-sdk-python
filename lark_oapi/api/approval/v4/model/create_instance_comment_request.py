@@ -20,13 +20,16 @@ class CreateInstanceCommentRequest(BaseRequest):
 
 
 class CreateInstanceCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         create_instance_comment_request = CreateInstanceCommentRequest()
         create_instance_comment_request.http_method = HttpMethod.POST
-        create_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments"
+        create_instance_comment_request.uri = (
+            "/open-apis/approval/v4/instances/:instance_id/comments"
+        )
         create_instance_comment_request.token_types = {AccessTokenType.TENANT}
-        self._create_instance_comment_request: CreateInstanceCommentRequest = create_instance_comment_request
+        self._create_instance_comment_request: CreateInstanceCommentRequest = (
+            create_instance_comment_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateInstanceCommentRequestBuilder":
         self._create_instance_comment_request.user_id_type = user_id_type
@@ -43,7 +46,9 @@ class CreateInstanceCommentRequestBuilder(object):
         self._create_instance_comment_request.paths["instance_id"] = str(instance_id)
         return self
 
-    def request_body(self, request_body: CommentRequest) -> "CreateInstanceCommentRequestBuilder":
+    def request_body(
+        self, request_body: CommentRequest
+    ) -> "CreateInstanceCommentRequestBuilder":
         self._create_instance_comment_request.request_body = request_body
         self._create_instance_comment_request.body = request_body
         return self

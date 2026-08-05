@@ -18,7 +18,6 @@ class CreateCompanyRequest(BaseRequest):
 
 
 class CreateCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         create_company_request = CreateCompanyRequest()
         create_company_request.http_method = HttpMethod.POST

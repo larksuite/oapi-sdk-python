@@ -17,9 +17,7 @@ class P2ApprovalApprovalUpdatedV4Data(object):
 
 
 class P2ApprovalApprovalUpdatedV4(EventContext):
-    _types = {
-        "event": P2ApprovalApprovalUpdatedV4Data
-    }
+    _types = {"event": P2ApprovalApprovalUpdatedV4Data}
 
     def __init__(self, d=None):
         super().__init__(d)

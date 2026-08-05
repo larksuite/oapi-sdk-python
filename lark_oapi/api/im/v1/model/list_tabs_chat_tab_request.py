@@ -16,13 +16,19 @@ class ListTabsChatTabRequest(BaseRequest):
 
 
 class ListTabsChatTabRequestBuilder(object):
-
     def __init__(self) -> None:
         list_tabs_chat_tab_request = ListTabsChatTabRequest()
         list_tabs_chat_tab_request.http_method = HttpMethod.GET
-        list_tabs_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs/list_tabs"
-        list_tabs_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_tabs_chat_tab_request: ListTabsChatTabRequest = list_tabs_chat_tab_request
+        list_tabs_chat_tab_request.uri = (
+            "/open-apis/im/v1/chats/:chat_id/chat_tabs/list_tabs"
+        )
+        list_tabs_chat_tab_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_tabs_chat_tab_request: ListTabsChatTabRequest = (
+            list_tabs_chat_tab_request
+        )
 
     def chat_id(self, chat_id: str) -> "ListTabsChatTabRequestBuilder":
         self._list_tabs_chat_tab_request.chat_id = chat_id

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .recognize_hkm_mainland_travel_permit_request_body import RecognizeHkmMainlandTravelPermitRequestBody
+from .recognize_hkm_mainland_travel_permit_request_body import (
+    RecognizeHkmMainlandTravelPermitRequestBody,
+)
 
 
 class RecognizeHkmMainlandTravelPermitRequest(BaseRequest):
@@ -17,16 +19,22 @@ class RecognizeHkmMainlandTravelPermitRequest(BaseRequest):
 
 
 class RecognizeHkmMainlandTravelPermitRequestBuilder(object):
-
     def __init__(self) -> None:
-        recognize_hkm_mainland_travel_permit_request = RecognizeHkmMainlandTravelPermitRequest()
+        recognize_hkm_mainland_travel_permit_request = (
+            RecognizeHkmMainlandTravelPermitRequest()
+        )
         recognize_hkm_mainland_travel_permit_request.http_method = HttpMethod.POST
-        recognize_hkm_mainland_travel_permit_request.uri = "/open-apis/document_ai/v1/hkm_mainland_travel_permit/recognize"
-        recognize_hkm_mainland_travel_permit_request.token_types = {AccessTokenType.TENANT}
+        recognize_hkm_mainland_travel_permit_request.uri = (
+            "/open-apis/document_ai/v1/hkm_mainland_travel_permit/recognize"
+        )
+        recognize_hkm_mainland_travel_permit_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._recognize_hkm_mainland_travel_permit_request: RecognizeHkmMainlandTravelPermitRequest = recognize_hkm_mainland_travel_permit_request
 
-    def request_body(self,
-                     request_body: RecognizeHkmMainlandTravelPermitRequestBody) -> "RecognizeHkmMainlandTravelPermitRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeHkmMainlandTravelPermitRequestBody
+    ) -> "RecognizeHkmMainlandTravelPermitRequestBuilder":
         self._recognize_hkm_mainland_travel_permit_request.request_body = request_body
         self._recognize_hkm_mainland_travel_permit_request.body = request_body
         return self

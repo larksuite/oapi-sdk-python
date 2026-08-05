@@ -9,7 +9,6 @@ from .create_file_comment_response_body import CreateFileCommentResponseBody
 class CreateFileCommentResponse(BaseResponse):
     _types = {
         "data": CreateFileCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

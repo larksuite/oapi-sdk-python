@@ -36,7 +36,9 @@ class ChatMenuItemBuilder(object):
         self._chat_menu_item.action_type = action_type
         return self
 
-    def redirect_link(self, redirect_link: ChatMenuItemRedirectLink) -> "ChatMenuItemBuilder":
+    def redirect_link(
+        self, redirect_link: ChatMenuItemRedirectLink
+    ) -> "ChatMenuItemBuilder":
         self._chat_menu_item.redirect_link = redirect_link
         return self
 

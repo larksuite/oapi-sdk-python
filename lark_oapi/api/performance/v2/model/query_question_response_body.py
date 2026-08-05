@@ -27,7 +27,9 @@ class QueryQuestionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_question_response_body = QueryQuestionResponseBody()
 
-    def tag_based_questions(self, tag_based_questions: List[Question]) -> "QueryQuestionResponseBodyBuilder":
+    def tag_based_questions(
+        self, tag_based_questions: List[Question]
+    ) -> "QueryQuestionResponseBodyBuilder":
         self._query_question_response_body.tag_based_questions = tag_based_questions
         return self
 

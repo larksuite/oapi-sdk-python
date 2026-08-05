@@ -81,7 +81,9 @@ class CustomOrgBuilder(object):
         self._custom_org.org_roles = org_roles
         return self
 
-    def match_rule_groups(self, match_rule_groups: List[MatchRules]) -> "CustomOrgBuilder":
+    def match_rule_groups(
+        self, match_rule_groups: List[MatchRules]
+    ) -> "CustomOrgBuilder":
         self._custom_org.match_rule_groups = match_rule_groups
         return self
 

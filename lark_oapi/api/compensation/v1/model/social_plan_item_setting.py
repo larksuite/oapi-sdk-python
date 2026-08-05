@@ -44,7 +44,9 @@ class SocialPlanItemSettingBuilder(object):
         self._social_plan_item_setting.payment_ratio = payment_ratio
         return self
 
-    def payment_rounding_rule(self, payment_rounding_rule: str) -> "SocialPlanItemSettingBuilder":
+    def payment_rounding_rule(
+        self, payment_rounding_rule: str
+    ) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.payment_rounding_rule = payment_rounding_rule
         return self
 

@@ -19,13 +19,19 @@ class UploadFileAppDataAssetRequest(BaseRequest):
 
 
 class UploadFileAppDataAssetRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_file_app_data_asset_request = UploadFileAppDataAssetRequest()
         upload_file_app_data_asset_request.http_method = HttpMethod.POST
-        upload_file_app_data_asset_request.uri = "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
-        upload_file_app_data_asset_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._upload_file_app_data_asset_request: UploadFileAppDataAssetRequest = upload_file_app_data_asset_request
+        upload_file_app_data_asset_request.uri = (
+            "/open-apis/aily/v1/apps/:app_id/data_assets/upload_file"
+        )
+        upload_file_app_data_asset_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._upload_file_app_data_asset_request: UploadFileAppDataAssetRequest = (
+            upload_file_app_data_asset_request
+        )
 
     def tenant_type(self, tenant_type: str) -> "UploadFileAppDataAssetRequestBuilder":
         self._upload_file_app_data_asset_request.tenant_type = tenant_type
@@ -37,7 +43,9 @@ class UploadFileAppDataAssetRequestBuilder(object):
         self._upload_file_app_data_asset_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: UploadFileAppDataAssetRequestBody) -> "UploadFileAppDataAssetRequestBuilder":
+    def request_body(
+        self, request_body: UploadFileAppDataAssetRequestBody
+    ) -> "UploadFileAppDataAssetRequestBuilder":
         self._upload_file_app_data_asset_request.request_body = request_body
         self._upload_file_app_data_asset_request.body = request_body
         return self

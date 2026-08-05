@@ -20,7 +20,9 @@ class CreateApplicationObjectRecordRequestBody(object):
 
 class CreateApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_application_object_record_request_body = CreateApplicationObjectRecordRequestBody()
+        self._create_application_object_record_request_body = (
+            CreateApplicationObjectRecordRequestBody()
+        )
 
     def record(self, record: str) -> "CreateApplicationObjectRecordRequestBodyBuilder":
         self._create_application_object_record_request_body.record = record

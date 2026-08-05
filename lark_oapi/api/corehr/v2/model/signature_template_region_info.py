@@ -31,24 +31,35 @@ class SignatureTemplateRegionInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_region_info = SignatureTemplateRegionInfo()
 
-    def is_global_scope(self, is_global_scope: str) -> "SignatureTemplateRegionInfoBuilder":
+    def is_global_scope(
+        self, is_global_scope: str
+    ) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.is_global_scope = is_global_scope
         return self
 
-    def meta_infos(self, meta_infos: List[SignatureMetaInfo]) -> "SignatureTemplateRegionInfoBuilder":
+    def meta_infos(
+        self, meta_infos: List[SignatureMetaInfo]
+    ) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.meta_infos = meta_infos
         return self
 
-    def country_region_ids(self, country_region_ids: List[str]) -> "SignatureTemplateRegionInfoBuilder":
+    def country_region_ids(
+        self, country_region_ids: List[str]
+    ) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.country_region_ids = country_region_ids
         return self
 
-    def country_region_subdivision_ids(self, country_region_subdivision_ids: List[
-        str]) -> "SignatureTemplateRegionInfoBuilder":
-        self._signature_template_region_info.country_region_subdivision_ids = country_region_subdivision_ids
+    def country_region_subdivision_ids(
+        self, country_region_subdivision_ids: List[str]
+    ) -> "SignatureTemplateRegionInfoBuilder":
+        self._signature_template_region_info.country_region_subdivision_ids = (
+            country_region_subdivision_ids
+        )
         return self
 
-    def subregion_l3_ids(self, subregion_l3_ids: List[str]) -> "SignatureTemplateRegionInfoBuilder":
+    def subregion_l3_ids(
+        self, subregion_l3_ids: List[str]
+    ) -> "SignatureTemplateRegionInfoBuilder":
         self._signature_template_region_info.subregion_l3_ids = subregion_l3_ids
         return self
 

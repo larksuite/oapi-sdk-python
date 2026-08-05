@@ -34,8 +34,12 @@ class CombinedCreateTalentResponseBodyBuilder(object):
         self._combined_create_talent_response_body.creator_id = creator_id
         return self
 
-    def creator_account_type(self, creator_account_type: int) -> "CombinedCreateTalentResponseBodyBuilder":
-        self._combined_create_talent_response_body.creator_account_type = creator_account_type
+    def creator_account_type(
+        self, creator_account_type: int
+    ) -> "CombinedCreateTalentResponseBodyBuilder":
+        self._combined_create_talent_response_body.creator_account_type = (
+            creator_account_type
+        )
         return self
 
     def build(self) -> "CombinedCreateTalentResponseBody":

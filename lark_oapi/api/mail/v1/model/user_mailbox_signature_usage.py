@@ -30,11 +30,17 @@ class UserMailboxSignatureUsageBuilder(object):
         self._user_mailbox_signature_usage.email_address = email_address
         return self
 
-    def send_mail_signature_id(self, send_mail_signature_id: str) -> "UserMailboxSignatureUsageBuilder":
-        self._user_mailbox_signature_usage.send_mail_signature_id = send_mail_signature_id
+    def send_mail_signature_id(
+        self, send_mail_signature_id: str
+    ) -> "UserMailboxSignatureUsageBuilder":
+        self._user_mailbox_signature_usage.send_mail_signature_id = (
+            send_mail_signature_id
+        )
         return self
 
-    def reply_signature_id(self, reply_signature_id: str) -> "UserMailboxSignatureUsageBuilder":
+    def reply_signature_id(
+        self, reply_signature_id: str
+    ) -> "UserMailboxSignatureUsageBuilder":
         self._user_mailbox_signature_usage.reply_signature_id = reply_signature_id
         return self
 

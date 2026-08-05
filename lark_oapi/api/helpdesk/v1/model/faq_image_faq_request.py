@@ -17,7 +17,6 @@ class FaqImageFaqRequest(BaseRequest):
 
 
 class FaqImageFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         faq_image_faq_request = FaqImageFaqRequest()
         faq_image_faq_request.http_method = HttpMethod.GET

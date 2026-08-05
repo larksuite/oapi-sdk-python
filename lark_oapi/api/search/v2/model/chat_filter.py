@@ -40,7 +40,9 @@ class ChatFilterBuilder(object):
         self._chat_filter.is_manager = is_manager
         return self
 
-    def disable_search_by_user(self, disable_search_by_user: bool) -> "ChatFilterBuilder":
+    def disable_search_by_user(
+        self, disable_search_by_user: bool
+    ) -> "ChatFilterBuilder":
         self._chat_filter.disable_search_by_user = disable_search_by_user
         return self
 

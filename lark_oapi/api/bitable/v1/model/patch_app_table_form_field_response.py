@@ -9,7 +9,6 @@ from .patch_app_table_form_field_response_body import PatchAppTableFormFieldResp
 class PatchAppTableFormFieldResponse(BaseResponse):
     _types = {
         "data": PatchAppTableFormFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

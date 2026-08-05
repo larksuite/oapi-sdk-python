@@ -9,7 +9,6 @@ from .sql_commands_app_response_body import SqlCommandsAppResponseBody
 class SqlCommandsAppResponse(BaseResponse):
     _types = {
         "data": SqlCommandsAppResponseBody,
-
     }
 
     def __init__(self, d=None):

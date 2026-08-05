@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .tenant_restriction_network_allow_list_policy import TenantRestrictionNetworkAllowListPolicy
+from .tenant_restriction_network_allow_list_policy import (
+    TenantRestrictionNetworkAllowListPolicy,
+)
 
 
 class TenantRestrictionNetworkPolicy(object):
@@ -29,8 +31,9 @@ class TenantRestrictionNetworkPolicyBuilder(object):
         self._tenant_restriction_network_policy.enabled = enabled
         return self
 
-    def allow_list_policy(self,
-                          allow_list_policy: TenantRestrictionNetworkAllowListPolicy) -> "TenantRestrictionNetworkPolicyBuilder":
+    def allow_list_policy(
+        self, allow_list_policy: TenantRestrictionNetworkAllowListPolicy
+    ) -> "TenantRestrictionNetworkPolicyBuilder":
         self._tenant_restriction_network_policy.allow_list_policy = allow_list_policy
         return self
 

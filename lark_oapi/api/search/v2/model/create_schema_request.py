@@ -18,7 +18,6 @@ class CreateSchemaRequest(BaseRequest):
 
 
 class CreateSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         create_schema_request = CreateSchemaRequest()
         create_schema_request.http_method = HttpMethod.POST

@@ -19,13 +19,16 @@ class ReadUsersMessageRequest(BaseRequest):
 
 
 class ReadUsersMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         read_users_message_request = ReadUsersMessageRequest()
         read_users_message_request.http_method = HttpMethod.GET
-        read_users_message_request.uri = "/open-apis/im/v1/messages/:message_id/read_users"
+        read_users_message_request.uri = (
+            "/open-apis/im/v1/messages/:message_id/read_users"
+        )
         read_users_message_request.token_types = {AccessTokenType.TENANT}
-        self._read_users_message_request: ReadUsersMessageRequest = read_users_message_request
+        self._read_users_message_request: ReadUsersMessageRequest = (
+            read_users_message_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "ReadUsersMessageRequestBuilder":
         self._read_users_message_request.user_id_type = user_id_type

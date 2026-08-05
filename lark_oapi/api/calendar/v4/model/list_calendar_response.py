@@ -9,7 +9,6 @@ from .list_calendar_response_body import ListCalendarResponseBody
 class ListCalendarResponse(BaseResponse):
     _types = {
         "data": ListCalendarResponseBody,
-
     }
 
     def __init__(self, d=None):

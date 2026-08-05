@@ -29,7 +29,9 @@ class WorkplaceTenantNotificationBuilder(object):
     def __init__(self) -> None:
         self._workplace_tenant_notification = WorkplaceTenantNotification()
 
-    def notification_id(self, notification_id: str) -> "WorkplaceTenantNotificationBuilder":
+    def notification_id(
+        self, notification_id: str
+    ) -> "WorkplaceTenantNotificationBuilder":
         self._workplace_tenant_notification.notification_id = notification_id
         return self
 

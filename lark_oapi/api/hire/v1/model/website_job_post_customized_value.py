@@ -39,15 +39,21 @@ class WebsiteJobPostCustomizedValueBuilder(object):
         self._website_job_post_customized_value.content = content
         return self
 
-    def option(self, option: WebsiteJobPostCustomizedOption) -> "WebsiteJobPostCustomizedValueBuilder":
+    def option(
+        self, option: WebsiteJobPostCustomizedOption
+    ) -> "WebsiteJobPostCustomizedValueBuilder":
         self._website_job_post_customized_value.option = option
         return self
 
-    def option_list(self, option_list: List[WebsiteJobPostCustomizedOption]) -> "WebsiteJobPostCustomizedValueBuilder":
+    def option_list(
+        self, option_list: List[WebsiteJobPostCustomizedOption]
+    ) -> "WebsiteJobPostCustomizedValueBuilder":
         self._website_job_post_customized_value.option_list = option_list
         return self
 
-    def time_range(self, time_range: WebsiteJobPostCustomizedTimeRange) -> "WebsiteJobPostCustomizedValueBuilder":
+    def time_range(
+        self, time_range: WebsiteJobPostCustomizedTimeRange
+    ) -> "WebsiteJobPostCustomizedValueBuilder":
         self._website_job_post_customized_value.time_range = time_range
         return self
 

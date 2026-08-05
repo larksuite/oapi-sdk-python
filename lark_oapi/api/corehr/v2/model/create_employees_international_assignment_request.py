@@ -20,32 +20,58 @@ class CreateEmployeesInternationalAssignmentRequest(BaseRequest):
 
 
 class CreateEmployeesInternationalAssignmentRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_employees_international_assignment_request = CreateEmployeesInternationalAssignmentRequest()
+        create_employees_international_assignment_request = (
+            CreateEmployeesInternationalAssignmentRequest()
+        )
         create_employees_international_assignment_request.http_method = HttpMethod.POST
-        create_employees_international_assignment_request.uri = "/open-apis/corehr/v2/employees/international_assignments"
-        create_employees_international_assignment_request.token_types = {AccessTokenType.TENANT}
+        create_employees_international_assignment_request.uri = (
+            "/open-apis/corehr/v2/employees/international_assignments"
+        )
+        create_employees_international_assignment_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._create_employees_international_assignment_request: CreateEmployeesInternationalAssignmentRequest = create_employees_international_assignment_request
 
-    def client_token(self, client_token: str) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
-        self._create_employees_international_assignment_request.client_token = client_token
-        self._create_employees_international_assignment_request.add_query("client_token", client_token)
+    def client_token(
+        self, client_token: str
+    ) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
+        self._create_employees_international_assignment_request.client_token = (
+            client_token
+        )
+        self._create_employees_international_assignment_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
-        self._create_employees_international_assignment_request.user_id_type = user_id_type
-        self._create_employees_international_assignment_request.add_query("user_id_type", user_id_type)
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
+        self._create_employees_international_assignment_request.user_id_type = (
+            user_id_type
+        )
+        self._create_employees_international_assignment_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
-        self._create_employees_international_assignment_request.department_id_type = department_id_type
-        self._create_employees_international_assignment_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
+        self._create_employees_international_assignment_request.department_id_type = (
+            department_id_type
+        )
+        self._create_employees_international_assignment_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: EmployeesInternationalAssignmentReq) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
-        self._create_employees_international_assignment_request.request_body = request_body
+    def request_body(
+        self, request_body: EmployeesInternationalAssignmentReq
+    ) -> "CreateEmployeesInternationalAssignmentRequestBuilder":
+        self._create_employees_international_assignment_request.request_body = (
+            request_body
+        )
         self._create_employees_international_assignment_request.body = request_body
         return self
 

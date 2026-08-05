@@ -24,13 +24,17 @@ class ListUserMailboxMessageResponseBody(object):
 
 class ListUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_user_mailbox_message_response_body = ListUserMailboxMessageResponseBody()
+        self._list_user_mailbox_message_response_body = (
+            ListUserMailboxMessageResponseBody()
+        )
 
     def items(self, items: List[str]) -> "ListUserMailboxMessageResponseBodyBuilder":
         self._list_user_mailbox_message_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "ListUserMailboxMessageResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListUserMailboxMessageResponseBodyBuilder":
         self._list_user_mailbox_message_response_body.page_token = page_token
         return self
 

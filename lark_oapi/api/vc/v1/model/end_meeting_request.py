@@ -16,7 +16,6 @@ class EndMeetingRequest(BaseRequest):
 
 
 class EndMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         end_meeting_request = EndMeetingRequest()
         end_meeting_request.http_method = HttpMethod.PATCH

@@ -31,11 +31,15 @@ class PatchTasklistRequestBodyBuilder(object):
         self._patch_tasklist_request_body.tasklist = tasklist
         return self
 
-    def update_fields(self, update_fields: List[str]) -> "PatchTasklistRequestBodyBuilder":
+    def update_fields(
+        self, update_fields: List[str]
+    ) -> "PatchTasklistRequestBodyBuilder":
         self._patch_tasklist_request_body.update_fields = update_fields
         return self
 
-    def origin_owner_to_role(self, origin_owner_to_role: str) -> "PatchTasklistRequestBodyBuilder":
+    def origin_owner_to_role(
+        self, origin_owner_to_role: str
+    ) -> "PatchTasklistRequestBodyBuilder":
         self._patch_tasklist_request_body.origin_owner_to_role = origin_owner_to_role
         return self
 

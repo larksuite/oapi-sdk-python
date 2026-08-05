@@ -3,14 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .download_url_user_mailbox_message_attachment_response_body import \
-    DownloadUrlUserMailboxMessageAttachmentResponseBody
+from .download_url_user_mailbox_message_attachment_response_body import (
+    DownloadUrlUserMailboxMessageAttachmentResponseBody,
+)
 
 
 class DownloadUrlUserMailboxMessageAttachmentResponse(BaseResponse):
     _types = {
         "data": DownloadUrlUserMailboxMessageAttachmentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -22,13 +22,21 @@ class SearchBasicInfoTimeZoneRequestBody(object):
 
 class SearchBasicInfoTimeZoneRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_time_zone_request_body = SearchBasicInfoTimeZoneRequestBody()
+        self._search_basic_info_time_zone_request_body = (
+            SearchBasicInfoTimeZoneRequestBody()
+        )
 
-    def time_zone_id_list(self, time_zone_id_list: List[str]) -> "SearchBasicInfoTimeZoneRequestBodyBuilder":
-        self._search_basic_info_time_zone_request_body.time_zone_id_list = time_zone_id_list
+    def time_zone_id_list(
+        self, time_zone_id_list: List[str]
+    ) -> "SearchBasicInfoTimeZoneRequestBodyBuilder":
+        self._search_basic_info_time_zone_request_body.time_zone_id_list = (
+            time_zone_id_list
+        )
         return self
 
-    def status_list(self, status_list: List[int]) -> "SearchBasicInfoTimeZoneRequestBodyBuilder":
+    def status_list(
+        self, status_list: List[int]
+    ) -> "SearchBasicInfoTimeZoneRequestBodyBuilder":
         self._search_basic_info_time_zone_request_body.status_list = status_list
         return self
 

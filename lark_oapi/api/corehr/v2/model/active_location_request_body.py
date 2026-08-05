@@ -40,7 +40,9 @@ class ActiveLocationRequestBodyBuilder(object):
         self._active_location_request_body.active = active
         return self
 
-    def operation_reason(self, operation_reason: str) -> "ActiveLocationRequestBodyBuilder":
+    def operation_reason(
+        self, operation_reason: str
+    ) -> "ActiveLocationRequestBodyBuilder":
         self._active_location_request_body.operation_reason = operation_reason
         return self
 

@@ -38,7 +38,9 @@ class CostCorrectDetailBuilder(object):
         self._cost_correct_detail.active_status = active_status
         return self
 
-    def dimensions(self, dimensions: List[DimensionValue]) -> "CostCorrectDetailBuilder":
+    def dimensions(
+        self, dimensions: List[DimensionValue]
+    ) -> "CostCorrectDetailBuilder":
         self._cost_correct_detail.dimensions = dimensions
         return self
 

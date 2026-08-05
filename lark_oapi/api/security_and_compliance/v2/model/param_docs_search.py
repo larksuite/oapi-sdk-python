@@ -52,11 +52,15 @@ class ParamDocsSearchBuilder(object):
         self._param_docs_search.doc_tokens = doc_tokens
         return self
 
-    def create_time_range(self, create_time_range: TimeRange) -> "ParamDocsSearchBuilder":
+    def create_time_range(
+        self, create_time_range: TimeRange
+    ) -> "ParamDocsSearchBuilder":
         self._param_docs_search.create_time_range = create_time_range
         return self
 
-    def update_time_range(self, update_time_range: TimeRange) -> "ParamDocsSearchBuilder":
+    def update_time_range(
+        self, update_time_range: TimeRange
+    ) -> "ParamDocsSearchBuilder":
         self._param_docs_search.update_time_range = update_time_range
         return self
 

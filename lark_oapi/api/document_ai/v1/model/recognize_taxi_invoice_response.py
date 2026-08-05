@@ -9,7 +9,6 @@ from .recognize_taxi_invoice_response_body import RecognizeTaxiInvoiceResponseBo
 class RecognizeTaxiInvoiceResponse(BaseResponse):
     _types = {
         "data": RecognizeTaxiInvoiceResponseBody,
-
     }
 
     def __init__(self, d=None):

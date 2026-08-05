@@ -22,15 +22,19 @@ class OpenQueryPositionChangeListByIdsApprovalGroupsRequestBody(object):
 
 class OpenQueryPositionChangeListByIdsApprovalGroupsRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._open_query_position_change_list_by_ids_approval_groups_request_body = OpenQueryPositionChangeListByIdsApprovalGroupsRequestBody()
+        self._open_query_position_change_list_by_ids_approval_groups_request_body = (
+            OpenQueryPositionChangeListByIdsApprovalGroupsRequestBody()
+        )
 
-    def position_change_ids(self, position_change_ids: List[
-        str]) -> "OpenQueryPositionChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def position_change_ids(
+        self, position_change_ids: List[str]
+    ) -> "OpenQueryPositionChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_position_change_list_by_ids_approval_groups_request_body.position_change_ids = position_change_ids
         return self
 
-    def need_department_path(self,
-                             need_department_path: bool) -> "OpenQueryPositionChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def need_department_path(
+        self, need_department_path: bool
+    ) -> "OpenQueryPositionChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_position_change_list_by_ids_approval_groups_request_body.need_department_path = need_department_path
         return self
 

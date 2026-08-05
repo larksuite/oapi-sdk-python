@@ -19,13 +19,16 @@ class DeleteInstanceCommentRequest(BaseRequest):
 
 
 class DeleteInstanceCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_instance_comment_request = DeleteInstanceCommentRequest()
         delete_instance_comment_request.http_method = HttpMethod.DELETE
-        delete_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments/:comment_id"
+        delete_instance_comment_request.uri = (
+            "/open-apis/approval/v4/instances/:instance_id/comments/:comment_id"
+        )
         delete_instance_comment_request.token_types = {AccessTokenType.TENANT}
-        self._delete_instance_comment_request: DeleteInstanceCommentRequest = delete_instance_comment_request
+        self._delete_instance_comment_request: DeleteInstanceCommentRequest = (
+            delete_instance_comment_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "DeleteInstanceCommentRequestBuilder":
         self._delete_instance_comment_request.user_id_type = user_id_type

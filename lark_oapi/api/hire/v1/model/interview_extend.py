@@ -96,11 +96,15 @@ class InterviewExtendBuilder(object):
         self._interview_extend.round = round
         return self
 
-    def interview_record_list(self, interview_record_list: List[InterviewRecord]) -> "InterviewExtendBuilder":
+    def interview_record_list(
+        self, interview_record_list: List[InterviewRecord]
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.interview_record_list = interview_record_list
         return self
 
-    def feedback_submit_time(self, feedback_submit_time: int) -> "InterviewExtendBuilder":
+    def feedback_submit_time(
+        self, feedback_submit_time: int
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.feedback_submit_time = feedback_submit_time
         return self
 
@@ -128,11 +132,15 @@ class InterviewExtendBuilder(object):
         self._interview_extend.biz_modify_time = biz_modify_time
         return self
 
-    def interview_round_summary(self, interview_round_summary: int) -> "InterviewExtendBuilder":
+    def interview_round_summary(
+        self, interview_round_summary: int
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.interview_round_summary = interview_round_summary
         return self
 
-    def interview_arrangement_id(self, interview_arrangement_id: str) -> "InterviewExtendBuilder":
+    def interview_arrangement_id(
+        self, interview_arrangement_id: str
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.interview_arrangement_id = interview_arrangement_id
         return self
 
@@ -140,7 +148,9 @@ class InterviewExtendBuilder(object):
         self._interview_extend.interview_type = interview_type
         return self
 
-    def talent_time_zone(self, talent_time_zone: CodeNameObject) -> "InterviewExtendBuilder":
+    def talent_time_zone(
+        self, talent_time_zone: CodeNameObject
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.talent_time_zone = talent_time_zone
         return self
 
@@ -172,15 +182,23 @@ class InterviewExtendBuilder(object):
         self._interview_extend.arrangement_type = arrangement_type
         return self
 
-    def arrangement_appointment_kind(self, arrangement_appointment_kind: int) -> "InterviewExtendBuilder":
-        self._interview_extend.arrangement_appointment_kind = arrangement_appointment_kind
+    def arrangement_appointment_kind(
+        self, arrangement_appointment_kind: int
+    ) -> "InterviewExtendBuilder":
+        self._interview_extend.arrangement_appointment_kind = (
+            arrangement_appointment_kind
+        )
         return self
 
-    def meeting_room_list(self, meeting_room_list: List[InterviewMeetingRoom]) -> "InterviewExtendBuilder":
+    def meeting_room_list(
+        self, meeting_room_list: List[InterviewMeetingRoom]
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.meeting_room_list = meeting_room_list
         return self
 
-    def interview_round_type(self, interview_round_type: IdNameObject) -> "InterviewExtendBuilder":
+    def interview_round_type(
+        self, interview_round_type: IdNameObject
+    ) -> "InterviewExtendBuilder":
         self._interview_extend.interview_round_type = interview_round_type
         return self
 

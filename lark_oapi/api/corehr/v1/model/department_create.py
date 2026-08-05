@@ -62,7 +62,9 @@ class DepartmentCreateBuilder(object):
         self._department_create.is_confidential = is_confidential
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "DepartmentCreateBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "DepartmentCreateBuilder":
         self._department_create.hiberarchy_common = hiberarchy_common
         return self
 
@@ -74,7 +76,9 @@ class DepartmentCreateBuilder(object):
         self._department_create.expiration_time = expiration_time
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DepartmentCreateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "DepartmentCreateBuilder":
         self._department_create.custom_fields = custom_fields
         return self
 
@@ -86,7 +90,9 @@ class DepartmentCreateBuilder(object):
         self._department_create.staffing_model = staffing_model
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "DepartmentCreateBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "DepartmentCreateBuilder":
         self._department_create.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

@@ -22,17 +22,29 @@ class GetDocumentBlockChildrenRequest(BaseRequest):
 
 
 class GetDocumentBlockChildrenRequestBuilder(object):
-
     def __init__(self) -> None:
         get_document_block_children_request = GetDocumentBlockChildrenRequest()
         get_document_block_children_request.http_method = HttpMethod.GET
-        get_document_block_children_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
-        get_document_block_children_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_document_block_children_request: GetDocumentBlockChildrenRequest = get_document_block_children_request
+        get_document_block_children_request.uri = (
+            "/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
+        )
+        get_document_block_children_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_document_block_children_request: GetDocumentBlockChildrenRequest = (
+            get_document_block_children_request
+        )
 
-    def document_revision_id(self, document_revision_id: int) -> "GetDocumentBlockChildrenRequestBuilder":
-        self._get_document_block_children_request.document_revision_id = document_revision_id
-        self._get_document_block_children_request.add_query("document_revision_id", document_revision_id)
+    def document_revision_id(
+        self, document_revision_id: int
+    ) -> "GetDocumentBlockChildrenRequestBuilder":
+        self._get_document_block_children_request.document_revision_id = (
+            document_revision_id
+        )
+        self._get_document_block_children_request.add_query(
+            "document_revision_id", document_revision_id
+        )
         return self
 
     def page_token(self, page_token: str) -> "GetDocumentBlockChildrenRequestBuilder":
@@ -45,19 +57,29 @@ class GetDocumentBlockChildrenRequestBuilder(object):
         self._get_document_block_children_request.add_query("page_size", page_size)
         return self
 
-    def with_descendants(self, with_descendants: bool) -> "GetDocumentBlockChildrenRequestBuilder":
+    def with_descendants(
+        self, with_descendants: bool
+    ) -> "GetDocumentBlockChildrenRequestBuilder":
         self._get_document_block_children_request.with_descendants = with_descendants
-        self._get_document_block_children_request.add_query("with_descendants", with_descendants)
+        self._get_document_block_children_request.add_query(
+            "with_descendants", with_descendants
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "GetDocumentBlockChildrenRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetDocumentBlockChildrenRequestBuilder":
         self._get_document_block_children_request.user_id_type = user_id_type
-        self._get_document_block_children_request.add_query("user_id_type", user_id_type)
+        self._get_document_block_children_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def document_id(self, document_id: str) -> "GetDocumentBlockChildrenRequestBuilder":
         self._get_document_block_children_request.document_id = document_id
-        self._get_document_block_children_request.paths["document_id"] = str(document_id)
+        self._get_document_block_children_request.paths["document_id"] = str(
+            document_id
+        )
         return self
 
     def block_id(self, block_id: str) -> "GetDocumentBlockChildrenRequestBuilder":

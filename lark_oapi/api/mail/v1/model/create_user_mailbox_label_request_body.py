@@ -20,7 +20,9 @@ class CreateUserMailboxLabelRequestBody(object):
 
 class CreateUserMailboxLabelRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_user_mailbox_label_request_body = CreateUserMailboxLabelRequestBody()
+        self._create_user_mailbox_label_request_body = (
+            CreateUserMailboxLabelRequestBody()
+        )
 
     def label(self, label: object) -> "CreateUserMailboxLabelRequestBodyBuilder":
         self._create_user_mailbox_label_request_body.label = label

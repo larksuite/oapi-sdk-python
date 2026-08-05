@@ -17,15 +17,20 @@ class DelPositionPositionRequest(BaseRequest):
 
 
 class DelPositionPositionRequestBuilder(object):
-
     def __init__(self) -> None:
         del_position_position_request = DelPositionPositionRequest()
         del_position_position_request.http_method = HttpMethod.POST
-        del_position_position_request.uri = "/open-apis/corehr/v2/positions/del_position"
+        del_position_position_request.uri = (
+            "/open-apis/corehr/v2/positions/del_position"
+        )
         del_position_position_request.token_types = {AccessTokenType.TENANT}
-        self._del_position_position_request: DelPositionPositionRequest = del_position_position_request
+        self._del_position_position_request: DelPositionPositionRequest = (
+            del_position_position_request
+        )
 
-    def request_body(self, request_body: DelPositionPositionRequestBody) -> "DelPositionPositionRequestBuilder":
+    def request_body(
+        self, request_body: DelPositionPositionRequestBody
+    ) -> "DelPositionPositionRequestBuilder":
         self._del_position_position_request.request_body = request_body
         self._del_position_position_request.body = request_body
         return self

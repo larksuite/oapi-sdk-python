@@ -76,7 +76,9 @@ class PreHireBuilder(object):
         self._pre_hire.custom_fields = custom_fields
         return self
 
-    def cost_center_rate(self, cost_center_rate: List[SupportCostCenterItem]) -> "PreHireBuilder":
+    def cost_center_rate(
+        self, cost_center_rate: List[SupportCostCenterItem]
+    ) -> "PreHireBuilder":
         self._pre_hire.cost_center_rate = cost_center_rate
         return self
 

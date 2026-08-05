@@ -25,7 +25,9 @@ class SiteJobPostSearchInfoBuilder(object):
     def __init__(self) -> None:
         self._site_job_post_search_info = SiteJobPostSearchInfo()
 
-    def job_post_info(self, job_post_info: List[SiteJobPost]) -> "SiteJobPostSearchInfoBuilder":
+    def job_post_info(
+        self, job_post_info: List[SiteJobPost]
+    ) -> "SiteJobPostSearchInfoBuilder":
         self._site_job_post_search_info.job_post_info = job_post_info
         return self
 

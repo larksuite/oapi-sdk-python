@@ -22,13 +22,19 @@ class CreatePlantumlWhiteboardNodeResponseBody(object):
 
 class CreatePlantumlWhiteboardNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_plantuml_whiteboard_node_response_body = CreatePlantumlWhiteboardNodeResponseBody()
+        self._create_plantuml_whiteboard_node_response_body = (
+            CreatePlantumlWhiteboardNodeResponseBody()
+        )
 
-    def node_id(self, node_id: str) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
+    def node_id(
+        self, node_id: str
+    ) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
         self._create_plantuml_whiteboard_node_response_body.node_id = node_id
         return self
 
-    def extra(self, extra: Dict[str, List[str]]) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
+    def extra(
+        self, extra: Dict[str, List[str]]
+    ) -> "CreatePlantumlWhiteboardNodeResponseBodyBuilder":
         self._create_plantuml_whiteboard_node_response_body.extra = extra
         return self
 

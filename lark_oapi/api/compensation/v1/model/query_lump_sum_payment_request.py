@@ -20,13 +20,16 @@ class QueryLumpSumPaymentRequest(BaseRequest):
 
 
 class QueryLumpSumPaymentRequestBuilder(object):
-
     def __init__(self) -> None:
         query_lump_sum_payment_request = QueryLumpSumPaymentRequest()
         query_lump_sum_payment_request.http_method = HttpMethod.POST
-        query_lump_sum_payment_request.uri = "/open-apis/compensation/v1/lump_sum_payment/query"
+        query_lump_sum_payment_request.uri = (
+            "/open-apis/compensation/v1/lump_sum_payment/query"
+        )
         query_lump_sum_payment_request.token_types = {AccessTokenType.TENANT}
-        self._query_lump_sum_payment_request: QueryLumpSumPaymentRequest = query_lump_sum_payment_request
+        self._query_lump_sum_payment_request: QueryLumpSumPaymentRequest = (
+            query_lump_sum_payment_request
+        )
 
     def page_size(self, page_size: int) -> "QueryLumpSumPaymentRequestBuilder":
         self._query_lump_sum_payment_request.page_size = page_size
@@ -43,7 +46,9 @@ class QueryLumpSumPaymentRequestBuilder(object):
         self._query_lump_sum_payment_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryLumpSumPaymentRequestBody) -> "QueryLumpSumPaymentRequestBuilder":
+    def request_body(
+        self, request_body: QueryLumpSumPaymentRequestBody
+    ) -> "QueryLumpSumPaymentRequestBuilder":
         self._query_lump_sum_payment_request.request_body = request_body
         self._query_lump_sum_payment_request.body = request_body
         return self

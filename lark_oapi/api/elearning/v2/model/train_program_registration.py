@@ -43,7 +43,9 @@ class TrainProgramRegistrationBuilder(object):
     def __init__(self) -> None:
         self._train_program_registration = TrainProgramRegistration()
 
-    def train_program_id(self, train_program_id: str) -> "TrainProgramRegistrationBuilder":
+    def train_program_id(
+        self, train_program_id: str
+    ) -> "TrainProgramRegistrationBuilder":
         self._train_program_registration.train_program_id = train_program_id
         return self
 
@@ -71,22 +73,34 @@ class TrainProgramRegistrationBuilder(object):
         self._train_program_registration.finished_at = finished_at
         return self
 
-    def compulsory_task_id_list(self, compulsory_task_id_list: List[str]) -> "TrainProgramRegistrationBuilder":
-        self._train_program_registration.compulsory_task_id_list = compulsory_task_id_list
+    def compulsory_task_id_list(
+        self, compulsory_task_id_list: List[str]
+    ) -> "TrainProgramRegistrationBuilder":
+        self._train_program_registration.compulsory_task_id_list = (
+            compulsory_task_id_list
+        )
         return self
 
-    def finished_compulsory_task_id_list(self, finished_compulsory_task_id_list: List[
-        str]) -> "TrainProgramRegistrationBuilder":
-        self._train_program_registration.finished_compulsory_task_id_list = finished_compulsory_task_id_list
+    def finished_compulsory_task_id_list(
+        self, finished_compulsory_task_id_list: List[str]
+    ) -> "TrainProgramRegistrationBuilder":
+        self._train_program_registration.finished_compulsory_task_id_list = (
+            finished_compulsory_task_id_list
+        )
         return self
 
-    def optional_task_id_list(self, optional_task_id_list: List[str]) -> "TrainProgramRegistrationBuilder":
+    def optional_task_id_list(
+        self, optional_task_id_list: List[str]
+    ) -> "TrainProgramRegistrationBuilder":
         self._train_program_registration.optional_task_id_list = optional_task_id_list
         return self
 
-    def finished_optional_task_id_list(self,
-                                       finished_optional_task_id_list: List[str]) -> "TrainProgramRegistrationBuilder":
-        self._train_program_registration.finished_optional_task_id_list = finished_optional_task_id_list
+    def finished_optional_task_id_list(
+        self, finished_optional_task_id_list: List[str]
+    ) -> "TrainProgramRegistrationBuilder":
+        self._train_program_registration.finished_optional_task_id_list = (
+            finished_optional_task_id_list
+        )
         return self
 
     def build(self) -> "TrainProgramRegistration":

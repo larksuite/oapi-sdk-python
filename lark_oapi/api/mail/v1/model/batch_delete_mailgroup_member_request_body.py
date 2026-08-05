@@ -20,9 +20,13 @@ class BatchDeleteMailgroupMemberRequestBody(object):
 
 class BatchDeleteMailgroupMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_mailgroup_member_request_body = BatchDeleteMailgroupMemberRequestBody()
+        self._batch_delete_mailgroup_member_request_body = (
+            BatchDeleteMailgroupMemberRequestBody()
+        )
 
-    def member_id_list(self, member_id_list: List[str]) -> "BatchDeleteMailgroupMemberRequestBodyBuilder":
+    def member_id_list(
+        self, member_id_list: List[str]
+    ) -> "BatchDeleteMailgroupMemberRequestBodyBuilder":
         self._batch_delete_mailgroup_member_request_body.member_id_list = member_id_list
         return self
 

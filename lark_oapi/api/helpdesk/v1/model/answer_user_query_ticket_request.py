@@ -18,20 +18,25 @@ class AnswerUserQueryTicketRequest(BaseRequest):
 
 
 class AnswerUserQueryTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         answer_user_query_ticket_request = AnswerUserQueryTicketRequest()
         answer_user_query_ticket_request.http_method = HttpMethod.POST
-        answer_user_query_ticket_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query"
+        answer_user_query_ticket_request.uri = (
+            "/open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query"
+        )
         answer_user_query_ticket_request.token_types = {AccessTokenType.TENANT}
-        self._answer_user_query_ticket_request: AnswerUserQueryTicketRequest = answer_user_query_ticket_request
+        self._answer_user_query_ticket_request: AnswerUserQueryTicketRequest = (
+            answer_user_query_ticket_request
+        )
 
     def ticket_id(self, ticket_id: str) -> "AnswerUserQueryTicketRequestBuilder":
         self._answer_user_query_ticket_request.ticket_id = ticket_id
         self._answer_user_query_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
 
-    def request_body(self, request_body: AnswerUserQueryTicketRequestBody) -> "AnswerUserQueryTicketRequestBuilder":
+    def request_body(
+        self, request_body: AnswerUserQueryTicketRequestBody
+    ) -> "AnswerUserQueryTicketRequestBuilder":
         self._answer_user_query_ticket_request.request_body = request_body
         self._answer_user_query_ticket_request.body = request_body
         return self

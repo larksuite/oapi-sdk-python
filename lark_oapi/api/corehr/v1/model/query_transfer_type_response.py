@@ -9,7 +9,6 @@ from .query_transfer_type_response_body import QueryTransferTypeResponseBody
 class QueryTransferTypeResponse(BaseResponse):
     _types = {
         "data": QueryTransferTypeResponseBody,
-
     }
 
     def __init__(self, d=None):

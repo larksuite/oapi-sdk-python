@@ -19,8 +19,9 @@ class Agent(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def agent_email(self, request: AgentEmailAgentRequest,
-                    option: Optional[RequestOption] = None) -> AgentEmailAgentResponse:
+    def agent_email(
+        self, request: AgentEmailAgentRequest, option: Optional[RequestOption] = None
+    ) -> AgentEmailAgentResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class Agent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AgentEmailAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), AgentEmailAgentResponse)
+        response: AgentEmailAgentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AgentEmailAgentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aagent_email(self, request: AgentEmailAgentRequest,
-                           option: Optional[RequestOption] = None) -> AgentEmailAgentResponse:
+    async def aagent_email(
+        self, request: AgentEmailAgentRequest, option: Optional[RequestOption] = None
+    ) -> AgentEmailAgentResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,12 +56,16 @@ class Agent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AgentEmailAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), AgentEmailAgentResponse)
+        response: AgentEmailAgentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AgentEmailAgentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchAgentRequest, option: Optional[RequestOption] = None) -> PatchAgentResponse:
+    def patch(
+        self, request: PatchAgentRequest, option: Optional[RequestOption] = None
+    ) -> PatchAgentResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,12 +80,16 @@ class Agent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentResponse)
+        response: PatchAgentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAgentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchAgentRequest, option: Optional[RequestOption] = None) -> PatchAgentResponse:
+    async def apatch(
+        self, request: PatchAgentRequest, option: Optional[RequestOption] = None
+    ) -> PatchAgentResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,7 +100,9 @@ class Agent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentResponse)
+        response: PatchAgentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAgentResponse
+        )
         response.raw = resp
 
         return response

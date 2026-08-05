@@ -125,11 +125,15 @@ class DeviceChangeEventBuilder(object):
         self._device_change_event.device_status = device_status
         return self
 
-    def certification_level(self, certification_level: int) -> "DeviceChangeEventBuilder":
+    def certification_level(
+        self, certification_level: int
+    ) -> "DeviceChangeEventBuilder":
         self._device_change_event.certification_level = certification_level
         return self
 
-    def device_terminal_type(self, device_terminal_type: int) -> "DeviceChangeEventBuilder":
+    def device_terminal_type(
+        self, device_terminal_type: int
+    ) -> "DeviceChangeEventBuilder":
         self._device_change_event.device_terminal_type = device_terminal_type
         return self
 
@@ -145,7 +149,9 @@ class DeviceChangeEventBuilder(object):
         self._device_change_event.mdm_provider_name = mdm_provider_name
         return self
 
-    def device_env_detect_status(self, device_env_detect_status: int) -> "DeviceChangeEventBuilder":
+    def device_env_detect_status(
+        self, device_env_detect_status: int
+    ) -> "DeviceChangeEventBuilder":
         self._device_change_event.device_env_detect_status = device_env_detect_status
         return self
 

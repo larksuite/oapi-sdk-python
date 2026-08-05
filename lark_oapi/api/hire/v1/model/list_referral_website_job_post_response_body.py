@@ -25,17 +25,25 @@ class ListReferralWebsiteJobPostResponseBody(object):
 
 class ListReferralWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_referral_website_job_post_response_body = ListReferralWebsiteJobPostResponseBody()
+        self._list_referral_website_job_post_response_body = (
+            ListReferralWebsiteJobPostResponseBody()
+        )
 
-    def items(self, items: List[PortalJobPost]) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
+    def items(
+        self, items: List[PortalJobPost]
+    ) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
         self._list_referral_website_job_post_response_body.items = items
         return self
 
-    def has_more(self, has_more: bool) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
         self._list_referral_website_job_post_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
         self._list_referral_website_job_post_response_body.page_token = page_token
         return self
 

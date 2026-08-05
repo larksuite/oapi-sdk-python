@@ -44,23 +44,33 @@ class CreateEmployeeOptionsBuilder(object):
         self._create_employee_options.home_user_id = home_user_id
         return self
 
-    def employee_trace_info(self, employee_trace_info: EmployeeTraceInfo) -> "CreateEmployeeOptionsBuilder":
+    def employee_trace_info(
+        self, employee_trace_info: EmployeeTraceInfo
+    ) -> "CreateEmployeeOptionsBuilder":
         self._create_employee_options.employee_trace_info = employee_trace_info
         return self
 
-    def enterprise_email_password(self, enterprise_email_password: str) -> "CreateEmployeeOptionsBuilder":
-        self._create_employee_options.enterprise_email_password = enterprise_email_password
+    def enterprise_email_password(
+        self, enterprise_email_password: str
+    ) -> "CreateEmployeeOptionsBuilder":
+        self._create_employee_options.enterprise_email_password = (
+            enterprise_email_password
+        )
         return self
 
     def data_source(self, data_source: int) -> "CreateEmployeeOptionsBuilder":
         self._create_employee_options.data_source = data_source
         return self
 
-    def subscription_ids(self, subscription_ids: List[str]) -> "CreateEmployeeOptionsBuilder":
+    def subscription_ids(
+        self, subscription_ids: List[str]
+    ) -> "CreateEmployeeOptionsBuilder":
         self._create_employee_options.subscription_ids = subscription_ids
         return self
 
-    def need_send_notification(self, need_send_notification: SendNotification) -> "CreateEmployeeOptionsBuilder":
+    def need_send_notification(
+        self, need_send_notification: SendNotification
+    ) -> "CreateEmployeeOptionsBuilder":
         self._create_employee_options.need_send_notification = need_send_notification
         return self
 

@@ -22,9 +22,13 @@ class CreateApplicationPublishResponseBody(object):
 
 class CreateApplicationPublishResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_application_publish_response_body = CreateApplicationPublishResponseBody()
+        self._create_application_publish_response_body = (
+            CreateApplicationPublishResponseBody()
+        )
 
-    def version_id(self, version_id: str) -> "CreateApplicationPublishResponseBodyBuilder":
+    def version_id(
+        self, version_id: str
+    ) -> "CreateApplicationPublishResponseBodyBuilder":
         self._create_application_publish_response_body.version_id = version_id
         return self
 

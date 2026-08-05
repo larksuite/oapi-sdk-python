@@ -14,18 +14,25 @@ class BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody(objec
         init(self, d, self._types)
 
     @staticmethod
-    def builder() -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder":
+    def builder() -> (
+        "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder"
+    ):
         return BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder()
 
 
-class BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder(object):
+class BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder(
+    object
+):
     def __init__(self) -> None:
         self._batch_remove_authorization_application_record_permission_member_request_body = BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody()
 
-    def user_ids(self,
-                 user_ids: List[str]) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder":
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBodyBuilder":
         self._batch_remove_authorization_application_record_permission_member_request_body.user_ids = user_ids
         return self
 
-    def build(self) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody":
+    def build(
+        self,
+    ) -> "BatchRemoveAuthorizationApplicationRecordPermissionMemberRequestBody":
         return self._batch_remove_authorization_application_record_permission_member_request_body

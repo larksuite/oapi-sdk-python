@@ -25,7 +25,9 @@ class QueryDatasourceRecordResponseBody(object):
 
 class QueryDatasourceRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_datasource_record_response_body = QueryDatasourceRecordResponseBody()
+        self._query_datasource_record_response_body = (
+            QueryDatasourceRecordResponseBody()
+        )
 
     def page_token(self, page_token: str) -> "QueryDatasourceRecordResponseBodyBuilder":
         self._query_datasource_record_response_body.page_token = page_token
@@ -35,7 +37,9 @@ class QueryDatasourceRecordResponseBodyBuilder(object):
         self._query_datasource_record_response_body.has_more = has_more
         return self
 
-    def records(self, records: List[DatasourceRecord]) -> "QueryDatasourceRecordResponseBodyBuilder":
+    def records(
+        self, records: List[DatasourceRecord]
+    ) -> "QueryDatasourceRecordResponseBodyBuilder":
         self._query_datasource_record_response_body.records = records
         return self
 

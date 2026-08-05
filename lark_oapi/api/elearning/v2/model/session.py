@@ -146,7 +146,9 @@ class SessionBuilder(object):
         self._session.playback_url = playback_url
         return self
 
-    def completion_condition(self, completion_condition: CompletionCondition) -> "SessionBuilder":
+    def completion_condition(
+        self, completion_condition: CompletionCondition
+    ) -> "SessionBuilder":
         self._session.completion_condition = completion_condition
         return self
 

@@ -9,7 +9,6 @@ from .update_user_stats_view_response_body import UpdateUserStatsViewResponseBod
 class UpdateUserStatsViewResponse(BaseResponse):
     _types = {
         "data": UpdateUserStatsViewResponseBody,
-
     }
 
     def __init__(self, d=None):

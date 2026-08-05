@@ -32,19 +32,29 @@ class ConnectorInstanceDefinitionBuilder(object):
     def __init__(self) -> None:
         self._connector_instance_definition = ConnectorInstanceDefinition()
 
-    def connector_source_type(self, connector_source_type: str) -> "ConnectorInstanceDefinitionBuilder":
-        self._connector_instance_definition.connector_source_type = connector_source_type
+    def connector_source_type(
+        self, connector_source_type: str
+    ) -> "ConnectorInstanceDefinitionBuilder":
+        self._connector_instance_definition.connector_source_type = (
+            connector_source_type
+        )
         return self
 
-    def connector_api_name(self, connector_api_name: str) -> "ConnectorInstanceDefinitionBuilder":
+    def connector_api_name(
+        self, connector_api_name: str
+    ) -> "ConnectorInstanceDefinitionBuilder":
         self._connector_instance_definition.connector_api_name = connector_api_name
         return self
 
-    def action_api_name(self, action_api_name: str) -> "ConnectorInstanceDefinitionBuilder":
+    def action_api_name(
+        self, action_api_name: str
+    ) -> "ConnectorInstanceDefinitionBuilder":
         self._connector_instance_definition.action_api_name = action_api_name
         return self
 
-    def connection_api_name(self, connection_api_name: str) -> "ConnectorInstanceDefinitionBuilder":
+    def connection_api_name(
+        self, connection_api_name: str
+    ) -> "ConnectorInstanceDefinitionBuilder":
         self._connector_instance_definition.connection_api_name = connection_api_name
         return self
 
@@ -52,7 +62,9 @@ class ConnectorInstanceDefinitionBuilder(object):
         self._connector_instance_definition.input_data = input_data
         return self
 
-    def output_data_schema(self, output_data_schema: str) -> "ConnectorInstanceDefinitionBuilder":
+    def output_data_schema(
+        self, output_data_schema: str
+    ) -> "ConnectorInstanceDefinitionBuilder":
         self._connector_instance_definition.output_data_schema = output_data_schema
         return self
 

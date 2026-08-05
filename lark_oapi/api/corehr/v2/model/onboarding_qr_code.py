@@ -71,7 +71,9 @@ class OnboardingQrCodeBuilder(object):
         self._onboarding_qr_code.updated_at = updated_at
         return self
 
-    def dimension_values(self, dimension_values: List[QrCodeDimensionValue]) -> "OnboardingQrCodeBuilder":
+    def dimension_values(
+        self, dimension_values: List[QrCodeDimensionValue]
+    ) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.dimension_values = dimension_values
         return self
 

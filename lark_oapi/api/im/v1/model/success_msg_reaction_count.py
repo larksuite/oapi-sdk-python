@@ -29,7 +29,9 @@ class SuccessMsgReactionCountBuilder(object):
         self._success_msg_reaction_count.message_id = message_id
         return self
 
-    def reaction_count(self, reaction_count: List[ReactionCount]) -> "SuccessMsgReactionCountBuilder":
+    def reaction_count(
+        self, reaction_count: List[ReactionCount]
+    ) -> "SuccessMsgReactionCountBuilder":
         self._success_msg_reaction_count.reaction_count = reaction_count
         return self
 

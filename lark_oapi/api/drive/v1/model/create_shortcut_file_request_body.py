@@ -29,7 +29,9 @@ class CreateShortcutFileRequestBodyBuilder(object):
         self._create_shortcut_file_request_body.parent_token = parent_token
         return self
 
-    def refer_entity(self, refer_entity: ReferEntity) -> "CreateShortcutFileRequestBodyBuilder":
+    def refer_entity(
+        self, refer_entity: ReferEntity
+    ) -> "CreateShortcutFileRequestBodyBuilder":
         self._create_shortcut_file_request_body.refer_entity = refer_entity
         return self
 

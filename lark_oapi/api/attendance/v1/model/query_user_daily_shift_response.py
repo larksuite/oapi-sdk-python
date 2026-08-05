@@ -9,7 +9,6 @@ from .query_user_daily_shift_response_body import QueryUserDailyShiftResponseBod
 class QueryUserDailyShiftResponse(BaseResponse):
     _types = {
         "data": QueryUserDailyShiftResponseBody,
-
     }
 
     def __init__(self, d=None):

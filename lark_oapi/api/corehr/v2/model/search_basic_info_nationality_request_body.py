@@ -24,18 +24,29 @@ class SearchBasicInfoNationalityRequestBody(object):
 
 class SearchBasicInfoNationalityRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_nationality_request_body = SearchBasicInfoNationalityRequestBody()
+        self._search_basic_info_nationality_request_body = (
+            SearchBasicInfoNationalityRequestBody()
+        )
 
-    def nationality_id_list(self, nationality_id_list: List[str]) -> "SearchBasicInfoNationalityRequestBodyBuilder":
-        self._search_basic_info_nationality_request_body.nationality_id_list = nationality_id_list
+    def nationality_id_list(
+        self, nationality_id_list: List[str]
+    ) -> "SearchBasicInfoNationalityRequestBodyBuilder":
+        self._search_basic_info_nationality_request_body.nationality_id_list = (
+            nationality_id_list
+        )
         return self
 
-    def country_region_id_list(self,
-                               country_region_id_list: List[str]) -> "SearchBasicInfoNationalityRequestBodyBuilder":
-        self._search_basic_info_nationality_request_body.country_region_id_list = country_region_id_list
+    def country_region_id_list(
+        self, country_region_id_list: List[str]
+    ) -> "SearchBasicInfoNationalityRequestBodyBuilder":
+        self._search_basic_info_nationality_request_body.country_region_id_list = (
+            country_region_id_list
+        )
         return self
 
-    def status_list(self, status_list: List[int]) -> "SearchBasicInfoNationalityRequestBodyBuilder":
+    def status_list(
+        self, status_list: List[int]
+    ) -> "SearchBasicInfoNationalityRequestBodyBuilder":
         self._search_basic_info_nationality_request_body.status_list = status_list
         return self
 

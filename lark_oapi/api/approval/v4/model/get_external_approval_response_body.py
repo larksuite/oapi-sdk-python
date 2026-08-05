@@ -41,11 +41,15 @@ class GetExternalApprovalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_external_approval_response_body = GetExternalApprovalResponseBody()
 
-    def approval_name(self, approval_name: str) -> "GetExternalApprovalResponseBodyBuilder":
+    def approval_name(
+        self, approval_name: str
+    ) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.approval_name = approval_name
         return self
 
-    def approval_code(self, approval_code: str) -> "GetExternalApprovalResponseBodyBuilder":
+    def approval_code(
+        self, approval_code: str
+    ) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.approval_code = approval_code
         return self
 
@@ -61,15 +65,21 @@ class GetExternalApprovalResponseBodyBuilder(object):
         self._get_external_approval_response_body.description = description
         return self
 
-    def external(self, external: ApprovalCreateExternal) -> "GetExternalApprovalResponseBodyBuilder":
+    def external(
+        self, external: ApprovalCreateExternal
+    ) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.external = external
         return self
 
-    def viewers(self, viewers: List[ApprovalCreateViewers]) -> "GetExternalApprovalResponseBodyBuilder":
+    def viewers(
+        self, viewers: List[ApprovalCreateViewers]
+    ) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.viewers = viewers
         return self
 
-    def i18n_resources(self, i18n_resources: List[I18nResource]) -> "GetExternalApprovalResponseBodyBuilder":
+    def i18n_resources(
+        self, i18n_resources: List[I18nResource]
+    ) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.i18n_resources = i18n_resources
         return self
 

@@ -23,15 +23,21 @@ from ..model.sql_commands_app_request import SqlCommandsAppRequest
 from ..model.sql_commands_app_response import SqlCommandsAppResponse
 from ..model.update_app_visibility_app_request import UpdateAppVisibilityAppRequest
 from ..model.update_app_visibility_app_response import UpdateAppVisibilityAppResponse
-from ..model.upload_html_code_and_release_app_request import UploadHtmlCodeAndReleaseAppRequest
-from ..model.upload_html_code_and_release_app_response import UploadHtmlCodeAndReleaseAppResponse
+from ..model.upload_html_code_and_release_app_request import (
+    UploadHtmlCodeAndReleaseAppRequest,
+)
+from ..model.upload_html_code_and_release_app_response import (
+    UploadHtmlCodeAndReleaseAppResponse,
+)
 
 
 class App(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    def create(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -46,12 +52,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    async def acreate(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,13 +72,18 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_app_visibility(self, request: GetAppVisibilityAppRequest,
-                           option: Optional[RequestOption] = None) -> GetAppVisibilityAppResponse:
+    def get_app_visibility(
+        self,
+        request: GetAppVisibilityAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAppVisibilityAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,13 +98,18 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAppVisibilityAppResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppVisibilityAppResponse)
+        response: GetAppVisibilityAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppVisibilityAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_app_visibility(self, request: GetAppVisibilityAppRequest,
-                                  option: Optional[RequestOption] = None) -> GetAppVisibilityAppResponse:
+    async def aget_app_visibility(
+        self,
+        request: GetAppVisibilityAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAppVisibilityAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,12 +120,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAppVisibilityAppResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppVisibilityAppResponse)
+        response: GetAppVisibilityAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppVisibilityAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def icon(self, request: IconAppRequest, option: Optional[RequestOption] = None) -> IconAppResponse:
+    def icon(
+        self, request: IconAppRequest, option: Optional[RequestOption] = None
+    ) -> IconAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -122,12 +146,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: IconAppResponse = JSON.unmarshal(str(resp.content, UTF_8), IconAppResponse)
+        response: IconAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IconAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aicon(self, request: IconAppRequest, option: Optional[RequestOption] = None) -> IconAppResponse:
+    async def aicon(
+        self, request: IconAppRequest, option: Optional[RequestOption] = None
+    ) -> IconAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -141,12 +169,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: IconAppResponse = JSON.unmarshal(str(resp.content, UTF_8), IconAppResponse)
+        response: IconAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IconAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAppRequest, option: Optional[RequestOption] = None) -> ListAppResponse:
+    def list(
+        self, request: ListAppRequest, option: Optional[RequestOption] = None
+    ) -> ListAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,12 +193,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppResponse)
+        response: ListAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppRequest, option: Optional[RequestOption] = None) -> ListAppResponse:
+    async def alist(
+        self, request: ListAppRequest, option: Optional[RequestOption] = None
+    ) -> ListAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,12 +213,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppResponse)
+        response: ListAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchAppRequest, option: Optional[RequestOption] = None) -> PatchAppResponse:
+    def patch(
+        self, request: PatchAppRequest, option: Optional[RequestOption] = None
+    ) -> PatchAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -197,12 +237,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchAppResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAppResponse)
+        response: PatchAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchAppRequest, option: Optional[RequestOption] = None) -> PatchAppResponse:
+    async def apatch(
+        self, request: PatchAppRequest, option: Optional[RequestOption] = None
+    ) -> PatchAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -213,13 +257,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchAppResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAppResponse)
+        response: PatchAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def sql_commands(self, request: SqlCommandsAppRequest,
-                     option: Optional[RequestOption] = None) -> SqlCommandsAppResponse:
+    def sql_commands(
+        self, request: SqlCommandsAppRequest, option: Optional[RequestOption] = None
+    ) -> SqlCommandsAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -234,13 +281,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SqlCommandsAppResponse = JSON.unmarshal(str(resp.content, UTF_8), SqlCommandsAppResponse)
+        response: SqlCommandsAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SqlCommandsAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asql_commands(self, request: SqlCommandsAppRequest,
-                            option: Optional[RequestOption] = None) -> SqlCommandsAppResponse:
+    async def asql_commands(
+        self, request: SqlCommandsAppRequest, option: Optional[RequestOption] = None
+    ) -> SqlCommandsAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -251,13 +301,18 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SqlCommandsAppResponse = JSON.unmarshal(str(resp.content, UTF_8), SqlCommandsAppResponse)
+        response: SqlCommandsAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SqlCommandsAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_app_visibility(self, request: UpdateAppVisibilityAppRequest,
-                              option: Optional[RequestOption] = None) -> UpdateAppVisibilityAppResponse:
+    def update_app_visibility(
+        self,
+        request: UpdateAppVisibilityAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateAppVisibilityAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -272,14 +327,18 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppVisibilityAppResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateAppVisibilityAppResponse)
+        response: UpdateAppVisibilityAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppVisibilityAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_app_visibility(self, request: UpdateAppVisibilityAppRequest,
-                                     option: Optional[RequestOption] = None) -> UpdateAppVisibilityAppResponse:
+    async def aupdate_app_visibility(
+        self,
+        request: UpdateAppVisibilityAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateAppVisibilityAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -290,14 +349,18 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppVisibilityAppResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateAppVisibilityAppResponse)
+        response: UpdateAppVisibilityAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppVisibilityAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload_html_code_and_release(self, request: UploadHtmlCodeAndReleaseAppRequest,
-                                     option: Optional[RequestOption] = None) -> UploadHtmlCodeAndReleaseAppResponse:
+    def upload_html_code_and_release(
+        self,
+        request: UploadHtmlCodeAndReleaseAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadHtmlCodeAndReleaseAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -314,14 +377,18 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadHtmlCodeAndReleaseAppResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UploadHtmlCodeAndReleaseAppResponse)
+        response: UploadHtmlCodeAndReleaseAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadHtmlCodeAndReleaseAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload_html_code_and_release(self, request: UploadHtmlCodeAndReleaseAppRequest, option: Optional[
-        RequestOption] = None) -> UploadHtmlCodeAndReleaseAppResponse:
+    async def aupload_html_code_and_release(
+        self,
+        request: UploadHtmlCodeAndReleaseAppRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadHtmlCodeAndReleaseAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -335,8 +402,9 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadHtmlCodeAndReleaseAppResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UploadHtmlCodeAndReleaseAppResponse)
+        response: UploadHtmlCodeAndReleaseAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadHtmlCodeAndReleaseAppResponse
+        )
         response.raw = resp
 
         return response

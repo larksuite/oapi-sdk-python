@@ -17,7 +17,6 @@ class ListOutboundIpRequest(BaseRequest):
 
 
 class ListOutboundIpRequestBuilder(object):
-
     def __init__(self) -> None:
         list_outbound_ip_request = ListOutboundIpRequest()
         list_outbound_ip_request.http_method = HttpMethod.GET

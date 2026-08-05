@@ -25,9 +25,13 @@ class SearchTalentOperationLogResponseBody(object):
 
 class SearchTalentOperationLogResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_talent_operation_log_response_body = SearchTalentOperationLogResponseBody()
+        self._search_talent_operation_log_response_body = (
+            SearchTalentOperationLogResponseBody()
+        )
 
-    def items(self, items: List[TalentOperationLog]) -> "SearchTalentOperationLogResponseBodyBuilder":
+    def items(
+        self, items: List[TalentOperationLog]
+    ) -> "SearchTalentOperationLogResponseBodyBuilder":
         self._search_talent_operation_log_response_body.items = items
         return self
 
@@ -35,7 +39,9 @@ class SearchTalentOperationLogResponseBodyBuilder(object):
         self._search_talent_operation_log_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "SearchTalentOperationLogResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "SearchTalentOperationLogResponseBodyBuilder":
         self._search_talent_operation_log_response_body.page_token = page_token
         return self
 

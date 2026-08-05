@@ -1,4 +1,3 @@
-from .attachment import *
 from .collaborator import *
 from .comment import *
 from .department_id import *
@@ -7,9 +6,7 @@ from .follower import *
 from .href import *
 from .origin import *
 from .reminder import *
-from .section import *
 from .task import *
-from .tasklist import *
 from .user_id import *
 from .user_id_list import *
 from .batch_delete_collaborator_task_request import *

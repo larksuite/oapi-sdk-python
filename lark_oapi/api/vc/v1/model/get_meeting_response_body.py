@@ -30,7 +30,9 @@ class GetMeetingResponseBodyBuilder(object):
         self._get_meeting_response_body.meeting = meeting
         return self
 
-    def related_artifacts(self, related_artifacts: MeetingRelatedArtifacts) -> "GetMeetingResponseBodyBuilder":
+    def related_artifacts(
+        self, related_artifacts: MeetingRelatedArtifacts
+    ) -> "GetMeetingResponseBodyBuilder":
         self._get_meeting_response_body.related_artifacts = related_artifacts
         return self
 

@@ -30,7 +30,9 @@ class UserBusinessManagementScopeBuilder(object):
         self._user_business_management_scope.entity = entity
         return self
 
-    def scope_rule(self, scope_rule: PermissionScopeRule) -> "UserBusinessManagementScopeBuilder":
+    def scope_rule(
+        self, scope_rule: PermissionScopeRule
+    ) -> "UserBusinessManagementScopeBuilder":
         self._user_business_management_scope.scope_rule = scope_rule
         return self
 

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_progress_batch_message_response_body import GetProgressBatchMessageResponseBody
+from .get_progress_batch_message_response_body import (
+    GetProgressBatchMessageResponseBody,
+)
 
 
 class GetProgressBatchMessageResponse(BaseResponse):
     _types = {
         "data": GetProgressBatchMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

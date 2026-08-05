@@ -140,15 +140,21 @@ class MigrationTicketBuilder(object):
         self._migration_ticket.agent_entry_time_ms = agent_entry_time_ms
         return self
 
-    def comments(self, comments: List[MigrationTicketComment]) -> "MigrationTicketBuilder":
+    def comments(
+        self, comments: List[MigrationTicketComment]
+    ) -> "MigrationTicketBuilder":
         self._migration_ticket.comments = comments
         return self
 
-    def dissatisfaction_reasons(self, dissatisfaction_reasons: List[I18n]) -> "MigrationTicketBuilder":
+    def dissatisfaction_reasons(
+        self, dissatisfaction_reasons: List[I18n]
+    ) -> "MigrationTicketBuilder":
         self._migration_ticket.dissatisfaction_reasons = dissatisfaction_reasons
         return self
 
-    def actual_processing_time(self, actual_processing_time: str) -> "MigrationTicketBuilder":
+    def actual_processing_time(
+        self, actual_processing_time: str
+    ) -> "MigrationTicketBuilder":
         self._migration_ticket.actual_processing_time = actual_processing_time
         return self
 
@@ -156,7 +162,9 @@ class MigrationTicketBuilder(object):
         self._migration_ticket.language = language
         return self
 
-    def first_agent_entry_chat_time(self, first_agent_entry_chat_time: str) -> "MigrationTicketBuilder":
+    def first_agent_entry_chat_time(
+        self, first_agent_entry_chat_time: str
+    ) -> "MigrationTicketBuilder":
         self._migration_ticket.first_agent_entry_chat_time = first_agent_entry_chat_time
         return self
 

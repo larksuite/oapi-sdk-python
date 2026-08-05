@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .app_slash_command_i18n_text import AppSlashCommandI18nText
+from .app_slash_command_icon import AppSlashCommandIcon
 
 
 class AppSlashCommand(object):
@@ -12,6 +13,7 @@ class AppSlashCommand(object):
         "description": AppSlashCommandI18nText,
         "create_time": str,
         "update_time": str,
+        "icon": AppSlashCommandIcon,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class AppSlashCommand(object):
         self.description: Optional[AppSlashCommandI18nText] = None
         self.create_time: Optional[str] = None
         self.update_time: Optional[str] = None
+        self.icon: Optional[AppSlashCommandIcon] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -39,7 +42,9 @@ class AppSlashCommandBuilder(object):
         self._app_slash_command.command = command
         return self
 
-    def description(self, description: AppSlashCommandI18nText) -> "AppSlashCommandBuilder":
+    def description(
+        self, description: AppSlashCommandI18nText
+    ) -> "AppSlashCommandBuilder":
         self._app_slash_command.description = description
         return self
 
@@ -49,6 +54,10 @@ class AppSlashCommandBuilder(object):
 
     def update_time(self, update_time: str) -> "AppSlashCommandBuilder":
         self._app_slash_command.update_time = update_time
+        return self
+
+    def icon(self, icon: AppSlashCommandIcon) -> "AppSlashCommandBuilder":
+        self._app_slash_command.icon = icon
         return self
 
     def build(self) -> "AppSlashCommand":

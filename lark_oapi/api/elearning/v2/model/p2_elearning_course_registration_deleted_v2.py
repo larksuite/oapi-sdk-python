@@ -19,9 +19,7 @@ class P2ElearningCourseRegistrationDeletedV2Data(object):
 
 
 class P2ElearningCourseRegistrationDeletedV2(EventContext):
-    _types = {
-        "event": P2ElearningCourseRegistrationDeletedV2Data
-    }
+    _types = {"event": P2ElearningCourseRegistrationDeletedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

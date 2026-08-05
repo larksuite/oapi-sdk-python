@@ -47,8 +47,9 @@ class TalentCombinedAwardInfoBuilder(object):
         self._talent_combined_award_info.desc = desc
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedAwardInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.customized_data = customized_data
         return self
 

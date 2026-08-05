@@ -33,24 +33,35 @@ class QueryRoomConfigResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_room_config_response_body = QueryRoomConfigResponseBody()
 
-    def room_background(self, room_background: str) -> "QueryRoomConfigResponseBodyBuilder":
+    def room_background(
+        self, room_background: str
+    ) -> "QueryRoomConfigResponseBodyBuilder":
         self._query_room_config_response_body.room_background = room_background
         return self
 
-    def display_background(self, display_background: str) -> "QueryRoomConfigResponseBodyBuilder":
+    def display_background(
+        self, display_background: str
+    ) -> "QueryRoomConfigResponseBodyBuilder":
         self._query_room_config_response_body.display_background = display_background
         return self
 
-    def digital_signage(self, digital_signage: RoomDigitalSignage) -> "QueryRoomConfigResponseBodyBuilder":
+    def digital_signage(
+        self, digital_signage: RoomDigitalSignage
+    ) -> "QueryRoomConfigResponseBodyBuilder":
         self._query_room_config_response_body.digital_signage = digital_signage
         return self
 
-    def room_box_digital_signage(self,
-                                 room_box_digital_signage: RoomDigitalSignage) -> "QueryRoomConfigResponseBodyBuilder":
-        self._query_room_config_response_body.room_box_digital_signage = room_box_digital_signage
+    def room_box_digital_signage(
+        self, room_box_digital_signage: RoomDigitalSignage
+    ) -> "QueryRoomConfigResponseBodyBuilder":
+        self._query_room_config_response_body.room_box_digital_signage = (
+            room_box_digital_signage
+        )
         return self
 
-    def room_status(self, room_status: RoomStatus) -> "QueryRoomConfigResponseBodyBuilder":
+    def room_status(
+        self, room_status: RoomStatus
+    ) -> "QueryRoomConfigResponseBodyBuilder":
         self._query_room_config_response_body.room_status = room_status
         return self
 

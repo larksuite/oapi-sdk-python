@@ -41,7 +41,9 @@ class CityBuilder(object):
         self._city.name = name
         return self
 
-    def country_region_subdivision_id(self, country_region_subdivision_id: str) -> "CityBuilder":
+    def country_region_subdivision_id(
+        self, country_region_subdivision_id: str
+    ) -> "CityBuilder":
         self._city.country_region_subdivision_id = country_region_subdivision_id
         return self
 

@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class StopMeetingRecordingRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.meeting_id: Optional[int] = None
 
     @staticmethod
     def builder() -> "StopMeetingRecordingRequestBuilder":
@@ -15,13 +16,21 @@ class StopMeetingRecordingRequest(BaseRequest):
 
 
 class StopMeetingRecordingRequestBuilder(object):
-
     def __init__(self) -> None:
         stop_meeting_recording_request = StopMeetingRecordingRequest()
         stop_meeting_recording_request.http_method = HttpMethod.PATCH
-        stop_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording/stop"
+        stop_meeting_recording_request.uri = (
+            "/open-apis/vc/v1/meetings/:meeting_id/recording/stop"
+        )
         stop_meeting_recording_request.token_types = {AccessTokenType.USER}
-        self._stop_meeting_recording_request: StopMeetingRecordingRequest = stop_meeting_recording_request
+        self._stop_meeting_recording_request: StopMeetingRecordingRequest = (
+            stop_meeting_recording_request
+        )
+
+    def meeting_id(self, meeting_id: int) -> "StopMeetingRecordingRequestBuilder":
+        self._stop_meeting_recording_request.meeting_id = meeting_id
+        self._stop_meeting_recording_request.paths["meeting_id"] = str(meeting_id)
+        return self
 
     def build(self) -> StopMeetingRecordingRequest:
         return self._stop_meeting_recording_request

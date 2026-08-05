@@ -18,12 +18,14 @@ class CreateAppRoleRequest(BaseRequest):
 
 
 class CreateAppRoleRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_role_request = CreateAppRoleRequest()
         create_app_role_request.http_method = HttpMethod.POST
         create_app_role_request.uri = "/open-apis/base/v2/apps/:app_token/roles"
-        create_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        create_app_role_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._create_app_role_request: CreateAppRoleRequest = create_app_role_request
 
     def app_token(self, app_token: str) -> "CreateAppRoleRequestBuilder":

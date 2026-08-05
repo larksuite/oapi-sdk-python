@@ -20,7 +20,9 @@ class RecordsPostWorkspaceTableRequestBody(object):
 
 class RecordsPostWorkspaceTableRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._records_post_workspace_table_request_body = RecordsPostWorkspaceTableRequestBody()
+        self._records_post_workspace_table_request_body = (
+            RecordsPostWorkspaceTableRequestBody()
+        )
 
     def records(self, records: str) -> "RecordsPostWorkspaceTableRequestBodyBuilder":
         self._records_post_workspace_table_request_body.records = records

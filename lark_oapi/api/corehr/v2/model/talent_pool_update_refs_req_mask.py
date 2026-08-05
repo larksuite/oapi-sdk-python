@@ -41,27 +41,39 @@ class TalentPoolUpdateRefsReqMaskBuilder(object):
         self._talent_pool_update_refs_req_mask.employment_id = employment_id
         return self
 
-    def tagged_at_date(self, tagged_at_date: str) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def tagged_at_date(
+        self, tagged_at_date: str
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.tagged_at_date = tagged_at_date
         return self
 
-    def reason_for_joining(self, reason_for_joining: List[I18n]) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def reason_for_joining(
+        self, reason_for_joining: List[I18n]
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.reason_for_joining = reason_for_joining
         return self
 
-    def removed_at_date(self, removed_at_date: str) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def removed_at_date(
+        self, removed_at_date: str
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.removed_at_date = removed_at_date
         return self
 
-    def reason_for_removal(self, reason_for_removal: List[I18n]) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def reason_for_removal(
+        self, reason_for_removal: List[I18n]
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.reason_for_removal = reason_for_removal
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.custom_fields = custom_fields
         return self
 
-    def talent_pool_ref(self, talent_pool_ref: str) -> "TalentPoolUpdateRefsReqMaskBuilder":
+    def talent_pool_ref(
+        self, talent_pool_ref: str
+    ) -> "TalentPoolUpdateRefsReqMaskBuilder":
         self._talent_pool_update_refs_req_mask.talent_pool_ref = talent_pool_ref
         return self
 

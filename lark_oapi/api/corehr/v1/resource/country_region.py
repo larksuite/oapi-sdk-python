@@ -19,7 +19,9 @@ class CountryRegion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetCountryRegionRequest, option: Optional[RequestOption] = None) -> GetCountryRegionResponse:
+    def get(
+        self, request: GetCountryRegionRequest, option: Optional[RequestOption] = None
+    ) -> GetCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class CountryRegion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCountryRegionResponse)
+        response: GetCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCountryRegionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetCountryRegionRequest,
-                   option: Optional[RequestOption] = None) -> GetCountryRegionResponse:
+    async def aget(
+        self, request: GetCountryRegionRequest, option: Optional[RequestOption] = None
+    ) -> GetCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,13 +56,16 @@ class CountryRegion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCountryRegionResponse)
+        response: GetCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCountryRegionResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListCountryRegionRequest,
-             option: Optional[RequestOption] = None) -> ListCountryRegionResponse:
+    def list(
+        self, request: ListCountryRegionRequest, option: Optional[RequestOption] = None
+    ) -> ListCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,13 +80,16 @@ class CountryRegion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCountryRegionResponse)
+        response: ListCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCountryRegionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCountryRegionRequest,
-                    option: Optional[RequestOption] = None) -> ListCountryRegionResponse:
+    async def alist(
+        self, request: ListCountryRegionRequest, option: Optional[RequestOption] = None
+    ) -> ListCountryRegionResponse:
         if option is None:
             option = RequestOption()
 
@@ -89,7 +100,9 @@ class CountryRegion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCountryRegionResponse)
+        response: ListCountryRegionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCountryRegionResponse
+        )
         response.raw = resp
 
         return response

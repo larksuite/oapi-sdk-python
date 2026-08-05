@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .app_table_view_property_filter_info import AppTableViewPropertyFilterInfo
-from .app_table_view_property_hierarchy_config import AppTableViewPropertyHierarchyConfig
+from .app_table_view_property_hierarchy_config import (
+    AppTableViewPropertyHierarchyConfig,
+)
 
 
 class AppTableViewProperty(object):
@@ -28,7 +30,9 @@ class AppTableViewPropertyBuilder(object):
     def __init__(self) -> None:
         self._app_table_view_property = AppTableViewProperty()
 
-    def filter_info(self, filter_info: AppTableViewPropertyFilterInfo) -> "AppTableViewPropertyBuilder":
+    def filter_info(
+        self, filter_info: AppTableViewPropertyFilterInfo
+    ) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.filter_info = filter_info
         return self
 
@@ -36,7 +40,9 @@ class AppTableViewPropertyBuilder(object):
         self._app_table_view_property.hidden_fields = hidden_fields
         return self
 
-    def hierarchy_config(self, hierarchy_config: AppTableViewPropertyHierarchyConfig) -> "AppTableViewPropertyBuilder":
+    def hierarchy_config(
+        self, hierarchy_config: AppTableViewPropertyHierarchyConfig
+    ) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.hierarchy_config = hierarchy_config
         return self
 

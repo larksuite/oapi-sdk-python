@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_participant_quality_list_request import GetParticipantQualityListRequest
-from ..model.get_participant_quality_list_response import GetParticipantQualityListResponse
+from ..model.get_participant_quality_list_request import (
+    GetParticipantQualityListRequest,
+)
+from ..model.get_participant_quality_list_response import (
+    GetParticipantQualityListResponse,
+)
 
 
 class ParticipantQualityList(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetParticipantQualityListRequest,
-            option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
+    def get(
+        self,
+        request: GetParticipantQualityListRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetParticipantQualityListResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ParticipantQualityList(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetParticipantQualityListResponse)
+        response: GetParticipantQualityListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetParticipantQualityListResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetParticipantQualityListRequest,
-                   option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
+    async def aget(
+        self,
+        request: GetParticipantQualityListRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetParticipantQualityListResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ParticipantQualityList(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetParticipantQualityListResponse)
+        response: GetParticipantQualityListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetParticipantQualityListResponse
+        )
         response.raw = resp
 
         return response

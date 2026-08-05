@@ -43,7 +43,9 @@ class AgentScheduleBuilder(object):
         self._agent_schedule.schedule = schedule
         return self
 
-    def agent_skills(self, agent_skills: List[AgentSkillLessInfo]) -> "AgentScheduleBuilder":
+    def agent_skills(
+        self, agent_skills: List[AgentSkillLessInfo]
+    ) -> "AgentScheduleBuilder":
         self._agent_schedule.agent_skills = agent_skills
         return self
 

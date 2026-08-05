@@ -24,11 +24,15 @@ class DepartmentDisplayInfoBuilder(object):
     def __init__(self) -> None:
         self._department_display_info = DepartmentDisplayInfo()
 
-    def profile_node_path_type(self, profile_node_path_type: int) -> "DepartmentDisplayInfoBuilder":
+    def profile_node_path_type(
+        self, profile_node_path_type: int
+    ) -> "DepartmentDisplayInfoBuilder":
         self._department_display_info.profile_node_path_type = profile_node_path_type
         return self
 
-    def chatter_node_path_type(self, chatter_node_path_type: int) -> "DepartmentDisplayInfoBuilder":
+    def chatter_node_path_type(
+        self, chatter_node_path_type: int
+    ) -> "DepartmentDisplayInfoBuilder":
         self._department_display_info.chatter_node_path_type = chatter_node_path_type
         return self
 

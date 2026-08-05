@@ -17,7 +17,6 @@ class CreateBadgeRequest(BaseRequest):
 
 
 class CreateBadgeRequestBuilder(object):
-
     def __init__(self) -> None:
         create_badge_request = CreateBadgeRequest()
         create_badge_request.http_method = HttpMethod.POST

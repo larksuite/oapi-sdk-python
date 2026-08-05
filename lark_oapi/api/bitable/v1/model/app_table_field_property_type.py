@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .app_table_field_property_type_ui_property import AppTableFieldPropertyTypeUiProperty
+from .app_table_field_property_type_ui_property import (
+    AppTableFieldPropertyTypeUiProperty,
+)
 
 
 class AppTableFieldPropertyType(object):
@@ -31,7 +33,9 @@ class AppTableFieldPropertyTypeBuilder(object):
         self._app_table_field_property_type.data_type = data_type
         return self
 
-    def ui_property(self, ui_property: AppTableFieldPropertyTypeUiProperty) -> "AppTableFieldPropertyTypeBuilder":
+    def ui_property(
+        self, ui_property: AppTableFieldPropertyTypeUiProperty
+    ) -> "AppTableFieldPropertyTypeBuilder":
         self._app_table_field_property_type.ui_property = ui_property
         return self
 

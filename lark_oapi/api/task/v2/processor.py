@@ -6,7 +6,9 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_task_task_update_user_access_v2 import P2TaskTaskUpdateUserAccessV2
 
 
-class P2TaskTaskUpdateUserAccessV2Processor(IEventProcessor[P2TaskTaskUpdateUserAccessV2]):
+class P2TaskTaskUpdateUserAccessV2Processor(
+    IEventProcessor[P2TaskTaskUpdateUserAccessV2]
+):
     def __init__(self, f: Callable[[P2TaskTaskUpdateUserAccessV2], None]):
         self.f = f
 

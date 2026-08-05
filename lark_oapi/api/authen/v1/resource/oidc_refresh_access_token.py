@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_oidc_refresh_access_token_request import CreateOidcRefreshAccessTokenRequest
-from ..model.create_oidc_refresh_access_token_response import CreateOidcRefreshAccessTokenResponse
+from ..model.create_oidc_refresh_access_token_request import (
+    CreateOidcRefreshAccessTokenRequest,
+)
+from ..model.create_oidc_refresh_access_token_response import (
+    CreateOidcRefreshAccessTokenResponse,
+)
 
 
 class OidcRefreshAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateOidcRefreshAccessTokenRequest,
-               option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
+    def create(
+        self,
+        request: CreateOidcRefreshAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateOidcRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class OidcRefreshAccessToken(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateOidcRefreshAccessTokenResponse)
+        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateOidcRefreshAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateOidcRefreshAccessTokenRequest,
-                      option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
+    async def acreate(
+        self,
+        request: CreateOidcRefreshAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateOidcRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class OidcRefreshAccessToken(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateOidcRefreshAccessTokenResponse)
+        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateOidcRefreshAccessTokenResponse
+        )
         response.raw = resp
 
         return response

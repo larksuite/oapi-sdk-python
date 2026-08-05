@@ -41,7 +41,9 @@ class ProfileSettingEmergencyContactBuilder(object):
         self._profile_setting_emergency_contact.legal_name = legal_name
         return self
 
-    def relationship(self, relationship: str) -> "ProfileSettingEmergencyContactBuilder":
+    def relationship(
+        self, relationship: str
+    ) -> "ProfileSettingEmergencyContactBuilder":
         self._profile_setting_emergency_contact.relationship = relationship
         return self
 
@@ -49,7 +51,9 @@ class ProfileSettingEmergencyContactBuilder(object):
         self._profile_setting_emergency_contact.is_primary = is_primary
         return self
 
-    def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingEmergencyContactBuilder":
+    def phone(
+        self, phone: ProfileSettingPhone
+    ) -> "ProfileSettingEmergencyContactBuilder":
         self._profile_setting_emergency_contact.phone = phone
         return self
 
@@ -57,11 +61,15 @@ class ProfileSettingEmergencyContactBuilder(object):
         self._profile_setting_emergency_contact.email = email
         return self
 
-    def address(self, address: ProfileSettingAddress) -> "ProfileSettingEmergencyContactBuilder":
+    def address(
+        self, address: ProfileSettingAddress
+    ) -> "ProfileSettingEmergencyContactBuilder":
         self._profile_setting_emergency_contact.address = address
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEmergencyContactBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingEmergencyContactBuilder":
         self._profile_setting_emergency_contact.custom_fields = custom_fields
         return self
 

@@ -9,7 +9,6 @@ from .patch_cost_center_response_body import PatchCostCenterResponseBody
 class PatchCostCenterResponse(BaseResponse):
     _types = {
         "data": PatchCostCenterResponseBody,
-
     }
 
     def __init__(self, d=None):

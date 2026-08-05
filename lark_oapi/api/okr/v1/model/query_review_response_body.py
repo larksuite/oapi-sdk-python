@@ -23,7 +23,9 @@ class QueryReviewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_response_body = QueryReviewResponseBody()
 
-    def review_list(self, review_list: List[OkrReview]) -> "QueryReviewResponseBodyBuilder":
+    def review_list(
+        self, review_list: List[OkrReview]
+    ) -> "QueryReviewResponseBodyBuilder":
         self._query_review_response_body.review_list = review_list
         return self
 

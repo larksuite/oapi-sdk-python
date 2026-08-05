@@ -20,7 +20,6 @@ class ListInstanceRequest(BaseRequest):
 
 
 class ListInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_instance_request = ListInstanceRequest()
         list_instance_request.http_method = HttpMethod.GET

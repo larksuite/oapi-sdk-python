@@ -9,7 +9,6 @@ from .list_admin_dept_stat_response_body import ListAdminDeptStatResponseBody
 class ListAdminDeptStatResponse(BaseResponse):
     _types = {
         "data": ListAdminDeptStatResponseBody,
-
     }
 
     def __init__(self, d=None):

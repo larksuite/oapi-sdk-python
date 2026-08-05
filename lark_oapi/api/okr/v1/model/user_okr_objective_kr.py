@@ -47,7 +47,9 @@ class UserOkrObjectiveKrBuilder(object):
         self._user_okr_objective_kr.weight = weight
         return self
 
-    def progress_rate(self, progress_rate: UserOkrObjectiveProgressRate) -> "UserOkrObjectiveKrBuilder":
+    def progress_rate(
+        self, progress_rate: UserOkrObjectiveProgressRate
+    ) -> "UserOkrObjectiveKrBuilder":
         self._user_okr_objective_kr.progress_rate = progress_rate
         return self
 

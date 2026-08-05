@@ -20,13 +20,19 @@ class CreateWhiteboardNodeRequest(BaseRequest):
 
 
 class CreateWhiteboardNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         create_whiteboard_node_request = CreateWhiteboardNodeRequest()
         create_whiteboard_node_request.http_method = HttpMethod.POST
-        create_whiteboard_node_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
-        create_whiteboard_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_whiteboard_node_request: CreateWhiteboardNodeRequest = create_whiteboard_node_request
+        create_whiteboard_node_request.uri = (
+            "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
+        )
+        create_whiteboard_node_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_whiteboard_node_request: CreateWhiteboardNodeRequest = (
+            create_whiteboard_node_request
+        )
 
     def client_token(self, client_token: str) -> "CreateWhiteboardNodeRequestBuilder":
         self._create_whiteboard_node_request.client_token = client_token
@@ -43,7 +49,9 @@ class CreateWhiteboardNodeRequestBuilder(object):
         self._create_whiteboard_node_request.paths["whiteboard_id"] = str(whiteboard_id)
         return self
 
-    def request_body(self, request_body: CreateWhiteboardNodeRequestBody) -> "CreateWhiteboardNodeRequestBuilder":
+    def request_body(
+        self, request_body: CreateWhiteboardNodeRequestBody
+    ) -> "CreateWhiteboardNodeRequestBuilder":
         self._create_whiteboard_node_request.request_body = request_body
         self._create_whiteboard_node_request.body = request_body
         return self

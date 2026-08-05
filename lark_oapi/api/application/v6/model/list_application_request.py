@@ -22,13 +22,14 @@ class ListApplicationRequest(BaseRequest):
 
 
 class ListApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_application_request = ListApplicationRequest()
         list_application_request.http_method = HttpMethod.GET
         list_application_request.uri = "/open-apis/application/v6/applications"
         list_application_request.token_types = {AccessTokenType.TENANT}
-        self._list_application_request: ListApplicationRequest = list_application_request
+        self._list_application_request: ListApplicationRequest = (
+            list_application_request
+        )
 
     def page_size(self, page_size: int) -> "ListApplicationRequestBuilder":
         self._list_application_request.page_size = page_size

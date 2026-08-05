@@ -36,7 +36,9 @@ class SignatureTemplateContentItemBuilder(object):
         self._signature_template_content_item.content_type = content_type
         return self
 
-    def filter_apiname(self, filter_apiname: str) -> "SignatureTemplateContentItemBuilder":
+    def filter_apiname(
+        self, filter_apiname: str
+    ) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.filter_apiname = filter_apiname
         return self
 

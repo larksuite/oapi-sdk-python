@@ -29,7 +29,9 @@ class TalentInterviewBuilder(object):
         self._talent_interview.application_id = application_id
         return self
 
-    def interview_list(self, interview_list: List[InterviewExtend]) -> "TalentInterviewBuilder":
+    def interview_list(
+        self, interview_list: List[InterviewExtend]
+    ) -> "TalentInterviewBuilder":
         self._talent_interview.interview_list = interview_list
         return self
 

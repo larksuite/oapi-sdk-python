@@ -19,13 +19,14 @@ class GetTableListAppTableRequest(BaseRequest):
 
 
 class GetTableListAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         get_table_list_app_table_request = GetTableListAppTableRequest()
         get_table_list_app_table_request.http_method = HttpMethod.GET
         get_table_list_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables"
         get_table_list_app_table_request.token_types = {AccessTokenType.USER}
-        self._get_table_list_app_table_request: GetTableListAppTableRequest = get_table_list_app_table_request
+        self._get_table_list_app_table_request: GetTableListAppTableRequest = (
+            get_table_list_app_table_request
+        )
 
     def page_size(self, page_size: int) -> "GetTableListAppTableRequestBuilder":
         self._get_table_list_app_table_request.page_size = page_size

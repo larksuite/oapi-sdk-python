@@ -20,9 +20,13 @@ class UpdateGridColumnWidthRatioRequest(object):
 
 class UpdateGridColumnWidthRatioRequestBuilder(object):
     def __init__(self) -> None:
-        self._update_grid_column_width_ratio_request = UpdateGridColumnWidthRatioRequest()
+        self._update_grid_column_width_ratio_request = (
+            UpdateGridColumnWidthRatioRequest()
+        )
 
-    def width_ratios(self, width_ratios: List[int]) -> "UpdateGridColumnWidthRatioRequestBuilder":
+    def width_ratios(
+        self, width_ratios: List[int]
+    ) -> "UpdateGridColumnWidthRatioRequestBuilder":
         self._update_grid_column_width_ratio_request.width_ratios = width_ratios
         return self
 

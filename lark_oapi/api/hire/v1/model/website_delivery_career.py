@@ -53,7 +53,9 @@ class WebsiteDeliveryCareerBuilder(object):
         self._website_delivery_career.company = company
         return self
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCareerBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.customized_data = customized_data
         return self
 

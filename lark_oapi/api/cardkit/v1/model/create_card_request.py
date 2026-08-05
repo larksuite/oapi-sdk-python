@@ -17,7 +17,6 @@ class CreateCardRequest(BaseRequest):
 
 
 class CreateCardRequestBuilder(object):
-
     def __init__(self) -> None:
         create_card_request = CreateCardRequest()
         create_card_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateCardRequestBuilder(object):
         create_card_request.token_types = {AccessTokenType.TENANT}
         self._create_card_request: CreateCardRequest = create_card_request
 
-    def request_body(self, request_body: CreateCardRequestBody) -> "CreateCardRequestBuilder":
+    def request_body(
+        self, request_body: CreateCardRequestBody
+    ) -> "CreateCardRequestBuilder":
         self._create_card_request.request_body = request_body
         self._create_card_request.body = request_body
         return self

@@ -9,7 +9,6 @@ from .patch_mailgroup_response_body import PatchMailgroupResponseBody
 class PatchMailgroupResponse(BaseResponse):
     _types = {
         "data": PatchMailgroupResponseBody,
-
     }
 
     def __init__(self, d=None):

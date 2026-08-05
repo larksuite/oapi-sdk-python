@@ -18,13 +18,19 @@ class DeleteTaskCollaboratorRequest(BaseRequest):
 
 
 class DeleteTaskCollaboratorRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_task_collaborator_request = DeleteTaskCollaboratorRequest()
         delete_task_collaborator_request.http_method = HttpMethod.DELETE
-        delete_task_collaborator_request.uri = "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
-        delete_task_collaborator_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_task_collaborator_request: DeleteTaskCollaboratorRequest = delete_task_collaborator_request
+        delete_task_collaborator_request.uri = (
+            "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+        )
+        delete_task_collaborator_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_task_collaborator_request: DeleteTaskCollaboratorRequest = (
+            delete_task_collaborator_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "DeleteTaskCollaboratorRequestBuilder":
         self._delete_task_collaborator_request.user_id_type = user_id_type
@@ -36,9 +42,13 @@ class DeleteTaskCollaboratorRequestBuilder(object):
         self._delete_task_collaborator_request.paths["task_id"] = str(task_id)
         return self
 
-    def collaborator_id(self, collaborator_id: str) -> "DeleteTaskCollaboratorRequestBuilder":
+    def collaborator_id(
+        self, collaborator_id: str
+    ) -> "DeleteTaskCollaboratorRequestBuilder":
         self._delete_task_collaborator_request.collaborator_id = collaborator_id
-        self._delete_task_collaborator_request.paths["collaborator_id"] = str(collaborator_id)
+        self._delete_task_collaborator_request.paths["collaborator_id"] = str(
+            collaborator_id
+        )
         return self
 
     def build(self) -> DeleteTaskCollaboratorRequest:

@@ -19,8 +19,9 @@ class MetricDetail(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def import_(self, request: ImportMetricDetailRequest,
-                option: Optional[RequestOption] = None) -> ImportMetricDetailResponse:
+    def import_(
+        self, request: ImportMetricDetailRequest, option: Optional[RequestOption] = None
+    ) -> ImportMetricDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class MetricDetail(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ImportMetricDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), ImportMetricDetailResponse)
+        response: ImportMetricDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ImportMetricDetailResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aimport_(self, request: ImportMetricDetailRequest,
-                       option: Optional[RequestOption] = None) -> ImportMetricDetailResponse:
+    async def aimport_(
+        self, request: ImportMetricDetailRequest, option: Optional[RequestOption] = None
+    ) -> ImportMetricDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,16 @@ class MetricDetail(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ImportMetricDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), ImportMetricDetailResponse)
+        response: ImportMetricDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ImportMetricDetailResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryMetricDetailRequest,
-              option: Optional[RequestOption] = None) -> QueryMetricDetailResponse:
+    def query(
+        self, request: QueryMetricDetailRequest, option: Optional[RequestOption] = None
+    ) -> QueryMetricDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +80,16 @@ class MetricDetail(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricDetailResponse)
+        response: QueryMetricDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricDetailResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryMetricDetailRequest,
-                     option: Optional[RequestOption] = None) -> QueryMetricDetailResponse:
+    async def aquery(
+        self, request: QueryMetricDetailRequest, option: Optional[RequestOption] = None
+    ) -> QueryMetricDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +100,9 @@ class MetricDetail(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricDetailResponse)
+        response: QueryMetricDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricDetailResponse
+        )
         response.raw = resp
 
         return response

@@ -9,20 +9,35 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_delete_eco_background_check_package_request import BatchDeleteEcoBackgroundCheckPackageRequest
-from ..model.batch_delete_eco_background_check_package_response import BatchDeleteEcoBackgroundCheckPackageResponse
-from ..model.batch_update_eco_background_check_package_request import BatchUpdateEcoBackgroundCheckPackageRequest
-from ..model.batch_update_eco_background_check_package_response import BatchUpdateEcoBackgroundCheckPackageResponse
-from ..model.create_eco_background_check_package_request import CreateEcoBackgroundCheckPackageRequest
-from ..model.create_eco_background_check_package_response import CreateEcoBackgroundCheckPackageResponse
+from ..model.batch_delete_eco_background_check_package_request import (
+    BatchDeleteEcoBackgroundCheckPackageRequest,
+)
+from ..model.batch_delete_eco_background_check_package_response import (
+    BatchDeleteEcoBackgroundCheckPackageResponse,
+)
+from ..model.batch_update_eco_background_check_package_request import (
+    BatchUpdateEcoBackgroundCheckPackageRequest,
+)
+from ..model.batch_update_eco_background_check_package_response import (
+    BatchUpdateEcoBackgroundCheckPackageResponse,
+)
+from ..model.create_eco_background_check_package_request import (
+    CreateEcoBackgroundCheckPackageRequest,
+)
+from ..model.create_eco_background_check_package_response import (
+    CreateEcoBackgroundCheckPackageResponse,
+)
 
 
 class EcoBackgroundCheckPackage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteEcoBackgroundCheckPackageRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckPackageResponse:
+    def batch_delete(
+        self,
+        request: BatchDeleteEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +52,18 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                BatchDeleteEcoBackgroundCheckPackageResponse)
+        response: BatchDeleteEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_delete(self, request: BatchDeleteEcoBackgroundCheckPackageRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckPackageResponse:
+    async def abatch_delete(
+        self,
+        request: BatchDeleteEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +74,18 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                BatchDeleteEcoBackgroundCheckPackageResponse)
+        response: BatchDeleteEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_update(self, request: BatchUpdateEcoBackgroundCheckPackageRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckPackageResponse:
+    def batch_update(
+        self,
+        request: BatchUpdateEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +100,18 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                BatchUpdateEcoBackgroundCheckPackageResponse)
+        response: BatchUpdateEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_update(self, request: BatchUpdateEcoBackgroundCheckPackageRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckPackageResponse:
+    async def abatch_update(
+        self,
+        request: BatchUpdateEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +122,18 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                BatchUpdateEcoBackgroundCheckPackageResponse)
+        response: BatchUpdateEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateEcoBackgroundCheckPackageRequest,
-               option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckPackageResponse:
+    def create(
+        self,
+        request: CreateEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +148,18 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           CreateEcoBackgroundCheckPackageResponse)
+        response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateEcoBackgroundCheckPackageRequest,
-                      option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckPackageResponse:
+    async def acreate(
+        self,
+        request: CreateEcoBackgroundCheckPackageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateEcoBackgroundCheckPackageResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +170,9 @@ class EcoBackgroundCheckPackage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           CreateEcoBackgroundCheckPackageResponse)
+        response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEcoBackgroundCheckPackageResponse
+        )
         response.raw = resp
 
         return response

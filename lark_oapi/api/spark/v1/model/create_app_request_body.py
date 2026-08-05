@@ -10,6 +10,7 @@ class CreateAppRequestBody(object):
         "app_type": str,
         "description": str,
         "icon_url": str,
+        "source_agent": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class CreateAppRequestBody(object):
         self.app_type: Optional[str] = None
         self.description: Optional[str] = None
         self.icon_url: Optional[str] = None
+        self.source_agent: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class CreateAppRequestBodyBuilder(object):
 
     def icon_url(self, icon_url: str) -> "CreateAppRequestBodyBuilder":
         self._create_app_request_body.icon_url = icon_url
+        return self
+
+    def source_agent(self, source_agent: str) -> "CreateAppRequestBodyBuilder":
+        self._create_app_request_body.source_agent = source_agent
         return self
 
     def build(self) -> "CreateAppRequestBody":

@@ -45,6 +45,7 @@ from .mention_doc import *
 from .mention_user import *
 from .merge_table_cells_request import *
 from .mindnote import *
+from .minutes import *
 from .objective_id_with_kr_id import *
 from .okr import *
 from .okr_key_result import *
@@ -86,6 +87,9 @@ from .update_task_request import *
 from .update_text_elements_request import *
 from .update_text_request import *
 from .update_text_style_request import *
+from .vc_summary_tab import *
+from .vc_tabs import *
+from .vc_transcript_tab import *
 from .view import *
 from .wiki_catalog import *
 from .get_chat_announcement_request import *

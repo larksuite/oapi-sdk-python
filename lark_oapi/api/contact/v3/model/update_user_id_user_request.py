@@ -19,13 +19,16 @@ class UpdateUserIdUserRequest(BaseRequest):
 
 
 class UpdateUserIdUserRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_id_user_request = UpdateUserIdUserRequest()
         update_user_id_user_request.http_method = HttpMethod.PATCH
-        update_user_id_user_request.uri = "/open-apis/contact/v3/users/:user_id/update_user_id"
+        update_user_id_user_request.uri = (
+            "/open-apis/contact/v3/users/:user_id/update_user_id"
+        )
         update_user_id_user_request.token_types = {AccessTokenType.TENANT}
-        self._update_user_id_user_request: UpdateUserIdUserRequest = update_user_id_user_request
+        self._update_user_id_user_request: UpdateUserIdUserRequest = (
+            update_user_id_user_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateUserIdUserRequestBuilder":
         self._update_user_id_user_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class UpdateUserIdUserRequestBuilder(object):
         self._update_user_id_user_request.paths["user_id"] = str(user_id)
         return self
 
-    def request_body(self, request_body: UpdateUserIdUserRequestBody) -> "UpdateUserIdUserRequestBuilder":
+    def request_body(
+        self, request_body: UpdateUserIdUserRequestBody
+    ) -> "UpdateUserIdUserRequestBuilder":
         self._update_user_id_user_request.request_body = request_body
         self._update_user_id_user_request.body = request_body
         return self

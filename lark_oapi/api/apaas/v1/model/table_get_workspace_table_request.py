@@ -17,17 +17,22 @@ class TableGetWorkspaceTableRequest(BaseRequest):
 
 
 class TableGetWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         table_get_workspace_table_request = TableGetWorkspaceTableRequest()
         table_get_workspace_table_request.http_method = HttpMethod.GET
-        table_get_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
+        table_get_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name"
+        )
         table_get_workspace_table_request.token_types = {AccessTokenType.USER}
-        self._table_get_workspace_table_request: TableGetWorkspaceTableRequest = table_get_workspace_table_request
+        self._table_get_workspace_table_request: TableGetWorkspaceTableRequest = (
+            table_get_workspace_table_request
+        )
 
     def workspace_id(self, workspace_id: str) -> "TableGetWorkspaceTableRequestBuilder":
         self._table_get_workspace_table_request.workspace_id = workspace_id
-        self._table_get_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._table_get_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
     def table_name(self, table_name: str) -> "TableGetWorkspaceTableRequestBuilder":

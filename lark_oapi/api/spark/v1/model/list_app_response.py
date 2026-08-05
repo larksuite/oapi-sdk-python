@@ -9,7 +9,6 @@ from .list_app_response_body import ListAppResponseBody
 class ListAppResponse(BaseResponse):
     _types = {
         "data": ListAppResponseBody,
-
     }
 
     def __init__(self, d=None):

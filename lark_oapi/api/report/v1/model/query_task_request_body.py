@@ -32,7 +32,9 @@ class QueryTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_task_request_body = QueryTaskRequestBody()
 
-    def commit_start_time(self, commit_start_time: int) -> "QueryTaskRequestBodyBuilder":
+    def commit_start_time(
+        self, commit_start_time: int
+    ) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.commit_start_time = commit_start_time
         return self
 

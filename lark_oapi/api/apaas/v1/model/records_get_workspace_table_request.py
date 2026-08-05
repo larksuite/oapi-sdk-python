@@ -22,13 +22,16 @@ class RecordsGetWorkspaceTableRequest(BaseRequest):
 
 
 class RecordsGetWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         records_get_workspace_table_request = RecordsGetWorkspaceTableRequest()
         records_get_workspace_table_request.http_method = HttpMethod.GET
-        records_get_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        records_get_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        )
         records_get_workspace_table_request.token_types = {AccessTokenType.USER}
-        self._records_get_workspace_table_request: RecordsGetWorkspaceTableRequest = records_get_workspace_table_request
+        self._records_get_workspace_table_request: RecordsGetWorkspaceTableRequest = (
+            records_get_workspace_table_request
+        )
 
     def page_size(self, page_size: int) -> "RecordsGetWorkspaceTableRequestBuilder":
         self._records_get_workspace_table_request.page_size = page_size
@@ -55,9 +58,13 @@ class RecordsGetWorkspaceTableRequestBuilder(object):
         self._records_get_workspace_table_request.add_query("order", order)
         return self
 
-    def workspace_id(self, workspace_id: str) -> "RecordsGetWorkspaceTableRequestBuilder":
+    def workspace_id(
+        self, workspace_id: str
+    ) -> "RecordsGetWorkspaceTableRequestBuilder":
         self._records_get_workspace_table_request.workspace_id = workspace_id
-        self._records_get_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._records_get_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
     def table_name(self, table_name: str) -> "RecordsGetWorkspaceTableRequestBuilder":

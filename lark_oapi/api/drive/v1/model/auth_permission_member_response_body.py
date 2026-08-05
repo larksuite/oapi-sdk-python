@@ -22,7 +22,9 @@ class AuthPermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._auth_permission_member_response_body = AuthPermissionMemberResponseBody()
 
-    def auth_result(self, auth_result: bool) -> "AuthPermissionMemberResponseBodyBuilder":
+    def auth_result(
+        self, auth_result: bool
+    ) -> "AuthPermissionMemberResponseBodyBuilder":
         self._auth_permission_member_response_body.auth_result = auth_result
         return self
 

@@ -16,7 +16,6 @@ class QueryShiftRequest(BaseRequest):
 
 
 class QueryShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         query_shift_request = QueryShiftRequest()
         query_shift_request.http_method = HttpMethod.POST

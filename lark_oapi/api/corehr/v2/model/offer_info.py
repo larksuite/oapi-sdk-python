@@ -130,7 +130,9 @@ class OfferInfo(object):
         self.check_in_time: Optional[str] = None
         self.check_in_method: Optional[str] = None
         self.seniority_date: Optional[str] = None
-        self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformation]] = None
+        self.seniority_adjust_information_list: Optional[
+            List[PrehireSeniorityAdjustInformation]
+        ] = None
         self.notice_period_probation_voluntary: Optional[NoticePeriodDetail] = None
         self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
         self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
@@ -269,7 +271,9 @@ class OfferInfoBuilder(object):
         self._offer_info.entry_mode = entry_mode
         return self
 
-    def social_security_city_id(self, social_security_city_id: str) -> "OfferInfoBuilder":
+    def social_security_city_id(
+        self, social_security_city_id: str
+    ) -> "OfferInfoBuilder":
         self._offer_info.social_security_city_id = social_security_city_id
         return self
 
@@ -281,7 +285,9 @@ class OfferInfoBuilder(object):
         self._offer_info.company = company
         return self
 
-    def cost_center_rate(self, cost_center_rate: List[JobDataCostCenter]) -> "OfferInfoBuilder":
+    def cost_center_rate(
+        self, cost_center_rate: List[JobDataCostCenter]
+    ) -> "OfferInfoBuilder":
         self._offer_info.cost_center_rate = cost_center_rate
         return self
 
@@ -349,29 +355,44 @@ class OfferInfoBuilder(object):
         self._offer_info.seniority_date = seniority_date
         return self
 
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
-        PrehireSeniorityAdjustInformation]) -> "OfferInfoBuilder":
-        self._offer_info.seniority_adjust_information_list = seniority_adjust_information_list
+    def seniority_adjust_information_list(
+        self, seniority_adjust_information_list: List[PrehireSeniorityAdjustInformation]
+    ) -> "OfferInfoBuilder":
+        self._offer_info.seniority_adjust_information_list = (
+            seniority_adjust_information_list
+        )
         return self
 
-    def notice_period_probation_voluntary(self,
-                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "OfferInfoBuilder":
-        self._offer_info.notice_period_probation_voluntary = notice_period_probation_voluntary
+    def notice_period_probation_voluntary(
+        self, notice_period_probation_voluntary: NoticePeriodDetail
+    ) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_probation_voluntary = (
+            notice_period_probation_voluntary
+        )
         return self
 
-    def notice_period_probation_involuntary(self,
-                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "OfferInfoBuilder":
-        self._offer_info.notice_period_probation_involuntary = notice_period_probation_involuntary
+    def notice_period_probation_involuntary(
+        self, notice_period_probation_involuntary: NoticePeriodDetail
+    ) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_probation_involuntary = (
+            notice_period_probation_involuntary
+        )
         return self
 
-    def notice_period_positive_voluntary(self,
-                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "OfferInfoBuilder":
-        self._offer_info.notice_period_positive_voluntary = notice_period_positive_voluntary
+    def notice_period_positive_voluntary(
+        self, notice_period_positive_voluntary: NoticePeriodDetail
+    ) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_positive_voluntary = (
+            notice_period_positive_voluntary
+        )
         return self
 
-    def notice_period_positive_involuntary(self,
-                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "OfferInfoBuilder":
-        self._offer_info.notice_period_positive_involuntary = notice_period_positive_involuntary
+    def notice_period_positive_involuntary(
+        self, notice_period_positive_involuntary: NoticePeriodDetail
+    ) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_positive_involuntary = (
+            notice_period_positive_involuntary
+        )
         return self
 
     def condition_worker(self, condition_worker: bool) -> "OfferInfoBuilder":
@@ -382,7 +403,9 @@ class OfferInfoBuilder(object):
         self._offer_info.non_compete_covenant = non_compete_covenant
         return self
 
-    def company_sponsored_visa(self, company_sponsored_visa: bool) -> "OfferInfoBuilder":
+    def company_sponsored_visa(
+        self, company_sponsored_visa: bool
+    ) -> "OfferInfoBuilder":
         self._offer_info.company_sponsored_visa = company_sponsored_visa
         return self
 
@@ -398,7 +421,9 @@ class OfferInfoBuilder(object):
         self._offer_info.pathway = pathway
         return self
 
-    def default_cost_center(self, default_cost_center: PrehireDefaultCostCenterUpdate) -> "OfferInfoBuilder":
+    def default_cost_center(
+        self, default_cost_center: PrehireDefaultCostCenterUpdate
+    ) -> "OfferInfoBuilder":
         self._offer_info.default_cost_center = default_cost_center
         return self
 
@@ -414,7 +439,9 @@ class OfferInfoBuilder(object):
         self._offer_info.reuse_feishu_account = reuse_feishu_account
         return self
 
-    def reused_feishu_account_id(self, reused_feishu_account_id: str) -> "OfferInfoBuilder":
+    def reused_feishu_account_id(
+        self, reused_feishu_account_id: str
+    ) -> "OfferInfoBuilder":
         self._offer_info.reused_feishu_account_id = reused_feishu_account_id
         return self
 

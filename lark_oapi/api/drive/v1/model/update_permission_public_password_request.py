@@ -17,12 +17,18 @@ class UpdatePermissionPublicPasswordRequest(BaseRequest):
 
 
 class UpdatePermissionPublicPasswordRequestBuilder(object):
-
     def __init__(self) -> None:
-        update_permission_public_password_request = UpdatePermissionPublicPasswordRequest()
+        update_permission_public_password_request = (
+            UpdatePermissionPublicPasswordRequest()
+        )
         update_permission_public_password_request.http_method = HttpMethod.PUT
-        update_permission_public_password_request.uri = "/open-apis/drive/v1/permissions/:token/public/password"
-        update_permission_public_password_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        update_permission_public_password_request.uri = (
+            "/open-apis/drive/v1/permissions/:token/public/password"
+        )
+        update_permission_public_password_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._update_permission_public_password_request: UpdatePermissionPublicPasswordRequest = update_permission_public_password_request
 
     def type(self, type: str) -> "UpdatePermissionPublicPasswordRequestBuilder":

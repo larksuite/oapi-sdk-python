@@ -13,7 +13,9 @@ class LeaveBalancesLeaveResponseBody(object):
     }
 
     def __init__(self, d=None):
-        self.employment_leave_balance_list: Optional[List[EmploymentLeaveBalance]] = None
+        self.employment_leave_balance_list: Optional[List[EmploymentLeaveBalance]] = (
+            None
+        )
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         init(self, d, self._types)
@@ -27,9 +29,12 @@ class LeaveBalancesLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._leave_balances_leave_response_body = LeaveBalancesLeaveResponseBody()
 
-    def employment_leave_balance_list(self, employment_leave_balance_list: List[
-        EmploymentLeaveBalance]) -> "LeaveBalancesLeaveResponseBodyBuilder":
-        self._leave_balances_leave_response_body.employment_leave_balance_list = employment_leave_balance_list
+    def employment_leave_balance_list(
+        self, employment_leave_balance_list: List[EmploymentLeaveBalance]
+    ) -> "LeaveBalancesLeaveResponseBodyBuilder":
+        self._leave_balances_leave_response_body.employment_leave_balance_list = (
+            employment_leave_balance_list
+        )
         return self
 
     def has_more(self, has_more: bool) -> "LeaveBalancesLeaveResponseBodyBuilder":

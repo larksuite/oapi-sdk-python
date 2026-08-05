@@ -21,8 +21,11 @@ class UserMailboxAlias(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxAliasRequest,
-               option: Optional[RequestOption] = None) -> CreateUserMailboxAliasResponse:
+    def create(
+        self,
+        request: CreateUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +40,18 @@ class UserMailboxAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateUserMailboxAliasResponse)
+        response: CreateUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserMailboxAliasRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserMailboxAliasResponse:
+    async def acreate(
+        self,
+        request: CreateUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +62,18 @@ class UserMailboxAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateUserMailboxAliasResponse)
+        response: CreateUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteUserMailboxAliasRequest,
-               option: Optional[RequestOption] = None) -> DeleteUserMailboxAliasResponse:
+    def delete(
+        self,
+        request: DeleteUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +88,18 @@ class UserMailboxAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteUserMailboxAliasResponse)
+        response: DeleteUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteUserMailboxAliasRequest,
-                      option: Optional[RequestOption] = None) -> DeleteUserMailboxAliasResponse:
+    async def adelete(
+        self,
+        request: DeleteUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +110,18 @@ class UserMailboxAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteUserMailboxAliasResponse)
+        response: DeleteUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserMailboxAliasRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxAliasResponse:
+    def list(
+        self,
+        request: ListUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +136,18 @@ class UserMailboxAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxAliasResponse)
+        response: ListUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserMailboxAliasRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxAliasResponse:
+    async def alist(
+        self,
+        request: ListUserMailboxAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +158,9 @@ class UserMailboxAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxAliasResponse)
+        response: ListUserMailboxAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxAliasResponse
+        )
         response.raw = resp
 
         return response

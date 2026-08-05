@@ -74,7 +74,9 @@ class EmployeeBuilder(object):
         self._employee.onboard_time = onboard_time
         return self
 
-    def expected_conversion_time(self, expected_conversion_time: int) -> "EmployeeBuilder":
+    def expected_conversion_time(
+        self, expected_conversion_time: int
+    ) -> "EmployeeBuilder":
         self._employee.expected_conversion_time = expected_conversion_time
         return self
 

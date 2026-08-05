@@ -16,9 +16,7 @@ class P2CorehrLocationDeletedV2Data(object):
 
 
 class P2CorehrLocationDeletedV2(EventContext):
-    _types = {
-        "event": P2CorehrLocationDeletedV2Data
-    }
+    _types = {"event": P2CorehrLocationDeletedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

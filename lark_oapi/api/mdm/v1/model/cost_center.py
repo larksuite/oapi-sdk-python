@@ -53,11 +53,15 @@ class CostCenterBuilder(object):
         self._cost_center.cost_center_code = cost_center_code
         return self
 
-    def i18n_cost_center_name(self, i18n_cost_center_name: List[I18nStruct]) -> "CostCenterBuilder":
+    def i18n_cost_center_name(
+        self, i18n_cost_center_name: List[I18nStruct]
+    ) -> "CostCenterBuilder":
         self._cost_center.i18n_cost_center_name = i18n_cost_center_name
         return self
 
-    def responsible_user_union_id(self, responsible_user_union_id: str) -> "CostCenterBuilder":
+    def responsible_user_union_id(
+        self, responsible_user_union_id: str
+    ) -> "CostCenterBuilder":
         self._cost_center.responsible_user_union_id = responsible_user_union_id
         return self
 

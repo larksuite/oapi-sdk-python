@@ -30,19 +30,27 @@ class LeaveNeedPunchCfgBuilder(object):
     def __init__(self) -> None:
         self._leave_need_punch_cfg = LeaveNeedPunchCfg()
 
-    def late_minutes_as_late(self, late_minutes_as_late: int) -> "LeaveNeedPunchCfgBuilder":
+    def late_minutes_as_late(
+        self, late_minutes_as_late: int
+    ) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.late_minutes_as_late = late_minutes_as_late
         return self
 
-    def late_minutes_as_lack(self, late_minutes_as_lack: int) -> "LeaveNeedPunchCfgBuilder":
+    def late_minutes_as_lack(
+        self, late_minutes_as_lack: int
+    ) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.late_minutes_as_lack = late_minutes_as_lack
         return self
 
-    def early_minutes_as_early(self, early_minutes_as_early: int) -> "LeaveNeedPunchCfgBuilder":
+    def early_minutes_as_early(
+        self, early_minutes_as_early: int
+    ) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.early_minutes_as_early = early_minutes_as_early
         return self
 
-    def early_minutes_as_lack(self, early_minutes_as_lack: int) -> "LeaveNeedPunchCfgBuilder":
+    def early_minutes_as_lack(
+        self, early_minutes_as_lack: int
+    ) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.early_minutes_as_lack = early_minutes_as_lack
         return self
 

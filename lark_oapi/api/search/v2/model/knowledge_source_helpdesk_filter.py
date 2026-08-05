@@ -22,7 +22,9 @@ class KnowledgeSourceHelpdeskFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_helpdesk_filter = KnowledgeSourceHelpdeskFilter()
 
-    def helpdesk_ids(self, helpdesk_ids: List[str]) -> "KnowledgeSourceHelpdeskFilterBuilder":
+    def helpdesk_ids(
+        self, helpdesk_ids: List[str]
+    ) -> "KnowledgeSourceHelpdeskFilterBuilder":
         self._knowledge_source_helpdesk_filter.helpdesk_ids = helpdesk_ids
         return self
 

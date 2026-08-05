@@ -32,7 +32,9 @@ class PersonalProfileBuilder(object):
         self._personal_profile.personal_profile_id = personal_profile_id
         return self
 
-    def personal_profile_type(self, personal_profile_type: Enum) -> "PersonalProfileBuilder":
+    def personal_profile_type(
+        self, personal_profile_type: Enum
+    ) -> "PersonalProfileBuilder":
         self._personal_profile.personal_profile_type = personal_profile_type
         return self
 

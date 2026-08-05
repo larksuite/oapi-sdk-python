@@ -19,17 +19,25 @@ class UpdateSpreadsheetSheetFilterRequest(BaseRequest):
 
 
 class UpdateSpreadsheetSheetFilterRequestBuilder(object):
-
     def __init__(self) -> None:
         update_spreadsheet_sheet_filter_request = UpdateSpreadsheetSheetFilterRequest()
         update_spreadsheet_sheet_filter_request.http_method = HttpMethod.PUT
         update_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-        update_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        update_spreadsheet_sheet_filter_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._update_spreadsheet_sheet_filter_request: UpdateSpreadsheetSheetFilterRequest = update_spreadsheet_sheet_filter_request
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "UpdateSpreadsheetSheetFilterRequestBuilder":
-        self._update_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
-        self._update_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "UpdateSpreadsheetSheetFilterRequestBuilder":
+        self._update_spreadsheet_sheet_filter_request.spreadsheet_token = (
+            spreadsheet_token
+        )
+        self._update_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "UpdateSpreadsheetSheetFilterRequestBuilder":
@@ -37,7 +45,9 @@ class UpdateSpreadsheetSheetFilterRequestBuilder(object):
         self._update_spreadsheet_sheet_filter_request.paths["sheet_id"] = str(sheet_id)
         return self
 
-    def request_body(self, request_body: UpdateSheetFilter) -> "UpdateSpreadsheetSheetFilterRequestBuilder":
+    def request_body(
+        self, request_body: UpdateSheetFilter
+    ) -> "UpdateSpreadsheetSheetFilterRequestBuilder":
         self._update_spreadsheet_sheet_filter_request.request_body = request_body
         self._update_spreadsheet_sheet_filter_request.body = request_body
         return self

@@ -24,7 +24,9 @@ class RemoveCustomFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_custom_field_request_body = RemoveCustomFieldRequestBody()
 
-    def resource_type(self, resource_type: str) -> "RemoveCustomFieldRequestBodyBuilder":
+    def resource_type(
+        self, resource_type: str
+    ) -> "RemoveCustomFieldRequestBodyBuilder":
         self._remove_custom_field_request_body.resource_type = resource_type
         return self
 

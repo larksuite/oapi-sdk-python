@@ -20,9 +20,13 @@ class RemoveRoleAssignAuthorizationResponseBody(object):
 
 class RemoveRoleAssignAuthorizationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._remove_role_assign_authorization_response_body = RemoveRoleAssignAuthorizationResponseBody()
+        self._remove_role_assign_authorization_response_body = (
+            RemoveRoleAssignAuthorizationResponseBody()
+        )
 
-    def assign_id(self, assign_id: str) -> "RemoveRoleAssignAuthorizationResponseBodyBuilder":
+    def assign_id(
+        self, assign_id: str
+    ) -> "RemoveRoleAssignAuthorizationResponseBodyBuilder":
         self._remove_role_assign_authorization_response_body.assign_id = assign_id
         return self
 

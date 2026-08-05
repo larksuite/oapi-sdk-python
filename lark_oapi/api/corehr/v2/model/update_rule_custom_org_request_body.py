@@ -27,7 +27,9 @@ class UpdateRuleCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_rule_custom_org_request_body = UpdateRuleCustomOrgRequestBody()
 
-    def object_api_name(self, object_api_name: str) -> "UpdateRuleCustomOrgRequestBodyBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "UpdateRuleCustomOrgRequestBodyBuilder":
         self._update_rule_custom_org_request_body.object_api_name = object_api_name
         return self
 
@@ -35,7 +37,9 @@ class UpdateRuleCustomOrgRequestBodyBuilder(object):
         self._update_rule_custom_org_request_body.org_id = org_id
         return self
 
-    def match_rule_groups(self, match_rule_groups: List[MatchRules]) -> "UpdateRuleCustomOrgRequestBodyBuilder":
+    def match_rule_groups(
+        self, match_rule_groups: List[MatchRules]
+    ) -> "UpdateRuleCustomOrgRequestBodyBuilder":
         self._update_rule_custom_org_request_body.match_rule_groups = match_rule_groups
         return self
 

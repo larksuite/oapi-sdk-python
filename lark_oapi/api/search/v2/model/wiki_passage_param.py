@@ -62,23 +62,33 @@ class WikiPassageParamBuilder(object):
         self._wiki_passage_param.node_tokens = node_tokens
         return self
 
-    def excluded_space_ids(self, excluded_space_ids: List[str]) -> "WikiPassageParamBuilder":
+    def excluded_space_ids(
+        self, excluded_space_ids: List[str]
+    ) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_space_ids = excluded_space_ids
         return self
 
-    def excluded_obj_ids(self, excluded_obj_ids: List[str]) -> "WikiPassageParamBuilder":
+    def excluded_obj_ids(
+        self, excluded_obj_ids: List[str]
+    ) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_obj_ids = excluded_obj_ids
         return self
 
-    def excluded_wiki_tokens(self, excluded_wiki_tokens: List[str]) -> "WikiPassageParamBuilder":
+    def excluded_wiki_tokens(
+        self, excluded_wiki_tokens: List[str]
+    ) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_wiki_tokens = excluded_wiki_tokens
         return self
 
-    def excluded_node_tokens(self, excluded_node_tokens: List[str]) -> "WikiPassageParamBuilder":
+    def excluded_node_tokens(
+        self, excluded_node_tokens: List[str]
+    ) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_node_tokens = excluded_node_tokens
         return self
 
-    def enable_cross_tenant(self, enable_cross_tenant: bool) -> "WikiPassageParamBuilder":
+    def enable_cross_tenant(
+        self, enable_cross_tenant: bool
+    ) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.enable_cross_tenant = enable_cross_tenant
         return self
 

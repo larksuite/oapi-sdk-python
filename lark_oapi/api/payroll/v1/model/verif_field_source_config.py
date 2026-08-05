@@ -48,8 +48,12 @@ class VerifFieldSourceConfigBuilder(object):
         self._verif_field_source_config.api_name = api_name
         return self
 
-    def source_aggregation_type(self, source_aggregation_type: int) -> "VerifFieldSourceConfigBuilder":
-        self._verif_field_source_config.source_aggregation_type = source_aggregation_type
+    def source_aggregation_type(
+        self, source_aggregation_type: int
+    ) -> "VerifFieldSourceConfigBuilder":
+        self._verif_field_source_config.source_aggregation_type = (
+            source_aggregation_type
+        )
         return self
 
     def ref_type(self, ref_type: int) -> "VerifFieldSourceConfigBuilder":

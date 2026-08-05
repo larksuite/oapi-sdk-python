@@ -22,7 +22,9 @@ class InstanceSearchApprovalExternalBuilder(object):
     def __init__(self) -> None:
         self._instance_search_approval_external = InstanceSearchApprovalExternal()
 
-    def batch_cc_read(self, batch_cc_read: bool) -> "InstanceSearchApprovalExternalBuilder":
+    def batch_cc_read(
+        self, batch_cc_read: bool
+    ) -> "InstanceSearchApprovalExternalBuilder":
         self._instance_search_approval_external.batch_cc_read = batch_cc_read
         return self
 

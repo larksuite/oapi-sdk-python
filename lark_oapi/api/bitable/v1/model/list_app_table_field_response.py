@@ -9,7 +9,6 @@ from .list_app_table_field_response_body import ListAppTableFieldResponseBody
 class ListAppTableFieldResponse(BaseResponse):
     _types = {
         "data": ListAppTableFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

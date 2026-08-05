@@ -60,12 +60,15 @@ from .recommend_event_info import *
 from .recommend_room_info import *
 from .reminder import *
 from .resource_waitlist import *
+from .room_approval_info import *
+from .room_availability import *
 from .room_meta import *
+from .room_requisition import *
+from .room_strategy import *
 from .schema import *
 from .search_event_data import *
 from .search_user_data_ai import *
 from .search_user_result_ai import *
-from .setting import *
 from .system_info import *
 from .third_party_meeting_settings import *
 from .time_info import *

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .list_functional_role_member_response_body import ListFunctionalRoleMemberResponseBody
+from .list_functional_role_member_response_body import (
+    ListFunctionalRoleMemberResponseBody,
+)
 
 
 class ListFunctionalRoleMemberResponse(BaseResponse):
     _types = {
         "data": ListFunctionalRoleMemberResponseBody,
-
     }
 
     def __init__(self, d=None):

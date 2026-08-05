@@ -20,27 +20,38 @@ class GetWebsiteJobPostRequest(BaseRequest):
 
 
 class GetWebsiteJobPostRequestBuilder(object):
-
     def __init__(self) -> None:
         get_website_job_post_request = GetWebsiteJobPostRequest()
         get_website_job_post_request.http_method = HttpMethod.GET
-        get_website_job_post_request.uri = "/open-apis/hire/v1/websites/:website_id/job_posts/:job_post_id"
+        get_website_job_post_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/job_posts/:job_post_id"
+        )
         get_website_job_post_request.token_types = {AccessTokenType.TENANT}
-        self._get_website_job_post_request: GetWebsiteJobPostRequest = get_website_job_post_request
+        self._get_website_job_post_request: GetWebsiteJobPostRequest = (
+            get_website_job_post_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetWebsiteJobPostRequestBuilder":
         self._get_website_job_post_request.user_id_type = user_id_type
         self._get_website_job_post_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetWebsiteJobPostRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetWebsiteJobPostRequestBuilder":
         self._get_website_job_post_request.department_id_type = department_id_type
-        self._get_website_job_post_request.add_query("department_id_type", department_id_type)
+        self._get_website_job_post_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "GetWebsiteJobPostRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "GetWebsiteJobPostRequestBuilder":
         self._get_website_job_post_request.job_level_id_type = job_level_id_type
-        self._get_website_job_post_request.add_query("job_level_id_type", job_level_id_type)
+        self._get_website_job_post_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
     def website_id(self, website_id: str) -> "GetWebsiteJobPostRequestBuilder":

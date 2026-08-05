@@ -19,7 +19,6 @@ class PatchContractRequest(BaseRequest):
 
 
 class PatchContractRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_contract_request = PatchContractRequest()
         patch_contract_request.http_method = HttpMethod.PATCH

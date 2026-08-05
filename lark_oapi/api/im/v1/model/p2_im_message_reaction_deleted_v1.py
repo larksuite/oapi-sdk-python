@@ -28,9 +28,7 @@ class P2ImMessageReactionDeletedV1Data(object):
 
 
 class P2ImMessageReactionDeletedV1(EventContext):
-    _types = {
-        "event": P2ImMessageReactionDeletedV1Data
-    }
+    _types = {"event": P2ImMessageReactionDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

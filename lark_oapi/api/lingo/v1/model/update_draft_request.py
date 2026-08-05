@@ -19,12 +19,14 @@ class UpdateDraftRequest(BaseRequest):
 
 
 class UpdateDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         update_draft_request = UpdateDraftRequest()
         update_draft_request.http_method = HttpMethod.PUT
         update_draft_request.uri = "/open-apis/lingo/v1/drafts/:draft_id"
-        update_draft_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        update_draft_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._update_draft_request: UpdateDraftRequest = update_draft_request
 
     def user_id_type(self, user_id_type: str) -> "UpdateDraftRequestBuilder":

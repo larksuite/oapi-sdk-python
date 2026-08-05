@@ -23,7 +23,9 @@ class HkmMainlandTravelPermitBuilder(object):
     def __init__(self) -> None:
         self._hkm_mainland_travel_permit = HkmMainlandTravelPermit()
 
-    def entities(self, entities: List[HkmMainlandTravelPermitEntity]) -> "HkmMainlandTravelPermitBuilder":
+    def entities(
+        self, entities: List[HkmMainlandTravelPermitEntity]
+    ) -> "HkmMainlandTravelPermitBuilder":
         self._hkm_mainland_travel_permit.entities = entities
         return self
 

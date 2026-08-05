@@ -9,7 +9,6 @@ from .copy_file_response_body import CopyFileResponseBody
 class CopyFileResponse(BaseResponse):
     _types = {
         "data": CopyFileResponseBody,
-
     }
 
     def __init__(self, d=None):

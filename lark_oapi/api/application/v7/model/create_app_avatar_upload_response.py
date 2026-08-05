@@ -9,7 +9,6 @@ from .create_app_avatar_upload_response_body import CreateAppAvatarUploadRespons
 class CreateAppAvatarUploadResponse(BaseResponse):
     _types = {
         "data": CreateAppAvatarUploadResponseBody,
-
     }
 
     def __init__(self, d=None):

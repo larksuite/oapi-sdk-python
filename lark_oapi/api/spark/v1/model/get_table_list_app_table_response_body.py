@@ -25,7 +25,9 @@ class GetTableListAppTableResponseBody(object):
 
 class GetTableListAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_table_list_app_table_response_body = GetTableListAppTableResponseBody()
+        self._get_table_list_app_table_response_body = (
+            GetTableListAppTableResponseBody()
+        )
 
     def has_more(self, has_more: bool) -> "GetTableListAppTableResponseBodyBuilder":
         self._get_table_list_app_table_response_body.has_more = has_more

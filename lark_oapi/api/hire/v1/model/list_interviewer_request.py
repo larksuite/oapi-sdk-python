@@ -22,13 +22,14 @@ class ListInterviewerRequest(BaseRequest):
 
 
 class ListInterviewerRequestBuilder(object):
-
     def __init__(self) -> None:
         list_interviewer_request = ListInterviewerRequest()
         list_interviewer_request.http_method = HttpMethod.GET
         list_interviewer_request.uri = "/open-apis/hire/v1/interviewers"
         list_interviewer_request.token_types = {AccessTokenType.TENANT}
-        self._list_interviewer_request: ListInterviewerRequest = list_interviewer_request
+        self._list_interviewer_request: ListInterviewerRequest = (
+            list_interviewer_request
+        )
 
     def page_size(self, page_size: int) -> "ListInterviewerRequestBuilder":
         self._list_interviewer_request.page_size = page_size
@@ -50,14 +51,22 @@ class ListInterviewerRequestBuilder(object):
         self._list_interviewer_request.add_query("verify_status", verify_status)
         return self
 
-    def earliest_update_time(self, earliest_update_time: str) -> "ListInterviewerRequestBuilder":
+    def earliest_update_time(
+        self, earliest_update_time: str
+    ) -> "ListInterviewerRequestBuilder":
         self._list_interviewer_request.earliest_update_time = earliest_update_time
-        self._list_interviewer_request.add_query("earliest_update_time", earliest_update_time)
+        self._list_interviewer_request.add_query(
+            "earliest_update_time", earliest_update_time
+        )
         return self
 
-    def latest_update_time(self, latest_update_time: str) -> "ListInterviewerRequestBuilder":
+    def latest_update_time(
+        self, latest_update_time: str
+    ) -> "ListInterviewerRequestBuilder":
         self._list_interviewer_request.latest_update_time = latest_update_time
-        self._list_interviewer_request.add_query("latest_update_time", latest_update_time)
+        self._list_interviewer_request.add_query(
+            "latest_update_time", latest_update_time
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListInterviewerRequestBuilder":

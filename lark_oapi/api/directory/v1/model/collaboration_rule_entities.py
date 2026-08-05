@@ -26,15 +26,21 @@ class CollaborationRuleEntitiesBuilder(object):
     def __init__(self) -> None:
         self._collaboration_rule_entities = CollaborationRuleEntities()
 
-    def open_user_ids(self, open_user_ids: List[str]) -> "CollaborationRuleEntitiesBuilder":
+    def open_user_ids(
+        self, open_user_ids: List[str]
+    ) -> "CollaborationRuleEntitiesBuilder":
         self._collaboration_rule_entities.open_user_ids = open_user_ids
         return self
 
-    def open_department_ids(self, open_department_ids: List[str]) -> "CollaborationRuleEntitiesBuilder":
+    def open_department_ids(
+        self, open_department_ids: List[str]
+    ) -> "CollaborationRuleEntitiesBuilder":
         self._collaboration_rule_entities.open_department_ids = open_department_ids
         return self
 
-    def open_group_ids(self, open_group_ids: List[str]) -> "CollaborationRuleEntitiesBuilder":
+    def open_group_ids(
+        self, open_group_ids: List[str]
+    ) -> "CollaborationRuleEntitiesBuilder":
         self._collaboration_rule_entities.open_group_ids = open_group_ids
         return self
 

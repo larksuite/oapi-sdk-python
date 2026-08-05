@@ -24,7 +24,9 @@ class ManagementScopeBuilder(object):
     def __init__(self) -> None:
         self._management_scope = ManagementScope()
 
-    def management_dimension(self, management_dimension: str) -> "ManagementScopeBuilder":
+    def management_dimension(
+        self, management_dimension: str
+    ) -> "ManagementScopeBuilder":
         self._management_scope.management_dimension = management_dimension
         return self
 

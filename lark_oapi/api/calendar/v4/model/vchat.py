@@ -67,7 +67,9 @@ class VchatBuilder(object):
         self._vchat.meeting_settings = meeting_settings
         return self
 
-    def third_party_meeting_settings(self, third_party_meeting_settings: ThirdPartyMeetingSettings) -> "VchatBuilder":
+    def third_party_meeting_settings(
+        self, third_party_meeting_settings: ThirdPartyMeetingSettings
+    ) -> "VchatBuilder":
         self._vchat.third_party_meeting_settings = third_party_meeting_settings
         return self
 

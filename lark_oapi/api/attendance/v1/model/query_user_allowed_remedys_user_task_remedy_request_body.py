@@ -22,14 +22,22 @@ class QueryUserAllowedRemedysUserTaskRemedyRequestBody(object):
 
 class QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_user_allowed_remedys_user_task_remedy_request_body = QueryUserAllowedRemedysUserTaskRemedyRequestBody()
+        self._query_user_allowed_remedys_user_task_remedy_request_body = (
+            QueryUserAllowedRemedysUserTaskRemedyRequestBody()
+        )
 
-    def user_id(self, user_id: str) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder":
+    def user_id(
+        self, user_id: str
+    ) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder":
         self._query_user_allowed_remedys_user_task_remedy_request_body.user_id = user_id
         return self
 
-    def remedy_date(self, remedy_date: int) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder":
-        self._query_user_allowed_remedys_user_task_remedy_request_body.remedy_date = remedy_date
+    def remedy_date(
+        self, remedy_date: int
+    ) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder":
+        self._query_user_allowed_remedys_user_task_remedy_request_body.remedy_date = (
+            remedy_date
+        )
         return self
 
     def build(self) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBody":

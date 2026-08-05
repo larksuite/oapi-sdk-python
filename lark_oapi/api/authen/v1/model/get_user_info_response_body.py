@@ -84,7 +84,9 @@ class GetUserInfoResponseBodyBuilder(object):
         self._get_user_info_response_body.email = email
         return self
 
-    def enterprise_email(self, enterprise_email: str) -> "GetUserInfoResponseBodyBuilder":
+    def enterprise_email(
+        self, enterprise_email: str
+    ) -> "GetUserInfoResponseBodyBuilder":
         self._get_user_info_response_body.enterprise_email = enterprise_email
         return self
 

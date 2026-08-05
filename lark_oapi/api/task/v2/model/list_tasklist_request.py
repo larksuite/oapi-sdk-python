@@ -18,12 +18,14 @@ class ListTasklistRequest(BaseRequest):
 
 
 class ListTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         list_tasklist_request = ListTasklistRequest()
         list_tasklist_request.http_method = HttpMethod.GET
         list_tasklist_request.uri = "/open-apis/task/v2/tasklists"
-        list_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_tasklist_request: ListTasklistRequest = list_tasklist_request
 
     def page_size(self, page_size: int) -> "ListTasklistRequestBuilder":

@@ -23,7 +23,9 @@ class ModifyUserSettingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._modify_user_setting_response_body = ModifyUserSettingResponseBody()
 
-    def user_setting(self, user_setting: UserSetting) -> "ModifyUserSettingResponseBodyBuilder":
+    def user_setting(
+        self, user_setting: UserSetting
+    ) -> "ModifyUserSettingResponseBodyBuilder":
         self._modify_user_setting_response_body.user_setting = user_setting
         return self
 

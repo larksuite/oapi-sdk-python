@@ -50,15 +50,21 @@ class ListFreebusyRequestBodyBuilder(object):
         self._list_freebusy_request_body.room_id = room_id
         return self
 
-    def include_external_calendar(self, include_external_calendar: bool) -> "ListFreebusyRequestBodyBuilder":
-        self._list_freebusy_request_body.include_external_calendar = include_external_calendar
+    def include_external_calendar(
+        self, include_external_calendar: bool
+    ) -> "ListFreebusyRequestBodyBuilder":
+        self._list_freebusy_request_body.include_external_calendar = (
+            include_external_calendar
+        )
         return self
 
     def only_busy(self, only_busy: bool) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.only_busy = only_busy
         return self
 
-    def need_rsvp_status(self, need_rsvp_status: bool) -> "ListFreebusyRequestBodyBuilder":
+    def need_rsvp_status(
+        self, need_rsvp_status: bool
+    ) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.need_rsvp_status = need_rsvp_status
         return self
 

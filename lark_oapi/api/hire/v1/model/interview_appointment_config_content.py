@@ -44,23 +44,35 @@ class InterviewAppointmentConfigContentBuilder(object):
     def __init__(self) -> None:
         self._interview_appointment_config_content = InterviewAppointmentConfigContent()
 
-    def interview_type(self, interview_type: int) -> "InterviewAppointmentConfigContentBuilder":
+    def interview_type(
+        self, interview_type: int
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.interview_type = interview_type
         return self
 
-    def talent_timezone_code(self, talent_timezone_code: str) -> "InterviewAppointmentConfigContentBuilder":
-        self._interview_appointment_config_content.talent_timezone_code = talent_timezone_code
+    def talent_timezone_code(
+        self, talent_timezone_code: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
+        self._interview_appointment_config_content.talent_timezone_code = (
+            talent_timezone_code
+        )
         return self
 
-    def contact_user_id(self, contact_user_id: str) -> "InterviewAppointmentConfigContentBuilder":
+    def contact_user_id(
+        self, contact_user_id: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.contact_user_id = contact_user_id
         return self
 
-    def contact_mobile(self, contact_mobile: str) -> "InterviewAppointmentConfigContentBuilder":
+    def contact_mobile(
+        self, contact_mobile: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.contact_mobile = contact_mobile
         return self
 
-    def contact_email(self, contact_email: str) -> "InterviewAppointmentConfigContentBuilder":
+    def contact_email(
+        self, contact_email: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.contact_email = contact_email
         return self
 
@@ -80,18 +92,21 @@ class InterviewAppointmentConfigContentBuilder(object):
         self._interview_appointment_config_content.remark = remark
         return self
 
-    def interview_notification_template_id(self,
-                                           interview_notification_template_id: str) -> "InterviewAppointmentConfigContentBuilder":
+    def interview_notification_template_id(
+        self, interview_notification_template_id: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.interview_notification_template_id = interview_notification_template_id
         return self
 
-    def appointment_notification_template_id(self,
-                                             appointment_notification_template_id: str) -> "InterviewAppointmentConfigContentBuilder":
+    def appointment_notification_template_id(
+        self, appointment_notification_template_id: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.appointment_notification_template_id = appointment_notification_template_id
         return self
 
-    def cancel_interview_notification_template_id(self,
-                                                  cancel_interview_notification_template_id: str) -> "InterviewAppointmentConfigContentBuilder":
+    def cancel_interview_notification_template_id(
+        self, cancel_interview_notification_template_id: str
+    ) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.cancel_interview_notification_template_id = cancel_interview_notification_template_id
         return self
 

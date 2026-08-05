@@ -19,12 +19,14 @@ class SearchCalendarRequest(BaseRequest):
 
 
 class SearchCalendarRequestBuilder(object):
-
     def __init__(self) -> None:
         search_calendar_request = SearchCalendarRequest()
         search_calendar_request.http_method = HttpMethod.POST
         search_calendar_request.uri = "/open-apis/calendar/v4/calendars/search"
-        search_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        search_calendar_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._search_calendar_request: SearchCalendarRequest = search_calendar_request
 
     def page_token(self, page_token: str) -> "SearchCalendarRequestBuilder":
@@ -37,7 +39,9 @@ class SearchCalendarRequestBuilder(object):
         self._search_calendar_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: SearchCalendarRequestBody) -> "SearchCalendarRequestBuilder":
+    def request_body(
+        self, request_body: SearchCalendarRequestBody
+    ) -> "SearchCalendarRequestBuilder":
         self._search_calendar_request.request_body = request_body
         self._search_calendar_request.body = request_body
         return self

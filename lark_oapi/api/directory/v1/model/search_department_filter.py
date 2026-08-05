@@ -25,7 +25,9 @@ class SearchDepartmentFilterBuilder(object):
     def __init__(self) -> None:
         self._search_department_filter = SearchDepartmentFilter()
 
-    def exactly_match_by_name(self, exactly_match_by_name: bool) -> "SearchDepartmentFilterBuilder":
+    def exactly_match_by_name(
+        self, exactly_match_by_name: bool
+    ) -> "SearchDepartmentFilterBuilder":
         self._search_department_filter.exactly_match_by_name = exactly_match_by_name
         return self
 

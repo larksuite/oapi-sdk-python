@@ -28,11 +28,15 @@ class ListExternalTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._list_external_task_request_body = ListExternalTaskRequestBody()
 
-    def approval_codes(self, approval_codes: List[str]) -> "ListExternalTaskRequestBodyBuilder":
+    def approval_codes(
+        self, approval_codes: List[str]
+    ) -> "ListExternalTaskRequestBodyBuilder":
         self._list_external_task_request_body.approval_codes = approval_codes
         return self
 
-    def instance_ids(self, instance_ids: List[str]) -> "ListExternalTaskRequestBodyBuilder":
+    def instance_ids(
+        self, instance_ids: List[str]
+    ) -> "ListExternalTaskRequestBodyBuilder":
         self._list_external_task_request_body.instance_ids = instance_ids
         return self
 

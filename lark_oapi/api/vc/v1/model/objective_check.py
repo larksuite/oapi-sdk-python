@@ -25,11 +25,15 @@ class ObjectiveCheckBuilder(object):
     def __init__(self) -> None:
         self._objective_check = ObjectiveCheck()
 
-    def objective_check_types(self, objective_check_types: List[int]) -> "ObjectiveCheckBuilder":
+    def objective_check_types(
+        self, objective_check_types: List[int]
+    ) -> "ObjectiveCheckBuilder":
         self._objective_check.objective_check_types = objective_check_types
         return self
 
-    def objective_check_params(self, objective_check_params: List[ObjectiveCheckParam]) -> "ObjectiveCheckBuilder":
+    def objective_check_params(
+        self, objective_check_params: List[ObjectiveCheckParam]
+    ) -> "ObjectiveCheckBuilder":
         self._objective_check.objective_check_params = objective_check_params
         return self
 

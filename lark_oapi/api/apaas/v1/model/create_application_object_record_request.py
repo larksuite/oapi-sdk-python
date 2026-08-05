@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .create_application_object_record_request_body import CreateApplicationObjectRecordRequestBody
+from .create_application_object_record_request_body import (
+    CreateApplicationObjectRecordRequestBody,
+)
 
 
 class CreateApplicationObjectRecordRequest(BaseRequest):
@@ -19,26 +21,36 @@ class CreateApplicationObjectRecordRequest(BaseRequest):
 
 
 class CreateApplicationObjectRecordRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_application_object_record_request = CreateApplicationObjectRecordRequest()
+        create_application_object_record_request = (
+            CreateApplicationObjectRecordRequest()
+        )
         create_application_object_record_request.http_method = HttpMethod.POST
         create_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records"
         create_application_object_record_request.token_types = {AccessTokenType.TENANT}
         self._create_application_object_record_request: CreateApplicationObjectRecordRequest = create_application_object_record_request
 
-    def namespace(self, namespace: str) -> "CreateApplicationObjectRecordRequestBuilder":
+    def namespace(
+        self, namespace: str
+    ) -> "CreateApplicationObjectRecordRequestBuilder":
         self._create_application_object_record_request.namespace = namespace
-        self._create_application_object_record_request.paths["namespace"] = str(namespace)
+        self._create_application_object_record_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def object_api_name(self, object_api_name: str) -> "CreateApplicationObjectRecordRequestBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "CreateApplicationObjectRecordRequestBuilder":
         self._create_application_object_record_request.object_api_name = object_api_name
-        self._create_application_object_record_request.paths["object_api_name"] = str(object_api_name)
+        self._create_application_object_record_request.paths["object_api_name"] = str(
+            object_api_name
+        )
         return self
 
-    def request_body(self,
-                     request_body: CreateApplicationObjectRecordRequestBody) -> "CreateApplicationObjectRecordRequestBuilder":
+    def request_body(
+        self, request_body: CreateApplicationObjectRecordRequestBody
+    ) -> "CreateApplicationObjectRecordRequestBuilder":
         self._create_application_object_record_request.request_body = request_body
         self._create_application_object_record_request.body = request_body
         return self

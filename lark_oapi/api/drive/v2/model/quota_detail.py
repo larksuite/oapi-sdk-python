@@ -33,7 +33,9 @@ class QuotaDetailBuilder(object):
         self._quota_detail.user_info = user_info
         return self
 
-    def department_info(self, department_info: List[DepartmentInfo]) -> "QuotaDetailBuilder":
+    def department_info(
+        self, department_info: List[DepartmentInfo]
+    ) -> "QuotaDetailBuilder":
         self._quota_detail.department_info = department_info
         return self
 

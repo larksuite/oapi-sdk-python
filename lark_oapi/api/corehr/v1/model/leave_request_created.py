@@ -82,11 +82,15 @@ class LeaveRequestCreatedBuilder(object):
         self._leave_request_created.daily_leave_mode = daily_leave_mode
         return self
 
-    def arrive_late_minutes(self, arrive_late_minutes: int) -> "LeaveRequestCreatedBuilder":
+    def arrive_late_minutes(
+        self, arrive_late_minutes: int
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.arrive_late_minutes = arrive_late_minutes
         return self
 
-    def leave_early_minutes(self, leave_early_minutes: int) -> "LeaveRequestCreatedBuilder":
+    def leave_early_minutes(
+        self, leave_early_minutes: int
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.leave_early_minutes = leave_early_minutes
         return self
 
@@ -94,20 +98,31 @@ class LeaveRequestCreatedBuilder(object):
         self._leave_request_created.notes = notes
         return self
 
-    def date_of_marriage_certificate(self, date_of_marriage_certificate: str) -> "LeaveRequestCreatedBuilder":
-        self._leave_request_created.date_of_marriage_certificate = date_of_marriage_certificate
+    def date_of_marriage_certificate(
+        self, date_of_marriage_certificate: str
+    ) -> "LeaveRequestCreatedBuilder":
+        self._leave_request_created.date_of_marriage_certificate = (
+            date_of_marriage_certificate
+        )
         return self
 
-    def provide_premarital_examination_materials(self,
-                                                 provide_premarital_examination_materials: bool) -> "LeaveRequestCreatedBuilder":
-        self._leave_request_created.provide_premarital_examination_materials = provide_premarital_examination_materials
+    def provide_premarital_examination_materials(
+        self, provide_premarital_examination_materials: bool
+    ) -> "LeaveRequestCreatedBuilder":
+        self._leave_request_created.provide_premarital_examination_materials = (
+            provide_premarital_examination_materials
+        )
         return self
 
-    def is_couple_live_apart(self, is_couple_live_apart: bool) -> "LeaveRequestCreatedBuilder":
+    def is_couple_live_apart(
+        self, is_couple_live_apart: bool
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.is_couple_live_apart = is_couple_live_apart
         return self
 
-    def difficulty_giving_birth(self, difficulty_giving_birth: bool) -> "LeaveRequestCreatedBuilder":
+    def difficulty_giving_birth(
+        self, difficulty_giving_birth: bool
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.difficulty_giving_birth = difficulty_giving_birth
         return self
 
@@ -119,15 +134,21 @@ class LeaveRequestCreatedBuilder(object):
         self._leave_request_created.due_date = due_date
         return self
 
-    def child_date_of_birth(self, child_date_of_birth: str) -> "LeaveRequestCreatedBuilder":
+    def child_date_of_birth(
+        self, child_date_of_birth: str
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.child_date_of_birth = child_date_of_birth
         return self
 
-    def number_of_newborns(self, number_of_newborns: int) -> "LeaveRequestCreatedBuilder":
+    def number_of_newborns(
+        self, number_of_newborns: int
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.number_of_newborns = number_of_newborns
         return self
 
-    def applicable_scenarios(self, applicable_scenarios: str) -> "LeaveRequestCreatedBuilder":
+    def applicable_scenarios(
+        self, applicable_scenarios: str
+    ) -> "LeaveRequestCreatedBuilder":
         self._leave_request_created.applicable_scenarios = applicable_scenarios
         return self
 

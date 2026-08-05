@@ -17,13 +17,14 @@ class ListJobFunctionRequest(BaseRequest):
 
 
 class ListJobFunctionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_function_request = ListJobFunctionRequest()
         list_job_function_request.http_method = HttpMethod.GET
         list_job_function_request.uri = "/open-apis/hire/v1/job_functions"
         list_job_function_request.token_types = {AccessTokenType.TENANT}
-        self._list_job_function_request: ListJobFunctionRequest = list_job_function_request
+        self._list_job_function_request: ListJobFunctionRequest = (
+            list_job_function_request
+        )
 
     def page_size(self, page_size: int) -> "ListJobFunctionRequestBuilder":
         self._list_job_function_request.page_size = page_size

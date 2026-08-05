@@ -19,15 +19,21 @@ from ..model.patch_position_request import PatchPositionRequest
 from ..model.patch_position_response import PatchPositionResponse
 from ..model.query_position_request import QueryPositionRequest
 from ..model.query_position_response import QueryPositionResponse
-from ..model.query_recent_change_position_request import QueryRecentChangePositionRequest
-from ..model.query_recent_change_position_response import QueryRecentChangePositionResponse
+from ..model.query_recent_change_position_request import (
+    QueryRecentChangePositionRequest,
+)
+from ..model.query_recent_change_position_response import (
+    QueryRecentChangePositionResponse,
+)
 
 
 class Position(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def active(self, request: ActivePositionRequest, option: Optional[RequestOption] = None) -> ActivePositionResponse:
+    def active(
+        self, request: ActivePositionRequest, option: Optional[RequestOption] = None
+    ) -> ActivePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,13 +48,16 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ActivePositionResponse = JSON.unmarshal(str(resp.content, UTF_8), ActivePositionResponse)
+        response: ActivePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActivePositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aactive(self, request: ActivePositionRequest,
-                      option: Optional[RequestOption] = None) -> ActivePositionResponse:
+    async def aactive(
+        self, request: ActivePositionRequest, option: Optional[RequestOption] = None
+    ) -> ActivePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,12 +68,16 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ActivePositionResponse = JSON.unmarshal(str(resp.content, UTF_8), ActivePositionResponse)
+        response: ActivePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActivePositionResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreatePositionRequest, option: Optional[RequestOption] = None) -> CreatePositionResponse:
+    def create(
+        self, request: CreatePositionRequest, option: Optional[RequestOption] = None
+    ) -> CreatePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +92,16 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePositionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePositionResponse)
+        response: CreatePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePositionRequest,
-                      option: Optional[RequestOption] = None) -> CreatePositionResponse:
+    async def acreate(
+        self, request: CreatePositionRequest, option: Optional[RequestOption] = None
+    ) -> CreatePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,13 +112,18 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePositionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePositionResponse)
+        response: CreatePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePositionResponse
+        )
         response.raw = resp
 
         return response
 
-    def del_position(self, request: DelPositionPositionRequest,
-                     option: Optional[RequestOption] = None) -> DelPositionPositionResponse:
+    def del_position(
+        self,
+        request: DelPositionPositionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DelPositionPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +138,18 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DelPositionPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), DelPositionPositionResponse)
+        response: DelPositionPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelPositionPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adel_position(self, request: DelPositionPositionRequest,
-                            option: Optional[RequestOption] = None) -> DelPositionPositionResponse:
+    async def adel_position(
+        self,
+        request: DelPositionPositionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DelPositionPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,12 +160,16 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DelPositionPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), DelPositionPositionResponse)
+        response: DelPositionPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelPositionPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchPositionRequest, option: Optional[RequestOption] = None) -> PatchPositionResponse:
+    def patch(
+        self, request: PatchPositionRequest, option: Optional[RequestOption] = None
+    ) -> PatchPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,13 +184,16 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPositionResponse)
+        response: PatchPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchPositionRequest,
-                     option: Optional[RequestOption] = None) -> PatchPositionResponse:
+    async def apatch(
+        self, request: PatchPositionRequest, option: Optional[RequestOption] = None
+    ) -> PatchPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,12 +204,16 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPositionResponse)
+        response: PatchPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryPositionRequest, option: Optional[RequestOption] = None) -> QueryPositionResponse:
+    def query(
+        self, request: QueryPositionRequest, option: Optional[RequestOption] = None
+    ) -> QueryPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -191,13 +228,16 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPositionResponse)
+        response: QueryPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryPositionRequest,
-                     option: Optional[RequestOption] = None) -> QueryPositionResponse:
+    async def aquery(
+        self, request: QueryPositionRequest, option: Optional[RequestOption] = None
+    ) -> QueryPositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -208,13 +248,18 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryPositionResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPositionResponse)
+        response: QueryPositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryPositionResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangePositionRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangePositionResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangePositionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -229,14 +274,18 @@ class Position(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangePositionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangePositionResponse)
+        response: QueryRecentChangePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangePositionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangePositionRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangePositionResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangePositionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangePositionResponse:
         if option is None:
             option = RequestOption()
 
@@ -247,8 +296,9 @@ class Position(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangePositionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangePositionResponse)
+        response: QueryRecentChangePositionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangePositionResponse
+        )
         response.raw = resp
 
         return response

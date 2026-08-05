@@ -21,7 +21,6 @@ class ListTaskRequest(BaseRequest):
 
 
 class ListTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_request = ListTaskRequest()
         list_task_request.http_method = HttpMethod.GET

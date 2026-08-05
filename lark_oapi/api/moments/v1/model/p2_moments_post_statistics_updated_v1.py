@@ -21,9 +21,7 @@ class P2MomentsPostStatisticsUpdatedV1Data(object):
 
 
 class P2MomentsPostStatisticsUpdatedV1(EventContext):
-    _types = {
-        "event": P2MomentsPostStatisticsUpdatedV1Data
-    }
+    _types = {"event": P2MomentsPostStatisticsUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -17,13 +17,16 @@ class GetNotificationRequest(BaseRequest):
 
 
 class GetNotificationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_notification_request = GetNotificationRequest()
         get_notification_request.http_method = HttpMethod.GET
-        get_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id"
+        get_notification_request.uri = (
+            "/open-apis/helpdesk/v1/notifications/:notification_id"
+        )
         get_notification_request.token_types = {AccessTokenType.USER}
-        self._get_notification_request: GetNotificationRequest = get_notification_request
+        self._get_notification_request: GetNotificationRequest = (
+            get_notification_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetNotificationRequestBuilder":
         self._get_notification_request.user_id_type = user_id_type

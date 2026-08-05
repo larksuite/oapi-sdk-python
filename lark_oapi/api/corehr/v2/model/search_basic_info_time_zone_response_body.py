@@ -25,13 +25,19 @@ class SearchBasicInfoTimeZoneResponseBody(object):
 
 class SearchBasicInfoTimeZoneResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_time_zone_response_body = SearchBasicInfoTimeZoneResponseBody()
+        self._search_basic_info_time_zone_response_body = (
+            SearchBasicInfoTimeZoneResponseBody()
+        )
 
-    def items(self, items: List[TimeZone]) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
+    def items(
+        self, items: List[TimeZone]
+    ) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
         self._search_basic_info_time_zone_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
         self._search_basic_info_time_zone_response_body.page_token = page_token
         return self
 

@@ -18,20 +18,23 @@ class CreateChatMenuTreeRequest(BaseRequest):
 
 
 class CreateChatMenuTreeRequestBuilder(object):
-
     def __init__(self) -> None:
         create_chat_menu_tree_request = CreateChatMenuTreeRequest()
         create_chat_menu_tree_request.http_method = HttpMethod.POST
         create_chat_menu_tree_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_tree"
         create_chat_menu_tree_request.token_types = {AccessTokenType.TENANT}
-        self._create_chat_menu_tree_request: CreateChatMenuTreeRequest = create_chat_menu_tree_request
+        self._create_chat_menu_tree_request: CreateChatMenuTreeRequest = (
+            create_chat_menu_tree_request
+        )
 
     def chat_id(self, chat_id: str) -> "CreateChatMenuTreeRequestBuilder":
         self._create_chat_menu_tree_request.chat_id = chat_id
         self._create_chat_menu_tree_request.paths["chat_id"] = str(chat_id)
         return self
 
-    def request_body(self, request_body: CreateChatMenuTreeRequestBody) -> "CreateChatMenuTreeRequestBuilder":
+    def request_body(
+        self, request_body: CreateChatMenuTreeRequestBody
+    ) -> "CreateChatMenuTreeRequestBuilder":
         self._create_chat_menu_tree_request.request_body = request_body
         self._create_chat_menu_tree_request.body = request_body
         return self

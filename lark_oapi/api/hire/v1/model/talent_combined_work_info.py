@@ -47,8 +47,9 @@ class TalentCombinedWorkInfoBuilder(object):
         self._talent_combined_work_info.attachment_id = attachment_id
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedWorkInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.customized_data = customized_data
         return self
 

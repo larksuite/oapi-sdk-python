@@ -17,13 +17,16 @@ class DeleteWebsiteChannelRequest(BaseRequest):
 
 
 class DeleteWebsiteChannelRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_website_channel_request = DeleteWebsiteChannelRequest()
         delete_website_channel_request.http_method = HttpMethod.DELETE
-        delete_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels/:channel_id"
+        delete_website_channel_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/channels/:channel_id"
+        )
         delete_website_channel_request.token_types = {AccessTokenType.TENANT}
-        self._delete_website_channel_request: DeleteWebsiteChannelRequest = delete_website_channel_request
+        self._delete_website_channel_request: DeleteWebsiteChannelRequest = (
+            delete_website_channel_request
+        )
 
     def website_id(self, website_id: str) -> "DeleteWebsiteChannelRequestBuilder":
         self._delete_website_channel_request.website_id = website_id

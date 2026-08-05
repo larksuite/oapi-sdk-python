@@ -25,13 +25,19 @@ class SearchBasicInfoCurrencyResponseBody(object):
 
 class SearchBasicInfoCurrencyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_currency_response_body = SearchBasicInfoCurrencyResponseBody()
+        self._search_basic_info_currency_response_body = (
+            SearchBasicInfoCurrencyResponseBody()
+        )
 
-    def items(self, items: List[Currency]) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
+    def items(
+        self, items: List[Currency]
+    ) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
         self._search_basic_info_currency_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "SearchBasicInfoCurrencyResponseBodyBuilder":
         self._search_basic_info_currency_response_body.page_token = page_token
         return self
 

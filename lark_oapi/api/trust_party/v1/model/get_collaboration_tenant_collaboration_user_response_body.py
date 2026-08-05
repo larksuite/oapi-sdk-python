@@ -21,11 +21,16 @@ class GetCollaborationTenantCollaborationUserResponseBody(object):
 
 class GetCollaborationTenantCollaborationUserResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_collaboration_tenant_collaboration_user_response_body = GetCollaborationTenantCollaborationUserResponseBody()
+        self._get_collaboration_tenant_collaboration_user_response_body = (
+            GetCollaborationTenantCollaborationUserResponseBody()
+        )
 
-    def target_user(self,
-                    target_user: CollaborationUser) -> "GetCollaborationTenantCollaborationUserResponseBodyBuilder":
-        self._get_collaboration_tenant_collaboration_user_response_body.target_user = target_user
+    def target_user(
+        self, target_user: CollaborationUser
+    ) -> "GetCollaborationTenantCollaborationUserResponseBodyBuilder":
+        self._get_collaboration_tenant_collaboration_user_response_body.target_user = (
+            target_user
+        )
         return self
 
     def build(self) -> "GetCollaborationTenantCollaborationUserResponseBody":

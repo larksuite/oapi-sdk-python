@@ -27,7 +27,9 @@ class CreateTenantOptionBuilder(object):
     def __init__(self) -> None:
         self._create_tenant_option = CreateTenantOption()
 
-    def create_sandbox_tenant(self, create_sandbox_tenant: CreateSandboxTenant) -> "CreateTenantOptionBuilder":
+    def create_sandbox_tenant(
+        self, create_sandbox_tenant: CreateSandboxTenant
+    ) -> "CreateTenantOptionBuilder":
         self._create_tenant_option.create_sandbox_tenant = create_sandbox_tenant
         return self
 

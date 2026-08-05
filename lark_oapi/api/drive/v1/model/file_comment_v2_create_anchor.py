@@ -16,6 +16,7 @@ class FileCommentV2CreateAnchor(object):
         "base_view_id": str,
         "file_page_num": str,
         "file_extra": str,
+        "content_anchor_id": str,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class FileCommentV2CreateAnchor(object):
         self.base_view_id: Optional[str] = None
         self.file_page_num: Optional[str] = None
         self.file_extra: Optional[str] = None
+        self.content_anchor_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,11 +46,15 @@ class FileCommentV2CreateAnchorBuilder(object):
         self._file_comment_v2_create_anchor.block_id = block_id
         return self
 
-    def parent_file_token(self, parent_file_token: str) -> "FileCommentV2CreateAnchorBuilder":
+    def parent_file_token(
+        self, parent_file_token: str
+    ) -> "FileCommentV2CreateAnchorBuilder":
         self._file_comment_v2_create_anchor.parent_file_token = parent_file_token
         return self
 
-    def parent_file_type(self, parent_file_type: str) -> "FileCommentV2CreateAnchorBuilder":
+    def parent_file_type(
+        self, parent_file_type: str
+    ) -> "FileCommentV2CreateAnchorBuilder":
         self._file_comment_v2_create_anchor.parent_file_type = parent_file_type
         return self
 
@@ -60,7 +66,9 @@ class FileCommentV2CreateAnchorBuilder(object):
         self._file_comment_v2_create_anchor.sheet_col = sheet_col
         return self
 
-    def slide_block_type(self, slide_block_type: str) -> "FileCommentV2CreateAnchorBuilder":
+    def slide_block_type(
+        self, slide_block_type: str
+    ) -> "FileCommentV2CreateAnchorBuilder":
         self._file_comment_v2_create_anchor.slide_block_type = slide_block_type
         return self
 
@@ -78,6 +86,12 @@ class FileCommentV2CreateAnchorBuilder(object):
 
     def file_extra(self, file_extra: str) -> "FileCommentV2CreateAnchorBuilder":
         self._file_comment_v2_create_anchor.file_extra = file_extra
+        return self
+
+    def content_anchor_id(
+        self, content_anchor_id: str
+    ) -> "FileCommentV2CreateAnchorBuilder":
+        self._file_comment_v2_create_anchor.content_anchor_id = content_anchor_id
         return self
 
     def build(self) -> "FileCommentV2CreateAnchor":

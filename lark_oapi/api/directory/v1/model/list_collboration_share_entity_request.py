@@ -21,35 +21,63 @@ class ListCollborationShareEntityRequest(BaseRequest):
 
 
 class ListCollborationShareEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         list_collboration_share_entity_request = ListCollborationShareEntityRequest()
         list_collboration_share_entity_request.http_method = HttpMethod.GET
-        list_collboration_share_entity_request.uri = "/open-apis/directory/v1/share_entities"
-        list_collboration_share_entity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_collboration_share_entity_request.uri = (
+            "/open-apis/directory/v1/share_entities"
+        )
+        list_collboration_share_entity_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_collboration_share_entity_request: ListCollborationShareEntityRequest = list_collboration_share_entity_request
 
-    def target_tenant_key(self, target_tenant_key: str) -> "ListCollborationShareEntityRequestBuilder":
-        self._list_collboration_share_entity_request.target_tenant_key = target_tenant_key
-        self._list_collboration_share_entity_request.add_query("target_tenant_key", target_tenant_key)
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "ListCollborationShareEntityRequestBuilder":
+        self._list_collboration_share_entity_request.target_tenant_key = (
+            target_tenant_key
+        )
+        self._list_collboration_share_entity_request.add_query(
+            "target_tenant_key", target_tenant_key
+        )
         return self
 
-    def target_department_id(self, target_department_id: str) -> "ListCollborationShareEntityRequestBuilder":
-        self._list_collboration_share_entity_request.target_department_id = target_department_id
-        self._list_collboration_share_entity_request.add_query("target_department_id", target_department_id)
+    def target_department_id(
+        self, target_department_id: str
+    ) -> "ListCollborationShareEntityRequestBuilder":
+        self._list_collboration_share_entity_request.target_department_id = (
+            target_department_id
+        )
+        self._list_collboration_share_entity_request.add_query(
+            "target_department_id", target_department_id
+        )
         return self
 
-    def target_group_id(self, target_group_id: str) -> "ListCollborationShareEntityRequestBuilder":
+    def target_group_id(
+        self, target_group_id: str
+    ) -> "ListCollborationShareEntityRequestBuilder":
         self._list_collboration_share_entity_request.target_group_id = target_group_id
-        self._list_collboration_share_entity_request.add_query("target_group_id", target_group_id)
+        self._list_collboration_share_entity_request.add_query(
+            "target_group_id", target_group_id
+        )
         return self
 
-    def is_select_subject(self, is_select_subject: bool) -> "ListCollborationShareEntityRequestBuilder":
-        self._list_collboration_share_entity_request.is_select_subject = is_select_subject
-        self._list_collboration_share_entity_request.add_query("is_select_subject", is_select_subject)
+    def is_select_subject(
+        self, is_select_subject: bool
+    ) -> "ListCollborationShareEntityRequestBuilder":
+        self._list_collboration_share_entity_request.is_select_subject = (
+            is_select_subject
+        )
+        self._list_collboration_share_entity_request.add_query(
+            "is_select_subject", is_select_subject
+        )
         return self
 
-    def page_token(self, page_token: str) -> "ListCollborationShareEntityRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListCollborationShareEntityRequestBuilder":
         self._list_collboration_share_entity_request.page_token = page_token
         self._list_collboration_share_entity_request.add_query("page_token", page_token)
         return self

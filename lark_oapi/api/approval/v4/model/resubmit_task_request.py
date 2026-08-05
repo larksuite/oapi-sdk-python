@@ -18,7 +18,6 @@ class ResubmitTaskRequest(BaseRequest):
 
 
 class ResubmitTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         resubmit_task_request = ResubmitTaskRequest()
         resubmit_task_request.http_method = HttpMethod.POST

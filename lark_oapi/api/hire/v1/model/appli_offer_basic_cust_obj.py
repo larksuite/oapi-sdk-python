@@ -48,7 +48,9 @@ class AppliOfferBasicCustObjBuilder(object):
         self._appli_offer_basic_cust_obj.value = value
         return self
 
-    def option_value_list(self, option_value_list: List[AppliOfferBasicCustObjOpV]) -> "AppliOfferBasicCustObjBuilder":
+    def option_value_list(
+        self, option_value_list: List[AppliOfferBasicCustObjOpV]
+    ) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.option_value_list = option_value_list
         return self
 

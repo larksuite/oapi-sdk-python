@@ -19,17 +19,24 @@ class SendUserMailboxDraftRequest(BaseRequest):
 
 
 class SendUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         send_user_mailbox_draft_request = SendUserMailboxDraftRequest()
         send_user_mailbox_draft_request.http_method = HttpMethod.POST
-        send_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id/send"
+        send_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id/send"
+        )
         send_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._send_user_mailbox_draft_request: SendUserMailboxDraftRequest = send_user_mailbox_draft_request
+        self._send_user_mailbox_draft_request: SendUserMailboxDraftRequest = (
+            send_user_mailbox_draft_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "SendUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "SendUserMailboxDraftRequestBuilder":
         self._send_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._send_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._send_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def draft_id(self, draft_id: str) -> "SendUserMailboxDraftRequestBuilder":
@@ -37,7 +44,9 @@ class SendUserMailboxDraftRequestBuilder(object):
         self._send_user_mailbox_draft_request.paths["draft_id"] = str(draft_id)
         return self
 
-    def request_body(self, request_body: SendUserMailboxDraftRequestBody) -> "SendUserMailboxDraftRequestBuilder":
+    def request_body(
+        self, request_body: SendUserMailboxDraftRequestBody
+    ) -> "SendUserMailboxDraftRequestBuilder":
         self._send_user_mailbox_draft_request.request_body = request_body
         self._send_user_mailbox_draft_request.body = request_body
         return self

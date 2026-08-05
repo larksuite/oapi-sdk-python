@@ -42,7 +42,9 @@ class PassportForUpdateBuilder(object):
         self._passport_for_update.country_region_id = country_region_id
         return self
 
-    def national_id_type_id(self, national_id_type_id: str) -> "PassportForUpdateBuilder":
+    def national_id_type_id(
+        self, national_id_type_id: str
+    ) -> "PassportForUpdateBuilder":
         self._passport_for_update.national_id_type_id = national_id_type_id
         return self
 

@@ -24,11 +24,15 @@ class MgetDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._mget_department_request_body = MgetDepartmentRequestBody()
 
-    def department_ids(self, department_ids: List[str]) -> "MgetDepartmentRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "MgetDepartmentRequestBodyBuilder":
         self._mget_department_request_body.department_ids = department_ids
         return self
 
-    def required_fields(self, required_fields: List[str]) -> "MgetDepartmentRequestBodyBuilder":
+    def required_fields(
+        self, required_fields: List[str]
+    ) -> "MgetDepartmentRequestBodyBuilder":
         self._mget_department_request_body.required_fields = required_fields
         return self
 

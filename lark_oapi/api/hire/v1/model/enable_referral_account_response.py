@@ -9,7 +9,6 @@ from .enable_referral_account_response_body import EnableReferralAccountResponse
 class EnableReferralAccountResponse(BaseResponse):
     _types = {
         "data": EnableReferralAccountResponseBody,
-
     }
 
     def __init__(self, d=None):

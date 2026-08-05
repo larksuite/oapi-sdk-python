@@ -18,13 +18,14 @@ class ListTalentFolderRequest(BaseRequest):
 
 
 class ListTalentFolderRequestBuilder(object):
-
     def __init__(self) -> None:
         list_talent_folder_request = ListTalentFolderRequest()
         list_talent_folder_request.http_method = HttpMethod.GET
         list_talent_folder_request.uri = "/open-apis/hire/v1/talent_folders"
         list_talent_folder_request.token_types = {AccessTokenType.TENANT}
-        self._list_talent_folder_request: ListTalentFolderRequest = list_talent_folder_request
+        self._list_talent_folder_request: ListTalentFolderRequest = (
+            list_talent_folder_request
+        )
 
     def page_token(self, page_token: str) -> "ListTalentFolderRequestBuilder":
         self._list_talent_folder_request.page_token = page_token

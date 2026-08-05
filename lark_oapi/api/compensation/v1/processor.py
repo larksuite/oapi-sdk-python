@@ -6,7 +6,9 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_compensation_archive_changed_v1 import P2CompensationArchiveChangedV1
 
 
-class P2CompensationArchiveChangedV1Processor(IEventProcessor[P2CompensationArchiveChangedV1]):
+class P2CompensationArchiveChangedV1Processor(
+    IEventProcessor[P2CompensationArchiveChangedV1]
+):
     def __init__(self, f: Callable[[P2CompensationArchiveChangedV1], None]):
         self.f = f
 

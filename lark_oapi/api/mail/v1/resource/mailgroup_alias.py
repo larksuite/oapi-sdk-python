@@ -21,8 +21,11 @@ class MailgroupAlias(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateMailgroupAliasRequest,
-               option: Optional[RequestOption] = None) -> CreateMailgroupAliasResponse:
+    def create(
+        self,
+        request: CreateMailgroupAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +40,18 @@ class MailgroupAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupAliasResponse)
+        response: CreateMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateMailgroupAliasRequest,
-                      option: Optional[RequestOption] = None) -> CreateMailgroupAliasResponse:
+    async def acreate(
+        self,
+        request: CreateMailgroupAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,13 +62,18 @@ class MailgroupAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupAliasResponse)
+        response: CreateMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteMailgroupAliasRequest,
-               option: Optional[RequestOption] = None) -> DeleteMailgroupAliasResponse:
+    def delete(
+        self,
+        request: DeleteMailgroupAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,13 +88,18 @@ class MailgroupAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupAliasResponse)
+        response: DeleteMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteMailgroupAliasRequest,
-                      option: Optional[RequestOption] = None) -> DeleteMailgroupAliasResponse:
+    async def adelete(
+        self,
+        request: DeleteMailgroupAliasRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,13 +110,16 @@ class MailgroupAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupAliasResponse)
+        response: DeleteMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListMailgroupAliasRequest,
-             option: Optional[RequestOption] = None) -> ListMailgroupAliasResponse:
+    def list(
+        self, request: ListMailgroupAliasRequest, option: Optional[RequestOption] = None
+    ) -> ListMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,13 +134,16 @@ class MailgroupAlias(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupAliasResponse)
+        response: ListMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListMailgroupAliasRequest,
-                    option: Optional[RequestOption] = None) -> ListMailgroupAliasResponse:
+    async def alist(
+        self, request: ListMailgroupAliasRequest, option: Optional[RequestOption] = None
+    ) -> ListMailgroupAliasResponse:
         if option is None:
             option = RequestOption()
 
@@ -130,7 +154,9 @@ class MailgroupAlias(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupAliasResponse)
+        response: ListMailgroupAliasResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMailgroupAliasResponse
+        )
         response.raw = resp
 
         return response

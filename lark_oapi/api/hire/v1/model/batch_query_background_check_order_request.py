@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_query_background_check_order_request_body import BatchQueryBackgroundCheckOrderRequestBody
+from .batch_query_background_check_order_request_body import (
+    BatchQueryBackgroundCheckOrderRequestBody,
+)
 
 
 class BatchQueryBackgroundCheckOrderRequest(BaseRequest):
@@ -20,31 +22,49 @@ class BatchQueryBackgroundCheckOrderRequest(BaseRequest):
 
 
 class BatchQueryBackgroundCheckOrderRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_query_background_check_order_request = BatchQueryBackgroundCheckOrderRequest()
+        batch_query_background_check_order_request = (
+            BatchQueryBackgroundCheckOrderRequest()
+        )
         batch_query_background_check_order_request.http_method = HttpMethod.POST
-        batch_query_background_check_order_request.uri = "/open-apis/hire/v1/background_check_orders/batch_query"
-        batch_query_background_check_order_request.token_types = {AccessTokenType.TENANT}
+        batch_query_background_check_order_request.uri = (
+            "/open-apis/hire/v1/background_check_orders/batch_query"
+        )
+        batch_query_background_check_order_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._batch_query_background_check_order_request: BatchQueryBackgroundCheckOrderRequest = batch_query_background_check_order_request
 
-    def user_id_type(self, user_id_type: str) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
         self._batch_query_background_check_order_request.user_id_type = user_id_type
-        self._batch_query_background_check_order_request.add_query("user_id_type", user_id_type)
+        self._batch_query_background_check_order_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def page_token(self, page_token: str) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
         self._batch_query_background_check_order_request.page_token = page_token
-        self._batch_query_background_check_order_request.add_query("page_token", page_token)
+        self._batch_query_background_check_order_request.add_query(
+            "page_token", page_token
+        )
         return self
 
-    def page_size(self, page_size: int) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
+    def page_size(
+        self, page_size: int
+    ) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
         self._batch_query_background_check_order_request.page_size = page_size
-        self._batch_query_background_check_order_request.add_query("page_size", page_size)
+        self._batch_query_background_check_order_request.add_query(
+            "page_size", page_size
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchQueryBackgroundCheckOrderRequestBody) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryBackgroundCheckOrderRequestBody
+    ) -> "BatchQueryBackgroundCheckOrderRequestBuilder":
         self._batch_query_background_check_order_request.request_body = request_body
         self._batch_query_background_check_order_request.body = request_body
         return self

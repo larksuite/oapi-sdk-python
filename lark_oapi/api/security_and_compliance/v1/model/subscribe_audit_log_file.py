@@ -40,7 +40,9 @@ class SubscribeAuditLogFileBuilder(object):
         self._subscribe_audit_log_file.file_url = file_url
         return self
 
-    def file_url_expire_time(self, file_url_expire_time: int) -> "SubscribeAuditLogFileBuilder":
+    def file_url_expire_time(
+        self, file_url_expire_time: int
+    ) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.file_url_expire_time = file_url_expire_time
         return self
 

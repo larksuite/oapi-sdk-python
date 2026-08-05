@@ -17,8 +17,11 @@ class ApplicationBase(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchApplicationBaseRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationBaseResponse:
+    def patch(
+        self,
+        request: PatchApplicationBaseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationBaseResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class ApplicationBase(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationBaseResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationBaseResponse)
+        response: PatchApplicationBaseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationBaseResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationBaseRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationBaseResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationBaseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationBaseResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class ApplicationBase(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationBaseResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationBaseResponse)
+        response: PatchApplicationBaseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationBaseResponse
+        )
         response.raw = resp
 
         return response

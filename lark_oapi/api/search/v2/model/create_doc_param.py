@@ -46,7 +46,9 @@ class CreateDocParamBuilder(object):
         self._create_doc_param.chunks = chunks
         return self
 
-    def overlength_handle_type(self, overlength_handle_type: int) -> "CreateDocParamBuilder":
+    def overlength_handle_type(
+        self, overlength_handle_type: int
+    ) -> "CreateDocParamBuilder":
         self._create_doc_param.overlength_handle_type = overlength_handle_type
         return self
 

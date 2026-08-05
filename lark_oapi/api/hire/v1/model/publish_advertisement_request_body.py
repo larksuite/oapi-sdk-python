@@ -22,7 +22,9 @@ class PublishAdvertisementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._publish_advertisement_request_body = PublishAdvertisementRequestBody()
 
-    def job_channel_id(self, job_channel_id: str) -> "PublishAdvertisementRequestBodyBuilder":
+    def job_channel_id(
+        self, job_channel_id: str
+    ) -> "PublishAdvertisementRequestBodyBuilder":
         self._publish_advertisement_request_body.job_channel_id = job_channel_id
         return self
 

@@ -9,7 +9,6 @@ from .mine_device_record_response_body import MineDeviceRecordResponseBody
 class MineDeviceRecordResponse(BaseResponse):
     _types = {
         "data": MineDeviceRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

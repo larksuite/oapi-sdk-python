@@ -27,8 +27,11 @@ class SystemStatus(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_close(self, request: BatchCloseSystemStatusRequest,
-                    option: Optional[RequestOption] = None) -> BatchCloseSystemStatusResponse:
+    def batch_close(
+        self,
+        request: BatchCloseSystemStatusRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCloseSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -43,14 +46,18 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCloseSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BatchCloseSystemStatusResponse)
+        response: BatchCloseSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCloseSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_close(self, request: BatchCloseSystemStatusRequest,
-                           option: Optional[RequestOption] = None) -> BatchCloseSystemStatusResponse:
+    async def abatch_close(
+        self,
+        request: BatchCloseSystemStatusRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCloseSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -61,14 +68,18 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCloseSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BatchCloseSystemStatusResponse)
+        response: BatchCloseSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCloseSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_open(self, request: BatchOpenSystemStatusRequest,
-                   option: Optional[RequestOption] = None) -> BatchOpenSystemStatusResponse:
+    def batch_open(
+        self,
+        request: BatchOpenSystemStatusRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchOpenSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,14 +94,18 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchOpenSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchOpenSystemStatusResponse)
+        response: BatchOpenSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchOpenSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_open(self, request: BatchOpenSystemStatusRequest,
-                          option: Optional[RequestOption] = None) -> BatchOpenSystemStatusResponse:
+    async def abatch_open(
+        self,
+        request: BatchOpenSystemStatusRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchOpenSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -101,14 +116,16 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchOpenSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchOpenSystemStatusResponse)
+        response: BatchOpenSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchOpenSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateSystemStatusRequest,
-               option: Optional[RequestOption] = None) -> CreateSystemStatusResponse:
+    def create(
+        self, request: CreateSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> CreateSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -123,13 +140,16 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSystemStatusResponse)
+        response: CreateSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateSystemStatusRequest,
-                      option: Optional[RequestOption] = None) -> CreateSystemStatusResponse:
+    async def acreate(
+        self, request: CreateSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> CreateSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -140,13 +160,16 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSystemStatusResponse)
+        response: CreateSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteSystemStatusRequest,
-               option: Optional[RequestOption] = None) -> DeleteSystemStatusResponse:
+    def delete(
+        self, request: DeleteSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> DeleteSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,13 +184,16 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSystemStatusResponse)
+        response: DeleteSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteSystemStatusRequest,
-                      option: Optional[RequestOption] = None) -> DeleteSystemStatusResponse:
+    async def adelete(
+        self, request: DeleteSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> DeleteSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -178,13 +204,16 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSystemStatusResponse)
+        response: DeleteSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListSystemStatusRequest,
-             option: Optional[RequestOption] = None) -> ListSystemStatusResponse:
+    def list(
+        self, request: ListSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> ListSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -199,13 +228,16 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSystemStatusResponse)
+        response: ListSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSystemStatusRequest,
-                    option: Optional[RequestOption] = None) -> ListSystemStatusResponse:
+    async def alist(
+        self, request: ListSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> ListSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -216,13 +248,16 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSystemStatusResponse)
+        response: ListSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchSystemStatusRequest,
-              option: Optional[RequestOption] = None) -> PatchSystemStatusResponse:
+    def patch(
+        self, request: PatchSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> PatchSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -237,13 +272,16 @@ class SystemStatus(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSystemStatusResponse)
+        response: PatchSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSystemStatusResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchSystemStatusRequest,
-                     option: Optional[RequestOption] = None) -> PatchSystemStatusResponse:
+    async def apatch(
+        self, request: PatchSystemStatusRequest, option: Optional[RequestOption] = None
+    ) -> PatchSystemStatusResponse:
         if option is None:
             option = RequestOption()
 
@@ -254,7 +292,9 @@ class SystemStatus(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchSystemStatusResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSystemStatusResponse)
+        response: PatchSystemStatusResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSystemStatusResponse
+        )
         response.raw = resp
 
         return response

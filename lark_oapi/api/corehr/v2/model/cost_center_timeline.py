@@ -58,7 +58,9 @@ class CostCenterTimelineBuilder(object):
         self._cost_center_timeline.code = code
         return self
 
-    def parent_cost_center_id(self, parent_cost_center_id: str) -> "CostCenterTimelineBuilder":
+    def parent_cost_center_id(
+        self, parent_cost_center_id: str
+    ) -> "CostCenterTimelineBuilder":
         self._cost_center_timeline.parent_cost_center_id = parent_cost_center_id
         return self
 

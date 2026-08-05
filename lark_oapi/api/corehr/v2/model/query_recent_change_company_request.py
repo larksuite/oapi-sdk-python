@@ -19,13 +19,16 @@ class QueryRecentChangeCompanyRequest(BaseRequest):
 
 
 class QueryRecentChangeCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         query_recent_change_company_request = QueryRecentChangeCompanyRequest()
         query_recent_change_company_request.http_method = HttpMethod.GET
-        query_recent_change_company_request.uri = "/open-apis/corehr/v2/companies/query_recent_change"
+        query_recent_change_company_request.uri = (
+            "/open-apis/corehr/v2/companies/query_recent_change"
+        )
         query_recent_change_company_request.token_types = {AccessTokenType.TENANT}
-        self._query_recent_change_company_request: QueryRecentChangeCompanyRequest = query_recent_change_company_request
+        self._query_recent_change_company_request: QueryRecentChangeCompanyRequest = (
+            query_recent_change_company_request
+        )
 
     def page_size(self, page_size: int) -> "QueryRecentChangeCompanyRequestBuilder":
         self._query_recent_change_company_request.page_size = page_size

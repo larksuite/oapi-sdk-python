@@ -29,15 +29,21 @@ class SearchDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_department_response_body = SearchDepartmentResponseBody()
 
-    def departments(self, departments: List[Department]) -> "SearchDepartmentResponseBodyBuilder":
+    def departments(
+        self, departments: List[Department]
+    ) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.departments = departments
         return self
 
-    def page_response(self, page_response: PageResponse) -> "SearchDepartmentResponseBodyBuilder":
+    def page_response(
+        self, page_response: PageResponse
+    ) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.page_response = page_response
         return self
 
-    def abnormals(self, abnormals: List[AbnormalRecord]) -> "SearchDepartmentResponseBodyBuilder":
+    def abnormals(
+        self, abnormals: List[AbnormalRecord]
+    ) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.abnormals = abnormals
         return self
 

@@ -25,9 +25,13 @@ class ListExternalApplicationResponseBody(object):
 
 class ListExternalApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_external_application_response_body = ListExternalApplicationResponseBody()
+        self._list_external_application_response_body = (
+            ListExternalApplicationResponseBody()
+        )
 
-    def items(self, items: List[ExternalApplication]) -> "ListExternalApplicationResponseBodyBuilder":
+    def items(
+        self, items: List[ExternalApplication]
+    ) -> "ListExternalApplicationResponseBodyBuilder":
         self._list_external_application_response_body.items = items
         return self
 
@@ -35,7 +39,9 @@ class ListExternalApplicationResponseBodyBuilder(object):
         self._list_external_application_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListExternalApplicationResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListExternalApplicationResponseBodyBuilder":
         self._list_external_application_response_body.page_token = page_token
         return self
 

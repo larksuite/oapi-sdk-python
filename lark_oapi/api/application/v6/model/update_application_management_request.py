@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_application_management_request_body import UpdateApplicationManagementRequestBody
+from .update_application_management_request_body import (
+    UpdateApplicationManagementRequestBody,
+)
 
 
 class UpdateApplicationManagementRequest(BaseRequest):
@@ -18,11 +20,12 @@ class UpdateApplicationManagementRequest(BaseRequest):
 
 
 class UpdateApplicationManagementRequestBuilder(object):
-
     def __init__(self) -> None:
         update_application_management_request = UpdateApplicationManagementRequest()
         update_application_management_request.http_method = HttpMethod.PUT
-        update_application_management_request.uri = "/open-apis/application/v6/applications/:app_id/management"
+        update_application_management_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/management"
+        )
         update_application_management_request.token_types = {AccessTokenType.TENANT}
         self._update_application_management_request: UpdateApplicationManagementRequest = update_application_management_request
 
@@ -31,8 +34,9 @@ class UpdateApplicationManagementRequestBuilder(object):
         self._update_application_management_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self,
-                     request_body: UpdateApplicationManagementRequestBody) -> "UpdateApplicationManagementRequestBuilder":
+    def request_body(
+        self, request_body: UpdateApplicationManagementRequestBody
+    ) -> "UpdateApplicationManagementRequestBuilder":
         self._update_application_management_request.request_body = request_body
         self._update_application_management_request.body = request_body
         return self

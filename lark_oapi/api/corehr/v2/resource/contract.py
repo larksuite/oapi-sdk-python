@@ -17,7 +17,9 @@ class Contract(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchContractRequest, option: Optional[RequestOption] = None) -> SearchContractResponse:
+    def search(
+        self, request: SearchContractRequest, option: Optional[RequestOption] = None
+    ) -> SearchContractResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Contract(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchContractResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchContractResponse)
+        response: SearchContractResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchContractResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchContractRequest,
-                      option: Optional[RequestOption] = None) -> SearchContractResponse:
+    async def asearch(
+        self, request: SearchContractRequest, option: Optional[RequestOption] = None
+    ) -> SearchContractResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Contract(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchContractResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchContractResponse)
+        response: SearchContractResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchContractResponse
+        )
         response.raw = resp
 
         return response

@@ -17,17 +17,25 @@ class TrashUserMailboxThreadRequest(BaseRequest):
 
 
 class TrashUserMailboxThreadRequestBuilder(object):
-
     def __init__(self) -> None:
         trash_user_mailbox_thread_request = TrashUserMailboxThreadRequest()
         trash_user_mailbox_thread_request.http_method = HttpMethod.POST
         trash_user_mailbox_thread_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/trash"
-        trash_user_mailbox_thread_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._trash_user_mailbox_thread_request: TrashUserMailboxThreadRequest = trash_user_mailbox_thread_request
+        trash_user_mailbox_thread_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._trash_user_mailbox_thread_request: TrashUserMailboxThreadRequest = (
+            trash_user_mailbox_thread_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "TrashUserMailboxThreadRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "TrashUserMailboxThreadRequestBuilder":
         self._trash_user_mailbox_thread_request.user_mailbox_id = user_mailbox_id
-        self._trash_user_mailbox_thread_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._trash_user_mailbox_thread_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def thread_id(self, thread_id: str) -> "TrashUserMailboxThreadRequestBuilder":

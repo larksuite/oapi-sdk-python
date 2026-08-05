@@ -9,7 +9,6 @@ from .upload_app_storage_response_body import UploadAppStorageResponseBody
 class UploadAppStorageResponse(BaseResponse):
     _types = {
         "data": UploadAppStorageResponseBody,
-
     }
 
     def __init__(self, d=None):

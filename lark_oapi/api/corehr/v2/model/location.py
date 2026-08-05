@@ -51,7 +51,9 @@ class LocationBuilder(object):
         self._location.location_id = location_id
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "LocationBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "LocationBuilder":
         self._location.hiberarchy_common = hiberarchy_common
         return self
 

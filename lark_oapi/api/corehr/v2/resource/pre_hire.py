@@ -19,24 +19,37 @@ from ..model.patch_pre_hire_request import PatchPreHireRequest
 from ..model.patch_pre_hire_response import PatchPreHireResponse
 from ..model.query_pre_hire_request import QueryPreHireRequest
 from ..model.query_pre_hire_response import QueryPreHireResponse
-from ..model.restore_flow_instance_pre_hire_request import RestoreFlowInstancePreHireRequest
-from ..model.restore_flow_instance_pre_hire_response import RestoreFlowInstancePreHireResponse
+from ..model.restore_flow_instance_pre_hire_request import (
+    RestoreFlowInstancePreHireRequest,
+)
+from ..model.restore_flow_instance_pre_hire_response import (
+    RestoreFlowInstancePreHireResponse,
+)
 from ..model.search_pre_hire_request import SearchPreHireRequest
 from ..model.search_pre_hire_response import SearchPreHireResponse
-from ..model.transform_onboarding_task_pre_hire_request import TransformOnboardingTaskPreHireRequest
-from ..model.transform_onboarding_task_pre_hire_response import TransformOnboardingTaskPreHireResponse
+from ..model.transform_onboarding_task_pre_hire_request import (
+    TransformOnboardingTaskPreHireRequest,
+)
+from ..model.transform_onboarding_task_pre_hire_response import (
+    TransformOnboardingTaskPreHireResponse,
+)
 from ..model.transit_task_pre_hire_request import TransitTaskPreHireRequest
 from ..model.transit_task_pre_hire_response import TransitTaskPreHireResponse
-from ..model.withdraw_onboarding_pre_hire_request import WithdrawOnboardingPreHireRequest
-from ..model.withdraw_onboarding_pre_hire_response import WithdrawOnboardingPreHireResponse
+from ..model.withdraw_onboarding_pre_hire_request import (
+    WithdrawOnboardingPreHireRequest,
+)
+from ..model.withdraw_onboarding_pre_hire_response import (
+    WithdrawOnboardingPreHireResponse,
+)
 
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def complete(self, request: CompletePreHireRequest,
-                 option: Optional[RequestOption] = None) -> CompletePreHireResponse:
+    def complete(
+        self, request: CompletePreHireRequest, option: Optional[RequestOption] = None
+    ) -> CompletePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,13 +64,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CompletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CompletePreHireResponse)
+        response: CompletePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CompletePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acomplete(self, request: CompletePreHireRequest,
-                        option: Optional[RequestOption] = None) -> CompletePreHireResponse:
+    async def acomplete(
+        self, request: CompletePreHireRequest, option: Optional[RequestOption] = None
+    ) -> CompletePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -68,12 +84,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CompletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CompletePreHireResponse)
+        response: CompletePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CompletePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreatePreHireRequest, option: Optional[RequestOption] = None) -> CreatePreHireResponse:
+    def create(
+        self, request: CreatePreHireRequest, option: Optional[RequestOption] = None
+    ) -> CreatePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,13 +108,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePreHireResponse)
+        response: CreatePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePreHireRequest,
-                      option: Optional[RequestOption] = None) -> CreatePreHireResponse:
+    async def acreate(
+        self, request: CreatePreHireRequest, option: Optional[RequestOption] = None
+    ) -> CreatePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -105,12 +128,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePreHireResponse)
+        response: CreatePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeletePreHireRequest, option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+    def delete(
+        self, request: DeletePreHireRequest, option: Optional[RequestOption] = None
+    ) -> DeletePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -125,13 +152,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
+        response: DeletePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeletePreHireRequest,
-                      option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+    async def adelete(
+        self, request: DeletePreHireRequest, option: Optional[RequestOption] = None
+    ) -> DeletePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -142,12 +172,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
+        response: DeletePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchPreHireRequest, option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+    def patch(
+        self, request: PatchPreHireRequest, option: Optional[RequestOption] = None
+    ) -> PatchPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -162,13 +196,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
+        response: PatchPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchPreHireRequest,
-                     option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+    async def apatch(
+        self, request: PatchPreHireRequest, option: Optional[RequestOption] = None
+    ) -> PatchPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -179,12 +216,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
+        response: PatchPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryPreHireRequest, option: Optional[RequestOption] = None) -> QueryPreHireResponse:
+    def query(
+        self, request: QueryPreHireRequest, option: Optional[RequestOption] = None
+    ) -> QueryPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -199,13 +240,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPreHireResponse)
+        response: QueryPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryPreHireRequest,
-                     option: Optional[RequestOption] = None) -> QueryPreHireResponse:
+    async def aquery(
+        self, request: QueryPreHireRequest, option: Optional[RequestOption] = None
+    ) -> QueryPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -216,13 +260,18 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPreHireResponse)
+        response: QueryPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def restore_flow_instance(self, request: RestoreFlowInstancePreHireRequest,
-                              option: Optional[RequestOption] = None) -> RestoreFlowInstancePreHireResponse:
+    def restore_flow_instance(
+        self,
+        request: RestoreFlowInstancePreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RestoreFlowInstancePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -237,14 +286,18 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RestoreFlowInstancePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RestoreFlowInstancePreHireResponse)
+        response: RestoreFlowInstancePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RestoreFlowInstancePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arestore_flow_instance(self, request: RestoreFlowInstancePreHireRequest,
-                                     option: Optional[RequestOption] = None) -> RestoreFlowInstancePreHireResponse:
+    async def arestore_flow_instance(
+        self,
+        request: RestoreFlowInstancePreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RestoreFlowInstancePreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -255,13 +308,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RestoreFlowInstancePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RestoreFlowInstancePreHireResponse)
+        response: RestoreFlowInstancePreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RestoreFlowInstancePreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchPreHireRequest, option: Optional[RequestOption] = None) -> SearchPreHireResponse:
+    def search(
+        self, request: SearchPreHireRequest, option: Optional[RequestOption] = None
+    ) -> SearchPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -276,13 +332,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
+        response: SearchPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchPreHireRequest,
-                      option: Optional[RequestOption] = None) -> SearchPreHireResponse:
+    async def asearch(
+        self, request: SearchPreHireRequest, option: Optional[RequestOption] = None
+    ) -> SearchPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -293,13 +352,18 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
+        response: SearchPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def transform_onboarding_task(self, request: TransformOnboardingTaskPreHireRequest,
-                                  option: Optional[RequestOption] = None) -> TransformOnboardingTaskPreHireResponse:
+    def transform_onboarding_task(
+        self,
+        request: TransformOnboardingTaskPreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TransformOnboardingTaskPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -314,14 +378,18 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          TransformOnboardingTaskPreHireResponse)
+        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransformOnboardingTaskPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atransform_onboarding_task(self, request: TransformOnboardingTaskPreHireRequest, option: Optional[
-        RequestOption] = None) -> TransformOnboardingTaskPreHireResponse:
+    async def atransform_onboarding_task(
+        self,
+        request: TransformOnboardingTaskPreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TransformOnboardingTaskPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -332,14 +400,16 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          TransformOnboardingTaskPreHireResponse)
+        response: TransformOnboardingTaskPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransformOnboardingTaskPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def transit_task(self, request: TransitTaskPreHireRequest,
-                     option: Optional[RequestOption] = None) -> TransitTaskPreHireResponse:
+    def transit_task(
+        self, request: TransitTaskPreHireRequest, option: Optional[RequestOption] = None
+    ) -> TransitTaskPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -354,13 +424,16 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TransitTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), TransitTaskPreHireResponse)
+        response: TransitTaskPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransitTaskPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atransit_task(self, request: TransitTaskPreHireRequest,
-                            option: Optional[RequestOption] = None) -> TransitTaskPreHireResponse:
+    async def atransit_task(
+        self, request: TransitTaskPreHireRequest, option: Optional[RequestOption] = None
+    ) -> TransitTaskPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -371,13 +444,18 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TransitTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), TransitTaskPreHireResponse)
+        response: TransitTaskPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransitTaskPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    def withdraw_onboarding(self, request: WithdrawOnboardingPreHireRequest,
-                            option: Optional[RequestOption] = None) -> WithdrawOnboardingPreHireResponse:
+    def withdraw_onboarding(
+        self,
+        request: WithdrawOnboardingPreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WithdrawOnboardingPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -392,14 +470,18 @@ class PreHire(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawOnboardingPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     WithdrawOnboardingPreHireResponse)
+        response: WithdrawOnboardingPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawOnboardingPreHireResponse
+        )
         response.raw = resp
 
         return response
 
-    async def awithdraw_onboarding(self, request: WithdrawOnboardingPreHireRequest,
-                                   option: Optional[RequestOption] = None) -> WithdrawOnboardingPreHireResponse:
+    async def awithdraw_onboarding(
+        self,
+        request: WithdrawOnboardingPreHireRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WithdrawOnboardingPreHireResponse:
         if option is None:
             option = RequestOption()
 
@@ -410,8 +492,9 @@ class PreHire(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawOnboardingPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     WithdrawOnboardingPreHireResponse)
+        response: WithdrawOnboardingPreHireResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawOnboardingPreHireResponse
+        )
         response.raw = resp
 
         return response

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .upload_html_code_and_release_app_request_body import UploadHtmlCodeAndReleaseAppRequestBody
+from .upload_html_code_and_release_app_request_body import (
+    UploadHtmlCodeAndReleaseAppRequestBody,
+)
 
 
 class UploadHtmlCodeAndReleaseAppRequest(BaseRequest):
@@ -18,11 +20,12 @@ class UploadHtmlCodeAndReleaseAppRequest(BaseRequest):
 
 
 class UploadHtmlCodeAndReleaseAppRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_html_code_and_release_app_request = UploadHtmlCodeAndReleaseAppRequest()
         upload_html_code_and_release_app_request.http_method = HttpMethod.POST
-        upload_html_code_and_release_app_request.uri = "/open-apis/spark/v1/apps/:app_id/upload_and_release_html_code"
+        upload_html_code_and_release_app_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/upload_and_release_html_code"
+        )
         upload_html_code_and_release_app_request.token_types = {AccessTokenType.USER}
         self._upload_html_code_and_release_app_request: UploadHtmlCodeAndReleaseAppRequest = upload_html_code_and_release_app_request
 
@@ -31,8 +34,9 @@ class UploadHtmlCodeAndReleaseAppRequestBuilder(object):
         self._upload_html_code_and_release_app_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self,
-                     request_body: UploadHtmlCodeAndReleaseAppRequestBody) -> "UploadHtmlCodeAndReleaseAppRequestBuilder":
+    def request_body(
+        self, request_body: UploadHtmlCodeAndReleaseAppRequestBody
+    ) -> "UploadHtmlCodeAndReleaseAppRequestBuilder":
         self._upload_html_code_and_release_app_request.request_body = request_body
         self._upload_html_code_and_release_app_request.body = request_body
         return self

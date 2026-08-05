@@ -17,17 +17,27 @@ class DeleteUserMailboxLabelRequest(BaseRequest):
 
 
 class DeleteUserMailboxLabelRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_user_mailbox_label_request = DeleteUserMailboxLabelRequest()
         delete_user_mailbox_label_request.http_method = HttpMethod.DELETE
-        delete_user_mailbox_label_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels/:label_id"
-        delete_user_mailbox_label_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_user_mailbox_label_request: DeleteUserMailboxLabelRequest = delete_user_mailbox_label_request
+        delete_user_mailbox_label_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels/:label_id"
+        )
+        delete_user_mailbox_label_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_user_mailbox_label_request: DeleteUserMailboxLabelRequest = (
+            delete_user_mailbox_label_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxLabelRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "DeleteUserMailboxLabelRequestBuilder":
         self._delete_user_mailbox_label_request.user_mailbox_id = user_mailbox_id
-        self._delete_user_mailbox_label_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._delete_user_mailbox_label_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def label_id(self, label_id: str) -> "DeleteUserMailboxLabelRequestBuilder":

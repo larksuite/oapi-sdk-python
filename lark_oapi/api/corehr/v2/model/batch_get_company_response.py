@@ -9,7 +9,6 @@ from .batch_get_company_response_body import BatchGetCompanyResponseBody
 class BatchGetCompanyResponse(BaseResponse):
     _types = {
         "data": BatchGetCompanyResponseBody,
-
     }
 
     def __init__(self, d=None):

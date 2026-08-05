@@ -9,7 +9,6 @@ from .create_archive_response_body import CreateArchiveResponseBody
 class CreateArchiveResponse(BaseResponse):
     _types = {
         "data": CreateArchiveResponseBody,
-
     }
 
     def __init__(self, d=None):

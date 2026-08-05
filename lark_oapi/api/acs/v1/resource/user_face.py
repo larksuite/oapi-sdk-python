@@ -19,7 +19,9 @@ class UserFace(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
+    def get(
+        self, request: GetUserFaceRequest, option: Optional[RequestOption] = None
+    ) -> GetUserFaceResponse:
         if option is None:
             option = RequestOption()
 
@@ -46,7 +48,9 @@ class UserFace(object):
         response.raw = resp
         return response
 
-    async def aget(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
+    async def aget(
+        self, request: GetUserFaceRequest, option: Optional[RequestOption] = None
+    ) -> GetUserFaceResponse:
         if option is None:
             option = RequestOption()
 
@@ -69,7 +73,9 @@ class UserFace(object):
         response.raw = resp
         return response
 
-    def update(self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
+    def update(
+        self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None
+    ) -> UpdateUserFaceResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,13 +92,16 @@ class UserFace(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)
+        response: UpdateUserFaceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateUserFaceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateUserFaceRequest,
-                      option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
+    async def aupdate(
+        self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None
+    ) -> UpdateUserFaceResponse:
         if option is None:
             option = RequestOption()
 
@@ -106,7 +115,9 @@ class UserFace(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)
+        response: UpdateUserFaceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateUserFaceResponse
+        )
         response.raw = resp
 
         return response

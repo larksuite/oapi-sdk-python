@@ -28,7 +28,9 @@ class ExternalApprovalItemBuilder(object):
         self._external_approval_item.approval_code = approval_code
         return self
 
-    def approval_external_id(self, approval_external_id: str) -> "ExternalApprovalItemBuilder":
+    def approval_external_id(
+        self, approval_external_id: str
+    ) -> "ExternalApprovalItemBuilder":
         self._external_approval_item.approval_external_id = approval_external_id
         return self
 

@@ -18,7 +18,6 @@ class QueryRuleRequest(BaseRequest):
 
 
 class QueryRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         query_rule_request = QueryRuleRequest()
         query_rule_request.http_method = HttpMethod.GET

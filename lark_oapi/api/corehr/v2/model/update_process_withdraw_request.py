@@ -19,13 +19,16 @@ class UpdateProcessWithdrawRequest(BaseRequest):
 
 
 class UpdateProcessWithdrawRequestBuilder(object):
-
     def __init__(self) -> None:
         update_process_withdraw_request = UpdateProcessWithdrawRequest()
         update_process_withdraw_request.http_method = HttpMethod.PUT
-        update_process_withdraw_request.uri = "/open-apis/corehr/v2/process_withdraw/:process_id"
+        update_process_withdraw_request.uri = (
+            "/open-apis/corehr/v2/process_withdraw/:process_id"
+        )
         update_process_withdraw_request.token_types = {AccessTokenType.TENANT}
-        self._update_process_withdraw_request: UpdateProcessWithdrawRequest = update_process_withdraw_request
+        self._update_process_withdraw_request: UpdateProcessWithdrawRequest = (
+            update_process_withdraw_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateProcessWithdrawRequestBuilder":
         self._update_process_withdraw_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class UpdateProcessWithdrawRequestBuilder(object):
         self._update_process_withdraw_request.paths["process_id"] = str(process_id)
         return self
 
-    def request_body(self, request_body: ProcessRevokeAndWithdraw) -> "UpdateProcessWithdrawRequestBuilder":
+    def request_body(
+        self, request_body: ProcessRevokeAndWithdraw
+    ) -> "UpdateProcessWithdrawRequestBuilder":
         self._update_process_withdraw_request.request_body = request_body
         self._update_process_withdraw_request.body = request_body
         return self

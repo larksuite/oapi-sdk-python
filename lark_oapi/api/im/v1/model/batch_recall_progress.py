@@ -28,7 +28,9 @@ class BatchRecallProgressBuilder(object):
         self._batch_recall_progress.recall_count = recall_count
         return self
 
-    def total_recall_count(self, total_recall_count: str) -> "BatchRecallProgressBuilder":
+    def total_recall_count(
+        self, total_recall_count: str
+    ) -> "BatchRecallProgressBuilder":
         self._batch_recall_progress.total_recall_count = total_recall_count
         return self
 

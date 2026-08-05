@@ -79,7 +79,9 @@ class OfferBuilder(object):
         self._offer.job_info = job_info
         return self
 
-    def customized_module_list(self, customized_module_list: List[ApplicationOfferCustomModule]) -> "OfferBuilder":
+    def customized_module_list(
+        self, customized_module_list: List[ApplicationOfferCustomModule]
+    ) -> "OfferBuilder":
         self._offer.customized_module_list = customized_module_list
         return self
 
@@ -87,7 +89,9 @@ class OfferBuilder(object):
         self._offer.job_requirement_id = job_requirement_id
         return self
 
-    def offer_send_record_list(self, offer_send_record_list: List[OfferSendRecord]) -> "OfferBuilder":
+    def offer_send_record_list(
+        self, offer_send_record_list: List[OfferSendRecord]
+    ) -> "OfferBuilder":
         self._offer.offer_send_record_list = offer_send_record_list
         return self
 

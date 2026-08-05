@@ -17,13 +17,14 @@ class ListResumeSourceRequest(BaseRequest):
 
 
 class ListResumeSourceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_resume_source_request = ListResumeSourceRequest()
         list_resume_source_request.http_method = HttpMethod.GET
         list_resume_source_request.uri = "/open-apis/hire/v1/resume_sources"
         list_resume_source_request.token_types = {AccessTokenType.TENANT}
-        self._list_resume_source_request: ListResumeSourceRequest = list_resume_source_request
+        self._list_resume_source_request: ListResumeSourceRequest = (
+            list_resume_source_request
+        )
 
     def page_size(self, page_size: int) -> "ListResumeSourceRequestBuilder":
         self._list_resume_source_request.page_size = page_size

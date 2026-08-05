@@ -19,13 +19,19 @@ class UpdateAppWorkflowRequest(BaseRequest):
 
 
 class UpdateAppWorkflowRequestBuilder(object):
-
     def __init__(self) -> None:
         update_app_workflow_request = UpdateAppWorkflowRequest()
         update_app_workflow_request.http_method = HttpMethod.PUT
-        update_app_workflow_request.uri = "/open-apis/bitable/v1/apps/:app_token/workflows/:workflow_id"
-        update_app_workflow_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_app_workflow_request: UpdateAppWorkflowRequest = update_app_workflow_request
+        update_app_workflow_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/workflows/:workflow_id"
+        )
+        update_app_workflow_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_app_workflow_request: UpdateAppWorkflowRequest = (
+            update_app_workflow_request
+        )
 
     def app_token(self, app_token: str) -> "UpdateAppWorkflowRequestBuilder":
         self._update_app_workflow_request.app_token = app_token
@@ -37,7 +43,9 @@ class UpdateAppWorkflowRequestBuilder(object):
         self._update_app_workflow_request.paths["workflow_id"] = str(workflow_id)
         return self
 
-    def request_body(self, request_body: UpdateAppWorkflowRequestBody) -> "UpdateAppWorkflowRequestBuilder":
+    def request_body(
+        self, request_body: UpdateAppWorkflowRequestBody
+    ) -> "UpdateAppWorkflowRequestBuilder":
         self._update_app_workflow_request.request_body = request_body
         self._update_app_workflow_request.body = request_body
         return self

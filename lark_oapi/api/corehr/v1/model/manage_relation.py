@@ -34,11 +34,15 @@ class ManageRelationBuilder(object):
     def __init__(self) -> None:
         self._manage_relation = ManageRelation()
 
-    def subordinate_department_id(self, subordinate_department_id: str) -> "ManageRelationBuilder":
+    def subordinate_department_id(
+        self, subordinate_department_id: str
+    ) -> "ManageRelationBuilder":
         self._manage_relation.subordinate_department_id = subordinate_department_id
         return self
 
-    def subordinate_employee_id(self, subordinate_employee_id: str) -> "ManageRelationBuilder":
+    def subordinate_employee_id(
+        self, subordinate_employee_id: str
+    ) -> "ManageRelationBuilder":
         self._manage_relation.subordinate_employee_id = subordinate_employee_id
         return self
 
@@ -50,7 +54,9 @@ class ManageRelationBuilder(object):
         self._manage_relation.report_mode_type = report_mode_type
         return self
 
-    def superior_employee_id(self, superior_employee_id: str) -> "ManageRelationBuilder":
+    def superior_employee_id(
+        self, superior_employee_id: str
+    ) -> "ManageRelationBuilder":
         self._manage_relation.superior_employee_id = superior_employee_id
         return self
 

@@ -27,7 +27,9 @@ class ListFileViewRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_file_view_record_response_body = ListFileViewRecordResponseBody()
 
-    def items(self, items: List[FileViewRecord]) -> "ListFileViewRecordResponseBodyBuilder":
+    def items(
+        self, items: List[FileViewRecord]
+    ) -> "ListFileViewRecordResponseBodyBuilder":
         self._list_file_view_record_response_body.items = items
         return self
 

@@ -29,7 +29,9 @@ class ProofContentDetailBuilder(object):
         self._proof_content_detail.detect_mode = detect_mode
         return self
 
-    def detect_proof_contexts(self, detect_proof_contexts: List[DetectProofContext]) -> "ProofContentDetailBuilder":
+    def detect_proof_contexts(
+        self, detect_proof_contexts: List[DetectProofContext]
+    ) -> "ProofContentDetailBuilder":
         self._proof_content_detail.detect_proof_contexts = detect_proof_contexts
         return self
 

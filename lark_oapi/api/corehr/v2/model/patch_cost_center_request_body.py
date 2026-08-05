@@ -26,7 +26,9 @@ class PatchCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_cost_center_request_body = PatchCostCenterRequestBody()
 
-    def effective_time(self, effective_time: str) -> "PatchCostCenterRequestBodyBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "PatchCostCenterRequestBodyBuilder":
         self._patch_cost_center_request_body.effective_time = effective_time
         return self
 
@@ -34,7 +36,9 @@ class PatchCostCenterRequestBodyBuilder(object):
         self._patch_cost_center_request_body.active = active
         return self
 
-    def operation_reason(self, operation_reason: str) -> "PatchCostCenterRequestBodyBuilder":
+    def operation_reason(
+        self, operation_reason: str
+    ) -> "PatchCostCenterRequestBodyBuilder":
         self._patch_cost_center_request_body.operation_reason = operation_reason
         return self
 

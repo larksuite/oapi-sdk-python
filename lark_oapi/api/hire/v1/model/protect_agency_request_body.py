@@ -48,11 +48,15 @@ class ProtectAgencyRequestBodyBuilder(object):
         self._protect_agency_request_body.consultant_id = consultant_id
         return self
 
-    def protect_create_time(self, protect_create_time: int) -> "ProtectAgencyRequestBodyBuilder":
+    def protect_create_time(
+        self, protect_create_time: int
+    ) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.protect_create_time = protect_create_time
         return self
 
-    def protect_expire_time(self, protect_expire_time: int) -> "ProtectAgencyRequestBodyBuilder":
+    def protect_expire_time(
+        self, protect_expire_time: int
+    ) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.protect_expire_time = protect_expire_time
         return self
 
@@ -64,7 +68,9 @@ class ProtectAgencyRequestBodyBuilder(object):
         self._protect_agency_request_body.current_salary = current_salary
         return self
 
-    def expected_salary(self, expected_salary: str) -> "ProtectAgencyRequestBodyBuilder":
+    def expected_salary(
+        self, expected_salary: str
+    ) -> "ProtectAgencyRequestBodyBuilder":
         self._protect_agency_request_body.expected_salary = expected_salary
         return self
 

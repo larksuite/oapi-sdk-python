@@ -21,9 +21,13 @@ class GetFunctionalRoleMemberResponseBody(object):
 
 class GetFunctionalRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_functional_role_member_response_body = GetFunctionalRoleMemberResponseBody()
+        self._get_functional_role_member_response_body = (
+            GetFunctionalRoleMemberResponseBody()
+        )
 
-    def member(self, member: FunctionalRoleMember) -> "GetFunctionalRoleMemberResponseBodyBuilder":
+    def member(
+        self, member: FunctionalRoleMember
+    ) -> "GetFunctionalRoleMemberResponseBodyBuilder":
         self._get_functional_role_member_response_body.member = member
         return self
 

@@ -24,7 +24,9 @@ class IdentificationBuilder(object):
     def __init__(self) -> None:
         self._identification = Identification()
 
-    def identification_number(self, identification_number: str) -> "IdentificationBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "IdentificationBuilder":
         self._identification.identification_number = identification_number
         return self
 

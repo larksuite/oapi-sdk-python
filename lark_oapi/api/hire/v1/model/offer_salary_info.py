@@ -42,11 +42,17 @@ class OfferSalaryInfoBuilder(object):
         self._offer_salary_info.basic_salary = basic_salary
         return self
 
-    def probation_salary_percentage(self, probation_salary_percentage: str) -> "OfferSalaryInfoBuilder":
-        self._offer_salary_info.probation_salary_percentage = probation_salary_percentage
+    def probation_salary_percentage(
+        self, probation_salary_percentage: str
+    ) -> "OfferSalaryInfoBuilder":
+        self._offer_salary_info.probation_salary_percentage = (
+            probation_salary_percentage
+        )
         return self
 
-    def award_salary_multiple(self, award_salary_multiple: str) -> "OfferSalaryInfoBuilder":
+    def award_salary_multiple(
+        self, award_salary_multiple: str
+    ) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.award_salary_multiple = award_salary_multiple
         return self
 

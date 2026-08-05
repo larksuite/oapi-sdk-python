@@ -27,7 +27,9 @@ class Group(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
+    def create(
+        self, request: CreateGroupRequest, option: Optional[RequestOption] = None
+    ) -> CreateGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,12 +44,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateGroupResponse)
+        response: CreateGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
+    async def acreate(
+        self, request: CreateGroupRequest, option: Optional[RequestOption] = None
+    ) -> CreateGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,12 +64,16 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateGroupResponse)
+        response: CreateGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
+    def delete(
+        self, request: DeleteGroupRequest, option: Optional[RequestOption] = None
+    ) -> DeleteGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,12 +88,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteGroupResponse)
+        response: DeleteGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
+    async def adelete(
+        self, request: DeleteGroupRequest, option: Optional[RequestOption] = None
+    ) -> DeleteGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,12 +108,16 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteGroupResponse)
+        response: DeleteGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
+    def get(
+        self, request: GetGroupRequest, option: Optional[RequestOption] = None
+    ) -> GetGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,12 +132,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetGroupResponse)
+        response: GetGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
+    async def aget(
+        self, request: GetGroupRequest, option: Optional[RequestOption] = None
+    ) -> GetGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -130,12 +152,16 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetGroupResponse)
+        response: GetGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListGroupRequest, option: Optional[RequestOption] = None) -> ListGroupResponse:
+    def list(
+        self, request: ListGroupRequest, option: Optional[RequestOption] = None
+    ) -> ListGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -150,12 +176,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListGroupResponse)
+        response: ListGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListGroupRequest, option: Optional[RequestOption] = None) -> ListGroupResponse:
+    async def alist(
+        self, request: ListGroupRequest, option: Optional[RequestOption] = None
+    ) -> ListGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -166,12 +196,16 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListGroupResponse)
+        response: ListGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    def list_user(self, request: ListUserGroupRequest, option: Optional[RequestOption] = None) -> ListUserGroupResponse:
+    def list_user(
+        self, request: ListUserGroupRequest, option: Optional[RequestOption] = None
+    ) -> ListUserGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -186,13 +220,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserGroupResponse)
+        response: ListUserGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_user(self, request: ListUserGroupRequest,
-                         option: Optional[RequestOption] = None) -> ListUserGroupResponse:
+    async def alist_user(
+        self, request: ListUserGroupRequest, option: Optional[RequestOption] = None
+    ) -> ListUserGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -203,12 +240,16 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserGroupResponse)
+        response: ListUserGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchGroupRequest, option: Optional[RequestOption] = None) -> SearchGroupResponse:
+    def search(
+        self, request: SearchGroupRequest, option: Optional[RequestOption] = None
+    ) -> SearchGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -223,12 +264,16 @@ class Group(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchGroupResponse)
+        response: SearchGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchGroupRequest, option: Optional[RequestOption] = None) -> SearchGroupResponse:
+    async def asearch(
+        self, request: SearchGroupRequest, option: Optional[RequestOption] = None
+    ) -> SearchGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -239,7 +284,9 @@ class Group(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchGroupResponse)
+        response: SearchGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchGroupResponse
+        )
         response.raw = resp
 
         return response

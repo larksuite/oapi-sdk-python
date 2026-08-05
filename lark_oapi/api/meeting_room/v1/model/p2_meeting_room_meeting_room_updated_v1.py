@@ -18,9 +18,7 @@ class P2MeetingRoomMeetingRoomUpdatedV1Data(object):
 
 
 class P2MeetingRoomMeetingRoomUpdatedV1(EventContext):
-    _types = {
-        "event": P2MeetingRoomMeetingRoomUpdatedV1Data
-    }
+    _types = {"event": P2MeetingRoomMeetingRoomUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -18,7 +18,6 @@ class ListJobSchemaRequest(BaseRequest):
 
 
 class ListJobSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_schema_request = ListJobSchemaRequest()
         list_job_schema_request.http_method = HttpMethod.GET

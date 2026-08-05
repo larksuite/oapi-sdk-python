@@ -29,7 +29,9 @@ class SearchCalendarEventRequestBodyBuilder(object):
         self._search_calendar_event_request_body.query = query
         return self
 
-    def filter(self, filter: EventSearchFilter) -> "SearchCalendarEventRequestBodyBuilder":
+    def filter(
+        self, filter: EventSearchFilter
+    ) -> "SearchCalendarEventRequestBodyBuilder":
         self._search_calendar_event_request_body.filter = filter
         return self
 

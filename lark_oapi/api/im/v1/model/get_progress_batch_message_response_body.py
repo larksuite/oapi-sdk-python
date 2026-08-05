@@ -24,16 +24,24 @@ class GetProgressBatchMessageResponseBody(object):
 
 class GetProgressBatchMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_progress_batch_message_response_body = GetProgressBatchMessageResponseBody()
+        self._get_progress_batch_message_response_body = (
+            GetProgressBatchMessageResponseBody()
+        )
 
-    def batch_message_send_progress(self,
-                                    batch_message_send_progress: BatchMessageSendProgress) -> "GetProgressBatchMessageResponseBodyBuilder":
-        self._get_progress_batch_message_response_body.batch_message_send_progress = batch_message_send_progress
+    def batch_message_send_progress(
+        self, batch_message_send_progress: BatchMessageSendProgress
+    ) -> "GetProgressBatchMessageResponseBodyBuilder":
+        self._get_progress_batch_message_response_body.batch_message_send_progress = (
+            batch_message_send_progress
+        )
         return self
 
-    def batch_message_recall_progress(self,
-                                      batch_message_recall_progress: BatchMessageRecallProgress) -> "GetProgressBatchMessageResponseBodyBuilder":
-        self._get_progress_batch_message_response_body.batch_message_recall_progress = batch_message_recall_progress
+    def batch_message_recall_progress(
+        self, batch_message_recall_progress: BatchMessageRecallProgress
+    ) -> "GetProgressBatchMessageResponseBodyBuilder":
+        self._get_progress_batch_message_response_body.batch_message_recall_progress = (
+            batch_message_recall_progress
+        )
         return self
 
     def build(self) -> "GetProgressBatchMessageResponseBody":

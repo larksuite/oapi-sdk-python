@@ -21,7 +21,9 @@ class GetMultiGeoEntityTenantResponseBody(object):
 
 class GetMultiGeoEntityTenantResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_multi_geo_entity_tenant_response_body = GetMultiGeoEntityTenantResponseBody()
+        self._get_multi_geo_entity_tenant_response_body = (
+            GetMultiGeoEntityTenantResponseBody()
+        )
 
     def tenant(self, tenant: Tenant) -> "GetMultiGeoEntityTenantResponseBodyBuilder":
         self._get_multi_geo_entity_tenant_response_body.tenant = tenant

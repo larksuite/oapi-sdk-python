@@ -21,9 +21,13 @@ class GetApplicationEnvironmentVariableResponseBody(object):
 
 class GetApplicationEnvironmentVariableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_application_environment_variable_response_body = GetApplicationEnvironmentVariableResponseBody()
+        self._get_application_environment_variable_response_body = (
+            GetApplicationEnvironmentVariableResponseBody()
+        )
 
-    def item(self, item: EnvironmentVariable) -> "GetApplicationEnvironmentVariableResponseBodyBuilder":
+    def item(
+        self, item: EnvironmentVariable
+    ) -> "GetApplicationEnvironmentVariableResponseBodyBuilder":
         self._get_application_environment_variable_response_body.item = item
         return self
 

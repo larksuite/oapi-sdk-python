@@ -50,7 +50,9 @@ class OrganizationDomainEventDataBuilder(object):
         self._organization_domain_event_data.agg_entity_id = agg_entity_id
         return self
 
-    def agg_entity_field(self, agg_entity_field: str) -> "OrganizationDomainEventDataBuilder":
+    def agg_entity_field(
+        self, agg_entity_field: str
+    ) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.agg_entity_field = agg_entity_field
         return self
 
@@ -58,7 +60,9 @@ class OrganizationDomainEventDataBuilder(object):
         self._organization_domain_event_data.opt_type = opt_type
         return self
 
-    def field_changes(self, field_changes: List[str]) -> "OrganizationDomainEventDataBuilder":
+    def field_changes(
+        self, field_changes: List[str]
+    ) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.field_changes = field_changes
         return self
 

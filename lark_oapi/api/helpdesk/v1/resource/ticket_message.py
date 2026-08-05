@@ -19,8 +19,11 @@ class TicketMessage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTicketMessageRequest,
-               option: Optional[RequestOption] = None) -> CreateTicketMessageResponse:
+    def create(
+        self,
+        request: CreateTicketMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTicketMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class TicketMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTicketMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTicketMessageResponse)
+        response: CreateTicketMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTicketMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTicketMessageRequest,
-                      option: Optional[RequestOption] = None) -> CreateTicketMessageResponse:
+    async def acreate(
+        self,
+        request: CreateTicketMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTicketMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,16 @@ class TicketMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTicketMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTicketMessageResponse)
+        response: CreateTicketMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTicketMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTicketMessageRequest,
-             option: Optional[RequestOption] = None) -> ListTicketMessageResponse:
+    def list(
+        self, request: ListTicketMessageRequest, option: Optional[RequestOption] = None
+    ) -> ListTicketMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +84,16 @@ class TicketMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTicketMessageResponse)
+        response: ListTicketMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTicketMessageRequest,
-                    option: Optional[RequestOption] = None) -> ListTicketMessageResponse:
+    async def alist(
+        self, request: ListTicketMessageRequest, option: Optional[RequestOption] = None
+    ) -> ListTicketMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +104,9 @@ class TicketMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTicketMessageResponse)
+        response: ListTicketMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketMessageResponse
+        )
         response.raw = resp
 
         return response

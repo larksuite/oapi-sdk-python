@@ -57,11 +57,15 @@ class ResidentTaxBuilder(object):
         self._resident_tax.resident_status = resident_status
         return self
 
-    def resident_status_specification(self, resident_status_specification: str) -> "ResidentTaxBuilder":
+    def resident_status_specification(
+        self, resident_status_specification: str
+    ) -> "ResidentTaxBuilder":
         self._resident_tax.resident_status_specification = resident_status_specification
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "ResidentTaxBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "ResidentTaxBuilder":
         self._resident_tax.custom_fields = custom_fields
         return self
 

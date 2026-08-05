@@ -29,7 +29,9 @@ class ListApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_application_response_body = ListApplicationResponseBody()
 
-    def app_list(self, app_list: List[Application]) -> "ListApplicationResponseBodyBuilder":
+    def app_list(
+        self, app_list: List[Application]
+    ) -> "ListApplicationResponseBodyBuilder":
         self._list_application_response_body.app_list = app_list
         return self
 

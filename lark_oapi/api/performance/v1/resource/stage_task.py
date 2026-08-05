@@ -12,15 +12,20 @@ from requests_toolbelt import MultipartEncoder
 from ..model.find_by_page_stage_task_request import FindByPageStageTaskRequest
 from ..model.find_by_page_stage_task_response import FindByPageStageTaskResponse
 from ..model.find_by_user_list_stage_task_request import FindByUserListStageTaskRequest
-from ..model.find_by_user_list_stage_task_response import FindByUserListStageTaskResponse
+from ..model.find_by_user_list_stage_task_response import (
+    FindByUserListStageTaskResponse,
+)
 
 
 class StageTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def find_by_page(self, request: FindByPageStageTaskRequest,
-                     option: Optional[RequestOption] = None) -> FindByPageStageTaskResponse:
+    def find_by_page(
+        self,
+        request: FindByPageStageTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FindByPageStageTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +40,18 @@ class StageTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FindByPageStageTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), FindByPageStageTaskResponse)
+        response: FindByPageStageTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FindByPageStageTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afind_by_page(self, request: FindByPageStageTaskRequest,
-                            option: Optional[RequestOption] = None) -> FindByPageStageTaskResponse:
+    async def afind_by_page(
+        self,
+        request: FindByPageStageTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FindByPageStageTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +62,18 @@ class StageTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FindByPageStageTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), FindByPageStageTaskResponse)
+        response: FindByPageStageTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FindByPageStageTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def find_by_user_list(self, request: FindByUserListStageTaskRequest,
-                          option: Optional[RequestOption] = None) -> FindByUserListStageTaskResponse:
+    def find_by_user_list(
+        self,
+        request: FindByUserListStageTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FindByUserListStageTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +88,18 @@ class StageTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FindByUserListStageTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FindByUserListStageTaskResponse)
+        response: FindByUserListStageTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FindByUserListStageTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afind_by_user_list(self, request: FindByUserListStageTaskRequest,
-                                 option: Optional[RequestOption] = None) -> FindByUserListStageTaskResponse:
+    async def afind_by_user_list(
+        self,
+        request: FindByUserListStageTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FindByUserListStageTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +110,9 @@ class StageTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FindByUserListStageTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FindByUserListStageTaskResponse)
+        response: FindByUserListStageTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FindByUserListStageTaskResponse
+        )
         response.raw = resp
 
         return response

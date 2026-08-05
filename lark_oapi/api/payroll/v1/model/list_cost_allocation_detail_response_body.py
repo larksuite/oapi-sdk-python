@@ -16,7 +16,9 @@ class ListCostAllocationDetailResponseBody(object):
     }
 
     def __init__(self, d=None):
-        self.cost_allocation_report_datas: Optional[List[CostAllocationReportData]] = None
+        self.cost_allocation_report_datas: Optional[List[CostAllocationReportData]] = (
+            None
+        )
         self.cost_allocation_report_names: Optional[List[I18nContent]] = None
         self.pay_period: Optional[str] = None
         self.page_token: Optional[str] = None
@@ -30,23 +32,35 @@ class ListCostAllocationDetailResponseBody(object):
 
 class ListCostAllocationDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_cost_allocation_detail_response_body = ListCostAllocationDetailResponseBody()
+        self._list_cost_allocation_detail_response_body = (
+            ListCostAllocationDetailResponseBody()
+        )
 
-    def cost_allocation_report_datas(self, cost_allocation_report_datas: List[
-        CostAllocationReportData]) -> "ListCostAllocationDetailResponseBodyBuilder":
-        self._list_cost_allocation_detail_response_body.cost_allocation_report_datas = cost_allocation_report_datas
+    def cost_allocation_report_datas(
+        self, cost_allocation_report_datas: List[CostAllocationReportData]
+    ) -> "ListCostAllocationDetailResponseBodyBuilder":
+        self._list_cost_allocation_detail_response_body.cost_allocation_report_datas = (
+            cost_allocation_report_datas
+        )
         return self
 
-    def cost_allocation_report_names(self, cost_allocation_report_names: List[
-        I18nContent]) -> "ListCostAllocationDetailResponseBodyBuilder":
-        self._list_cost_allocation_detail_response_body.cost_allocation_report_names = cost_allocation_report_names
+    def cost_allocation_report_names(
+        self, cost_allocation_report_names: List[I18nContent]
+    ) -> "ListCostAllocationDetailResponseBodyBuilder":
+        self._list_cost_allocation_detail_response_body.cost_allocation_report_names = (
+            cost_allocation_report_names
+        )
         return self
 
-    def pay_period(self, pay_period: str) -> "ListCostAllocationDetailResponseBodyBuilder":
+    def pay_period(
+        self, pay_period: str
+    ) -> "ListCostAllocationDetailResponseBodyBuilder":
         self._list_cost_allocation_detail_response_body.pay_period = pay_period
         return self
 
-    def page_token(self, page_token: str) -> "ListCostAllocationDetailResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListCostAllocationDetailResponseBodyBuilder":
         self._list_cost_allocation_detail_response_body.page_token = page_token
         return self
 

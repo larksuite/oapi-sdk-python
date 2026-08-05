@@ -23,7 +23,9 @@ class SearchUserMigrationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_user_migration_response_body = SearchUserMigrationResponseBody()
 
-    def items(self, items: List[UserMigration]) -> "SearchUserMigrationResponseBodyBuilder":
+    def items(
+        self, items: List[UserMigration]
+    ) -> "SearchUserMigrationResponseBodyBuilder":
         self._search_user_migration_response_body.items = items
         return self
 

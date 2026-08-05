@@ -42,53 +42,81 @@ class InternationalAssignmentV2ForPatch(object):
 
 class InternationalAssignmentV2ForPatchBuilder(object):
     def __init__(self) -> None:
-        self._international_assignment_v2_for_patch = InternationalAssignmentV2ForPatch()
+        self._international_assignment_v2_for_patch = (
+            InternationalAssignmentV2ForPatch()
+        )
 
-    def effective_time(self, effective_time: str) -> "InternationalAssignmentV2ForPatchBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.effective_time = effective_time
         return self
 
-    def international_assignment_expected_end_date(self,
-                                                   international_assignment_expected_end_date: str) -> "InternationalAssignmentV2ForPatchBuilder":
+    def international_assignment_expected_end_date(
+        self, international_assignment_expected_end_date: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.international_assignment_expected_end_date = international_assignment_expected_end_date
         return self
 
-    def expiration_time(self, expiration_time: str) -> "InternationalAssignmentV2ForPatchBuilder":
+    def expiration_time(
+        self, expiration_time: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.expiration_time = expiration_time
         return self
 
-    def assignment_country(self, assignment_country: str) -> "InternationalAssignmentV2ForPatchBuilder":
-        self._international_assignment_v2_for_patch.assignment_country = assignment_country
+    def assignment_country(
+        self, assignment_country: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
+        self._international_assignment_v2_for_patch.assignment_country = (
+            assignment_country
+        )
         return self
 
-    def assignment_city(self, assignment_city: str) -> "InternationalAssignmentV2ForPatchBuilder":
+    def assignment_city(
+        self, assignment_city: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.assignment_city = assignment_city
         return self
 
-    def assignment_company(self, assignment_company: str) -> "InternationalAssignmentV2ForPatchBuilder":
-        self._international_assignment_v2_for_patch.assignment_company = assignment_company
+    def assignment_company(
+        self, assignment_company: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
+        self._international_assignment_v2_for_patch.assignment_company = (
+            assignment_company
+        )
         return self
 
-    def international_assignment_status(self,
-                                        international_assignment_status: Enum) -> "InternationalAssignmentV2ForPatchBuilder":
-        self._international_assignment_v2_for_patch.international_assignment_status = international_assignment_status
+    def international_assignment_status(
+        self, international_assignment_status: Enum
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
+        self._international_assignment_v2_for_patch.international_assignment_status = (
+            international_assignment_status
+        )
         return self
 
-    def international_assignment_type(self,
-                                      international_assignment_type: Enum) -> "InternationalAssignmentV2ForPatchBuilder":
-        self._international_assignment_v2_for_patch.international_assignment_type = international_assignment_type
+    def international_assignment_type(
+        self, international_assignment_type: Enum
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
+        self._international_assignment_v2_for_patch.international_assignment_type = (
+            international_assignment_type
+        )
         return self
 
-    def international_assignment_allowance(self,
-                                           international_assignment_allowance: bool) -> "InternationalAssignmentV2ForPatchBuilder":
+    def international_assignment_allowance(
+        self, international_assignment_allowance: bool
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.international_assignment_allowance = international_assignment_allowance
         return self
 
-    def accommodation(self, accommodation: bool) -> "InternationalAssignmentV2ForPatchBuilder":
+    def accommodation(
+        self, accommodation: bool
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.accommodation = accommodation
         return self
 
-    def description(self, description: str) -> "InternationalAssignmentV2ForPatchBuilder":
+    def description(
+        self, description: str
+    ) -> "InternationalAssignmentV2ForPatchBuilder":
         self._international_assignment_v2_for_patch.description = description
         return self
 

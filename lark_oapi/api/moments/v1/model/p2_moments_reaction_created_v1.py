@@ -29,9 +29,7 @@ class P2MomentsReactionCreatedV1Data(object):
 
 
 class P2MomentsReactionCreatedV1(EventContext):
-    _types = {
-        "event": P2MomentsReactionCreatedV1Data
-    }
+    _types = {"event": P2MomentsReactionCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

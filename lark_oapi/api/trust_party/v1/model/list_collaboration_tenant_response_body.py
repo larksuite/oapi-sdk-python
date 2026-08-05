@@ -25,18 +25,25 @@ class ListCollaborationTenantResponseBody(object):
 
 class ListCollaborationTenantResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_collaboration_tenant_response_body = ListCollaborationTenantResponseBody()
+        self._list_collaboration_tenant_response_body = (
+            ListCollaborationTenantResponseBody()
+        )
 
-    def target_tenant_list(self, target_tenant_list: List[
-        CollaborationTenant]) -> "ListCollaborationTenantResponseBodyBuilder":
-        self._list_collaboration_tenant_response_body.target_tenant_list = target_tenant_list
+    def target_tenant_list(
+        self, target_tenant_list: List[CollaborationTenant]
+    ) -> "ListCollaborationTenantResponseBodyBuilder":
+        self._list_collaboration_tenant_response_body.target_tenant_list = (
+            target_tenant_list
+        )
         return self
 
     def has_more(self, has_more: bool) -> "ListCollaborationTenantResponseBodyBuilder":
         self._list_collaboration_tenant_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListCollaborationTenantResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListCollaborationTenantResponseBodyBuilder":
         self._list_collaboration_tenant_response_body.page_token = page_token
         return self
 

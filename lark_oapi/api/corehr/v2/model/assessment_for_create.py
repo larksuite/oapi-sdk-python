@@ -50,7 +50,9 @@ class AssessmentForCreateBuilder(object):
         self._assessment_for_create.assessment_grade = assessment_grade
         return self
 
-    def assessment_comment(self, assessment_comment: str) -> "AssessmentForCreateBuilder":
+    def assessment_comment(
+        self, assessment_comment: str
+    ) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_comment = assessment_comment
         return self
 
@@ -58,7 +60,9 @@ class AssessmentForCreateBuilder(object):
         self._assessment_for_create.assessment_detail = assessment_detail
         return self
 
-    def is_final_asssessment(self, is_final_asssessment: bool) -> "AssessmentForCreateBuilder":
+    def is_final_asssessment(
+        self, is_final_asssessment: bool
+    ) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.is_final_asssessment = is_final_asssessment
         return self
 

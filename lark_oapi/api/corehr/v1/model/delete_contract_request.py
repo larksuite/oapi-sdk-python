@@ -16,7 +16,6 @@ class DeleteContractRequest(BaseRequest):
 
 
 class DeleteContractRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_contract_request = DeleteContractRequest()
         delete_contract_request.http_method = HttpMethod.DELETE

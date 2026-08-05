@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.add_cc_instance_request import AddCcInstanceRequest
+from ..model.add_cc_instance_response import AddCcInstanceResponse
 from ..model.add_sign_instance_request import AddSignInstanceRequest
 from ..model.add_sign_instance_response import AddSignInstanceResponse
 from ..model.cancel_instance_request import CancelInstanceRequest
@@ -17,26 +19,41 @@ from ..model.cc_instance_request import CcInstanceRequest
 from ..model.cc_instance_response import CcInstanceResponse
 from ..model.create_instance_request import CreateInstanceRequest
 from ..model.create_instance_response import CreateInstanceResponse
+from ..model.detail_instance_request import DetailInstanceRequest
+from ..model.detail_instance_response import DetailInstanceResponse
 from ..model.get_instance_request import GetInstanceRequest
 from ..model.get_instance_response import GetInstanceResponse
+from ..model.initiated_instance_request import InitiatedInstanceRequest
+from ..model.initiated_instance_response import InitiatedInstanceResponse
 from ..model.list_instance_request import ListInstanceRequest
 from ..model.list_instance_response import ListInstanceResponse
 from ..model.preview_instance_request import PreviewInstanceRequest
 from ..model.preview_instance_response import PreviewInstanceResponse
 from ..model.query_instance_request import QueryInstanceRequest
 from ..model.query_instance_response import QueryInstanceResponse
+from ..model.recall_instance_request import RecallInstanceRequest
+from ..model.recall_instance_response import RecallInstanceResponse
+from ..model.remind_instance_request import RemindInstanceRequest
+from ..model.remind_instance_response import RemindInstanceResponse
 from ..model.search_cc_instance_request import SearchCcInstanceRequest
 from ..model.search_cc_instance_response import SearchCcInstanceResponse
 from ..model.specified_rollback_instance_request import SpecifiedRollbackInstanceRequest
-from ..model.specified_rollback_instance_response import SpecifiedRollbackInstanceResponse
+from ..model.specified_rollback_instance_response import (
+    SpecifiedRollbackInstanceResponse,
+)
+from ..model.subscription_instance_request import SubscriptionInstanceRequest
+from ..model.subscription_instance_response import SubscriptionInstanceResponse
+from ..model.unsubscription_instance_request import UnsubscriptionInstanceRequest
+from ..model.unsubscription_instance_response import UnsubscriptionInstanceResponse
 
 
 class Instance(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_sign(self, request: AddSignInstanceRequest,
-                 option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
+    def add_cc(
+        self, request: AddCcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> AddCcInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,13 +68,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddSignInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), AddSignInstanceResponse)
+        response: AddCcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddCcInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_sign(self, request: AddSignInstanceRequest,
-                        option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
+    async def aadd_cc(
+        self, request: AddCcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> AddCcInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -68,12 +88,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddSignInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), AddSignInstanceResponse)
+        response: AddCcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddCcInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def cancel(self, request: CancelInstanceRequest, option: Optional[RequestOption] = None) -> CancelInstanceResponse:
+    def add_sign(
+        self, request: AddSignInstanceRequest, option: Optional[RequestOption] = None
+    ) -> AddSignInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,13 +112,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CancelInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelInstanceResponse)
+        response: AddSignInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddSignInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acancel(self, request: CancelInstanceRequest,
-                      option: Optional[RequestOption] = None) -> CancelInstanceResponse:
+    async def aadd_sign(
+        self, request: AddSignInstanceRequest, option: Optional[RequestOption] = None
+    ) -> AddSignInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -105,12 +132,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CancelInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelInstanceResponse)
+        response: AddSignInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddSignInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def cc(self, request: CcInstanceRequest, option: Optional[RequestOption] = None) -> CcInstanceResponse:
+    def cancel(
+        self, request: CancelInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CancelInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -125,12 +156,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CcInstanceResponse)
+        response: CancelInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acc(self, request: CcInstanceRequest, option: Optional[RequestOption] = None) -> CcInstanceResponse:
+    async def acancel(
+        self, request: CancelInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CancelInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -141,12 +176,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CcInstanceResponse)
+        response: CancelInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateInstanceRequest, option: Optional[RequestOption] = None) -> CreateInstanceResponse:
+    def cc(
+        self, request: CcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CcInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,13 +200,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceResponse)
+        response: CcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CcInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateInstanceRequest,
-                      option: Optional[RequestOption] = None) -> CreateInstanceResponse:
+    async def acc(
+        self, request: CcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CcInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -178,12 +220,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceResponse)
+        response: CcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CcInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetInstanceRequest, option: Optional[RequestOption] = None) -> GetInstanceResponse:
+    def create(
+        self, request: CreateInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CreateInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -198,12 +244,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInstanceResponse)
+        response: CreateInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetInstanceRequest, option: Optional[RequestOption] = None) -> GetInstanceResponse:
+    async def acreate(
+        self, request: CreateInstanceRequest, option: Optional[RequestOption] = None
+    ) -> CreateInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -214,12 +264,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInstanceResponse)
+        response: CreateInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
+    def detail(
+        self, request: DetailInstanceRequest, option: Optional[RequestOption] = None
+    ) -> DetailInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -234,12 +288,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
+        response: DetailInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DetailInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
+    async def adetail(
+        self, request: DetailInstanceRequest, option: Optional[RequestOption] = None
+    ) -> DetailInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -250,13 +308,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceResponse)
+        response: DetailInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DetailInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def preview(self, request: PreviewInstanceRequest,
-                option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
+    def get(
+        self, request: GetInstanceRequest, option: Optional[RequestOption] = None
+    ) -> GetInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -271,13 +332,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PreviewInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), PreviewInstanceResponse)
+        response: GetInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apreview(self, request: PreviewInstanceRequest,
-                       option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
+    async def aget(
+        self, request: GetInstanceRequest, option: Optional[RequestOption] = None
+    ) -> GetInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -288,12 +352,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PreviewInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), PreviewInstanceResponse)
+        response: GetInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryInstanceRequest, option: Optional[RequestOption] = None) -> QueryInstanceResponse:
+    def initiated(
+        self, request: InitiatedInstanceRequest, option: Optional[RequestOption] = None
+    ) -> InitiatedInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -308,13 +376,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryInstanceResponse)
+        response: InitiatedInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InitiatedInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryInstanceRequest,
-                     option: Optional[RequestOption] = None) -> QueryInstanceResponse:
+    async def ainitiated(
+        self, request: InitiatedInstanceRequest, option: Optional[RequestOption] = None
+    ) -> InitiatedInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -325,13 +396,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryInstanceResponse)
+        response: InitiatedInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InitiatedInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def search_cc(self, request: SearchCcInstanceRequest,
-                  option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
+    def list(
+        self, request: ListInstanceRequest, option: Optional[RequestOption] = None
+    ) -> ListInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -346,13 +420,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchCcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCcInstanceResponse)
+        response: ListInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch_cc(self, request: SearchCcInstanceRequest,
-                         option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
+    async def alist(
+        self, request: ListInstanceRequest, option: Optional[RequestOption] = None
+    ) -> ListInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -363,13 +440,16 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchCcInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCcInstanceResponse)
+        response: ListInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def specified_rollback(self, request: SpecifiedRollbackInstanceRequest,
-                           option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
+    def preview(
+        self, request: PreviewInstanceRequest, option: Optional[RequestOption] = None
+    ) -> PreviewInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -384,14 +464,16 @@ class Instance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SpecifiedRollbackInstanceResponse)
+        response: PreviewInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PreviewInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aspecified_rollback(self, request: SpecifiedRollbackInstanceRequest,
-                                  option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
+    async def apreview(
+        self, request: PreviewInstanceRequest, option: Optional[RequestOption] = None
+    ) -> PreviewInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -402,8 +484,329 @@ class Instance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SpecifiedRollbackInstanceResponse)
+        response: PreviewInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PreviewInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def query(
+        self, request: QueryInstanceRequest, option: Optional[RequestOption] = None
+    ) -> QueryInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aquery(
+        self, request: QueryInstanceRequest, option: Optional[RequestOption] = None
+    ) -> QueryInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def recall(
+        self, request: RecallInstanceRequest, option: Optional[RequestOption] = None
+    ) -> RecallInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RecallInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecallInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def arecall(
+        self, request: RecallInstanceRequest, option: Optional[RequestOption] = None
+    ) -> RecallInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RecallInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecallInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def remind(
+        self, request: RemindInstanceRequest, option: Optional[RequestOption] = None
+    ) -> RemindInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RemindInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemindInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aremind(
+        self, request: RemindInstanceRequest, option: Optional[RequestOption] = None
+    ) -> RemindInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RemindInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemindInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def search_cc(
+        self, request: SearchCcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> SearchCcInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchCcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCcInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def asearch_cc(
+        self, request: SearchCcInstanceRequest, option: Optional[RequestOption] = None
+    ) -> SearchCcInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchCcInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCcInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def specified_rollback(
+        self,
+        request: SpecifiedRollbackInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SpecifiedRollbackInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SpecifiedRollbackInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aspecified_rollback(
+        self,
+        request: SpecifiedRollbackInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SpecifiedRollbackInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SpecifiedRollbackInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SpecifiedRollbackInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def subscription(
+        self,
+        request: SubscriptionInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def asubscription(
+        self,
+        request: SubscriptionInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def unsubscription(
+        self,
+        request: UnsubscriptionInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionInstanceResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aunsubscription(
+        self,
+        request: UnsubscriptionInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionInstanceResponse
+        )
         response.raw = resp
 
         return response

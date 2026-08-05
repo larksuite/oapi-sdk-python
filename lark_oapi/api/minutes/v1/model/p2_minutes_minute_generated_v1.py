@@ -22,9 +22,7 @@ class P2MinutesMinuteGeneratedV1Data(object):
 
 
 class P2MinutesMinuteGeneratedV1(EventContext):
-    _types = {
-        "event": P2MinutesMinuteGeneratedV1Data
-    }
+    _types = {"event": P2MinutesMinuteGeneratedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

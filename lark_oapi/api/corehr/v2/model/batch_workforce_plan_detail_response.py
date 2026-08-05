@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_workforce_plan_detail_response_body import BatchWorkforcePlanDetailResponseBody
+from .batch_workforce_plan_detail_response_body import (
+    BatchWorkforcePlanDetailResponseBody,
+)
 
 
 class BatchWorkforcePlanDetailResponse(BaseResponse):
     _types = {
         "data": BatchWorkforcePlanDetailResponseBody,
-
     }
 
     def __init__(self, d=None):

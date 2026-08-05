@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .update_external_background_check_response_body import UpdateExternalBackgroundCheckResponseBody
+from .update_external_background_check_response_body import (
+    UpdateExternalBackgroundCheckResponseBody,
+)
 
 
 class UpdateExternalBackgroundCheckResponse(BaseResponse):
     _types = {
         "data": UpdateExternalBackgroundCheckResponseBody,
-
     }
 
     def __init__(self, d=None):

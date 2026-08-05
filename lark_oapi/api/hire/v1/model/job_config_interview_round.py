@@ -25,7 +25,9 @@ class JobConfigInterviewRoundBuilder(object):
     def __init__(self) -> None:
         self._job_config_interview_round = JobConfigInterviewRound()
 
-    def interviewer_list(self, interviewer_list: List[IdNameObject]) -> "JobConfigInterviewRoundBuilder":
+    def interviewer_list(
+        self, interviewer_list: List[IdNameObject]
+    ) -> "JobConfigInterviewRoundBuilder":
         self._job_config_interview_round.interviewer_list = interviewer_list
         return self
 

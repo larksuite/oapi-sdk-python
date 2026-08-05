@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .oql_query_application_object_response_body import OqlQueryApplicationObjectResponseBody
+from .oql_query_application_object_response_body import (
+    OqlQueryApplicationObjectResponseBody,
+)
 
 
 class OqlQueryApplicationObjectResponse(BaseResponse):
     _types = {
         "data": OqlQueryApplicationObjectResponseBody,
-
     }
 
     def __init__(self, d=None):

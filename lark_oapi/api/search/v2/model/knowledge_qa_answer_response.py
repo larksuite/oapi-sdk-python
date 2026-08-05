@@ -35,7 +35,9 @@ class KnowledgeQaAnswerResponseBuilder(object):
         self._knowledge_qa_answer_response.answer = answer
         return self
 
-    def reasoning_content(self, reasoning_content: str) -> "KnowledgeQaAnswerResponseBuilder":
+    def reasoning_content(
+        self, reasoning_content: str
+    ) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.reasoning_content = reasoning_content
         return self
 
@@ -47,7 +49,9 @@ class KnowledgeQaAnswerResponseBuilder(object):
         self._knowledge_qa_answer_response.status_message = status_message
         return self
 
-    def references(self, references: KnowledgeQaReference) -> "KnowledgeQaAnswerResponseBuilder":
+    def references(
+        self, references: KnowledgeQaReference
+    ) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.references = references
         return self
 

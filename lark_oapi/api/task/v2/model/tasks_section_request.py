@@ -22,12 +22,14 @@ class TasksSectionRequest(BaseRequest):
 
 
 class TasksSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         tasks_section_request = TasksSectionRequest()
         tasks_section_request.http_method = HttpMethod.GET
         tasks_section_request.uri = "/open-apis/task/v2/sections/:section_guid/tasks"
-        tasks_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        tasks_section_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._tasks_section_request: TasksSectionRequest = tasks_section_request
 
     def page_size(self, page_size: int) -> "TasksSectionRequestBuilder":

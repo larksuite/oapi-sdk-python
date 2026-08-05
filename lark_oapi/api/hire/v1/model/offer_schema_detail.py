@@ -48,7 +48,9 @@ class OfferSchemaDetailBuilder(object):
         self._offer_schema_detail.is_customized = is_customized
         return self
 
-    def option_list(self, option_list: List[OfferSchemaDetailOption]) -> "OfferSchemaDetailBuilder":
+    def option_list(
+        self, option_list: List[OfferSchemaDetailOption]
+    ) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.option_list = option_list
         return self
 

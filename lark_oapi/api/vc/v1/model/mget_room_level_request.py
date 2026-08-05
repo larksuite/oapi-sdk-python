@@ -17,7 +17,6 @@ class MgetRoomLevelRequest(BaseRequest):
 
 
 class MgetRoomLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         mget_room_level_request = MgetRoomLevelRequest()
         mget_room_level_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class MgetRoomLevelRequestBuilder(object):
         mget_room_level_request.token_types = {AccessTokenType.TENANT}
         self._mget_room_level_request: MgetRoomLevelRequest = mget_room_level_request
 
-    def request_body(self, request_body: MgetRoomLevelRequestBody) -> "MgetRoomLevelRequestBuilder":
+    def request_body(
+        self, request_body: MgetRoomLevelRequestBody
+    ) -> "MgetRoomLevelRequestBuilder":
         self._mget_room_level_request.request_body = request_body
         self._mget_room_level_request.body = request_body
         return self

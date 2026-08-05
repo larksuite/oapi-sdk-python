@@ -26,13 +26,19 @@ class QueryMultiTimelineCompanyRequestBody(object):
 
 class QueryMultiTimelineCompanyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_company_request_body = QueryMultiTimelineCompanyRequestBody()
+        self._query_multi_timeline_company_request_body = (
+            QueryMultiTimelineCompanyRequestBody()
+        )
 
-    def company_ids(self, company_ids: List[str]) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
+    def company_ids(
+        self, company_ids: List[str]
+    ) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
         self._query_multi_timeline_company_request_body.company_ids = company_ids
         return self
 
-    def start_date(self, start_date: str) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
+    def start_date(
+        self, start_date: str
+    ) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
         self._query_multi_timeline_company_request_body.start_date = start_date
         return self
 
@@ -40,7 +46,9 @@ class QueryMultiTimelineCompanyRequestBodyBuilder(object):
         self._query_multi_timeline_company_request_body.end_date = end_date
         return self
 
-    def fields(self, fields: List[str]) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
+    def fields(
+        self, fields: List[str]
+    ) -> "QueryMultiTimelineCompanyRequestBodyBuilder":
         self._query_multi_timeline_company_request_body.fields = fields
         return self
 

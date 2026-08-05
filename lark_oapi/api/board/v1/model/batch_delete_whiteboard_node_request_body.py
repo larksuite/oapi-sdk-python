@@ -20,7 +20,9 @@ class BatchDeleteWhiteboardNodeRequestBody(object):
 
 class BatchDeleteWhiteboardNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_whiteboard_node_request_body = BatchDeleteWhiteboardNodeRequestBody()
+        self._batch_delete_whiteboard_node_request_body = (
+            BatchDeleteWhiteboardNodeRequestBody()
+        )
 
     def ids(self, ids: List[str]) -> "BatchDeleteWhiteboardNodeRequestBodyBuilder":
         self._batch_delete_whiteboard_node_request_body.ids = ids

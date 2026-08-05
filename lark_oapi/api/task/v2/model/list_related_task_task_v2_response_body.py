@@ -25,7 +25,9 @@ class ListRelatedTaskTaskV2ResponseBody(object):
 
 class ListRelatedTaskTaskV2ResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_related_task_task_v2_response_body = ListRelatedTaskTaskV2ResponseBody()
+        self._list_related_task_task_v2_response_body = (
+            ListRelatedTaskTaskV2ResponseBody()
+        )
 
     def items(self, items: List[Task]) -> "ListRelatedTaskTaskV2ResponseBodyBuilder":
         self._list_related_task_task_v2_response_body.items = items

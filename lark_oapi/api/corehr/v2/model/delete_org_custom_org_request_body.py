@@ -28,7 +28,9 @@ class DeleteOrgCustomOrgRequestBodyBuilder(object):
         self._delete_org_custom_org_request_body.org_id = org_id
         return self
 
-    def object_api_name(self, object_api_name: str) -> "DeleteOrgCustomOrgRequestBodyBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "DeleteOrgCustomOrgRequestBodyBuilder":
         self._delete_org_custom_org_request_body.object_api_name = object_api_name
         return self
 

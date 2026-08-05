@@ -27,7 +27,9 @@ class EditOffboardingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._edit_offboarding_request_body = EditOffboardingRequestBody()
 
-    def offboarding_id(self, offboarding_id: str) -> "EditOffboardingRequestBodyBuilder":
+    def offboarding_id(
+        self, offboarding_id: str
+    ) -> "EditOffboardingRequestBodyBuilder":
         self._edit_offboarding_request_body.offboarding_id = offboarding_id
         return self
 
@@ -35,7 +37,9 @@ class EditOffboardingRequestBodyBuilder(object):
         self._edit_offboarding_request_body.operator_id = operator_id
         return self
 
-    def update_data(self, update_data: List[ObjectFieldData]) -> "EditOffboardingRequestBodyBuilder":
+    def update_data(
+        self, update_data: List[ObjectFieldData]
+    ) -> "EditOffboardingRequestBodyBuilder":
         self._edit_offboarding_request_body.update_data = update_data
         return self
 

@@ -17,9 +17,7 @@ class P2VcRoomCreatedV1Data(object):
 
 
 class P2VcRoomCreatedV1(EventContext):
-    _types = {
-        "event": P2VcRoomCreatedV1Data
-    }
+    _types = {"event": P2VcRoomCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

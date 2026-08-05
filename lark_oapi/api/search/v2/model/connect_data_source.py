@@ -56,7 +56,9 @@ class ConnectDataSourceBuilder(object):
         self._connect_data_source.icon_url = icon_url
         return self
 
-    def project_description(self, project_description: str) -> "ConnectDataSourceBuilder":
+    def project_description(
+        self, project_description: str
+    ) -> "ConnectDataSourceBuilder":
         self._connect_data_source.project_description = project_description
         return self
 

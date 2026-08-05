@@ -24,22 +24,38 @@ class GetParticipantQualityListRequest(BaseRequest):
 
 
 class GetParticipantQualityListRequestBuilder(object):
-
     def __init__(self) -> None:
         get_participant_quality_list_request = GetParticipantQualityListRequest()
         get_participant_quality_list_request.http_method = HttpMethod.GET
-        get_participant_quality_list_request.uri = "/open-apis/vc/v1/participant_quality_list"
-        get_participant_quality_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_participant_quality_list_request: GetParticipantQualityListRequest = get_participant_quality_list_request
+        get_participant_quality_list_request.uri = (
+            "/open-apis/vc/v1/participant_quality_list"
+        )
+        get_participant_quality_list_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_participant_quality_list_request: GetParticipantQualityListRequest = (
+            get_participant_quality_list_request
+        )
 
-    def meeting_start_time(self, meeting_start_time: int) -> "GetParticipantQualityListRequestBuilder":
-        self._get_participant_quality_list_request.meeting_start_time = meeting_start_time
-        self._get_participant_quality_list_request.add_query("meeting_start_time", meeting_start_time)
+    def meeting_start_time(
+        self, meeting_start_time: int
+    ) -> "GetParticipantQualityListRequestBuilder":
+        self._get_participant_quality_list_request.meeting_start_time = (
+            meeting_start_time
+        )
+        self._get_participant_quality_list_request.add_query(
+            "meeting_start_time", meeting_start_time
+        )
         return self
 
-    def meeting_end_time(self, meeting_end_time: int) -> "GetParticipantQualityListRequestBuilder":
+    def meeting_end_time(
+        self, meeting_end_time: int
+    ) -> "GetParticipantQualityListRequestBuilder":
         self._get_participant_quality_list_request.meeting_end_time = meeting_end_time
-        self._get_participant_quality_list_request.add_query("meeting_end_time", meeting_end_time)
+        self._get_participant_quality_list_request.add_query(
+            "meeting_end_time", meeting_end_time
+        )
         return self
 
     def meeting_no(self, meeting_no: str) -> "GetParticipantQualityListRequestBuilder":
@@ -72,9 +88,13 @@ class GetParticipantQualityListRequestBuilder(object):
         self._get_participant_quality_list_request.add_query("page_token", page_token)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "GetParticipantQualityListRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetParticipantQualityListRequestBuilder":
         self._get_participant_quality_list_request.user_id_type = user_id_type
-        self._get_participant_quality_list_request.add_query("user_id_type", user_id_type)
+        self._get_participant_quality_list_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def build(self) -> GetParticipantQualityListRequest:

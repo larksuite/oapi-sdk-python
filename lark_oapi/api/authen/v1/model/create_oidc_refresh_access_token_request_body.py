@@ -22,14 +22,22 @@ class CreateOidcRefreshAccessTokenRequestBody(object):
 
 class CreateOidcRefreshAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_oidc_refresh_access_token_request_body = CreateOidcRefreshAccessTokenRequestBody()
+        self._create_oidc_refresh_access_token_request_body = (
+            CreateOidcRefreshAccessTokenRequestBody()
+        )
 
-    def grant_type(self, grant_type: str) -> "CreateOidcRefreshAccessTokenRequestBodyBuilder":
+    def grant_type(
+        self, grant_type: str
+    ) -> "CreateOidcRefreshAccessTokenRequestBodyBuilder":
         self._create_oidc_refresh_access_token_request_body.grant_type = grant_type
         return self
 
-    def refresh_token(self, refresh_token: str) -> "CreateOidcRefreshAccessTokenRequestBodyBuilder":
-        self._create_oidc_refresh_access_token_request_body.refresh_token = refresh_token
+    def refresh_token(
+        self, refresh_token: str
+    ) -> "CreateOidcRefreshAccessTokenRequestBodyBuilder":
+        self._create_oidc_refresh_access_token_request_body.refresh_token = (
+            refresh_token
+        )
         return self
 
     def build(self) -> "CreateOidcRefreshAccessTokenRequestBody":

@@ -35,7 +35,9 @@ class ApplyReserveRequestBodyBuilder(object):
         self._apply_reserve_request_body.owner_id = owner_id
         return self
 
-    def meeting_settings(self, meeting_settings: ReserveMeetingSetting) -> "ApplyReserveRequestBodyBuilder":
+    def meeting_settings(
+        self, meeting_settings: ReserveMeetingSetting
+    ) -> "ApplyReserveRequestBodyBuilder":
         self._apply_reserve_request_body.meeting_settings = meeting_settings
         return self
 

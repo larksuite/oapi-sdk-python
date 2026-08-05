@@ -89,6 +89,7 @@ from .quality_audio import *
 from .quality_cpu_usage import *
 from .quality_network import *
 from .quality_video_sharing import *
+from .recording import *
 from .recording_permission_object import *
 from .report import *
 from .report_meeting_daily import *
@@ -117,6 +118,7 @@ from .room_status import *
 from .room_status_event import *
 from .scope_config import *
 from .share_doc import *
+from .structured_transcript_content import *
 from .subjective_check import *
 from .subjective_check_output import *
 from .subscribe_department import *
@@ -125,8 +127,16 @@ from .subscribe_user_event import *
 from .time_config import *
 from .time_range import *
 from .transcript_item import *
+from .transcript_paragraph import *
+from .transcript_sentence import *
+from .transcript_speaker import *
+from .transcript_speaker_extra import *
+from .unified_note_transcript_content import *
+from .user_active_meeting_info import *
 from .user_id import *
 from .list_alert_request import *
+from .events_bot_request import *
+from .user_active_meeting_bot_request import *
 from .download_export_request import *
 from .get_export_request import *
 from .meeting_list_export_request_body import *
@@ -160,6 +170,10 @@ from .start_meeting_recording_request import *
 from .stop_meeting_recording_request import *
 from .get_meeting_list_request import *
 from .get_note_request import *
+from .subscription_note_request_body import *
+from .subscription_note_request import *
+from .unsubscription_note_request_body import *
+from .unsubscription_note_request import *
 from .get_participant_list_request import *
 from .get_participant_quality_list_request import *
 from .get_daily_report_request import *
@@ -213,6 +227,10 @@ from .create_scope_config_request import *
 from .get_scope_config_request import *
 from .list_alert_response_body import *
 from .list_alert_response import *
+from .events_bot_response_body import *
+from .events_bot_response import *
+from .user_active_meeting_bot_response_body import *
+from .user_active_meeting_bot_response import *
 from .download_export_response import *
 from .get_export_response_body import *
 from .get_export_response import *
@@ -248,6 +266,8 @@ from .get_meeting_list_response_body import *
 from .get_meeting_list_response import *
 from .get_note_response_body import *
 from .get_note_response import *
+from .subscription_note_response import *
+from .unsubscription_note_response import *
 from .get_participant_list_response_body import *
 from .get_participant_list_response import *
 from .get_participant_quality_list_response_body import *
@@ -325,6 +345,7 @@ from .p2_vc_meeting_recording_ready_v1 import *
 from .p2_vc_meeting_recording_started_v1 import *
 from .p2_vc_meeting_share_ended_v1 import *
 from .p2_vc_meeting_share_started_v1 import *
+from .p2_vc_note_generated_v1 import *
 from .p2_vc_reserve_config_updated_v1 import *
 from .p2_vc_room_created_v1 import *
 from .p2_vc_room_deleted_v1 import *

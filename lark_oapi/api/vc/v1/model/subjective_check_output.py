@@ -33,12 +33,15 @@ class SubjectiveCheckOutputBuilder(object):
         self._subjective_check_output.keypoints = keypoints
         return self
 
-    def key_point_match_details(self,
-                                key_point_match_details: List[KeyPointMatchDetails]) -> "SubjectiveCheckOutputBuilder":
+    def key_point_match_details(
+        self, key_point_match_details: List[KeyPointMatchDetails]
+    ) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.key_point_match_details = key_point_match_details
         return self
 
-    def user_prompt_outputs(self, user_prompt_outputs: List[str]) -> "SubjectiveCheckOutputBuilder":
+    def user_prompt_outputs(
+        self, user_prompt_outputs: List[str]
+    ) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.user_prompt_outputs = user_prompt_outputs
         return self
 

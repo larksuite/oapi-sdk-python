@@ -149,7 +149,9 @@ class ApplicationBuilder(object):
         self._application.owner = owner
         return self
 
-    def mobile_default_ability(self, mobile_default_ability: str) -> "ApplicationBuilder":
+    def mobile_default_ability(
+        self, mobile_default_ability: str
+    ) -> "ApplicationBuilder":
         self._application.mobile_default_ability = mobile_default_ability
         return self
 
@@ -169,7 +171,9 @@ class ApplicationBuilder(object):
         self._application.callback = callback
         return self
 
-    def encryption(self, encryption: EventAndCallbackEncryptStrategy) -> "ApplicationBuilder":
+    def encryption(
+        self, encryption: EventAndCallbackEncryptStrategy
+    ) -> "ApplicationBuilder":
         self._application.encryption = encryption
         return self
 

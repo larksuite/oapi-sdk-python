@@ -45,20 +45,27 @@ class CreateJobChangeRequestBodyBuilder(object):
         self._create_job_change_request_body.employment_id = employment_id
         return self
 
-    def transfer_type_unique_identifier(self,
-                                        transfer_type_unique_identifier: str) -> "CreateJobChangeRequestBodyBuilder":
-        self._create_job_change_request_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
     def flow_id(self, flow_id: str) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.flow_id = flow_id
         return self
 
-    def effective_date(self, effective_date: str) -> "CreateJobChangeRequestBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.effective_date = effective_date
         return self
 
-    def transfer_info(self, transfer_info: TransferInfo) -> "CreateJobChangeRequestBodyBuilder":
+    def transfer_info(
+        self, transfer_info: TransferInfo
+    ) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.transfer_info = transfer_info
         return self
 

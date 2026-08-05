@@ -34,17 +34,25 @@ class BearServerPermissionAggApiCommonAuthInfo(object):
 
 class BearServerPermissionAggApiCommonAuthInfoBuilder(object):
     def __init__(self) -> None:
-        self._bear_server_permission_agg_api_common_auth_info = BearServerPermissionAggApiCommonAuthInfo()
+        self._bear_server_permission_agg_api_common_auth_info = (
+            BearServerPermissionAggApiCommonAuthInfo()
+        )
 
-    def session_key(self, session_key: str) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def session_key(
+        self, session_key: str
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.session_key = session_key
         return self
 
-    def user_id(self, user_id: str) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def user_id(
+        self, user_id: str
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.user_id = user_id
         return self
 
-    def open_app_id(self, open_app_id: str) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def open_app_id(
+        self, open_app_id: str
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.open_app_id = open_app_id
         return self
 
@@ -52,7 +60,9 @@ class BearServerPermissionAggApiCommonAuthInfoBuilder(object):
         self._bear_server_permission_agg_api_common_auth_info.region = region
         return self
 
-    def open_bot_id(self, open_bot_id: str) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def open_bot_id(
+        self, open_bot_id: str
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.open_bot_id = open_bot_id
         return self
 
@@ -60,11 +70,15 @@ class BearServerPermissionAggApiCommonAuthInfoBuilder(object):
         self._bear_server_permission_agg_api_common_auth_info.bot_id = bot_id
         return self
 
-    def auth_type(self, auth_type: str) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def auth_type(
+        self, auth_type: str
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.auth_type = auth_type
         return self
 
-    def extra(self, extra: Dict[str, str]) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
+    def extra(
+        self, extra: Dict[str, str]
+    ) -> "BearServerPermissionAggApiCommonAuthInfoBuilder":
         self._bear_server_permission_agg_api_common_auth_info.extra = extra
         return self
 

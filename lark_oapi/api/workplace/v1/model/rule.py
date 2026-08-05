@@ -28,7 +28,9 @@ class RuleBuilder(object):
         self._rule.is_all_visible = is_all_visible
         return self
 
-    def visible_department_ids(self, visible_department_ids: List[str]) -> "RuleBuilder":
+    def visible_department_ids(
+        self, visible_department_ids: List[str]
+    ) -> "RuleBuilder":
         self._rule.visible_department_ids = visible_department_ids
         return self
 

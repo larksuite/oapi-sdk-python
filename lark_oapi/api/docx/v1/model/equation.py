@@ -29,7 +29,9 @@ class EquationBuilder(object):
         self._equation.content = content
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "EquationBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "EquationBuilder":
         self._equation.text_element_style = text_element_style
         return self
 

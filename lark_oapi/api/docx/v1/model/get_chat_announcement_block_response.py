@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_chat_announcement_block_response_body import GetChatAnnouncementBlockResponseBody
+from .get_chat_announcement_block_response_body import (
+    GetChatAnnouncementBlockResponseBody,
+)
 
 
 class GetChatAnnouncementBlockResponse(BaseResponse):
     _types = {
         "data": GetChatAnnouncementBlockResponseBody,
-
     }
 
     def __init__(self, d=None):

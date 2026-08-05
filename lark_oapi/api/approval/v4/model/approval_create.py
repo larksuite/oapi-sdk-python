@@ -84,11 +84,15 @@ class ApprovalCreateBuilder(object):
         self._approval_create.icon = icon
         return self
 
-    def i18n_resources(self, i18n_resources: List[I18nResource]) -> "ApprovalCreateBuilder":
+    def i18n_resources(
+        self, i18n_resources: List[I18nResource]
+    ) -> "ApprovalCreateBuilder":
         self._approval_create.i18n_resources = i18n_resources
         return self
 
-    def process_manager_ids(self, process_manager_ids: List[str]) -> "ApprovalCreateBuilder":
+    def process_manager_ids(
+        self, process_manager_ids: List[str]
+    ) -> "ApprovalCreateBuilder":
         self._approval_create.process_manager_ids = process_manager_ids
         return self
 

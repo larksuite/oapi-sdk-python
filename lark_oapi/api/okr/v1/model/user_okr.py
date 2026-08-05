@@ -41,7 +41,9 @@ class UserOkrBuilder(object):
         self._user_okr.permission = permission
         return self
 
-    def objective_list(self, objective_list: List[UserOkrObjective]) -> "UserOkrBuilder":
+    def objective_list(
+        self, objective_list: List[UserOkrObjective]
+    ) -> "UserOkrBuilder":
         self._user_okr.objective_list = objective_list
         return self
 

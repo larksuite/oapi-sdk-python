@@ -10,7 +10,9 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_get_employees_job_data_request import BatchGetEmployeesJobDataRequest
-from ..model.batch_get_employees_job_data_response import BatchGetEmployeesJobDataResponse
+from ..model.batch_get_employees_job_data_response import (
+    BatchGetEmployeesJobDataResponse,
+)
 from ..model.query_employees_job_data_request import QueryEmployeesJobDataRequest
 from ..model.query_employees_job_data_response import QueryEmployeesJobDataResponse
 
@@ -19,8 +21,11 @@ class EmployeesJobData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetEmployeesJobDataRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetEmployeesJobDataResponse:
+    def batch_get(
+        self,
+        request: BatchGetEmployeesJobDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchGetEmployeesJobDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +40,18 @@ class EmployeesJobData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchGetEmployeesJobDataResponse)
+        response: BatchGetEmployeesJobDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetEmployeesJobDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetEmployeesJobDataRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetEmployeesJobDataResponse:
+    async def abatch_get(
+        self,
+        request: BatchGetEmployeesJobDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchGetEmployeesJobDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +62,18 @@ class EmployeesJobData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchGetEmployeesJobDataResponse)
+        response: BatchGetEmployeesJobDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetEmployeesJobDataResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryEmployeesJobDataRequest,
-              option: Optional[RequestOption] = None) -> QueryEmployeesJobDataResponse:
+    def query(
+        self,
+        request: QueryEmployeesJobDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryEmployeesJobDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +88,18 @@ class EmployeesJobData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryEmployeesJobDataResponse)
+        response: QueryEmployeesJobDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryEmployeesJobDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryEmployeesJobDataRequest,
-                     option: Optional[RequestOption] = None) -> QueryEmployeesJobDataResponse:
+    async def aquery(
+        self,
+        request: QueryEmployeesJobDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryEmployeesJobDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +110,9 @@ class EmployeesJobData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryEmployeesJobDataResponse)
+        response: QueryEmployeesJobDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryEmployeesJobDataResponse
+        )
         response.raw = resp
 
         return response

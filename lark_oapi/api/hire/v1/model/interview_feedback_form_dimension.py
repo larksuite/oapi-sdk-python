@@ -87,31 +87,48 @@ class InterviewFeedbackFormDimensionBuilder(object):
         self._interview_feedback_form_dimension.weight = weight
         return self
 
-    def score_dimension_config(self,
-                               score_dimension_config: ScoreDimensionConfig) -> "InterviewFeedbackFormDimensionBuilder":
-        self._interview_feedback_form_dimension.score_dimension_config = score_dimension_config
+    def score_dimension_config(
+        self, score_dimension_config: ScoreDimensionConfig
+    ) -> "InterviewFeedbackFormDimensionBuilder":
+        self._interview_feedback_form_dimension.score_dimension_config = (
+            score_dimension_config
+        )
         return self
 
-    def option_items(self, option_items: List[InterviewDimensionOption]) -> "InterviewFeedbackFormDimensionBuilder":
+    def option_items(
+        self, option_items: List[InterviewDimensionOption]
+    ) -> "InterviewFeedbackFormDimensionBuilder":
         self._interview_feedback_form_dimension.option_items = option_items
         return self
 
-    def display_not_evident(self, display_not_evident: bool) -> "InterviewFeedbackFormDimensionBuilder":
-        self._interview_feedback_form_dimension.display_not_evident = display_not_evident
+    def display_not_evident(
+        self, display_not_evident: bool
+    ) -> "InterviewFeedbackFormDimensionBuilder":
+        self._interview_feedback_form_dimension.display_not_evident = (
+            display_not_evident
+        )
         return self
 
-    def ability_list(self, ability_list: List[DimensionAbility]) -> "InterviewFeedbackFormDimensionBuilder":
+    def ability_list(
+        self, ability_list: List[DimensionAbility]
+    ) -> "InterviewFeedbackFormDimensionBuilder":
         self._interview_feedback_form_dimension.ability_list = ability_list
         return self
 
-    def related_dimension_config(self,
-                                 related_dimension_config: RelatedDimensionConfig) -> "InterviewFeedbackFormDimensionBuilder":
-        self._interview_feedback_form_dimension.related_dimension_config = related_dimension_config
+    def related_dimension_config(
+        self, related_dimension_config: RelatedDimensionConfig
+    ) -> "InterviewFeedbackFormDimensionBuilder":
+        self._interview_feedback_form_dimension.related_dimension_config = (
+            related_dimension_config
+        )
         return self
 
-    def dimension_ability_args(self, dimension_ability_args: List[
-        DimensionAbilityArgs]) -> "InterviewFeedbackFormDimensionBuilder":
-        self._interview_feedback_form_dimension.dimension_ability_args = dimension_ability_args
+    def dimension_ability_args(
+        self, dimension_ability_args: List[DimensionAbilityArgs]
+    ) -> "InterviewFeedbackFormDimensionBuilder":
+        self._interview_feedback_form_dimension.dimension_ability_args = (
+            dimension_ability_args
+        )
         return self
 
     def build(self) -> "InterviewFeedbackFormDimension":

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .create_leave_granting_record_request_body import CreateLeaveGrantingRecordRequestBody
+from .create_leave_granting_record_request_body import (
+    CreateLeaveGrantingRecordRequestBody,
+)
 
 
 class CreateLeaveGrantingRecordRequest(BaseRequest):
@@ -18,21 +20,29 @@ class CreateLeaveGrantingRecordRequest(BaseRequest):
 
 
 class CreateLeaveGrantingRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         create_leave_granting_record_request = CreateLeaveGrantingRecordRequest()
         create_leave_granting_record_request.http_method = HttpMethod.POST
-        create_leave_granting_record_request.uri = "/open-apis/corehr/v1/leave_granting_records"
+        create_leave_granting_record_request.uri = (
+            "/open-apis/corehr/v1/leave_granting_records"
+        )
         create_leave_granting_record_request.token_types = {AccessTokenType.TENANT}
-        self._create_leave_granting_record_request: CreateLeaveGrantingRecordRequest = create_leave_granting_record_request
+        self._create_leave_granting_record_request: CreateLeaveGrantingRecordRequest = (
+            create_leave_granting_record_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "CreateLeaveGrantingRecordRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "CreateLeaveGrantingRecordRequestBuilder":
         self._create_leave_granting_record_request.user_id_type = user_id_type
-        self._create_leave_granting_record_request.add_query("user_id_type", user_id_type)
+        self._create_leave_granting_record_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: CreateLeaveGrantingRecordRequestBody) -> "CreateLeaveGrantingRecordRequestBuilder":
+    def request_body(
+        self, request_body: CreateLeaveGrantingRecordRequestBody
+    ) -> "CreateLeaveGrantingRecordRequestBuilder":
         self._create_leave_granting_record_request.request_body = request_body
         self._create_leave_granting_record_request.body = request_body
         return self

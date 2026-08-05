@@ -35,7 +35,9 @@ class TalentSelfEvaluationBuilder(object):
         self._talent_self_evaluation.content = content
         return self
 
-    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentSelfEvaluationBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentSelfEvaluationBuilder":
         self._talent_self_evaluation.customized_data = customized_data
         return self
 

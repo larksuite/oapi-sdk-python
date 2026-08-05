@@ -37,13 +37,18 @@ class SendUserMailboxDraftResponseBodyBuilder(object):
         self._send_user_mailbox_draft_response_body.thread_id = thread_id
         return self
 
-    def recall_status(self, recall_status: str) -> "SendUserMailboxDraftResponseBodyBuilder":
+    def recall_status(
+        self, recall_status: str
+    ) -> "SendUserMailboxDraftResponseBodyBuilder":
         self._send_user_mailbox_draft_response_body.recall_status = recall_status
         return self
 
-    def automation_send_disable(self,
-                                automation_send_disable: AutomationSendDisable) -> "SendUserMailboxDraftResponseBodyBuilder":
-        self._send_user_mailbox_draft_response_body.automation_send_disable = automation_send_disable
+    def automation_send_disable(
+        self, automation_send_disable: AutomationSendDisable
+    ) -> "SendUserMailboxDraftResponseBodyBuilder":
+        self._send_user_mailbox_draft_response_body.automation_send_disable = (
+            automation_send_disable
+        )
         return self
 
     def build(self) -> "SendUserMailboxDraftResponseBody":

@@ -25,11 +25,15 @@ class ResurrectUserRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._resurrect_user_request_body = ResurrectUserRequestBody()
 
-    def departments(self, departments: List[UserDepartmentInfo]) -> "ResurrectUserRequestBodyBuilder":
+    def departments(
+        self, departments: List[UserDepartmentInfo]
+    ) -> "ResurrectUserRequestBodyBuilder":
         self._resurrect_user_request_body.departments = departments
         return self
 
-    def subscription_ids(self, subscription_ids: List[int]) -> "ResurrectUserRequestBodyBuilder":
+    def subscription_ids(
+        self, subscription_ids: List[int]
+    ) -> "ResurrectUserRequestBodyBuilder":
         self._resurrect_user_request_body.subscription_ids = subscription_ids
         return self
 

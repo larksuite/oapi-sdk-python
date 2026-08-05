@@ -9,18 +9,27 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_delete_report_detail_row_request import BatchDeleteReportDetailRowRequest
-from ..model.batch_delete_report_detail_row_response import BatchDeleteReportDetailRowResponse
+from ..model.batch_delete_report_detail_row_request import (
+    BatchDeleteReportDetailRowRequest,
+)
+from ..model.batch_delete_report_detail_row_response import (
+    BatchDeleteReportDetailRowResponse,
+)
 from ..model.batch_save_report_detail_row_request import BatchSaveReportDetailRowRequest
-from ..model.batch_save_report_detail_row_response import BatchSaveReportDetailRowResponse
+from ..model.batch_save_report_detail_row_response import (
+    BatchSaveReportDetailRowResponse,
+)
 
 
 class ReportDetailRow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteReportDetailRowRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
+    def batch_delete(
+        self,
+        request: BatchDeleteReportDetailRowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +44,18 @@ class ReportDetailRow(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchDeleteReportDetailRowResponse)
+        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteReportDetailRowResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_delete(self, request: BatchDeleteReportDetailRowRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteReportDetailRowResponse:
+    async def abatch_delete(
+        self,
+        request: BatchDeleteReportDetailRowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +66,18 @@ class ReportDetailRow(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchDeleteReportDetailRowResponse)
+        response: BatchDeleteReportDetailRowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteReportDetailRowResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_save(self, request: BatchSaveReportDetailRowRequest,
-                   option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
+    def batch_save(
+        self,
+        request: BatchSaveReportDetailRowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchSaveReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +92,18 @@ class ReportDetailRow(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchSaveReportDetailRowResponse)
+        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchSaveReportDetailRowResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_save(self, request: BatchSaveReportDetailRowRequest,
-                          option: Optional[RequestOption] = None) -> BatchSaveReportDetailRowResponse:
+    async def abatch_save(
+        self,
+        request: BatchSaveReportDetailRowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchSaveReportDetailRowResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +114,9 @@ class ReportDetailRow(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchSaveReportDetailRowResponse)
+        response: BatchSaveReportDetailRowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchSaveReportDetailRowResponse
+        )
         response.raw = resp
 
         return response

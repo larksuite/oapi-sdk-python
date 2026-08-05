@@ -30,7 +30,9 @@ class OkrReviewBuilder(object):
         self._okr_review.user_id = user_id
         return self
 
-    def review_period_list(self, review_period_list: List[OkrReviewPeriod]) -> "OkrReviewBuilder":
+    def review_period_list(
+        self, review_period_list: List[OkrReviewPeriod]
+    ) -> "OkrReviewBuilder":
         self._okr_review.review_period_list = review_period_list
         return self
 

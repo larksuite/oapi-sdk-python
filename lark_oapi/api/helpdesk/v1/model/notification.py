@@ -50,7 +50,9 @@ class Notification(object):
         self.push_type: Optional[int] = None
         self.push_scope_type: Optional[int] = None
         self.new_staff_scope_type: Optional[int] = None
-        self.new_staff_scope_department_list: Optional[List[NotificationDepartment]] = None
+        self.new_staff_scope_department_list: Optional[List[NotificationDepartment]] = (
+            None
+        )
         self.user_list: Optional[List[NotificationUser]] = None
         self.department_list: Optional[List[NotificationDepartment]] = None
         self.chat_list: Optional[List[NotificationChat]] = None
@@ -126,16 +128,21 @@ class NotificationBuilder(object):
         self._notification.new_staff_scope_type = new_staff_scope_type
         return self
 
-    def new_staff_scope_department_list(self, new_staff_scope_department_list: List[
-        NotificationDepartment]) -> "NotificationBuilder":
-        self._notification.new_staff_scope_department_list = new_staff_scope_department_list
+    def new_staff_scope_department_list(
+        self, new_staff_scope_department_list: List[NotificationDepartment]
+    ) -> "NotificationBuilder":
+        self._notification.new_staff_scope_department_list = (
+            new_staff_scope_department_list
+        )
         return self
 
     def user_list(self, user_list: List[NotificationUser]) -> "NotificationBuilder":
         self._notification.user_list = user_list
         return self
 
-    def department_list(self, department_list: List[NotificationDepartment]) -> "NotificationBuilder":
+    def department_list(
+        self, department_list: List[NotificationDepartment]
+    ) -> "NotificationBuilder":
         self._notification.department_list = department_list
         return self
 

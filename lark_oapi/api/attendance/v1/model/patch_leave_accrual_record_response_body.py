@@ -21,9 +21,13 @@ class PatchLeaveAccrualRecordResponseBody(object):
 
 class PatchLeaveAccrualRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_leave_accrual_record_response_body = PatchLeaveAccrualRecordResponseBody()
+        self._patch_leave_accrual_record_response_body = (
+            PatchLeaveAccrualRecordResponseBody()
+        )
 
-    def record(self, record: LeaveAccrualRecord) -> "PatchLeaveAccrualRecordResponseBodyBuilder":
+    def record(
+        self, record: LeaveAccrualRecord
+    ) -> "PatchLeaveAccrualRecordResponseBodyBuilder":
         self._patch_leave_accrual_record_response_body.record = record
         return self
 

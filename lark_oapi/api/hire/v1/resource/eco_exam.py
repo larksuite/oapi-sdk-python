@@ -19,8 +19,9 @@ class EcoExam(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def login_info(self, request: LoginInfoEcoExamRequest,
-                   option: Optional[RequestOption] = None) -> LoginInfoEcoExamResponse:
+    def login_info(
+        self, request: LoginInfoEcoExamRequest, option: Optional[RequestOption] = None
+    ) -> LoginInfoEcoExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class EcoExam(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: LoginInfoEcoExamResponse = JSON.unmarshal(str(resp.content, UTF_8), LoginInfoEcoExamResponse)
+        response: LoginInfoEcoExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LoginInfoEcoExamResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alogin_info(self, request: LoginInfoEcoExamRequest,
-                          option: Optional[RequestOption] = None) -> LoginInfoEcoExamResponse:
+    async def alogin_info(
+        self, request: LoginInfoEcoExamRequest, option: Optional[RequestOption] = None
+    ) -> LoginInfoEcoExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,18 @@ class EcoExam(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: LoginInfoEcoExamResponse = JSON.unmarshal(str(resp.content, UTF_8), LoginInfoEcoExamResponse)
+        response: LoginInfoEcoExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LoginInfoEcoExamResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_result(self, request: UpdateResultEcoExamRequest,
-                      option: Optional[RequestOption] = None) -> UpdateResultEcoExamResponse:
+    def update_result(
+        self,
+        request: UpdateResultEcoExamRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateResultEcoExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +82,18 @@ class EcoExam(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateResultEcoExamResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateResultEcoExamResponse)
+        response: UpdateResultEcoExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateResultEcoExamResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_result(self, request: UpdateResultEcoExamRequest,
-                             option: Optional[RequestOption] = None) -> UpdateResultEcoExamResponse:
+    async def aupdate_result(
+        self,
+        request: UpdateResultEcoExamRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateResultEcoExamResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +104,9 @@ class EcoExam(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateResultEcoExamResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateResultEcoExamResponse)
+        response: UpdateResultEcoExamResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateResultEcoExamResponse
+        )
         response.raw = resp
 
         return response

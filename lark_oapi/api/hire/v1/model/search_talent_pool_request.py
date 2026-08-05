@@ -18,13 +18,14 @@ class SearchTalentPoolRequest(BaseRequest):
 
 
 class SearchTalentPoolRequestBuilder(object):
-
     def __init__(self) -> None:
         search_talent_pool_request = SearchTalentPoolRequest()
         search_talent_pool_request.http_method = HttpMethod.GET
         search_talent_pool_request.uri = "/open-apis/hire/v1/talent_pools"
         search_talent_pool_request.token_types = {AccessTokenType.TENANT}
-        self._search_talent_pool_request: SearchTalentPoolRequest = search_talent_pool_request
+        self._search_talent_pool_request: SearchTalentPoolRequest = (
+            search_talent_pool_request
+        )
 
     def page_size(self, page_size: int) -> "SearchTalentPoolRequestBuilder":
         self._search_talent_pool_request.page_size = page_size

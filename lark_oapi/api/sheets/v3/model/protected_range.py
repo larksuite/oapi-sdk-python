@@ -54,11 +54,15 @@ class ProtectedRangeBuilder(object):
         self._protected_range.protected_rows = protected_rows
         return self
 
-    def protected_columns(self, protected_columns: ProtectedColumns) -> "ProtectedRangeBuilder":
+    def protected_columns(
+        self, protected_columns: ProtectedColumns
+    ) -> "ProtectedRangeBuilder":
         self._protected_range.protected_columns = protected_columns
         return self
 
-    def protected_sheet(self, protected_sheet: ProtectedSheet) -> "ProtectedRangeBuilder":
+    def protected_sheet(
+        self, protected_sheet: ProtectedSheet
+    ) -> "ProtectedRangeBuilder":
         self._protected_range.protected_sheet = protected_sheet
         return self
 

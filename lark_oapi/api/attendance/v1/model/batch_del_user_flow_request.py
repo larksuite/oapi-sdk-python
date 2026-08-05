@@ -17,15 +17,20 @@ class BatchDelUserFlowRequest(BaseRequest):
 
 
 class BatchDelUserFlowRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_del_user_flow_request = BatchDelUserFlowRequest()
         batch_del_user_flow_request.http_method = HttpMethod.POST
-        batch_del_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/batch_del"
+        batch_del_user_flow_request.uri = (
+            "/open-apis/attendance/v1/user_flows/batch_del"
+        )
         batch_del_user_flow_request.token_types = {AccessTokenType.TENANT}
-        self._batch_del_user_flow_request: BatchDelUserFlowRequest = batch_del_user_flow_request
+        self._batch_del_user_flow_request: BatchDelUserFlowRequest = (
+            batch_del_user_flow_request
+        )
 
-    def request_body(self, request_body: BatchDelUserFlowRequestBody) -> "BatchDelUserFlowRequestBuilder":
+    def request_body(
+        self, request_body: BatchDelUserFlowRequestBody
+    ) -> "BatchDelUserFlowRequestBuilder":
         self._batch_del_user_flow_request.request_body = request_body
         self._batch_del_user_flow_request.body = request_body
         return self

@@ -19,13 +19,19 @@ class CopyAppDashboardRequest(BaseRequest):
 
 
 class CopyAppDashboardRequestBuilder(object):
-
     def __init__(self) -> None:
         copy_app_dashboard_request = CopyAppDashboardRequest()
         copy_app_dashboard_request.http_method = HttpMethod.POST
-        copy_app_dashboard_request.uri = "/open-apis/bitable/v1/apps/:app_token/dashboards/:block_id/copy"
-        copy_app_dashboard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._copy_app_dashboard_request: CopyAppDashboardRequest = copy_app_dashboard_request
+        copy_app_dashboard_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/dashboards/:block_id/copy"
+        )
+        copy_app_dashboard_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._copy_app_dashboard_request: CopyAppDashboardRequest = (
+            copy_app_dashboard_request
+        )
 
     def app_token(self, app_token: str) -> "CopyAppDashboardRequestBuilder":
         self._copy_app_dashboard_request.app_token = app_token
@@ -37,7 +43,9 @@ class CopyAppDashboardRequestBuilder(object):
         self._copy_app_dashboard_request.paths["block_id"] = str(block_id)
         return self
 
-    def request_body(self, request_body: CopyAppDashboardRequestBody) -> "CopyAppDashboardRequestBuilder":
+    def request_body(
+        self, request_body: CopyAppDashboardRequestBody
+    ) -> "CopyAppDashboardRequestBuilder":
         self._copy_app_dashboard_request.request_body = request_body
         self._copy_app_dashboard_request.body = request_body
         return self

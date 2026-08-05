@@ -19,13 +19,14 @@ class SubmitProbationRequest(BaseRequest):
 
 
 class SubmitProbationRequestBuilder(object):
-
     def __init__(self) -> None:
         submit_probation_request = SubmitProbationRequest()
         submit_probation_request.http_method = HttpMethod.POST
         submit_probation_request.uri = "/open-apis/corehr/v2/probation/submit"
         submit_probation_request.token_types = {AccessTokenType.TENANT}
-        self._submit_probation_request: SubmitProbationRequest = submit_probation_request
+        self._submit_probation_request: SubmitProbationRequest = (
+            submit_probation_request
+        )
 
     def client_token(self, client_token: str) -> "SubmitProbationRequestBuilder":
         self._submit_probation_request.client_token = client_token
@@ -37,7 +38,9 @@ class SubmitProbationRequestBuilder(object):
         self._submit_probation_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SubmitProbationRequestBody) -> "SubmitProbationRequestBuilder":
+    def request_body(
+        self, request_body: SubmitProbationRequestBody
+    ) -> "SubmitProbationRequestBuilder":
         self._submit_probation_request.request_body = request_body
         self._submit_probation_request.body = request_body
         return self

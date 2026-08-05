@@ -17,9 +17,7 @@ class P2PerformanceReviewDataChangedV2Data(object):
 
 
 class P2PerformanceReviewDataChangedV2(EventContext):
-    _types = {
-        "event": P2PerformanceReviewDataChangedV2Data
-    }
+    _types = {"event": P2PerformanceReviewDataChangedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

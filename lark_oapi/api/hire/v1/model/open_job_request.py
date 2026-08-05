@@ -18,7 +18,6 @@ class OpenJobRequest(BaseRequest):
 
 
 class OpenJobRequestBuilder(object):
-
     def __init__(self) -> None:
         open_job_request = OpenJobRequest()
         open_job_request.http_method = HttpMethod.POST

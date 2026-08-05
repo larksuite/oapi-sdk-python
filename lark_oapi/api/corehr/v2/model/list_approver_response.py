@@ -9,7 +9,6 @@ from .list_approver_response_body import ListApproverResponseBody
 class ListApproverResponse(BaseResponse):
     _types = {
         "data": ListApproverResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -9,7 +9,6 @@ from .list_repo_response_body import ListRepoResponseBody
 class ListRepoResponse(BaseResponse):
     _types = {
         "data": ListRepoResponseBody,
-
     }
 
     def __init__(self, d=None):

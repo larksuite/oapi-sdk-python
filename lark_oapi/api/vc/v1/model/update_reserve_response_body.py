@@ -30,9 +30,12 @@ class UpdateReserveResponseBodyBuilder(object):
         self._update_reserve_response_body.reserve = reserve
         return self
 
-    def reserve_correction_check_info(self,
-                                      reserve_correction_check_info: ReserveCorrectionCheckInfo) -> "UpdateReserveResponseBodyBuilder":
-        self._update_reserve_response_body.reserve_correction_check_info = reserve_correction_check_info
+    def reserve_correction_check_info(
+        self, reserve_correction_check_info: ReserveCorrectionCheckInfo
+    ) -> "UpdateReserveResponseBodyBuilder":
+        self._update_reserve_response_body.reserve_correction_check_info = (
+            reserve_correction_check_info
+        )
         return self
 
     def build(self) -> "UpdateReserveResponseBody":

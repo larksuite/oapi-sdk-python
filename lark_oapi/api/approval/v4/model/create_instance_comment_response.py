@@ -9,7 +9,6 @@ from .create_instance_comment_response_body import CreateInstanceCommentResponse
 class CreateInstanceCommentResponse(BaseResponse):
     _types = {
         "data": CreateInstanceCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

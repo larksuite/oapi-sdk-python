@@ -38,11 +38,15 @@ class UserSearchFilterBuilder(object):
         self._user_search_filter.has_contact = has_contact
         return self
 
-    def exclude_outer_contact(self, exclude_outer_contact: bool) -> "UserSearchFilterBuilder":
+    def exclude_outer_contact(
+        self, exclude_outer_contact: bool
+    ) -> "UserSearchFilterBuilder":
         self._user_search_filter.exclude_outer_contact = exclude_outer_contact
         return self
 
-    def has_enterprise_email(self, has_enterprise_email: bool) -> "UserSearchFilterBuilder":
+    def has_enterprise_email(
+        self, has_enterprise_email: bool
+    ) -> "UserSearchFilterBuilder":
         self._user_search_filter.has_enterprise_email = has_enterprise_email
         return self
 

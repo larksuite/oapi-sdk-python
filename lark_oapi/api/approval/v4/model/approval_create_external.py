@@ -56,7 +56,9 @@ class ApprovalCreateExternalBuilder(object):
         self._approval_create_external.biz_type = biz_type
         return self
 
-    def create_link_mobile(self, create_link_mobile: str) -> "ApprovalCreateExternalBuilder":
+    def create_link_mobile(
+        self, create_link_mobile: str
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.create_link_mobile = create_link_mobile
         return self
 
@@ -72,36 +74,54 @@ class ApprovalCreateExternalBuilder(object):
         self._approval_create_external.support_mobile = support_mobile
         return self
 
-    def support_batch_read(self, support_batch_read: bool) -> "ApprovalCreateExternalBuilder":
+    def support_batch_read(
+        self, support_batch_read: bool
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.support_batch_read = support_batch_read
         return self
 
-    def enable_mark_readed(self, enable_mark_readed: bool) -> "ApprovalCreateExternalBuilder":
+    def enable_mark_readed(
+        self, enable_mark_readed: bool
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.enable_mark_readed = enable_mark_readed
         return self
 
-    def enable_quick_operate(self, enable_quick_operate: bool) -> "ApprovalCreateExternalBuilder":
+    def enable_quick_operate(
+        self, enable_quick_operate: bool
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.enable_quick_operate = enable_quick_operate
         return self
 
-    def action_callback_url(self, action_callback_url: str) -> "ApprovalCreateExternalBuilder":
+    def action_callback_url(
+        self, action_callback_url: str
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.action_callback_url = action_callback_url
         return self
 
-    def action_callback_token(self, action_callback_token: str) -> "ApprovalCreateExternalBuilder":
+    def action_callback_token(
+        self, action_callback_token: str
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.action_callback_token = action_callback_token
         return self
 
-    def action_callback_key(self, action_callback_key: str) -> "ApprovalCreateExternalBuilder":
+    def action_callback_key(
+        self, action_callback_key: str
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.action_callback_key = action_callback_key
         return self
 
-    def allow_batch_operate(self, allow_batch_operate: bool) -> "ApprovalCreateExternalBuilder":
+    def allow_batch_operate(
+        self, allow_batch_operate: bool
+    ) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.allow_batch_operate = allow_batch_operate
         return self
 
-    def exclude_efficiency_statistics(self, exclude_efficiency_statistics: bool) -> "ApprovalCreateExternalBuilder":
-        self._approval_create_external.exclude_efficiency_statistics = exclude_efficiency_statistics
+    def exclude_efficiency_statistics(
+        self, exclude_efficiency_statistics: bool
+    ) -> "ApprovalCreateExternalBuilder":
+        self._approval_create_external.exclude_efficiency_statistics = (
+            exclude_efficiency_statistics
+        )
         return self
 
     def build(self) -> "ApprovalCreateExternal":

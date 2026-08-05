@@ -18,20 +18,29 @@ class SpecifiedRollbackInstanceRequest(BaseRequest):
 
 
 class SpecifiedRollbackInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         specified_rollback_instance_request = SpecifiedRollbackInstanceRequest()
         specified_rollback_instance_request.http_method = HttpMethod.POST
-        specified_rollback_instance_request.uri = "/open-apis/approval/v4/instances/specified_rollback"
+        specified_rollback_instance_request.uri = (
+            "/open-apis/approval/v4/instances/specified_rollback"
+        )
         specified_rollback_instance_request.token_types = {AccessTokenType.TENANT}
-        self._specified_rollback_instance_request: SpecifiedRollbackInstanceRequest = specified_rollback_instance_request
+        self._specified_rollback_instance_request: SpecifiedRollbackInstanceRequest = (
+            specified_rollback_instance_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "SpecifiedRollbackInstanceRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "SpecifiedRollbackInstanceRequestBuilder":
         self._specified_rollback_instance_request.user_id_type = user_id_type
-        self._specified_rollback_instance_request.add_query("user_id_type", user_id_type)
+        self._specified_rollback_instance_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self, request_body: SpecifiedRollback) -> "SpecifiedRollbackInstanceRequestBuilder":
+    def request_body(
+        self, request_body: SpecifiedRollback
+    ) -> "SpecifiedRollbackInstanceRequestBuilder":
         self._specified_rollback_instance_request.request_body = request_body
         self._specified_rollback_instance_request.body = request_body
         return self

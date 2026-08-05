@@ -19,13 +19,16 @@ class ImportMetricDetailRequest(BaseRequest):
 
 
 class ImportMetricDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         import_metric_detail_request = ImportMetricDetailRequest()
         import_metric_detail_request.http_method = HttpMethod.POST
-        import_metric_detail_request.uri = "/open-apis/performance/v2/metric_details/import"
+        import_metric_detail_request.uri = (
+            "/open-apis/performance/v2/metric_details/import"
+        )
         import_metric_detail_request.token_types = {AccessTokenType.TENANT}
-        self._import_metric_detail_request: ImportMetricDetailRequest = import_metric_detail_request
+        self._import_metric_detail_request: ImportMetricDetailRequest = (
+            import_metric_detail_request
+        )
 
     def client_token(self, client_token: str) -> "ImportMetricDetailRequestBuilder":
         self._import_metric_detail_request.client_token = client_token
@@ -37,7 +40,9 @@ class ImportMetricDetailRequestBuilder(object):
         self._import_metric_detail_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: ImportMetricDetailRequestBody) -> "ImportMetricDetailRequestBuilder":
+    def request_body(
+        self, request_body: ImportMetricDetailRequestBody
+    ) -> "ImportMetricDetailRequestBuilder":
         self._import_metric_detail_request.request_body = request_body
         self._import_metric_detail_request.body = request_body
         return self

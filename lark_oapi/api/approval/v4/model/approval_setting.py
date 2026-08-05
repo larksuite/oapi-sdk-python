@@ -48,7 +48,9 @@ class ApprovalSettingBuilder(object):
         self._approval_setting.reject_option = reject_option
         return self
 
-    def quick_approval_option(self, quick_approval_option: int) -> "ApprovalSettingBuilder":
+    def quick_approval_option(
+        self, quick_approval_option: int
+    ) -> "ApprovalSettingBuilder":
         self._approval_setting.quick_approval_option = quick_approval_option
         return self
 
@@ -56,7 +58,9 @@ class ApprovalSettingBuilder(object):
         self._approval_setting.overtime_disable = overtime_disable
         return self
 
-    def overtime_notice_time(self, overtime_notice_time: int) -> "ApprovalSettingBuilder":
+    def overtime_notice_time(
+        self, overtime_notice_time: int
+    ) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_notice_time = overtime_notice_time
         return self
 
@@ -64,7 +68,9 @@ class ApprovalSettingBuilder(object):
         self._approval_setting.overtime_close_time = overtime_close_time
         return self
 
-    def overtime_recover_time(self, overtime_recover_time: int) -> "ApprovalSettingBuilder":
+    def overtime_recover_time(
+        self, overtime_recover_time: int
+    ) -> "ApprovalSettingBuilder":
         self._approval_setting.overtime_recover_time = overtime_recover_time
         return self
 

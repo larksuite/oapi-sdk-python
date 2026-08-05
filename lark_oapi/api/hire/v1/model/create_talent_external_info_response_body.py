@@ -21,9 +21,13 @@ class CreateTalentExternalInfoResponseBody(object):
 
 class CreateTalentExternalInfoResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_talent_external_info_response_body = CreateTalentExternalInfoResponseBody()
+        self._create_talent_external_info_response_body = (
+            CreateTalentExternalInfoResponseBody()
+        )
 
-    def external_info(self, external_info: TalentExternalInfo) -> "CreateTalentExternalInfoResponseBodyBuilder":
+    def external_info(
+        self, external_info: TalentExternalInfo
+    ) -> "CreateTalentExternalInfoResponseBodyBuilder":
         self._create_talent_external_info_response_body.external_info = external_info
         return self
 

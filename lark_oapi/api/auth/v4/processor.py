@@ -6,7 +6,9 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_auth_user_access_token_revoked_v4 import P2AuthUserAccessTokenRevokedV4
 
 
-class P2AuthUserAccessTokenRevokedV4Processor(IEventProcessor[P2AuthUserAccessTokenRevokedV4]):
+class P2AuthUserAccessTokenRevokedV4Processor(
+    IEventProcessor[P2AuthUserAccessTokenRevokedV4]
+):
     def __init__(self, f: Callable[[P2AuthUserAccessTokenRevokedV4], None]):
         self.f = f
 

@@ -9,7 +9,6 @@ from .upgrade_app_table_form_response_body import UpgradeAppTableFormResponseBod
 class UpgradeAppTableFormResponse(BaseResponse):
     _types = {
         "data": UpgradeAppTableFormResponseBody,
-
     }
 
     def __init__(self, d=None):

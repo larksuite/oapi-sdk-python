@@ -9,7 +9,6 @@ from .create_exam_response_body import CreateExamResponseBody
 class CreateExamResponse(BaseResponse):
     _types = {
         "data": CreateExamResponseBody,
-
     }
 
     def __init__(self, d=None):

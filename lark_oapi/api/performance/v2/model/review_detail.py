@@ -89,23 +89,33 @@ class ReviewDetailBuilder(object):
         self._review_detail.text = text
         return self
 
-    def tag_based_question_id(self, tag_based_question_id: str) -> "ReviewDetailBuilder":
+    def tag_based_question_id(
+        self, tag_based_question_id: str
+    ) -> "ReviewDetailBuilder":
         self._review_detail.tag_based_question_id = tag_based_question_id
         return self
 
-    def tag_text_item_data(self, tag_text_item_data: List[TagText]) -> "ReviewDetailBuilder":
+    def tag_text_item_data(
+        self, tag_text_item_data: List[TagText]
+    ) -> "ReviewDetailBuilder":
         self._review_detail.tag_text_item_data = tag_text_item_data
         return self
 
-    def perf_coefficient_value(self, perf_coefficient_value: str) -> "ReviewDetailBuilder":
+    def perf_coefficient_value(
+        self, perf_coefficient_value: str
+    ) -> "ReviewDetailBuilder":
         self._review_detail.perf_coefficient_value = perf_coefficient_value
         return self
 
-    def sub_indicator_data(self, sub_indicator_data: List[SubIndicator]) -> "ReviewDetailBuilder":
+    def sub_indicator_data(
+        self, sub_indicator_data: List[SubIndicator]
+    ) -> "ReviewDetailBuilder":
         self._review_detail.sub_indicator_data = sub_indicator_data
         return self
 
-    def objective_data(self, objective_data: List[ObjectiveData]) -> "ReviewDetailBuilder":
+    def objective_data(
+        self, objective_data: List[ObjectiveData]
+    ) -> "ReviewDetailBuilder":
         self._review_detail.objective_data = objective_data
         return self
 
@@ -113,7 +123,9 @@ class ReviewDetailBuilder(object):
         self._review_detail.metric_data = metric_data
         return self
 
-    def leader_review_data_source(self, leader_review_data_source: str) -> "ReviewDetailBuilder":
+    def leader_review_data_source(
+        self, leader_review_data_source: str
+    ) -> "ReviewDetailBuilder":
         self._review_detail.leader_review_data_source = leader_review_data_source
         return self
 
@@ -129,7 +141,9 @@ class ReviewDetailBuilder(object):
         self._review_detail.multi_richtexts = multi_richtexts
         return self
 
-    def is_principal_review_item(self, is_principal_review_item: bool) -> "ReviewDetailBuilder":
+    def is_principal_review_item(
+        self, is_principal_review_item: bool
+    ) -> "ReviewDetailBuilder":
         self._review_detail.is_principal_review_item = is_principal_review_item
         return self
 

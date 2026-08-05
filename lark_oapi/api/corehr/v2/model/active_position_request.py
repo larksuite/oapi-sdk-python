@@ -17,7 +17,6 @@ class ActivePositionRequest(BaseRequest):
 
 
 class ActivePositionRequestBuilder(object):
-
     def __init__(self) -> None:
         active_position_request = ActivePositionRequest()
         active_position_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class ActivePositionRequestBuilder(object):
         active_position_request.token_types = {AccessTokenType.TENANT}
         self._active_position_request: ActivePositionRequest = active_position_request
 
-    def request_body(self, request_body: ActivePositionRequestBody) -> "ActivePositionRequestBuilder":
+    def request_body(
+        self, request_body: ActivePositionRequestBody
+    ) -> "ActivePositionRequestBuilder":
         self._active_position_request.request_body = request_body
         self._active_position_request.body = request_body
         return self

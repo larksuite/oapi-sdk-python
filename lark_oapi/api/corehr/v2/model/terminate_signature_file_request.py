@@ -18,20 +18,25 @@ class TerminateSignatureFileRequest(BaseRequest):
 
 
 class TerminateSignatureFileRequestBuilder(object):
-
     def __init__(self) -> None:
         terminate_signature_file_request = TerminateSignatureFileRequest()
         terminate_signature_file_request.http_method = HttpMethod.POST
-        terminate_signature_file_request.uri = "/open-apis/corehr/v2/signature_files/terminate"
+        terminate_signature_file_request.uri = (
+            "/open-apis/corehr/v2/signature_files/terminate"
+        )
         terminate_signature_file_request.token_types = {AccessTokenType.TENANT}
-        self._terminate_signature_file_request: TerminateSignatureFileRequest = terminate_signature_file_request
+        self._terminate_signature_file_request: TerminateSignatureFileRequest = (
+            terminate_signature_file_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "TerminateSignatureFileRequestBuilder":
         self._terminate_signature_file_request.user_id_type = user_id_type
         self._terminate_signature_file_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: TerminateSignatureFileRequestBody) -> "TerminateSignatureFileRequestBuilder":
+    def request_body(
+        self, request_body: TerminateSignatureFileRequestBody
+    ) -> "TerminateSignatureFileRequestBuilder":
         self._terminate_signature_file_request.request_body = request_body
         self._terminate_signature_file_request.body = request_body
         return self

@@ -27,22 +27,31 @@ class UploadReportArchiveRuleRequestBody(object):
 
 class UploadReportArchiveRuleRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_report_archive_rule_request_body = UploadReportArchiveRuleRequestBody()
+        self._upload_report_archive_rule_request_body = (
+            UploadReportArchiveRuleRequestBody()
+        )
 
     def month(self, month: str) -> "UploadReportArchiveRuleRequestBodyBuilder":
         self._upload_report_archive_rule_request_body.month = month
         return self
 
-    def operator_id(self, operator_id: str) -> "UploadReportArchiveRuleRequestBodyBuilder":
+    def operator_id(
+        self, operator_id: str
+    ) -> "UploadReportArchiveRuleRequestBodyBuilder":
         self._upload_report_archive_rule_request_body.operator_id = operator_id
         return self
 
-    def archive_report_datas(self, archive_report_datas: List[
-        ArchiveReportData]) -> "UploadReportArchiveRuleRequestBodyBuilder":
-        self._upload_report_archive_rule_request_body.archive_report_datas = archive_report_datas
+    def archive_report_datas(
+        self, archive_report_datas: List[ArchiveReportData]
+    ) -> "UploadReportArchiveRuleRequestBodyBuilder":
+        self._upload_report_archive_rule_request_body.archive_report_datas = (
+            archive_report_datas
+        )
         return self
 
-    def archive_rule_id(self, archive_rule_id: str) -> "UploadReportArchiveRuleRequestBodyBuilder":
+    def archive_rule_id(
+        self, archive_rule_id: str
+    ) -> "UploadReportArchiveRuleRequestBodyBuilder":
         self._upload_report_archive_rule_request_body.archive_rule_id = archive_rule_id
         return self
 

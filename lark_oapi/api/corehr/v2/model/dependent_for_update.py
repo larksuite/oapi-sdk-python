@@ -11,6 +11,7 @@ from .visa_for_update import VisaForUpdate
 from .passport_for_update import PassportForUpdate
 from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
 from .name_for_update import NameForUpdate
+from .email_for_update import EmailForUpdate
 
 
 class DependentForUpdate(object):
@@ -37,6 +38,7 @@ class DependentForUpdate(object):
         "id": str,
         "nationality_v2": str,
         "name": NameForUpdate,
+        "emails": List[EmailForUpdate],
     }
 
     def __init__(self, d=None):
@@ -58,10 +60,13 @@ class DependentForUpdate(object):
         self.modify_date: Optional[str] = None
         self.visas: Optional[List[VisaForUpdate]] = None
         self.passports: Optional[List[PassportForUpdate]] = None
-        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
+        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = (
+            None
+        )
         self.id: Optional[str] = None
         self.nationality_v2: Optional[str] = None
         self.name: Optional[NameForUpdate] = None
+        self.emails: Optional[List[EmailForUpdate]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -85,22 +90,32 @@ class DependentForUpdateBuilder(object):
         self._dependent_for_update.date_of_birth = date_of_birth
         return self
 
-    def national_ids(self, national_ids: List[NationalIdForUpdate]) -> "DependentForUpdateBuilder":
+    def national_ids(
+        self, national_ids: List[NationalIdForUpdate]
+    ) -> "DependentForUpdateBuilder":
         self._dependent_for_update.national_ids = national_ids
         return self
 
-    def spouses_working_status(self, spouses_working_status: str) -> "DependentForUpdateBuilder":
+    def spouses_working_status(
+        self, spouses_working_status: str
+    ) -> "DependentForUpdateBuilder":
         self._dependent_for_update.spouses_working_status = spouses_working_status
         return self
 
-    def is_this_person_covered_by_health_insurance(self,
-                                                   is_this_person_covered_by_health_insurance: bool) -> "DependentForUpdateBuilder":
-        self._dependent_for_update.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+    def is_this_person_covered_by_health_insurance(
+        self, is_this_person_covered_by_health_insurance: bool
+    ) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.is_this_person_covered_by_health_insurance = (
+            is_this_person_covered_by_health_insurance
+        )
         return self
 
-    def is_this_person_allowed_for_tax_deduction(self,
-                                                 is_this_person_allowed_for_tax_deduction: bool) -> "DependentForUpdateBuilder":
-        self._dependent_for_update.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+    def is_this_person_allowed_for_tax_deduction(
+        self, is_this_person_allowed_for_tax_deduction: bool
+    ) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.is_this_person_allowed_for_tax_deduction = (
+            is_this_person_allowed_for_tax_deduction
+        )
         return self
 
     def dependent_name(self, dependent_name: str) -> "DependentForUpdateBuilder":
@@ -123,11 +138,17 @@ class DependentForUpdateBuilder(object):
         self._dependent_for_update.address = address
         return self
 
-    def birth_certificate_of_children(self, birth_certificate_of_children: List[File]) -> "DependentForUpdateBuilder":
-        self._dependent_for_update.birth_certificate_of_children = birth_certificate_of_children
+    def birth_certificate_of_children(
+        self, birth_certificate_of_children: List[File]
+    ) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.birth_certificate_of_children = (
+            birth_certificate_of_children
+        )
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DependentForUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "DependentForUpdateBuilder":
         self._dependent_for_update.custom_fields = custom_fields
         return self
 
@@ -143,12 +164,15 @@ class DependentForUpdateBuilder(object):
         self._dependent_for_update.visas = visas
         return self
 
-    def passports(self, passports: List[PassportForUpdate]) -> "DependentForUpdateBuilder":
+    def passports(
+        self, passports: List[PassportForUpdate]
+    ) -> "DependentForUpdateBuilder":
         self._dependent_for_update.passports = passports
         return self
 
-    def citizenship_statuses(self, citizenship_statuses: List[
-        ProfileSettingCitizenshipStatus]) -> "DependentForUpdateBuilder":
+    def citizenship_statuses(
+        self, citizenship_statuses: List[ProfileSettingCitizenshipStatus]
+    ) -> "DependentForUpdateBuilder":
         self._dependent_for_update.citizenship_statuses = citizenship_statuses
         return self
 
@@ -162,6 +186,10 @@ class DependentForUpdateBuilder(object):
 
     def name(self, name: NameForUpdate) -> "DependentForUpdateBuilder":
         self._dependent_for_update.name = name
+        return self
+
+    def emails(self, emails: List[EmailForUpdate]) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.emails = emails
         return self
 
     def build(self) -> "DependentForUpdate":

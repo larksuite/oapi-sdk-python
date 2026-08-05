@@ -28,13 +28,19 @@ class AppTableViewPropertyFilterInfoCondition(object):
 
 class AppTableViewPropertyFilterInfoConditionBuilder(object):
     def __init__(self) -> None:
-        self._app_table_view_property_filter_info_condition = AppTableViewPropertyFilterInfoCondition()
+        self._app_table_view_property_filter_info_condition = (
+            AppTableViewPropertyFilterInfoCondition()
+        )
 
-    def field_id(self, field_id: str) -> "AppTableViewPropertyFilterInfoConditionBuilder":
+    def field_id(
+        self, field_id: str
+    ) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.field_id = field_id
         return self
 
-    def operator(self, operator: str) -> "AppTableViewPropertyFilterInfoConditionBuilder":
+    def operator(
+        self, operator: str
+    ) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.operator = operator
         return self
 
@@ -42,11 +48,15 @@ class AppTableViewPropertyFilterInfoConditionBuilder(object):
         self._app_table_view_property_filter_info_condition.value = value
         return self
 
-    def condition_id(self, condition_id: str) -> "AppTableViewPropertyFilterInfoConditionBuilder":
+    def condition_id(
+        self, condition_id: str
+    ) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.condition_id = condition_id
         return self
 
-    def field_type(self, field_type: int) -> "AppTableViewPropertyFilterInfoConditionBuilder":
+    def field_type(
+        self, field_type: int
+    ) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.field_type = field_type
         return self
 

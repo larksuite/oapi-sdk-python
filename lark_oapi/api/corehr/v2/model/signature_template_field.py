@@ -5,8 +5,12 @@ from lark_oapi.core.construct import init
 from .enum import Enum
 from .i18n import I18n
 from .signature_template_common_field_info import SignatureTemplateCommonFieldInfo
-from .signature_template_combination_field_info import SignatureTemplateCombinationFieldInfo
-from .signature_template_combination_field_info_v2 import SignatureTemplateCombinationFieldInfoV2
+from .signature_template_combination_field_info import (
+    SignatureTemplateCombinationFieldInfo,
+)
+from .signature_template_combination_field_info_v2 import (
+    SignatureTemplateCombinationFieldInfoV2,
+)
 
 
 class SignatureTemplateField(object):
@@ -25,7 +29,9 @@ class SignatureTemplateField(object):
         self.common_info: Optional[SignatureTemplateCommonFieldInfo] = None
         self.combination_info: Optional[SignatureTemplateCombinationFieldInfo] = None
         self.children: Optional[str] = None
-        self.combination_info_v2: Optional[SignatureTemplateCombinationFieldInfoV2] = None
+        self.combination_info_v2: Optional[SignatureTemplateCombinationFieldInfoV2] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -45,12 +51,15 @@ class SignatureTemplateFieldBuilder(object):
         self._signature_template_field.label = label
         return self
 
-    def common_info(self, common_info: SignatureTemplateCommonFieldInfo) -> "SignatureTemplateFieldBuilder":
+    def common_info(
+        self, common_info: SignatureTemplateCommonFieldInfo
+    ) -> "SignatureTemplateFieldBuilder":
         self._signature_template_field.common_info = common_info
         return self
 
-    def combination_info(self,
-                         combination_info: SignatureTemplateCombinationFieldInfo) -> "SignatureTemplateFieldBuilder":
+    def combination_info(
+        self, combination_info: SignatureTemplateCombinationFieldInfo
+    ) -> "SignatureTemplateFieldBuilder":
         self._signature_template_field.combination_info = combination_info
         return self
 
@@ -58,8 +67,9 @@ class SignatureTemplateFieldBuilder(object):
         self._signature_template_field.children = children
         return self
 
-    def combination_info_v2(self,
-                            combination_info_v2: SignatureTemplateCombinationFieldInfoV2) -> "SignatureTemplateFieldBuilder":
+    def combination_info_v2(
+        self, combination_info_v2: SignatureTemplateCombinationFieldInfoV2
+    ) -> "SignatureTemplateFieldBuilder":
         self._signature_template_field.combination_info_v2 = combination_info_v2
         return self
 

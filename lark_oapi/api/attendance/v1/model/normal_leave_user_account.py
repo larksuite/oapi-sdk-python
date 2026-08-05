@@ -50,11 +50,15 @@ class NormalLeaveUserAccountBuilder(object):
         self._normal_leave_user_account.unit = unit
         return self
 
-    def sub_type_accounts(self, sub_type_accounts: List[UserSubTypeAccount]) -> "NormalLeaveUserAccountBuilder":
+    def sub_type_accounts(
+        self, sub_type_accounts: List[UserSubTypeAccount]
+    ) -> "NormalLeaveUserAccountBuilder":
         self._normal_leave_user_account.sub_type_accounts = sub_type_accounts
         return self
 
-    def balances(self, balances: List[NormalLeaveBalance]) -> "NormalLeaveUserAccountBuilder":
+    def balances(
+        self, balances: List[NormalLeaveBalance]
+    ) -> "NormalLeaveUserAccountBuilder":
         self._normal_leave_user_account.balances = balances
         return self
 

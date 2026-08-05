@@ -26,17 +26,25 @@ class UpdateBizEntityTagRelationRequestBody(object):
 
 class UpdateBizEntityTagRelationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_biz_entity_tag_relation_request_body = UpdateBizEntityTagRelationRequestBody()
+        self._update_biz_entity_tag_relation_request_body = (
+            UpdateBizEntityTagRelationRequestBody()
+        )
 
-    def tag_biz_type(self, tag_biz_type: str) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
+    def tag_biz_type(
+        self, tag_biz_type: str
+    ) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
         self._update_biz_entity_tag_relation_request_body.tag_biz_type = tag_biz_type
         return self
 
-    def biz_entity_id(self, biz_entity_id: str) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
+    def biz_entity_id(
+        self, biz_entity_id: str
+    ) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
         self._update_biz_entity_tag_relation_request_body.biz_entity_id = biz_entity_id
         return self
 
-    def tag_ids(self, tag_ids: List[str]) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
+    def tag_ids(
+        self, tag_ids: List[str]
+    ) -> "UpdateBizEntityTagRelationRequestBodyBuilder":
         self._update_biz_entity_tag_relation_request_body.tag_ids = tag_ids
         return self
 

@@ -21,12 +21,16 @@ class GetFileVersionRequest(BaseRequest):
 
 
 class GetFileVersionRequestBuilder(object):
-
     def __init__(self) -> None:
         get_file_version_request = GetFileVersionRequest()
         get_file_version_request.http_method = HttpMethod.GET
-        get_file_version_request.uri = "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-        get_file_version_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_file_version_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/versions/:version_id"
+        )
+        get_file_version_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_file_version_request: GetFileVersionRequest = get_file_version_request
 
     def obj_type(self, obj_type: str) -> "GetFileVersionRequestBuilder":

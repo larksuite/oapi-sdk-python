@@ -32,7 +32,9 @@ class ActiveCustomOrgRequestBodyBuilder(object):
         self._active_custom_org_request_body.org_id = org_id
         return self
 
-    def object_api_name(self, object_api_name: str) -> "ActiveCustomOrgRequestBodyBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.object_api_name = object_api_name
         return self
 
@@ -40,7 +42,9 @@ class ActiveCustomOrgRequestBodyBuilder(object):
         self._active_custom_org_request_body.active = active
         return self
 
-    def effective_time(self, effective_time: str) -> "ActiveCustomOrgRequestBodyBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "ActiveCustomOrgRequestBodyBuilder":
         self._active_custom_org_request_body.effective_time = effective_time
         return self
 

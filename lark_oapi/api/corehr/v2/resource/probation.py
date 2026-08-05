@@ -11,8 +11,12 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.edit_probation_request import EditProbationRequest
 from ..model.edit_probation_response import EditProbationResponse
-from ..model.enable_disable_assessment_probation_request import EnableDisableAssessmentProbationRequest
-from ..model.enable_disable_assessment_probation_response import EnableDisableAssessmentProbationResponse
+from ..model.enable_disable_assessment_probation_request import (
+    EnableDisableAssessmentProbationRequest,
+)
+from ..model.enable_disable_assessment_probation_response import (
+    EnableDisableAssessmentProbationResponse,
+)
 from ..model.search_probation_request import SearchProbationRequest
 from ..model.search_probation_response import SearchProbationResponse
 from ..model.submit_probation_request import SubmitProbationRequest
@@ -25,7 +29,9 @@ class Probation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def edit(self, request: EditProbationRequest, option: Optional[RequestOption] = None) -> EditProbationResponse:
+    def edit(
+        self, request: EditProbationRequest, option: Optional[RequestOption] = None
+    ) -> EditProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +46,16 @@ class Probation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EditProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), EditProbationResponse)
+        response: EditProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aedit(self, request: EditProbationRequest,
-                    option: Optional[RequestOption] = None) -> EditProbationResponse:
+    async def aedit(
+        self, request: EditProbationRequest, option: Optional[RequestOption] = None
+    ) -> EditProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,13 +66,18 @@ class Probation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EditProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), EditProbationResponse)
+        response: EditProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    def enable_disable_assessment(self, request: EnableDisableAssessmentProbationRequest,
-                                  option: Optional[RequestOption] = None) -> EnableDisableAssessmentProbationResponse:
+    def enable_disable_assessment(
+        self,
+        request: EnableDisableAssessmentProbationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnableDisableAssessmentProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,14 +92,18 @@ class Probation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EnableDisableAssessmentProbationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            EnableDisableAssessmentProbationResponse)
+        response: EnableDisableAssessmentProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnableDisableAssessmentProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aenable_disable_assessment(self, request: EnableDisableAssessmentProbationRequest, option: Optional[
-        RequestOption] = None) -> EnableDisableAssessmentProbationResponse:
+    async def aenable_disable_assessment(
+        self,
+        request: EnableDisableAssessmentProbationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnableDisableAssessmentProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,14 +114,16 @@ class Probation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EnableDisableAssessmentProbationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            EnableDisableAssessmentProbationResponse)
+        response: EnableDisableAssessmentProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnableDisableAssessmentProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchProbationRequest,
-               option: Optional[RequestOption] = None) -> SearchProbationResponse:
+    def search(
+        self, request: SearchProbationRequest, option: Optional[RequestOption] = None
+    ) -> SearchProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,13 +138,16 @@ class Probation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchProbationResponse)
+        response: SearchProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchProbationRequest,
-                      option: Optional[RequestOption] = None) -> SearchProbationResponse:
+    async def asearch(
+        self, request: SearchProbationRequest, option: Optional[RequestOption] = None
+    ) -> SearchProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,13 +158,16 @@ class Probation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchProbationResponse)
+        response: SearchProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    def submit(self, request: SubmitProbationRequest,
-               option: Optional[RequestOption] = None) -> SubmitProbationResponse:
+    def submit(
+        self, request: SubmitProbationRequest, option: Optional[RequestOption] = None
+    ) -> SubmitProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +182,16 @@ class Probation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubmitProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitProbationResponse)
+        response: SubmitProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubmitProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubmit(self, request: SubmitProbationRequest,
-                      option: Optional[RequestOption] = None) -> SubmitProbationResponse:
+    async def asubmit(
+        self, request: SubmitProbationRequest, option: Optional[RequestOption] = None
+    ) -> SubmitProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,13 +202,16 @@ class Probation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubmitProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitProbationResponse)
+        response: SubmitProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubmitProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    def withdraw(self, request: WithdrawProbationRequest,
-                 option: Optional[RequestOption] = None) -> WithdrawProbationResponse:
+    def withdraw(
+        self, request: WithdrawProbationRequest, option: Optional[RequestOption] = None
+    ) -> WithdrawProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,13 +226,16 @@ class Probation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), WithdrawProbationResponse)
+        response: WithdrawProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawProbationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def awithdraw(self, request: WithdrawProbationRequest,
-                        option: Optional[RequestOption] = None) -> WithdrawProbationResponse:
+    async def awithdraw(
+        self, request: WithdrawProbationRequest, option: Optional[RequestOption] = None
+    ) -> WithdrawProbationResponse:
         if option is None:
             option = RequestOption()
 
@@ -211,7 +246,9 @@ class Probation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), WithdrawProbationResponse)
+        response: WithdrawProbationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawProbationResponse
+        )
         response.raw = resp
 
         return response

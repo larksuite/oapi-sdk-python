@@ -17,15 +17,22 @@ class CreateEcoBackgroundCheckPackageRequest(BaseRequest):
 
 
 class CreateEcoBackgroundCheckPackageRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_eco_background_check_package_request = CreateEcoBackgroundCheckPackageRequest()
+        create_eco_background_check_package_request = (
+            CreateEcoBackgroundCheckPackageRequest()
+        )
         create_eco_background_check_package_request.http_method = HttpMethod.POST
-        create_eco_background_check_package_request.uri = "/open-apis/hire/v1/eco_background_check_packages"
-        create_eco_background_check_package_request.token_types = {AccessTokenType.TENANT}
+        create_eco_background_check_package_request.uri = (
+            "/open-apis/hire/v1/eco_background_check_packages"
+        )
+        create_eco_background_check_package_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._create_eco_background_check_package_request: CreateEcoBackgroundCheckPackageRequest = create_eco_background_check_package_request
 
-    def request_body(self, request_body: EcoBackgroundCheckPackage) -> "CreateEcoBackgroundCheckPackageRequestBuilder":
+    def request_body(
+        self, request_body: EcoBackgroundCheckPackage
+    ) -> "CreateEcoBackgroundCheckPackageRequestBuilder":
         self._create_eco_background_check_package_request.request_body = request_body
         self._create_eco_background_check_package_request.body = request_body
         return self

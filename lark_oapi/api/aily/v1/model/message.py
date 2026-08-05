@@ -67,7 +67,9 @@ class MessageBuilder(object):
         self._message.builtin_actions = builtin_actions
         return self
 
-    def skill_base_infos(self, skill_base_infos: List[SkillBaseInfo]) -> "MessageBuilder":
+    def skill_base_infos(
+        self, skill_base_infos: List[SkillBaseInfo]
+    ) -> "MessageBuilder":
         self._message.skill_base_infos = skill_base_infos
         return self
 

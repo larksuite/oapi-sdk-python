@@ -9,7 +9,6 @@ from .delete_file_response_body import DeleteFileResponseBody
 class DeleteFileResponse(BaseResponse):
     _types = {
         "data": DeleteFileResponseBody,
-
     }
 
     def __init__(self, d=None):

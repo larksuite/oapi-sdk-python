@@ -17,7 +17,9 @@ class UserInfo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetUserInfoRequest, option: Optional[RequestOption] = None) -> GetUserInfoResponse:
+    def get(
+        self, request: GetUserInfoRequest, option: Optional[RequestOption] = None
+    ) -> GetUserInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class UserInfo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserInfoResponse)
+        response: GetUserInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserInfoRequest, option: Optional[RequestOption] = None) -> GetUserInfoResponse:
+    async def aget(
+        self, request: GetUserInfoRequest, option: Optional[RequestOption] = None
+    ) -> GetUserInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class UserInfo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserInfoResponse)
+        response: GetUserInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserInfoResponse
+        )
         response.raw = resp
 
         return response

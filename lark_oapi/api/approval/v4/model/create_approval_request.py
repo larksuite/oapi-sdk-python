@@ -19,7 +19,6 @@ class CreateApprovalRequest(BaseRequest):
 
 
 class CreateApprovalRequestBuilder(object):
-
     def __init__(self) -> None:
         create_approval_request = CreateApprovalRequest()
         create_approval_request.http_method = HttpMethod.POST
@@ -27,9 +26,13 @@ class CreateApprovalRequestBuilder(object):
         create_approval_request.token_types = {AccessTokenType.TENANT}
         self._create_approval_request: CreateApprovalRequest = create_approval_request
 
-    def department_id_type(self, department_id_type: str) -> "CreateApprovalRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateApprovalRequestBuilder":
         self._create_approval_request.department_id_type = department_id_type
-        self._create_approval_request.add_query("department_id_type", department_id_type)
+        self._create_approval_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "CreateApprovalRequestBuilder":
@@ -37,7 +40,9 @@ class CreateApprovalRequestBuilder(object):
         self._create_approval_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: ApprovalCreate) -> "CreateApprovalRequestBuilder":
+    def request_body(
+        self, request_body: ApprovalCreate
+    ) -> "CreateApprovalRequestBuilder":
         self._create_approval_request.request_body = request_body
         self._create_approval_request.body = request_body
         return self

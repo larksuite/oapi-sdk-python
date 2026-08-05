@@ -38,7 +38,9 @@ class PersonForCountryForUpdateBuilder(object):
         self._person_for_country_for_update.wk_id = wk_id
         return self
 
-    def country_region_id(self, country_region_id: str) -> "PersonForCountryForUpdateBuilder":
+    def country_region_id(
+        self, country_region_id: str
+    ) -> "PersonForCountryForUpdateBuilder":
         self._person_for_country_for_update.country_region_id = country_region_id
         return self
 
@@ -58,7 +60,9 @@ class PersonForCountryForUpdateBuilder(object):
         self._person_for_country_for_update.ethnicity_race = ethnicity_race
         return self
 
-    def marital_status_date(self, marital_status_date: str) -> "PersonForCountryForUpdateBuilder":
+    def marital_status_date(
+        self, marital_status_date: str
+    ) -> "PersonForCountryForUpdateBuilder":
         self._person_for_country_for_update.marital_status_date = marital_status_date
         return self
 

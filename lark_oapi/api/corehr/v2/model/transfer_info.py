@@ -22,6 +22,42 @@ from .lookup_name import LookupName
 from .lookup_name import LookupName
 from .lookup_name import LookupName
 from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .employment_lookup_name import EmploymentLookupName
+from .employment_lookup_name import EmploymentLookupName
+from .employment_lookup_name import EmploymentLookupName
+from .employment_lookup_name import EmploymentLookupName
+from .lookup_name import LookupName
+from .lookup_name import LookupName
+from .i18n_v2 import I18nV2
+from .i18n_v2 import I18nV2
 
 
 class TransferInfo(object):
@@ -103,8 +139,8 @@ class TransferInfo(object):
         "is_transfer_with_workforce": bool,
         "original_department_name": DepartmentLookupName,
         "target_department_name": DepartmentLookupName,
-        "original_worklocation_name": LookupName,
-        "target_worklocation_name": LookupName,
+        "original_work_location_name": LookupName,
+        "target_work_location_name": LookupName,
         "original_direct_manager_name": EmploymentLookupName,
         "target_direct_manager_name": EmploymentLookupName,
         "original_job_name": LookupName,
@@ -115,6 +151,43 @@ class TransferInfo(object):
         "target_job_level_name": LookupName,
         "original_workforce_type_name": LookupName,
         "target_workforce_type_name": LookupName,
+        "original_company_name": LookupName,
+        "target_company_name": LookupName,
+        "original_contract_type_name": LookupName,
+        "target_contract_type_name": LookupName,
+        "original_duration_type_name": LookupName,
+        "target_duration_type_name": LookupName,
+        "original_signing_type_name": LookupName,
+        "target_signing_type_name": LookupName,
+        "original_working_hours_type_name": LookupName,
+        "target_working_hours_type_name": LookupName,
+        "original_working_calendar_name": LookupName,
+        "target_working_calendar_name": LookupName,
+        "original_work_shift_name": LookupName,
+        "target_work_shift_name": LookupName,
+        "original_job_grade_name": LookupName,
+        "target_job_grade_name": LookupName,
+        "original_compensation_type_name": LookupName,
+        "target_compensation_type_name": LookupName,
+        "original_service_company_name": LookupName,
+        "target_service_company_name": LookupName,
+        "original_position_name": LookupName,
+        "target_position_name": LookupName,
+        "original_employee_subtype_name": LookupName,
+        "target_employee_subtype_name": LookupName,
+        "original_pathway_name": LookupName,
+        "target_pathway_name": LookupName,
+        "original_default_cost_center_name": LookupName,
+        "target_default_cost_center_name": LookupName,
+        "original_dotted_manager_name": EmploymentLookupName,
+        "target_dotted_manager_name": EmploymentLookupName,
+        "initiator_name": EmploymentLookupName,
+        "exception_handler_name": EmploymentLookupName,
+        "original_social_security_city_name": LookupName,
+        "target_social_security_city_name": LookupName,
+        "wk_created_at": str,
+        "transform_source": I18nV2,
+        "details_of_job_status_change": List[I18nV2],
     }
 
     def __init__(self, d=None):
@@ -195,8 +268,8 @@ class TransferInfo(object):
         self.is_transfer_with_workforce: Optional[bool] = None
         self.original_department_name: Optional[DepartmentLookupName] = None
         self.target_department_name: Optional[DepartmentLookupName] = None
-        self.original_worklocation_name: Optional[LookupName] = None
-        self.target_worklocation_name: Optional[LookupName] = None
+        self.original_work_location_name: Optional[LookupName] = None
+        self.target_work_location_name: Optional[LookupName] = None
         self.original_direct_manager_name: Optional[EmploymentLookupName] = None
         self.target_direct_manager_name: Optional[EmploymentLookupName] = None
         self.original_job_name: Optional[LookupName] = None
@@ -207,6 +280,43 @@ class TransferInfo(object):
         self.target_job_level_name: Optional[LookupName] = None
         self.original_workforce_type_name: Optional[LookupName] = None
         self.target_workforce_type_name: Optional[LookupName] = None
+        self.original_company_name: Optional[LookupName] = None
+        self.target_company_name: Optional[LookupName] = None
+        self.original_contract_type_name: Optional[LookupName] = None
+        self.target_contract_type_name: Optional[LookupName] = None
+        self.original_duration_type_name: Optional[LookupName] = None
+        self.target_duration_type_name: Optional[LookupName] = None
+        self.original_signing_type_name: Optional[LookupName] = None
+        self.target_signing_type_name: Optional[LookupName] = None
+        self.original_working_hours_type_name: Optional[LookupName] = None
+        self.target_working_hours_type_name: Optional[LookupName] = None
+        self.original_working_calendar_name: Optional[LookupName] = None
+        self.target_working_calendar_name: Optional[LookupName] = None
+        self.original_work_shift_name: Optional[LookupName] = None
+        self.target_work_shift_name: Optional[LookupName] = None
+        self.original_job_grade_name: Optional[LookupName] = None
+        self.target_job_grade_name: Optional[LookupName] = None
+        self.original_compensation_type_name: Optional[LookupName] = None
+        self.target_compensation_type_name: Optional[LookupName] = None
+        self.original_service_company_name: Optional[LookupName] = None
+        self.target_service_company_name: Optional[LookupName] = None
+        self.original_position_name: Optional[LookupName] = None
+        self.target_position_name: Optional[LookupName] = None
+        self.original_employee_subtype_name: Optional[LookupName] = None
+        self.target_employee_subtype_name: Optional[LookupName] = None
+        self.original_pathway_name: Optional[LookupName] = None
+        self.target_pathway_name: Optional[LookupName] = None
+        self.original_default_cost_center_name: Optional[LookupName] = None
+        self.target_default_cost_center_name: Optional[LookupName] = None
+        self.original_dotted_manager_name: Optional[EmploymentLookupName] = None
+        self.target_dotted_manager_name: Optional[EmploymentLookupName] = None
+        self.initiator_name: Optional[EmploymentLookupName] = None
+        self.exception_handler_name: Optional[EmploymentLookupName] = None
+        self.original_social_security_city_name: Optional[LookupName] = None
+        self.target_social_security_city_name: Optional[LookupName] = None
+        self.wk_created_at: Optional[str] = None
+        self.transform_source: Optional[I18nV2] = None
+        self.details_of_job_status_change: Optional[List[I18nV2]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -226,7 +336,9 @@ class TransferInfoBuilder(object):
         self._transfer_info.offer_info = offer_info
         return self
 
-    def target_dotted_manager_clean(self, target_dotted_manager_clean: bool) -> "TransferInfoBuilder":
+    def target_dotted_manager_clean(
+        self, target_dotted_manager_clean: bool
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_dotted_manager_clean = target_dotted_manager_clean
         return self
 
@@ -242,20 +354,27 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_department = target_department
         return self
 
-    def target_draft_department(self, target_draft_department: str) -> "TransferInfoBuilder":
+    def target_draft_department(
+        self, target_draft_department: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_draft_department = target_draft_department
         return self
 
-    def original_department_id_path(self,
-                                    original_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+    def original_department_id_path(
+        self, original_department_id_path: List[OrgdraftDepartmentId]
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_department_id_path = original_department_id_path
         return self
 
-    def target_department_id_path(self, target_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+    def target_department_id_path(
+        self, target_department_id_path: List[OrgdraftDepartmentId]
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_department_id_path = target_department_id_path
         return self
 
-    def original_work_location(self, original_work_location: str) -> "TransferInfoBuilder":
+    def original_work_location(
+        self, original_work_location: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_work_location = original_work_location
         return self
 
@@ -263,19 +382,27 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_work_location = target_work_location
         return self
 
-    def original_direct_manager(self, original_direct_manager: str) -> "TransferInfoBuilder":
+    def original_direct_manager(
+        self, original_direct_manager: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_direct_manager = original_direct_manager
         return self
 
-    def target_direct_manager(self, target_direct_manager: str) -> "TransferInfoBuilder":
+    def target_direct_manager(
+        self, target_direct_manager: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_direct_manager = target_direct_manager
         return self
 
-    def original_dotted_manager(self, original_dotted_manager: str) -> "TransferInfoBuilder":
+    def original_dotted_manager(
+        self, original_dotted_manager: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_dotted_manager = original_dotted_manager
         return self
 
-    def target_dotted_manager(self, target_dotted_manager: str) -> "TransferInfoBuilder":
+    def target_dotted_manager(
+        self, target_dotted_manager: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_dotted_manager = target_dotted_manager
         return self
 
@@ -303,19 +430,27 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_job_level = target_job_level
         return self
 
-    def original_workforce_type(self, original_workforce_type: str) -> "TransferInfoBuilder":
+    def original_workforce_type(
+        self, original_workforce_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_workforce_type = original_workforce_type
         return self
 
-    def target_workforce_type(self, target_workforce_type: str) -> "TransferInfoBuilder":
+    def target_workforce_type(
+        self, target_workforce_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_workforce_type = target_workforce_type
         return self
 
-    def original_employee_subtype(self, original_employee_subtype: str) -> "TransferInfoBuilder":
+    def original_employee_subtype(
+        self, original_employee_subtype: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_employee_subtype = original_employee_subtype
         return self
 
-    def target_employee_subtype(self, target_employee_subtype: str) -> "TransferInfoBuilder":
+    def target_employee_subtype(
+        self, target_employee_subtype: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_employee_subtype = target_employee_subtype
         return self
 
@@ -327,15 +462,21 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_company = target_company
         return self
 
-    def original_contract_number(self, original_contract_number: str) -> "TransferInfoBuilder":
+    def original_contract_number(
+        self, original_contract_number: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_contract_number = original_contract_number
         return self
 
-    def target_contract_number(self, target_contract_number: str) -> "TransferInfoBuilder":
+    def target_contract_number(
+        self, target_contract_number: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_contract_number = target_contract_number
         return self
 
-    def original_contract_type(self, original_contract_type: str) -> "TransferInfoBuilder":
+    def original_contract_type(
+        self, original_contract_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_contract_type = original_contract_type
         return self
 
@@ -343,7 +484,9 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_contract_type = target_contract_type
         return self
 
-    def original_duration_type(self, original_duration_type: str) -> "TransferInfoBuilder":
+    def original_duration_type(
+        self, original_duration_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_duration_type = original_duration_type
         return self
 
@@ -351,7 +494,9 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_duration_type = target_duration_type
         return self
 
-    def original_signing_type(self, original_signing_type: str) -> "TransferInfoBuilder":
+    def original_signing_type(
+        self, original_signing_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_signing_type = original_signing_type
         return self
 
@@ -359,51 +504,77 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_signing_type = target_signing_type
         return self
 
-    def original_contract_start_date(self, original_contract_start_date: str) -> "TransferInfoBuilder":
+    def original_contract_start_date(
+        self, original_contract_start_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_contract_start_date = original_contract_start_date
         return self
 
-    def target_contract_start_date(self, target_contract_start_date: str) -> "TransferInfoBuilder":
+    def target_contract_start_date(
+        self, target_contract_start_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_contract_start_date = target_contract_start_date
         return self
 
-    def original_contract_end_date(self, original_contract_end_date: str) -> "TransferInfoBuilder":
+    def original_contract_end_date(
+        self, original_contract_end_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_contract_end_date = original_contract_end_date
         return self
 
-    def target_contract_end_date(self, target_contract_end_date: str) -> "TransferInfoBuilder":
+    def target_contract_end_date(
+        self, target_contract_end_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_contract_end_date = target_contract_end_date
         return self
 
-    def original_working_hours_type(self, original_working_hours_type: str) -> "TransferInfoBuilder":
+    def original_working_hours_type(
+        self, original_working_hours_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_working_hours_type = original_working_hours_type
         return self
 
-    def target_working_hours_type(self, target_working_hours_type: str) -> "TransferInfoBuilder":
+    def target_working_hours_type(
+        self, target_working_hours_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_working_hours_type = target_working_hours_type
         return self
 
-    def original_working_calendar(self, original_working_calendar: str) -> "TransferInfoBuilder":
+    def original_working_calendar(
+        self, original_working_calendar: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_working_calendar = original_working_calendar
         return self
 
-    def target_working_calendar(self, target_working_calendar: str) -> "TransferInfoBuilder":
+    def target_working_calendar(
+        self, target_working_calendar: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_working_calendar = target_working_calendar
         return self
 
-    def original_probation_end_date(self, original_probation_end_date: str) -> "TransferInfoBuilder":
+    def original_probation_end_date(
+        self, original_probation_end_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_probation_end_date = original_probation_end_date
         return self
 
-    def target_probation_end_date(self, target_probation_end_date: str) -> "TransferInfoBuilder":
+    def target_probation_end_date(
+        self, target_probation_end_date: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_probation_end_date = target_probation_end_date
         return self
 
-    def original_weekly_working_hours(self, original_weekly_working_hours: str) -> "TransferInfoBuilder":
-        self._transfer_info.original_weekly_working_hours = original_weekly_working_hours
+    def original_weekly_working_hours(
+        self, original_weekly_working_hours: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_weekly_working_hours = (
+            original_weekly_working_hours
+        )
         return self
 
-    def target_weekly_working_hours(self, target_weekly_working_hours: str) -> "TransferInfoBuilder":
+    def target_weekly_working_hours(
+        self, target_weekly_working_hours: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_weekly_working_hours = target_weekly_working_hours
         return self
 
@@ -415,53 +586,87 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_work_shift = target_work_shift
         return self
 
-    def original_cost_center_rate(self, original_cost_center_rate: List[JobDataCostCenter]) -> "TransferInfoBuilder":
+    def original_cost_center_rate(
+        self, original_cost_center_rate: List[JobDataCostCenter]
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_cost_center_rate = original_cost_center_rate
         return self
 
-    def target_cost_center_rate(self, target_cost_center_rate: List[JobDataCostCenter]) -> "TransferInfoBuilder":
+    def target_cost_center_rate(
+        self, target_cost_center_rate: List[JobDataCostCenter]
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_cost_center_rate = target_cost_center_rate
         return self
 
-    def target_allocation_expiration_time(self, target_allocation_expiration_time: str) -> "TransferInfoBuilder":
-        self._transfer_info.target_allocation_expiration_time = target_allocation_expiration_time
+    def target_allocation_expiration_time(
+        self, target_allocation_expiration_time: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_allocation_expiration_time = (
+            target_allocation_expiration_time
+        )
         return self
 
-    def original_allocation_expiration_time(self, original_allocation_expiration_time: str) -> "TransferInfoBuilder":
-        self._transfer_info.original_allocation_expiration_time = original_allocation_expiration_time
+    def original_allocation_expiration_time(
+        self, original_allocation_expiration_time: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_allocation_expiration_time = (
+            original_allocation_expiration_time
+        )
         return self
 
-    def target_allocation_effective_time(self, target_allocation_effective_time: str) -> "TransferInfoBuilder":
-        self._transfer_info.target_allocation_effective_time = target_allocation_effective_time
+    def target_allocation_effective_time(
+        self, target_allocation_effective_time: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_allocation_effective_time = (
+            target_allocation_effective_time
+        )
         return self
 
-    def original_allocation_effective_time(self, original_allocation_effective_time: str) -> "TransferInfoBuilder":
-        self._transfer_info.original_allocation_effective_time = original_allocation_effective_time
+    def original_allocation_effective_time(
+        self, original_allocation_effective_time: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_allocation_effective_time = (
+            original_allocation_effective_time
+        )
         return self
 
-    def original_default_cost_center(self, original_default_cost_center: str) -> "TransferInfoBuilder":
+    def original_default_cost_center(
+        self, original_default_cost_center: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_default_cost_center = original_default_cost_center
         return self
 
-    def target_default_cost_center(self, target_default_cost_center: str) -> "TransferInfoBuilder":
+    def target_default_cost_center(
+        self, target_default_cost_center: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_default_cost_center = target_default_cost_center
         return self
 
-    def original_is_default_cost_center_inherited(self,
-                                                  original_is_default_cost_center_inherited: bool) -> "TransferInfoBuilder":
-        self._transfer_info.original_is_default_cost_center_inherited = original_is_default_cost_center_inherited
+    def original_is_default_cost_center_inherited(
+        self, original_is_default_cost_center_inherited: bool
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_is_default_cost_center_inherited = (
+            original_is_default_cost_center_inherited
+        )
         return self
 
-    def target_is_default_cost_center_inherited(self,
-                                                target_is_default_cost_center_inherited: bool) -> "TransferInfoBuilder":
-        self._transfer_info.target_is_default_cost_center_inherited = target_is_default_cost_center_inherited
+    def target_is_default_cost_center_inherited(
+        self, target_is_default_cost_center_inherited: bool
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_is_default_cost_center_inherited = (
+            target_is_default_cost_center_inherited
+        )
         return self
 
-    def original_employment_change(self, original_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":
+    def original_employment_change(
+        self, original_employment_change: TranferEmploymentInfo
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_employment_change = original_employment_change
         return self
 
-    def target_employment_change(self, target_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":
+    def target_employment_change(
+        self, target_employment_change: TranferEmploymentInfo
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_employment_change = target_employment_change
         return self
 
@@ -473,19 +678,27 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_job_grade = target_job_grade
         return self
 
-    def original_compensation_type(self, original_compensation_type: str) -> "TransferInfoBuilder":
+    def original_compensation_type(
+        self, original_compensation_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_compensation_type = original_compensation_type
         return self
 
-    def target_compensation_type(self, target_compensation_type: str) -> "TransferInfoBuilder":
+    def target_compensation_type(
+        self, target_compensation_type: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_compensation_type = target_compensation_type
         return self
 
-    def original_service_company(self, original_service_company: str) -> "TransferInfoBuilder":
+    def original_service_company(
+        self, original_service_company: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_service_company = original_service_company
         return self
 
-    def target_service_company(self, target_service_company: str) -> "TransferInfoBuilder":
+    def target_service_company(
+        self, target_service_company: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_service_company = target_service_company
         return self
 
@@ -497,15 +710,23 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_position = target_position
         return self
 
-    def target_draft_position(self, target_draft_position: str) -> "TransferInfoBuilder":
+    def target_draft_position(
+        self, target_draft_position: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_draft_position = target_draft_position
         return self
 
-    def original_social_security_city(self, original_social_security_city: str) -> "TransferInfoBuilder":
-        self._transfer_info.original_social_security_city = original_social_security_city
+    def original_social_security_city(
+        self, original_social_security_city: str
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_social_security_city = (
+            original_social_security_city
+        )
         return self
 
-    def target_social_security_city(self, target_social_security_city: str) -> "TransferInfoBuilder":
+    def target_social_security_city(
+        self, target_social_security_city: str
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_social_security_city = target_social_security_city
         return self
 
@@ -517,31 +738,45 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_pathway = target_pathway
         return self
 
-    def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "TransferInfoBuilder":
+    def is_transfer_with_workforce(
+        self, is_transfer_with_workforce: bool
+    ) -> "TransferInfoBuilder":
         self._transfer_info.is_transfer_with_workforce = is_transfer_with_workforce
         return self
 
-    def original_department_name(self, original_department_name: DepartmentLookupName) -> "TransferInfoBuilder":
+    def original_department_name(
+        self, original_department_name: DepartmentLookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_department_name = original_department_name
         return self
 
-    def target_department_name(self, target_department_name: DepartmentLookupName) -> "TransferInfoBuilder":
+    def target_department_name(
+        self, target_department_name: DepartmentLookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_department_name = target_department_name
         return self
 
-    def original_worklocation_name(self, original_worklocation_name: LookupName) -> "TransferInfoBuilder":
-        self._transfer_info.original_worklocation_name = original_worklocation_name
+    def original_work_location_name(
+        self, original_work_location_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_work_location_name = original_work_location_name
         return self
 
-    def target_worklocation_name(self, target_worklocation_name: LookupName) -> "TransferInfoBuilder":
-        self._transfer_info.target_worklocation_name = target_worklocation_name
+    def target_work_location_name(
+        self, target_work_location_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_work_location_name = target_work_location_name
         return self
 
-    def original_direct_manager_name(self, original_direct_manager_name: EmploymentLookupName) -> "TransferInfoBuilder":
+    def original_direct_manager_name(
+        self, original_direct_manager_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_direct_manager_name = original_direct_manager_name
         return self
 
-    def target_direct_manager_name(self, target_direct_manager_name: EmploymentLookupName) -> "TransferInfoBuilder":
+    def target_direct_manager_name(
+        self, target_direct_manager_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_direct_manager_name = target_direct_manager_name
         return self
 
@@ -553,28 +788,280 @@ class TransferInfoBuilder(object):
         self._transfer_info.target_job_name = target_job_name
         return self
 
-    def original_job_family_name(self, original_job_family_name: LookupName) -> "TransferInfoBuilder":
+    def original_job_family_name(
+        self, original_job_family_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_job_family_name = original_job_family_name
         return self
 
-    def target_job_family_name(self, target_job_family_name: LookupName) -> "TransferInfoBuilder":
+    def target_job_family_name(
+        self, target_job_family_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_job_family_name = target_job_family_name
         return self
 
-    def original_job_level_name(self, original_job_level_name: LookupName) -> "TransferInfoBuilder":
+    def original_job_level_name(
+        self, original_job_level_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_job_level_name = original_job_level_name
         return self
 
-    def target_job_level_name(self, target_job_level_name: LookupName) -> "TransferInfoBuilder":
+    def target_job_level_name(
+        self, target_job_level_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_job_level_name = target_job_level_name
         return self
 
-    def original_workforce_type_name(self, original_workforce_type_name: LookupName) -> "TransferInfoBuilder":
+    def original_workforce_type_name(
+        self, original_workforce_type_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.original_workforce_type_name = original_workforce_type_name
         return self
 
-    def target_workforce_type_name(self, target_workforce_type_name: LookupName) -> "TransferInfoBuilder":
+    def target_workforce_type_name(
+        self, target_workforce_type_name: LookupName
+    ) -> "TransferInfoBuilder":
         self._transfer_info.target_workforce_type_name = target_workforce_type_name
+        return self
+
+    def original_company_name(
+        self, original_company_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_company_name = original_company_name
+        return self
+
+    def target_company_name(
+        self, target_company_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_company_name = target_company_name
+        return self
+
+    def original_contract_type_name(
+        self, original_contract_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_contract_type_name = original_contract_type_name
+        return self
+
+    def target_contract_type_name(
+        self, target_contract_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_contract_type_name = target_contract_type_name
+        return self
+
+    def original_duration_type_name(
+        self, original_duration_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_duration_type_name = original_duration_type_name
+        return self
+
+    def target_duration_type_name(
+        self, target_duration_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_duration_type_name = target_duration_type_name
+        return self
+
+    def original_signing_type_name(
+        self, original_signing_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_signing_type_name = original_signing_type_name
+        return self
+
+    def target_signing_type_name(
+        self, target_signing_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_signing_type_name = target_signing_type_name
+        return self
+
+    def original_working_hours_type_name(
+        self, original_working_hours_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_working_hours_type_name = (
+            original_working_hours_type_name
+        )
+        return self
+
+    def target_working_hours_type_name(
+        self, target_working_hours_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_working_hours_type_name = (
+            target_working_hours_type_name
+        )
+        return self
+
+    def original_working_calendar_name(
+        self, original_working_calendar_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_working_calendar_name = (
+            original_working_calendar_name
+        )
+        return self
+
+    def target_working_calendar_name(
+        self, target_working_calendar_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_working_calendar_name = target_working_calendar_name
+        return self
+
+    def original_work_shift_name(
+        self, original_work_shift_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_work_shift_name = original_work_shift_name
+        return self
+
+    def target_work_shift_name(
+        self, target_work_shift_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_work_shift_name = target_work_shift_name
+        return self
+
+    def original_job_grade_name(
+        self, original_job_grade_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_job_grade_name = original_job_grade_name
+        return self
+
+    def target_job_grade_name(
+        self, target_job_grade_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_job_grade_name = target_job_grade_name
+        return self
+
+    def original_compensation_type_name(
+        self, original_compensation_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_compensation_type_name = (
+            original_compensation_type_name
+        )
+        return self
+
+    def target_compensation_type_name(
+        self, target_compensation_type_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_compensation_type_name = (
+            target_compensation_type_name
+        )
+        return self
+
+    def original_service_company_name(
+        self, original_service_company_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_service_company_name = (
+            original_service_company_name
+        )
+        return self
+
+    def target_service_company_name(
+        self, target_service_company_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_service_company_name = target_service_company_name
+        return self
+
+    def original_position_name(
+        self, original_position_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_position_name = original_position_name
+        return self
+
+    def target_position_name(
+        self, target_position_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_position_name = target_position_name
+        return self
+
+    def original_employee_subtype_name(
+        self, original_employee_subtype_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_employee_subtype_name = (
+            original_employee_subtype_name
+        )
+        return self
+
+    def target_employee_subtype_name(
+        self, target_employee_subtype_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_employee_subtype_name = target_employee_subtype_name
+        return self
+
+    def original_pathway_name(
+        self, original_pathway_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_pathway_name = original_pathway_name
+        return self
+
+    def target_pathway_name(
+        self, target_pathway_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_pathway_name = target_pathway_name
+        return self
+
+    def original_default_cost_center_name(
+        self, original_default_cost_center_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_default_cost_center_name = (
+            original_default_cost_center_name
+        )
+        return self
+
+    def target_default_cost_center_name(
+        self, target_default_cost_center_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_default_cost_center_name = (
+            target_default_cost_center_name
+        )
+        return self
+
+    def original_dotted_manager_name(
+        self, original_dotted_manager_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_dotted_manager_name = original_dotted_manager_name
+        return self
+
+    def target_dotted_manager_name(
+        self, target_dotted_manager_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_dotted_manager_name = target_dotted_manager_name
+        return self
+
+    def initiator_name(
+        self, initiator_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.initiator_name = initiator_name
+        return self
+
+    def exception_handler_name(
+        self, exception_handler_name: EmploymentLookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.exception_handler_name = exception_handler_name
+        return self
+
+    def original_social_security_city_name(
+        self, original_social_security_city_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.original_social_security_city_name = (
+            original_social_security_city_name
+        )
+        return self
+
+    def target_social_security_city_name(
+        self, target_social_security_city_name: LookupName
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.target_social_security_city_name = (
+            target_social_security_city_name
+        )
+        return self
+
+    def wk_created_at(self, wk_created_at: str) -> "TransferInfoBuilder":
+        self._transfer_info.wk_created_at = wk_created_at
+        return self
+
+    def transform_source(self, transform_source: I18nV2) -> "TransferInfoBuilder":
+        self._transfer_info.transform_source = transform_source
+        return self
+
+    def details_of_job_status_change(
+        self, details_of_job_status_change: List[I18nV2]
+    ) -> "TransferInfoBuilder":
+        self._transfer_info.details_of_job_status_change = details_of_job_status_change
         return self
 
     def build(self) -> "TransferInfo":

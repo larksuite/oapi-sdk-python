@@ -17,15 +17,21 @@ class UploadPartMediaRequest(BaseRequest):
 
 
 class UploadPartMediaRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_part_media_request = UploadPartMediaRequest()
         upload_part_media_request.http_method = HttpMethod.POST
         upload_part_media_request.uri = "/open-apis/drive/v1/medias/upload_part"
-        upload_part_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._upload_part_media_request: UploadPartMediaRequest = upload_part_media_request
+        upload_part_media_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._upload_part_media_request: UploadPartMediaRequest = (
+            upload_part_media_request
+        )
 
-    def request_body(self, request_body: UploadPartMediaRequestBody) -> "UploadPartMediaRequestBuilder":
+    def request_body(
+        self, request_body: UploadPartMediaRequestBody
+    ) -> "UploadPartMediaRequestBuilder":
         self._upload_part_media_request.request_body = request_body
         self._upload_part_media_request.body = request_body
         return self

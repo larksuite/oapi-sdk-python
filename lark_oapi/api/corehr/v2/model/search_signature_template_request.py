@@ -17,22 +17,33 @@ class SearchSignatureTemplateRequest(BaseRequest):
 
 
 class SearchSignatureTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
         search_signature_template_request = SearchSignatureTemplateRequest()
         search_signature_template_request.http_method = HttpMethod.GET
-        search_signature_template_request.uri = "/open-apis/corehr/v2/signature_templates/search"
+        search_signature_template_request.uri = (
+            "/open-apis/corehr/v2/signature_templates/search"
+        )
         search_signature_template_request.token_types = {AccessTokenType.TENANT}
-        self._search_signature_template_request: SearchSignatureTemplateRequest = search_signature_template_request
+        self._search_signature_template_request: SearchSignatureTemplateRequest = (
+            search_signature_template_request
+        )
 
-    def template_ids(self, template_ids: str) -> "SearchSignatureTemplateRequestBuilder":
+    def template_ids(
+        self, template_ids: str
+    ) -> "SearchSignatureTemplateRequestBuilder":
         self._search_signature_template_request.template_ids = template_ids
         self._search_signature_template_request.add_query("template_ids", template_ids)
         return self
 
-    def select_custom_field(self, select_custom_field: bool) -> "SearchSignatureTemplateRequestBuilder":
-        self._search_signature_template_request.select_custom_field = select_custom_field
-        self._search_signature_template_request.add_query("select_custom_field", select_custom_field)
+    def select_custom_field(
+        self, select_custom_field: bool
+    ) -> "SearchSignatureTemplateRequestBuilder":
+        self._search_signature_template_request.select_custom_field = (
+            select_custom_field
+        )
+        self._search_signature_template_request.add_query(
+            "select_custom_field", select_custom_field
+        )
         return self
 
     def build(self) -> SearchSignatureTemplateRequest:

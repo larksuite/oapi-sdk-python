@@ -28,7 +28,9 @@ class MeetingRelatedArtifactsBuilder(object):
         self._meeting_related_artifacts.note_doc_token = note_doc_token
         return self
 
-    def verbatim_doc_token(self, verbatim_doc_token: str) -> "MeetingRelatedArtifactsBuilder":
+    def verbatim_doc_token(
+        self, verbatim_doc_token: str
+    ) -> "MeetingRelatedArtifactsBuilder":
         self._meeting_related_artifacts.verbatim_doc_token = verbatim_doc_token
         return self
 

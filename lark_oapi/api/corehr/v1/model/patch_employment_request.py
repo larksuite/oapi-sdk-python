@@ -21,13 +21,14 @@ class PatchEmploymentRequest(BaseRequest):
 
 
 class PatchEmploymentRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_employment_request = PatchEmploymentRequest()
         patch_employment_request.http_method = HttpMethod.PATCH
         patch_employment_request.uri = "/open-apis/corehr/v1/employments/:employment_id"
         patch_employment_request.token_types = {AccessTokenType.TENANT}
-        self._patch_employment_request: PatchEmploymentRequest = patch_employment_request
+        self._patch_employment_request: PatchEmploymentRequest = (
+            patch_employment_request
+        )
 
     def client_token(self, client_token: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.client_token = client_token
@@ -39,9 +40,13 @@ class PatchEmploymentRequestBuilder(object):
         self._patch_employment_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchEmploymentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.department_id_type = department_id_type
-        self._patch_employment_request.add_query("department_id_type", department_id_type)
+        self._patch_employment_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def employment_id(self, employment_id: str) -> "PatchEmploymentRequestBuilder":

@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .website_delivery_attachment_indentification import WebsiteDeliveryAttachmentIndentification
+from .website_delivery_attachment_indentification import (
+    WebsiteDeliveryAttachmentIndentification,
+)
 
 
 class WebsiteDeliveryAttachment(object):
@@ -55,12 +57,17 @@ class WebsiteDeliveryAttachmentBuilder(object):
         self._website_delivery_attachment.channel_id = channel_id
         return self
 
-    def application_preferred_city_code_list(self, application_preferred_city_code_list: List[
-        str]) -> "WebsiteDeliveryAttachmentBuilder":
-        self._website_delivery_attachment.application_preferred_city_code_list = application_preferred_city_code_list
+    def application_preferred_city_code_list(
+        self, application_preferred_city_code_list: List[str]
+    ) -> "WebsiteDeliveryAttachmentBuilder":
+        self._website_delivery_attachment.application_preferred_city_code_list = (
+            application_preferred_city_code_list
+        )
         return self
 
-    def mobile_country_code(self, mobile_country_code: str) -> "WebsiteDeliveryAttachmentBuilder":
+    def mobile_country_code(
+        self, mobile_country_code: str
+    ) -> "WebsiteDeliveryAttachmentBuilder":
         self._website_delivery_attachment.mobile_country_code = mobile_country_code
         return self
 
@@ -72,8 +79,9 @@ class WebsiteDeliveryAttachmentBuilder(object):
         self._website_delivery_attachment.email = email
         return self
 
-    def identification(self,
-                       identification: WebsiteDeliveryAttachmentIndentification) -> "WebsiteDeliveryAttachmentBuilder":
+    def identification(
+        self, identification: WebsiteDeliveryAttachmentIndentification
+    ) -> "WebsiteDeliveryAttachmentBuilder":
         self._website_delivery_attachment.identification = identification
         return self
 

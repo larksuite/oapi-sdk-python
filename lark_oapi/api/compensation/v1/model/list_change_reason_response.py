@@ -9,7 +9,6 @@ from .list_change_reason_response_body import ListChangeReasonResponseBody
 class ListChangeReasonResponse(BaseResponse):
     _types = {
         "data": ListChangeReasonResponseBody,
-
     }
 
     def __init__(self, d=None):

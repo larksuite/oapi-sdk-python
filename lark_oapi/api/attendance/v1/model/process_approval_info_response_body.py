@@ -23,7 +23,9 @@ class ProcessApprovalInfoResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._process_approval_info_response_body = ProcessApprovalInfoResponseBody()
 
-    def approval_info(self, approval_info: ApprovalInfo) -> "ProcessApprovalInfoResponseBodyBuilder":
+    def approval_info(
+        self, approval_info: ApprovalInfo
+    ) -> "ProcessApprovalInfoResponseBodyBuilder":
         self._process_approval_info_response_body.approval_info = approval_info
         return self
 

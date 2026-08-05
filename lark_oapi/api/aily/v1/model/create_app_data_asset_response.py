@@ -9,7 +9,6 @@ from .create_app_data_asset_response_body import CreateAppDataAssetResponseBody
 class CreateAppDataAssetResponse(BaseResponse):
     _types = {
         "data": CreateAppDataAssetResponseBody,
-
     }
 
     def __init__(self, d=None):

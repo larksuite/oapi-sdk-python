@@ -201,7 +201,9 @@ class UserEventBuilder(object):
         self._user_event.job_family_id = job_family_id
         return self
 
-    def dotted_line_leader_user_ids(self, dotted_line_leader_user_ids: List[int]) -> "UserEventBuilder":
+    def dotted_line_leader_user_ids(
+        self, dotted_line_leader_user_ids: List[int]
+    ) -> "UserEventBuilder":
         self._user_event.dotted_line_leader_user_ids = dotted_line_leader_user_ids
         return self
 

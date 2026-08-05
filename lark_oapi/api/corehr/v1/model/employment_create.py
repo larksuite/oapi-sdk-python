@@ -123,7 +123,9 @@ class EmploymentCreateBuilder(object):
         self._employment_create.company_id = company_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "EmploymentCreateBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.working_hours_type_id = working_hours_type_id
         return self
 
@@ -175,11 +177,15 @@ class EmploymentCreateBuilder(object):
         self._employment_create.employment_status = employment_status
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmploymentCreateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.custom_fields = custom_fields
         return self
 
-    def work_email_list(self, work_email_list: List[Email]) -> "EmploymentCreateBuilder":
+    def work_email_list(
+        self, work_email_list: List[Email]
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.work_email_list = work_email_list
         return self
 
@@ -187,11 +193,15 @@ class EmploymentCreateBuilder(object):
         self._employment_create.email_address = email_address
         return self
 
-    def reason_for_offboarding(self, reason_for_offboarding: Enum) -> "EmploymentCreateBuilder":
+    def reason_for_offboarding(
+        self, reason_for_offboarding: Enum
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.reason_for_offboarding = reason_for_offboarding
         return self
 
-    def cost_center_list(self, cost_center_list: List[JobDataCostCenter]) -> "EmploymentCreateBuilder":
+    def cost_center_list(
+        self, cost_center_list: List[JobDataCostCenter]
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.cost_center_list = cost_center_list
         return self
 
@@ -203,7 +213,9 @@ class EmploymentCreateBuilder(object):
         self._employment_create.rehire = rehire
         return self
 
-    def rehire_employment_id(self, rehire_employment_id: str) -> "EmploymentCreateBuilder":
+    def rehire_employment_id(
+        self, rehire_employment_id: str
+    ) -> "EmploymentCreateBuilder":
         self._employment_create.rehire_employment_id = rehire_employment_id
         return self
 

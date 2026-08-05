@@ -3,11 +3,17 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_payroll_payment_activity_approved_v1 import P2PayrollPaymentActivityApprovedV1
-from .model.p2_payroll_payment_activity_status_changed_v1 import P2PayrollPaymentActivityStatusChangedV1
+from .model.p2_payroll_payment_activity_approved_v1 import (
+    P2PayrollPaymentActivityApprovedV1,
+)
+from .model.p2_payroll_payment_activity_status_changed_v1 import (
+    P2PayrollPaymentActivityStatusChangedV1,
+)
 
 
-class P2PayrollPaymentActivityApprovedV1Processor(IEventProcessor[P2PayrollPaymentActivityApprovedV1]):
+class P2PayrollPaymentActivityApprovedV1Processor(
+    IEventProcessor[P2PayrollPaymentActivityApprovedV1]
+):
     def __init__(self, f: Callable[[P2PayrollPaymentActivityApprovedV1], None]):
         self.f = f
 
@@ -18,7 +24,9 @@ class P2PayrollPaymentActivityApprovedV1Processor(IEventProcessor[P2PayrollPayme
         self.f(data)
 
 
-class P2PayrollPaymentActivityStatusChangedV1Processor(IEventProcessor[P2PayrollPaymentActivityStatusChangedV1]):
+class P2PayrollPaymentActivityStatusChangedV1Processor(
+    IEventProcessor[P2PayrollPaymentActivityStatusChangedV1]
+):
     def __init__(self, f: Callable[[P2PayrollPaymentActivityStatusChangedV1], None]):
         self.f = f
 

@@ -146,23 +146,33 @@ class RenewalRecordBuilder(object):
         self._renewal_record.original_contract = original_contract
         return self
 
-    def original_contract_number(self, original_contract_number: str) -> "RenewalRecordBuilder":
+    def original_contract_number(
+        self, original_contract_number: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_contract_number = original_contract_number
         return self
 
-    def original_signing_times(self, original_signing_times: int) -> "RenewalRecordBuilder":
+    def original_signing_times(
+        self, original_signing_times: int
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_signing_times = original_signing_times
         return self
 
-    def original_signing_type(self, original_signing_type: str) -> "RenewalRecordBuilder":
+    def original_signing_type(
+        self, original_signing_type: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_signing_type = original_signing_type
         return self
 
-    def original_contract_type(self, original_contract_type: str) -> "RenewalRecordBuilder":
+    def original_contract_type(
+        self, original_contract_type: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_contract_type = original_contract_type
         return self
 
-    def original_duration_type(self, original_duration_type: str) -> "RenewalRecordBuilder":
+    def original_duration_type(
+        self, original_duration_type: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_duration_type = original_duration_type
         return self
 
@@ -170,11 +180,15 @@ class RenewalRecordBuilder(object):
         self._renewal_record.original_first_party = original_first_party
         return self
 
-    def original_contract_start_date(self, original_contract_start_date: str) -> "RenewalRecordBuilder":
+    def original_contract_start_date(
+        self, original_contract_start_date: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_contract_start_date = original_contract_start_date
         return self
 
-    def original_contract_end_date(self, original_contract_end_date: str) -> "RenewalRecordBuilder":
+    def original_contract_end_date(
+        self, original_contract_end_date: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.original_contract_end_date = original_contract_end_date
         return self
 
@@ -182,19 +196,27 @@ class RenewalRecordBuilder(object):
         self._renewal_record.renewed_contract = renewed_contract
         return self
 
-    def renewed_contract_number(self, renewed_contract_number: str) -> "RenewalRecordBuilder":
+    def renewed_contract_number(
+        self, renewed_contract_number: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_contract_number = renewed_contract_number
         return self
 
-    def renewed_signing_times(self, renewed_signing_times: int) -> "RenewalRecordBuilder":
+    def renewed_signing_times(
+        self, renewed_signing_times: int
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_signing_times = renewed_signing_times
         return self
 
-    def renewed_contract_type(self, renewed_contract_type: str) -> "RenewalRecordBuilder":
+    def renewed_contract_type(
+        self, renewed_contract_type: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_contract_type = renewed_contract_type
         return self
 
-    def renewed_duration_type(self, renewed_duration_type: str) -> "RenewalRecordBuilder":
+    def renewed_duration_type(
+        self, renewed_duration_type: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_duration_type = renewed_duration_type
         return self
 
@@ -202,11 +224,15 @@ class RenewalRecordBuilder(object):
         self._renewal_record.renewed_first_party = renewed_first_party
         return self
 
-    def renewed_contract_start_date(self, renewed_contract_start_date: str) -> "RenewalRecordBuilder":
+    def renewed_contract_start_date(
+        self, renewed_contract_start_date: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_contract_start_date = renewed_contract_start_date
         return self
 
-    def renewed_contract_end_date(self, renewed_contract_end_date: str) -> "RenewalRecordBuilder":
+    def renewed_contract_end_date(
+        self, renewed_contract_end_date: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_contract_end_date = renewed_contract_end_date
         return self
 
@@ -226,11 +252,17 @@ class RenewalRecordBuilder(object):
         self._renewal_record.extension_reason = extension_reason
         return self
 
-    def contract_end_date_after_extension(self, contract_end_date_after_extension: str) -> "RenewalRecordBuilder":
-        self._renewal_record.contract_end_date_after_extension = contract_end_date_after_extension
+    def contract_end_date_after_extension(
+        self, contract_end_date_after_extension: str
+    ) -> "RenewalRecordBuilder":
+        self._renewal_record.contract_end_date_after_extension = (
+            contract_end_date_after_extension
+        )
         return self
 
-    def reason_for_withdrawal(self, reason_for_withdrawal: str) -> "RenewalRecordBuilder":
+    def reason_for_withdrawal(
+        self, reason_for_withdrawal: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.reason_for_withdrawal = reason_for_withdrawal
         return self
 
@@ -246,7 +278,9 @@ class RenewalRecordBuilder(object):
         self._renewal_record.evaluation_desc = evaluation_desc
         return self
 
-    def origin_duration_period(self, origin_duration_period: float) -> "RenewalRecordBuilder":
+    def origin_duration_period(
+        self, origin_duration_period: float
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.origin_duration_period = origin_duration_period
         return self
 
@@ -254,7 +288,9 @@ class RenewalRecordBuilder(object):
         self._renewal_record.signature_files = signature_files
         return self
 
-    def renewed_duration_period(self, renewed_duration_period: float) -> "RenewalRecordBuilder":
+    def renewed_duration_period(
+        self, renewed_duration_period: float
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_duration_period = renewed_duration_period
         return self
 
@@ -266,7 +302,9 @@ class RenewalRecordBuilder(object):
         self._renewal_record.origin_duration_unit = origin_duration_unit
         return self
 
-    def renewed_duration_unit(self, renewed_duration_unit: str) -> "RenewalRecordBuilder":
+    def renewed_duration_unit(
+        self, renewed_duration_unit: str
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewed_duration_unit = renewed_duration_unit
         return self
 
@@ -278,7 +316,9 @@ class RenewalRecordBuilder(object):
         self._renewal_record.conflict_process = conflict_process
         return self
 
-    def renewal_progresses(self, renewal_progresses: List[str]) -> "RenewalRecordBuilder":
+    def renewal_progresses(
+        self, renewal_progresses: List[str]
+    ) -> "RenewalRecordBuilder":
         self._renewal_record.renewal_progresses = renewal_progresses
         return self
 

@@ -20,7 +20,6 @@ class SearchTaskRequest(BaseRequest):
 
 
 class SearchTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         search_task_request = SearchTaskRequest()
         search_task_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class SearchTaskRequestBuilder(object):
         self._search_task_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchTaskRequestBody) -> "SearchTaskRequestBuilder":
+    def request_body(
+        self, request_body: SearchTaskRequestBody
+    ) -> "SearchTaskRequestBuilder":
         self._search_task_request.request_body = request_body
         self._search_task_request.body = request_body
         return self

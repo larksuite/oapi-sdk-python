@@ -87,22 +87,32 @@ class DependentBuilder(object):
         self._dependent.nationality_id_v2 = nationality_id_v2
         return self
 
-    def national_id_list(self, national_id_list: List[NationalId]) -> "DependentBuilder":
+    def national_id_list(
+        self, national_id_list: List[NationalId]
+    ) -> "DependentBuilder":
         self._dependent.national_id_list = national_id_list
         return self
 
-    def spouses_working_status(self, spouses_working_status: Enum) -> "DependentBuilder":
+    def spouses_working_status(
+        self, spouses_working_status: Enum
+    ) -> "DependentBuilder":
         self._dependent.spouses_working_status = spouses_working_status
         return self
 
-    def is_this_person_covered_by_health_insurance(self,
-                                                   is_this_person_covered_by_health_insurance: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+    def is_this_person_covered_by_health_insurance(
+        self, is_this_person_covered_by_health_insurance: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_covered_by_health_insurance = (
+            is_this_person_covered_by_health_insurance
+        )
         return self
 
-    def is_this_person_allowed_for_tax_deduction(self,
-                                                 is_this_person_allowed_for_tax_deduction: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+    def is_this_person_allowed_for_tax_deduction(
+        self, is_this_person_allowed_for_tax_deduction: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_allowed_for_tax_deduction = (
+            is_this_person_allowed_for_tax_deduction
+        )
         return self
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DependentBuilder":
@@ -129,7 +139,9 @@ class DependentBuilder(object):
         self._dependent.address = address
         return self
 
-    def birth_certificate_of_child(self, birth_certificate_of_child: List[File]) -> "DependentBuilder":
+    def birth_certificate_of_child(
+        self, birth_certificate_of_child: List[File]
+    ) -> "DependentBuilder":
         self._dependent.birth_certificate_of_child = birth_certificate_of_child
         return self
 

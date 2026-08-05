@@ -9,7 +9,6 @@ from .query_recurring_payment_response_body import QueryRecurringPaymentResponse
 class QueryRecurringPaymentResponse(BaseResponse):
     _types = {
         "data": QueryRecurringPaymentResponseBody,
-
     }
 
     def __init__(self, d=None):

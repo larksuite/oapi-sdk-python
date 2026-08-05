@@ -24,9 +24,7 @@ class P2CalendarCalendarAclCreatedV4Data(object):
 
 
 class P2CalendarCalendarAclCreatedV4(EventContext):
-    _types = {
-        "event": P2CalendarCalendarAclCreatedV4Data
-    }
+    _types = {"event": P2CalendarCalendarAclCreatedV4Data}
 
     def __init__(self, d=None):
         super().__init__(d)

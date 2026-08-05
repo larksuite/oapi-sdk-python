@@ -43,11 +43,15 @@ class PositionChangeBuilder(object):
         self._position_change.draft_position_id = draft_position_id
         return self
 
-    def position_change_type(self, position_change_type: str) -> "PositionChangeBuilder":
+    def position_change_type(
+        self, position_change_type: str
+    ) -> "PositionChangeBuilder":
         self._position_change.position_change_type = position_change_type
         return self
 
-    def position_adjustment_info(self, position_adjustment_info: PositionAdjustmentInfo) -> "PositionChangeBuilder":
+    def position_adjustment_info(
+        self, position_adjustment_info: PositionAdjustmentInfo
+    ) -> "PositionChangeBuilder":
         self._position_change.position_adjustment_info = position_adjustment_info
         return self
 

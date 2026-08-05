@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .app_ability_bot_i18n import AppAbilityBotI18n
+from .bot_menu_node import BotMenuNode
 
 
 class AppAbilityBot(object):
@@ -10,12 +11,20 @@ class AppAbilityBot(object):
         "enable": bool,
         "message_card_callback_url": str,
         "i18ns": List[AppAbilityBotI18n],
+        "bot_menu_enable": bool,
+        "bot_menus": List[BotMenuNode],
+        "bot_menu_display_strategy": int,
+        "allow_invited_to_group_by_other_app_switch_open": bool,
     }
 
     def __init__(self, d=None):
         self.enable: Optional[bool] = None
         self.message_card_callback_url: Optional[str] = None
         self.i18ns: Optional[List[AppAbilityBotI18n]] = None
+        self.bot_menu_enable: Optional[bool] = None
+        self.bot_menus: Optional[List[BotMenuNode]] = None
+        self.bot_menu_display_strategy: Optional[int] = None
+        self.allow_invited_to_group_by_other_app_switch_open: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,12 +40,36 @@ class AppAbilityBotBuilder(object):
         self._app_ability_bot.enable = enable
         return self
 
-    def message_card_callback_url(self, message_card_callback_url: str) -> "AppAbilityBotBuilder":
+    def message_card_callback_url(
+        self, message_card_callback_url: str
+    ) -> "AppAbilityBotBuilder":
         self._app_ability_bot.message_card_callback_url = message_card_callback_url
         return self
 
     def i18ns(self, i18ns: List[AppAbilityBotI18n]) -> "AppAbilityBotBuilder":
         self._app_ability_bot.i18ns = i18ns
+        return self
+
+    def bot_menu_enable(self, bot_menu_enable: bool) -> "AppAbilityBotBuilder":
+        self._app_ability_bot.bot_menu_enable = bot_menu_enable
+        return self
+
+    def bot_menus(self, bot_menus: List[BotMenuNode]) -> "AppAbilityBotBuilder":
+        self._app_ability_bot.bot_menus = bot_menus
+        return self
+
+    def bot_menu_display_strategy(
+        self, bot_menu_display_strategy: int
+    ) -> "AppAbilityBotBuilder":
+        self._app_ability_bot.bot_menu_display_strategy = bot_menu_display_strategy
+        return self
+
+    def allow_invited_to_group_by_other_app_switch_open(
+        self, allow_invited_to_group_by_other_app_switch_open: bool
+    ) -> "AppAbilityBotBuilder":
+        self._app_ability_bot.allow_invited_to_group_by_other_app_switch_open = (
+            allow_invited_to_group_by_other_app_switch_open
+        )
         return self
 
     def build(self) -> "AppAbilityBot":

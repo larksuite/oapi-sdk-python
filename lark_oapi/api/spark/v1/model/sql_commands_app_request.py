@@ -10,6 +10,7 @@ class SqlCommandsAppRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.env: Optional[str] = None
+        self.transactional: Optional[bool] = None
         self.app_id: Optional[str] = None
         self.request_body: Optional[SqlCommandsAppRequestBody] = None
 
@@ -19,7 +20,6 @@ class SqlCommandsAppRequest(BaseRequest):
 
 
 class SqlCommandsAppRequestBuilder(object):
-
     def __init__(self) -> None:
         sql_commands_app_request = SqlCommandsAppRequest()
         sql_commands_app_request.http_method = HttpMethod.POST
@@ -32,12 +32,19 @@ class SqlCommandsAppRequestBuilder(object):
         self._sql_commands_app_request.add_query("env", env)
         return self
 
+    def transactional(self, transactional: bool) -> "SqlCommandsAppRequestBuilder":
+        self._sql_commands_app_request.transactional = transactional
+        self._sql_commands_app_request.add_query("transactional", transactional)
+        return self
+
     def app_id(self, app_id: str) -> "SqlCommandsAppRequestBuilder":
         self._sql_commands_app_request.app_id = app_id
         self._sql_commands_app_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: SqlCommandsAppRequestBody) -> "SqlCommandsAppRequestBuilder":
+    def request_body(
+        self, request_body: SqlCommandsAppRequestBody
+    ) -> "SqlCommandsAppRequestBuilder":
         self._sql_commands_app_request.request_body = request_body
         self._sql_commands_app_request.body = request_body
         return self

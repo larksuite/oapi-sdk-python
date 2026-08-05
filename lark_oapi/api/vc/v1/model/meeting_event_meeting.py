@@ -88,11 +88,15 @@ class MeetingEventMeetingBuilder(object):
         self._meeting_event_meeting.meeting_sub_type = meeting_sub_type
         return self
 
-    def security_setting(self, security_setting: MeetingSecuritySetting) -> "MeetingEventMeetingBuilder":
+    def security_setting(
+        self, security_setting: MeetingSecuritySetting
+    ) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.security_setting = security_setting
         return self
 
-    def webinar_setting(self, webinar_setting: MeetingWebinarSetting) -> "MeetingEventMeetingBuilder":
+    def webinar_setting(
+        self, webinar_setting: MeetingWebinarSetting
+    ) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.webinar_setting = webinar_setting
         return self
 

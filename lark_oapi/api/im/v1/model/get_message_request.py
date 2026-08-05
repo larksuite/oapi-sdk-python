@@ -10,6 +10,7 @@ class GetMessageRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.card_msg_content_type: Optional[str] = None
+        self.with_sender_name: Optional[bool] = None
         self.message_id: Optional[str] = None
 
     @staticmethod
@@ -18,7 +19,6 @@ class GetMessageRequest(BaseRequest):
 
 
 class GetMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         get_message_request = GetMessageRequest()
         get_message_request.http_method = HttpMethod.GET
@@ -31,9 +31,18 @@ class GetMessageRequestBuilder(object):
         self._get_message_request.add_query("user_id_type", user_id_type)
         return self
 
-    def card_msg_content_type(self, card_msg_content_type: str) -> "GetMessageRequestBuilder":
+    def card_msg_content_type(
+        self, card_msg_content_type: str
+    ) -> "GetMessageRequestBuilder":
         self._get_message_request.card_msg_content_type = card_msg_content_type
-        self._get_message_request.add_query("card_msg_content_type", card_msg_content_type)
+        self._get_message_request.add_query(
+            "card_msg_content_type", card_msg_content_type
+        )
+        return self
+
+    def with_sender_name(self, with_sender_name: bool) -> "GetMessageRequestBuilder":
+        self._get_message_request.with_sender_name = with_sender_name
+        self._get_message_request.add_query("with_sender_name", with_sender_name)
         return self
 
     def message_id(self, message_id: str) -> "GetMessageRequestBuilder":

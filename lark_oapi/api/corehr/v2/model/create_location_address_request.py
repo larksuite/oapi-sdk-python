@@ -20,22 +20,31 @@ class CreateLocationAddressRequest(BaseRequest):
 
 
 class CreateLocationAddressRequestBuilder(object):
-
     def __init__(self) -> None:
         create_location_address_request = CreateLocationAddressRequest()
         create_location_address_request.http_method = HttpMethod.POST
-        create_location_address_request.uri = "/open-apis/corehr/v2/locations/:location_id/addresses"
+        create_location_address_request.uri = (
+            "/open-apis/corehr/v2/locations/:location_id/addresses"
+        )
         create_location_address_request.token_types = {AccessTokenType.TENANT}
-        self._create_location_address_request: CreateLocationAddressRequest = create_location_address_request
+        self._create_location_address_request: CreateLocationAddressRequest = (
+            create_location_address_request
+        )
 
     def client_token(self, client_token: str) -> "CreateLocationAddressRequestBuilder":
         self._create_location_address_request.client_token = client_token
         self._create_location_address_request.add_query("client_token", client_token)
         return self
 
-    def need_custom_latin_address(self, need_custom_latin_address: bool) -> "CreateLocationAddressRequestBuilder":
-        self._create_location_address_request.need_custom_latin_address = need_custom_latin_address
-        self._create_location_address_request.add_query("need_custom_latin_address", need_custom_latin_address)
+    def need_custom_latin_address(
+        self, need_custom_latin_address: bool
+    ) -> "CreateLocationAddressRequestBuilder":
+        self._create_location_address_request.need_custom_latin_address = (
+            need_custom_latin_address
+        )
+        self._create_location_address_request.add_query(
+            "need_custom_latin_address", need_custom_latin_address
+        )
         return self
 
     def location_id(self, location_id: str) -> "CreateLocationAddressRequestBuilder":
@@ -43,7 +52,9 @@ class CreateLocationAddressRequestBuilder(object):
         self._create_location_address_request.paths["location_id"] = str(location_id)
         return self
 
-    def request_body(self, request_body: LocationAddressCreate) -> "CreateLocationAddressRequestBuilder":
+    def request_body(
+        self, request_body: LocationAddressCreate
+    ) -> "CreateLocationAddressRequestBuilder":
         self._create_location_address_request.request_body = request_body
         self._create_location_address_request.body = request_body
         return self

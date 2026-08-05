@@ -23,7 +23,9 @@ class QuerySocialArchiveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_social_archive_response_body = QuerySocialArchiveResponseBody()
 
-    def archives(self, archives: List[SocialArchive]) -> "QuerySocialArchiveResponseBodyBuilder":
+    def archives(
+        self, archives: List[SocialArchive]
+    ) -> "QuerySocialArchiveResponseBodyBuilder":
         self._query_social_archive_response_body.archives = archives
         return self
 

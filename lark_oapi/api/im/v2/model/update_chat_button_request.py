@@ -18,20 +18,23 @@ class UpdateChatButtonRequest(BaseRequest):
 
 
 class UpdateChatButtonRequestBuilder(object):
-
     def __init__(self) -> None:
         update_chat_button_request = UpdateChatButtonRequest()
         update_chat_button_request.http_method = HttpMethod.PUT
         update_chat_button_request.uri = "/open-apis/im/v2/chat_button"
         update_chat_button_request.token_types = {AccessTokenType.TENANT}
-        self._update_chat_button_request: UpdateChatButtonRequest = update_chat_button_request
+        self._update_chat_button_request: UpdateChatButtonRequest = (
+            update_chat_button_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateChatButtonRequestBuilder":
         self._update_chat_button_request.user_id_type = user_id_type
         self._update_chat_button_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: UpdateChatButtonRequestBody) -> "UpdateChatButtonRequestBuilder":
+    def request_body(
+        self, request_body: UpdateChatButtonRequestBody
+    ) -> "UpdateChatButtonRequestBuilder":
         self._update_chat_button_request.request_body = request_body
         self._update_chat_button_request.body = request_body
         return self

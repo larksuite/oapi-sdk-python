@@ -21,7 +21,9 @@ class PatchCustomFieldOptionResponseBody(object):
 
 class PatchCustomFieldOptionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_custom_field_option_response_body = PatchCustomFieldOptionResponseBody()
+        self._patch_custom_field_option_response_body = (
+            PatchCustomFieldOptionResponseBody()
+        )
 
     def option(self, option: Option) -> "PatchCustomFieldOptionResponseBodyBuilder":
         self._patch_custom_field_option_response_body.option = option

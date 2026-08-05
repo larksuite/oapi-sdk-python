@@ -19,8 +19,11 @@ class AppEnum(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_enum_detail(self, request: GetEnumDetailAppEnumRequest,
-                        option: Optional[RequestOption] = None) -> GetEnumDetailAppEnumResponse:
+    def get_enum_detail(
+        self,
+        request: GetEnumDetailAppEnumRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetEnumDetailAppEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class AppEnum(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetEnumDetailAppEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEnumDetailAppEnumResponse)
+        response: GetEnumDetailAppEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEnumDetailAppEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_enum_detail(self, request: GetEnumDetailAppEnumRequest,
-                               option: Optional[RequestOption] = None) -> GetEnumDetailAppEnumResponse:
+    async def aget_enum_detail(
+        self,
+        request: GetEnumDetailAppEnumRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetEnumDetailAppEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,16 @@ class AppEnum(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetEnumDetailAppEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEnumDetailAppEnumResponse)
+        response: GetEnumDetailAppEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEnumDetailAppEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_enum_list(self, request: GetEnumListAppEnumRequest,
-                      option: Optional[RequestOption] = None) -> GetEnumListAppEnumResponse:
+    def get_enum_list(
+        self, request: GetEnumListAppEnumRequest, option: Optional[RequestOption] = None
+    ) -> GetEnumListAppEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +84,16 @@ class AppEnum(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetEnumListAppEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEnumListAppEnumResponse)
+        response: GetEnumListAppEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEnumListAppEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_enum_list(self, request: GetEnumListAppEnumRequest,
-                             option: Optional[RequestOption] = None) -> GetEnumListAppEnumResponse:
+    async def aget_enum_list(
+        self, request: GetEnumListAppEnumRequest, option: Optional[RequestOption] = None
+    ) -> GetEnumListAppEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +104,9 @@ class AppEnum(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetEnumListAppEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEnumListAppEnumResponse)
+        response: GetEnumListAppEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEnumListAppEnumResponse
+        )
         response.raw = resp
 
         return response

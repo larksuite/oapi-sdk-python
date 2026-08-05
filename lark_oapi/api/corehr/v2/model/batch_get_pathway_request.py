@@ -19,13 +19,14 @@ class BatchGetPathwayRequest(BaseRequest):
 
 
 class BatchGetPathwayRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_pathway_request = BatchGetPathwayRequest()
         batch_get_pathway_request.http_method = HttpMethod.POST
         batch_get_pathway_request.uri = "/open-apis/corehr/v2/pathways/batch_get"
         batch_get_pathway_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_pathway_request: BatchGetPathwayRequest = batch_get_pathway_request
+        self._batch_get_pathway_request: BatchGetPathwayRequest = (
+            batch_get_pathway_request
+        )
 
     def page_size(self, page_size: int) -> "BatchGetPathwayRequestBuilder":
         self._batch_get_pathway_request.page_size = page_size
@@ -37,7 +38,9 @@ class BatchGetPathwayRequestBuilder(object):
         self._batch_get_pathway_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: BatchGetPathwayRequestBody) -> "BatchGetPathwayRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetPathwayRequestBody
+    ) -> "BatchGetPathwayRequestBuilder":
         self._batch_get_pathway_request.request_body = request_body
         self._batch_get_pathway_request.body = request_body
         return self

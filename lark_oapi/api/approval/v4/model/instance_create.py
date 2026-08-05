@@ -86,19 +86,27 @@ class InstanceCreateBuilder(object):
         self._instance_create.form = form
         return self
 
-    def node_approver_user_id_list(self, node_approver_user_id_list: List[NodeApprover]) -> "InstanceCreateBuilder":
+    def node_approver_user_id_list(
+        self, node_approver_user_id_list: List[NodeApprover]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.node_approver_user_id_list = node_approver_user_id_list
         return self
 
-    def node_approver_open_id_list(self, node_approver_open_id_list: List[NodeApprover]) -> "InstanceCreateBuilder":
+    def node_approver_open_id_list(
+        self, node_approver_open_id_list: List[NodeApprover]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.node_approver_open_id_list = node_approver_open_id_list
         return self
 
-    def node_cc_user_id_list(self, node_cc_user_id_list: List[NodeCc]) -> "InstanceCreateBuilder":
+    def node_cc_user_id_list(
+        self, node_cc_user_id_list: List[NodeCc]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.node_cc_user_id_list = node_cc_user_id_list
         return self
 
-    def node_cc_open_id_list(self, node_cc_open_id_list: List[NodeCc]) -> "InstanceCreateBuilder":
+    def node_cc_open_id_list(
+        self, node_cc_open_id_list: List[NodeCc]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.node_cc_open_id_list = node_cc_open_id_list
         return self
 
@@ -114,7 +122,9 @@ class InstanceCreateBuilder(object):
         self._instance_create.allow_submit_again = allow_submit_again
         return self
 
-    def cancel_bot_notification(self, cancel_bot_notification: int) -> "InstanceCreateBuilder":
+    def cancel_bot_notification(
+        self, cancel_bot_notification: int
+    ) -> "InstanceCreateBuilder":
         self._instance_create.cancel_bot_notification = cancel_bot_notification
         return self
 
@@ -122,7 +132,9 @@ class InstanceCreateBuilder(object):
         self._instance_create.forbid_revoke = forbid_revoke
         return self
 
-    def i18n_resources(self, i18n_resources: List[I18nResource]) -> "InstanceCreateBuilder":
+    def i18n_resources(
+        self, i18n_resources: List[I18nResource]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.i18n_resources = i18n_resources
         return self
 
@@ -130,11 +142,15 @@ class InstanceCreateBuilder(object):
         self._instance_create.title = title
         return self
 
-    def title_display_method(self, title_display_method: int) -> "InstanceCreateBuilder":
+    def title_display_method(
+        self, title_display_method: int
+    ) -> "InstanceCreateBuilder":
         self._instance_create.title_display_method = title_display_method
         return self
 
-    def node_auto_approval_list(self, node_auto_approval_list: List[NodeAutoApproval]) -> "InstanceCreateBuilder":
+    def node_auto_approval_list(
+        self, node_auto_approval_list: List[NodeAutoApproval]
+    ) -> "InstanceCreateBuilder":
         self._instance_create.node_auto_approval_list = node_auto_approval_list
         return self
 

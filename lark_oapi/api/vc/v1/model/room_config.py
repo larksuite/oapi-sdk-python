@@ -41,11 +41,15 @@ class RoomConfigBuilder(object):
         self._room_config.display_background = display_background
         return self
 
-    def digital_signage(self, digital_signage: RoomDigitalSignage) -> "RoomConfigBuilder":
+    def digital_signage(
+        self, digital_signage: RoomDigitalSignage
+    ) -> "RoomConfigBuilder":
         self._room_config.digital_signage = digital_signage
         return self
 
-    def room_box_digital_signage(self, room_box_digital_signage: RoomDigitalSignage) -> "RoomConfigBuilder":
+    def room_box_digital_signage(
+        self, room_box_digital_signage: RoomDigitalSignage
+    ) -> "RoomConfigBuilder":
         self._room_config.room_box_digital_signage = room_box_digital_signage
         return self
 

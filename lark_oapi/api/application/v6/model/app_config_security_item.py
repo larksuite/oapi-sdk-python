@@ -40,19 +40,29 @@ class AppConfigSecurityItemBuilder(object):
         self._app_config_security_item.allowed_ips = allowed_ips
         return self
 
-    def h5_trusted_domains(self, h5_trusted_domains: List[str]) -> "AppConfigSecurityItemBuilder":
+    def h5_trusted_domains(
+        self, h5_trusted_domains: List[str]
+    ) -> "AppConfigSecurityItemBuilder":
         self._app_config_security_item.h5_trusted_domains = h5_trusted_domains
         return self
 
-    def web_view_trusted_domains(self, web_view_trusted_domains: List[str]) -> "AppConfigSecurityItemBuilder":
-        self._app_config_security_item.web_view_trusted_domains = web_view_trusted_domains
+    def web_view_trusted_domains(
+        self, web_view_trusted_domains: List[str]
+    ) -> "AppConfigSecurityItemBuilder":
+        self._app_config_security_item.web_view_trusted_domains = (
+            web_view_trusted_domains
+        )
         return self
 
-    def allowed_schemas(self, allowed_schemas: List[str]) -> "AppConfigSecurityItemBuilder":
+    def allowed_schemas(
+        self, allowed_schemas: List[str]
+    ) -> "AppConfigSecurityItemBuilder":
         self._app_config_security_item.allowed_schemas = allowed_schemas
         return self
 
-    def allowed_server_domains(self, allowed_server_domains: List[str]) -> "AppConfigSecurityItemBuilder":
+    def allowed_server_domains(
+        self, allowed_server_domains: List[str]
+    ) -> "AppConfigSecurityItemBuilder":
         self._app_config_security_item.allowed_server_domains = allowed_server_domains
         return self
 

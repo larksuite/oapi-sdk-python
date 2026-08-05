@@ -9,7 +9,6 @@ from .parse_resume_response_body import ParseResumeResponseBody
 class ParseResumeResponse(BaseResponse):
     _types = {
         "data": ParseResumeResponseBody,
-
     }
 
     def __init__(self, d=None):

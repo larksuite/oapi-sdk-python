@@ -77,7 +77,9 @@ class CreateEmployee(object):
         self.gender: Optional[int] = None
         self.residential_address: Optional[str] = None
         self.contact_addresses: Optional[List[ContactAddress]] = None
-        self.employee_order_in_departments: Optional[List[UpsertUserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[
+            List[UpsertUserDepartmentSortInfo]
+        ] = None
         self.leader_id: Optional[str] = None
         self.dotted_line_leader_ids: Optional[List[str]] = None
         self.work_country_or_region: Optional[str] = None
@@ -164,24 +166,33 @@ class CreateEmployeeBuilder(object):
         self._create_employee.residential_address = residential_address
         return self
 
-    def contact_addresses(self, contact_addresses: List[ContactAddress]) -> "CreateEmployeeBuilder":
+    def contact_addresses(
+        self, contact_addresses: List[ContactAddress]
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.contact_addresses = contact_addresses
         return self
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UpsertUserDepartmentSortInfo]) -> "CreateEmployeeBuilder":
-        self._create_employee.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UpsertUserDepartmentSortInfo]
+    ) -> "CreateEmployeeBuilder":
+        self._create_employee.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
     def leader_id(self, leader_id: str) -> "CreateEmployeeBuilder":
         self._create_employee.leader_id = leader_id
         return self
 
-    def dotted_line_leader_ids(self, dotted_line_leader_ids: List[str]) -> "CreateEmployeeBuilder":
+    def dotted_line_leader_ids(
+        self, dotted_line_leader_ids: List[str]
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.dotted_line_leader_ids = dotted_line_leader_ids
         return self
 
-    def work_country_or_region(self, work_country_or_region: str) -> "CreateEmployeeBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.work_country_or_region = work_country_or_region
         return self
 
@@ -269,11 +280,15 @@ class CreateEmployeeBuilder(object):
         self._create_employee.resign_type = resign_type
         return self
 
-    def cancelled_entry_type(self, cancelled_entry_type: str) -> "CreateEmployeeBuilder":
+    def cancelled_entry_type(
+        self, cancelled_entry_type: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.cancelled_entry_type = cancelled_entry_type
         return self
 
-    def cancelled_entry_remark(self, cancelled_entry_remark: str) -> "CreateEmployeeBuilder":
+    def cancelled_entry_remark(
+        self, cancelled_entry_remark: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.cancelled_entry_remark = cancelled_entry_remark
         return self
 
@@ -301,7 +316,9 @@ class CreateEmployeeBuilder(object):
         self._create_employee.politics_status = politics_status
         return self
 
-    def registered_residence_type(self, registered_residence_type: str) -> "CreateEmployeeBuilder":
+    def registered_residence_type(
+        self, registered_residence_type: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.registered_residence_type = registered_residence_type
         return self
 
@@ -309,23 +326,33 @@ class CreateEmployeeBuilder(object):
         self._create_employee.location = location
         return self
 
-    def social_security_number(self, social_security_number: str) -> "CreateEmployeeBuilder":
+    def social_security_number(
+        self, social_security_number: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.social_security_number = social_security_number
         return self
 
-    def provident_fund_number(self, provident_fund_number: str) -> "CreateEmployeeBuilder":
+    def provident_fund_number(
+        self, provident_fund_number: str
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.provident_fund_number = provident_fund_number
         return self
 
-    def custom_field_value_map(self, custom_field_value_map: Dict[str, CustomFieldValue]) -> "CreateEmployeeBuilder":
+    def custom_field_value_map(
+        self, custom_field_value_map: Dict[str, CustomFieldValue]
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.custom_field_value_map = custom_field_value_map
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "CreateEmployeeBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.custom_field_values = custom_field_values
         return self
 
-    def virtual_org_infos(self, virtual_org_infos: List[UpsertUserVirtualOrgInfo]) -> "CreateEmployeeBuilder":
+    def virtual_org_infos(
+        self, virtual_org_infos: List[UpsertUserVirtualOrgInfo]
+    ) -> "CreateEmployeeBuilder":
         self._create_employee.virtual_org_infos = virtual_org_infos
         return self
 

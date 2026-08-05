@@ -26,21 +26,35 @@ class BatchModifyUserMailboxThreadRequestBody(object):
 
 class BatchModifyUserMailboxThreadRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_modify_user_mailbox_thread_request_body = BatchModifyUserMailboxThreadRequestBody()
+        self._batch_modify_user_mailbox_thread_request_body = (
+            BatchModifyUserMailboxThreadRequestBody()
+        )
 
-    def add_label_ids(self, add_label_ids: List[str]) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
-        self._batch_modify_user_mailbox_thread_request_body.add_label_ids = add_label_ids
+    def add_label_ids(
+        self, add_label_ids: List[str]
+    ) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
+        self._batch_modify_user_mailbox_thread_request_body.add_label_ids = (
+            add_label_ids
+        )
         return self
 
-    def remove_label_ids(self, remove_label_ids: List[str]) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
-        self._batch_modify_user_mailbox_thread_request_body.remove_label_ids = remove_label_ids
+    def remove_label_ids(
+        self, remove_label_ids: List[str]
+    ) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
+        self._batch_modify_user_mailbox_thread_request_body.remove_label_ids = (
+            remove_label_ids
+        )
         return self
 
-    def add_folder(self, add_folder: str) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
+    def add_folder(
+        self, add_folder: str
+    ) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
         self._batch_modify_user_mailbox_thread_request_body.add_folder = add_folder
         return self
 
-    def thread_ids(self, thread_ids: List[str]) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
+    def thread_ids(
+        self, thread_ids: List[str]
+    ) -> "BatchModifyUserMailboxThreadRequestBodyBuilder":
         self._batch_modify_user_mailbox_thread_request_body.thread_ids = thread_ids
         return self
 

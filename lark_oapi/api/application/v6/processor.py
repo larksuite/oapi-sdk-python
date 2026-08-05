@@ -3,19 +3,33 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_application_application_created_v6 import P2ApplicationApplicationCreatedV6
-from .model.p2_application_application_app_version_audit_v6 import P2ApplicationApplicationAppVersionAuditV6
-from .model.p2_application_application_app_version_publish_apply_v6 import \
-    P2ApplicationApplicationAppVersionPublishApplyV6
-from .model.p2_application_application_app_version_publish_revoke_v6 import \
-    P2ApplicationApplicationAppVersionPublishRevokeV6
-from .model.p2_application_application_feedback_created_v6 import P2ApplicationApplicationFeedbackCreatedV6
-from .model.p2_application_application_feedback_updated_v6 import P2ApplicationApplicationFeedbackUpdatedV6
-from .model.p2_application_application_visibility_added_v6 import P2ApplicationApplicationVisibilityAddedV6
+from .model.p2_application_application_created_v6 import (
+    P2ApplicationApplicationCreatedV6,
+)
+from .model.p2_application_application_app_version_audit_v6 import (
+    P2ApplicationApplicationAppVersionAuditV6,
+)
+from .model.p2_application_application_app_version_publish_apply_v6 import (
+    P2ApplicationApplicationAppVersionPublishApplyV6,
+)
+from .model.p2_application_application_app_version_publish_revoke_v6 import (
+    P2ApplicationApplicationAppVersionPublishRevokeV6,
+)
+from .model.p2_application_application_feedback_created_v6 import (
+    P2ApplicationApplicationFeedbackCreatedV6,
+)
+from .model.p2_application_application_feedback_updated_v6 import (
+    P2ApplicationApplicationFeedbackUpdatedV6,
+)
+from .model.p2_application_application_visibility_added_v6 import (
+    P2ApplicationApplicationVisibilityAddedV6,
+)
 from .model.p2_application_bot_menu_v6 import P2ApplicationBotMenuV6
 
 
-class P2ApplicationApplicationCreatedV6Processor(IEventProcessor[P2ApplicationApplicationCreatedV6]):
+class P2ApplicationApplicationCreatedV6Processor(
+    IEventProcessor[P2ApplicationApplicationCreatedV6]
+):
     def __init__(self, f: Callable[[P2ApplicationApplicationCreatedV6], None]):
         self.f = f
 
@@ -26,7 +40,9 @@ class P2ApplicationApplicationCreatedV6Processor(IEventProcessor[P2ApplicationAp
         self.f(data)
 
 
-class P2ApplicationApplicationAppVersionAuditV6Processor(IEventProcessor[P2ApplicationApplicationAppVersionAuditV6]):
+class P2ApplicationApplicationAppVersionAuditV6Processor(
+    IEventProcessor[P2ApplicationApplicationAppVersionAuditV6]
+):
     def __init__(self, f: Callable[[P2ApplicationApplicationAppVersionAuditV6], None]):
         self.f = f
 
@@ -38,8 +54,11 @@ class P2ApplicationApplicationAppVersionAuditV6Processor(IEventProcessor[P2Appli
 
 
 class P2ApplicationApplicationAppVersionPublishApplyV6Processor(
-    IEventProcessor[P2ApplicationApplicationAppVersionPublishApplyV6]):
-    def __init__(self, f: Callable[[P2ApplicationApplicationAppVersionPublishApplyV6], None]):
+    IEventProcessor[P2ApplicationApplicationAppVersionPublishApplyV6]
+):
+    def __init__(
+        self, f: Callable[[P2ApplicationApplicationAppVersionPublishApplyV6], None]
+    ):
         self.f = f
 
     def type(self) -> Type[P2ApplicationApplicationAppVersionPublishApplyV6]:
@@ -50,8 +69,11 @@ class P2ApplicationApplicationAppVersionPublishApplyV6Processor(
 
 
 class P2ApplicationApplicationAppVersionPublishRevokeV6Processor(
-    IEventProcessor[P2ApplicationApplicationAppVersionPublishRevokeV6]):
-    def __init__(self, f: Callable[[P2ApplicationApplicationAppVersionPublishRevokeV6], None]):
+    IEventProcessor[P2ApplicationApplicationAppVersionPublishRevokeV6]
+):
+    def __init__(
+        self, f: Callable[[P2ApplicationApplicationAppVersionPublishRevokeV6], None]
+    ):
         self.f = f
 
     def type(self) -> Type[P2ApplicationApplicationAppVersionPublishRevokeV6]:
@@ -61,7 +83,9 @@ class P2ApplicationApplicationAppVersionPublishRevokeV6Processor(
         self.f(data)
 
 
-class P2ApplicationApplicationFeedbackCreatedV6Processor(IEventProcessor[P2ApplicationApplicationFeedbackCreatedV6]):
+class P2ApplicationApplicationFeedbackCreatedV6Processor(
+    IEventProcessor[P2ApplicationApplicationFeedbackCreatedV6]
+):
     def __init__(self, f: Callable[[P2ApplicationApplicationFeedbackCreatedV6], None]):
         self.f = f
 
@@ -72,7 +96,9 @@ class P2ApplicationApplicationFeedbackCreatedV6Processor(IEventProcessor[P2Appli
         self.f(data)
 
 
-class P2ApplicationApplicationFeedbackUpdatedV6Processor(IEventProcessor[P2ApplicationApplicationFeedbackUpdatedV6]):
+class P2ApplicationApplicationFeedbackUpdatedV6Processor(
+    IEventProcessor[P2ApplicationApplicationFeedbackUpdatedV6]
+):
     def __init__(self, f: Callable[[P2ApplicationApplicationFeedbackUpdatedV6], None]):
         self.f = f
 
@@ -83,7 +109,9 @@ class P2ApplicationApplicationFeedbackUpdatedV6Processor(IEventProcessor[P2Appli
         self.f(data)
 
 
-class P2ApplicationApplicationVisibilityAddedV6Processor(IEventProcessor[P2ApplicationApplicationVisibilityAddedV6]):
+class P2ApplicationApplicationVisibilityAddedV6Processor(
+    IEventProcessor[P2ApplicationApplicationVisibilityAddedV6]
+):
     def __init__(self, f: Callable[[P2ApplicationApplicationVisibilityAddedV6], None]):
         self.f = f
 

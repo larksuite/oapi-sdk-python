@@ -93,7 +93,9 @@ class LocationV2Builder(object):
         self._location_v2.expiration_time = expiration_time
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "LocationV2Builder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "LocationV2Builder":
         self._location_v2.custom_fields = custom_fields
         return self
 

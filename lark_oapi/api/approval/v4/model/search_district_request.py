@@ -18,12 +18,14 @@ class SearchDistrictRequest(BaseRequest):
 
 
 class SearchDistrictRequestBuilder(object):
-
     def __init__(self) -> None:
         search_district_request = SearchDistrictRequest()
         search_district_request.http_method = HttpMethod.POST
         search_district_request.uri = "/open-apis/approval/v4/districts/search"
-        search_district_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        search_district_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._search_district_request: SearchDistrictRequest = search_district_request
 
     def locale(self, locale: str) -> "SearchDistrictRequestBuilder":
@@ -31,7 +33,9 @@ class SearchDistrictRequestBuilder(object):
         self._search_district_request.add_query("locale", locale)
         return self
 
-    def request_body(self, request_body: SearchDistrictRequestBody) -> "SearchDistrictRequestBuilder":
+    def request_body(
+        self, request_body: SearchDistrictRequestBody
+    ) -> "SearchDistrictRequestBuilder":
         self._search_district_request.request_body = request_body
         self._search_district_request.body = request_body
         return self

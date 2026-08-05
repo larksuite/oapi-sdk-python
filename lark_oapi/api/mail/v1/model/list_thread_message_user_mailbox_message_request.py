@@ -19,32 +19,56 @@ class ListThreadMessageUserMailboxMessageRequest(BaseRequest):
 
 
 class ListThreadMessageUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
-        list_thread_message_user_mailbox_message_request = ListThreadMessageUserMailboxMessageRequest()
+        list_thread_message_user_mailbox_message_request = (
+            ListThreadMessageUserMailboxMessageRequest()
+        )
         list_thread_message_user_mailbox_message_request.http_method = HttpMethod.GET
         list_thread_message_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/messages"
-        list_thread_message_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_thread_message_user_mailbox_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_thread_message_user_mailbox_message_request: ListThreadMessageUserMailboxMessageRequest = list_thread_message_user_mailbox_message_request
 
-    def format(self, format: str) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
+    def format(
+        self, format: str
+    ) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
         self._list_thread_message_user_mailbox_message_request.format = format
-        self._list_thread_message_user_mailbox_message_request.add_query("format", format)
+        self._list_thread_message_user_mailbox_message_request.add_query(
+            "format", format
+        )
         return self
 
-    def include_spam_trash(self, include_spam_trash: bool) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
-        self._list_thread_message_user_mailbox_message_request.include_spam_trash = include_spam_trash
-        self._list_thread_message_user_mailbox_message_request.add_query("include_spam_trash", include_spam_trash)
+    def include_spam_trash(
+        self, include_spam_trash: bool
+    ) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
+        self._list_thread_message_user_mailbox_message_request.include_spam_trash = (
+            include_spam_trash
+        )
+        self._list_thread_message_user_mailbox_message_request.add_query(
+            "include_spam_trash", include_spam_trash
+        )
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
-        self._list_thread_message_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._list_thread_message_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
+        self._list_thread_message_user_mailbox_message_request.user_mailbox_id = (
+            user_mailbox_id
+        )
+        self._list_thread_message_user_mailbox_message_request.paths[
+            "user_mailbox_id"
+        ] = str(user_mailbox_id)
         return self
 
-    def thread_id(self, thread_id: str) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
+    def thread_id(
+        self, thread_id: str
+    ) -> "ListThreadMessageUserMailboxMessageRequestBuilder":
         self._list_thread_message_user_mailbox_message_request.thread_id = thread_id
-        self._list_thread_message_user_mailbox_message_request.paths["thread_id"] = str(thread_id)
+        self._list_thread_message_user_mailbox_message_request.paths["thread_id"] = str(
+            thread_id
+        )
         return self
 
     def build(self) -> ListThreadMessageUserMailboxMessageRequest:

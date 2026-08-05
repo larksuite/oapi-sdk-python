@@ -26,22 +26,34 @@ class QueryRecentChangePositionResponseBody(object):
 
 class QueryRecentChangePositionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_recent_change_position_response_body = QueryRecentChangePositionResponseBody()
+        self._query_recent_change_position_response_body = (
+            QueryRecentChangePositionResponseBody()
+        )
 
-    def position_ids(self, position_ids: List[str]) -> "QueryRecentChangePositionResponseBodyBuilder":
+    def position_ids(
+        self, position_ids: List[str]
+    ) -> "QueryRecentChangePositionResponseBodyBuilder":
         self._query_recent_change_position_response_body.position_ids = position_ids
         return self
 
-    def page_token(self, page_token: str) -> "QueryRecentChangePositionResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryRecentChangePositionResponseBodyBuilder":
         self._query_recent_change_position_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "QueryRecentChangePositionResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "QueryRecentChangePositionResponseBodyBuilder":
         self._query_recent_change_position_response_body.has_more = has_more
         return self
 
-    def deleted_position_ids(self, deleted_position_ids: List[str]) -> "QueryRecentChangePositionResponseBodyBuilder":
-        self._query_recent_change_position_response_body.deleted_position_ids = deleted_position_ids
+    def deleted_position_ids(
+        self, deleted_position_ids: List[str]
+    ) -> "QueryRecentChangePositionResponseBodyBuilder":
+        self._query_recent_change_position_response_body.deleted_position_ids = (
+            deleted_position_ids
+        )
         return self
 
     def build(self) -> "QueryRecentChangePositionResponseBody":

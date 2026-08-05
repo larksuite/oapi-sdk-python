@@ -9,7 +9,6 @@ from .list_user_mailbox_alias_response_body import ListUserMailboxAliasResponseB
 class ListUserMailboxAliasResponse(BaseResponse):
     _types = {
         "data": ListUserMailboxAliasResponseBody,
-
     }
 
     def __init__(self, d=None):

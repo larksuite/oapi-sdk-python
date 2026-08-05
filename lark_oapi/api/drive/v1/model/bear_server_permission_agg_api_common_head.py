@@ -40,13 +40,17 @@ class BearServerPermissionAggApiCommonHead(object):
 
 class BearServerPermissionAggApiCommonHeadBuilder(object):
     def __init__(self) -> None:
-        self._bear_server_permission_agg_api_common_head = BearServerPermissionAggApiCommonHead()
+        self._bear_server_permission_agg_api_common_head = (
+            BearServerPermissionAggApiCommonHead()
+        )
 
     def id(self, id: str) -> "BearServerPermissionAggApiCommonHeadBuilder":
         self._bear_server_permission_agg_api_common_head.id = id
         return self
 
-    def tenant_id(self, tenant_id: str) -> "BearServerPermissionAggApiCommonHeadBuilder":
+    def tenant_id(
+        self, tenant_id: str
+    ) -> "BearServerPermissionAggApiCommonHeadBuilder":
         self._bear_server_permission_agg_api_common_head.tenant_id = tenant_id
         return self
 
@@ -58,7 +62,9 @@ class BearServerPermissionAggApiCommonHeadBuilder(object):
         self._bear_server_permission_agg_api_common_head.open_id = open_id
         return self
 
-    def tenant_key(self, tenant_key: str) -> "BearServerPermissionAggApiCommonHeadBuilder":
+    def tenant_key(
+        self, tenant_key: str
+    ) -> "BearServerPermissionAggApiCommonHeadBuilder":
         self._bear_server_permission_agg_api_common_head.tenant_key = tenant_key
         return self
 
@@ -66,7 +72,9 @@ class BearServerPermissionAggApiCommonHeadBuilder(object):
         self._bear_server_permission_agg_api_common_head.auth = auth
         return self
 
-    def fields(self, fields: Dict[str, str]) -> "BearServerPermissionAggApiCommonHeadBuilder":
+    def fields(
+        self, fields: Dict[str, str]
+    ) -> "BearServerPermissionAggApiCommonHeadBuilder":
         self._bear_server_permission_agg_api_common_head.fields = fields
         return self
 
@@ -78,7 +86,9 @@ class BearServerPermissionAggApiCommonHeadBuilder(object):
         self._bear_server_permission_agg_api_common_head.locale = locale
         return self
 
-    def client(self, client: ClientInfo) -> "BearServerPermissionAggApiCommonHeadBuilder":
+    def client(
+        self, client: ClientInfo
+    ) -> "BearServerPermissionAggApiCommonHeadBuilder":
         self._bear_server_permission_agg_api_common_head.client = client
         return self
 

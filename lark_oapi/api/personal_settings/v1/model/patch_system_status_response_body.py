@@ -23,7 +23,9 @@ class PatchSystemStatusResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_system_status_response_body = PatchSystemStatusResponseBody()
 
-    def system_status(self, system_status: SystemStatus) -> "PatchSystemStatusResponseBodyBuilder":
+    def system_status(
+        self, system_status: SystemStatus
+    ) -> "PatchSystemStatusResponseBodyBuilder":
         self._patch_system_status_response_body.system_status = system_status
         return self
 

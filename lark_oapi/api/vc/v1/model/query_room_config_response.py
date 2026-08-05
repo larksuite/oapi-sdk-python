@@ -9,7 +9,6 @@ from .query_room_config_response_body import QueryRoomConfigResponseBody
 class QueryRoomConfigResponse(BaseResponse):
     _types = {
         "data": QueryRoomConfigResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -16,7 +16,6 @@ class GetRoomLevelRequest(BaseRequest):
 
 
 class GetRoomLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         get_room_level_request = GetRoomLevelRequest()
         get_room_level_request.http_method = HttpMethod.GET

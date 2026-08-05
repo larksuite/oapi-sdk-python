@@ -26,21 +26,37 @@ class QueryMultiTimelineDepartmentRequestBody(object):
 
 class QueryMultiTimelineDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_department_request_body = QueryMultiTimelineDepartmentRequestBody()
+        self._query_multi_timeline_department_request_body = (
+            QueryMultiTimelineDepartmentRequestBody()
+        )
 
-    def department_ids(self, department_ids: List[str]) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
-        self._query_multi_timeline_department_request_body.department_ids = department_ids
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
+        self._query_multi_timeline_department_request_body.department_ids = (
+            department_ids
+        )
         return self
 
-    def effective_date_start(self, effective_date_start: str) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
-        self._query_multi_timeline_department_request_body.effective_date_start = effective_date_start
+    def effective_date_start(
+        self, effective_date_start: str
+    ) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
+        self._query_multi_timeline_department_request_body.effective_date_start = (
+            effective_date_start
+        )
         return self
 
-    def effective_date_end(self, effective_date_end: str) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
-        self._query_multi_timeline_department_request_body.effective_date_end = effective_date_end
+    def effective_date_end(
+        self, effective_date_end: str
+    ) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
+        self._query_multi_timeline_department_request_body.effective_date_end = (
+            effective_date_end
+        )
         return self
 
-    def fields(self, fields: List[str]) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
+    def fields(
+        self, fields: List[str]
+    ) -> "QueryMultiTimelineDepartmentRequestBodyBuilder":
         self._query_multi_timeline_department_request_body.fields = fields
         return self
 

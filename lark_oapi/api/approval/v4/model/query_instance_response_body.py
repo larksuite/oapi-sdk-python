@@ -33,7 +33,9 @@ class QueryInstanceResponseBodyBuilder(object):
         self._query_instance_response_body.count = count
         return self
 
-    def instance_list(self, instance_list: List[InstanceSearchItem]) -> "QueryInstanceResponseBodyBuilder":
+    def instance_list(
+        self, instance_list: List[InstanceSearchItem]
+    ) -> "QueryInstanceResponseBodyBuilder":
         self._query_instance_response_body.instance_list = instance_list
         return self
 

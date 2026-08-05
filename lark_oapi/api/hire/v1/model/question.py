@@ -70,11 +70,15 @@ class QuestionBuilder(object):
         self._question.is_required = is_required
         return self
 
-    def select_option_result_list(self, select_option_result_list: List[SelectOptionResult]) -> "QuestionBuilder":
+    def select_option_result_list(
+        self, select_option_result_list: List[SelectOptionResult]
+    ) -> "QuestionBuilder":
         self._question.select_option_result_list = select_option_result_list
         return self
 
-    def five_start_scoring_result(self, five_start_scoring_result: FiveStartScoringResult) -> "QuestionBuilder":
+    def five_start_scoring_result(
+        self, five_start_scoring_result: FiveStartScoringResult
+    ) -> "QuestionBuilder":
         self._question.five_start_scoring_result = five_start_scoring_result
         return self
 

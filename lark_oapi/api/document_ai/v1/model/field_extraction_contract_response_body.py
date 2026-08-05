@@ -40,13 +40,17 @@ class FieldExtractionContractResponseBody(object):
 
 class FieldExtractionContractResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._field_extraction_contract_response_body = FieldExtractionContractResponseBody()
+        self._field_extraction_contract_response_body = (
+            FieldExtractionContractResponseBody()
+        )
 
     def file_id(self, file_id: str) -> "FieldExtractionContractResponseBodyBuilder":
         self._field_extraction_contract_response_body.file_id = file_id
         return self
 
-    def price(self, price: ExtractPrice) -> "FieldExtractionContractResponseBodyBuilder":
+    def price(
+        self, price: ExtractPrice
+    ) -> "FieldExtractionContractResponseBodyBuilder":
         self._field_extraction_contract_response_body.price = price
         return self
 
@@ -58,7 +62,9 @@ class FieldExtractionContractResponseBodyBuilder(object):
         self._field_extraction_contract_response_body.copy = copy
         return self
 
-    def currency(self, currency: ExtractCurrency) -> "FieldExtractionContractResponseBodyBuilder":
+    def currency(
+        self, currency: ExtractCurrency
+    ) -> "FieldExtractionContractResponseBodyBuilder":
         self._field_extraction_contract_response_body.currency = currency
         return self
 
@@ -66,11 +72,15 @@ class FieldExtractionContractResponseBodyBuilder(object):
         self._field_extraction_contract_response_body.header = header
         return self
 
-    def body_info(self, body_info: List[BodyInfo]) -> "FieldExtractionContractResponseBodyBuilder":
+    def body_info(
+        self, body_info: List[BodyInfo]
+    ) -> "FieldExtractionContractResponseBodyBuilder":
         self._field_extraction_contract_response_body.body_info = body_info
         return self
 
-    def bank_info(self, bank_info: List[BankInfo]) -> "FieldExtractionContractResponseBodyBuilder":
+    def bank_info(
+        self, bank_info: List[BankInfo]
+    ) -> "FieldExtractionContractResponseBodyBuilder":
         self._field_extraction_contract_response_body.bank_info = bank_info
         return self
 

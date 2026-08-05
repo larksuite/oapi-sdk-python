@@ -21,11 +21,16 @@ class DeleteExternalApplicationResponseBody(object):
 
 class DeleteExternalApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_external_application_response_body = DeleteExternalApplicationResponseBody()
+        self._delete_external_application_response_body = (
+            DeleteExternalApplicationResponseBody()
+        )
 
-    def external_application(self,
-                             external_application: ExternalApplication) -> "DeleteExternalApplicationResponseBodyBuilder":
-        self._delete_external_application_response_body.external_application = external_application
+    def external_application(
+        self, external_application: ExternalApplication
+    ) -> "DeleteExternalApplicationResponseBodyBuilder":
+        self._delete_external_application_response_body.external_application = (
+            external_application
+        )
         return self
 
     def build(self) -> "DeleteExternalApplicationResponseBody":

@@ -16,7 +16,6 @@ class DeleteSchemaRequest(BaseRequest):
 
 
 class DeleteSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_schema_request = DeleteSchemaRequest()
         delete_schema_request.http_method = HttpMethod.DELETE

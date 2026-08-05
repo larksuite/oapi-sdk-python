@@ -17,7 +17,6 @@ class ListAppRequest(BaseRequest):
 
 
 class ListAppRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_request = ListAppRequest()
         list_app_request.http_method = HttpMethod.GET

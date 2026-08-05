@@ -67,28 +67,41 @@ class InterviewDimensionAssessmentBuilder(object):
         self._interview_dimension_assessment.dimension_id = dimension_id
         return self
 
-    def dimension_score(self, dimension_score: InterviewDimensionScore) -> "InterviewDimensionAssessmentBuilder":
+    def dimension_score(
+        self, dimension_score: InterviewDimensionScore
+    ) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.dimension_score = dimension_score
         return self
 
-    def dimension_score_list(self, dimension_score_list: List[
-        InterviewDimensionScore]) -> "InterviewDimensionAssessmentBuilder":
+    def dimension_score_list(
+        self, dimension_score_list: List[InterviewDimensionScore]
+    ) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.dimension_score_list = dimension_score_list
         return self
 
-    def dimension_custom_score(self, dimension_custom_score: int) -> "InterviewDimensionAssessmentBuilder":
-        self._interview_dimension_assessment.dimension_custom_score = dimension_custom_score
+    def dimension_custom_score(
+        self, dimension_custom_score: int
+    ) -> "InterviewDimensionAssessmentBuilder":
+        self._interview_dimension_assessment.dimension_custom_score = (
+            dimension_custom_score
+        )
         return self
 
-    def ability_list(self, ability_list: List[Ability]) -> "InterviewDimensionAssessmentBuilder":
+    def ability_list(
+        self, ability_list: List[Ability]
+    ) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.ability_list = ability_list
         return self
 
-    def question_list(self, question_list: List[InterviewQuestion]) -> "InterviewDimensionAssessmentBuilder":
+    def question_list(
+        self, question_list: List[InterviewQuestion]
+    ) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.question_list = question_list
         return self
 
-    def dimension_type(self, dimension_type: int) -> "InterviewDimensionAssessmentBuilder":
+    def dimension_type(
+        self, dimension_type: int
+    ) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.dimension_type = dimension_type
         return self
 

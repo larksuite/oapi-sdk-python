@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.generate_caldav_conf_setting_request import GenerateCaldavConfSettingRequest
-from ..model.generate_caldav_conf_setting_response import GenerateCaldavConfSettingResponse
+from ..model.generate_caldav_conf_setting_request import (
+    GenerateCaldavConfSettingRequest,
+)
+from ..model.generate_caldav_conf_setting_response import (
+    GenerateCaldavConfSettingResponse,
+)
 
 
 class Setting(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def generate_caldav_conf(self, request: GenerateCaldavConfSettingRequest,
-                             option: Optional[RequestOption] = None) -> GenerateCaldavConfSettingResponse:
+    def generate_caldav_conf(
+        self,
+        request: GenerateCaldavConfSettingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GenerateCaldavConfSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class Setting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GenerateCaldavConfSettingResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GenerateCaldavConfSettingResponse)
+        response: GenerateCaldavConfSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GenerateCaldavConfSettingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def agenerate_caldav_conf(self, request: GenerateCaldavConfSettingRequest,
-                                    option: Optional[RequestOption] = None) -> GenerateCaldavConfSettingResponse:
+    async def agenerate_caldav_conf(
+        self,
+        request: GenerateCaldavConfSettingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GenerateCaldavConfSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class Setting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GenerateCaldavConfSettingResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GenerateCaldavConfSettingResponse)
+        response: GenerateCaldavConfSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GenerateCaldavConfSettingResponse
+        )
         response.raw = resp
 
         return response

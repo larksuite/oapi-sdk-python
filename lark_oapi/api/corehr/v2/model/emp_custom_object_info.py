@@ -17,7 +17,9 @@ class EmpCustomObjectInfo(object):
         self.system_info: Optional[str] = None
         self.is_timeline: Optional[bool] = None
         self.is_activate: Optional[bool] = None
-        self.employment_custom_object_records: Optional[List[EmploymentCustomObjectRecord]] = None
+        self.employment_custom_object_records: Optional[
+            List[EmploymentCustomObjectRecord]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -41,9 +43,12 @@ class EmpCustomObjectInfoBuilder(object):
         self._emp_custom_object_info.is_activate = is_activate
         return self
 
-    def employment_custom_object_records(self, employment_custom_object_records: List[
-        EmploymentCustomObjectRecord]) -> "EmpCustomObjectInfoBuilder":
-        self._emp_custom_object_info.employment_custom_object_records = employment_custom_object_records
+    def employment_custom_object_records(
+        self, employment_custom_object_records: List[EmploymentCustomObjectRecord]
+    ) -> "EmpCustomObjectInfoBuilder":
+        self._emp_custom_object_info.employment_custom_object_records = (
+            employment_custom_object_records
+        )
         return self
 
     def build(self) -> "EmpCustomObjectInfo":

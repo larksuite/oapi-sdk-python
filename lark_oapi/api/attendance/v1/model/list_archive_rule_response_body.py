@@ -27,7 +27,9 @@ class ListArchiveRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_archive_rule_response_body = ListArchiveRuleResponseBody()
 
-    def items(self, items: List[ArchiveReportMeta]) -> "ListArchiveRuleResponseBodyBuilder":
+    def items(
+        self, items: List[ArchiveReportMeta]
+    ) -> "ListArchiveRuleResponseBodyBuilder":
         self._list_archive_rule_response_body.items = items
         return self
 

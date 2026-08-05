@@ -9,7 +9,6 @@ from .query_timeline_department_response_body import QueryTimelineDepartmentResp
 class QueryTimelineDepartmentResponse(BaseResponse):
     _types = {
         "data": QueryTimelineDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

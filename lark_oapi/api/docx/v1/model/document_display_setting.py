@@ -38,7 +38,9 @@ class DocumentDisplaySettingBuilder(object):
         self._document_display_setting.show_authors = show_authors
         return self
 
-    def show_create_time(self, show_create_time: bool) -> "DocumentDisplaySettingBuilder":
+    def show_create_time(
+        self, show_create_time: bool
+    ) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_create_time = show_create_time
         return self
 
@@ -54,11 +56,15 @@ class DocumentDisplaySettingBuilder(object):
         self._document_display_setting.show_like_count = show_like_count
         return self
 
-    def show_comment_count(self, show_comment_count: bool) -> "DocumentDisplaySettingBuilder":
+    def show_comment_count(
+        self, show_comment_count: bool
+    ) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_comment_count = show_comment_count
         return self
 
-    def show_related_matters(self, show_related_matters: bool) -> "DocumentDisplaySettingBuilder":
+    def show_related_matters(
+        self, show_related_matters: bool
+    ) -> "DocumentDisplaySettingBuilder":
         self._document_display_setting.show_related_matters = show_related_matters
         return self
 

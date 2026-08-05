@@ -18,7 +18,6 @@ class GetApplicationRequest(BaseRequest):
 
 
 class GetApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_application_request = GetApplicationRequest()
         get_application_request.http_method = HttpMethod.GET

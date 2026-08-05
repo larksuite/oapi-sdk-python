@@ -35,7 +35,9 @@ class OfferApplyFormConfigFormulaInfoBuilder(object):
         self._offer_apply_form_config_formula_info.result = result
         return self
 
-    def extra_map(self, extra_map: List[OfferApplyFormFormulaExtraMapInfo]) -> "OfferApplyFormConfigFormulaInfoBuilder":
+    def extra_map(
+        self, extra_map: List[OfferApplyFormFormulaExtraMapInfo]
+    ) -> "OfferApplyFormConfigFormulaInfoBuilder":
         self._offer_apply_form_config_formula_info.extra_map = extra_map
         return self
 

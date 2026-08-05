@@ -35,7 +35,9 @@ class ListMailgroupMemberResponseBodyBuilder(object):
         self._list_mailgroup_member_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[MailgroupMember]) -> "ListMailgroupMemberResponseBodyBuilder":
+    def items(
+        self, items: List[MailgroupMember]
+    ) -> "ListMailgroupMemberResponseBodyBuilder":
         self._list_mailgroup_member_response_body.items = items
         return self
 

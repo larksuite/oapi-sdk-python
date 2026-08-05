@@ -26,21 +26,37 @@ class QueryMultiTimelineCostCenterRequestBody(object):
 
 class QueryMultiTimelineCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_cost_center_request_body = QueryMultiTimelineCostCenterRequestBody()
+        self._query_multi_timeline_cost_center_request_body = (
+            QueryMultiTimelineCostCenterRequestBody()
+        )
 
-    def cost_center_ids(self, cost_center_ids: List[str]) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
-        self._query_multi_timeline_cost_center_request_body.cost_center_ids = cost_center_ids
+    def cost_center_ids(
+        self, cost_center_ids: List[str]
+    ) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
+        self._query_multi_timeline_cost_center_request_body.cost_center_ids = (
+            cost_center_ids
+        )
         return self
 
-    def effective_date_start(self, effective_date_start: str) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
-        self._query_multi_timeline_cost_center_request_body.effective_date_start = effective_date_start
+    def effective_date_start(
+        self, effective_date_start: str
+    ) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
+        self._query_multi_timeline_cost_center_request_body.effective_date_start = (
+            effective_date_start
+        )
         return self
 
-    def effective_date_end(self, effective_date_end: str) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
-        self._query_multi_timeline_cost_center_request_body.effective_date_end = effective_date_end
+    def effective_date_end(
+        self, effective_date_end: str
+    ) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
+        self._query_multi_timeline_cost_center_request_body.effective_date_end = (
+            effective_date_end
+        )
         return self
 
-    def fields(self, fields: List[str]) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
+    def fields(
+        self, fields: List[str]
+    ) -> "QueryMultiTimelineCostCenterRequestBodyBuilder":
         self._query_multi_timeline_cost_center_request_body.fields = fields
         return self
 

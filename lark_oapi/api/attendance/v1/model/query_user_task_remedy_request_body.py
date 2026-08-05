@@ -34,15 +34,21 @@ class QueryUserTaskRemedyRequestBodyBuilder(object):
         self._query_user_task_remedy_request_body.user_ids = user_ids
         return self
 
-    def check_time_from(self, check_time_from: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
+    def check_time_from(
+        self, check_time_from: str
+    ) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_time_from = check_time_from
         return self
 
-    def check_time_to(self, check_time_to: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
+    def check_time_to(
+        self, check_time_to: str
+    ) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_time_to = check_time_to
         return self
 
-    def check_date_type(self, check_date_type: str) -> "QueryUserTaskRemedyRequestBodyBuilder":
+    def check_date_type(
+        self, check_date_type: str
+    ) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.check_date_type = check_date_type
         return self
 

@@ -20,13 +20,19 @@ class ListDocumentBlockRequest(BaseRequest):
 
 
 class ListDocumentBlockRequestBuilder(object):
-
     def __init__(self) -> None:
         list_document_block_request = ListDocumentBlockRequest()
         list_document_block_request.http_method = HttpMethod.GET
-        list_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks"
-        list_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_document_block_request: ListDocumentBlockRequest = list_document_block_request
+        list_document_block_request.uri = (
+            "/open-apis/docx/v1/documents/:document_id/blocks"
+        )
+        list_document_block_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_document_block_request: ListDocumentBlockRequest = (
+            list_document_block_request
+        )
 
     def page_size(self, page_size: int) -> "ListDocumentBlockRequestBuilder":
         self._list_document_block_request.page_size = page_size
@@ -38,9 +44,13 @@ class ListDocumentBlockRequestBuilder(object):
         self._list_document_block_request.add_query("page_token", page_token)
         return self
 
-    def document_revision_id(self, document_revision_id: int) -> "ListDocumentBlockRequestBuilder":
+    def document_revision_id(
+        self, document_revision_id: int
+    ) -> "ListDocumentBlockRequestBuilder":
         self._list_document_block_request.document_revision_id = document_revision_id
-        self._list_document_block_request.add_query("document_revision_id", document_revision_id)
+        self._list_document_block_request.add_query(
+            "document_revision_id", document_revision_id
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListDocumentBlockRequestBuilder":

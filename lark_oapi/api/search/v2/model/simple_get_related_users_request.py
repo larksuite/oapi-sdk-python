@@ -36,11 +36,15 @@ class SimpleGetRelatedUsersRequestBuilder(object):
         self._simple_get_related_users_request.top_k = top_k
         return self
 
-    def start_time_filter(self, start_time_filter: int) -> "SimpleGetRelatedUsersRequestBuilder":
+    def start_time_filter(
+        self, start_time_filter: int
+    ) -> "SimpleGetRelatedUsersRequestBuilder":
         self._simple_get_related_users_request.start_time_filter = start_time_filter
         return self
 
-    def end_time_filter(self, end_time_filter: int) -> "SimpleGetRelatedUsersRequestBuilder":
+    def end_time_filter(
+        self, end_time_filter: int
+    ) -> "SimpleGetRelatedUsersRequestBuilder":
         self._simple_get_related_users_request.end_time_filter = end_time_filter
         return self
 

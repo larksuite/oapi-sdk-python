@@ -79,7 +79,9 @@ class VerifPlanSnapshotBuilder(object):
         self._verif_plan_snapshot.calendar_type = calendar_type
         return self
 
-    def pay_calendars(self, pay_calendars: List[VerifPayCalendar]) -> "VerifPlanSnapshotBuilder":
+    def pay_calendars(
+        self, pay_calendars: List[VerifPayCalendar]
+    ) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.pay_calendars = pay_calendars
         return self
 
@@ -107,7 +109,9 @@ class VerifPlanSnapshotBuilder(object):
         self._verif_plan_snapshot.items = items
         return self
 
-    def data_source_rule(self, data_source_rule: VerifDataSourceRule) -> "VerifPlanSnapshotBuilder":
+    def data_source_rule(
+        self, data_source_rule: VerifDataSourceRule
+    ) -> "VerifPlanSnapshotBuilder":
         self._verif_plan_snapshot.data_source_rule = data_source_rule
         return self
 

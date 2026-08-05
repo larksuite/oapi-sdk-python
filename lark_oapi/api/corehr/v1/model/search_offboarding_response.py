@@ -9,7 +9,6 @@ from .search_offboarding_response_body import SearchOffboardingResponseBody
 class SearchOffboardingResponse(BaseResponse):
     _types = {
         "data": SearchOffboardingResponseBody,
-
     }
 
     def __init__(self, d=None):

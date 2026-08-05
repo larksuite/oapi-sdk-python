@@ -20,9 +20,13 @@ class CreateExternalApprovalResponseBody(object):
 
 class CreateExternalApprovalResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_external_approval_response_body = CreateExternalApprovalResponseBody()
+        self._create_external_approval_response_body = (
+            CreateExternalApprovalResponseBody()
+        )
 
-    def approval_code(self, approval_code: str) -> "CreateExternalApprovalResponseBodyBuilder":
+    def approval_code(
+        self, approval_code: str
+    ) -> "CreateExternalApprovalResponseBodyBuilder":
         self._create_external_approval_response_body.approval_code = approval_code
         return self
 

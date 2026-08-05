@@ -21,7 +21,9 @@ class CreateUserMailboxLabelResponseBody(object):
 
 class CreateUserMailboxLabelResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_user_mailbox_label_response_body = CreateUserMailboxLabelResponseBody()
+        self._create_user_mailbox_label_response_body = (
+            CreateUserMailboxLabelResponseBody()
+        )
 
     def label(self, label: Label) -> "CreateUserMailboxLabelResponseBodyBuilder":
         self._create_user_mailbox_label_response_body.label = label

@@ -16,13 +16,19 @@ class DeleteProgressRecordRequest(BaseRequest):
 
 
 class DeleteProgressRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_progress_record_request = DeleteProgressRecordRequest()
         delete_progress_record_request.http_method = HttpMethod.DELETE
-        delete_progress_record_request.uri = "/open-apis/okr/v1/progress_records/:progress_id"
-        delete_progress_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_progress_record_request: DeleteProgressRecordRequest = delete_progress_record_request
+        delete_progress_record_request.uri = (
+            "/open-apis/okr/v1/progress_records/:progress_id"
+        )
+        delete_progress_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_progress_record_request: DeleteProgressRecordRequest = (
+            delete_progress_record_request
+        )
 
     def progress_id(self, progress_id: int) -> "DeleteProgressRecordRequestBuilder":
         self._delete_progress_record_request.progress_id = progress_id

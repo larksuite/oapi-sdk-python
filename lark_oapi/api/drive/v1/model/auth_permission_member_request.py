@@ -18,13 +18,19 @@ class AuthPermissionMemberRequest(BaseRequest):
 
 
 class AuthPermissionMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         auth_permission_member_request = AuthPermissionMemberRequest()
         auth_permission_member_request.http_method = HttpMethod.GET
-        auth_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/auth"
-        auth_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._auth_permission_member_request: AuthPermissionMemberRequest = auth_permission_member_request
+        auth_permission_member_request.uri = (
+            "/open-apis/drive/v1/permissions/:token/members/auth"
+        )
+        auth_permission_member_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._auth_permission_member_request: AuthPermissionMemberRequest = (
+            auth_permission_member_request
+        )
 
     def type(self, type: str) -> "AuthPermissionMemberRequestBuilder":
         self._auth_permission_member_request.type = type

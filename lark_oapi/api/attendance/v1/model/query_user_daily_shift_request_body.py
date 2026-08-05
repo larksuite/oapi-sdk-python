@@ -30,11 +30,15 @@ class QueryUserDailyShiftRequestBodyBuilder(object):
         self._query_user_daily_shift_request_body.user_ids = user_ids
         return self
 
-    def check_date_from(self, check_date_from: int) -> "QueryUserDailyShiftRequestBodyBuilder":
+    def check_date_from(
+        self, check_date_from: int
+    ) -> "QueryUserDailyShiftRequestBodyBuilder":
         self._query_user_daily_shift_request_body.check_date_from = check_date_from
         return self
 
-    def check_date_to(self, check_date_to: int) -> "QueryUserDailyShiftRequestBodyBuilder":
+    def check_date_to(
+        self, check_date_to: int
+    ) -> "QueryUserDailyShiftRequestBodyBuilder":
         self._query_user_daily_shift_request_body.check_date_to = check_date_to
         return self
 

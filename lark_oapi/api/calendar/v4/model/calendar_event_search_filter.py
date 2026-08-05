@@ -33,23 +33,33 @@ class CalendarEventSearchFilterBuilder(object):
     def __init__(self) -> None:
         self._calendar_event_search_filter = CalendarEventSearchFilter()
 
-    def calendar_ids(self, calendar_ids: List[str]) -> "CalendarEventSearchFilterBuilder":
+    def calendar_ids(
+        self, calendar_ids: List[str]
+    ) -> "CalendarEventSearchFilterBuilder":
         self._calendar_event_search_filter.calendar_ids = calendar_ids
         return self
 
-    def organizer_user_ids(self, organizer_user_ids: List[str]) -> "CalendarEventSearchFilterBuilder":
+    def organizer_user_ids(
+        self, organizer_user_ids: List[str]
+    ) -> "CalendarEventSearchFilterBuilder":
         self._calendar_event_search_filter.organizer_user_ids = organizer_user_ids
         return self
 
-    def attendee_user_ids(self, attendee_user_ids: List[str]) -> "CalendarEventSearchFilterBuilder":
+    def attendee_user_ids(
+        self, attendee_user_ids: List[str]
+    ) -> "CalendarEventSearchFilterBuilder":
         self._calendar_event_search_filter.attendee_user_ids = attendee_user_ids
         return self
 
-    def attendee_chat_ids(self, attendee_chat_ids: List[str]) -> "CalendarEventSearchFilterBuilder":
+    def attendee_chat_ids(
+        self, attendee_chat_ids: List[str]
+    ) -> "CalendarEventSearchFilterBuilder":
         self._calendar_event_search_filter.attendee_chat_ids = attendee_chat_ids
         return self
 
-    def meeting_room_ids(self, meeting_room_ids: List[str]) -> "CalendarEventSearchFilterBuilder":
+    def meeting_room_ids(
+        self, meeting_room_ids: List[str]
+    ) -> "CalendarEventSearchFilterBuilder":
         self._calendar_event_search_filter.meeting_room_ids = meeting_room_ids
         return self
 

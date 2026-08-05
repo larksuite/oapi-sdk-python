@@ -232,7 +232,9 @@ class UserBuilder(object):
         self._user.need_send_notification = need_send_notification
         return self
 
-    def notification_option(self, notification_option: NotificationOption) -> "UserBuilder":
+    def notification_option(
+        self, notification_option: NotificationOption
+    ) -> "UserBuilder":
         self._user.notification_option = notification_option
         return self
 
@@ -264,7 +266,9 @@ class UserBuilder(object):
         self._user.department_path = department_path
         return self
 
-    def dotted_line_leader_user_ids(self, dotted_line_leader_user_ids: List[int]) -> "UserBuilder":
+    def dotted_line_leader_user_ids(
+        self, dotted_line_leader_user_ids: List[int]
+    ) -> "UserBuilder":
         self._user.dotted_line_leader_user_ids = dotted_line_leader_user_ids
         return self
 

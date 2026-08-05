@@ -19,7 +19,6 @@ class ListNoteRequest(BaseRequest):
 
 
 class ListNoteRequestBuilder(object):
-
     def __init__(self) -> None:
         list_note_request = ListNoteRequest()
         list_note_request.http_method = HttpMethod.GET

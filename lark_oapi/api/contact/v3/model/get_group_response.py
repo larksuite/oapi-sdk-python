@@ -9,7 +9,6 @@ from .get_group_response_body import GetGroupResponseBody
 class GetGroupResponse(BaseResponse):
     _types = {
         "data": GetGroupResponseBody,
-
     }
 
     def __init__(self, d=None):

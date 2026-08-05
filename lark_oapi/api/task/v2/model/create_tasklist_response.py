@@ -9,7 +9,6 @@ from .create_tasklist_response_body import CreateTasklistResponseBody
 class CreateTasklistResponse(BaseResponse):
     _types = {
         "data": CreateTasklistResponseBody,
-
     }
 
     def __init__(self, d=None):

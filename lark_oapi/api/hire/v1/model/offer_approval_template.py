@@ -48,7 +48,9 @@ class OfferApprovalTemplateBuilder(object):
         self._offer_approval_template.remark = remark
         return self
 
-    def department_list(self, department_list: List[Department]) -> "OfferApprovalTemplateBuilder":
+    def department_list(
+        self, department_list: List[Department]
+    ) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.department_list = department_list
         return self
 

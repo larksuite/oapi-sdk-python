@@ -45,7 +45,9 @@ class WorkTimeApplyDataBuilder(object):
         self._work_time_apply_data.approval_record_id = approval_record_id
         return self
 
-    def check_details(self, check_details: List[WorkTime]) -> "WorkTimeApplyDataBuilder":
+    def check_details(
+        self, check_details: List[WorkTime]
+    ) -> "WorkTimeApplyDataBuilder":
         self._work_time_apply_data.check_details = check_details
         return self
 

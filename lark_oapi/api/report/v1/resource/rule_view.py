@@ -17,7 +17,9 @@ class RuleView(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def remove(self, request: RemoveRuleViewRequest, option: Optional[RequestOption] = None) -> RemoveRuleViewResponse:
+    def remove(
+        self, request: RemoveRuleViewRequest, option: Optional[RequestOption] = None
+    ) -> RemoveRuleViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class RuleView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveRuleViewResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRuleViewResponse)
+        response: RemoveRuleViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveRuleViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove(self, request: RemoveRuleViewRequest,
-                      option: Optional[RequestOption] = None) -> RemoveRuleViewResponse:
+    async def aremove(
+        self, request: RemoveRuleViewRequest, option: Optional[RequestOption] = None
+    ) -> RemoveRuleViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class RuleView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveRuleViewResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRuleViewResponse)
+        response: RemoveRuleViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveRuleViewResponse
+        )
         response.raw = resp
 
         return response

@@ -17,15 +17,18 @@ class StartServiceTicketRequest(BaseRequest):
 
 
 class StartServiceTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         start_service_ticket_request = StartServiceTicketRequest()
         start_service_ticket_request.http_method = HttpMethod.POST
         start_service_ticket_request.uri = "/open-apis/helpdesk/v1/start_service"
         start_service_ticket_request.token_types = {AccessTokenType.TENANT}
-        self._start_service_ticket_request: StartServiceTicketRequest = start_service_ticket_request
+        self._start_service_ticket_request: StartServiceTicketRequest = (
+            start_service_ticket_request
+        )
 
-    def request_body(self, request_body: StartServiceTicketRequestBody) -> "StartServiceTicketRequestBuilder":
+    def request_body(
+        self, request_body: StartServiceTicketRequestBody
+    ) -> "StartServiceTicketRequestBuilder":
         self._start_service_ticket_request.request_body = request_body
         self._start_service_ticket_request.body = request_body
         return self

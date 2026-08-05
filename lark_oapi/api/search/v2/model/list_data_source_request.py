@@ -18,7 +18,6 @@ class ListDataSourceRequest(BaseRequest):
 
 
 class ListDataSourceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_data_source_request = ListDataSourceRequest()
         list_data_source_request.http_method = HttpMethod.GET

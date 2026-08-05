@@ -15,6 +15,7 @@ class ExportTask(object):
         "file_size": int,
         "job_error_msg": str,
         "job_status": int,
+        "only_schema": bool,
     }
 
     def __init__(self, d=None):
@@ -27,6 +28,7 @@ class ExportTask(object):
         self.file_size: Optional[int] = None
         self.job_error_msg: Optional[str] = None
         self.job_status: Optional[int] = None
+        self.only_schema: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +74,10 @@ class ExportTaskBuilder(object):
 
     def job_status(self, job_status: int) -> "ExportTaskBuilder":
         self._export_task.job_status = job_status
+        return self
+
+    def only_schema(self, only_schema: bool) -> "ExportTaskBuilder":
+        self._export_task.only_schema = only_schema
         return self
 
     def build(self) -> "ExportTask":

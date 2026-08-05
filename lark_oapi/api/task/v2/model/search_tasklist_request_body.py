@@ -29,7 +29,9 @@ class SearchTasklistRequestBodyBuilder(object):
         self._search_tasklist_request_body.query = query
         return self
 
-    def filter(self, filter: TasklistSearchFilter) -> "SearchTasklistRequestBodyBuilder":
+    def filter(
+        self, filter: TasklistSearchFilter
+    ) -> "SearchTasklistRequestBodyBuilder":
         self._search_tasklist_request_body.filter = filter
         return self
 

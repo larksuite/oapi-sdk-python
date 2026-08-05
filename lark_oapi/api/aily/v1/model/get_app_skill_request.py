@@ -17,12 +17,14 @@ class GetAppSkillRequest(BaseRequest):
 
 
 class GetAppSkillRequestBuilder(object):
-
     def __init__(self) -> None:
         get_app_skill_request = GetAppSkillRequest()
         get_app_skill_request.http_method = HttpMethod.GET
         get_app_skill_request.uri = "/open-apis/aily/v1/apps/:app_id/skills/:skill_id"
-        get_app_skill_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        get_app_skill_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._get_app_skill_request: GetAppSkillRequest = get_app_skill_request
 
     def app_id(self, app_id: str) -> "GetAppSkillRequestBuilder":

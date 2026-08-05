@@ -46,7 +46,9 @@ class OfferFileBuilder(object):
         self._offer_file.file_template_type_id = file_template_type_id
         return self
 
-    def file_template_type_name(self, file_template_type_name: str) -> "OfferFileBuilder":
+    def file_template_type_name(
+        self, file_template_type_name: str
+    ) -> "OfferFileBuilder":
         self._offer_file.file_template_type_name = file_template_type_name
         return self
 

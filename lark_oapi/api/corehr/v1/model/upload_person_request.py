@@ -17,7 +17,6 @@ class UploadPersonRequest(BaseRequest):
 
 
 class UploadPersonRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_person_request = UploadPersonRequest()
         upload_person_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class UploadPersonRequestBuilder(object):
         upload_person_request.token_types = {AccessTokenType.TENANT}
         self._upload_person_request: UploadPersonRequest = upload_person_request
 
-    def request_body(self, request_body: UploadPersonRequestBody) -> "UploadPersonRequestBuilder":
+    def request_body(
+        self, request_body: UploadPersonRequestBody
+    ) -> "UploadPersonRequestBuilder":
         self._upload_person_request.request_body = request_body
         self._upload_person_request.body = request_body
         return self

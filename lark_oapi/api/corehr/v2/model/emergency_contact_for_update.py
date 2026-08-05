@@ -46,7 +46,9 @@ class EmergencyContactForUpdateBuilder(object):
         self._emergency_contact_for_update.relationship = relationship
         return self
 
-    def phones(self, phones: List[PhoneForUpdate]) -> "EmergencyContactForUpdateBuilder":
+    def phones(
+        self, phones: List[PhoneForUpdate]
+    ) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.phones = phones
         return self
 
@@ -62,7 +64,9 @@ class EmergencyContactForUpdateBuilder(object):
         self._emergency_contact_for_update.is_primary = is_primary
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmergencyContactForUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.custom_fields = custom_fields
         return self
 

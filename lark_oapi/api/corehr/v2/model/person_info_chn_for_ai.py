@@ -42,7 +42,9 @@ class PersonInfoChnForAiBuilder(object):
         self._person_info_chn_for_ai.hukou_type = hukou_type
         return self
 
-    def political_affiliation(self, political_affiliation: PreHireField) -> "PersonInfoChnForAiBuilder":
+    def political_affiliation(
+        self, political_affiliation: PreHireField
+    ) -> "PersonInfoChnForAiBuilder":
         self._person_info_chn_for_ai.political_affiliation = political_affiliation
         return self
 
@@ -50,7 +52,9 @@ class PersonInfoChnForAiBuilder(object):
         self._person_info_chn_for_ai.hukou_location = hukou_location
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PersonInfoChnForAiBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PersonInfoChnForAiBuilder":
         self._person_info_chn_for_ai.custom_fields = custom_fields
         return self
 

@@ -19,13 +19,16 @@ class PatchCardElementRequest(BaseRequest):
 
 
 class PatchCardElementRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_card_element_request = PatchCardElementRequest()
         patch_card_element_request.http_method = HttpMethod.PATCH
-        patch_card_element_request.uri = "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
+        patch_card_element_request.uri = (
+            "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
+        )
         patch_card_element_request.token_types = {AccessTokenType.TENANT}
-        self._patch_card_element_request: PatchCardElementRequest = patch_card_element_request
+        self._patch_card_element_request: PatchCardElementRequest = (
+            patch_card_element_request
+        )
 
     def card_id(self, card_id: str) -> "PatchCardElementRequestBuilder":
         self._patch_card_element_request.card_id = card_id
@@ -37,7 +40,9 @@ class PatchCardElementRequestBuilder(object):
         self._patch_card_element_request.paths["element_id"] = str(element_id)
         return self
 
-    def request_body(self, request_body: PatchCardElementRequestBody) -> "PatchCardElementRequestBuilder":
+    def request_body(
+        self, request_body: PatchCardElementRequestBody
+    ) -> "PatchCardElementRequestBuilder":
         self._patch_card_element_request.request_body = request_body
         self._patch_card_element_request.body = request_body
         return self

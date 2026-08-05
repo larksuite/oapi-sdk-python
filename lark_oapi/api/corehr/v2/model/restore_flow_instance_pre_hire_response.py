@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .restore_flow_instance_pre_hire_response_body import RestoreFlowInstancePreHireResponseBody
+from .restore_flow_instance_pre_hire_response_body import (
+    RestoreFlowInstancePreHireResponseBody,
+)
 
 
 class RestoreFlowInstancePreHireResponse(BaseResponse):
     _types = {
         "data": RestoreFlowInstancePreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -18,7 +18,6 @@ class UpdateMessageRequest(BaseRequest):
 
 
 class UpdateMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         update_message_request = UpdateMessageRequest()
         update_message_request.http_method = HttpMethod.PUT
@@ -31,7 +30,9 @@ class UpdateMessageRequestBuilder(object):
         self._update_message_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self, request_body: UpdateMessageRequestBody) -> "UpdateMessageRequestBuilder":
+    def request_body(
+        self, request_body: UpdateMessageRequestBody
+    ) -> "UpdateMessageRequestBuilder":
         self._update_message_request.request_body = request_body
         self._update_message_request.body = request_body
         return self

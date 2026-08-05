@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_multi_timeline_company_response_body import QueryMultiTimelineCompanyResponseBody
+from .query_multi_timeline_company_response_body import (
+    QueryMultiTimelineCompanyResponseBody,
+)
 
 
 class QueryMultiTimelineCompanyResponse(BaseResponse):
     _types = {
         "data": QueryMultiTimelineCompanyResponseBody,
-
     }
 
     def __init__(self, d=None):

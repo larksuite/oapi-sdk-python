@@ -56,11 +56,15 @@ class QueryUserStatsDataRequestBodyBuilder(object):
         self._query_user_stats_data_request_body.user_ids = user_ids
         return self
 
-    def need_history(self, need_history: bool) -> "QueryUserStatsDataRequestBodyBuilder":
+    def need_history(
+        self, need_history: bool
+    ) -> "QueryUserStatsDataRequestBodyBuilder":
         self._query_user_stats_data_request_body.need_history = need_history
         return self
 
-    def current_group_only(self, current_group_only: bool) -> "QueryUserStatsDataRequestBodyBuilder":
+    def current_group_only(
+        self, current_group_only: bool
+    ) -> "QueryUserStatsDataRequestBodyBuilder":
         self._query_user_stats_data_request_body.current_group_only = current_group_only
         return self
 

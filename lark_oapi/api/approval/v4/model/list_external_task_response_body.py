@@ -27,7 +27,9 @@ class ListExternalTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_external_task_response_body = ListExternalTaskResponseBody()
 
-    def data(self, data: List[ExternalTaskList]) -> "ListExternalTaskResponseBodyBuilder":
+    def data(
+        self, data: List[ExternalTaskList]
+    ) -> "ListExternalTaskResponseBodyBuilder":
         self._list_external_task_response_body.data = data
         return self
 

@@ -22,13 +22,21 @@ class QuerySocialArchiveAdjustRecordRequestBody(object):
 
 class QuerySocialArchiveAdjustRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_social_archive_adjust_record_request_body = QuerySocialArchiveAdjustRecordRequestBody()
+        self._query_social_archive_adjust_record_request_body = (
+            QuerySocialArchiveAdjustRecordRequestBody()
+        )
 
-    def user_id_list(self, user_id_list: List[str]) -> "QuerySocialArchiveAdjustRecordRequestBodyBuilder":
-        self._query_social_archive_adjust_record_request_body.user_id_list = user_id_list
+    def user_id_list(
+        self, user_id_list: List[str]
+    ) -> "QuerySocialArchiveAdjustRecordRequestBodyBuilder":
+        self._query_social_archive_adjust_record_request_body.user_id_list = (
+            user_id_list
+        )
         return self
 
-    def record_type(self, record_type: str) -> "QuerySocialArchiveAdjustRecordRequestBodyBuilder":
+    def record_type(
+        self, record_type: str
+    ) -> "QuerySocialArchiveAdjustRecordRequestBodyBuilder":
         self._query_social_archive_adjust_record_request_body.record_type = record_type
         return self
 

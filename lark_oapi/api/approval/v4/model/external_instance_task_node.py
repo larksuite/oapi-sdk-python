@@ -100,7 +100,9 @@ class ExternalInstanceTaskNodeBuilder(object):
         self._external_instance_task_node.action_context = action_context
         return self
 
-    def action_configs(self, action_configs: List[ActionConfig]) -> "ExternalInstanceTaskNodeBuilder":
+    def action_configs(
+        self, action_configs: List[ActionConfig]
+    ) -> "ExternalInstanceTaskNodeBuilder":
         self._external_instance_task_node.action_configs = action_configs
         return self
 
@@ -108,7 +110,9 @@ class ExternalInstanceTaskNodeBuilder(object):
         self._external_instance_task_node.display_method = display_method
         return self
 
-    def exclude_statistics(self, exclude_statistics: bool) -> "ExternalInstanceTaskNodeBuilder":
+    def exclude_statistics(
+        self, exclude_statistics: bool
+    ) -> "ExternalInstanceTaskNodeBuilder":
         self._external_instance_task_node.exclude_statistics = exclude_statistics
         return self
 

@@ -42,11 +42,17 @@ class QueryMetricLibRequestBodyBuilder(object):
         self._query_metric_lib_request_body.type_ids = type_ids
         return self
 
-    def range_of_availability(self, range_of_availability: str) -> "QueryMetricLibRequestBodyBuilder":
-        self._query_metric_lib_request_body.range_of_availability = range_of_availability
+    def range_of_availability(
+        self, range_of_availability: str
+    ) -> "QueryMetricLibRequestBodyBuilder":
+        self._query_metric_lib_request_body.range_of_availability = (
+            range_of_availability
+        )
         return self
 
-    def scoring_setting_type(self, scoring_setting_type: str) -> "QueryMetricLibRequestBodyBuilder":
+    def scoring_setting_type(
+        self, scoring_setting_type: str
+    ) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.scoring_setting_type = scoring_setting_type
         return self
 

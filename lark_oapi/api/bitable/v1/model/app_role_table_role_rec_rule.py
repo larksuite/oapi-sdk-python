@@ -27,7 +27,9 @@ class AppRoleTableRoleRecRuleBuilder(object):
     def __init__(self) -> None:
         self._app_role_table_role_rec_rule = AppRoleTableRoleRecRule()
 
-    def conditions(self, conditions: List[AppRoleTableRoleRecRuleCondition]) -> "AppRoleTableRoleRecRuleBuilder":
+    def conditions(
+        self, conditions: List[AppRoleTableRoleRecRuleCondition]
+    ) -> "AppRoleTableRoleRecRuleBuilder":
         self._app_role_table_role_rec_rule.conditions = conditions
         return self
 

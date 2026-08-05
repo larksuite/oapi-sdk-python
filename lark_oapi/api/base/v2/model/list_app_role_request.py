@@ -18,12 +18,14 @@ class ListAppRoleRequest(BaseRequest):
 
 
 class ListAppRoleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_role_request = ListAppRoleRequest()
         list_app_role_request.http_method = HttpMethod.GET
         list_app_role_request.uri = "/open-apis/base/v2/apps/:app_token/roles"
-        list_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_app_role_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_app_role_request: ListAppRoleRequest = list_app_role_request
 
     def page_size(self, page_size: int) -> "ListAppRoleRequestBuilder":

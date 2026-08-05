@@ -16,7 +16,6 @@ class GetFaqRequest(BaseRequest):
 
 
 class GetFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         get_faq_request = GetFaqRequest()
         get_faq_request.http_method = HttpMethod.GET

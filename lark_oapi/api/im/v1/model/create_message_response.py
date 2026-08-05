@@ -9,7 +9,6 @@ from .create_message_response_body import CreateMessageResponseBody
 class CreateMessageResponse(BaseResponse):
     _types = {
         "data": CreateMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

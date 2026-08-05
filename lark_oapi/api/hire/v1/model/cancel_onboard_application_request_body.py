@@ -24,19 +24,32 @@ class CancelOnboardApplicationRequestBody(object):
 
 class CancelOnboardApplicationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._cancel_onboard_application_request_body = CancelOnboardApplicationRequestBody()
+        self._cancel_onboard_application_request_body = (
+            CancelOnboardApplicationRequestBody()
+        )
 
-    def termination_type(self, termination_type: int) -> "CancelOnboardApplicationRequestBodyBuilder":
-        self._cancel_onboard_application_request_body.termination_type = termination_type
+    def termination_type(
+        self, termination_type: int
+    ) -> "CancelOnboardApplicationRequestBodyBuilder":
+        self._cancel_onboard_application_request_body.termination_type = (
+            termination_type
+        )
         return self
 
-    def termination_reason_id_list(self, termination_reason_id_list: List[
-        str]) -> "CancelOnboardApplicationRequestBodyBuilder":
-        self._cancel_onboard_application_request_body.termination_reason_id_list = termination_reason_id_list
+    def termination_reason_id_list(
+        self, termination_reason_id_list: List[str]
+    ) -> "CancelOnboardApplicationRequestBodyBuilder":
+        self._cancel_onboard_application_request_body.termination_reason_id_list = (
+            termination_reason_id_list
+        )
         return self
 
-    def termination_reason_notes(self, termination_reason_notes: str) -> "CancelOnboardApplicationRequestBodyBuilder":
-        self._cancel_onboard_application_request_body.termination_reason_notes = termination_reason_notes
+    def termination_reason_notes(
+        self, termination_reason_notes: str
+    ) -> "CancelOnboardApplicationRequestBodyBuilder":
+        self._cancel_onboard_application_request_body.termination_reason_notes = (
+            termination_reason_notes
+        )
         return self
 
     def build(self) -> "CancelOnboardApplicationRequestBody":

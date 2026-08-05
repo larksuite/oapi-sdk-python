@@ -9,7 +9,6 @@ from .mget_room_level_response_body import MgetRoomLevelResponseBody
 class MgetRoomLevelResponse(BaseResponse):
     _types = {
         "data": MgetRoomLevelResponseBody,
-
     }
 
     def __init__(self, d=None):

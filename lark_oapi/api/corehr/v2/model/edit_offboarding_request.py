@@ -18,20 +18,23 @@ class EditOffboardingRequest(BaseRequest):
 
 
 class EditOffboardingRequestBuilder(object):
-
     def __init__(self) -> None:
         edit_offboarding_request = EditOffboardingRequest()
         edit_offboarding_request.http_method = HttpMethod.POST
         edit_offboarding_request.uri = "/open-apis/corehr/v2/offboardings/edit"
         edit_offboarding_request.token_types = {AccessTokenType.TENANT}
-        self._edit_offboarding_request: EditOffboardingRequest = edit_offboarding_request
+        self._edit_offboarding_request: EditOffboardingRequest = (
+            edit_offboarding_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "EditOffboardingRequestBuilder":
         self._edit_offboarding_request.user_id_type = user_id_type
         self._edit_offboarding_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: EditOffboardingRequestBody) -> "EditOffboardingRequestBuilder":
+    def request_body(
+        self, request_body: EditOffboardingRequestBody
+    ) -> "EditOffboardingRequestBuilder":
         self._edit_offboarding_request.request_body = request_body
         self._edit_offboarding_request.body = request_body
         return self

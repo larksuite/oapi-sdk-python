@@ -73,7 +73,9 @@ class SecurityGroupBuilder(object):
         self._security_group.update_time = update_time
         return self
 
-    def org_truncation(self, org_truncation: List[OrgTruncation]) -> "SecurityGroupBuilder":
+    def org_truncation(
+        self, org_truncation: List[OrgTruncation]
+    ) -> "SecurityGroupBuilder":
         self._security_group.org_truncation = org_truncation
         return self
 

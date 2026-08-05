@@ -59,8 +59,12 @@ class ApplicationEventOwnerBuilder(object):
         self._application_event_owner.owner_id = owner_id
         return self
 
-    def customer_service_account(self, customer_service_account: str) -> "ApplicationEventOwnerBuilder":
-        self._application_event_owner.customer_service_account = customer_service_account
+    def customer_service_account(
+        self, customer_service_account: str
+    ) -> "ApplicationEventOwnerBuilder":
+        self._application_event_owner.customer_service_account = (
+            customer_service_account
+        )
         return self
 
     def build(self) -> "ApplicationEventOwner":

@@ -21,7 +21,6 @@ class QueryPositionRequest(BaseRequest):
 
 
 class QueryPositionRequestBuilder(object):
-
     def __init__(self) -> None:
         query_position_request = QueryPositionRequest()
         query_position_request.http_method = HttpMethod.POST
@@ -29,7 +28,9 @@ class QueryPositionRequestBuilder(object):
         query_position_request.token_types = {AccessTokenType.TENANT}
         self._query_position_request: QueryPositionRequest = query_position_request
 
-    def department_id_type(self, department_id_type: str) -> "QueryPositionRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "QueryPositionRequestBuilder":
         self._query_position_request.department_id_type = department_id_type
         self._query_position_request.add_query("department_id_type", department_id_type)
         return self
@@ -49,7 +50,9 @@ class QueryPositionRequestBuilder(object):
         self._query_position_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: QueryPositionRequestBody) -> "QueryPositionRequestBuilder":
+    def request_body(
+        self, request_body: QueryPositionRequestBody
+    ) -> "QueryPositionRequestBuilder":
         self._query_position_request.request_body = request_body
         self._query_position_request.body = request_body
         return self

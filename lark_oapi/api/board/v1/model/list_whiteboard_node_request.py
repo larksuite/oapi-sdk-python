@@ -17,13 +17,19 @@ class ListWhiteboardNodeRequest(BaseRequest):
 
 
 class ListWhiteboardNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_whiteboard_node_request = ListWhiteboardNodeRequest()
         list_whiteboard_node_request.http_method = HttpMethod.GET
-        list_whiteboard_node_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
-        list_whiteboard_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_whiteboard_node_request: ListWhiteboardNodeRequest = list_whiteboard_node_request
+        list_whiteboard_node_request.uri = (
+            "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
+        )
+        list_whiteboard_node_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_whiteboard_node_request: ListWhiteboardNodeRequest = (
+            list_whiteboard_node_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "ListWhiteboardNodeRequestBuilder":
         self._list_whiteboard_node_request.user_id_type = user_id_type

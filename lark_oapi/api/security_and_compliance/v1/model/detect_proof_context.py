@@ -29,7 +29,9 @@ class DetectProofContextBuilder(object):
         self._detect_proof_context.detect_name = detect_name
         return self
 
-    def proof_contexts(self, proof_contexts: List[ProofContext]) -> "DetectProofContextBuilder":
+    def proof_contexts(
+        self, proof_contexts: List[ProofContext]
+    ) -> "DetectProofContextBuilder":
         self._detect_proof_context.proof_contexts = proof_contexts
         return self
 

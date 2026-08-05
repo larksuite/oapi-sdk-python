@@ -55,52 +55,75 @@ class WebsiteDeliveryResumeBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_resume = WebsiteDeliveryResume()
 
-    def internship_list(self, internship_list: List[WebsiteDeliveryInternship]) -> "WebsiteDeliveryResumeBuilder":
+    def internship_list(
+        self, internship_list: List[WebsiteDeliveryInternship]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.internship_list = internship_list
         return self
 
-    def basic_info(self, basic_info: WebsiteDeliveryBasicInfo) -> "WebsiteDeliveryResumeBuilder":
+    def basic_info(
+        self, basic_info: WebsiteDeliveryBasicInfo
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.basic_info = basic_info
         return self
 
-    def education_list(self, education_list: List[WebsiteDeliveryEducation]) -> "WebsiteDeliveryResumeBuilder":
+    def education_list(
+        self, education_list: List[WebsiteDeliveryEducation]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.education_list = education_list
         return self
 
-    def self_evaluation(self, self_evaluation: WebsiteDeliverySelfEvaluation) -> "WebsiteDeliveryResumeBuilder":
+    def self_evaluation(
+        self, self_evaluation: WebsiteDeliverySelfEvaluation
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.self_evaluation = self_evaluation
         return self
 
-    def career_list(self, career_list: List[WebsiteDeliveryCareer]) -> "WebsiteDeliveryResumeBuilder":
+    def career_list(
+        self, career_list: List[WebsiteDeliveryCareer]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.career_list = career_list
         return self
 
-    def customized_data(self,
-                        customized_data: List[WebsiteDeliveryCustomizedDataParent]) -> "WebsiteDeliveryResumeBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedDataParent]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.customized_data = customized_data
         return self
 
-    def resume_attachment_id(self, resume_attachment_id: str) -> "WebsiteDeliveryResumeBuilder":
+    def resume_attachment_id(
+        self, resume_attachment_id: str
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.resume_attachment_id = resume_attachment_id
         return self
 
-    def sns_list(self, sns_list: List[WebsiteDeliverySns]) -> "WebsiteDeliveryResumeBuilder":
+    def sns_list(
+        self, sns_list: List[WebsiteDeliverySns]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.sns_list = sns_list
         return self
 
-    def works_list(self, works_list: List[WebsiteDeliveryWorks]) -> "WebsiteDeliveryResumeBuilder":
+    def works_list(
+        self, works_list: List[WebsiteDeliveryWorks]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.works_list = works_list
         return self
 
-    def award_list(self, award_list: List[WebsiteDeliveryAward]) -> "WebsiteDeliveryResumeBuilder":
+    def award_list(
+        self, award_list: List[WebsiteDeliveryAward]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.award_list = award_list
         return self
 
-    def project_list(self, project_list: List[WebsiteDeliveryProject]) -> "WebsiteDeliveryResumeBuilder":
+    def project_list(
+        self, project_list: List[WebsiteDeliveryProject]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.project_list = project_list
         return self
 
-    def language_list(self, language_list: List[WebsiteDeliveryLanguage]) -> "WebsiteDeliveryResumeBuilder":
+    def language_list(
+        self, language_list: List[WebsiteDeliveryLanguage]
+    ) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.language_list = language_list
         return self
 

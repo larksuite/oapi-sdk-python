@@ -3,7 +3,6 @@ from .form_content import *
 from .form_field import *
 from .rule import *
 from .task import *
-from .view import *
 from .query_rule_request import *
 from .remove_rule_view_request_body import *
 from .remove_rule_view_request import *

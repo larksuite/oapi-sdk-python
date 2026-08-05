@@ -9,7 +9,6 @@ from .del_employee_custom_org_response_body import DelEmployeeCustomOrgResponseB
 class DelEmployeeCustomOrgResponse(BaseResponse):
     _types = {
         "data": DelEmployeeCustomOrgResponseBody,
-
     }
 
     def __init__(self, d=None):

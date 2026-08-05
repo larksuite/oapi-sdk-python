@@ -21,11 +21,16 @@ class QueryTenantProductAssignInfoResponseBody(object):
 
 class QueryTenantProductAssignInfoResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_tenant_product_assign_info_response_body = QueryTenantProductAssignInfoResponseBody()
+        self._query_tenant_product_assign_info_response_body = (
+            QueryTenantProductAssignInfoResponseBody()
+        )
 
-    def assign_info_list(self,
-                         assign_info_list: List[TenantAssignInfo]) -> "QueryTenantProductAssignInfoResponseBodyBuilder":
-        self._query_tenant_product_assign_info_response_body.assign_info_list = assign_info_list
+    def assign_info_list(
+        self, assign_info_list: List[TenantAssignInfo]
+    ) -> "QueryTenantProductAssignInfoResponseBodyBuilder":
+        self._query_tenant_product_assign_info_response_body.assign_info_list = (
+            assign_info_list
+        )
         return self
 
     def build(self) -> "QueryTenantProductAssignInfoResponseBody":

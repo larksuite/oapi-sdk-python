@@ -33,11 +33,15 @@ class CostCenterParentInfoBuilder(object):
         self._cost_center_parent_info.cost_center_id = cost_center_id
         return self
 
-    def cost_center_name(self, cost_center_name: List[I18n]) -> "CostCenterParentInfoBuilder":
+    def cost_center_name(
+        self, cost_center_name: List[I18n]
+    ) -> "CostCenterParentInfoBuilder":
         self._cost_center_parent_info.cost_center_name = cost_center_name
         return self
 
-    def parent_cost_center_id(self, parent_cost_center_id: str) -> "CostCenterParentInfoBuilder":
+    def parent_cost_center_id(
+        self, parent_cost_center_id: str
+    ) -> "CostCenterParentInfoBuilder":
         self._cost_center_parent_info.parent_cost_center_id = parent_cost_center_id
         return self
 

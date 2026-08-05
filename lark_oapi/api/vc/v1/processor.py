@@ -9,12 +9,15 @@ from .model.p2_vc_meeting_join_meeting_v1 import P2VcMeetingJoinMeetingV1
 from .model.p2_vc_meeting_leave_meeting_v1 import P2VcMeetingLeaveMeetingV1
 from .model.p2_vc_meeting_meeting_ended_v1 import P2VcMeetingMeetingEndedV1
 from .model.p2_vc_meeting_meeting_started_v1 import P2VcMeetingMeetingStartedV1
-from .model.p2_vc_meeting_participant_meeting_ended_v1 import P2VcMeetingParticipantMeetingEndedV1
+from .model.p2_vc_meeting_participant_meeting_ended_v1 import (
+    P2VcMeetingParticipantMeetingEndedV1,
+)
 from .model.p2_vc_meeting_recording_ended_v1 import P2VcMeetingRecordingEndedV1
 from .model.p2_vc_meeting_recording_ready_v1 import P2VcMeetingRecordingReadyV1
 from .model.p2_vc_meeting_recording_started_v1 import P2VcMeetingRecordingStartedV1
 from .model.p2_vc_meeting_share_ended_v1 import P2VcMeetingShareEndedV1
 from .model.p2_vc_meeting_share_started_v1 import P2VcMeetingShareStartedV1
+from .model.p2_vc_note_generated_v1 import P2VcNoteGeneratedV1
 from .model.p2_vc_reserve_config_updated_v1 import P2VcReserveConfigUpdatedV1
 from .model.p2_vc_room_created_v1 import P2VcRoomCreatedV1
 from .model.p2_vc_room_deleted_v1 import P2VcRoomDeletedV1
@@ -24,7 +27,9 @@ from .model.p2_vc_room_level_deleted_v1 import P2VcRoomLevelDeletedV1
 from .model.p2_vc_room_level_updated_v1 import P2VcRoomLevelUpdatedV1
 
 
-class P2VcMeetingAllMeetingEndedV1Processor(IEventProcessor[P2VcMeetingAllMeetingEndedV1]):
+class P2VcMeetingAllMeetingEndedV1Processor(
+    IEventProcessor[P2VcMeetingAllMeetingEndedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingAllMeetingEndedV1], None]):
         self.f = f
 
@@ -35,7 +40,9 @@ class P2VcMeetingAllMeetingEndedV1Processor(IEventProcessor[P2VcMeetingAllMeetin
         self.f(data)
 
 
-class P2VcMeetingAllMeetingStartedV1Processor(IEventProcessor[P2VcMeetingAllMeetingStartedV1]):
+class P2VcMeetingAllMeetingStartedV1Processor(
+    IEventProcessor[P2VcMeetingAllMeetingStartedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingAllMeetingStartedV1], None]):
         self.f = f
 
@@ -79,7 +86,9 @@ class P2VcMeetingMeetingEndedV1Processor(IEventProcessor[P2VcMeetingMeetingEnded
         self.f(data)
 
 
-class P2VcMeetingMeetingStartedV1Processor(IEventProcessor[P2VcMeetingMeetingStartedV1]):
+class P2VcMeetingMeetingStartedV1Processor(
+    IEventProcessor[P2VcMeetingMeetingStartedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingMeetingStartedV1], None]):
         self.f = f
 
@@ -90,7 +99,9 @@ class P2VcMeetingMeetingStartedV1Processor(IEventProcessor[P2VcMeetingMeetingSta
         self.f(data)
 
 
-class P2VcMeetingParticipantMeetingEndedV1Processor(IEventProcessor[P2VcMeetingParticipantMeetingEndedV1]):
+class P2VcMeetingParticipantMeetingEndedV1Processor(
+    IEventProcessor[P2VcMeetingParticipantMeetingEndedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingParticipantMeetingEndedV1], None]):
         self.f = f
 
@@ -101,7 +112,9 @@ class P2VcMeetingParticipantMeetingEndedV1Processor(IEventProcessor[P2VcMeetingP
         self.f(data)
 
 
-class P2VcMeetingRecordingEndedV1Processor(IEventProcessor[P2VcMeetingRecordingEndedV1]):
+class P2VcMeetingRecordingEndedV1Processor(
+    IEventProcessor[P2VcMeetingRecordingEndedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingRecordingEndedV1], None]):
         self.f = f
 
@@ -112,7 +125,9 @@ class P2VcMeetingRecordingEndedV1Processor(IEventProcessor[P2VcMeetingRecordingE
         self.f(data)
 
 
-class P2VcMeetingRecordingReadyV1Processor(IEventProcessor[P2VcMeetingRecordingReadyV1]):
+class P2VcMeetingRecordingReadyV1Processor(
+    IEventProcessor[P2VcMeetingRecordingReadyV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingRecordingReadyV1], None]):
         self.f = f
 
@@ -123,7 +138,9 @@ class P2VcMeetingRecordingReadyV1Processor(IEventProcessor[P2VcMeetingRecordingR
         self.f(data)
 
 
-class P2VcMeetingRecordingStartedV1Processor(IEventProcessor[P2VcMeetingRecordingStartedV1]):
+class P2VcMeetingRecordingStartedV1Processor(
+    IEventProcessor[P2VcMeetingRecordingStartedV1]
+):
     def __init__(self, f: Callable[[P2VcMeetingRecordingStartedV1], None]):
         self.f = f
 
@@ -153,6 +170,17 @@ class P2VcMeetingShareStartedV1Processor(IEventProcessor[P2VcMeetingShareStarted
         return P2VcMeetingShareStartedV1
 
     def do(self, data: P2VcMeetingShareStartedV1) -> None:
+        self.f(data)
+
+
+class P2VcNoteGeneratedV1Processor(IEventProcessor[P2VcNoteGeneratedV1]):
+    def __init__(self, f: Callable[[P2VcNoteGeneratedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcNoteGeneratedV1]:
+        return P2VcNoteGeneratedV1
+
+    def do(self, data: P2VcNoteGeneratedV1) -> None:
         self.f(data)
 
 

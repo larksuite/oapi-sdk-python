@@ -20,7 +20,6 @@ class GetInstanceRequest(BaseRequest):
 
 
 class GetInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         get_instance_request = GetInstanceRequest()
         get_instance_request.http_method = HttpMethod.GET
@@ -43,9 +42,13 @@ class GetInstanceRequestBuilder(object):
         self._get_instance_request.add_query("user_id_type", user_id_type)
         return self
 
-    def nested_mutable_group(self, nested_mutable_group: bool) -> "GetInstanceRequestBuilder":
+    def nested_mutable_group(
+        self, nested_mutable_group: bool
+    ) -> "GetInstanceRequestBuilder":
         self._get_instance_request.nested_mutable_group = nested_mutable_group
-        self._get_instance_request.add_query("nested_mutable_group", nested_mutable_group)
+        self._get_instance_request.add_query(
+            "nested_mutable_group", nested_mutable_group
+        )
         return self
 
     def instance_id(self, instance_id: str) -> "GetInstanceRequestBuilder":

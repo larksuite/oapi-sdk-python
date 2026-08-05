@@ -16,7 +16,6 @@ class GetCurrencyRequest(BaseRequest):
 
 
 class GetCurrencyRequestBuilder(object):
-
     def __init__(self) -> None:
         get_currency_request = GetCurrencyRequest()
         get_currency_request.http_method = HttpMethod.GET

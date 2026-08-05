@@ -15,7 +15,6 @@ class ListRepoRequest(BaseRequest):
 
 
 class ListRepoRequestBuilder(object):
-
     def __init__(self) -> None:
         list_repo_request = ListRepoRequest()
         list_repo_request.http_method = HttpMethod.GET

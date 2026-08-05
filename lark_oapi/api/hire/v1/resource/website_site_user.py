@@ -17,8 +17,11 @@ class WebsiteSiteUser(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateWebsiteSiteUserRequest,
-               option: Optional[RequestOption] = None) -> CreateWebsiteSiteUserResponse:
+    def create(
+        self,
+        request: CreateWebsiteSiteUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWebsiteSiteUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class WebsiteSiteUser(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateWebsiteSiteUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateWebsiteSiteUserResponse)
+        response: CreateWebsiteSiteUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWebsiteSiteUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateWebsiteSiteUserRequest,
-                      option: Optional[RequestOption] = None) -> CreateWebsiteSiteUserResponse:
+    async def acreate(
+        self,
+        request: CreateWebsiteSiteUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWebsiteSiteUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class WebsiteSiteUser(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateWebsiteSiteUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateWebsiteSiteUserResponse)
+        response: CreateWebsiteSiteUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWebsiteSiteUserResponse
+        )
         response.raw = resp
 
         return response

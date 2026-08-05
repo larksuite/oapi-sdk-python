@@ -35,9 +35,12 @@ class ListWebsiteChannelResponseBodyBuilder(object):
         self._list_website_channel_response_body.page_token = page_token
         return self
 
-    def website_channel_list(self,
-                             website_channel_list: List[WebsiteChannelInfo]) -> "ListWebsiteChannelResponseBodyBuilder":
-        self._list_website_channel_response_body.website_channel_list = website_channel_list
+    def website_channel_list(
+        self, website_channel_list: List[WebsiteChannelInfo]
+    ) -> "ListWebsiteChannelResponseBodyBuilder":
+        self._list_website_channel_response_body.website_channel_list = (
+            website_channel_list
+        )
         return self
 
     def build(self) -> "ListWebsiteChannelResponseBody":

@@ -23,8 +23,12 @@ class GetWorkingHoursTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_working_hours_type_response_body = GetWorkingHoursTypeResponseBody()
 
-    def working_hours_type(self, working_hours_type: WorkingHoursType) -> "GetWorkingHoursTypeResponseBodyBuilder":
-        self._get_working_hours_type_response_body.working_hours_type = working_hours_type
+    def working_hours_type(
+        self, working_hours_type: WorkingHoursType
+    ) -> "GetWorkingHoursTypeResponseBodyBuilder":
+        self._get_working_hours_type_response_body.working_hours_type = (
+            working_hours_type
+        )
         return self
 
     def build(self) -> "GetWorkingHoursTypeResponseBody":

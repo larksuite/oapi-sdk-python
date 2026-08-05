@@ -20,7 +20,6 @@ class CreateUserRequest(BaseRequest):
 
 
 class CreateUserRequestBuilder(object):
-
     def __init__(self) -> None:
         create_user_request = CreateUserRequest()
         create_user_request.http_method = HttpMethod.POST

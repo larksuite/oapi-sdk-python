@@ -9,7 +9,6 @@ from .merge_forward_message_response_body import MergeForwardMessageResponseBody
 class MergeForwardMessageResponse(BaseResponse):
     _types = {
         "data": MergeForwardMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

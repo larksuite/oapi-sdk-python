@@ -35,7 +35,9 @@ class WebsiteDeliveryProjectBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_project = WebsiteDeliveryProject()
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryProjectBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.customized_data = customized_data
         return self
 

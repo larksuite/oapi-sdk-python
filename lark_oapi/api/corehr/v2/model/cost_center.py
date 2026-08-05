@@ -50,7 +50,9 @@ class CostCenterBuilder(object):
         self._cost_center.cost_center_id = cost_center_id
         return self
 
-    def cost_center_version_id(self, cost_center_version_id: str) -> "CostCenterBuilder":
+    def cost_center_version_id(
+        self, cost_center_version_id: str
+    ) -> "CostCenterBuilder":
         self._cost_center.cost_center_version_id = cost_center_version_id
         return self
 
@@ -90,7 +92,9 @@ class CostCenterBuilder(object):
         self._cost_center.operation_reason = operation_reason
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CostCenterBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "CostCenterBuilder":
         self._cost_center.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

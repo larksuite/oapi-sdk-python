@@ -18,7 +18,6 @@ class RejectTaskRequest(BaseRequest):
 
 
 class RejectTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         reject_task_request = RejectTaskRequest()
         reject_task_request.http_method = HttpMethod.POST

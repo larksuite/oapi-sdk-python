@@ -40,7 +40,9 @@ class ApplicationOfferOnboardProfileAddress(object):
 
 class ApplicationOfferOnboardProfileAddressBuilder(object):
     def __init__(self) -> None:
-        self._application_offer_onboard_profile_address = ApplicationOfferOnboardProfileAddress()
+        self._application_offer_onboard_profile_address = (
+            ApplicationOfferOnboardProfileAddress()
+        )
 
     def id(self, id: str) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.id = id
@@ -54,27 +56,39 @@ class ApplicationOfferOnboardProfileAddressBuilder(object):
         self._application_offer_onboard_profile_address.en_name = en_name
         return self
 
-    def district(self, district: ApplicationOfferOnboardProfileCity) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def district(
+        self, district: ApplicationOfferOnboardProfileCity
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.district = district
         return self
 
-    def city(self, city: ApplicationOfferOnboardProfileCity) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def city(
+        self, city: ApplicationOfferOnboardProfileCity
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.city = city
         return self
 
-    def state(self, state: ApplicationOfferOnboardProfileCity) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def state(
+        self, state: ApplicationOfferOnboardProfileCity
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.state = state
         return self
 
-    def country(self, country: ApplicationOfferOnboardProfileCity) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def country(
+        self, country: ApplicationOfferOnboardProfileCity
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.country = country
         return self
 
-    def usage_id_list(self, usage_id_list: List[str]) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def usage_id_list(
+        self, usage_id_list: List[str]
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.usage_id_list = usage_id_list
         return self
 
-    def active_status(self, active_status: int) -> "ApplicationOfferOnboardProfileAddressBuilder":
+    def active_status(
+        self, active_status: int
+    ) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.active_status = active_status
         return self
 

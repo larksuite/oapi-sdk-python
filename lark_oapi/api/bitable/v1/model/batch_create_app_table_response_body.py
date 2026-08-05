@@ -22,7 +22,9 @@ class BatchCreateAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_app_table_response_body = BatchCreateAppTableResponseBody()
 
-    def table_ids(self, table_ids: List[str]) -> "BatchCreateAppTableResponseBodyBuilder":
+    def table_ids(
+        self, table_ids: List[str]
+    ) -> "BatchCreateAppTableResponseBodyBuilder":
         self._batch_create_app_table_response_body.table_ids = table_ids
         return self
 

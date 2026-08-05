@@ -16,12 +16,14 @@ class DeleteSectionRequest(BaseRequest):
 
 
 class DeleteSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_section_request = DeleteSectionRequest()
         delete_section_request.http_method = HttpMethod.DELETE
         delete_section_request.uri = "/open-apis/task/v2/sections/:section_guid"
-        delete_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_section_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._delete_section_request: DeleteSectionRequest = delete_section_request
 
     def section_guid(self, section_guid: str) -> "DeleteSectionRequestBuilder":

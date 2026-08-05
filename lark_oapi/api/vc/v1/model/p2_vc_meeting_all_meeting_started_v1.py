@@ -20,9 +20,7 @@ class P2VcMeetingAllMeetingStartedV1Data(object):
 
 
 class P2VcMeetingAllMeetingStartedV1(EventContext):
-    _types = {
-        "event": P2VcMeetingAllMeetingStartedV1Data
-    }
+    _types = {"event": P2VcMeetingAllMeetingStartedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

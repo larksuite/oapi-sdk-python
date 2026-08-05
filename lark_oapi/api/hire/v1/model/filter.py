@@ -51,7 +51,9 @@ class FilterBuilder(object):
         self._filter.range_filter = range_filter
         return self
 
-    def candidate_tag_filter(self, candidate_tag_filter: CandidateTagFilter) -> "FilterBuilder":
+    def candidate_tag_filter(
+        self, candidate_tag_filter: CandidateTagFilter
+    ) -> "FilterBuilder":
         self._filter.candidate_tag_filter = candidate_tag_filter
         return self
 

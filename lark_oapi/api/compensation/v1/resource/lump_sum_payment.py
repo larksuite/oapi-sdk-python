@@ -9,24 +9,43 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_lump_sum_payment_request import BatchCreateLumpSumPaymentRequest
-from ..model.batch_create_lump_sum_payment_response import BatchCreateLumpSumPaymentResponse
-from ..model.batch_remove_lump_sum_payment_request import BatchRemoveLumpSumPaymentRequest
-from ..model.batch_remove_lump_sum_payment_response import BatchRemoveLumpSumPaymentResponse
-from ..model.batch_update_lump_sum_payment_request import BatchUpdateLumpSumPaymentRequest
-from ..model.batch_update_lump_sum_payment_response import BatchUpdateLumpSumPaymentResponse
+from ..model.batch_create_lump_sum_payment_request import (
+    BatchCreateLumpSumPaymentRequest,
+)
+from ..model.batch_create_lump_sum_payment_response import (
+    BatchCreateLumpSumPaymentResponse,
+)
+from ..model.batch_remove_lump_sum_payment_request import (
+    BatchRemoveLumpSumPaymentRequest,
+)
+from ..model.batch_remove_lump_sum_payment_response import (
+    BatchRemoveLumpSumPaymentResponse,
+)
+from ..model.batch_update_lump_sum_payment_request import (
+    BatchUpdateLumpSumPaymentRequest,
+)
+from ..model.batch_update_lump_sum_payment_response import (
+    BatchUpdateLumpSumPaymentResponse,
+)
 from ..model.query_lump_sum_payment_request import QueryLumpSumPaymentRequest
 from ..model.query_lump_sum_payment_response import QueryLumpSumPaymentResponse
-from ..model.query_detail_lump_sum_payment_request import QueryDetailLumpSumPaymentRequest
-from ..model.query_detail_lump_sum_payment_response import QueryDetailLumpSumPaymentResponse
+from ..model.query_detail_lump_sum_payment_request import (
+    QueryDetailLumpSumPaymentRequest,
+)
+from ..model.query_detail_lump_sum_payment_response import (
+    QueryDetailLumpSumPaymentResponse,
+)
 
 
 class LumpSumPayment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateLumpSumPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreateLumpSumPaymentResponse:
+    def batch_create(
+        self,
+        request: BatchCreateLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +60,18 @@ class LumpSumPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchCreateLumpSumPaymentResponse)
+        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create(self, request: BatchCreateLumpSumPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreateLumpSumPaymentResponse:
+    async def abatch_create(
+        self,
+        request: BatchCreateLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +82,18 @@ class LumpSumPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchCreateLumpSumPaymentResponse)
+        response: BatchCreateLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_remove(self, request: BatchRemoveLumpSumPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchRemoveLumpSumPaymentResponse:
+    def batch_remove(
+        self,
+        request: BatchRemoveLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +108,18 @@ class LumpSumPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchRemoveLumpSumPaymentResponse)
+        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_remove(self, request: BatchRemoveLumpSumPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchRemoveLumpSumPaymentResponse:
+    async def abatch_remove(
+        self,
+        request: BatchRemoveLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +130,18 @@ class LumpSumPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchRemoveLumpSumPaymentResponse)
+        response: BatchRemoveLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_update(self, request: BatchUpdateLumpSumPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateLumpSumPaymentResponse:
+    def batch_update(
+        self,
+        request: BatchUpdateLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +156,18 @@ class LumpSumPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchUpdateLumpSumPaymentResponse)
+        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_update(self, request: BatchUpdateLumpSumPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateLumpSumPaymentResponse:
+    async def abatch_update(
+        self,
+        request: BatchUpdateLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +178,18 @@ class LumpSumPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchUpdateLumpSumPaymentResponse)
+        response: BatchUpdateLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryLumpSumPaymentRequest,
-              option: Optional[RequestOption] = None) -> QueryLumpSumPaymentResponse:
+    def query(
+        self,
+        request: QueryLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,13 +204,18 @@ class LumpSumPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLumpSumPaymentResponse)
+        response: QueryLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryLumpSumPaymentRequest,
-                     option: Optional[RequestOption] = None) -> QueryLumpSumPaymentResponse:
+    async def aquery(
+        self,
+        request: QueryLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -178,13 +226,18 @@ class LumpSumPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLumpSumPaymentResponse)
+        response: QueryLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_detail(self, request: QueryDetailLumpSumPaymentRequest,
-                     option: Optional[RequestOption] = None) -> QueryDetailLumpSumPaymentResponse:
+    def query_detail(
+        self,
+        request: QueryDetailLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryDetailLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -199,14 +252,18 @@ class LumpSumPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryDetailLumpSumPaymentResponse)
+        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryDetailLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_detail(self, request: QueryDetailLumpSumPaymentRequest,
-                            option: Optional[RequestOption] = None) -> QueryDetailLumpSumPaymentResponse:
+    async def aquery_detail(
+        self,
+        request: QueryDetailLumpSumPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryDetailLumpSumPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -217,8 +274,9 @@ class LumpSumPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryDetailLumpSumPaymentResponse)
+        response: QueryDetailLumpSumPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryDetailLumpSumPaymentResponse
+        )
         response.raw = resp
 
         return response

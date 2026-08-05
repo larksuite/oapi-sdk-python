@@ -9,7 +9,6 @@ from .recruiter_job_response_body import RecruiterJobResponseBody
 class RecruiterJobResponse(BaseResponse):
     _types = {
         "data": RecruiterJobResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -35,7 +35,9 @@ class ListWorkspaceTableResponseBodyBuilder(object):
         self._list_workspace_table_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[WorkspaceDataTable]) -> "ListWorkspaceTableResponseBodyBuilder":
+    def items(
+        self, items: List[WorkspaceDataTable]
+    ) -> "ListWorkspaceTableResponseBodyBuilder":
         self._list_workspace_table_response_body.items = items
         return self
 

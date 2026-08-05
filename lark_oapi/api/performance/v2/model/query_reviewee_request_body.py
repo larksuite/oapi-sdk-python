@@ -34,7 +34,9 @@ class QueryRevieweeRequestBodyBuilder(object):
         self._query_reviewee_request_body.user_ids = user_ids
         return self
 
-    def activity_ids(self, activity_ids: List[str]) -> "QueryRevieweeRequestBodyBuilder":
+    def activity_ids(
+        self, activity_ids: List[str]
+    ) -> "QueryRevieweeRequestBodyBuilder":
         self._query_reviewee_request_body.activity_ids = activity_ids
         return self
 

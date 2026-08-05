@@ -26,11 +26,15 @@ class VerifSourceConfigBuilder(object):
     def __init__(self) -> None:
         self._verif_source_config = VerifSourceConfig()
 
-    def formula_config(self, formula_config: VerifFieldSourceConfig) -> "VerifSourceConfigBuilder":
+    def formula_config(
+        self, formula_config: VerifFieldSourceConfig
+    ) -> "VerifSourceConfigBuilder":
         self._verif_source_config.formula_config = formula_config
         return self
 
-    def ref_source_config(self, ref_source_config: VerifFieldSourceConfig) -> "VerifSourceConfigBuilder":
+    def ref_source_config(
+        self, ref_source_config: VerifFieldSourceConfig
+    ) -> "VerifSourceConfigBuilder":
         self._verif_source_config.ref_source_config = ref_source_config
         return self
 

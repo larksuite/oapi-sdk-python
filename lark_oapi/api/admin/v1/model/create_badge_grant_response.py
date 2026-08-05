@@ -9,7 +9,6 @@ from .create_badge_grant_response_body import CreateBadgeGrantResponseBody
 class CreateBadgeGrantResponse(BaseResponse):
     _types = {
         "data": CreateBadgeGrantResponseBody,
-
     }
 
     def __init__(self, d=None):

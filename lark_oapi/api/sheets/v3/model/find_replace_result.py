@@ -30,7 +30,9 @@ class FindReplaceResultBuilder(object):
         self._find_replace_result.matched_cells = matched_cells
         return self
 
-    def matched_formula_cells(self, matched_formula_cells: List[str]) -> "FindReplaceResultBuilder":
+    def matched_formula_cells(
+        self, matched_formula_cells: List[str]
+    ) -> "FindReplaceResultBuilder":
         self._find_replace_result.matched_formula_cells = matched_formula_cells
         return self
 

@@ -25,8 +25,9 @@ class AppDataAsset(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppDataAssetRequest,
-               option: Optional[RequestOption] = None) -> CreateAppDataAssetResponse:
+    def create(
+        self, request: CreateAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +42,16 @@ class AppDataAsset(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppDataAssetResponse)
+        response: CreateAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppDataAssetRequest,
-                      option: Optional[RequestOption] = None) -> CreateAppDataAssetResponse:
+    async def acreate(
+        self, request: CreateAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +62,16 @@ class AppDataAsset(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppDataAssetResponse)
+        response: CreateAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteAppDataAssetRequest,
-               option: Optional[RequestOption] = None) -> DeleteAppDataAssetResponse:
+    def delete(
+        self, request: DeleteAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +86,16 @@ class AppDataAsset(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppDataAssetResponse)
+        response: DeleteAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteAppDataAssetRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAppDataAssetResponse:
+    async def adelete(
+        self, request: DeleteAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,12 +106,16 @@ class AppDataAsset(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppDataAssetResponse)
+        response: DeleteAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetAppDataAssetRequest, option: Optional[RequestOption] = None) -> GetAppDataAssetResponse:
+    def get(
+        self, request: GetAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> GetAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,13 +130,16 @@ class AppDataAsset(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppDataAssetResponse)
+        response: GetAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAppDataAssetRequest,
-                   option: Optional[RequestOption] = None) -> GetAppDataAssetResponse:
+    async def aget(
+        self, request: GetAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> GetAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,13 +150,16 @@ class AppDataAsset(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppDataAssetResponse)
+        response: GetAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAppDataAssetRequest,
-             option: Optional[RequestOption] = None) -> ListAppDataAssetResponse:
+    def list(
+        self, request: ListAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> ListAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,13 +174,16 @@ class AppDataAsset(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDataAssetResponse)
+        response: ListAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppDataAssetRequest,
-                    option: Optional[RequestOption] = None) -> ListAppDataAssetResponse:
+    async def alist(
+        self, request: ListAppDataAssetRequest, option: Optional[RequestOption] = None
+    ) -> ListAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,13 +194,18 @@ class AppDataAsset(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDataAssetResponse)
+        response: ListAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload_file(self, request: UploadFileAppDataAssetRequest,
-                    option: Optional[RequestOption] = None) -> UploadFileAppDataAssetResponse:
+    def upload_file(
+        self,
+        request: UploadFileAppDataAssetRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadFileAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,14 +222,18 @@ class AppDataAsset(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadFileAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UploadFileAppDataAssetResponse)
+        response: UploadFileAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadFileAppDataAssetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload_file(self, request: UploadFileAppDataAssetRequest,
-                           option: Optional[RequestOption] = None) -> UploadFileAppDataAssetResponse:
+    async def aupload_file(
+        self,
+        request: UploadFileAppDataAssetRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadFileAppDataAssetResponse:
         if option is None:
             option = RequestOption()
 
@@ -215,8 +247,9 @@ class AppDataAsset(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadFileAppDataAssetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UploadFileAppDataAssetResponse)
+        response: UploadFileAppDataAssetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadFileAppDataAssetResponse
+        )
         response.raw = resp
 
         return response

@@ -11,6 +11,7 @@ from .list_accessed_file import *
 from .list_edited_file import *
 from .list_owned_file import *
 from .my_like import *
+from .perm_type import *
 from .permission_public import *
 from .quota_config import *
 from .quota_detail import *

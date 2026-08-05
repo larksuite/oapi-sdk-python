@@ -51,11 +51,15 @@ class TalentSchemaObjectBuilder(object):
         self._talent_schema_object.name = name
         return self
 
-    def option_list(self, option_list: List[TalentSchemaOption]) -> "TalentSchemaObjectBuilder":
+    def option_list(
+        self, option_list: List[TalentSchemaOption]
+    ) -> "TalentSchemaObjectBuilder":
         self._talent_schema_object.option_list = option_list
         return self
 
-    def children(self, children: List[TalentSchemaChildObject]) -> "TalentSchemaObjectBuilder":
+    def children(
+        self, children: List[TalentSchemaChildObject]
+    ) -> "TalentSchemaObjectBuilder":
         self._talent_schema_object.children = children
         return self
 

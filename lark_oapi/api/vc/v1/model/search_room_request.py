@@ -18,7 +18,6 @@ class SearchRoomRequest(BaseRequest):
 
 
 class SearchRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         search_room_request = SearchRoomRequest()
         search_room_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class SearchRoomRequestBuilder(object):
         self._search_room_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchRoomRequestBody) -> "SearchRoomRequestBuilder":
+    def request_body(
+        self, request_body: SearchRoomRequestBody
+    ) -> "SearchRoomRequestBuilder":
         self._search_room_request.request_body = request_body
         self._search_room_request.body = request_body
         return self

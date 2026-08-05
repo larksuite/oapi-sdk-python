@@ -49,7 +49,9 @@ class CalculateParamBuilder(object):
         self._calculate_param.work_location_id = work_location_id
         return self
 
-    def social_security_city_id(self, social_security_city_id: str) -> "CalculateParamBuilder":
+    def social_security_city_id(
+        self, social_security_city_id: str
+    ) -> "CalculateParamBuilder":
         self._calculate_param.social_security_city_id = social_security_city_id
         return self
 
@@ -65,7 +67,9 @@ class CalculateParamBuilder(object):
         self._calculate_param.job_id = job_id
         return self
 
-    def matching_rule_dimension(self, matching_rule_dimension: List[DimensionValue]) -> "CalculateParamBuilder":
+    def matching_rule_dimension(
+        self, matching_rule_dimension: List[DimensionValue]
+    ) -> "CalculateParamBuilder":
         self._calculate_param.matching_rule_dimension = matching_rule_dimension
         return self
 

@@ -20,9 +20,13 @@ class UpdatePermissionPublicPasswordResponseBody(object):
 
 class UpdatePermissionPublicPasswordResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_permission_public_password_response_body = UpdatePermissionPublicPasswordResponseBody()
+        self._update_permission_public_password_response_body = (
+            UpdatePermissionPublicPasswordResponseBody()
+        )
 
-    def password(self, password: str) -> "UpdatePermissionPublicPasswordResponseBodyBuilder":
+    def password(
+        self, password: str
+    ) -> "UpdatePermissionPublicPasswordResponseBodyBuilder":
         self._update_permission_public_password_response_body.password = password
         return self
 

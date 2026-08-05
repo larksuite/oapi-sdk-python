@@ -9,7 +9,6 @@ from .list_offer_response_body import ListOfferResponseBody
 class ListOfferResponse(BaseResponse):
     _types = {
         "data": ListOfferResponseBody,
-
     }
 
     def __init__(self, d=None):

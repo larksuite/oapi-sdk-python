@@ -54,11 +54,15 @@ class ApprovalGroupBuilder(object):
         self._approval_group.process_id = process_id
         return self
 
-    def approval_group_status(self, approval_group_status: str) -> "ApprovalGroupBuilder":
+    def approval_group_status(
+        self, approval_group_status: str
+    ) -> "ApprovalGroupBuilder":
         self._approval_group.approval_group_status = approval_group_status
         return self
 
-    def approval_group_status_v2(self, approval_group_status_v2: int) -> "ApprovalGroupBuilder":
+    def approval_group_status_v2(
+        self, approval_group_status_v2: int
+    ) -> "ApprovalGroupBuilder":
         self._approval_group.approval_group_status_v2 = approval_group_status_v2
         return self
 
@@ -86,7 +90,9 @@ class ApprovalGroupBuilder(object):
         self._approval_group.draft_status = draft_status
         return self
 
-    def department_changes(self, department_changes: List[str]) -> "ApprovalGroupBuilder":
+    def department_changes(
+        self, department_changes: List[str]
+    ) -> "ApprovalGroupBuilder":
         self._approval_group.department_changes = department_changes
         return self
 

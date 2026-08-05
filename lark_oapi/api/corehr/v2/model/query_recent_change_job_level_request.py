@@ -19,11 +19,12 @@ class QueryRecentChangeJobLevelRequest(BaseRequest):
 
 
 class QueryRecentChangeJobLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         query_recent_change_job_level_request = QueryRecentChangeJobLevelRequest()
         query_recent_change_job_level_request.http_method = HttpMethod.GET
-        query_recent_change_job_level_request.uri = "/open-apis/corehr/v2/job_levels/query_recent_change"
+        query_recent_change_job_level_request.uri = (
+            "/open-apis/corehr/v2/job_levels/query_recent_change"
+        )
         query_recent_change_job_level_request.token_types = {AccessTokenType.TENANT}
         self._query_recent_change_job_level_request: QueryRecentChangeJobLevelRequest = query_recent_change_job_level_request
 

@@ -40,7 +40,9 @@ class OperationPermissionAccessBuilder(object):
         self._operation_permission_access.operation_type = operation_type
         return self
 
-    def display_name(self, display_name: Dict[str, str]) -> "OperationPermissionAccessBuilder":
+    def display_name(
+        self, display_name: Dict[str, str]
+    ) -> "OperationPermissionAccessBuilder":
         self._operation_permission_access.display_name = display_name
         return self
 

@@ -18,13 +18,17 @@ class ListClassificationRequest(BaseRequest):
 
 
 class ListClassificationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_classification_request = ListClassificationRequest()
         list_classification_request.http_method = HttpMethod.GET
         list_classification_request.uri = "/open-apis/lingo/v1/classifications"
-        list_classification_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_classification_request: ListClassificationRequest = list_classification_request
+        list_classification_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_classification_request: ListClassificationRequest = (
+            list_classification_request
+        )
 
     def page_size(self, page_size: int) -> "ListClassificationRequestBuilder":
         self._list_classification_request.page_size = page_size

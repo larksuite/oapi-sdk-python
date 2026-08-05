@@ -19,13 +19,16 @@ class UpdateWebsiteChannelRequest(BaseRequest):
 
 
 class UpdateWebsiteChannelRequestBuilder(object):
-
     def __init__(self) -> None:
         update_website_channel_request = UpdateWebsiteChannelRequest()
         update_website_channel_request.http_method = HttpMethod.PUT
-        update_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels/:channel_id"
+        update_website_channel_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/channels/:channel_id"
+        )
         update_website_channel_request.token_types = {AccessTokenType.TENANT}
-        self._update_website_channel_request: UpdateWebsiteChannelRequest = update_website_channel_request
+        self._update_website_channel_request: UpdateWebsiteChannelRequest = (
+            update_website_channel_request
+        )
 
     def website_id(self, website_id: str) -> "UpdateWebsiteChannelRequestBuilder":
         self._update_website_channel_request.website_id = website_id
@@ -37,7 +40,9 @@ class UpdateWebsiteChannelRequestBuilder(object):
         self._update_website_channel_request.paths["channel_id"] = str(channel_id)
         return self
 
-    def request_body(self, request_body: UpdateWebsiteChannelRequestBody) -> "UpdateWebsiteChannelRequestBuilder":
+    def request_body(
+        self, request_body: UpdateWebsiteChannelRequestBody
+    ) -> "UpdateWebsiteChannelRequestBuilder":
         self._update_website_channel_request.request_body = request_body
         self._update_website_channel_request.body = request_body
         return self

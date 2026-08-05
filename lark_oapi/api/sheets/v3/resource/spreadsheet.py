@@ -21,8 +21,9 @@ class Spreadsheet(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateSpreadsheetRequest,
-               option: Optional[RequestOption] = None) -> CreateSpreadsheetResponse:
+    def create(
+        self, request: CreateSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +38,16 @@ class Spreadsheet(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetResponse)
+        response: CreateSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpreadsheetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateSpreadsheetRequest,
-                      option: Optional[RequestOption] = None) -> CreateSpreadsheetResponse:
+    async def acreate(
+        self, request: CreateSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,12 +58,16 @@ class Spreadsheet(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetResponse)
+        response: CreateSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpreadsheetResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetSpreadsheetRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetResponse:
+    def get(
+        self, request: GetSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> GetSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -74,13 +82,16 @@ class Spreadsheet(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetResponse)
+        response: GetSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSpreadsheetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetSpreadsheetRequest,
-                   option: Optional[RequestOption] = None) -> GetSpreadsheetResponse:
+    async def aget(
+        self, request: GetSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> GetSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,13 +102,16 @@ class Spreadsheet(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetResponse)
+        response: GetSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSpreadsheetResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchSpreadsheetRequest,
-              option: Optional[RequestOption] = None) -> PatchSpreadsheetResponse:
+    def patch(
+        self, request: PatchSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> PatchSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,13 +126,16 @@ class Spreadsheet(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSpreadsheetResponse)
+        response: PatchSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSpreadsheetResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchSpreadsheetRequest,
-                     option: Optional[RequestOption] = None) -> PatchSpreadsheetResponse:
+    async def apatch(
+        self, request: PatchSpreadsheetRequest, option: Optional[RequestOption] = None
+    ) -> PatchSpreadsheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,7 +146,9 @@ class Spreadsheet(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchSpreadsheetResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSpreadsheetResponse)
+        response: PatchSpreadsheetResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSpreadsheetResponse
+        )
         response.raw = resp
 
         return response

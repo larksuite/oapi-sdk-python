@@ -17,13 +17,19 @@ class GetProgressRecordRequest(BaseRequest):
 
 
 class GetProgressRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         get_progress_record_request = GetProgressRecordRequest()
         get_progress_record_request.http_method = HttpMethod.GET
-        get_progress_record_request.uri = "/open-apis/okr/v1/progress_records/:progress_id"
-        get_progress_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_progress_record_request: GetProgressRecordRequest = get_progress_record_request
+        get_progress_record_request.uri = (
+            "/open-apis/okr/v1/progress_records/:progress_id"
+        )
+        get_progress_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_progress_record_request: GetProgressRecordRequest = (
+            get_progress_record_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetProgressRecordRequestBuilder":
         self._get_progress_record_request.user_id_type = user_id_type

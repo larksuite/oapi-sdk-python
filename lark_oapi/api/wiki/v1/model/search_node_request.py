@@ -19,7 +19,6 @@ class SearchNodeRequest(BaseRequest):
 
 
 class SearchNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         search_node_request = SearchNodeRequest()
         search_node_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class SearchNodeRequestBuilder(object):
         self._search_node_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: SearchNodeRequestBody) -> "SearchNodeRequestBuilder":
+    def request_body(
+        self, request_body: SearchNodeRequestBody
+    ) -> "SearchNodeRequestBuilder":
         self._search_node_request.request_body = request_body
         self._search_node_request.body = request_body
         return self

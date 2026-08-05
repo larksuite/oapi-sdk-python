@@ -9,7 +9,6 @@ from .query_user_task_remedy_response_body import QueryUserTaskRemedyResponseBod
 class QueryUserTaskRemedyResponse(BaseResponse):
     _types = {
         "data": QueryUserTaskRemedyResponseBody,
-
     }
 
     def __init__(self, d=None):

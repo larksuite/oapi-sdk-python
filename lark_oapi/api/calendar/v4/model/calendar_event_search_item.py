@@ -35,7 +35,9 @@ class CalendarEventSearchItemBuilder(object):
         self._calendar_event_search_item.display_info = display_info
         return self
 
-    def meta_data(self, meta_data: CalendarEventSearchMeta) -> "CalendarEventSearchItemBuilder":
+    def meta_data(
+        self, meta_data: CalendarEventSearchMeta
+    ) -> "CalendarEventSearchItemBuilder":
         self._calendar_event_search_item.meta_data = meta_data
         return self
 

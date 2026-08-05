@@ -22,9 +22,7 @@ class P2HireApplicationStageChangedV1Data(object):
 
 
 class P2HireApplicationStageChangedV1(EventContext):
-    _types = {
-        "event": P2HireApplicationStageChangedV1Data
-    }
+    _types = {"event": P2HireApplicationStageChangedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

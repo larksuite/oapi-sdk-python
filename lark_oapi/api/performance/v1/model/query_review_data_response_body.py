@@ -41,19 +41,27 @@ class QueryReviewDataResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_data_response_body = QueryReviewDataResponseBody()
 
-    def semesters(self, semesters: List[Semester]) -> "QueryReviewDataResponseBodyBuilder":
+    def semesters(
+        self, semesters: List[Semester]
+    ) -> "QueryReviewDataResponseBodyBuilder":
         self._query_review_data_response_body.semesters = semesters
         return self
 
-    def activities(self, activities: List[Activity]) -> "QueryReviewDataResponseBodyBuilder":
+    def activities(
+        self, activities: List[Activity]
+    ) -> "QueryReviewDataResponseBodyBuilder":
         self._query_review_data_response_body.activities = activities
         return self
 
-    def indicators(self, indicators: List[Indicator]) -> "QueryReviewDataResponseBodyBuilder":
+    def indicators(
+        self, indicators: List[Indicator]
+    ) -> "QueryReviewDataResponseBodyBuilder":
         self._query_review_data_response_body.indicators = indicators
         return self
 
-    def templates(self, templates: List[Template]) -> "QueryReviewDataResponseBodyBuilder":
+    def templates(
+        self, templates: List[Template]
+    ) -> "QueryReviewDataResponseBodyBuilder":
         self._query_review_data_response_body.templates = templates
         return self
 

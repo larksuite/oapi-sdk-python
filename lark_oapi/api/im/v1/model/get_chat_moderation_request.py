@@ -19,13 +19,17 @@ class GetChatModerationRequest(BaseRequest):
 
 
 class GetChatModerationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_chat_moderation_request = GetChatModerationRequest()
         get_chat_moderation_request.http_method = HttpMethod.GET
         get_chat_moderation_request.uri = "/open-apis/im/v1/chats/:chat_id/moderation"
-        get_chat_moderation_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_chat_moderation_request: GetChatModerationRequest = get_chat_moderation_request
+        get_chat_moderation_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_chat_moderation_request: GetChatModerationRequest = (
+            get_chat_moderation_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetChatModerationRequestBuilder":
         self._get_chat_moderation_request.user_id_type = user_id_type

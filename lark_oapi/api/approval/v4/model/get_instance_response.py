@@ -9,7 +9,6 @@ from .get_instance_response_body import GetInstanceResponseBody
 class GetInstanceResponse(BaseResponse):
     _types = {
         "data": GetInstanceResponseBody,
-
     }
 
     def __init__(self, d=None):

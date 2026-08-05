@@ -24,15 +24,19 @@ class DownloadUrlUserMailboxTemplateAttachmentResponseBody(object):
 
 class DownloadUrlUserMailboxTemplateAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._download_url_user_mailbox_template_attachment_response_body = DownloadUrlUserMailboxTemplateAttachmentResponseBody()
+        self._download_url_user_mailbox_template_attachment_response_body = (
+            DownloadUrlUserMailboxTemplateAttachmentResponseBody()
+        )
 
-    def download_urls(self, download_urls: List[
-        AttachmentDownloadUrlItem]) -> "DownloadUrlUserMailboxTemplateAttachmentResponseBodyBuilder":
+    def download_urls(
+        self, download_urls: List[AttachmentDownloadUrlItem]
+    ) -> "DownloadUrlUserMailboxTemplateAttachmentResponseBodyBuilder":
         self._download_url_user_mailbox_template_attachment_response_body.download_urls = download_urls
         return self
 
-    def failed_reasons(self, failed_reasons: List[
-        AttachmentDownloadFailedReason]) -> "DownloadUrlUserMailboxTemplateAttachmentResponseBodyBuilder":
+    def failed_reasons(
+        self, failed_reasons: List[AttachmentDownloadFailedReason]
+    ) -> "DownloadUrlUserMailboxTemplateAttachmentResponseBodyBuilder":
         self._download_url_user_mailbox_template_attachment_response_body.failed_reasons = failed_reasons
         return self
 

@@ -32,12 +32,20 @@ class CheckFailedAccountInfoBuilder(object):
         self._check_failed_account_info.account_id = account_id
         return self
 
-    def total_withdraw_reward_info(self, total_withdraw_reward_info: BonusAmount) -> "CheckFailedAccountInfoBuilder":
-        self._check_failed_account_info.total_withdraw_reward_info = total_withdraw_reward_info
+    def total_withdraw_reward_info(
+        self, total_withdraw_reward_info: BonusAmount
+    ) -> "CheckFailedAccountInfoBuilder":
+        self._check_failed_account_info.total_withdraw_reward_info = (
+            total_withdraw_reward_info
+        )
         return self
 
-    def total_recharge_reward_info(self, total_recharge_reward_info: BonusAmount) -> "CheckFailedAccountInfoBuilder":
-        self._check_failed_account_info.total_recharge_reward_info = total_recharge_reward_info
+    def total_recharge_reward_info(
+        self, total_recharge_reward_info: BonusAmount
+    ) -> "CheckFailedAccountInfoBuilder":
+        self._check_failed_account_info.total_recharge_reward_info = (
+            total_recharge_reward_info
+        )
         return self
 
     def build(self) -> "CheckFailedAccountInfo":

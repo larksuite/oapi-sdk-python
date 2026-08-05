@@ -20,13 +20,19 @@ class ListMessageReactionRequest(BaseRequest):
 
 
 class ListMessageReactionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_message_reaction_request = ListMessageReactionRequest()
         list_message_reaction_request.http_method = HttpMethod.GET
-        list_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions"
-        list_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_message_reaction_request: ListMessageReactionRequest = list_message_reaction_request
+        list_message_reaction_request.uri = (
+            "/open-apis/im/v1/messages/:message_id/reactions"
+        )
+        list_message_reaction_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_message_reaction_request: ListMessageReactionRequest = (
+            list_message_reaction_request
+        )
 
     def reaction_type(self, reaction_type: str) -> "ListMessageReactionRequestBuilder":
         self._list_message_reaction_request.reaction_type = reaction_type

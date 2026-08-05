@@ -21,9 +21,13 @@ class UpdateAppFeedCardBatchRequestBody(object):
 
 class UpdateAppFeedCardBatchRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_app_feed_card_batch_request_body = UpdateAppFeedCardBatchRequestBody()
+        self._update_app_feed_card_batch_request_body = (
+            UpdateAppFeedCardBatchRequestBody()
+        )
 
-    def feed_cards(self, feed_cards: List[UserOpenAppFeedCardUpdater]) -> "UpdateAppFeedCardBatchRequestBodyBuilder":
+    def feed_cards(
+        self, feed_cards: List[UserOpenAppFeedCardUpdater]
+    ) -> "UpdateAppFeedCardBatchRequestBodyBuilder":
         self._update_app_feed_card_batch_request_body.feed_cards = feed_cards
         return self
 

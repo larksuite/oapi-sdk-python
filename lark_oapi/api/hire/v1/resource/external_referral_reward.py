@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_external_referral_reward_request import CreateExternalReferralRewardRequest
-from ..model.create_external_referral_reward_response import CreateExternalReferralRewardResponse
-from ..model.delete_external_referral_reward_request import DeleteExternalReferralRewardRequest
-from ..model.delete_external_referral_reward_response import DeleteExternalReferralRewardResponse
+from ..model.create_external_referral_reward_request import (
+    CreateExternalReferralRewardRequest,
+)
+from ..model.create_external_referral_reward_response import (
+    CreateExternalReferralRewardResponse,
+)
+from ..model.delete_external_referral_reward_request import (
+    DeleteExternalReferralRewardRequest,
+)
+from ..model.delete_external_referral_reward_response import (
+    DeleteExternalReferralRewardResponse,
+)
 
 
 class ExternalReferralReward(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExternalReferralRewardRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
+    def create(
+        self,
+        request: CreateExternalReferralRewardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class ExternalReferralReward(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateExternalReferralRewardResponse)
+        response: CreateExternalReferralRewardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalReferralRewardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateExternalReferralRewardRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
+    async def acreate(
+        self,
+        request: CreateExternalReferralRewardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class ExternalReferralReward(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateExternalReferralRewardResponse)
+        response: CreateExternalReferralRewardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalReferralRewardResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteExternalReferralRewardRequest,
-               option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
+    def delete(
+        self,
+        request: DeleteExternalReferralRewardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class ExternalReferralReward(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteExternalReferralRewardResponse)
+        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteExternalReferralRewardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteExternalReferralRewardRequest,
-                      option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
+    async def adelete(
+        self,
+        request: DeleteExternalReferralRewardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class ExternalReferralReward(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteExternalReferralRewardResponse)
+        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteExternalReferralRewardResponse
+        )
         response.raw = resp
 
         return response

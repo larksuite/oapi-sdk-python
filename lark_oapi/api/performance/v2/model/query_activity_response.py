@@ -9,7 +9,6 @@ from .query_activity_response_body import QueryActivityResponseBody
 class QueryActivityResponse(BaseResponse):
     _types = {
         "data": QueryActivityResponseBody,
-
     }
 
     def __init__(self, d=None):

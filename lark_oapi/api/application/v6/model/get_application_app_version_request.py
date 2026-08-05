@@ -19,22 +19,29 @@ class GetApplicationAppVersionRequest(BaseRequest):
 
 
 class GetApplicationAppVersionRequestBuilder(object):
-
     def __init__(self) -> None:
         get_application_app_version_request = GetApplicationAppVersionRequest()
         get_application_app_version_request.http_method = HttpMethod.GET
-        get_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
+        get_application_app_version_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
+        )
         get_application_app_version_request.token_types = {AccessTokenType.TENANT}
-        self._get_application_app_version_request: GetApplicationAppVersionRequest = get_application_app_version_request
+        self._get_application_app_version_request: GetApplicationAppVersionRequest = (
+            get_application_app_version_request
+        )
 
     def lang(self, lang: str) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.lang = lang
         self._get_application_app_version_request.add_query("lang", lang)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "GetApplicationAppVersionRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.user_id_type = user_id_type
-        self._get_application_app_version_request.add_query("user_id_type", user_id_type)
+        self._get_application_app_version_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "GetApplicationAppVersionRequestBuilder":

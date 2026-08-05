@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .withdraw_onboarding_pre_hire_request_body import WithdrawOnboardingPreHireRequestBody
+from .withdraw_onboarding_pre_hire_request_body import (
+    WithdrawOnboardingPreHireRequestBody,
+)
 
 
 class WithdrawOnboardingPreHireRequest(BaseRequest):
@@ -17,16 +19,20 @@ class WithdrawOnboardingPreHireRequest(BaseRequest):
 
 
 class WithdrawOnboardingPreHireRequestBuilder(object):
-
     def __init__(self) -> None:
         withdraw_onboarding_pre_hire_request = WithdrawOnboardingPreHireRequest()
         withdraw_onboarding_pre_hire_request.http_method = HttpMethod.POST
-        withdraw_onboarding_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
+        withdraw_onboarding_pre_hire_request.uri = (
+            "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
+        )
         withdraw_onboarding_pre_hire_request.token_types = {AccessTokenType.TENANT}
-        self._withdraw_onboarding_pre_hire_request: WithdrawOnboardingPreHireRequest = withdraw_onboarding_pre_hire_request
+        self._withdraw_onboarding_pre_hire_request: WithdrawOnboardingPreHireRequest = (
+            withdraw_onboarding_pre_hire_request
+        )
 
-    def request_body(self,
-                     request_body: WithdrawOnboardingPreHireRequestBody) -> "WithdrawOnboardingPreHireRequestBuilder":
+    def request_body(
+        self, request_body: WithdrawOnboardingPreHireRequestBody
+    ) -> "WithdrawOnboardingPreHireRequestBuilder":
         self._withdraw_onboarding_pre_hire_request.request_body = request_body
         self._withdraw_onboarding_pre_hire_request.body = request_body
         return self

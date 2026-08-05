@@ -28,11 +28,15 @@ class ChatGroupUserTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._chat_group_user_task_request_body = ChatGroupUserTaskRequestBody()
 
-    def operator_user_id(self, operator_user_id: str) -> "ChatGroupUserTaskRequestBodyBuilder":
+    def operator_user_id(
+        self, operator_user_id: str
+    ) -> "ChatGroupUserTaskRequestBodyBuilder":
         self._chat_group_user_task_request_body.operator_user_id = operator_user_id
         return self
 
-    def invite_user_ids(self, invite_user_ids: List[str]) -> "ChatGroupUserTaskRequestBodyBuilder":
+    def invite_user_ids(
+        self, invite_user_ids: List[str]
+    ) -> "ChatGroupUserTaskRequestBodyBuilder":
         self._chat_group_user_task_request_body.invite_user_ids = invite_user_ids
         return self
 

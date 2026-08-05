@@ -24,7 +24,9 @@ class SiteResumeIdentificationBuilder(object):
     def __init__(self) -> None:
         self._site_resume_identification = SiteResumeIdentification()
 
-    def identification_type(self, identification_type: str) -> "SiteResumeIdentificationBuilder":
+    def identification_type(
+        self, identification_type: str
+    ) -> "SiteResumeIdentificationBuilder":
         self._site_resume_identification.identification_type = identification_type
         return self
 

@@ -120,7 +120,9 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.mobile = mobile
         return self
 
-    def custom_employee_id(self, custom_employee_id: str) -> "CreateResignedEmployeeBuilder":
+    def custom_employee_id(
+        self, custom_employee_id: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.custom_employee_id = custom_employee_id
         return self
 
@@ -140,15 +142,21 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.gender = gender
         return self
 
-    def residential_address(self, residential_address: str) -> "CreateResignedEmployeeBuilder":
+    def residential_address(
+        self, residential_address: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.residential_address = residential_address
         return self
 
-    def contact_addresses(self, contact_addresses: List[ContactAddress]) -> "CreateResignedEmployeeBuilder":
+    def contact_addresses(
+        self, contact_addresses: List[ContactAddress]
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.contact_addresses = contact_addresses
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "CreateResignedEmployeeBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.department_ids = department_ids
         return self
 
@@ -156,11 +164,15 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.leader_id = leader_id
         return self
 
-    def dotted_line_leader_ids(self, dotted_line_leader_ids: List[str]) -> "CreateResignedEmployeeBuilder":
+    def dotted_line_leader_ids(
+        self, dotted_line_leader_ids: List[str]
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.dotted_line_leader_ids = dotted_line_leader_ids
         return self
 
-    def work_country_or_region(self, work_country_or_region: str) -> "CreateResignedEmployeeBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.work_country_or_region = work_country_or_region
         return self
 
@@ -208,11 +220,15 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.first_join_date = first_join_date
         return self
 
-    def probation_period(self, probation_period: str) -> "CreateResignedEmployeeBuilder":
+    def probation_period(
+        self, probation_period: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.probation_period = probation_period
         return self
 
-    def regularization_date(self, regularization_date: str) -> "CreateResignedEmployeeBuilder":
+    def regularization_date(
+        self, regularization_date: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.regularization_date = regularization_date
         return self
 
@@ -220,7 +236,9 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.convert_status = convert_status
         return self
 
-    def contract_subject(self, contract_subject: str) -> "CreateResignedEmployeeBuilder":
+    def contract_subject(
+        self, contract_subject: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.contract_subject = contract_subject
         return self
 
@@ -240,11 +258,15 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.resign_type = resign_type
         return self
 
-    def cancelled_entry_type(self, cancelled_entry_type: str) -> "CreateResignedEmployeeBuilder":
+    def cancelled_entry_type(
+        self, cancelled_entry_type: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.cancelled_entry_type = cancelled_entry_type
         return self
 
-    def cancelled_entry_remark(self, cancelled_entry_remark: str) -> "CreateResignedEmployeeBuilder":
+    def cancelled_entry_remark(
+        self, cancelled_entry_remark: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.cancelled_entry_remark = cancelled_entry_remark
         return self
 
@@ -272,19 +294,27 @@ class CreateResignedEmployeeBuilder(object):
         self._create_resigned_employee.politics_status = politics_status
         return self
 
-    def registered_residence_type(self, registered_residence_type: str) -> "CreateResignedEmployeeBuilder":
-        self._create_resigned_employee.registered_residence_type = registered_residence_type
+    def registered_residence_type(
+        self, registered_residence_type: str
+    ) -> "CreateResignedEmployeeBuilder":
+        self._create_resigned_employee.registered_residence_type = (
+            registered_residence_type
+        )
         return self
 
     def location(self, location: str) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.location = location
         return self
 
-    def social_security_number(self, social_security_number: str) -> "CreateResignedEmployeeBuilder":
+    def social_security_number(
+        self, social_security_number: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.social_security_number = social_security_number
         return self
 
-    def provident_fund_number(self, provident_fund_number: str) -> "CreateResignedEmployeeBuilder":
+    def provident_fund_number(
+        self, provident_fund_number: str
+    ) -> "CreateResignedEmployeeBuilder":
         self._create_resigned_employee.provident_fund_number = provident_fund_number
         return self
 

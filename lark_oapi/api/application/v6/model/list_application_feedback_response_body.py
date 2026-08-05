@@ -25,9 +25,13 @@ class ListApplicationFeedbackResponseBody(object):
 
 class ListApplicationFeedbackResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_application_feedback_response_body = ListApplicationFeedbackResponseBody()
+        self._list_application_feedback_response_body = (
+            ListApplicationFeedbackResponseBody()
+        )
 
-    def feedback_list(self, feedback_list: List[ApplicationFeedback]) -> "ListApplicationFeedbackResponseBodyBuilder":
+    def feedback_list(
+        self, feedback_list: List[ApplicationFeedback]
+    ) -> "ListApplicationFeedbackResponseBodyBuilder":
         self._list_application_feedback_response_body.feedback_list = feedback_list
         return self
 
@@ -35,7 +39,9 @@ class ListApplicationFeedbackResponseBodyBuilder(object):
         self._list_application_feedback_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListApplicationFeedbackResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListApplicationFeedbackResponseBodyBuilder":
         self._list_application_feedback_response_body.page_token = page_token
         return self
 

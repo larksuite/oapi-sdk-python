@@ -50,7 +50,9 @@ class ApprovalInstanceBuilder(object):
         self._approval_instance.initiator = initiator
         return self
 
-    def instance_start_time(self, instance_start_time: str) -> "ApprovalInstanceBuilder":
+    def instance_start_time(
+        self, instance_start_time: str
+    ) -> "ApprovalInstanceBuilder":
         self._approval_instance.instance_start_time = instance_start_time
         return self
 

@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .signature_custom_field_value_multilingual_value import SignatureCustomFieldValueMultilingualValue
+from .signature_custom_field_value_multilingual_value import (
+    SignatureCustomFieldValueMultilingualValue,
+)
 
 
 class SignatureCustomFieldValue(object):
@@ -13,7 +15,9 @@ class SignatureCustomFieldValue(object):
 
     def __init__(self, d=None):
         self.text_value: Optional[str] = None
-        self.multilingual_value: Optional[SignatureCustomFieldValueMultilingualValue] = None
+        self.multilingual_value: Optional[
+            SignatureCustomFieldValueMultilingualValue
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,8 +33,9 @@ class SignatureCustomFieldValueBuilder(object):
         self._signature_custom_field_value.text_value = text_value
         return self
 
-    def multilingual_value(self,
-                           multilingual_value: SignatureCustomFieldValueMultilingualValue) -> "SignatureCustomFieldValueBuilder":
+    def multilingual_value(
+        self, multilingual_value: SignatureCustomFieldValueMultilingualValue
+    ) -> "SignatureCustomFieldValueBuilder":
         self._signature_custom_field_value.multilingual_value = multilingual_value
         return self
 

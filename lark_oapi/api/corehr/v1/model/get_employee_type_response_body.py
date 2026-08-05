@@ -23,7 +23,9 @@ class GetEmployeeTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_employee_type_response_body = GetEmployeeTypeResponseBody()
 
-    def employee_type(self, employee_type: EmployeeType) -> "GetEmployeeTypeResponseBodyBuilder":
+    def employee_type(
+        self, employee_type: EmployeeType
+    ) -> "GetEmployeeTypeResponseBodyBuilder":
         self._get_employee_type_response_body.employee_type = employee_type
         return self
 

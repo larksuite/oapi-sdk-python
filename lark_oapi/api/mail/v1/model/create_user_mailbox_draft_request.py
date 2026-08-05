@@ -18,20 +18,29 @@ class CreateUserMailboxDraftRequest(BaseRequest):
 
 
 class CreateUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         create_user_mailbox_draft_request = CreateUserMailboxDraftRequest()
         create_user_mailbox_draft_request.http_method = HttpMethod.POST
-        create_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts"
+        create_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts"
+        )
         create_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._create_user_mailbox_draft_request: CreateUserMailboxDraftRequest = create_user_mailbox_draft_request
+        self._create_user_mailbox_draft_request: CreateUserMailboxDraftRequest = (
+            create_user_mailbox_draft_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "CreateUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "CreateUserMailboxDraftRequestBuilder":
         self._create_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._create_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._create_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self, request_body: CreateUserMailboxDraftRequestBody) -> "CreateUserMailboxDraftRequestBuilder":
+    def request_body(
+        self, request_body: CreateUserMailboxDraftRequestBody
+    ) -> "CreateUserMailboxDraftRequestBuilder":
         self._create_user_mailbox_draft_request.request_body = request_body
         self._create_user_mailbox_draft_request.body = request_body
         return self

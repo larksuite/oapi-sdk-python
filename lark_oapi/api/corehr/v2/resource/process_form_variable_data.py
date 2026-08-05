@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_process_form_variable_data_request import GetProcessFormVariableDataRequest
-from ..model.get_process_form_variable_data_response import GetProcessFormVariableDataResponse
+from ..model.get_process_form_variable_data_request import (
+    GetProcessFormVariableDataRequest,
+)
+from ..model.get_process_form_variable_data_response import (
+    GetProcessFormVariableDataResponse,
+)
 
 
 class ProcessFormVariableData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetProcessFormVariableDataRequest,
-            option: Optional[RequestOption] = None) -> GetProcessFormVariableDataResponse:
+    def get(
+        self,
+        request: GetProcessFormVariableDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetProcessFormVariableDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ProcessFormVariableData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetProcessFormVariableDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetProcessFormVariableDataResponse)
+        response: GetProcessFormVariableDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProcessFormVariableDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetProcessFormVariableDataRequest,
-                   option: Optional[RequestOption] = None) -> GetProcessFormVariableDataResponse:
+    async def aget(
+        self,
+        request: GetProcessFormVariableDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetProcessFormVariableDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ProcessFormVariableData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetProcessFormVariableDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetProcessFormVariableDataResponse)
+        response: GetProcessFormVariableDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProcessFormVariableDataResponse
+        )
         response.raw = resp
 
         return response

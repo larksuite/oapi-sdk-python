@@ -17,7 +17,9 @@ class Website(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListWebsiteRequest, option: Optional[RequestOption] = None) -> ListWebsiteResponse:
+    def list(
+        self, request: ListWebsiteRequest, option: Optional[RequestOption] = None
+    ) -> ListWebsiteResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Website(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWebsiteResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteResponse)
+        response: ListWebsiteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWebsiteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWebsiteRequest, option: Optional[RequestOption] = None) -> ListWebsiteResponse:
+    async def alist(
+        self, request: ListWebsiteRequest, option: Optional[RequestOption] = None
+    ) -> ListWebsiteResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Website(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWebsiteResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteResponse)
+        response: ListWebsiteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWebsiteResponse
+        )
         response.raw = resp
 
         return response

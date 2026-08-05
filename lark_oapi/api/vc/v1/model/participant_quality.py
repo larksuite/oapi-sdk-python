@@ -47,7 +47,9 @@ class ParticipantQualityBuilder(object):
         self._participant_quality.video = video
         return self
 
-    def screen_sharing(self, screen_sharing: QualityVideoSharing) -> "ParticipantQualityBuilder":
+    def screen_sharing(
+        self, screen_sharing: QualityVideoSharing
+    ) -> "ParticipantQualityBuilder":
         self._participant_quality.screen_sharing = screen_sharing
         return self
 

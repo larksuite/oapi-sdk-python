@@ -42,13 +42,18 @@ class EmploymentCostAllocationBuilder(object):
         self._employment_cost_allocation.effective_time = effective_time
         return self
 
-    def expiration_time(self, expiration_time: str) -> "EmploymentCostAllocationBuilder":
+    def expiration_time(
+        self, expiration_time: str
+    ) -> "EmploymentCostAllocationBuilder":
         self._employment_cost_allocation.expiration_time = expiration_time
         return self
 
-    def job_data_cost_center_id(self,
-                                job_data_cost_center_id: List[JobDataCostCenter]) -> "EmploymentCostAllocationBuilder":
-        self._employment_cost_allocation.job_data_cost_center_id = job_data_cost_center_id
+    def job_data_cost_center_id(
+        self, job_data_cost_center_id: List[JobDataCostCenter]
+    ) -> "EmploymentCostAllocationBuilder":
+        self._employment_cost_allocation.job_data_cost_center_id = (
+            job_data_cost_center_id
+        )
         return self
 
     def job_data_id(self, job_data_id: JobDataId) -> "EmploymentCostAllocationBuilder":

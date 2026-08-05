@@ -29,7 +29,9 @@ class SignatureCustomFieldV2Builder(object):
         self._signature_custom_field_v2.key = key
         return self
 
-    def value(self, value: SignatureCustomFieldValue) -> "SignatureCustomFieldV2Builder":
+    def value(
+        self, value: SignatureCustomFieldValue
+    ) -> "SignatureCustomFieldV2Builder":
         self._signature_custom_field_v2.value = value
         return self
 

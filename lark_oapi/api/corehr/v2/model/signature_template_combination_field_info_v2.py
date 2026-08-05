@@ -25,9 +25,13 @@ class SignatureTemplateCombinationFieldInfoV2(object):
 
 class SignatureTemplateCombinationFieldInfoV2Builder(object):
     def __init__(self) -> None:
-        self._signature_template_combination_field_info_v2 = SignatureTemplateCombinationFieldInfoV2()
+        self._signature_template_combination_field_info_v2 = (
+            SignatureTemplateCombinationFieldInfoV2()
+        )
 
-    def total_apiname(self, total_apiname: str) -> "SignatureTemplateCombinationFieldInfoV2Builder":
+    def total_apiname(
+        self, total_apiname: str
+    ) -> "SignatureTemplateCombinationFieldInfoV2Builder":
         self._signature_template_combination_field_info_v2.total_apiname = total_apiname
         return self
 

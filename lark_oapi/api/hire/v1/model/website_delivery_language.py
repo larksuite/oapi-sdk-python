@@ -27,7 +27,9 @@ class WebsiteDeliveryLanguageBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_language = WebsiteDeliveryLanguage()
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryLanguageBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryLanguageBuilder":
         self._website_delivery_language.customized_data = customized_data
         return self
 

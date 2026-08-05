@@ -17,6 +17,7 @@ class ListMessageRequest(BaseRequest):
         self.page_token: Optional[str] = None
         self.card_msg_content_type: Optional[str] = None
         self.only_thread_root_messages: Optional[bool] = None
+        self.with_sender_name: Optional[bool] = None
 
     @staticmethod
     def builder() -> "ListMessageRequestBuilder":
@@ -24,12 +25,14 @@ class ListMessageRequest(BaseRequest):
 
 
 class ListMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         list_message_request = ListMessageRequest()
         list_message_request.http_method = HttpMethod.GET
         list_message_request.uri = "/open-apis/im/v1/messages"
-        list_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_message_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_message_request: ListMessageRequest = list_message_request
 
     def container_id_type(self, container_id_type: str) -> "ListMessageRequestBuilder":
@@ -67,14 +70,27 @@ class ListMessageRequestBuilder(object):
         self._list_message_request.add_query("page_token", page_token)
         return self
 
-    def card_msg_content_type(self, card_msg_content_type: str) -> "ListMessageRequestBuilder":
+    def card_msg_content_type(
+        self, card_msg_content_type: str
+    ) -> "ListMessageRequestBuilder":
         self._list_message_request.card_msg_content_type = card_msg_content_type
-        self._list_message_request.add_query("card_msg_content_type", card_msg_content_type)
+        self._list_message_request.add_query(
+            "card_msg_content_type", card_msg_content_type
+        )
         return self
 
-    def only_thread_root_messages(self, only_thread_root_messages: bool) -> "ListMessageRequestBuilder":
+    def only_thread_root_messages(
+        self, only_thread_root_messages: bool
+    ) -> "ListMessageRequestBuilder":
         self._list_message_request.only_thread_root_messages = only_thread_root_messages
-        self._list_message_request.add_query("only_thread_root_messages", only_thread_root_messages)
+        self._list_message_request.add_query(
+            "only_thread_root_messages", only_thread_root_messages
+        )
+        return self
+
+    def with_sender_name(self, with_sender_name: bool) -> "ListMessageRequestBuilder":
+        self._list_message_request.with_sender_name = with_sender_name
+        self._list_message_request.add_query("with_sender_name", with_sender_name)
         return self
 
     def build(self) -> ListMessageRequest:

@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .eco_background_check_create_event_mobile import EcoBackgroundCheckCreateEventMobile
+from .eco_background_check_create_event_mobile import (
+    EcoBackgroundCheckCreateEventMobile,
+)
 
 
 class EcoBackgroundCheckCreateEventCandidateInfo(object):
@@ -29,14 +31,17 @@ class EcoBackgroundCheckCreateEventCandidateInfo(object):
 
 class EcoBackgroundCheckCreateEventCandidateInfoBuilder(object):
     def __init__(self) -> None:
-        self._eco_background_check_create_event_candidate_info = EcoBackgroundCheckCreateEventCandidateInfo()
+        self._eco_background_check_create_event_candidate_info = (
+            EcoBackgroundCheckCreateEventCandidateInfo()
+        )
 
     def name(self, name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.name = name
         return self
 
-    def mobile(self,
-               mobile: EcoBackgroundCheckCreateEventMobile) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+    def mobile(
+        self, mobile: EcoBackgroundCheckCreateEventMobile
+    ) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.mobile = mobile
         return self
 
@@ -44,11 +49,15 @@ class EcoBackgroundCheckCreateEventCandidateInfoBuilder(object):
         self._eco_background_check_create_event_candidate_info.email = email
         return self
 
-    def first_name(self, first_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+    def first_name(
+        self, first_name: str
+    ) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.first_name = first_name
         return self
 
-    def last_name(self, last_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+    def last_name(
+        self, last_name: str
+    ) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.last_name = last_name
         return self
 

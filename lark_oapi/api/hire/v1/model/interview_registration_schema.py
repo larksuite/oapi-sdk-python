@@ -37,11 +37,15 @@ class InterviewRegistrationSchemaBuilder(object):
         self._interview_registration_schema.name = name
         return self
 
-    def is_used_as_interview(self, is_used_as_interview: bool) -> "InterviewRegistrationSchemaBuilder":
+    def is_used_as_interview(
+        self, is_used_as_interview: bool
+    ) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.is_used_as_interview = is_used_as_interview
         return self
 
-    def object_list(self, object_list: List[CommonSchema]) -> "InterviewRegistrationSchemaBuilder":
+    def object_list(
+        self, object_list: List[CommonSchema]
+    ) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.object_list = object_list
         return self
 

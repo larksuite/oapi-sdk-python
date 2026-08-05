@@ -52,7 +52,9 @@ class CollaborationTenantBuilder(object):
         self._collaboration_tenant.tenant_name = tenant_name
         return self
 
-    def i18n_tenant_name(self, i18n_tenant_name: I18nName) -> "CollaborationTenantBuilder":
+    def i18n_tenant_name(
+        self, i18n_tenant_name: I18nName
+    ) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.i18n_tenant_name = i18n_tenant_name
         return self
 
@@ -60,7 +62,9 @@ class CollaborationTenantBuilder(object):
         self._collaboration_tenant.tenant_short_name = tenant_short_name
         return self
 
-    def i18n_tenant_short_name(self, i18n_tenant_short_name: I18nName) -> "CollaborationTenantBuilder":
+    def i18n_tenant_short_name(
+        self, i18n_tenant_short_name: I18nName
+    ) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.i18n_tenant_short_name = i18n_tenant_short_name
         return self
 
@@ -72,7 +76,9 @@ class CollaborationTenantBuilder(object):
         self._collaboration_tenant.tenant_tag = tenant_tag
         return self
 
-    def i18n_tenant_tag(self, i18n_tenant_tag: I18nName) -> "CollaborationTenantBuilder":
+    def i18n_tenant_tag(
+        self, i18n_tenant_tag: I18nName
+    ) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.i18n_tenant_tag = i18n_tenant_tag
         return self
 

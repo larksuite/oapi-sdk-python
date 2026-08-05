@@ -9,7 +9,6 @@ from .list_external_application_response_body import ListExternalApplicationResp
 class ListExternalApplicationResponse(BaseResponse):
     _types = {
         "data": ListExternalApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

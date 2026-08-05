@@ -17,8 +17,11 @@ class BusinessCard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeBusinessCardRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeBusinessCardResponse:
+    def recognize(
+        self,
+        request: RecognizeBusinessCardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeBusinessCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class BusinessCard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeBusinessCardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 RecognizeBusinessCardResponse)
+        response: RecognizeBusinessCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeBusinessCardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeBusinessCardRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeBusinessCardResponse:
+    async def arecognize(
+        self,
+        request: RecognizeBusinessCardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeBusinessCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class BusinessCard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeBusinessCardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 RecognizeBusinessCardResponse)
+        response: RecognizeBusinessCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeBusinessCardResponse
+        )
         response.raw = resp
 
         return response

@@ -20,22 +20,29 @@ class ListMailgroupMemberRequest(BaseRequest):
 
 
 class ListMailgroupMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         list_mailgroup_member_request = ListMailgroupMemberRequest()
         list_mailgroup_member_request.http_method = HttpMethod.GET
-        list_mailgroup_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/members"
+        list_mailgroup_member_request.uri = (
+            "/open-apis/mail/v1/mailgroups/:mailgroup_id/members"
+        )
         list_mailgroup_member_request.token_types = {AccessTokenType.TENANT}
-        self._list_mailgroup_member_request: ListMailgroupMemberRequest = list_mailgroup_member_request
+        self._list_mailgroup_member_request: ListMailgroupMemberRequest = (
+            list_mailgroup_member_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "ListMailgroupMemberRequestBuilder":
         self._list_mailgroup_member_request.user_id_type = user_id_type
         self._list_mailgroup_member_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListMailgroupMemberRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListMailgroupMemberRequestBuilder":
         self._list_mailgroup_member_request.department_id_type = department_id_type
-        self._list_mailgroup_member_request.add_query("department_id_type", department_id_type)
+        self._list_mailgroup_member_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def page_token(self, page_token: str) -> "ListMailgroupMemberRequestBuilder":

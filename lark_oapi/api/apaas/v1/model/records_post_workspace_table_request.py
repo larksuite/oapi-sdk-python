@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .records_post_workspace_table_request_body import RecordsPostWorkspaceTableRequestBody
+from .records_post_workspace_table_request_body import (
+    RecordsPostWorkspaceTableRequestBody,
+)
 
 
 class RecordsPostWorkspaceTableRequest(BaseRequest):
@@ -21,27 +23,36 @@ class RecordsPostWorkspaceTableRequest(BaseRequest):
 
 
 class RecordsPostWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         records_post_workspace_table_request = RecordsPostWorkspaceTableRequest()
         records_post_workspace_table_request.http_method = HttpMethod.POST
-        records_post_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        records_post_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        )
         records_post_workspace_table_request.token_types = {AccessTokenType.USER}
-        self._records_post_workspace_table_request: RecordsPostWorkspaceTableRequest = records_post_workspace_table_request
+        self._records_post_workspace_table_request: RecordsPostWorkspaceTableRequest = (
+            records_post_workspace_table_request
+        )
 
     def columns(self, columns: str) -> "RecordsPostWorkspaceTableRequestBuilder":
         self._records_post_workspace_table_request.columns = columns
         self._records_post_workspace_table_request.add_query("columns", columns)
         return self
 
-    def on_conflict(self, on_conflict: str) -> "RecordsPostWorkspaceTableRequestBuilder":
+    def on_conflict(
+        self, on_conflict: str
+    ) -> "RecordsPostWorkspaceTableRequestBuilder":
         self._records_post_workspace_table_request.on_conflict = on_conflict
         self._records_post_workspace_table_request.add_query("on_conflict", on_conflict)
         return self
 
-    def workspace_id(self, workspace_id: str) -> "RecordsPostWorkspaceTableRequestBuilder":
+    def workspace_id(
+        self, workspace_id: str
+    ) -> "RecordsPostWorkspaceTableRequestBuilder":
         self._records_post_workspace_table_request.workspace_id = workspace_id
-        self._records_post_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._records_post_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
     def table_name(self, table_name: str) -> "RecordsPostWorkspaceTableRequestBuilder":
@@ -49,8 +60,9 @@ class RecordsPostWorkspaceTableRequestBuilder(object):
         self._records_post_workspace_table_request.paths["table_name"] = str(table_name)
         return self
 
-    def request_body(self,
-                     request_body: RecordsPostWorkspaceTableRequestBody) -> "RecordsPostWorkspaceTableRequestBuilder":
+    def request_body(
+        self, request_body: RecordsPostWorkspaceTableRequestBody
+    ) -> "RecordsPostWorkspaceTableRequestBuilder":
         self._records_post_workspace_table_request.request_body = request_body
         self._records_post_workspace_table_request.body = request_body
         return self

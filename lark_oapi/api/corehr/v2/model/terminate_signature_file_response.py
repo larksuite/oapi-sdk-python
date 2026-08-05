@@ -9,7 +9,6 @@ from .terminate_signature_file_response_body import TerminateSignatureFileRespon
 class TerminateSignatureFileResponse(BaseResponse):
     _types = {
         "data": TerminateSignatureFileResponseBody,
-
     }
 
     def __init__(self, d=None):

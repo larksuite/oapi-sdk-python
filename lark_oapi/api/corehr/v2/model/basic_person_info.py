@@ -36,12 +36,18 @@ class BasicPersonInfoBuilder(object):
         self._basic_person_info.preferred_name = preferred_name
         return self
 
-    def preferred_local_full_name(self, preferred_local_full_name: str) -> "BasicPersonInfoBuilder":
+    def preferred_local_full_name(
+        self, preferred_local_full_name: str
+    ) -> "BasicPersonInfoBuilder":
         self._basic_person_info.preferred_local_full_name = preferred_local_full_name
         return self
 
-    def preferred_english_full_name(self, preferred_english_full_name: str) -> "BasicPersonInfoBuilder":
-        self._basic_person_info.preferred_english_full_name = preferred_english_full_name
+    def preferred_english_full_name(
+        self, preferred_english_full_name: str
+    ) -> "BasicPersonInfoBuilder":
+        self._basic_person_info.preferred_english_full_name = (
+            preferred_english_full_name
+        )
         return self
 
     def build(self) -> "BasicPersonInfo":

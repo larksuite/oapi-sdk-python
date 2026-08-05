@@ -16,7 +16,6 @@ class GetImageRequest(BaseRequest):
 
 
 class GetImageRequestBuilder(object):
-
     def __init__(self) -> None:
         get_image_request = GetImageRequest()
         get_image_request.http_method = HttpMethod.GET

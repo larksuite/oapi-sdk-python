@@ -47,7 +47,9 @@ class TicketMessageExportEntityBuilder(object):
         self._ticket_message_export_entity.user_id = user_id
         return self
 
-    def content(self, content: ExportTicketMessageContent) -> "TicketMessageExportEntityBuilder":
+    def content(
+        self, content: ExportTicketMessageContent
+    ) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.content = content
         return self
 

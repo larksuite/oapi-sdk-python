@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_document_block_children_response_body import GetDocumentBlockChildrenResponseBody
+from .get_document_block_children_response_body import (
+    GetDocumentBlockChildrenResponseBody,
+)
 
 
 class GetDocumentBlockChildrenResponse(BaseResponse):
     _types = {
         "data": GetDocumentBlockChildrenResponseBody,
-
     }
 
     def __init__(self, d=None):

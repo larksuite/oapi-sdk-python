@@ -101,7 +101,9 @@ class PositionBuilder(object):
         self._position.job_level_id_list = job_level_id_list
         return self
 
-    def employee_type_id_list(self, employee_type_id_list: List[str]) -> "PositionBuilder":
+    def employee_type_id_list(
+        self, employee_type_id_list: List[str]
+    ) -> "PositionBuilder":
         self._position.employee_type_id_list = employee_type_id_list
         return self
 
@@ -109,7 +111,9 @@ class PositionBuilder(object):
         self._position.job_grade_id_list = job_grade_id_list
         return self
 
-    def work_location_id_list(self, work_location_id_list: List[str]) -> "PositionBuilder":
+    def work_location_id_list(
+        self, work_location_id_list: List[str]
+    ) -> "PositionBuilder":
         self._position.work_location_id_list = work_location_id_list
         return self
 

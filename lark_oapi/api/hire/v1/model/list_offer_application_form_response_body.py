@@ -25,17 +25,23 @@ class ListOfferApplicationFormResponseBody(object):
 
 class ListOfferApplicationFormResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_offer_application_form_response_body = ListOfferApplicationFormResponseBody()
+        self._list_offer_application_form_response_body = (
+            ListOfferApplicationFormResponseBody()
+        )
 
     def has_more(self, has_more: bool) -> "ListOfferApplicationFormResponseBodyBuilder":
         self._list_offer_application_form_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListOfferApplicationFormResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListOfferApplicationFormResponseBodyBuilder":
         self._list_offer_application_form_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[OfferApplyForm]) -> "ListOfferApplicationFormResponseBodyBuilder":
+    def items(
+        self, items: List[OfferApplyForm]
+    ) -> "ListOfferApplicationFormResponseBodyBuilder":
         self._list_offer_application_form_response_body.items = items
         return self
 

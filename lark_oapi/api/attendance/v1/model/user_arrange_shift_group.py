@@ -29,7 +29,9 @@ class UserArrangeShiftGroupBuilder(object):
         self._user_arrange_shift_group.user_id = user_id
         return self
 
-    def shift_group(self, shift_group: ArrangeShiftGroup) -> "UserArrangeShiftGroupBuilder":
+    def shift_group(
+        self, shift_group: ArrangeShiftGroup
+    ) -> "UserArrangeShiftGroupBuilder":
         self._user_arrange_shift_group.shift_group = shift_group
         return self
 

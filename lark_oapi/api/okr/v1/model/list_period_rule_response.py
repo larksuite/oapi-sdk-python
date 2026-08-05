@@ -9,7 +9,6 @@ from .list_period_rule_response_body import ListPeriodRuleResponseBody
 class ListPeriodRuleResponse(BaseResponse):
     _types = {
         "data": ListPeriodRuleResponseBody,
-
     }
 
     def __init__(self, d=None):

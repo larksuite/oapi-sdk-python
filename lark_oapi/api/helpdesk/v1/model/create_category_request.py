@@ -17,7 +17,6 @@ class CreateCategoryRequest(BaseRequest):
 
 
 class CreateCategoryRequestBuilder(object):
-
     def __init__(self) -> None:
         create_category_request = CreateCategoryRequest()
         create_category_request.http_method = HttpMethod.POST

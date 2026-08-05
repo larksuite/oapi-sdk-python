@@ -19,7 +19,9 @@ class Currency(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetCurrencyRequest, option: Optional[RequestOption] = None) -> GetCurrencyResponse:
+    def get(
+        self, request: GetCurrencyRequest, option: Optional[RequestOption] = None
+    ) -> GetCurrencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Currency(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCurrencyResponse)
+        response: GetCurrencyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCurrencyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetCurrencyRequest, option: Optional[RequestOption] = None) -> GetCurrencyResponse:
+    async def aget(
+        self, request: GetCurrencyRequest, option: Optional[RequestOption] = None
+    ) -> GetCurrencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Currency(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCurrencyResponse)
+        response: GetCurrencyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCurrencyResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListCurrencyRequest, option: Optional[RequestOption] = None) -> ListCurrencyResponse:
+    def list(
+        self, request: ListCurrencyRequest, option: Optional[RequestOption] = None
+    ) -> ListCurrencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class Currency(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCurrencyResponse)
+        response: ListCurrencyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCurrencyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCurrencyRequest, option: Optional[RequestOption] = None) -> ListCurrencyResponse:
+    async def alist(
+        self, request: ListCurrencyRequest, option: Optional[RequestOption] = None
+    ) -> ListCurrencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class Currency(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCurrencyResponse)
+        response: ListCurrencyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCurrencyResponse
+        )
         response.raw = resp
 
         return response

@@ -19,7 +19,6 @@ class PatchTaskRequest(BaseRequest):
 
 
 class PatchTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_task_request = PatchTaskRequest()
         patch_task_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class PatchTaskRequestBuilder(object):
         self._patch_task_request.paths["task_guid"] = str(task_guid)
         return self
 
-    def request_body(self, request_body: PatchTaskRequestBody) -> "PatchTaskRequestBuilder":
+    def request_body(
+        self, request_body: PatchTaskRequestBody
+    ) -> "PatchTaskRequestBuilder":
         self._patch_task_request.request_body = request_body
         self._patch_task_request.body = request_body
         return self

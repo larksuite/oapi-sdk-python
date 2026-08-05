@@ -9,8 +9,12 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.download_as_image_whiteboard_request import DownloadAsImageWhiteboardRequest
-from ..model.download_as_image_whiteboard_response import DownloadAsImageWhiteboardResponse
+from ..model.download_as_image_whiteboard_request import (
+    DownloadAsImageWhiteboardRequest,
+)
+from ..model.download_as_image_whiteboard_response import (
+    DownloadAsImageWhiteboardResponse,
+)
 from ..model.theme_whiteboard_request import ThemeWhiteboardRequest
 from ..model.theme_whiteboard_response import ThemeWhiteboardResponse
 from ..model.update_theme_whiteboard_request import UpdateThemeWhiteboardRequest
@@ -21,8 +25,11 @@ class Whiteboard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download_as_image(self, request: DownloadAsImageWhiteboardRequest,
-                          option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
+    def download_as_image(
+        self,
+        request: DownloadAsImageWhiteboardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadAsImageWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,19 +45,26 @@ class Whiteboard(object):
 
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
-        response: DownloadAsImageWhiteboardResponse = DownloadAsImageWhiteboardResponse()
+        response: DownloadAsImageWhiteboardResponse = (
+            DownloadAsImageWhiteboardResponse()
+        )
         if 200 <= resp.status_code < 300:
             response.code = 0
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadAsImageWhiteboardResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadAsImageWhiteboardResponse
+            )
 
         response.raw = resp
         return response
 
-    async def adownload_as_image(self, request: DownloadAsImageWhiteboardRequest,
-                                 option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
+    async def adownload_as_image(
+        self,
+        request: DownloadAsImageWhiteboardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadAsImageWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,18 +76,24 @@ class Whiteboard(object):
 
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
-        response: DownloadAsImageWhiteboardResponse = DownloadAsImageWhiteboardResponse()
+        response: DownloadAsImageWhiteboardResponse = (
+            DownloadAsImageWhiteboardResponse()
+        )
         if 200 <= resp.status_code < 300:
             response.code = 0
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadAsImageWhiteboardResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadAsImageWhiteboardResponse
+            )
 
         response.raw = resp
         return response
 
-    def theme(self, request: ThemeWhiteboardRequest, option: Optional[RequestOption] = None) -> ThemeWhiteboardResponse:
+    def theme(
+        self, request: ThemeWhiteboardRequest, option: Optional[RequestOption] = None
+    ) -> ThemeWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,13 +108,16 @@ class Whiteboard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8), ThemeWhiteboardResponse)
+        response: ThemeWhiteboardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ThemeWhiteboardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atheme(self, request: ThemeWhiteboardRequest,
-                     option: Optional[RequestOption] = None) -> ThemeWhiteboardResponse:
+    async def atheme(
+        self, request: ThemeWhiteboardRequest, option: Optional[RequestOption] = None
+    ) -> ThemeWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -105,13 +128,18 @@ class Whiteboard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8), ThemeWhiteboardResponse)
+        response: ThemeWhiteboardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ThemeWhiteboardResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_theme(self, request: UpdateThemeWhiteboardRequest,
-                     option: Optional[RequestOption] = None) -> UpdateThemeWhiteboardResponse:
+    def update_theme(
+        self,
+        request: UpdateThemeWhiteboardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateThemeWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -126,14 +154,18 @@ class Whiteboard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UpdateThemeWhiteboardResponse)
+        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateThemeWhiteboardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_theme(self, request: UpdateThemeWhiteboardRequest,
-                            option: Optional[RequestOption] = None) -> UpdateThemeWhiteboardResponse:
+    async def aupdate_theme(
+        self,
+        request: UpdateThemeWhiteboardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateThemeWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -144,8 +176,9 @@ class Whiteboard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UpdateThemeWhiteboardResponse)
+        response: UpdateThemeWhiteboardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateThemeWhiteboardResponse
+        )
         response.raw = resp
 
         return response

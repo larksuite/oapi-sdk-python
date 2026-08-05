@@ -18,28 +18,50 @@ class EmploymentCustomOrgRecordEmployeeCustomOrgRequest(BaseRequest):
 
 
 class EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder(object):
-
     def __init__(self) -> None:
-        employment_custom_org_record_employee_custom_org_request = EmploymentCustomOrgRecordEmployeeCustomOrgRequest()
-        employment_custom_org_record_employee_custom_org_request.http_method = HttpMethod.GET
-        employment_custom_org_record_employee_custom_org_request.uri = "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
-        employment_custom_org_record_employee_custom_org_request.token_types = {AccessTokenType.TENANT}
+        employment_custom_org_record_employee_custom_org_request = (
+            EmploymentCustomOrgRecordEmployeeCustomOrgRequest()
+        )
+        employment_custom_org_record_employee_custom_org_request.http_method = (
+            HttpMethod.GET
+        )
+        employment_custom_org_record_employee_custom_org_request.uri = (
+            "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
+        )
+        employment_custom_org_record_employee_custom_org_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._employment_custom_org_record_employee_custom_org_request: EmploymentCustomOrgRecordEmployeeCustomOrgRequest = employment_custom_org_record_employee_custom_org_request
 
-    def user_ids(self, user_ids: List[str]) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
-        self._employment_custom_org_record_employee_custom_org_request.user_ids = user_ids
-        self._employment_custom_org_record_employee_custom_org_request.add_query("user_ids", user_ids)
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
+        self._employment_custom_org_record_employee_custom_org_request.user_ids = (
+            user_ids
+        )
+        self._employment_custom_org_record_employee_custom_org_request.add_query(
+            "user_ids", user_ids
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
-        self._employment_custom_org_record_employee_custom_org_request.user_id_type = user_id_type
-        self._employment_custom_org_record_employee_custom_org_request.add_query("user_id_type", user_id_type)
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
+        self._employment_custom_org_record_employee_custom_org_request.user_id_type = (
+            user_id_type
+        )
+        self._employment_custom_org_record_employee_custom_org_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def object_api_names(self,
-                         object_api_names: List[str]) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
+    def object_api_names(
+        self, object_api_names: List[str]
+    ) -> "EmploymentCustomOrgRecordEmployeeCustomOrgRequestBuilder":
         self._employment_custom_org_record_employee_custom_org_request.object_api_names = object_api_names
-        self._employment_custom_org_record_employee_custom_org_request.add_query("object_api_names", object_api_names)
+        self._employment_custom_org_record_employee_custom_org_request.add_query(
+            "object_api_names", object_api_names
+        )
         return self
 
     def build(self) -> EmploymentCustomOrgRecordEmployeeCustomOrgRequest:

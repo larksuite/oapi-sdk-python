@@ -32,7 +32,9 @@ class WorkStatusBuilder(object):
         self._work_status.status = status
         return self
 
-    def description_templates(self, description_templates: Dict[str, str]) -> "WorkStatusBuilder":
+    def description_templates(
+        self, description_templates: Dict[str, str]
+    ) -> "WorkStatusBuilder":
         self._work_status.description_templates = description_templates
         return self
 

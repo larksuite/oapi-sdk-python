@@ -22,7 +22,9 @@ class ResurrectEmployeeOptionsBuilder(object):
     def __init__(self) -> None:
         self._resurrect_employee_options = ResurrectEmployeeOptions()
 
-    def subscription_ids(self, subscription_ids: List[str]) -> "ResurrectEmployeeOptionsBuilder":
+    def subscription_ids(
+        self, subscription_ids: List[str]
+    ) -> "ResurrectEmployeeOptionsBuilder":
         self._resurrect_employee_options.subscription_ids = subscription_ids
         return self
 

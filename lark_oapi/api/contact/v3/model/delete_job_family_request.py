@@ -16,13 +16,16 @@ class DeleteJobFamilyRequest(BaseRequest):
 
 
 class DeleteJobFamilyRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_job_family_request = DeleteJobFamilyRequest()
         delete_job_family_request.http_method = HttpMethod.DELETE
-        delete_job_family_request.uri = "/open-apis/contact/v3/job_families/:job_family_id"
+        delete_job_family_request.uri = (
+            "/open-apis/contact/v3/job_families/:job_family_id"
+        )
         delete_job_family_request.token_types = {AccessTokenType.TENANT}
-        self._delete_job_family_request: DeleteJobFamilyRequest = delete_job_family_request
+        self._delete_job_family_request: DeleteJobFamilyRequest = (
+            delete_job_family_request
+        )
 
     def job_family_id(self, job_family_id: str) -> "DeleteJobFamilyRequestBuilder":
         self._delete_job_family_request.job_family_id = job_family_id

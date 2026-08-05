@@ -21,10 +21,13 @@ class GetCollaborationTenantCollaborationDepartmentResponseBody(object):
 
 class GetCollaborationTenantCollaborationDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_collaboration_tenant_collaboration_department_response_body = GetCollaborationTenantCollaborationDepartmentResponseBody()
+        self._get_collaboration_tenant_collaboration_department_response_body = (
+            GetCollaborationTenantCollaborationDepartmentResponseBody()
+        )
 
-    def target_department(self,
-                          target_department: CollaborationDepartment) -> "GetCollaborationTenantCollaborationDepartmentResponseBodyBuilder":
+    def target_department(
+        self, target_department: CollaborationDepartment
+    ) -> "GetCollaborationTenantCollaborationDepartmentResponseBodyBuilder":
         self._get_collaboration_tenant_collaboration_department_response_body.target_department = target_department
         return self
 

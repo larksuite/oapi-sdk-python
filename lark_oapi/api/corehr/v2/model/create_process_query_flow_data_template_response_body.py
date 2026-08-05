@@ -23,15 +23,24 @@ class CreateProcessQueryFlowDataTemplateResponseBody(object):
 
 class CreateProcessQueryFlowDataTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_process_query_flow_data_template_response_body = CreateProcessQueryFlowDataTemplateResponseBody()
+        self._create_process_query_flow_data_template_response_body = (
+            CreateProcessQueryFlowDataTemplateResponseBody()
+        )
 
-    def field_values(self, field_values: List[
-        ProcessFormVariableV2]) -> "CreateProcessQueryFlowDataTemplateResponseBodyBuilder":
-        self._create_process_query_flow_data_template_response_body.field_values = field_values
+    def field_values(
+        self, field_values: List[ProcessFormVariableV2]
+    ) -> "CreateProcessQueryFlowDataTemplateResponseBodyBuilder":
+        self._create_process_query_flow_data_template_response_body.field_values = (
+            field_values
+        )
         return self
 
-    def error_info(self, error_info: str) -> "CreateProcessQueryFlowDataTemplateResponseBodyBuilder":
-        self._create_process_query_flow_data_template_response_body.error_info = error_info
+    def error_info(
+        self, error_info: str
+    ) -> "CreateProcessQueryFlowDataTemplateResponseBodyBuilder":
+        self._create_process_query_flow_data_template_response_body.error_info = (
+            error_info
+        )
         return self
 
     def build(self) -> "CreateProcessQueryFlowDataTemplateResponseBody":

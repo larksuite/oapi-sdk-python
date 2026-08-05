@@ -29,7 +29,9 @@ class PermissionGroupInfoBuilder(object):
         self._permission_group_info.permission_ids = permission_ids
         return self
 
-    def scope_rule(self, scope_rule: PermissionScopeRule) -> "PermissionGroupInfoBuilder":
+    def scope_rule(
+        self, scope_rule: PermissionScopeRule
+    ) -> "PermissionGroupInfoBuilder":
         self._permission_group_info.scope_rule = scope_rule
         return self
 

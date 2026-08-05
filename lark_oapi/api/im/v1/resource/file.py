@@ -19,7 +19,9 @@ class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateFileRequest, option: Optional[RequestOption] = None) -> CreateFileResponse:
+    def create(
+        self, request: CreateFileRequest, option: Optional[RequestOption] = None
+    ) -> CreateFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,12 +38,16 @@ class File(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFileResponse)
+        response: CreateFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateFileRequest, option: Optional[RequestOption] = None) -> CreateFileResponse:
+    async def acreate(
+        self, request: CreateFileRequest, option: Optional[RequestOption] = None
+    ) -> CreateFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,12 +61,16 @@ class File(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFileResponse)
+        response: CreateFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFileResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+    def get(
+        self, request: GetFileRequest, option: Optional[RequestOption] = None
+    ) -> GetFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +97,9 @@ class File(object):
         response.raw = resp
         return response
 
-    async def aget(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+    async def aget(
+        self, request: GetFileRequest, option: Optional[RequestOption] = None
+    ) -> GetFileResponse:
         if option is None:
             option = RequestOption()
 

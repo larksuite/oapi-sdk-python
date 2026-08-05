@@ -29,7 +29,9 @@ class UpdateReserveRequestBodyBuilder(object):
         self._update_reserve_request_body.end_time = end_time
         return self
 
-    def meeting_settings(self, meeting_settings: ReserveMeetingSetting) -> "UpdateReserveRequestBodyBuilder":
+    def meeting_settings(
+        self, meeting_settings: ReserveMeetingSetting
+    ) -> "UpdateReserveRequestBodyBuilder":
         self._update_reserve_request_body.meeting_settings = meeting_settings
         return self
 

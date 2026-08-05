@@ -17,8 +17,11 @@ class Contract(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def field_extraction(self, request: FieldExtractionContractRequest,
-                         option: Optional[RequestOption] = None) -> FieldExtractionContractResponse:
+    def field_extraction(
+        self,
+        request: FieldExtractionContractRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FieldExtractionContractResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class Contract(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FieldExtractionContractResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FieldExtractionContractResponse)
+        response: FieldExtractionContractResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FieldExtractionContractResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afield_extraction(self, request: FieldExtractionContractRequest,
-                                option: Optional[RequestOption] = None) -> FieldExtractionContractResponse:
+    async def afield_extraction(
+        self,
+        request: FieldExtractionContractRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FieldExtractionContractResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class Contract(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FieldExtractionContractResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FieldExtractionContractResponse)
+        response: FieldExtractionContractResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FieldExtractionContractResponse
+        )
         response.raw = resp
 
         return response

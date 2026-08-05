@@ -9,25 +9,43 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.add_sign_task_request import AddSignTaskRequest
+from ..model.add_sign_task_response import AddSignTaskResponse
 from ..model.approve_task_request import ApproveTaskRequest
 from ..model.approve_task_response import ApproveTaskResponse
+from ..model.forward_task_request import ForwardTaskRequest
+from ..model.forward_task_response import ForwardTaskResponse
+from ..model.list_task_request import ListTaskRequest
+from ..model.list_task_response import ListTaskResponse
+from ..model.pass_task_request import PassTaskRequest
+from ..model.pass_task_response import PassTaskResponse
 from ..model.query_task_request import QueryTaskRequest
 from ..model.query_task_response import QueryTaskResponse
+from ..model.refuse_task_request import RefuseTaskRequest
+from ..model.refuse_task_response import RefuseTaskResponse
 from ..model.reject_task_request import RejectTaskRequest
 from ..model.reject_task_response import RejectTaskResponse
 from ..model.resubmit_task_request import ResubmitTaskRequest
 from ..model.resubmit_task_response import ResubmitTaskResponse
+from ..model.rollback_task_request import RollbackTaskRequest
+from ..model.rollback_task_response import RollbackTaskResponse
 from ..model.search_task_request import SearchTaskRequest
 from ..model.search_task_response import SearchTaskResponse
+from ..model.subscription_task_request import SubscriptionTaskRequest
+from ..model.subscription_task_response import SubscriptionTaskResponse
 from ..model.transfer_task_request import TransferTaskRequest
 from ..model.transfer_task_response import TransferTaskResponse
+from ..model.unsubscription_task_request import UnsubscriptionTaskRequest
+from ..model.unsubscription_task_response import UnsubscriptionTaskResponse
 
 
 class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def approve(self, request: ApproveTaskRequest, option: Optional[RequestOption] = None) -> ApproveTaskResponse:
+    def add_sign(
+        self, request: AddSignTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddSignTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,13 +60,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ApproveTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ApproveTaskResponse)
+        response: AddSignTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddSignTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aapprove(self, request: ApproveTaskRequest,
-                       option: Optional[RequestOption] = None) -> ApproveTaskResponse:
+    async def aadd_sign(
+        self, request: AddSignTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddSignTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,12 +80,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ApproveTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ApproveTaskResponse)
+        response: AddSignTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddSignTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
+    def approve(
+        self, request: ApproveTaskRequest, option: Optional[RequestOption] = None
+    ) -> ApproveTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,12 +104,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
+        response: ApproveTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ApproveTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
+    async def aapprove(
+        self, request: ApproveTaskRequest, option: Optional[RequestOption] = None
+    ) -> ApproveTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,12 +124,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
+        response: ApproveTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ApproveTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def reject(self, request: RejectTaskRequest, option: Optional[RequestOption] = None) -> RejectTaskResponse:
+    def forward(
+        self, request: ForwardTaskRequest, option: Optional[RequestOption] = None
+    ) -> ForwardTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,12 +148,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RejectTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RejectTaskResponse)
+        response: ForwardTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ForwardTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def areject(self, request: RejectTaskRequest, option: Optional[RequestOption] = None) -> RejectTaskResponse:
+    async def aforward(
+        self, request: ForwardTaskRequest, option: Optional[RequestOption] = None
+    ) -> ForwardTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,12 +168,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RejectTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RejectTaskResponse)
+        response: ForwardTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ForwardTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def resubmit(self, request: ResubmitTaskRequest, option: Optional[RequestOption] = None) -> ResubmitTaskResponse:
+    def list(
+        self, request: ListTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -151,13 +192,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ResubmitTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ResubmitTaskResponse)
+        response: ListTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aresubmit(self, request: ResubmitTaskRequest,
-                        option: Optional[RequestOption] = None) -> ResubmitTaskResponse:
+    async def alist(
+        self, request: ListTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -168,12 +212,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ResubmitTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ResubmitTaskResponse)
+        response: ListTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+    def pass_(
+        self, request: PassTaskRequest, option: Optional[RequestOption] = None
+    ) -> PassTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -188,12 +236,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response: PassTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PassTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+    async def apass_(
+        self, request: PassTaskRequest, option: Optional[RequestOption] = None
+    ) -> PassTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -204,12 +256,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response: PassTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PassTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def transfer(self, request: TransferTaskRequest, option: Optional[RequestOption] = None) -> TransferTaskResponse:
+    def query(
+        self, request: QueryTaskRequest, option: Optional[RequestOption] = None
+    ) -> QueryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -224,13 +280,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TransferTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferTaskResponse)
+        response: QueryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atransfer(self, request: TransferTaskRequest,
-                        option: Optional[RequestOption] = None) -> TransferTaskResponse:
+    async def aquery(
+        self, request: QueryTaskRequest, option: Optional[RequestOption] = None
+    ) -> QueryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -241,7 +300,361 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TransferTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferTaskResponse)
+        response: QueryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def refuse(
+        self, request: RefuseTaskRequest, option: Optional[RequestOption] = None
+    ) -> RefuseTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RefuseTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RefuseTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def arefuse(
+        self, request: RefuseTaskRequest, option: Optional[RequestOption] = None
+    ) -> RefuseTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RefuseTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RefuseTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def reject(
+        self, request: RejectTaskRequest, option: Optional[RequestOption] = None
+    ) -> RejectTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RejectTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RejectTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def areject(
+        self, request: RejectTaskRequest, option: Optional[RequestOption] = None
+    ) -> RejectTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RejectTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RejectTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def resubmit(
+        self, request: ResubmitTaskRequest, option: Optional[RequestOption] = None
+    ) -> ResubmitTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ResubmitTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ResubmitTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aresubmit(
+        self, request: ResubmitTaskRequest, option: Optional[RequestOption] = None
+    ) -> ResubmitTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ResubmitTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ResubmitTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def rollback(
+        self, request: RollbackTaskRequest, option: Optional[RequestOption] = None
+    ) -> RollbackTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RollbackTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RollbackTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def arollback(
+        self, request: RollbackTaskRequest, option: Optional[RequestOption] = None
+    ) -> RollbackTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RollbackTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RollbackTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def search(
+        self, request: SearchTaskRequest, option: Optional[RequestOption] = None
+    ) -> SearchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def asearch(
+        self, request: SearchTaskRequest, option: Optional[RequestOption] = None
+    ) -> SearchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def subscription(
+        self, request: SubscriptionTaskRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def asubscription(
+        self, request: SubscriptionTaskRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def transfer(
+        self, request: TransferTaskRequest, option: Optional[RequestOption] = None
+    ) -> TransferTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TransferTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransferTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def atransfer(
+        self, request: TransferTaskRequest, option: Optional[RequestOption] = None
+    ) -> TransferTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TransferTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransferTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def unsubscription(
+        self, request: UnsubscriptionTaskRequest, option: Optional[RequestOption] = None
+    ) -> UnsubscriptionTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionTaskResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aunsubscription(
+        self, request: UnsubscriptionTaskRequest, option: Optional[RequestOption] = None
+    ) -> UnsubscriptionTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionTaskResponse
+        )
         response.raw = resp
 
         return response

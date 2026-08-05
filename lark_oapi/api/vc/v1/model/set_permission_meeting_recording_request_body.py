@@ -23,14 +23,21 @@ class SetPermissionMeetingRecordingRequestBody(object):
 
 class SetPermissionMeetingRecordingRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._set_permission_meeting_recording_request_body = SetPermissionMeetingRecordingRequestBody()
+        self._set_permission_meeting_recording_request_body = (
+            SetPermissionMeetingRecordingRequestBody()
+        )
 
-    def permission_objects(self, permission_objects: List[
-        RecordingPermissionObject]) -> "SetPermissionMeetingRecordingRequestBodyBuilder":
-        self._set_permission_meeting_recording_request_body.permission_objects = permission_objects
+    def permission_objects(
+        self, permission_objects: List[RecordingPermissionObject]
+    ) -> "SetPermissionMeetingRecordingRequestBodyBuilder":
+        self._set_permission_meeting_recording_request_body.permission_objects = (
+            permission_objects
+        )
         return self
 
-    def action_type(self, action_type: int) -> "SetPermissionMeetingRecordingRequestBodyBuilder":
+    def action_type(
+        self, action_type: int
+    ) -> "SetPermissionMeetingRecordingRequestBodyBuilder":
         self._set_permission_meeting_recording_request_body.action_type = action_type
         return self
 

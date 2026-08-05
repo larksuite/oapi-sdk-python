@@ -28,14 +28,24 @@ class CreateApplicationPublishRequestBody(object):
 
 class CreateApplicationPublishRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_application_publish_request_body = CreateApplicationPublishRequestBody()
+        self._create_application_publish_request_body = (
+            CreateApplicationPublishRequestBody()
+        )
 
-    def mobile_default_ability(self, mobile_default_ability: str) -> "CreateApplicationPublishRequestBodyBuilder":
-        self._create_application_publish_request_body.mobile_default_ability = mobile_default_ability
+    def mobile_default_ability(
+        self, mobile_default_ability: str
+    ) -> "CreateApplicationPublishRequestBodyBuilder":
+        self._create_application_publish_request_body.mobile_default_ability = (
+            mobile_default_ability
+        )
         return self
 
-    def pc_default_ability(self, pc_default_ability: str) -> "CreateApplicationPublishRequestBodyBuilder":
-        self._create_application_publish_request_body.pc_default_ability = pc_default_ability
+    def pc_default_ability(
+        self, pc_default_ability: str
+    ) -> "CreateApplicationPublishRequestBodyBuilder":
+        self._create_application_publish_request_body.pc_default_ability = (
+            pc_default_ability
+        )
         return self
 
     def remark(self, remark: str) -> "CreateApplicationPublishRequestBodyBuilder":

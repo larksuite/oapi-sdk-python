@@ -50,7 +50,9 @@ class MatchingRuleItemBuilder(object):
         self._matching_rule_item.priority = priority
         return self
 
-    def scope_setting(self, scope_setting: MatchingRuleScopeSetting) -> "MatchingRuleItemBuilder":
+    def scope_setting(
+        self, scope_setting: MatchingRuleScopeSetting
+    ) -> "MatchingRuleItemBuilder":
         self._matching_rule_item.scope_setting = scope_setting
         return self
 

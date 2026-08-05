@@ -32,18 +32,28 @@ class ChatRestrictedModeSettingBuilder(object):
         self._chat_restricted_mode_setting.status = status
         return self
 
-    def screenshot_has_permission_setting(self,
-                                          screenshot_has_permission_setting: str) -> "ChatRestrictedModeSettingBuilder":
-        self._chat_restricted_mode_setting.screenshot_has_permission_setting = screenshot_has_permission_setting
+    def screenshot_has_permission_setting(
+        self, screenshot_has_permission_setting: str
+    ) -> "ChatRestrictedModeSettingBuilder":
+        self._chat_restricted_mode_setting.screenshot_has_permission_setting = (
+            screenshot_has_permission_setting
+        )
         return self
 
-    def download_has_permission_setting(self,
-                                        download_has_permission_setting: str) -> "ChatRestrictedModeSettingBuilder":
-        self._chat_restricted_mode_setting.download_has_permission_setting = download_has_permission_setting
+    def download_has_permission_setting(
+        self, download_has_permission_setting: str
+    ) -> "ChatRestrictedModeSettingBuilder":
+        self._chat_restricted_mode_setting.download_has_permission_setting = (
+            download_has_permission_setting
+        )
         return self
 
-    def message_has_permission_setting(self, message_has_permission_setting: str) -> "ChatRestrictedModeSettingBuilder":
-        self._chat_restricted_mode_setting.message_has_permission_setting = message_has_permission_setting
+    def message_has_permission_setting(
+        self, message_has_permission_setting: str
+    ) -> "ChatRestrictedModeSettingBuilder":
+        self._chat_restricted_mode_setting.message_has_permission_setting = (
+            message_has_permission_setting
+        )
         return self
 
     def build(self) -> "ChatRestrictedModeSetting":

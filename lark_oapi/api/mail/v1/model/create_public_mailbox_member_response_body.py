@@ -24,9 +24,13 @@ class CreatePublicMailboxMemberResponseBody(object):
 
 class CreatePublicMailboxMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_public_mailbox_member_response_body = CreatePublicMailboxMemberResponseBody()
+        self._create_public_mailbox_member_response_body = (
+            CreatePublicMailboxMemberResponseBody()
+        )
 
-    def member_id(self, member_id: str) -> "CreatePublicMailboxMemberResponseBodyBuilder":
+    def member_id(
+        self, member_id: str
+    ) -> "CreatePublicMailboxMemberResponseBodyBuilder":
         self._create_public_mailbox_member_response_body.member_id = member_id
         return self
 

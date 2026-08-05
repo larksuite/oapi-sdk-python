@@ -22,7 +22,9 @@ class BatchDeleteAppTableRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_app_table_request_body = BatchDeleteAppTableRequestBody()
 
-    def table_ids(self, table_ids: List[str]) -> "BatchDeleteAppTableRequestBodyBuilder":
+    def table_ids(
+        self, table_ids: List[str]
+    ) -> "BatchDeleteAppTableRequestBodyBuilder":
         self._batch_delete_app_table_request_body.table_ids = table_ids
         return self
 

@@ -29,8 +29,9 @@ class RoomLevel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateRoomLevelRequest,
-               option: Optional[RequestOption] = None) -> CreateRoomLevelResponse:
+    def create(
+        self, request: CreateRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> CreateRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,13 +46,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRoomLevelResponse)
+        response: CreateRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateRoomLevelRequest,
-                      option: Optional[RequestOption] = None) -> CreateRoomLevelResponse:
+    async def acreate(
+        self, request: CreateRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> CreateRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,12 +66,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRoomLevelResponse)
+        response: CreateRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def del_(self, request: DelRoomLevelRequest, option: Optional[RequestOption] = None) -> DelRoomLevelResponse:
+    def del_(
+        self, request: DelRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> DelRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -82,12 +90,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DelRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), DelRoomLevelResponse)
+        response: DelRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adel_(self, request: DelRoomLevelRequest, option: Optional[RequestOption] = None) -> DelRoomLevelResponse:
+    async def adel_(
+        self, request: DelRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> DelRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -98,12 +110,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DelRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), DelRoomLevelResponse)
+        response: DelRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetRoomLevelRequest, option: Optional[RequestOption] = None) -> GetRoomLevelResponse:
+    def get(
+        self, request: GetRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> GetRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,12 +134,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoomLevelResponse)
+        response: GetRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetRoomLevelRequest, option: Optional[RequestOption] = None) -> GetRoomLevelResponse:
+    async def aget(
+        self, request: GetRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> GetRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,12 +154,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoomLevelResponse)
+        response: GetRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListRoomLevelRequest, option: Optional[RequestOption] = None) -> ListRoomLevelResponse:
+    def list(
+        self, request: ListRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> ListRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,13 +178,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoomLevelResponse)
+        response: ListRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListRoomLevelRequest,
-                    option: Optional[RequestOption] = None) -> ListRoomLevelResponse:
+    async def alist(
+        self, request: ListRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> ListRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,12 +198,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoomLevelResponse)
+        response: ListRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def mget(self, request: MgetRoomLevelRequest, option: Optional[RequestOption] = None) -> MgetRoomLevelResponse:
+    def mget(
+        self, request: MgetRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> MgetRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -191,13 +222,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MgetRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetRoomLevelResponse)
+        response: MgetRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MgetRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amget(self, request: MgetRoomLevelRequest,
-                    option: Optional[RequestOption] = None) -> MgetRoomLevelResponse:
+    async def amget(
+        self, request: MgetRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> MgetRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -208,12 +242,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MgetRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetRoomLevelResponse)
+        response: MgetRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MgetRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchRoomLevelRequest, option: Optional[RequestOption] = None) -> PatchRoomLevelResponse:
+    def patch(
+        self, request: PatchRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> PatchRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -228,13 +266,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchRoomLevelResponse)
+        response: PatchRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchRoomLevelRequest,
-                     option: Optional[RequestOption] = None) -> PatchRoomLevelResponse:
+    async def apatch(
+        self, request: PatchRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> PatchRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -245,13 +286,16 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchRoomLevelResponse)
+        response: PatchRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchRoomLevelRequest,
-               option: Optional[RequestOption] = None) -> SearchRoomLevelResponse:
+    def search(
+        self, request: SearchRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> SearchRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -266,13 +310,16 @@ class RoomLevel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchRoomLevelResponse)
+        response: SearchRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchRoomLevelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchRoomLevelRequest,
-                      option: Optional[RequestOption] = None) -> SearchRoomLevelResponse:
+    async def asearch(
+        self, request: SearchRoomLevelRequest, option: Optional[RequestOption] = None
+    ) -> SearchRoomLevelResponse:
         if option is None:
             option = RequestOption()
 
@@ -283,7 +330,9 @@ class RoomLevel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchRoomLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchRoomLevelResponse)
+        response: SearchRoomLevelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchRoomLevelResponse
+        )
         response.raw = resp
 
         return response

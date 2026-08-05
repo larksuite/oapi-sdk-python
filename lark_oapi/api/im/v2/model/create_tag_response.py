@@ -9,7 +9,6 @@ from .create_tag_response_body import CreateTagResponseBody
 class CreateTagResponse(BaseResponse):
     _types = {
         "data": CreateTagResponseBody,
-
     }
 
     def __init__(self, d=None):

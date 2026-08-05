@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_leave_employ_expire_record_request import GetLeaveEmployExpireRecordRequest
-from ..model.get_leave_employ_expire_record_response import GetLeaveEmployExpireRecordResponse
+from ..model.get_leave_employ_expire_record_request import (
+    GetLeaveEmployExpireRecordRequest,
+)
+from ..model.get_leave_employ_expire_record_response import (
+    GetLeaveEmployExpireRecordResponse,
+)
 
 
 class LeaveEmployExpireRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetLeaveEmployExpireRecordRequest,
-            option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
+    def get(
+        self,
+        request: GetLeaveEmployExpireRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetLeaveEmployExpireRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class LeaveEmployExpireRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetLeaveEmployExpireRecordResponse)
+        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetLeaveEmployExpireRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetLeaveEmployExpireRecordRequest,
-                   option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
+    async def aget(
+        self,
+        request: GetLeaveEmployExpireRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetLeaveEmployExpireRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class LeaveEmployExpireRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetLeaveEmployExpireRecordResponse)
+        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetLeaveEmployExpireRecordResponse
+        )
         response.raw = resp
 
         return response

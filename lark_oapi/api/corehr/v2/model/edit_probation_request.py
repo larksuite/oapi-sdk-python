@@ -18,7 +18,6 @@ class EditProbationRequest(BaseRequest):
 
 
 class EditProbationRequestBuilder(object):
-
     def __init__(self) -> None:
         edit_probation_request = EditProbationRequest()
         edit_probation_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class EditProbationRequestBuilder(object):
         self._edit_probation_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: EditProbationRequestBody) -> "EditProbationRequestBuilder":
+    def request_body(
+        self, request_body: EditProbationRequestBody
+    ) -> "EditProbationRequestBuilder":
         self._edit_probation_request.request_body = request_body
         self._edit_probation_request.body = request_body
         return self

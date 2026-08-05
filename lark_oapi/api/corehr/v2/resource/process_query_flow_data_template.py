@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_process_query_flow_data_template_request import CreateProcessQueryFlowDataTemplateRequest
-from ..model.create_process_query_flow_data_template_response import CreateProcessQueryFlowDataTemplateResponse
+from ..model.create_process_query_flow_data_template_request import (
+    CreateProcessQueryFlowDataTemplateRequest,
+)
+from ..model.create_process_query_flow_data_template_response import (
+    CreateProcessQueryFlowDataTemplateResponse,
+)
 
 
 class ProcessQueryFlowDataTemplate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateProcessQueryFlowDataTemplateRequest,
-               option: Optional[RequestOption] = None) -> CreateProcessQueryFlowDataTemplateResponse:
+    def create(
+        self,
+        request: CreateProcessQueryFlowDataTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProcessQueryFlowDataTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ProcessQueryFlowDataTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateProcessQueryFlowDataTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                              CreateProcessQueryFlowDataTemplateResponse)
+        response: CreateProcessQueryFlowDataTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProcessQueryFlowDataTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateProcessQueryFlowDataTemplateRequest,
-                      option: Optional[RequestOption] = None) -> CreateProcessQueryFlowDataTemplateResponse:
+    async def acreate(
+        self,
+        request: CreateProcessQueryFlowDataTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProcessQueryFlowDataTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ProcessQueryFlowDataTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateProcessQueryFlowDataTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                              CreateProcessQueryFlowDataTemplateResponse)
+        response: CreateProcessQueryFlowDataTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProcessQueryFlowDataTemplateResponse
+        )
         response.raw = resp
 
         return response

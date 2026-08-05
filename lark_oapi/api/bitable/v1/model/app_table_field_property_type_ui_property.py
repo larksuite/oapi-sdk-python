@@ -33,9 +33,13 @@ class AppTableFieldPropertyTypeUiProperty(object):
 
 class AppTableFieldPropertyTypeUiPropertyBuilder(object):
     def __init__(self) -> None:
-        self._app_table_field_property_type_ui_property = AppTableFieldPropertyTypeUiProperty()
+        self._app_table_field_property_type_ui_property = (
+            AppTableFieldPropertyTypeUiProperty()
+        )
 
-    def currency_code(self, currency_code: str) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
+    def currency_code(
+        self, currency_code: str
+    ) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
         self._app_table_field_property_type_ui_property.currency_code = currency_code
         return self
 
@@ -43,8 +47,12 @@ class AppTableFieldPropertyTypeUiPropertyBuilder(object):
         self._app_table_field_property_type_ui_property.formatter = formatter
         return self
 
-    def range_customize(self, range_customize: bool) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
-        self._app_table_field_property_type_ui_property.range_customize = range_customize
+    def range_customize(
+        self, range_customize: bool
+    ) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
+        self._app_table_field_property_type_ui_property.range_customize = (
+            range_customize
+        )
         return self
 
     def min(self, min: float) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
@@ -55,7 +63,9 @@ class AppTableFieldPropertyTypeUiPropertyBuilder(object):
         self._app_table_field_property_type_ui_property.max = max
         return self
 
-    def date_formatter(self, date_formatter: str) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
+    def date_formatter(
+        self, date_formatter: str
+    ) -> "AppTableFieldPropertyTypeUiPropertyBuilder":
         self._app_table_field_property_type_ui_property.date_formatter = date_formatter
         return self
 

@@ -17,13 +17,14 @@ class GetRuleExternalRequest(BaseRequest):
 
 
 class GetRuleExternalRequestBuilder(object):
-
     def __init__(self) -> None:
         get_rule_external_request = GetRuleExternalRequest()
         get_rule_external_request.http_method = HttpMethod.GET
         get_rule_external_request.uri = "/open-apis/acs/v1/rule_external"
         get_rule_external_request.token_types = {AccessTokenType.USER}
-        self._get_rule_external_request: GetRuleExternalRequest = get_rule_external_request
+        self._get_rule_external_request: GetRuleExternalRequest = (
+            get_rule_external_request
+        )
 
     def device_id(self, device_id: int) -> "GetRuleExternalRequestBuilder":
         self._get_rule_external_request.device_id = device_id

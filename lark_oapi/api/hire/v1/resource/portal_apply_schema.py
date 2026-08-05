@@ -17,8 +17,11 @@ class PortalApplySchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListPortalApplySchemaRequest,
-             option: Optional[RequestOption] = None) -> ListPortalApplySchemaResponse:
+    def list(
+        self,
+        request: ListPortalApplySchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPortalApplySchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class PortalApplySchema(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListPortalApplySchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListPortalApplySchemaResponse)
+        response: ListPortalApplySchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPortalApplySchemaResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListPortalApplySchemaRequest,
-                    option: Optional[RequestOption] = None) -> ListPortalApplySchemaResponse:
+    async def alist(
+        self,
+        request: ListPortalApplySchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPortalApplySchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class PortalApplySchema(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListPortalApplySchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListPortalApplySchemaResponse)
+        response: ListPortalApplySchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPortalApplySchemaResponse
+        )
         response.raw = resp
 
         return response

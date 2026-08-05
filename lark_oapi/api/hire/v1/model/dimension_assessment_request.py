@@ -48,11 +48,15 @@ class DimensionAssessmentRequestBuilder(object):
         self._dimension_assessment_request.score_value = score_value
         return self
 
-    def min_job_level_id(self, min_job_level_id: str) -> "DimensionAssessmentRequestBuilder":
+    def min_job_level_id(
+        self, min_job_level_id: str
+    ) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.min_job_level_id = min_job_level_id
         return self
 
-    def max_job_level_id(self, max_job_level_id: str) -> "DimensionAssessmentRequestBuilder":
+    def max_job_level_id(
+        self, max_job_level_id: str
+    ) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.max_job_level_id = max_job_level_id
         return self
 

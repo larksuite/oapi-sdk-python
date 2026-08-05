@@ -3,11 +3,17 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_performance_review_data_changed_v2 import P2PerformanceReviewDataChangedV2
-from .model.p2_performance_stage_task_open_result_v2 import P2PerformanceStageTaskOpenResultV2
+from .model.p2_performance_review_data_changed_v2 import (
+    P2PerformanceReviewDataChangedV2,
+)
+from .model.p2_performance_stage_task_open_result_v2 import (
+    P2PerformanceStageTaskOpenResultV2,
+)
 
 
-class P2PerformanceReviewDataChangedV2Processor(IEventProcessor[P2PerformanceReviewDataChangedV2]):
+class P2PerformanceReviewDataChangedV2Processor(
+    IEventProcessor[P2PerformanceReviewDataChangedV2]
+):
     def __init__(self, f: Callable[[P2PerformanceReviewDataChangedV2], None]):
         self.f = f
 
@@ -18,7 +24,9 @@ class P2PerformanceReviewDataChangedV2Processor(IEventProcessor[P2PerformanceRev
         self.f(data)
 
 
-class P2PerformanceStageTaskOpenResultV2Processor(IEventProcessor[P2PerformanceStageTaskOpenResultV2]):
+class P2PerformanceStageTaskOpenResultV2Processor(
+    IEventProcessor[P2PerformanceStageTaskOpenResultV2]
+):
     def __init__(self, f: Callable[[P2PerformanceStageTaskOpenResultV2], None]):
         self.f = f
 

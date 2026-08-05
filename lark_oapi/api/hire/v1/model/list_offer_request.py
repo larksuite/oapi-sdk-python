@@ -20,7 +20,6 @@ class ListOfferRequest(BaseRequest):
 
 
 class ListOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         list_offer_request = ListOfferRequest()
         list_offer_request.http_method = HttpMethod.GET
@@ -48,9 +47,13 @@ class ListOfferRequestBuilder(object):
         self._list_offer_request.add_query("user_id_type", user_id_type)
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "ListOfferRequestBuilder":
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "ListOfferRequestBuilder":
         self._list_offer_request.employee_type_id_type = employee_type_id_type
-        self._list_offer_request.add_query("employee_type_id_type", employee_type_id_type)
+        self._list_offer_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
     def build(self) -> ListOfferRequest:

@@ -16,17 +16,29 @@ class AccessibleMailboxesUserMailboxRequest(BaseRequest):
 
 
 class AccessibleMailboxesUserMailboxRequestBuilder(object):
-
     def __init__(self) -> None:
-        accessible_mailboxes_user_mailbox_request = AccessibleMailboxesUserMailboxRequest()
+        accessible_mailboxes_user_mailbox_request = (
+            AccessibleMailboxesUserMailboxRequest()
+        )
         accessible_mailboxes_user_mailbox_request.http_method = HttpMethod.GET
-        accessible_mailboxes_user_mailbox_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
-        accessible_mailboxes_user_mailbox_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        accessible_mailboxes_user_mailbox_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/accessible_mailboxes"
+        )
+        accessible_mailboxes_user_mailbox_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._accessible_mailboxes_user_mailbox_request: AccessibleMailboxesUserMailboxRequest = accessible_mailboxes_user_mailbox_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "AccessibleMailboxesUserMailboxRequestBuilder":
-        self._accessible_mailboxes_user_mailbox_request.user_mailbox_id = user_mailbox_id
-        self._accessible_mailboxes_user_mailbox_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "AccessibleMailboxesUserMailboxRequestBuilder":
+        self._accessible_mailboxes_user_mailbox_request.user_mailbox_id = (
+            user_mailbox_id
+        )
+        self._accessible_mailboxes_user_mailbox_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> AccessibleMailboxesUserMailboxRequest:

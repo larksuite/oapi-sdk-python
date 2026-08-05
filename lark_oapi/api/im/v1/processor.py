@@ -5,7 +5,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_im_chat_disbanded_v1 import P2ImChatDisbandedV1
 from .model.p2_im_chat_updated_v1 import P2ImChatUpdatedV1
-from .model.p2_im_chat_access_event_bot_p2p_chat_entered_v1 import P2ImChatAccessEventBotP2pChatEnteredV1
+from .model.p2_im_chat_access_event_bot_p2p_chat_entered_v1 import (
+    P2ImChatAccessEventBotP2pChatEnteredV1,
+)
 from .model.p2_im_chat_member_bot_added_v1 import P2ImChatMemberBotAddedV1
 from .model.p2_im_chat_member_bot_deleted_v1 import P2ImChatMemberBotDeletedV1
 from .model.p2_im_chat_member_user_added_v1 import P2ImChatMemberUserAddedV1
@@ -40,7 +42,9 @@ class P2ImChatUpdatedV1Processor(IEventProcessor[P2ImChatUpdatedV1]):
         self.f(data)
 
 
-class P2ImChatAccessEventBotP2pChatEnteredV1Processor(IEventProcessor[P2ImChatAccessEventBotP2pChatEnteredV1]):
+class P2ImChatAccessEventBotP2pChatEnteredV1Processor(
+    IEventProcessor[P2ImChatAccessEventBotP2pChatEnteredV1]
+):
     def __init__(self, f: Callable[[P2ImChatAccessEventBotP2pChatEnteredV1], None]):
         self.f = f
 
@@ -84,7 +88,9 @@ class P2ImChatMemberUserAddedV1Processor(IEventProcessor[P2ImChatMemberUserAdded
         self.f(data)
 
 
-class P2ImChatMemberUserDeletedV1Processor(IEventProcessor[P2ImChatMemberUserDeletedV1]):
+class P2ImChatMemberUserDeletedV1Processor(
+    IEventProcessor[P2ImChatMemberUserDeletedV1]
+):
     def __init__(self, f: Callable[[P2ImChatMemberUserDeletedV1], None]):
         self.f = f
 
@@ -95,7 +101,9 @@ class P2ImChatMemberUserDeletedV1Processor(IEventProcessor[P2ImChatMemberUserDel
         self.f(data)
 
 
-class P2ImChatMemberUserWithdrawnV1Processor(IEventProcessor[P2ImChatMemberUserWithdrawnV1]):
+class P2ImChatMemberUserWithdrawnV1Processor(
+    IEventProcessor[P2ImChatMemberUserWithdrawnV1]
+):
     def __init__(self, f: Callable[[P2ImChatMemberUserWithdrawnV1], None]):
         self.f = f
 
@@ -139,7 +147,9 @@ class P2ImMessageReceiveV1Processor(IEventProcessor[P2ImMessageReceiveV1]):
         self.f(data)
 
 
-class P2ImMessageReactionCreatedV1Processor(IEventProcessor[P2ImMessageReactionCreatedV1]):
+class P2ImMessageReactionCreatedV1Processor(
+    IEventProcessor[P2ImMessageReactionCreatedV1]
+):
     def __init__(self, f: Callable[[P2ImMessageReactionCreatedV1], None]):
         self.f = f
 
@@ -150,7 +160,9 @@ class P2ImMessageReactionCreatedV1Processor(IEventProcessor[P2ImMessageReactionC
         self.f(data)
 
 
-class P2ImMessageReactionDeletedV1Processor(IEventProcessor[P2ImMessageReactionDeletedV1]):
+class P2ImMessageReactionDeletedV1Processor(
+    IEventProcessor[P2ImMessageReactionDeletedV1]
+):
     def __init__(self, f: Callable[[P2ImMessageReactionDeletedV1], None]):
         self.f = f
 

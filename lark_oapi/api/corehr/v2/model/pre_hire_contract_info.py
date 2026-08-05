@@ -32,7 +32,9 @@ class PreHireContractInfoBuilder(object):
     def __init__(self) -> None:
         self._pre_hire_contract_info = PreHireContractInfo()
 
-    def contract_start_date(self, contract_start_date: str) -> "PreHireContractInfoBuilder":
+    def contract_start_date(
+        self, contract_start_date: str
+    ) -> "PreHireContractInfoBuilder":
         self._pre_hire_contract_info.contract_start_date = contract_start_date
         return self
 
@@ -52,7 +54,9 @@ class PreHireContractInfoBuilder(object):
         self._pre_hire_contract_info.signing_type = signing_type
         return self
 
-    def contract_file_ids(self, contract_file_ids: List[str]) -> "PreHireContractInfoBuilder":
+    def contract_file_ids(
+        self, contract_file_ids: List[str]
+    ) -> "PreHireContractInfoBuilder":
         self._pre_hire_contract_info.contract_file_ids = contract_file_ids
         return self
 

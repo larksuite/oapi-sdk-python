@@ -34,8 +34,12 @@ class FeedCardSettingUpdaterBuilder(object):
         self._feed_card_setting_updater.read_timestamp = read_timestamp
         return self
 
-    def mute_with_system_message(self, mute_with_system_message: bool) -> "FeedCardSettingUpdaterBuilder":
-        self._feed_card_setting_updater.mute_with_system_message = mute_with_system_message
+    def mute_with_system_message(
+        self, mute_with_system_message: bool
+    ) -> "FeedCardSettingUpdaterBuilder":
+        self._feed_card_setting_updater.mute_with_system_message = (
+            mute_with_system_message
+        )
         return self
 
     def build(self) -> "FeedCardSettingUpdater":

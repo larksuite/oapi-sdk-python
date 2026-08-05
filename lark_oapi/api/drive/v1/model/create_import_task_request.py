@@ -17,15 +17,21 @@ class CreateImportTaskRequest(BaseRequest):
 
 
 class CreateImportTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         create_import_task_request = CreateImportTaskRequest()
         create_import_task_request.http_method = HttpMethod.POST
         create_import_task_request.uri = "/open-apis/drive/v1/import_tasks"
-        create_import_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_import_task_request: CreateImportTaskRequest = create_import_task_request
+        create_import_task_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_import_task_request: CreateImportTaskRequest = (
+            create_import_task_request
+        )
 
-    def request_body(self, request_body: ImportTask) -> "CreateImportTaskRequestBuilder":
+    def request_body(
+        self, request_body: ImportTask
+    ) -> "CreateImportTaskRequestBuilder":
         self._create_import_task_request.request_body = request_body
         self._create_import_task_request.body = request_body
         return self

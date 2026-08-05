@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_by_attachment_website_delivery_request import CreateByAttachmentWebsiteDeliveryRequest
-from ..model.create_by_attachment_website_delivery_response import CreateByAttachmentWebsiteDeliveryResponse
-from ..model.create_by_resume_website_delivery_request import CreateByResumeWebsiteDeliveryRequest
-from ..model.create_by_resume_website_delivery_response import CreateByResumeWebsiteDeliveryResponse
+from ..model.create_by_attachment_website_delivery_request import (
+    CreateByAttachmentWebsiteDeliveryRequest,
+)
+from ..model.create_by_attachment_website_delivery_response import (
+    CreateByAttachmentWebsiteDeliveryResponse,
+)
+from ..model.create_by_resume_website_delivery_request import (
+    CreateByResumeWebsiteDeliveryRequest,
+)
+from ..model.create_by_resume_website_delivery_response import (
+    CreateByResumeWebsiteDeliveryResponse,
+)
 
 
 class WebsiteDelivery(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest,
-                             option: Optional[RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
+    def create_by_attachment(
+        self,
+        request: CreateByAttachmentWebsiteDeliveryRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateByAttachmentWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class WebsiteDelivery(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateByAttachmentWebsiteDeliveryResponse)
+        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateByAttachmentWebsiteDeliveryResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest, option: Optional[
-        RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
+    async def acreate_by_attachment(
+        self,
+        request: CreateByAttachmentWebsiteDeliveryRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateByAttachmentWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class WebsiteDelivery(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateByAttachmentWebsiteDeliveryResponse)
+        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateByAttachmentWebsiteDeliveryResponse
+        )
         response.raw = resp
 
         return response
 
-    def create_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest,
-                         option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
+    def create_by_resume(
+        self,
+        request: CreateByResumeWebsiteDeliveryRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateByResumeWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class WebsiteDelivery(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         CreateByResumeWebsiteDeliveryResponse)
+        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateByResumeWebsiteDeliveryResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest,
-                                option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
+    async def acreate_by_resume(
+        self,
+        request: CreateByResumeWebsiteDeliveryRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateByResumeWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class WebsiteDelivery(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         CreateByResumeWebsiteDeliveryResponse)
+        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateByResumeWebsiteDeliveryResponse
+        )
         response.raw = resp
 
         return response

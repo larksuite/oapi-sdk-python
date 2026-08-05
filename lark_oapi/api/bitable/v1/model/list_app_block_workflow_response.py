@@ -9,7 +9,6 @@ from .list_app_block_workflow_response_body import ListAppBlockWorkflowResponseB
 class ListAppBlockWorkflowResponse(BaseResponse):
     _types = {
         "data": ListAppBlockWorkflowResponseBody,
-
     }
 
     def __init__(self, d=None):

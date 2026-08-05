@@ -18,28 +18,47 @@ class QuerySpreadsheetSheetFilterViewConditionRequest(BaseRequest):
 
 
 class QuerySpreadsheetSheetFilterViewConditionRequestBuilder(object):
-
     def __init__(self) -> None:
-        query_spreadsheet_sheet_filter_view_condition_request = QuerySpreadsheetSheetFilterViewConditionRequest()
-        query_spreadsheet_sheet_filter_view_condition_request.http_method = HttpMethod.GET
+        query_spreadsheet_sheet_filter_view_condition_request = (
+            QuerySpreadsheetSheetFilterViewConditionRequest()
+        )
+        query_spreadsheet_sheet_filter_view_condition_request.http_method = (
+            HttpMethod.GET
+        )
         query_spreadsheet_sheet_filter_view_condition_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
-        query_spreadsheet_sheet_filter_view_condition_request.token_types = {AccessTokenType.TENANT,
-                                                                             AccessTokenType.USER}
+        query_spreadsheet_sheet_filter_view_condition_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._query_spreadsheet_sheet_filter_view_condition_request: QuerySpreadsheetSheetFilterViewConditionRequest = query_spreadsheet_sheet_filter_view_condition_request
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
         self._query_spreadsheet_sheet_filter_view_condition_request.spreadsheet_token = spreadsheet_token
-        self._query_spreadsheet_sheet_filter_view_condition_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+        self._query_spreadsheet_sheet_filter_view_condition_request.paths[
+            "spreadsheet_token"
+        ] = str(spreadsheet_token)
         return self
 
-    def sheet_id(self, sheet_id: str) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
+    def sheet_id(
+        self, sheet_id: str
+    ) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
         self._query_spreadsheet_sheet_filter_view_condition_request.sheet_id = sheet_id
-        self._query_spreadsheet_sheet_filter_view_condition_request.paths["sheet_id"] = str(sheet_id)
+        self._query_spreadsheet_sheet_filter_view_condition_request.paths[
+            "sheet_id"
+        ] = str(sheet_id)
         return self
 
-    def filter_view_id(self, filter_view_id: str) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
-        self._query_spreadsheet_sheet_filter_view_condition_request.filter_view_id = filter_view_id
-        self._query_spreadsheet_sheet_filter_view_condition_request.paths["filter_view_id"] = str(filter_view_id)
+    def filter_view_id(
+        self, filter_view_id: str
+    ) -> "QuerySpreadsheetSheetFilterViewConditionRequestBuilder":
+        self._query_spreadsheet_sheet_filter_view_condition_request.filter_view_id = (
+            filter_view_id
+        )
+        self._query_spreadsheet_sheet_filter_view_condition_request.paths[
+            "filter_view_id"
+        ] = str(filter_view_id)
         return self
 
     def build(self) -> QuerySpreadsheetSheetFilterViewConditionRequest:

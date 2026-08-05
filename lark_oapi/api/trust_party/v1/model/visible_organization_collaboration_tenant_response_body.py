@@ -25,19 +25,30 @@ class VisibleOrganizationCollaborationTenantResponseBody(object):
 
 class VisibleOrganizationCollaborationTenantResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._visible_organization_collaboration_tenant_response_body = VisibleOrganizationCollaborationTenantResponseBody()
+        self._visible_organization_collaboration_tenant_response_body = (
+            VisibleOrganizationCollaborationTenantResponseBody()
+        )
 
-    def collaboration_entity_list(self, collaboration_entity_list: List[
-        CollaborationEntity]) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
+    def collaboration_entity_list(
+        self, collaboration_entity_list: List[CollaborationEntity]
+    ) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
         self._visible_organization_collaboration_tenant_response_body.collaboration_entity_list = collaboration_entity_list
         return self
 
-    def has_more(self, has_more: bool) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
-        self._visible_organization_collaboration_tenant_response_body.has_more = has_more
+    def has_more(
+        self, has_more: bool
+    ) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
+        self._visible_organization_collaboration_tenant_response_body.has_more = (
+            has_more
+        )
         return self
 
-    def page_token(self, page_token: str) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
-        self._visible_organization_collaboration_tenant_response_body.page_token = page_token
+    def page_token(
+        self, page_token: str
+    ) -> "VisibleOrganizationCollaborationTenantResponseBodyBuilder":
+        self._visible_organization_collaboration_tenant_response_body.page_token = (
+            page_token
+        )
         return self
 
     def build(self) -> "VisibleOrganizationCollaborationTenantResponseBody":

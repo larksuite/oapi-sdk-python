@@ -20,7 +20,6 @@ class QueryRevieweeRequest(BaseRequest):
 
 
 class QueryRevieweeRequestBuilder(object):
-
     def __init__(self) -> None:
         query_reviewee_request = QueryRevieweeRequest()
         query_reviewee_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class QueryRevieweeRequestBuilder(object):
         self._query_reviewee_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryRevieweeRequestBody) -> "QueryRevieweeRequestBuilder":
+    def request_body(
+        self, request_body: QueryRevieweeRequestBody
+    ) -> "QueryRevieweeRequestBuilder":
         self._query_reviewee_request.request_body = request_body
         self._query_reviewee_request.body = request_body
         return self

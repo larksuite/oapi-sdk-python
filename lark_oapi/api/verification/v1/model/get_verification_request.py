@@ -15,13 +15,14 @@ class GetVerificationRequest(BaseRequest):
 
 
 class GetVerificationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_verification_request = GetVerificationRequest()
         get_verification_request.http_method = HttpMethod.GET
         get_verification_request.uri = "/open-apis/verification/v1/verification"
         get_verification_request.token_types = {AccessTokenType.TENANT}
-        self._get_verification_request: GetVerificationRequest = get_verification_request
+        self._get_verification_request: GetVerificationRequest = (
+            get_verification_request
+        )
 
     def build(self) -> GetVerificationRequest:
         return self._get_verification_request

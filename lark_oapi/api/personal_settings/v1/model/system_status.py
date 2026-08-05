@@ -60,7 +60,9 @@ class SystemStatusBuilder(object):
         self._system_status.priority = priority
         return self
 
-    def sync_setting(self, sync_setting: SystemStatusSyncSetting) -> "SystemStatusBuilder":
+    def sync_setting(
+        self, sync_setting: SystemStatusSyncSetting
+    ) -> "SystemStatusBuilder":
         self._system_status.sync_setting = sync_setting
         return self
 

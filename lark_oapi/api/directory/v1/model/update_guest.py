@@ -55,7 +55,9 @@ class UpdateGuestBuilder(object):
         self._update_guest.avatar_key = avatar_key
         return self
 
-    def work_country_or_region(self, work_country_or_region: str) -> "UpdateGuestBuilder":
+    def work_country_or_region(
+        self, work_country_or_region: str
+    ) -> "UpdateGuestBuilder":
         self._update_guest.work_country_or_region = work_country_or_region
         return self
 

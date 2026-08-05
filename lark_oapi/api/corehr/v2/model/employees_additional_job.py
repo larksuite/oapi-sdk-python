@@ -66,15 +66,21 @@ class EmployeesAdditionalJobBuilder(object):
         self._employees_additional_job.id = id
         return self
 
-    def employee_type_id(self, employee_type_id: str) -> "EmployeesAdditionalJobBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.employee_type_id = employee_type_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "EmployeesAdditionalJobBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.working_hours_type_id = working_hours_type_id
         return self
 
-    def work_location_id(self, work_location_id: str) -> "EmployeesAdditionalJobBuilder":
+    def work_location_id(
+        self, work_location_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.work_location_id = work_location_id
         return self
 
@@ -106,11 +112,15 @@ class EmployeesAdditionalJobBuilder(object):
         self._employees_additional_job.end_date = end_date
         return self
 
-    def direct_manager_id(self, direct_manager_id: str) -> "EmployeesAdditionalJobBuilder":
+    def direct_manager_id(
+        self, direct_manager_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.direct_manager_id = direct_manager_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeesAdditionalJobBuilder":
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.dotted_line_manager_id = dotted_line_manager_id
         return self
 
@@ -118,7 +128,9 @@ class EmployeesAdditionalJobBuilder(object):
         self._employees_additional_job.work_shift = work_shift
         return self
 
-    def compensation_type(self, compensation_type: Enum) -> "EmployeesAdditionalJobBuilder":
+    def compensation_type(
+        self, compensation_type: Enum
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.compensation_type = compensation_type
         return self
 
@@ -126,11 +138,15 @@ class EmployeesAdditionalJobBuilder(object):
         self._employees_additional_job.service_company = service_company
         return self
 
-    def weekly_working_hours(self, weekly_working_hours: str) -> "EmployeesAdditionalJobBuilder":
+    def weekly_working_hours(
+        self, weekly_working_hours: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.weekly_working_hours = weekly_working_hours
         return self
 
-    def work_calendar_id(self, work_calendar_id: str) -> "EmployeesAdditionalJobBuilder":
+    def work_calendar_id(
+        self, work_calendar_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.work_calendar_id = work_calendar_id
         return self
 
@@ -138,7 +154,9 @@ class EmployeesAdditionalJobBuilder(object):
         self._employees_additional_job.position_id = position_id
         return self
 
-    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeesAdditionalJobBuilder":
+    def employee_subtype_id(
+        self, employee_subtype_id: str
+    ) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.employee_subtype_id = employee_subtype_id
         return self
 

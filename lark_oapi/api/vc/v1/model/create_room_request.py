@@ -18,7 +18,6 @@ class CreateRoomRequest(BaseRequest):
 
 
 class CreateRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         create_room_request = CreateRoomRequest()
         create_room_request.http_method = HttpMethod.POST

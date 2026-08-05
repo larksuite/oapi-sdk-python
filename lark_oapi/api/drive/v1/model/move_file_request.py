@@ -18,7 +18,6 @@ class MoveFileRequest(BaseRequest):
 
 
 class MoveFileRequestBuilder(object):
-
     def __init__(self) -> None:
         move_file_request = MoveFileRequest()
         move_file_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class MoveFileRequestBuilder(object):
         self._move_file_request.paths["file_token"] = str(file_token)
         return self
 
-    def request_body(self, request_body: MoveFileRequestBody) -> "MoveFileRequestBuilder":
+    def request_body(
+        self, request_body: MoveFileRequestBody
+    ) -> "MoveFileRequestBuilder":
         self._move_file_request.request_body = request_body
         self._move_file_request.body = request_body
         return self

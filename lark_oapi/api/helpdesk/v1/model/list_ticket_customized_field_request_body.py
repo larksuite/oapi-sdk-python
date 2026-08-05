@@ -20,7 +20,9 @@ class ListTicketCustomizedFieldRequestBody(object):
 
 class ListTicketCustomizedFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_ticket_customized_field_request_body = ListTicketCustomizedFieldRequestBody()
+        self._list_ticket_customized_field_request_body = (
+            ListTicketCustomizedFieldRequestBody()
+        )
 
     def visible(self, visible: bool) -> "ListTicketCustomizedFieldRequestBodyBuilder":
         self._list_ticket_customized_field_request_body.visible = visible

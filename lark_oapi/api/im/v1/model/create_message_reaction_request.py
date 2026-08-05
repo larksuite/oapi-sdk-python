@@ -18,20 +18,28 @@ class CreateMessageReactionRequest(BaseRequest):
 
 
 class CreateMessageReactionRequestBuilder(object):
-
     def __init__(self) -> None:
         create_message_reaction_request = CreateMessageReactionRequest()
         create_message_reaction_request.http_method = HttpMethod.POST
-        create_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions"
-        create_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_message_reaction_request: CreateMessageReactionRequest = create_message_reaction_request
+        create_message_reaction_request.uri = (
+            "/open-apis/im/v1/messages/:message_id/reactions"
+        )
+        create_message_reaction_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_message_reaction_request: CreateMessageReactionRequest = (
+            create_message_reaction_request
+        )
 
     def message_id(self, message_id: str) -> "CreateMessageReactionRequestBuilder":
         self._create_message_reaction_request.message_id = message_id
         self._create_message_reaction_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self, request_body: CreateMessageReactionRequestBody) -> "CreateMessageReactionRequestBuilder":
+    def request_body(
+        self, request_body: CreateMessageReactionRequestBody
+    ) -> "CreateMessageReactionRequestBuilder":
         self._create_message_reaction_request.request_body = request_body
         self._create_message_reaction_request.body = request_body
         return self

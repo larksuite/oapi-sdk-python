@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_recurring_payment_request_body import BatchUpdateRecurringPaymentRequestBody
+from .batch_update_recurring_payment_request_body import (
+    BatchUpdateRecurringPaymentRequestBody,
+)
 
 
 class BatchUpdateRecurringPaymentRequest(BaseRequest):
@@ -18,21 +20,27 @@ class BatchUpdateRecurringPaymentRequest(BaseRequest):
 
 
 class BatchUpdateRecurringPaymentRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_update_recurring_payment_request = BatchUpdateRecurringPaymentRequest()
         batch_update_recurring_payment_request.http_method = HttpMethod.POST
-        batch_update_recurring_payment_request.uri = "/open-apis/compensation/v1/recurring_payment/batch_update"
+        batch_update_recurring_payment_request.uri = (
+            "/open-apis/compensation/v1/recurring_payment/batch_update"
+        )
         batch_update_recurring_payment_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_recurring_payment_request: BatchUpdateRecurringPaymentRequest = batch_update_recurring_payment_request
 
-    def user_id_type(self, user_id_type: str) -> "BatchUpdateRecurringPaymentRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchUpdateRecurringPaymentRequestBuilder":
         self._batch_update_recurring_payment_request.user_id_type = user_id_type
-        self._batch_update_recurring_payment_request.add_query("user_id_type", user_id_type)
+        self._batch_update_recurring_payment_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchUpdateRecurringPaymentRequestBody) -> "BatchUpdateRecurringPaymentRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateRecurringPaymentRequestBody
+    ) -> "BatchUpdateRecurringPaymentRequestBuilder":
         self._batch_update_recurring_payment_request.request_body = request_body
         self._batch_update_recurring_payment_request.body = request_body
         return self

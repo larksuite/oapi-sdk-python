@@ -17,8 +17,11 @@ class SocialInsurance(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSocialInsuranceRequest,
-             option: Optional[RequestOption] = None) -> ListSocialInsuranceResponse:
+    def list(
+        self,
+        request: ListSocialInsuranceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListSocialInsuranceResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class SocialInsurance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSocialInsuranceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSocialInsuranceResponse)
+        response: ListSocialInsuranceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSocialInsuranceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSocialInsuranceRequest,
-                    option: Optional[RequestOption] = None) -> ListSocialInsuranceResponse:
+    async def alist(
+        self,
+        request: ListSocialInsuranceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListSocialInsuranceResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class SocialInsurance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSocialInsuranceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSocialInsuranceResponse)
+        response: ListSocialInsuranceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSocialInsuranceResponse
+        )
         response.raw = resp
 
         return response

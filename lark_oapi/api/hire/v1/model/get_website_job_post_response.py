@@ -9,7 +9,6 @@ from .get_website_job_post_response_body import GetWebsiteJobPostResponseBody
 class GetWebsiteJobPostResponse(BaseResponse):
     _types = {
         "data": GetWebsiteJobPostResponseBody,
-
     }
 
     def __init__(self, d=None):

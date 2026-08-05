@@ -35,39 +35,64 @@ class UpdateProgressEcoBackgroundCheckRequestBody(object):
 
 class UpdateProgressEcoBackgroundCheckRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_progress_eco_background_check_request_body = UpdateProgressEcoBackgroundCheckRequestBody()
+        self._update_progress_eco_background_check_request_body = (
+            UpdateProgressEcoBackgroundCheckRequestBody()
+        )
 
-    def background_check_id(self, background_check_id: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
-        self._update_progress_eco_background_check_request_body.background_check_id = background_check_id
+    def background_check_id(
+        self, background_check_id: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+        self._update_progress_eco_background_check_request_body.background_check_id = (
+            background_check_id
+        )
         return self
 
-    def stage_id(self, stage_id: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+    def stage_id(
+        self, stage_id: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
         self._update_progress_eco_background_check_request_body.stage_id = stage_id
         return self
 
-    def stage_en_name(self, stage_en_name: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
-        self._update_progress_eco_background_check_request_body.stage_en_name = stage_en_name
+    def stage_en_name(
+        self, stage_en_name: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+        self._update_progress_eco_background_check_request_body.stage_en_name = (
+            stage_en_name
+        )
         return self
 
-    def stage_name(self, stage_name: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+    def stage_name(
+        self, stage_name: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
         self._update_progress_eco_background_check_request_body.stage_name = stage_name
         return self
 
-    def stage_time(self, stage_time: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+    def stage_time(
+        self, stage_time: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
         self._update_progress_eco_background_check_request_body.stage_time = stage_time
         return self
 
-    def result(self, result: str) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+    def result(
+        self, result: str
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
         self._update_progress_eco_background_check_request_body.result = result
         return self
 
-    def operator_role(self, operator_role: int) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
-        self._update_progress_eco_background_check_request_body.operator_role = operator_role
+    def operator_role(
+        self, operator_role: int
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+        self._update_progress_eco_background_check_request_body.operator_role = (
+            operator_role
+        )
         return self
 
-    def report_file_list(self, report_file_list: List[
-        EcoBackgroundCheckReportFile]) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
-        self._update_progress_eco_background_check_request_body.report_file_list = report_file_list
+    def report_file_list(
+        self, report_file_list: List[EcoBackgroundCheckReportFile]
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBodyBuilder":
+        self._update_progress_eco_background_check_request_body.report_file_list = (
+            report_file_list
+        )
         return self
 
     def build(self) -> "UpdateProgressEcoBackgroundCheckRequestBody":

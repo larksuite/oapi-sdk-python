@@ -17,7 +17,6 @@ class ActivePathwayRequest(BaseRequest):
 
 
 class ActivePathwayRequestBuilder(object):
-
     def __init__(self) -> None:
         active_pathway_request = ActivePathwayRequest()
         active_pathway_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class ActivePathwayRequestBuilder(object):
         active_pathway_request.token_types = {AccessTokenType.TENANT}
         self._active_pathway_request: ActivePathwayRequest = active_pathway_request
 
-    def request_body(self, request_body: ActivePathwayRequestBody) -> "ActivePathwayRequestBuilder":
+    def request_body(
+        self, request_body: ActivePathwayRequestBody
+    ) -> "ActivePathwayRequestBuilder":
         self._active_pathway_request.request_body = request_body
         self._active_pathway_request.body = request_body
         return self

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_additional_information_request_body import QueryAdditionalInformationRequestBody
+from .query_additional_information_request_body import (
+    QueryAdditionalInformationRequestBody,
+)
 
 
 class QueryAdditionalInformationRequest(BaseRequest):
@@ -20,17 +22,22 @@ class QueryAdditionalInformationRequest(BaseRequest):
 
 
 class QueryAdditionalInformationRequestBuilder(object):
-
     def __init__(self) -> None:
         query_additional_information_request = QueryAdditionalInformationRequest()
         query_additional_information_request.http_method = HttpMethod.POST
-        query_additional_information_request.uri = "/open-apis/performance/v2/additional_informations/query"
+        query_additional_information_request.uri = (
+            "/open-apis/performance/v2/additional_informations/query"
+        )
         query_additional_information_request.token_types = {AccessTokenType.TENANT}
         self._query_additional_information_request: QueryAdditionalInformationRequest = query_additional_information_request
 
-    def user_id_type(self, user_id_type: str) -> "QueryAdditionalInformationRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "QueryAdditionalInformationRequestBuilder":
         self._query_additional_information_request.user_id_type = user_id_type
-        self._query_additional_information_request.add_query("user_id_type", user_id_type)
+        self._query_additional_information_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def page_token(self, page_token: str) -> "QueryAdditionalInformationRequestBuilder":
@@ -43,8 +50,9 @@ class QueryAdditionalInformationRequestBuilder(object):
         self._query_additional_information_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self,
-                     request_body: QueryAdditionalInformationRequestBody) -> "QueryAdditionalInformationRequestBuilder":
+    def request_body(
+        self, request_body: QueryAdditionalInformationRequestBody
+    ) -> "QueryAdditionalInformationRequestBuilder":
         self._query_additional_information_request.request_body = request_body
         self._query_additional_information_request.body = request_body
         return self

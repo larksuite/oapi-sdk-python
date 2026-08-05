@@ -80,7 +80,9 @@ class VerificationPlanBuilder(object):
         self._verification_plan.is_active = is_active
         return self
 
-    def effective_period_seq(self, effective_period_seq: str) -> "VerificationPlanBuilder":
+    def effective_period_seq(
+        self, effective_period_seq: str
+    ) -> "VerificationPlanBuilder":
         self._verification_plan.effective_period_seq = effective_period_seq
         return self
 
@@ -88,7 +90,9 @@ class VerificationPlanBuilder(object):
         self._verification_plan.name = name
         return self
 
-    def country_region_id(self, country_region_id: IdWithName) -> "VerificationPlanBuilder":
+    def country_region_id(
+        self, country_region_id: IdWithName
+    ) -> "VerificationPlanBuilder":
         self._verification_plan.country_region_id = country_region_id
         return self
 
@@ -100,7 +104,9 @@ class VerificationPlanBuilder(object):
         self._verification_plan.calendar_type = calendar_type
         return self
 
-    def pay_calendars(self, pay_calendars: List[VerifPayCalendar]) -> "VerificationPlanBuilder":
+    def pay_calendars(
+        self, pay_calendars: List[VerifPayCalendar]
+    ) -> "VerificationPlanBuilder":
         self._verification_plan.pay_calendars = pay_calendars
         return self
 
@@ -112,7 +118,9 @@ class VerificationPlanBuilder(object):
         self._verification_plan.pay_groups = pay_groups
         return self
 
-    def datasource_config(self, datasource_config: VerifDatasourceConfig) -> "VerificationPlanBuilder":
+    def datasource_config(
+        self, datasource_config: VerifDatasourceConfig
+    ) -> "VerificationPlanBuilder":
         self._verification_plan.datasource_config = datasource_config
         return self
 

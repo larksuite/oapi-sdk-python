@@ -35,7 +35,9 @@ class DeviceApplyRecordBuilder(object):
     def __init__(self) -> None:
         self._device_apply_record = DeviceApplyRecord()
 
-    def device_apply_record_id(self, device_apply_record_id: int) -> "DeviceApplyRecordBuilder":
+    def device_apply_record_id(
+        self, device_apply_record_id: int
+    ) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_apply_record_id = device_apply_record_id
         return self
 
@@ -55,7 +57,9 @@ class DeviceApplyRecordBuilder(object):
         self._device_apply_record.operator = operator
         return self
 
-    def apply_device_ownership(self, apply_device_ownership: int) -> "DeviceApplyRecordBuilder":
+    def apply_device_ownership(
+        self, apply_device_ownership: int
+    ) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.apply_device_ownership = apply_device_ownership
         return self
 

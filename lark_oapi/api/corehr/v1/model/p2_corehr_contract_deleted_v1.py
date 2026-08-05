@@ -16,9 +16,7 @@ class P2CorehrContractDeletedV1Data(object):
 
 
 class P2CorehrContractDeletedV1(EventContext):
-    _types = {
-        "event": P2CorehrContractDeletedV1Data
-    }
+    _types = {"event": P2CorehrContractDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

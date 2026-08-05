@@ -9,7 +9,6 @@ from .list_audit_info_response_body import ListAuditInfoResponseBody
 class ListAuditInfoResponse(BaseResponse):
     _types = {
         "data": ListAuditInfoResponseBody,
-
     }
 
     def __init__(self, d=None):

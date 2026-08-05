@@ -15,7 +15,6 @@ class GetUserInfoRequest(BaseRequest):
 
 
 class GetUserInfoRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_info_request = GetUserInfoRequest()
         get_user_info_request.http_method = HttpMethod.GET

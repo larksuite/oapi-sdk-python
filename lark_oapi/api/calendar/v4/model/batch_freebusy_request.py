@@ -18,12 +18,14 @@ class BatchFreebusyRequest(BaseRequest):
 
 
 class BatchFreebusyRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_freebusy_request = BatchFreebusyRequest()
         batch_freebusy_request.http_method = HttpMethod.POST
         batch_freebusy_request.uri = "/open-apis/calendar/v4/freebusy/batch"
-        batch_freebusy_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        batch_freebusy_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._batch_freebusy_request: BatchFreebusyRequest = batch_freebusy_request
 
     def user_id_type(self, user_id_type: str) -> "BatchFreebusyRequestBuilder":
@@ -31,7 +33,9 @@ class BatchFreebusyRequestBuilder(object):
         self._batch_freebusy_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: BatchFreebusyRequestBody) -> "BatchFreebusyRequestBuilder":
+    def request_body(
+        self, request_body: BatchFreebusyRequestBody
+    ) -> "BatchFreebusyRequestBuilder":
         self._batch_freebusy_request.request_body = request_body
         self._batch_freebusy_request.body = request_body
         return self

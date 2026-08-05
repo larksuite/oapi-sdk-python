@@ -21,8 +21,11 @@ class FunctionalRole(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateFunctionalRoleRequest,
-               option: Optional[RequestOption] = None) -> CreateFunctionalRoleResponse:
+    def create(
+        self,
+        request: CreateFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +40,18 @@ class FunctionalRole(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFunctionalRoleResponse)
+        response: CreateFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateFunctionalRoleRequest,
-                      option: Optional[RequestOption] = None) -> CreateFunctionalRoleResponse:
+    async def acreate(
+        self,
+        request: CreateFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,13 +62,18 @@ class FunctionalRole(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFunctionalRoleResponse)
+        response: CreateFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteFunctionalRoleRequest,
-               option: Optional[RequestOption] = None) -> DeleteFunctionalRoleResponse:
+    def delete(
+        self,
+        request: DeleteFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,13 +88,18 @@ class FunctionalRole(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFunctionalRoleResponse)
+        response: DeleteFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteFunctionalRoleRequest,
-                      option: Optional[RequestOption] = None) -> DeleteFunctionalRoleResponse:
+    async def adelete(
+        self,
+        request: DeleteFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,13 +110,18 @@ class FunctionalRole(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFunctionalRoleResponse)
+        response: DeleteFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateFunctionalRoleRequest,
-               option: Optional[RequestOption] = None) -> UpdateFunctionalRoleResponse:
+    def update(
+        self,
+        request: UpdateFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,13 +136,18 @@ class FunctionalRole(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateFunctionalRoleResponse)
+        response: UpdateFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateFunctionalRoleRequest,
-                      option: Optional[RequestOption] = None) -> UpdateFunctionalRoleResponse:
+    async def aupdate(
+        self,
+        request: UpdateFunctionalRoleRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateFunctionalRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -130,7 +158,9 @@ class FunctionalRole(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateFunctionalRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateFunctionalRoleResponse)
+        response: UpdateFunctionalRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateFunctionalRoleResponse
+        )
         response.raw = resp
 
         return response

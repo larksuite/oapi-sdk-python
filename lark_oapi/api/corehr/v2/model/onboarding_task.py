@@ -10,6 +10,7 @@ class OnboardingTask(object):
         "task_status": str,
         "operator_id": str,
         "task_code": str,
+        "current_operators": List[str],
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class OnboardingTask(object):
         self.task_status: Optional[str] = None
         self.operator_id: Optional[str] = None
         self.task_code: Optional[str] = None
+        self.current_operators: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,12 @@ class OnboardingTaskBuilder(object):
 
     def task_code(self, task_code: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.task_code = task_code
+        return self
+
+    def current_operators(
+        self, current_operators: List[str]
+    ) -> "OnboardingTaskBuilder":
+        self._onboarding_task.current_operators = current_operators
         return self
 
     def build(self) -> "OnboardingTask":

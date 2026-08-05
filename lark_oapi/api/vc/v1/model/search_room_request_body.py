@@ -32,7 +32,9 @@ class SearchRoomRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_room_request_body = SearchRoomRequestBody()
 
-    def custom_room_ids(self, custom_room_ids: List[str]) -> "SearchRoomRequestBodyBuilder":
+    def custom_room_ids(
+        self, custom_room_ids: List[str]
+    ) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.custom_room_ids = custom_room_ids
         return self
 
@@ -44,7 +46,9 @@ class SearchRoomRequestBodyBuilder(object):
         self._search_room_request_body.room_level_id = room_level_id
         return self
 
-    def search_level_name(self, search_level_name: bool) -> "SearchRoomRequestBodyBuilder":
+    def search_level_name(
+        self, search_level_name: bool
+    ) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.search_level_name = search_level_name
         return self
 

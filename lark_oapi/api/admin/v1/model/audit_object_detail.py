@@ -66,23 +66,35 @@ class AuditObjectDetailBuilder(object):
         self._audit_object_detail.contain_file_num = contain_file_num
         return self
 
-    def permission_setting_type(self, permission_setting_type: str) -> "AuditObjectDetailBuilder":
+    def permission_setting_type(
+        self, permission_setting_type: str
+    ) -> "AuditObjectDetailBuilder":
         self._audit_object_detail.permission_setting_type = permission_setting_type
         return self
 
-    def permission_external_access_type(self, permission_external_access_type: bool) -> "AuditObjectDetailBuilder":
-        self._audit_object_detail.permission_external_access_type = permission_external_access_type
+    def permission_external_access_type(
+        self, permission_external_access_type: bool
+    ) -> "AuditObjectDetailBuilder":
+        self._audit_object_detail.permission_external_access_type = (
+            permission_external_access_type
+        )
         return self
 
-    def permission_share_type(self, permission_share_type: str) -> "AuditObjectDetailBuilder":
+    def permission_share_type(
+        self, permission_share_type: str
+    ) -> "AuditObjectDetailBuilder":
         self._audit_object_detail.permission_share_type = permission_share_type
         return self
 
-    def file_service_source(self, file_service_source: str) -> "AuditObjectDetailBuilder":
+    def file_service_source(
+        self, file_service_source: str
+    ) -> "AuditObjectDetailBuilder":
         self._audit_object_detail.file_service_source = file_service_source
         return self
 
-    def okr_download_content(self, okr_download_content: str) -> "AuditObjectDetailBuilder":
+    def okr_download_content(
+        self, okr_download_content: str
+    ) -> "AuditObjectDetailBuilder":
         self._audit_object_detail.okr_download_content = okr_download_content
         return self
 

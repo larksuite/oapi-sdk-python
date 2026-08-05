@@ -39,13 +39,16 @@ class LeaveRequestHistoryLeaveRequest(BaseRequest):
 
 
 class LeaveRequestHistoryLeaveRequestBuilder(object):
-
     def __init__(self) -> None:
         leave_request_history_leave_request = LeaveRequestHistoryLeaveRequest()
         leave_request_history_leave_request.http_method = HttpMethod.GET
-        leave_request_history_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_request_history"
+        leave_request_history_leave_request.uri = (
+            "/open-apis/corehr/v1/leaves/leave_request_history"
+        )
         leave_request_history_leave_request.token_types = {AccessTokenType.TENANT}
-        self._leave_request_history_leave_request: LeaveRequestHistoryLeaveRequest = leave_request_history_leave_request
+        self._leave_request_history_leave_request: LeaveRequestHistoryLeaveRequest = (
+            leave_request_history_leave_request
+        )
 
     def page_token(self, page_token: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.page_token = page_token
@@ -57,79 +60,161 @@ class LeaveRequestHistoryLeaveRequestBuilder(object):
         self._leave_request_history_leave_request.add_query("page_size", page_size)
         return self
 
-    def employment_id_list(self, employment_id_list: List[str]) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.employment_id_list = employment_id_list
-        self._leave_request_history_leave_request.add_query("employment_id_list", employment_id_list)
+    def employment_id_list(
+        self, employment_id_list: List[str]
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.employment_id_list = (
+            employment_id_list
+        )
+        self._leave_request_history_leave_request.add_query(
+            "employment_id_list", employment_id_list
+        )
         return self
 
-    def initiator_id_list(self, initiator_id_list: List[str]) -> "LeaveRequestHistoryLeaveRequestBuilder":
+    def initiator_id_list(
+        self, initiator_id_list: List[str]
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.initiator_id_list = initiator_id_list
-        self._leave_request_history_leave_request.add_query("initiator_id_list", initiator_id_list)
+        self._leave_request_history_leave_request.add_query(
+            "initiator_id_list", initiator_id_list
+        )
         return self
 
-    def leave_request_status(self, leave_request_status: List[str]) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_request_status = leave_request_status
-        self._leave_request_history_leave_request.add_query("leave_request_status", leave_request_status)
+    def leave_request_status(
+        self, leave_request_status: List[str]
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_request_status = (
+            leave_request_status
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_request_status", leave_request_status
+        )
         return self
 
-    def leave_type_id_list(self, leave_type_id_list: List[str]) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_type_id_list = leave_type_id_list
-        self._leave_request_history_leave_request.add_query("leave_type_id_list", leave_type_id_list)
+    def leave_type_id_list(
+        self, leave_type_id_list: List[str]
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_type_id_list = (
+            leave_type_id_list
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_type_id_list", leave_type_id_list
+        )
         return self
 
-    def leave_start_date_min(self, leave_start_date_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_start_date_min = leave_start_date_min
-        self._leave_request_history_leave_request.add_query("leave_start_date_min", leave_start_date_min)
+    def leave_start_date_min(
+        self, leave_start_date_min: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_start_date_min = (
+            leave_start_date_min
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_start_date_min", leave_start_date_min
+        )
         return self
 
-    def leave_start_date_max(self, leave_start_date_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_start_date_max = leave_start_date_max
-        self._leave_request_history_leave_request.add_query("leave_start_date_max", leave_start_date_max)
+    def leave_start_date_max(
+        self, leave_start_date_max: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_start_date_max = (
+            leave_start_date_max
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_start_date_max", leave_start_date_max
+        )
         return self
 
-    def leave_end_date_min(self, leave_end_date_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_end_date_min = leave_end_date_min
-        self._leave_request_history_leave_request.add_query("leave_end_date_min", leave_end_date_min)
+    def leave_end_date_min(
+        self, leave_end_date_min: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_end_date_min = (
+            leave_end_date_min
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_end_date_min", leave_end_date_min
+        )
         return self
 
-    def leave_end_date_max(self, leave_end_date_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_end_date_max = leave_end_date_max
-        self._leave_request_history_leave_request.add_query("leave_end_date_max", leave_end_date_max)
+    def leave_end_date_max(
+        self, leave_end_date_max: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_end_date_max = (
+            leave_end_date_max
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_end_date_max", leave_end_date_max
+        )
         return self
 
-    def leave_submit_date_min(self, leave_submit_date_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_submit_date_min = leave_submit_date_min
-        self._leave_request_history_leave_request.add_query("leave_submit_date_min", leave_submit_date_min)
+    def leave_submit_date_min(
+        self, leave_submit_date_min: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_submit_date_min = (
+            leave_submit_date_min
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_submit_date_min", leave_submit_date_min
+        )
         return self
 
-    def leave_submit_date_max(self, leave_submit_date_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_submit_date_max = leave_submit_date_max
-        self._leave_request_history_leave_request.add_query("leave_submit_date_max", leave_submit_date_max)
+    def leave_submit_date_max(
+        self, leave_submit_date_max: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_submit_date_max = (
+            leave_submit_date_max
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_submit_date_max", leave_submit_date_max
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.user_id_type = user_id_type
-        self._leave_request_history_leave_request.add_query("user_id_type", user_id_type)
+        self._leave_request_history_leave_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def leave_update_time_min(self, leave_update_time_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_update_time_min = leave_update_time_min
-        self._leave_request_history_leave_request.add_query("leave_update_time_min", leave_update_time_min)
+    def leave_update_time_min(
+        self, leave_update_time_min: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_update_time_min = (
+            leave_update_time_min
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_update_time_min", leave_update_time_min
+        )
         return self
 
-    def leave_update_time_max(self, leave_update_time_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.leave_update_time_max = leave_update_time_max
-        self._leave_request_history_leave_request.add_query("leave_update_time_max", leave_update_time_max)
+    def leave_update_time_max(
+        self, leave_update_time_max: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_update_time_max = (
+            leave_update_time_max
+        )
+        self._leave_request_history_leave_request.add_query(
+            "leave_update_time_max", leave_update_time_max
+        )
         return self
 
-    def return_detail(self, return_detail: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
+    def return_detail(
+        self, return_detail: bool
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.return_detail = return_detail
-        self._leave_request_history_leave_request.add_query("return_detail", return_detail)
+        self._leave_request_history_leave_request.add_query(
+            "return_detail", return_detail
+        )
         return self
 
-    def leave_term_type(self, leave_term_type: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
+    def leave_term_type(
+        self, leave_term_type: int
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.leave_term_type = leave_term_type
-        self._leave_request_history_leave_request.add_query("leave_term_type", leave_term_type)
+        self._leave_request_history_leave_request.add_query(
+            "leave_term_type", leave_term_type
+        )
         return self
 
     def time_zone(self, time_zone: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
@@ -142,32 +227,57 @@ class LeaveRequestHistoryLeaveRequestBuilder(object):
         self._leave_request_history_leave_request.add_query("data_source", data_source)
         return self
 
-    def db_update_time_min(self, db_update_time_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.db_update_time_min = db_update_time_min
-        self._leave_request_history_leave_request.add_query("db_update_time_min", db_update_time_min)
+    def db_update_time_min(
+        self, db_update_time_min: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.db_update_time_min = (
+            db_update_time_min
+        )
+        self._leave_request_history_leave_request.add_query(
+            "db_update_time_min", db_update_time_min
+        )
         return self
 
-    def db_update_time_max(self, db_update_time_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.db_update_time_max = db_update_time_max
-        self._leave_request_history_leave_request.add_query("db_update_time_max", db_update_time_max)
+    def db_update_time_max(
+        self, db_update_time_max: str
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.db_update_time_max = (
+            db_update_time_max
+        )
+        self._leave_request_history_leave_request.add_query(
+            "db_update_time_max", db_update_time_max
+        )
         return self
 
-    def wd_need_amount_zero_records(self,
-                                    wd_need_amount_zero_records: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.wd_need_amount_zero_records = wd_need_amount_zero_records
-        self._leave_request_history_leave_request.add_query("wd_need_amount_zero_records", wd_need_amount_zero_records)
+    def wd_need_amount_zero_records(
+        self, wd_need_amount_zero_records: bool
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.wd_need_amount_zero_records = (
+            wd_need_amount_zero_records
+        )
+        self._leave_request_history_leave_request.add_query(
+            "wd_need_amount_zero_records", wd_need_amount_zero_records
+        )
         return self
 
-    def wd_need_denied_and_canceled_record(self,
-                                           wd_need_denied_and_canceled_record: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
-        self._leave_request_history_leave_request.wd_need_denied_and_canceled_record = wd_need_denied_and_canceled_record
-        self._leave_request_history_leave_request.add_query("wd_need_denied_and_canceled_record",
-                                                            wd_need_denied_and_canceled_record)
+    def wd_need_denied_and_canceled_record(
+        self, wd_need_denied_and_canceled_record: bool
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.wd_need_denied_and_canceled_record = (
+            wd_need_denied_and_canceled_record
+        )
+        self._leave_request_history_leave_request.add_query(
+            "wd_need_denied_and_canceled_record", wd_need_denied_and_canceled_record
+        )
         return self
 
-    def wd_paid_type(self, wd_paid_type: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
+    def wd_paid_type(
+        self, wd_paid_type: int
+    ) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.wd_paid_type = wd_paid_type
-        self._leave_request_history_leave_request.add_query("wd_paid_type", wd_paid_type)
+        self._leave_request_history_leave_request.add_query(
+            "wd_paid_type", wd_paid_type
+        )
         return self
 
     def build(self) -> LeaveRequestHistoryLeaveRequest:

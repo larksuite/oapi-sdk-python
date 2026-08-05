@@ -17,7 +17,6 @@ class GetSpaceRequest(BaseRequest):
 
 
 class GetSpaceRequestBuilder(object):
-
     def __init__(self) -> None:
         get_space_request = GetSpaceRequest()
         get_space_request.http_method = HttpMethod.GET

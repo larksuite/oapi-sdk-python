@@ -23,7 +23,9 @@ class UpdateConfigJobResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_config_job_response_body = UpdateConfigJobResponseBody()
 
-    def job_config(self, job_config: JobConfigResult) -> "UpdateConfigJobResponseBodyBuilder":
+    def job_config(
+        self, job_config: JobConfigResult
+    ) -> "UpdateConfigJobResponseBodyBuilder":
         self._update_config_job_response_body.job_config = job_config
         return self
 

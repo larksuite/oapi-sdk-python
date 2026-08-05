@@ -24,17 +24,25 @@ class ChangeTalentBlockTalentBlocklistRequestBody(object):
 
 class ChangeTalentBlockTalentBlocklistRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._change_talent_block_talent_blocklist_request_body = ChangeTalentBlockTalentBlocklistRequestBody()
+        self._change_talent_block_talent_blocklist_request_body = (
+            ChangeTalentBlockTalentBlocklistRequestBody()
+        )
 
-    def talent_id(self, talent_id: str) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
+    def talent_id(
+        self, talent_id: str
+    ) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
         self._change_talent_block_talent_blocklist_request_body.talent_id = talent_id
         return self
 
-    def option(self, option: int) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
+    def option(
+        self, option: int
+    ) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
         self._change_talent_block_talent_blocklist_request_body.option = option
         return self
 
-    def reason(self, reason: str) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
+    def reason(
+        self, reason: str
+    ) -> "ChangeTalentBlockTalentBlocklistRequestBodyBuilder":
         self._change_talent_block_talent_blocklist_request_body.reason = reason
         return self
 

@@ -16,7 +16,6 @@ class DeleteJobRequest(BaseRequest):
 
 
 class DeleteJobRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_job_request = DeleteJobRequest()
         delete_job_request.http_method = HttpMethod.DELETE

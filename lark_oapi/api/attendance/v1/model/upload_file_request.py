@@ -18,7 +18,6 @@ class UploadFileRequest(BaseRequest):
 
 
 class UploadFileRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_file_request = UploadFileRequest()
         upload_file_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class UploadFileRequestBuilder(object):
         self._upload_file_request.add_query("file_name", file_name)
         return self
 
-    def request_body(self, request_body: UploadFileRequestBody) -> "UploadFileRequestBuilder":
+    def request_body(
+        self, request_body: UploadFileRequestBody
+    ) -> "UploadFileRequestBuilder":
         self._upload_file_request.request_body = request_body
         self._upload_file_request.body = request_body
         return self

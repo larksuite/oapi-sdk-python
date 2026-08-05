@@ -24,9 +24,7 @@ class P2DriveFileTitleUpdatedV1Data(object):
 
 
 class P2DriveFileTitleUpdatedV1(EventContext):
-    _types = {
-        "event": P2DriveFileTitleUpdatedV1Data
-    }
+    _types = {"event": P2DriveFileTitleUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -36,7 +36,9 @@ class GroupVisibleScopeBuilder(object):
         self._group_visible_scope.visible_users = visible_users
         return self
 
-    def visible_departments(self, visible_departments: List[str]) -> "GroupVisibleScopeBuilder":
+    def visible_departments(
+        self, visible_departments: List[str]
+    ) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.visible_departments = visible_departments
         return self
 

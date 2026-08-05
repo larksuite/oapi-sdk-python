@@ -17,7 +17,6 @@ class QueryUserTaskRequest(BaseRequest):
 
 
 class QueryUserTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         query_user_task_request = QueryUserTaskRequest()
         query_user_task_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class QueryUserTaskRequestBuilder(object):
         query_user_task_request.token_types = {AccessTokenType.TENANT}
         self._query_user_task_request: QueryUserTaskRequest = query_user_task_request
 
-    def request_body(self, request_body: QueryUserTaskRequestBody) -> "QueryUserTaskRequestBuilder":
+    def request_body(
+        self, request_body: QueryUserTaskRequestBody
+    ) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.request_body = request_body
         self._query_user_task_request.body = request_body
         return self

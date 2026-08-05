@@ -66,7 +66,9 @@ class EmployeeJobFamilyBuilder(object):
         self._employee_job_family.code = code
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeeJobFamilyBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "EmployeeJobFamilyBuilder":
         self._employee_job_family.custom_fields = custom_fields
         return self
 

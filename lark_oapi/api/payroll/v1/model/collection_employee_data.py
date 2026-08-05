@@ -38,11 +38,15 @@ class CollectionEmployeeDataBuilder(object):
         self._collection_employee_data.activity_id = activity_id
         return self
 
-    def employee_info(self, employee_info: EmployeeInfo) -> "CollectionEmployeeDataBuilder":
+    def employee_info(
+        self, employee_info: EmployeeInfo
+    ) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.employee_info = employee_info
         return self
 
-    def collection_datas(self, collection_datas: List[CollectionData]) -> "CollectionEmployeeDataBuilder":
+    def collection_datas(
+        self, collection_datas: List[CollectionData]
+    ) -> "CollectionEmployeeDataBuilder":
         self._collection_employee_data.collection_datas = collection_datas
         return self
 

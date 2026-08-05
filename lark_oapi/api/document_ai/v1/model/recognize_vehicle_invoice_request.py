@@ -17,15 +17,23 @@ class RecognizeVehicleInvoiceRequest(BaseRequest):
 
 
 class RecognizeVehicleInvoiceRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_vehicle_invoice_request = RecognizeVehicleInvoiceRequest()
         recognize_vehicle_invoice_request.http_method = HttpMethod.POST
-        recognize_vehicle_invoice_request.uri = "/open-apis/document_ai/v1/vehicle_invoice/recognize"
-        recognize_vehicle_invoice_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._recognize_vehicle_invoice_request: RecognizeVehicleInvoiceRequest = recognize_vehicle_invoice_request
+        recognize_vehicle_invoice_request.uri = (
+            "/open-apis/document_ai/v1/vehicle_invoice/recognize"
+        )
+        recognize_vehicle_invoice_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._recognize_vehicle_invoice_request: RecognizeVehicleInvoiceRequest = (
+            recognize_vehicle_invoice_request
+        )
 
-    def request_body(self, request_body: RecognizeVehicleInvoiceRequestBody) -> "RecognizeVehicleInvoiceRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeVehicleInvoiceRequestBody
+    ) -> "RecognizeVehicleInvoiceRequestBuilder":
         self._recognize_vehicle_invoice_request.request_body = request_body
         self._recognize_vehicle_invoice_request.body = request_body
         return self

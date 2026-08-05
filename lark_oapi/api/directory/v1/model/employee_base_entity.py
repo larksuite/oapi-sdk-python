@@ -84,7 +84,9 @@ class EmployeeBaseEntity(object):
         self.contact_addresses: Optional[List[ContactAddress]] = None
         self.tenant: Optional[Tenant] = None
         self.departments: Optional[List[Department]] = None
-        self.employee_order_in_departments: Optional[List[UserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[List[UserDepartmentSortInfo]] = (
+            None
+        )
         self.user_department_path: Optional[Dict[str, List[str]]] = None
         self.user_department_path_name: Optional[Dict[str, I18nText]] = None
         self.avatar_key: Optional[Image] = None
@@ -166,11 +168,15 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.gender = gender
         return self
 
-    def residential_address(self, residential_address: str) -> "EmployeeBaseEntityBuilder":
+    def residential_address(
+        self, residential_address: str
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.residential_address = residential_address
         return self
 
-    def contact_addresses(self, contact_addresses: List[ContactAddress]) -> "EmployeeBaseEntityBuilder":
+    def contact_addresses(
+        self, contact_addresses: List[ContactAddress]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.contact_addresses = contact_addresses
         return self
 
@@ -182,16 +188,23 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.departments = departments
         return self
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UserDepartmentSortInfo]) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UserDepartmentSortInfo]
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
-    def user_department_path(self, user_department_path: Dict[str, List[str]]) -> "EmployeeBaseEntityBuilder":
+    def user_department_path(
+        self, user_department_path: Dict[str, List[str]]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.user_department_path = user_department_path
         return self
 
-    def user_department_path_name(self, user_department_path_name: Dict[str, I18nText]) -> "EmployeeBaseEntityBuilder":
+    def user_department_path_name(
+        self, user_department_path_name: Dict[str, I18nText]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.user_department_path_name = user_department_path_name
         return self
 
@@ -199,7 +212,9 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.avatar_key = avatar_key
         return self
 
-    def background_image_key(self, background_image_key: str) -> "EmployeeBaseEntityBuilder":
+    def background_image_key(
+        self, background_image_key: str
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.background_image_key = background_image_key
         return self
 
@@ -207,8 +222,12 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.description = description
         return self
 
-    def is_set_custom_background_image(self, is_set_custom_background_image: bool) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.is_set_custom_background_image = is_set_custom_background_image
+    def is_set_custom_background_image(
+        self, is_set_custom_background_image: bool
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.is_set_custom_background_image = (
+            is_set_custom_background_image
+        )
         return self
 
     def active_status(self, active_status: int) -> "EmployeeBaseEntityBuilder":
@@ -223,7 +242,9 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.leader_id = leader_id
         return self
 
-    def dotted_line_leader_ids(self, dotted_line_leader_ids: List[str]) -> "EmployeeBaseEntityBuilder":
+    def dotted_line_leader_ids(
+        self, dotted_line_leader_ids: List[str]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.dotted_line_leader_ids = dotted_line_leader_ids
         return self
 
@@ -239,11 +260,15 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.update_time = update_time
         return self
 
-    def enterprise_email_aliases(self, enterprise_email_aliases: List[str]) -> "EmployeeBaseEntityBuilder":
+    def enterprise_email_aliases(
+        self, enterprise_email_aliases: List[str]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.enterprise_email_aliases = enterprise_email_aliases
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "EmployeeBaseEntityBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.custom_field_values = custom_field_values
         return self
 
@@ -255,15 +280,23 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.work_status = work_status
         return self
 
-    def has_been_resurrected(self, has_been_resurrected: bool) -> "EmployeeBaseEntityBuilder":
+    def has_been_resurrected(
+        self, has_been_resurrected: bool
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.has_been_resurrected = has_been_resurrected
         return self
 
-    def during_resign_cooling_off_period(self, during_resign_cooling_off_period: bool) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.during_resign_cooling_off_period = during_resign_cooling_off_period
+    def during_resign_cooling_off_period(
+        self, during_resign_cooling_off_period: bool
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.during_resign_cooling_off_period = (
+            during_resign_cooling_off_period
+        )
         return self
 
-    def is_set_custom_avatar(self, is_set_custom_avatar: bool) -> "EmployeeBaseEntityBuilder":
+    def is_set_custom_avatar(
+        self, is_set_custom_avatar: bool
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.is_set_custom_avatar = is_set_custom_avatar
         return self
 
@@ -271,7 +304,9 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.is_registered = is_registered
         return self
 
-    def department_path_infos(self, department_path_infos: List[list]) -> "EmployeeBaseEntityBuilder":
+    def department_path_infos(
+        self, department_path_infos: List[list]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.department_path_infos = department_path_infos
         return self
 
@@ -279,17 +314,25 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.resign_time = resign_time
         return self
 
-    def resigned_user_department_path(self, resigned_user_department_path: Dict[
-        str, List[str]]) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.resigned_user_department_path = resigned_user_department_path
+    def resigned_user_department_path(
+        self, resigned_user_department_path: Dict[str, List[str]]
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.resigned_user_department_path = (
+            resigned_user_department_path
+        )
         return self
 
-    def resigned_user_department_path_name(self, resigned_user_department_path_name: Dict[
-        str, I18nText]) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.resigned_user_department_path_name = resigned_user_department_path_name
+    def resigned_user_department_path_name(
+        self, resigned_user_department_path_name: Dict[str, I18nText]
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.resigned_user_department_path_name = (
+            resigned_user_department_path_name
+        )
         return self
 
-    def resigned_departments(self, resigned_departments: List[Department]) -> "EmployeeBaseEntityBuilder":
+    def resigned_departments(
+        self, resigned_departments: List[Department]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.resigned_departments = resigned_departments
         return self
 
@@ -313,16 +356,24 @@ class EmployeeBaseEntityBuilder(object):
         self._employee_base_entity.geo_name = geo_name
         return self
 
-    def subscription_ids(self, subscription_ids: List[int]) -> "EmployeeBaseEntityBuilder":
+    def subscription_ids(
+        self, subscription_ids: List[int]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.subscription_ids = subscription_ids
         return self
 
-    def virtual_org_infos(self, virtual_org_infos: List[UserVirtualOrgInfo]) -> "EmployeeBaseEntityBuilder":
+    def virtual_org_infos(
+        self, virtual_org_infos: List[UserVirtualOrgInfo]
+    ) -> "EmployeeBaseEntityBuilder":
         self._employee_base_entity.virtual_org_infos = virtual_org_infos
         return self
 
-    def is_forbidden_delete_employee(self, is_forbidden_delete_employee: bool) -> "EmployeeBaseEntityBuilder":
-        self._employee_base_entity.is_forbidden_delete_employee = is_forbidden_delete_employee
+    def is_forbidden_delete_employee(
+        self, is_forbidden_delete_employee: bool
+    ) -> "EmployeeBaseEntityBuilder":
+        self._employee_base_entity.is_forbidden_delete_employee = (
+            is_forbidden_delete_employee
+        )
         return self
 
     def build(self) -> "EmployeeBaseEntity":

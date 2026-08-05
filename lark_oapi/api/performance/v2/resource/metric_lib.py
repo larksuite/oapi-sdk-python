@@ -17,7 +17,9 @@ class MetricLib(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryMetricLibRequest, option: Optional[RequestOption] = None) -> QueryMetricLibResponse:
+    def query(
+        self, request: QueryMetricLibRequest, option: Optional[RequestOption] = None
+    ) -> QueryMetricLibResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class MetricLib(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricLibResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricLibResponse)
+        response: QueryMetricLibResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricLibResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryMetricLibRequest,
-                     option: Optional[RequestOption] = None) -> QueryMetricLibResponse:
+    async def aquery(
+        self, request: QueryMetricLibRequest, option: Optional[RequestOption] = None
+    ) -> QueryMetricLibResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class MetricLib(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricLibResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricLibResponse)
+        response: QueryMetricLibResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricLibResponse
+        )
         response.raw = resp
 
         return response

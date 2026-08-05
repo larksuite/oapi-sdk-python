@@ -28,7 +28,9 @@ class CreateMailgroupMemberResponseBody(object):
 
 class CreateMailgroupMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_mailgroup_member_response_body = CreateMailgroupMemberResponseBody()
+        self._create_mailgroup_member_response_body = (
+            CreateMailgroupMemberResponseBody()
+        )
 
     def member_id(self, member_id: str) -> "CreateMailgroupMemberResponseBodyBuilder":
         self._create_mailgroup_member_response_body.member_id = member_id
@@ -42,7 +44,9 @@ class CreateMailgroupMemberResponseBodyBuilder(object):
         self._create_mailgroup_member_response_body.user_id = user_id
         return self
 
-    def department_id(self, department_id: str) -> "CreateMailgroupMemberResponseBodyBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "CreateMailgroupMemberResponseBodyBuilder":
         self._create_mailgroup_member_response_body.department_id = department_id
         return self
 

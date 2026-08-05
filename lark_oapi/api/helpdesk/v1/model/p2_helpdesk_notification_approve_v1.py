@@ -20,9 +20,7 @@ class P2HelpdeskNotificationApproveV1Data(object):
 
 
 class P2HelpdeskNotificationApproveV1(EventContext):
-    _types = {
-        "event": P2HelpdeskNotificationApproveV1Data
-    }
+    _types = {"event": P2HelpdeskNotificationApproveV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

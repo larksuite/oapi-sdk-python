@@ -59,7 +59,9 @@ class WorkExperienceBuilder(object):
         self._work_experience.department = department
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "WorkExperienceBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "WorkExperienceBuilder":
         self._work_experience.custom_fields = custom_fields
         return self
 

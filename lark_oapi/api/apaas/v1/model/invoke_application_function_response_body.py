@@ -20,7 +20,9 @@ class InvokeApplicationFunctionResponseBody(object):
 
 class InvokeApplicationFunctionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._invoke_application_function_response_body = InvokeApplicationFunctionResponseBody()
+        self._invoke_application_function_response_body = (
+            InvokeApplicationFunctionResponseBody()
+        )
 
     def result(self, result: str) -> "InvokeApplicationFunctionResponseBodyBuilder":
         self._invoke_application_function_response_body.result = result

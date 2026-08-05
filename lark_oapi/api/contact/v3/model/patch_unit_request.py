@@ -18,7 +18,6 @@ class PatchUnitRequest(BaseRequest):
 
 
 class PatchUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_unit_request = PatchUnitRequest()
         patch_unit_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class PatchUnitRequestBuilder(object):
         self._patch_unit_request.paths["unit_id"] = str(unit_id)
         return self
 
-    def request_body(self, request_body: PatchUnitRequestBody) -> "PatchUnitRequestBuilder":
+    def request_body(
+        self, request_body: PatchUnitRequestBody
+    ) -> "PatchUnitRequestBuilder":
         self._patch_unit_request.request_body = request_body
         self._patch_unit_request.body = request_body
         return self

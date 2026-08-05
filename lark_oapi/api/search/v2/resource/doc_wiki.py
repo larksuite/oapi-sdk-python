@@ -17,7 +17,9 @@ class DocWiki(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchDocWikiRequest, option: Optional[RequestOption] = None) -> SearchDocWikiResponse:
+    def search(
+        self, request: SearchDocWikiRequest, option: Optional[RequestOption] = None
+    ) -> SearchDocWikiResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class DocWiki(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchDocWikiResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDocWikiResponse)
+        response: SearchDocWikiResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDocWikiResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchDocWikiRequest,
-                      option: Optional[RequestOption] = None) -> SearchDocWikiResponse:
+    async def asearch(
+        self, request: SearchDocWikiRequest, option: Optional[RequestOption] = None
+    ) -> SearchDocWikiResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class DocWiki(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchDocWikiResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDocWikiResponse)
+        response: SearchDocWikiResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDocWikiResponse
+        )
         response.raw = resp
 
         return response

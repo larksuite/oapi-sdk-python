@@ -95,11 +95,15 @@ class ApplicationOfferBasicInfoBuilder(object):
         self._application_offer_basic_info.owner_user_id = owner_user_id
         return self
 
-    def creator_user_id(self, creator_user_id: str) -> "ApplicationOfferBasicInfoBuilder":
+    def creator_user_id(
+        self, creator_user_id: str
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.creator_user_id = creator_user_id
         return self
 
-    def employee_type(self, employee_type: BaseBilingualWithId) -> "ApplicationOfferBasicInfoBuilder":
+    def employee_type(
+        self, employee_type: BaseBilingualWithId
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.employee_type = employee_type
         return self
 
@@ -119,7 +123,9 @@ class ApplicationOfferBasicInfoBuilder(object):
         self._application_offer_basic_info.department_id = department_id
         return self
 
-    def probation_month(self, probation_month: int) -> "ApplicationOfferBasicInfoBuilder":
+    def probation_month(
+        self, probation_month: int
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.probation_month = probation_month
         return self
 
@@ -127,15 +133,21 @@ class ApplicationOfferBasicInfoBuilder(object):
         self._application_offer_basic_info.contract_year = contract_year
         return self
 
-    def contract_period(self, contract_period: ContractPeriodInfo) -> "ApplicationOfferBasicInfoBuilder":
+    def contract_period(
+        self, contract_period: ContractPeriodInfo
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.contract_period = contract_period
         return self
 
-    def recruitment_type(self, recruitment_type: BaseBilingualWithId) -> "ApplicationOfferBasicInfoBuilder":
+    def recruitment_type(
+        self, recruitment_type: BaseBilingualWithId
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.recruitment_type = recruitment_type
         return self
 
-    def sequence(self, sequence: BaseBilingualWithId) -> "ApplicationOfferBasicInfoBuilder":
+    def sequence(
+        self, sequence: BaseBilingualWithId
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.sequence = sequence
         return self
 
@@ -143,22 +155,30 @@ class ApplicationOfferBasicInfoBuilder(object):
         self._application_offer_basic_info.level = level
         return self
 
-    def onboard_address(self, onboard_address: BaseAddress) -> "ApplicationOfferBasicInfoBuilder":
+    def onboard_address(
+        self, onboard_address: BaseAddress
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.onboard_address = onboard_address
         return self
 
-    def work_address(self, work_address: BaseAddress) -> "ApplicationOfferBasicInfoBuilder":
+    def work_address(
+        self, work_address: BaseAddress
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.work_address = work_address
         return self
 
-    def customize_info_list(self, customize_info_list: List[
-        ApplicationOfferCustomValue]) -> "ApplicationOfferBasicInfoBuilder":
+    def customize_info_list(
+        self, customize_info_list: List[ApplicationOfferCustomValue]
+    ) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.customize_info_list = customize_info_list
         return self
 
-    def work_location_address_info(self,
-                                   work_location_address_info: MasterLocationAddressInfo) -> "ApplicationOfferBasicInfoBuilder":
-        self._application_offer_basic_info.work_location_address_info = work_location_address_info
+    def work_location_address_info(
+        self, work_location_address_info: MasterLocationAddressInfo
+    ) -> "ApplicationOfferBasicInfoBuilder":
+        self._application_offer_basic_info.work_location_address_info = (
+            work_location_address_info
+        )
         return self
 
     def position_id(self, position_id: str) -> "ApplicationOfferBasicInfoBuilder":
@@ -173,8 +193,12 @@ class ApplicationOfferBasicInfoBuilder(object):
         self._application_offer_basic_info.job_grade_id = job_grade_id
         return self
 
-    def common_attachment_id_list(self, common_attachment_id_list: List[str]) -> "ApplicationOfferBasicInfoBuilder":
-        self._application_offer_basic_info.common_attachment_id_list = common_attachment_id_list
+    def common_attachment_id_list(
+        self, common_attachment_id_list: List[str]
+    ) -> "ApplicationOfferBasicInfoBuilder":
+        self._application_offer_basic_info.common_attachment_id_list = (
+            common_attachment_id_list
+        )
         return self
 
     def pathway_id(self, pathway_id: str) -> "ApplicationOfferBasicInfoBuilder":

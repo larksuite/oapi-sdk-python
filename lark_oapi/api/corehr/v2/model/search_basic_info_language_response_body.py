@@ -25,13 +25,19 @@ class SearchBasicInfoLanguageResponseBody(object):
 
 class SearchBasicInfoLanguageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_language_response_body = SearchBasicInfoLanguageResponseBody()
+        self._search_basic_info_language_response_body = (
+            SearchBasicInfoLanguageResponseBody()
+        )
 
-    def items(self, items: List[Language]) -> "SearchBasicInfoLanguageResponseBodyBuilder":
+    def items(
+        self, items: List[Language]
+    ) -> "SearchBasicInfoLanguageResponseBodyBuilder":
         self._search_basic_info_language_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "SearchBasicInfoLanguageResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "SearchBasicInfoLanguageResponseBodyBuilder":
         self._search_basic_info_language_response_body.page_token = page_token
         return self
 

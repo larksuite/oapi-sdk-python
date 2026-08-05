@@ -23,7 +23,9 @@ class UpdateUserMailboxDraftResponseBody(object):
 
 class UpdateUserMailboxDraftResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_user_mailbox_draft_response_body = UpdateUserMailboxDraftResponseBody()
+        self._update_user_mailbox_draft_response_body = (
+            UpdateUserMailboxDraftResponseBody()
+        )
 
     def draft(self, draft: Draft) -> "UpdateUserMailboxDraftResponseBodyBuilder":
         self._update_user_mailbox_draft_response_body.draft = draft

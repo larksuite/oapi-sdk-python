@@ -74,7 +74,9 @@ class CommonSchemaBuilder(object):
         self._common_schema.active_status = active_status
         return self
 
-    def children_list(self, children_list: List[CommonSchemaChild]) -> "CommonSchemaBuilder":
+    def children_list(
+        self, children_list: List[CommonSchemaChild]
+    ) -> "CommonSchemaBuilder":
         self._common_schema.children_list = children_list
         return self
 

@@ -9,7 +9,6 @@ from .get_scope_config_response_body import GetScopeConfigResponseBody
 class GetScopeConfigResponse(BaseResponse):
     _types = {
         "data": GetScopeConfigResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -89,11 +89,15 @@ class ObjectiveBuilder(object):
         self._objective.kr_list = kr_list
         return self
 
-    def aligning_objective_list(self, aligning_objective_list: List[AlignObjective]) -> "ObjectiveBuilder":
+    def aligning_objective_list(
+        self, aligning_objective_list: List[AlignObjective]
+    ) -> "ObjectiveBuilder":
         self._objective.aligning_objective_list = aligning_objective_list
         return self
 
-    def aligned_objective_list(self, aligned_objective_list: List[AlignObjective]) -> "ObjectiveBuilder":
+    def aligned_objective_list(
+        self, aligned_objective_list: List[AlignObjective]
+    ) -> "ObjectiveBuilder":
         self._objective.aligned_objective_list = aligned_objective_list
         return self
 

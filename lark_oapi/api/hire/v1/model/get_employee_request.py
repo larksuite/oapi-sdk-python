@@ -21,7 +21,6 @@ class GetEmployeeRequest(BaseRequest):
 
 
 class GetEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         get_employee_request = GetEmployeeRequest()
         get_employee_request.http_method = HttpMethod.GET
@@ -34,7 +33,9 @@ class GetEmployeeRequestBuilder(object):
         self._get_employee_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetEmployeeRequestBuilder":
         self._get_employee_request.department_id_type = department_id_type
         self._get_employee_request.add_query("department_id_type", department_id_type)
         return self
@@ -44,14 +45,20 @@ class GetEmployeeRequestBuilder(object):
         self._get_employee_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
-    def job_family_id_type(self, job_family_id_type: str) -> "GetEmployeeRequestBuilder":
+    def job_family_id_type(
+        self, job_family_id_type: str
+    ) -> "GetEmployeeRequestBuilder":
         self._get_employee_request.job_family_id_type = job_family_id_type
         self._get_employee_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "GetEmployeeRequestBuilder":
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "GetEmployeeRequestBuilder":
         self._get_employee_request.employee_type_id_type = employee_type_id_type
-        self._get_employee_request.add_query("employee_type_id_type", employee_type_id_type)
+        self._get_employee_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
     def employee_id(self, employee_id: str) -> "GetEmployeeRequestBuilder":

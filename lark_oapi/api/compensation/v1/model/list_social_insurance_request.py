@@ -15,13 +15,16 @@ class ListSocialInsuranceRequest(BaseRequest):
 
 
 class ListSocialInsuranceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_social_insurance_request = ListSocialInsuranceRequest()
         list_social_insurance_request.http_method = HttpMethod.GET
-        list_social_insurance_request.uri = "/open-apis/compensation/v1/social_insurances"
+        list_social_insurance_request.uri = (
+            "/open-apis/compensation/v1/social_insurances"
+        )
         list_social_insurance_request.token_types = {AccessTokenType.TENANT}
-        self._list_social_insurance_request: ListSocialInsuranceRequest = list_social_insurance_request
+        self._list_social_insurance_request: ListSocialInsuranceRequest = (
+            list_social_insurance_request
+        )
 
     def build(self) -> ListSocialInsuranceRequest:
         return self._list_social_insurance_request

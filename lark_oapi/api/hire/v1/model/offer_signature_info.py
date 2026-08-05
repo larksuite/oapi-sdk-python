@@ -35,7 +35,9 @@ class OfferSignatureInfoBuilder(object):
         self._offer_signature_info.signature_status = signature_status
         return self
 
-    def attachment_list(self, attachment_list: List[SignatureAttachment]) -> "OfferSignatureInfoBuilder":
+    def attachment_list(
+        self, attachment_list: List[SignatureAttachment]
+    ) -> "OfferSignatureInfoBuilder":
         self._offer_signature_info.attachment_list = attachment_list
         return self
 

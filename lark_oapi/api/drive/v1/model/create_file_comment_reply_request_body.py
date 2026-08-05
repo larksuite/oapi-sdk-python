@@ -23,9 +23,13 @@ class CreateFileCommentReplyRequestBody(object):
 
 class CreateFileCommentReplyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_file_comment_reply_request_body = CreateFileCommentReplyRequestBody()
+        self._create_file_comment_reply_request_body = (
+            CreateFileCommentReplyRequestBody()
+        )
 
-    def content(self, content: ReplyContent) -> "CreateFileCommentReplyRequestBodyBuilder":
+    def content(
+        self, content: ReplyContent
+    ) -> "CreateFileCommentReplyRequestBodyBuilder":
         self._create_file_comment_reply_request_body.content = content
         return self
 

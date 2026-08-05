@@ -46,7 +46,9 @@ class EmployeeQueryOptionBuilder(object):
         self._employee_query_option.read_archive = read_archive
         return self
 
-    def all_multi_records(self, all_multi_records: bool) -> "EmployeeQueryOptionBuilder":
+    def all_multi_records(
+        self, all_multi_records: bool
+    ) -> "EmployeeQueryOptionBuilder":
         self._employee_query_option.all_multi_records = all_multi_records
         return self
 

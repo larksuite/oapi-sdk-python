@@ -24,13 +24,17 @@ class FieldExtractionContractRequestBody(object):
 
 class FieldExtractionContractRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._field_extraction_contract_request_body = FieldExtractionContractRequestBody()
+        self._field_extraction_contract_request_body = (
+            FieldExtractionContractRequestBody()
+        )
 
     def file(self, file: IO[Any]) -> "FieldExtractionContractRequestBodyBuilder":
         self._field_extraction_contract_request_body.file = file
         return self
 
-    def pdf_page_limit(self, pdf_page_limit: int) -> "FieldExtractionContractRequestBodyBuilder":
+    def pdf_page_limit(
+        self, pdf_page_limit: int
+    ) -> "FieldExtractionContractRequestBodyBuilder":
         self._field_extraction_contract_request_body.pdf_page_limit = pdf_page_limit
         return self
 

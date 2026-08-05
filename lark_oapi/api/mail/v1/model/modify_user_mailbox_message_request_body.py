@@ -24,17 +24,27 @@ class ModifyUserMailboxMessageRequestBody(object):
 
 class ModifyUserMailboxMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._modify_user_mailbox_message_request_body = ModifyUserMailboxMessageRequestBody()
+        self._modify_user_mailbox_message_request_body = (
+            ModifyUserMailboxMessageRequestBody()
+        )
 
-    def add_label_ids(self, add_label_ids: List[str]) -> "ModifyUserMailboxMessageRequestBodyBuilder":
+    def add_label_ids(
+        self, add_label_ids: List[str]
+    ) -> "ModifyUserMailboxMessageRequestBodyBuilder":
         self._modify_user_mailbox_message_request_body.add_label_ids = add_label_ids
         return self
 
-    def remove_label_ids(self, remove_label_ids: List[str]) -> "ModifyUserMailboxMessageRequestBodyBuilder":
-        self._modify_user_mailbox_message_request_body.remove_label_ids = remove_label_ids
+    def remove_label_ids(
+        self, remove_label_ids: List[str]
+    ) -> "ModifyUserMailboxMessageRequestBodyBuilder":
+        self._modify_user_mailbox_message_request_body.remove_label_ids = (
+            remove_label_ids
+        )
         return self
 
-    def add_folder(self, add_folder: str) -> "ModifyUserMailboxMessageRequestBodyBuilder":
+    def add_folder(
+        self, add_folder: str
+    ) -> "ModifyUserMailboxMessageRequestBodyBuilder":
         self._modify_user_mailbox_message_request_body.add_folder = add_folder
         return self
 

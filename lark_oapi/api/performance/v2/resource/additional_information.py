@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.import_additional_information_request import ImportAdditionalInformationRequest
-from ..model.import_additional_information_response import ImportAdditionalInformationResponse
-from ..model.query_additional_information_request import QueryAdditionalInformationRequest
-from ..model.query_additional_information_response import QueryAdditionalInformationResponse
+from ..model.import_additional_information_request import (
+    ImportAdditionalInformationRequest,
+)
+from ..model.import_additional_information_response import (
+    ImportAdditionalInformationResponse,
+)
+from ..model.query_additional_information_request import (
+    QueryAdditionalInformationRequest,
+)
+from ..model.query_additional_information_response import (
+    QueryAdditionalInformationResponse,
+)
 
 
 class AdditionalInformation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def import_(self, request: ImportAdditionalInformationRequest,
-                option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
+    def import_(
+        self,
+        request: ImportAdditionalInformationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ImportAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class AdditionalInformation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ImportAdditionalInformationResponse)
+        response: ImportAdditionalInformationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ImportAdditionalInformationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aimport_(self, request: ImportAdditionalInformationRequest,
-                       option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
+    async def aimport_(
+        self,
+        request: ImportAdditionalInformationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ImportAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class AdditionalInformation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ImportAdditionalInformationResponse)
+        response: ImportAdditionalInformationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ImportAdditionalInformationResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryAdditionalInformationRequest,
-              option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
+    def query(
+        self,
+        request: QueryAdditionalInformationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class AdditionalInformation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryAdditionalInformationResponse)
+        response: QueryAdditionalInformationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryAdditionalInformationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryAdditionalInformationRequest,
-                     option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
+    async def aquery(
+        self,
+        request: QueryAdditionalInformationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class AdditionalInformation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryAdditionalInformationResponse)
+        response: QueryAdditionalInformationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryAdditionalInformationResponse
+        )
         response.raw = resp
 
         return response

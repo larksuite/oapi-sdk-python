@@ -23,45 +23,72 @@ class UpdateJobRequirementRequest(BaseRequest):
 
 
 class UpdateJobRequirementRequestBuilder(object):
-
     def __init__(self) -> None:
         update_job_requirement_request = UpdateJobRequirementRequest()
         update_job_requirement_request.http_method = HttpMethod.PUT
-        update_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements/:job_requirement_id"
+        update_job_requirement_request.uri = (
+            "/open-apis/hire/v1/job_requirements/:job_requirement_id"
+        )
         update_job_requirement_request.token_types = {AccessTokenType.TENANT}
-        self._update_job_requirement_request: UpdateJobRequirementRequest = update_job_requirement_request
+        self._update_job_requirement_request: UpdateJobRequirementRequest = (
+            update_job_requirement_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.user_id_type = user_id_type
         self._update_job_requirement_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.department_id_type = department_id_type
-        self._update_job_requirement_request.add_query("department_id_type", department_id_type)
+        self._update_job_requirement_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.job_level_id_type = job_level_id_type
-        self._update_job_requirement_request.add_query("job_level_id_type", job_level_id_type)
+        self._update_job_requirement_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
-    def job_family_id_type(self, job_family_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+    def job_family_id_type(
+        self, job_family_id_type: str
+    ) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.job_family_id_type = job_family_id_type
-        self._update_job_requirement_request.add_query("job_family_id_type", job_family_id_type)
+        self._update_job_requirement_request.add_query(
+            "job_family_id_type", job_family_id_type
+        )
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "UpdateJobRequirementRequestBuilder":
-        self._update_job_requirement_request.employee_type_id_type = employee_type_id_type
-        self._update_job_requirement_request.add_query("employee_type_id_type", employee_type_id_type)
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "UpdateJobRequirementRequestBuilder":
+        self._update_job_requirement_request.employee_type_id_type = (
+            employee_type_id_type
+        )
+        self._update_job_requirement_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
-    def job_requirement_id(self, job_requirement_id: str) -> "UpdateJobRequirementRequestBuilder":
+    def job_requirement_id(
+        self, job_requirement_id: str
+    ) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.job_requirement_id = job_requirement_id
-        self._update_job_requirement_request.paths["job_requirement_id"] = str(job_requirement_id)
+        self._update_job_requirement_request.paths["job_requirement_id"] = str(
+            job_requirement_id
+        )
         return self
 
-    def request_body(self, request_body: UpdateJobRequirementRequestBody) -> "UpdateJobRequirementRequestBuilder":
+    def request_body(
+        self, request_body: UpdateJobRequirementRequestBody
+    ) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.request_body = request_body
         self._update_job_requirement_request.body = request_body
         return self

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_recent_change_position_response_body import QueryRecentChangePositionResponseBody
+from .query_recent_change_position_response_body import (
+    QueryRecentChangePositionResponseBody,
+)
 
 
 class QueryRecentChangePositionResponse(BaseResponse):
     _types = {
         "data": QueryRecentChangePositionResponseBody,
-
     }
 
     def __init__(self, d=None):

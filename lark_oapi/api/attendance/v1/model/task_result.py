@@ -68,11 +68,15 @@ class TaskResultBuilder(object):
         self._task_result.check_out_result = check_out_result
         return self
 
-    def check_in_result_supplement(self, check_in_result_supplement: str) -> "TaskResultBuilder":
+    def check_in_result_supplement(
+        self, check_in_result_supplement: str
+    ) -> "TaskResultBuilder":
         self._task_result.check_in_result_supplement = check_in_result_supplement
         return self
 
-    def check_out_result_supplement(self, check_out_result_supplement: str) -> "TaskResultBuilder":
+    def check_out_result_supplement(
+        self, check_out_result_supplement: str
+    ) -> "TaskResultBuilder":
         self._task_result.check_out_result_supplement = check_out_result_supplement
         return self
 

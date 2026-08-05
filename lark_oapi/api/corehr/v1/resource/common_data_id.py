@@ -17,8 +17,11 @@ class CommonDataId(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def convert(self, request: ConvertCommonDataIdRequest,
-                option: Optional[RequestOption] = None) -> ConvertCommonDataIdResponse:
+    def convert(
+        self,
+        request: ConvertCommonDataIdRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ConvertCommonDataIdResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class CommonDataId(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ConvertCommonDataIdResponse = JSON.unmarshal(str(resp.content, UTF_8), ConvertCommonDataIdResponse)
+        response: ConvertCommonDataIdResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ConvertCommonDataIdResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aconvert(self, request: ConvertCommonDataIdRequest,
-                       option: Optional[RequestOption] = None) -> ConvertCommonDataIdResponse:
+    async def aconvert(
+        self,
+        request: ConvertCommonDataIdRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ConvertCommonDataIdResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class CommonDataId(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ConvertCommonDataIdResponse = JSON.unmarshal(str(resp.content, UTF_8), ConvertCommonDataIdResponse)
+        response: ConvertCommonDataIdResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ConvertCommonDataIdResponse
+        )
         response.raw = resp
 
         return response

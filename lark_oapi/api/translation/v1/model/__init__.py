@@ -1,6 +1,5 @@
 from .department_id import *
 from .term import *
-from .text import *
 from .detect_text_request_body import *
 from .detect_text_request import *
 from .translate_text_request_body import *

@@ -190,7 +190,9 @@ class AdminUserStatBuilder(object):
         self._admin_user_stat.email_send_ext_count = email_send_ext_count
         return self
 
-    def email_receive_ext_count(self, email_receive_ext_count: int) -> "AdminUserStatBuilder":
+    def email_receive_ext_count(
+        self, email_receive_ext_count: int
+    ) -> "AdminUserStatBuilder":
         self._admin_user_stat.email_receive_ext_count = email_receive_ext_count
         return self
 
@@ -198,7 +200,9 @@ class AdminUserStatBuilder(object):
         self._admin_user_stat.email_send_in_count = email_send_in_count
         return self
 
-    def email_receive_in_count(self, email_receive_in_count: int) -> "AdminUserStatBuilder":
+    def email_receive_in_count(
+        self, email_receive_in_count: int
+    ) -> "AdminUserStatBuilder":
         self._admin_user_stat.email_receive_in_count = email_receive_in_count
         return self
 

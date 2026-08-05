@@ -29,7 +29,9 @@ class PlanScopeBuilder(object):
         self._plan_scope.is_all = is_all
         return self
 
-    def plan_conditions(self, plan_conditions: List[PlanCondition]) -> "PlanScopeBuilder":
+    def plan_conditions(
+        self, plan_conditions: List[PlanCondition]
+    ) -> "PlanScopeBuilder":
         self._plan_scope.plan_conditions = plan_conditions
         return self
 

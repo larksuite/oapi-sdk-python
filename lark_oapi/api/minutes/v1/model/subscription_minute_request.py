@@ -17,15 +17,18 @@ class SubscriptionMinuteRequest(BaseRequest):
 
 
 class SubscriptionMinuteRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_minute_request = SubscriptionMinuteRequest()
         subscription_minute_request.http_method = HttpMethod.POST
         subscription_minute_request.uri = "/open-apis/minutes/v1/minutes/subscription"
         subscription_minute_request.token_types = {AccessTokenType.USER}
-        self._subscription_minute_request: SubscriptionMinuteRequest = subscription_minute_request
+        self._subscription_minute_request: SubscriptionMinuteRequest = (
+            subscription_minute_request
+        )
 
-    def request_body(self, request_body: SubscriptionMinuteRequestBody) -> "SubscriptionMinuteRequestBuilder":
+    def request_body(
+        self, request_body: SubscriptionMinuteRequestBody
+    ) -> "SubscriptionMinuteRequestBuilder":
         self._subscription_minute_request.request_body = request_body
         self._subscription_minute_request.body = request_body
         return self

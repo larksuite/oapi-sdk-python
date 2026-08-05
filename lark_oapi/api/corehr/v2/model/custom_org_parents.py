@@ -29,7 +29,9 @@ class CustomOrgParentsBuilder(object):
         self._custom_org_parents.custom_org_id = custom_org_id
         return self
 
-    def parent_custom_org_list(self, parent_custom_org_list: List[CustomOrgParentInfo]) -> "CustomOrgParentsBuilder":
+    def parent_custom_org_list(
+        self, parent_custom_org_list: List[CustomOrgParentInfo]
+    ) -> "CustomOrgParentsBuilder":
         self._custom_org_parents.parent_custom_org_list = parent_custom_org_list
         return self
 

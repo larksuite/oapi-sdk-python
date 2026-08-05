@@ -30,9 +30,7 @@ class P2HireEhrImportTaskImportedV1Data(object):
 
 
 class P2HireEhrImportTaskImportedV1(EventContext):
-    _types = {
-        "event": P2HireEhrImportTaskImportedV1Data
-    }
+    _types = {"event": P2HireEhrImportTaskImportedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

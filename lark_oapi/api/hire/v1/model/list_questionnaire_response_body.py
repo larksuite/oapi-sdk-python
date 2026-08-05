@@ -35,7 +35,9 @@ class ListQuestionnaireResponseBodyBuilder(object):
         self._list_questionnaire_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[Questionnaire]) -> "ListQuestionnaireResponseBodyBuilder":
+    def items(
+        self, items: List[Questionnaire]
+    ) -> "ListQuestionnaireResponseBodyBuilder":
         self._list_questionnaire_response_body.items = items
         return self
 

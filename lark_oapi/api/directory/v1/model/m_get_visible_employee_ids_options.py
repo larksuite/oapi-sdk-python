@@ -22,7 +22,9 @@ class MGetVisibleEmployeeIdsOptionsBuilder(object):
     def __init__(self) -> None:
         self._m_get_visible_employee_ids_options = MGetVisibleEmployeeIdsOptions()
 
-    def auth_extra(self, auth_extra: Dict[str, str]) -> "MGetVisibleEmployeeIdsOptionsBuilder":
+    def auth_extra(
+        self, auth_extra: Dict[str, str]
+    ) -> "MGetVisibleEmployeeIdsOptionsBuilder":
         self._m_get_visible_employee_ids_options.auth_extra = auth_extra
         return self
 

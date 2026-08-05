@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_access_record_access_photo_request import GetAccessRecordAccessPhotoRequest
-from ..model.get_access_record_access_photo_response import GetAccessRecordAccessPhotoResponse
+from ..model.get_access_record_access_photo_request import (
+    GetAccessRecordAccessPhotoRequest,
+)
+from ..model.get_access_record_access_photo_response import (
+    GetAccessRecordAccessPhotoResponse,
+)
 
 
 class AccessRecordAccessPhoto(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetAccessRecordAccessPhotoRequest,
-            option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
+    def get(
+        self,
+        request: GetAccessRecordAccessPhotoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAccessRecordAccessPhotoResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,19 +41,26 @@ class AccessRecordAccessPhoto(object):
 
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
-        response: GetAccessRecordAccessPhotoResponse = GetAccessRecordAccessPhotoResponse()
+        response: GetAccessRecordAccessPhotoResponse = (
+            GetAccessRecordAccessPhotoResponse()
+        )
         if 200 <= resp.status_code < 300:
             response.code = 0
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), GetAccessRecordAccessPhotoResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), GetAccessRecordAccessPhotoResponse
+            )
 
         response.raw = resp
         return response
 
-    async def aget(self, request: GetAccessRecordAccessPhotoRequest,
-                   option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
+    async def aget(
+        self,
+        request: GetAccessRecordAccessPhotoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAccessRecordAccessPhotoResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +72,17 @@ class AccessRecordAccessPhoto(object):
 
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
-        response: GetAccessRecordAccessPhotoResponse = GetAccessRecordAccessPhotoResponse()
+        response: GetAccessRecordAccessPhotoResponse = (
+            GetAccessRecordAccessPhotoResponse()
+        )
         if 200 <= resp.status_code < 300:
             response.code = 0
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), GetAccessRecordAccessPhotoResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), GetAccessRecordAccessPhotoResponse
+            )
 
         response.raw = resp
         return response

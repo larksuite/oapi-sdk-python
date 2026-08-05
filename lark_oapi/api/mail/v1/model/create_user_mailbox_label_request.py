@@ -18,20 +18,32 @@ class CreateUserMailboxLabelRequest(BaseRequest):
 
 
 class CreateUserMailboxLabelRequestBuilder(object):
-
     def __init__(self) -> None:
         create_user_mailbox_label_request = CreateUserMailboxLabelRequest()
         create_user_mailbox_label_request.http_method = HttpMethod.POST
-        create_user_mailbox_label_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels"
-        create_user_mailbox_label_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_user_mailbox_label_request: CreateUserMailboxLabelRequest = create_user_mailbox_label_request
+        create_user_mailbox_label_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels"
+        )
+        create_user_mailbox_label_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_user_mailbox_label_request: CreateUserMailboxLabelRequest = (
+            create_user_mailbox_label_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "CreateUserMailboxLabelRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "CreateUserMailboxLabelRequestBuilder":
         self._create_user_mailbox_label_request.user_mailbox_id = user_mailbox_id
-        self._create_user_mailbox_label_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._create_user_mailbox_label_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self, request_body: CreateUserMailboxLabelRequestBody) -> "CreateUserMailboxLabelRequestBuilder":
+    def request_body(
+        self, request_body: CreateUserMailboxLabelRequestBody
+    ) -> "CreateUserMailboxLabelRequestBuilder":
         self._create_user_mailbox_label_request.request_body = request_body
         self._create_user_mailbox_label_request.body = request_body
         return self

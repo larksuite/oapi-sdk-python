@@ -20,7 +20,6 @@ class CreateAppRequest(BaseRequest):
 
 
 class CreateAppRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_request = CreateAppRequest()
         create_app_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class CreateAppRequestBuilder(object):
         self._create_app_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: CreateAppRequestBody) -> "CreateAppRequestBuilder":
+    def request_body(
+        self, request_body: CreateAppRequestBody
+    ) -> "CreateAppRequestBuilder":
         self._create_app_request.request_body = request_body
         self._create_app_request.body = request_body
         return self

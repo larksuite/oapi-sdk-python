@@ -9,7 +9,6 @@ from .list_resume_source_response_body import ListResumeSourceResponseBody
 class ListResumeSourceResponse(BaseResponse):
     _types = {
         "data": ListResumeSourceResponseBody,
-
     }
 
     def __init__(self, d=None):

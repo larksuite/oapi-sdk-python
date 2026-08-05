@@ -32,11 +32,15 @@ class TransferApprovalTaskRequestBodyBuilder(object):
         self._transfer_approval_task_request_body.user_id = user_id
         return self
 
-    def from_user_ids(self, from_user_ids: List[str]) -> "TransferApprovalTaskRequestBodyBuilder":
+    def from_user_ids(
+        self, from_user_ids: List[str]
+    ) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.from_user_ids = from_user_ids
         return self
 
-    def to_user_ids(self, to_user_ids: List[str]) -> "TransferApprovalTaskRequestBodyBuilder":
+    def to_user_ids(
+        self, to_user_ids: List[str]
+    ) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.to_user_ids = to_user_ids
         return self
 

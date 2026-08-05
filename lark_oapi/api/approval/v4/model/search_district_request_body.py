@@ -24,7 +24,9 @@ class SearchDistrictRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_district_request_body = SearchDistrictRequestBody()
 
-    def district_ids(self, district_ids: List[str]) -> "SearchDistrictRequestBodyBuilder":
+    def district_ids(
+        self, district_ids: List[str]
+    ) -> "SearchDistrictRequestBodyBuilder":
         self._search_district_request_body.district_ids = district_ids
         return self
 

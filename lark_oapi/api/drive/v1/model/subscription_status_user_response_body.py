@@ -20,7 +20,9 @@ class SubscriptionStatusUserResponseBody(object):
 
 class SubscriptionStatusUserResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._subscription_status_user_response_body = SubscriptionStatusUserResponseBody()
+        self._subscription_status_user_response_body = (
+            SubscriptionStatusUserResponseBody()
+        )
 
     def data(self, data: str) -> "SubscriptionStatusUserResponseBodyBuilder":
         self._subscription_status_user_response_body.data = data

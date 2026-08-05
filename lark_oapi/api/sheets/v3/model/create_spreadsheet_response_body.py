@@ -23,7 +23,9 @@ class CreateSpreadsheetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_spreadsheet_response_body = CreateSpreadsheetResponseBody()
 
-    def spreadsheet(self, spreadsheet: Spreadsheet) -> "CreateSpreadsheetResponseBodyBuilder":
+    def spreadsheet(
+        self, spreadsheet: Spreadsheet
+    ) -> "CreateSpreadsheetResponseBodyBuilder":
         self._create_spreadsheet_response_body.spreadsheet = spreadsheet
         return self
 

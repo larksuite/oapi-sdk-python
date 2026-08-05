@@ -23,7 +23,9 @@ class CreateEmploymentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_employment_response_body = CreateEmploymentResponseBody()
 
-    def employment(self, employment: EmploymentCreate) -> "CreateEmploymentResponseBodyBuilder":
+    def employment(
+        self, employment: EmploymentCreate
+    ) -> "CreateEmploymentResponseBodyBuilder":
         self._create_employment_response_body.employment = employment
         return self
 

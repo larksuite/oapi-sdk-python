@@ -28,13 +28,20 @@ class CostAllocationReportDataBuilder(object):
     def __init__(self) -> None:
         self._cost_allocation_report_data = CostAllocationReportData()
 
-    def data_summary_dimensions(self, data_summary_dimensions: List[
-        DataSummaryDimension]) -> "CostAllocationReportDataBuilder":
-        self._cost_allocation_report_data.data_summary_dimensions = data_summary_dimensions
+    def data_summary_dimensions(
+        self, data_summary_dimensions: List[DataSummaryDimension]
+    ) -> "CostAllocationReportDataBuilder":
+        self._cost_allocation_report_data.data_summary_dimensions = (
+            data_summary_dimensions
+        )
         return self
 
-    def compensation_cost_item(self, compensation_cost_item: CompensationCostItem) -> "CostAllocationReportDataBuilder":
-        self._cost_allocation_report_data.compensation_cost_item = compensation_cost_item
+    def compensation_cost_item(
+        self, compensation_cost_item: CompensationCostItem
+    ) -> "CostAllocationReportDataBuilder":
+        self._cost_allocation_report_data.compensation_cost_item = (
+            compensation_cost_item
+        )
         return self
 
     def employment_id(self, employment_id: str) -> "CostAllocationReportDataBuilder":

@@ -30,7 +30,9 @@ class OfferEmailInfoBuilder(object):
         self._offer_email_info.cc_email_list = cc_email_list
         return self
 
-    def receiver_email_list(self, receiver_email_list: List[str]) -> "OfferEmailInfoBuilder":
+    def receiver_email_list(
+        self, receiver_email_list: List[str]
+    ) -> "OfferEmailInfoBuilder":
         self._offer_email_info.receiver_email_list = receiver_email_list
         return self
 

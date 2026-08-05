@@ -23,7 +23,9 @@ class GetApprovalGroupsResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_approval_groups_response_body = GetApprovalGroupsResponseBody()
 
-    def approval_group(self, approval_group: ApprovalGroup) -> "GetApprovalGroupsResponseBodyBuilder":
+    def approval_group(
+        self, approval_group: ApprovalGroup
+    ) -> "GetApprovalGroupsResponseBodyBuilder":
         self._get_approval_groups_response_body.approval_group = approval_group
         return self
 

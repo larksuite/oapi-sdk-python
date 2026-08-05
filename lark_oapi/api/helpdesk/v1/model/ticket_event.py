@@ -109,11 +109,15 @@ class TicketEventBuilder(object):
         self._ticket_event.closed_by = closed_by
         return self
 
-    def collaborators(self, collaborators: List[TicketUserEvent]) -> "TicketEventBuilder":
+    def collaborators(
+        self, collaborators: List[TicketUserEvent]
+    ) -> "TicketEventBuilder":
         self._ticket_event.collaborators = collaborators
         return self
 
-    def customized_fields(self, customized_fields: List[CustomizedFieldDisplayItem]) -> "TicketEventBuilder":
+    def customized_fields(
+        self, customized_fields: List[CustomizedFieldDisplayItem]
+    ) -> "TicketEventBuilder":
         self._ticket_event.customized_fields = customized_fields
         return self
 

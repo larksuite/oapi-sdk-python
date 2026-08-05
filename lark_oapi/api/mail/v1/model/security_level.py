@@ -48,7 +48,9 @@ class SecurityLevelBuilder(object):
         self._security_level.risk_banner_reason = risk_banner_reason
         return self
 
-    def is_header_from_external(self, is_header_from_external: bool) -> "SecurityLevelBuilder":
+    def is_header_from_external(
+        self, is_header_from_external: bool
+    ) -> "SecurityLevelBuilder":
         self._security_level.is_header_from_external = is_header_from_external
         return self
 

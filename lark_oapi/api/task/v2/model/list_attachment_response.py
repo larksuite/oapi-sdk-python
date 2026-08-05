@@ -9,7 +9,6 @@ from .list_attachment_response_body import ListAttachmentResponseBody
 class ListAttachmentResponse(BaseResponse):
     _types = {
         "data": ListAttachmentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -9,7 +9,6 @@ from .create_file_version_response_body import CreateFileVersionResponseBody
 class CreateFileVersionResponse(BaseResponse):
     _types = {
         "data": CreateFileVersionResponseBody,
-
     }
 
     def __init__(self, d=None):

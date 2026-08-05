@@ -9,7 +9,6 @@ from .query_user_stats_view_response_body import QueryUserStatsViewResponseBody
 class QueryUserStatsViewResponse(BaseResponse):
     _types = {
         "data": QueryUserStatsViewResponseBody,
-
     }
 
     def __init__(self, d=None):

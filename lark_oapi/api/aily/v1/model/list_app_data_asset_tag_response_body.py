@@ -27,7 +27,9 @@ class ListAppDataAssetTagResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_data_asset_tag_response_body = ListAppDataAssetTagResponseBody()
 
-    def items(self, items: List[DataAssetTag]) -> "ListAppDataAssetTagResponseBodyBuilder":
+    def items(
+        self, items: List[DataAssetTag]
+    ) -> "ListAppDataAssetTagResponseBodyBuilder":
         self._list_app_data_asset_tag_response_body.items = items
         return self
 

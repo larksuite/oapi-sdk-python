@@ -78,7 +78,9 @@ class InstanceTimelineBuilder(object):
         self._instance_timeline.comment = comment
         return self
 
-    def cc_user_list(self, cc_user_list: List[InstanceCcUser]) -> "InstanceTimelineBuilder":
+    def cc_user_list(
+        self, cc_user_list: List[InstanceCcUser]
+    ) -> "InstanceTimelineBuilder":
         self._instance_timeline.cc_user_list = cc_user_list
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_social_archive_adjust_record_request_body import QuerySocialArchiveAdjustRecordRequestBody
+from .query_social_archive_adjust_record_request_body import (
+    QuerySocialArchiveAdjustRecordRequestBody,
+)
 
 
 class QuerySocialArchiveAdjustRecordRequest(BaseRequest):
@@ -18,21 +20,31 @@ class QuerySocialArchiveAdjustRecordRequest(BaseRequest):
 
 
 class QuerySocialArchiveAdjustRecordRequestBuilder(object):
-
     def __init__(self) -> None:
-        query_social_archive_adjust_record_request = QuerySocialArchiveAdjustRecordRequest()
+        query_social_archive_adjust_record_request = (
+            QuerySocialArchiveAdjustRecordRequest()
+        )
         query_social_archive_adjust_record_request.http_method = HttpMethod.POST
-        query_social_archive_adjust_record_request.uri = "/open-apis/compensation/v1/social_archive_adjust_record/query"
-        query_social_archive_adjust_record_request.token_types = {AccessTokenType.TENANT}
+        query_social_archive_adjust_record_request.uri = (
+            "/open-apis/compensation/v1/social_archive_adjust_record/query"
+        )
+        query_social_archive_adjust_record_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._query_social_archive_adjust_record_request: QuerySocialArchiveAdjustRecordRequest = query_social_archive_adjust_record_request
 
-    def user_id_type(self, user_id_type: str) -> "QuerySocialArchiveAdjustRecordRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "QuerySocialArchiveAdjustRecordRequestBuilder":
         self._query_social_archive_adjust_record_request.user_id_type = user_id_type
-        self._query_social_archive_adjust_record_request.add_query("user_id_type", user_id_type)
+        self._query_social_archive_adjust_record_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: QuerySocialArchiveAdjustRecordRequestBody) -> "QuerySocialArchiveAdjustRecordRequestBuilder":
+    def request_body(
+        self, request_body: QuerySocialArchiveAdjustRecordRequestBody
+    ) -> "QuerySocialArchiveAdjustRecordRequestBuilder":
         self._query_social_archive_adjust_record_request.request_body = request_body
         self._query_social_archive_adjust_record_request.body = request_body
         return self

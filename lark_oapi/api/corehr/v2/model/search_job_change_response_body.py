@@ -10,12 +10,16 @@ class SearchJobChangeResponseBody(object):
         "items": List[JobChange],
         "has_more": bool,
         "page_token": str,
+        "total": int,
+        "reject_export": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[JobChange]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
+        self.total: Optional[int] = None
+        self.reject_export: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +41,16 @@ class SearchJobChangeResponseBodyBuilder(object):
 
     def page_token(self, page_token: str) -> "SearchJobChangeResponseBodyBuilder":
         self._search_job_change_response_body.page_token = page_token
+        return self
+
+    def total(self, total: int) -> "SearchJobChangeResponseBodyBuilder":
+        self._search_job_change_response_body.total = total
+        return self
+
+    def reject_export(
+        self, reject_export: bool
+    ) -> "SearchJobChangeResponseBodyBuilder":
+        self._search_job_change_response_body.reject_export = reject_export
         return self
 
     def build(self) -> "SearchJobChangeResponseBody":

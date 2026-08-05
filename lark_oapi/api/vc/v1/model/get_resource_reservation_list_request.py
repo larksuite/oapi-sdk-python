@@ -23,20 +23,30 @@ class GetResourceReservationListRequest(BaseRequest):
 
 
 class GetResourceReservationListRequestBuilder(object):
-
     def __init__(self) -> None:
         get_resource_reservation_list_request = GetResourceReservationListRequest()
         get_resource_reservation_list_request.http_method = HttpMethod.GET
-        get_resource_reservation_list_request.uri = "/open-apis/vc/v1/resource_reservation_list"
-        get_resource_reservation_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_resource_reservation_list_request.uri = (
+            "/open-apis/vc/v1/resource_reservation_list"
+        )
+        get_resource_reservation_list_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_resource_reservation_list_request: GetResourceReservationListRequest = get_resource_reservation_list_request
 
-    def room_level_id(self, room_level_id: str) -> "GetResourceReservationListRequestBuilder":
+    def room_level_id(
+        self, room_level_id: str
+    ) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.room_level_id = room_level_id
-        self._get_resource_reservation_list_request.add_query("room_level_id", room_level_id)
+        self._get_resource_reservation_list_request.add_query(
+            "room_level_id", room_level_id
+        )
         return self
 
-    def need_topic(self, need_topic: bool) -> "GetResourceReservationListRequestBuilder":
+    def need_topic(
+        self, need_topic: bool
+    ) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.need_topic = need_topic
         self._get_resource_reservation_list_request.add_query("need_topic", need_topic)
         return self
@@ -51,12 +61,16 @@ class GetResourceReservationListRequestBuilder(object):
         self._get_resource_reservation_list_request.add_query("end_time", end_time)
         return self
 
-    def room_ids(self, room_ids: List[str]) -> "GetResourceReservationListRequestBuilder":
+    def room_ids(
+        self, room_ids: List[str]
+    ) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.room_ids = room_ids
         self._get_resource_reservation_list_request.add_query("room_ids", room_ids)
         return self
 
-    def is_exclude(self, is_exclude: bool) -> "GetResourceReservationListRequestBuilder":
+    def is_exclude(
+        self, is_exclude: bool
+    ) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.is_exclude = is_exclude
         self._get_resource_reservation_list_request.add_query("is_exclude", is_exclude)
         return self

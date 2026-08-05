@@ -35,7 +35,9 @@ class MyAiAvPluginPresentInfoBuilder(object):
         self._my_ai_av_plugin_present_info.type = type
         return self
 
-    def card_template_id(self, card_template_id: str) -> "MyAiAvPluginPresentInfoBuilder":
+    def card_template_id(
+        self, card_template_id: str
+    ) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.card_template_id = card_template_id
         return self
 
@@ -43,7 +45,9 @@ class MyAiAvPluginPresentInfoBuilder(object):
         self._my_ai_av_plugin_present_info.body = body
         return self
 
-    def card_variables(self, card_variables: MyAiAvPluginCardVariables) -> "MyAiAvPluginPresentInfoBuilder":
+    def card_variables(
+        self, card_variables: MyAiAvPluginCardVariables
+    ) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.card_variables = card_variables
         return self
 

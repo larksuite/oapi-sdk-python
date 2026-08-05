@@ -21,9 +21,13 @@ class BatchDeleteAppTableRecordResponseBody(object):
 
 class BatchDeleteAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_app_table_record_response_body = BatchDeleteAppTableRecordResponseBody()
+        self._batch_delete_app_table_record_response_body = (
+            BatchDeleteAppTableRecordResponseBody()
+        )
 
-    def records(self, records: List[DeleteRecord]) -> "BatchDeleteAppTableRecordResponseBodyBuilder":
+    def records(
+        self, records: List[DeleteRecord]
+    ) -> "BatchDeleteAppTableRecordResponseBodyBuilder":
         self._batch_delete_app_table_record_response_body.records = records
         return self
 

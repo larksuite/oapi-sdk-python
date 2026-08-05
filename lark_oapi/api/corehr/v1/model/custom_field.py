@@ -77,7 +77,9 @@ class CustomFieldBuilder(object):
         self._custom_field.type = type
         return self
 
-    def common_schema_config(self, common_schema_config: CommonSchemaConfig) -> "CustomFieldBuilder":
+    def common_schema_config(
+        self, common_schema_config: CommonSchemaConfig
+    ) -> "CustomFieldBuilder":
         self._custom_field.common_schema_config = common_schema_config
         return self
 

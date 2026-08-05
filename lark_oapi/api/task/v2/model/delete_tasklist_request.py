@@ -16,12 +16,14 @@ class DeleteTasklistRequest(BaseRequest):
 
 
 class DeleteTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_tasklist_request = DeleteTasklistRequest()
         delete_tasklist_request.http_method = HttpMethod.DELETE
         delete_tasklist_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid"
-        delete_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._delete_tasklist_request: DeleteTasklistRequest = delete_tasklist_request
 
     def tasklist_guid(self, tasklist_guid: str) -> "DeleteTasklistRequestBuilder":

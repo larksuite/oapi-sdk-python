@@ -60,7 +60,9 @@ class ProfileSettingNameBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_name = ProfileSettingName()
 
-    def additional_name_type(self, additional_name_type: str) -> "ProfileSettingNameBuilder":
+    def additional_name_type(
+        self, additional_name_type: str
+    ) -> "ProfileSettingNameBuilder":
         self._profile_setting_name.additional_name_type = additional_name_type
         return self
 
@@ -92,7 +94,9 @@ class ProfileSettingNameBuilder(object):
         self._profile_setting_name.tertiary = tertiary
         return self
 
-    def local_first_name_2(self, local_first_name_2: str) -> "ProfileSettingNameBuilder":
+    def local_first_name_2(
+        self, local_first_name_2: str
+    ) -> "ProfileSettingNameBuilder":
         self._profile_setting_name.local_first_name_2 = local_first_name_2
         return self
 
@@ -124,7 +128,9 @@ class ProfileSettingNameBuilder(object):
         self._profile_setting_name.custom_local_name = custom_local_name
         return self
 
-    def custom_western_name(self, custom_western_name: str) -> "ProfileSettingNameBuilder":
+    def custom_western_name(
+        self, custom_western_name: str
+    ) -> "ProfileSettingNameBuilder":
         self._profile_setting_name.custom_western_name = custom_western_name
         return self
 

@@ -18,9 +18,7 @@ class P2TaskTaskUpdateUserAccessV2Data(object):
 
 
 class P2TaskTaskUpdateUserAccessV2(EventContext):
-    _types = {
-        "event": P2TaskTaskUpdateUserAccessV2Data
-    }
+    _types = {"event": P2TaskTaskUpdateUserAccessV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

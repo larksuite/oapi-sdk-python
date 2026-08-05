@@ -20,7 +20,6 @@ class CreateChatRequest(BaseRequest):
 
 
 class CreateChatRequestBuilder(object):
-
     def __init__(self) -> None:
         create_chat_request = CreateChatRequest()
         create_chat_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class CreateChatRequestBuilder(object):
         self._create_chat_request.add_query("uuid", uuid)
         return self
 
-    def request_body(self, request_body: CreateChatRequestBody) -> "CreateChatRequestBuilder":
+    def request_body(
+        self, request_body: CreateChatRequestBody
+    ) -> "CreateChatRequestBuilder":
         self._create_chat_request.request_body = request_body
         self._create_chat_request.body = request_body
         return self

@@ -38,29 +38,43 @@ class SubmitOffboardingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._submit_offboarding_response_body = SubmitOffboardingResponseBody()
 
-    def offboarding_id(self, offboarding_id: str) -> "SubmitOffboardingResponseBodyBuilder":
+    def offboarding_id(
+        self, offboarding_id: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
         self._submit_offboarding_response_body.offboarding_id = offboarding_id
         return self
 
-    def employment_id(self, employment_id: str) -> "SubmitOffboardingResponseBodyBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
         self._submit_offboarding_response_body.employment_id = employment_id
         return self
 
-    def offboarding_reason_unique_identifier(self,
-                                             offboarding_reason_unique_identifier: str) -> "SubmitOffboardingResponseBodyBuilder":
-        self._submit_offboarding_response_body.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
+    def offboarding_reason_unique_identifier(
+        self, offboarding_reason_unique_identifier: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
+        self._submit_offboarding_response_body.offboarding_reason_unique_identifier = (
+            offboarding_reason_unique_identifier
+        )
         return self
 
-    def offboarding_date(self, offboarding_date: str) -> "SubmitOffboardingResponseBodyBuilder":
+    def offboarding_date(
+        self, offboarding_date: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
         self._submit_offboarding_response_body.offboarding_date = offboarding_date
         return self
 
-    def offboarding_reason_explanation(self,
-                                       offboarding_reason_explanation: str) -> "SubmitOffboardingResponseBodyBuilder":
-        self._submit_offboarding_response_body.offboarding_reason_explanation = offboarding_reason_explanation
+    def offboarding_reason_explanation(
+        self, offboarding_reason_explanation: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
+        self._submit_offboarding_response_body.offboarding_reason_explanation = (
+            offboarding_reason_explanation
+        )
         return self
 
-    def add_block_list(self, add_block_list: bool) -> "SubmitOffboardingResponseBodyBuilder":
+    def add_block_list(
+        self, add_block_list: bool
+    ) -> "SubmitOffboardingResponseBodyBuilder":
         self._submit_offboarding_response_body.add_block_list = add_block_list
         return self
 
@@ -68,8 +82,12 @@ class SubmitOffboardingResponseBodyBuilder(object):
         self._submit_offboarding_response_body.block_reason = block_reason
         return self
 
-    def block_reason_explanation(self, block_reason_explanation: str) -> "SubmitOffboardingResponseBodyBuilder":
-        self._submit_offboarding_response_body.block_reason_explanation = block_reason_explanation
+    def block_reason_explanation(
+        self, block_reason_explanation: str
+    ) -> "SubmitOffboardingResponseBodyBuilder":
+        self._submit_offboarding_response_body.block_reason_explanation = (
+            block_reason_explanation
+        )
         return self
 
     def created_time(self, created_time: str) -> "SubmitOffboardingResponseBodyBuilder":

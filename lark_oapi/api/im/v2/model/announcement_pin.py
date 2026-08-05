@@ -35,7 +35,9 @@ class AnnouncementPinBuilder(object):
         self._announcement_pin.url = url
         return self
 
-    def preview_content(self, preview_content: PreviewContent) -> "AnnouncementPinBuilder":
+    def preview_content(
+        self, preview_content: PreviewContent
+    ) -> "AnnouncementPinBuilder":
         self._announcement_pin.preview_content = preview_content
         return self
 

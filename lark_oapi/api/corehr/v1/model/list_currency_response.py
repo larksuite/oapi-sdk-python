@@ -9,7 +9,6 @@ from .list_currency_response_body import ListCurrencyResponseBody
 class ListCurrencyResponse(BaseResponse):
     _types = {
         "data": ListCurrencyResponseBody,
-
     }
 
     def __init__(self, d=None):

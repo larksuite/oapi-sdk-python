@@ -30,7 +30,9 @@ class I18nStringBuilder(object):
         self._i18n_string.value = value
         return self
 
-    def multilingual_value(self, multilingual_value: Dict[str, str]) -> "I18nStringBuilder":
+    def multilingual_value(
+        self, multilingual_value: Dict[str, str]
+    ) -> "I18nStringBuilder":
         self._i18n_string.multilingual_value = multilingual_value
         return self
 

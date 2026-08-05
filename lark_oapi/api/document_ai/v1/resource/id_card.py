@@ -17,8 +17,9 @@ class IdCard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeIdCardRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeIdCardResponse:
+    def recognize(
+        self, request: RecognizeIdCardRequest, option: Optional[RequestOption] = None
+    ) -> RecognizeIdCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class IdCard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeIdCardResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeIdCardResponse)
+        response: RecognizeIdCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeIdCardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeIdCardRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeIdCardResponse:
+    async def arecognize(
+        self, request: RecognizeIdCardRequest, option: Optional[RequestOption] = None
+    ) -> RecognizeIdCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,7 +59,9 @@ class IdCard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeIdCardResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeIdCardResponse)
+        response: RecognizeIdCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeIdCardResponse
+        )
         response.raw = resp
 
         return response

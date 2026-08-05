@@ -65,15 +65,21 @@ class MetricTemplateBuilder(object):
         self._metric_template.is_set_by_group = is_set_by_group
         return self
 
-    def total_metric_score_method(self, total_metric_score_method: str) -> "MetricTemplateBuilder":
+    def total_metric_score_method(
+        self, total_metric_score_method: str
+    ) -> "MetricTemplateBuilder":
         self._metric_template.total_metric_score_method = total_metric_score_method
         return self
 
-    def metric_weight_method(self, metric_weight_method: str) -> "MetricTemplateBuilder":
+    def metric_weight_method(
+        self, metric_weight_method: str
+    ) -> "MetricTemplateBuilder":
         self._metric_template.metric_weight_method = metric_weight_method
         return self
 
-    def metric_dimensions(self, metric_dimensions: List[MetricDimension]) -> "MetricTemplateBuilder":
+    def metric_dimensions(
+        self, metric_dimensions: List[MetricDimension]
+    ) -> "MetricTemplateBuilder":
         self._metric_template.metric_dimensions = metric_dimensions
         return self
 

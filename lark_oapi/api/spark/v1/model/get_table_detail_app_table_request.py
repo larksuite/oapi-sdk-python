@@ -9,6 +9,7 @@ class GetTableDetailAppTableRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.env: Optional[str] = None
+        self.format: Optional[str] = None
         self.app_id: Optional[str] = None
         self.table_name: Optional[str] = None
 
@@ -18,17 +19,25 @@ class GetTableDetailAppTableRequest(BaseRequest):
 
 
 class GetTableDetailAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         get_table_detail_app_table_request = GetTableDetailAppTableRequest()
         get_table_detail_app_table_request.http_method = HttpMethod.GET
-        get_table_detail_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name"
+        get_table_detail_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name"
+        )
         get_table_detail_app_table_request.token_types = {AccessTokenType.USER}
-        self._get_table_detail_app_table_request: GetTableDetailAppTableRequest = get_table_detail_app_table_request
+        self._get_table_detail_app_table_request: GetTableDetailAppTableRequest = (
+            get_table_detail_app_table_request
+        )
 
     def env(self, env: str) -> "GetTableDetailAppTableRequestBuilder":
         self._get_table_detail_app_table_request.env = env
         self._get_table_detail_app_table_request.add_query("env", env)
+        return self
+
+    def format(self, format: str) -> "GetTableDetailAppTableRequestBuilder":
+        self._get_table_detail_app_table_request.format = format
+        self._get_table_detail_app_table_request.add_query("format", format)
         return self
 
     def app_id(self, app_id: str) -> "GetTableDetailAppTableRequestBuilder":

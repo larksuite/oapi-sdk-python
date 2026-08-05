@@ -26,7 +26,9 @@ class PatchCardElementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_card_element_request_body = PatchCardElementRequestBody()
 
-    def partial_element(self, partial_element: str) -> "PatchCardElementRequestBodyBuilder":
+    def partial_element(
+        self, partial_element: str
+    ) -> "PatchCardElementRequestBodyBuilder":
         self._patch_card_element_request_body.partial_element = partial_element
         return self
 

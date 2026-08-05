@@ -21,9 +21,13 @@ class QuerySocialArchiveAdjustRecordResponseBody(object):
 
 class QuerySocialArchiveAdjustRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_social_archive_adjust_record_response_body = QuerySocialArchiveAdjustRecordResponseBody()
+        self._query_social_archive_adjust_record_response_body = (
+            QuerySocialArchiveAdjustRecordResponseBody()
+        )
 
-    def records(self, records: List[SocialArchiveAdjustRecord]) -> "QuerySocialArchiveAdjustRecordResponseBodyBuilder":
+    def records(
+        self, records: List[SocialArchiveAdjustRecord]
+    ) -> "QuerySocialArchiveAdjustRecordResponseBodyBuilder":
         self._query_social_archive_adjust_record_response_body.records = records
         return self
 

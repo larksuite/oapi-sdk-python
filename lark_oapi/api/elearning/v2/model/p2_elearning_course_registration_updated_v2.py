@@ -37,9 +37,7 @@ class P2ElearningCourseRegistrationUpdatedV2Data(object):
 
 
 class P2ElearningCourseRegistrationUpdatedV2(EventContext):
-    _types = {
-        "event": P2ElearningCourseRegistrationUpdatedV2Data
-    }
+    _types = {"event": P2ElearningCourseRegistrationUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

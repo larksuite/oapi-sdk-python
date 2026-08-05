@@ -29,7 +29,9 @@ class DepartmentPathBuilder(object):
         self._department_path.department_ids = department_ids
         return self
 
-    def department_path_name(self, department_path_name: DepartmentPathName) -> "DepartmentPathBuilder":
+    def department_path_name(
+        self, department_path_name: DepartmentPathName
+    ) -> "DepartmentPathBuilder":
         self._department_path.department_path_name = department_path_name
         return self
 

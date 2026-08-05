@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .create_biz_entity_tag_relation_request_body import CreateBizEntityTagRelationRequestBody
+from .create_biz_entity_tag_relation_request_body import (
+    CreateBizEntityTagRelationRequestBody,
+)
 
 
 class CreateBizEntityTagRelationRequest(BaseRequest):
@@ -17,16 +19,18 @@ class CreateBizEntityTagRelationRequest(BaseRequest):
 
 
 class CreateBizEntityTagRelationRequestBuilder(object):
-
     def __init__(self) -> None:
         create_biz_entity_tag_relation_request = CreateBizEntityTagRelationRequest()
         create_biz_entity_tag_relation_request.http_method = HttpMethod.POST
-        create_biz_entity_tag_relation_request.uri = "/open-apis/im/v2/biz_entity_tag_relation"
+        create_biz_entity_tag_relation_request.uri = (
+            "/open-apis/im/v2/biz_entity_tag_relation"
+        )
         create_biz_entity_tag_relation_request.token_types = {AccessTokenType.TENANT}
         self._create_biz_entity_tag_relation_request: CreateBizEntityTagRelationRequest = create_biz_entity_tag_relation_request
 
-    def request_body(self,
-                     request_body: CreateBizEntityTagRelationRequestBody) -> "CreateBizEntityTagRelationRequestBuilder":
+    def request_body(
+        self, request_body: CreateBizEntityTagRelationRequestBody
+    ) -> "CreateBizEntityTagRelationRequestBuilder":
         self._create_biz_entity_tag_relation_request.request_body = request_body
         self._create_biz_entity_tag_relation_request.body = request_body
         return self

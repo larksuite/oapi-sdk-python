@@ -18,20 +18,32 @@ class CreateCollaborationRuleRequest(BaseRequest):
 
 
 class CreateCollaborationRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         create_collaboration_rule_request = CreateCollaborationRuleRequest()
         create_collaboration_rule_request.http_method = HttpMethod.POST
-        create_collaboration_rule_request.uri = "/open-apis/directory/v1/collaboration_rules"
-        create_collaboration_rule_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_collaboration_rule_request: CreateCollaborationRuleRequest = create_collaboration_rule_request
+        create_collaboration_rule_request.uri = (
+            "/open-apis/directory/v1/collaboration_rules"
+        )
+        create_collaboration_rule_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_collaboration_rule_request: CreateCollaborationRuleRequest = (
+            create_collaboration_rule_request
+        )
 
-    def target_tenant_key(self, target_tenant_key: str) -> "CreateCollaborationRuleRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "CreateCollaborationRuleRequestBuilder":
         self._create_collaboration_rule_request.target_tenant_key = target_tenant_key
-        self._create_collaboration_rule_request.add_query("target_tenant_key", target_tenant_key)
+        self._create_collaboration_rule_request.add_query(
+            "target_tenant_key", target_tenant_key
+        )
         return self
 
-    def request_body(self, request_body: CreateCollaborationRuleRequestBody) -> "CreateCollaborationRuleRequestBuilder":
+    def request_body(
+        self, request_body: CreateCollaborationRuleRequestBody
+    ) -> "CreateCollaborationRuleRequestBuilder":
         self._create_collaboration_rule_request.request_body = request_body
         self._create_collaboration_rule_request.body = request_body
         return self

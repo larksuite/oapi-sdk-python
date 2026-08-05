@@ -25,17 +25,25 @@ class QueryMultiTimelineCostCenterResponseBody(object):
 
 class QueryMultiTimelineCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_cost_center_response_body = QueryMultiTimelineCostCenterResponseBody()
+        self._query_multi_timeline_cost_center_response_body = (
+            QueryMultiTimelineCostCenterResponseBody()
+        )
 
-    def items(self, items: List[CostCenterTimeline]) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
+    def items(
+        self, items: List[CostCenterTimeline]
+    ) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
         self._query_multi_timeline_cost_center_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
         self._query_multi_timeline_cost_center_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "QueryMultiTimelineCostCenterResponseBodyBuilder":
         self._query_multi_timeline_cost_center_response_body.has_more = has_more
         return self
 

@@ -18,13 +18,17 @@ class ListTaskReminderRequest(BaseRequest):
 
 
 class ListTaskReminderRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_reminder_request = ListTaskReminderRequest()
         list_task_reminder_request.http_method = HttpMethod.GET
         list_task_reminder_request.uri = "/open-apis/task/v1/tasks/:task_id/reminders"
-        list_task_reminder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_task_reminder_request: ListTaskReminderRequest = list_task_reminder_request
+        list_task_reminder_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_task_reminder_request: ListTaskReminderRequest = (
+            list_task_reminder_request
+        )
 
     def page_size(self, page_size: int) -> "ListTaskReminderRequestBuilder":
         self._list_task_reminder_request.page_size = page_size

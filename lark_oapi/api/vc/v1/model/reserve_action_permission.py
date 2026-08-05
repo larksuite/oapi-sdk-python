@@ -29,8 +29,9 @@ class ReserveActionPermissionBuilder(object):
         self._reserve_action_permission.permission = permission
         return self
 
-    def permission_checkers(self,
-                            permission_checkers: List[ReservePermissionChecker]) -> "ReserveActionPermissionBuilder":
+    def permission_checkers(
+        self, permission_checkers: List[ReservePermissionChecker]
+    ) -> "ReserveActionPermissionBuilder":
         self._reserve_action_permission.permission_checkers = permission_checkers
         return self
 

@@ -18,12 +18,14 @@ class GetDepartmentRequest(BaseRequest):
 
 
 class GetDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_department_request = GetDepartmentRequest()
         get_department_request.http_method = HttpMethod.GET
         get_department_request.uri = "/open-apis/contact/v3/departments/:department_id"
-        get_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_department_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_department_request: GetDepartmentRequest = get_department_request
 
     def user_id_type(self, user_id_type: str) -> "GetDepartmentRequestBuilder":
@@ -31,7 +33,9 @@ class GetDepartmentRequestBuilder(object):
         self._get_department_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetDepartmentRequestBuilder":
         self._get_department_request.department_id_type = department_id_type
         self._get_department_request.add_query("department_id_type", department_id_type)
         return self

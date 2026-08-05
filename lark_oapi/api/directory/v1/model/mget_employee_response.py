@@ -9,7 +9,6 @@ from .mget_employee_response_body import MgetEmployeeResponseBody
 class MgetEmployeeResponse(BaseResponse):
     _types = {
         "data": MgetEmployeeResponseBody,
-
     }
 
     def __init__(self, d=None):

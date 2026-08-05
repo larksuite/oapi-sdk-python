@@ -39,9 +39,7 @@ class P2HelpdeskTicketMessageCreatedV1Data(object):
 
 
 class P2HelpdeskTicketMessageCreatedV1(EventContext):
-    _types = {
-        "event": P2HelpdeskTicketMessageCreatedV1Data
-    }
+    _types = {"event": P2HelpdeskTicketMessageCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

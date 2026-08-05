@@ -33,7 +33,9 @@ class DynamicGroupRuleBuilder(object):
         self._dynamic_group_rule.department_level = department_level
         return self
 
-    def expressions(self, expressions: List[DynamicGroupExpression]) -> "DynamicGroupRuleBuilder":
+    def expressions(
+        self, expressions: List[DynamicGroupExpression]
+    ) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.expressions = expressions
         return self
 

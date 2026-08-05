@@ -9,7 +9,6 @@ from .get_by_param_custom_field_response_body import GetByParamCustomFieldRespon
 class GetByParamCustomFieldResponse(BaseResponse):
     _types = {
         "data": GetByParamCustomFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

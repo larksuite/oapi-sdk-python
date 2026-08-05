@@ -33,7 +33,9 @@ class ContractInfoForAiBuilder(object):
     def __init__(self) -> None:
         self._contract_info_for_ai = ContractInfoForAi()
 
-    def contract_start_date(self, contract_start_date: str) -> "ContractInfoForAiBuilder":
+    def contract_start_date(
+        self, contract_start_date: str
+    ) -> "ContractInfoForAiBuilder":
         self._contract_info_for_ai.contract_start_date = contract_start_date
         return self
 

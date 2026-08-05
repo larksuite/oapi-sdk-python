@@ -24,7 +24,9 @@ class OfferApplyFormPreObjectConfigInfo(object):
 
 class OfferApplyFormPreObjectConfigInfoBuilder(object):
     def __init__(self) -> None:
-        self._offer_apply_form_pre_object_config_info = OfferApplyFormPreObjectConfigInfo()
+        self._offer_apply_form_pre_object_config_info = (
+            OfferApplyFormPreObjectConfigInfo()
+        )
 
     def id(self, id: str) -> "OfferApplyFormPreObjectConfigInfoBuilder":
         self._offer_apply_form_pre_object_config_info.id = id

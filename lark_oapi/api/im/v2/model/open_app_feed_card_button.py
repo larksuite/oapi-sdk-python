@@ -32,7 +32,9 @@ class OpenAppFeedCardButtonBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_card_button = OpenAppFeedCardButton()
 
-    def multi_url(self, multi_url: OpenAppFeedCardUrl) -> "OpenAppFeedCardButtonBuilder":
+    def multi_url(
+        self, multi_url: OpenAppFeedCardUrl
+    ) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.multi_url = multi_url
         return self
 

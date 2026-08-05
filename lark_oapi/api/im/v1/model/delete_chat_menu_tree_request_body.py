@@ -22,8 +22,12 @@ class DeleteChatMenuTreeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_chat_menu_tree_request_body = DeleteChatMenuTreeRequestBody()
 
-    def chat_menu_top_level_ids(self, chat_menu_top_level_ids: List[int]) -> "DeleteChatMenuTreeRequestBodyBuilder":
-        self._delete_chat_menu_tree_request_body.chat_menu_top_level_ids = chat_menu_top_level_ids
+    def chat_menu_top_level_ids(
+        self, chat_menu_top_level_ids: List[int]
+    ) -> "DeleteChatMenuTreeRequestBodyBuilder":
+        self._delete_chat_menu_tree_request_body.chat_menu_top_level_ids = (
+            chat_menu_top_level_ids
+        )
         return self
 
     def build(self) -> "DeleteChatMenuTreeRequestBody":

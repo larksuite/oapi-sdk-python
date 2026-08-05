@@ -35,11 +35,15 @@ class PermissionDetailBuilder(object):
         self._permission_detail.role = role
         return self
 
-    def assigned_organization_list(self, assigned_organization_list: List[list]) -> "PermissionDetailBuilder":
+    def assigned_organization_list(
+        self, assigned_organization_list: List[list]
+    ) -> "PermissionDetailBuilder":
         self._permission_detail.assigned_organization_list = assigned_organization_list
         return self
 
-    def grantor_rule_list(self, grantor_rule_list: List[PermissionSecurityGroup]) -> "PermissionDetailBuilder":
+    def grantor_rule_list(
+        self, grantor_rule_list: List[PermissionSecurityGroup]
+    ) -> "PermissionDetailBuilder":
         self._permission_detail.grantor_rule_list = grantor_rule_list
         return self
 

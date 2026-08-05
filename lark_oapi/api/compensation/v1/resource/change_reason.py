@@ -17,8 +17,9 @@ class ChangeReason(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListChangeReasonRequest,
-             option: Optional[RequestOption] = None) -> ListChangeReasonResponse:
+    def list(
+        self, request: ListChangeReasonRequest, option: Optional[RequestOption] = None
+    ) -> ListChangeReasonResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class ChangeReason(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListChangeReasonResponse = JSON.unmarshal(str(resp.content, UTF_8), ListChangeReasonResponse)
+        response: ListChangeReasonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListChangeReasonResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListChangeReasonRequest,
-                    option: Optional[RequestOption] = None) -> ListChangeReasonResponse:
+    async def alist(
+        self, request: ListChangeReasonRequest, option: Optional[RequestOption] = None
+    ) -> ListChangeReasonResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class ChangeReason(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListChangeReasonResponse = JSON.unmarshal(str(resp.content, UTF_8), ListChangeReasonResponse)
+        response: ListChangeReasonResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListChangeReasonResponse
+        )
         response.raw = resp
 
         return response

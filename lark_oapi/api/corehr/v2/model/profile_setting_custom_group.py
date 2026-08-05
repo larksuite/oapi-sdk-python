@@ -29,7 +29,9 @@ class ProfileSettingCustomGroupBuilder(object):
         self._profile_setting_custom_group.group_name = group_name
         return self
 
-    def items(self, items: List[ProfileSettingCustomGroupItem]) -> "ProfileSettingCustomGroupBuilder":
+    def items(
+        self, items: List[ProfileSettingCustomGroupItem]
+    ) -> "ProfileSettingCustomGroupBuilder":
         self._profile_setting_custom_group.items = items
         return self
 

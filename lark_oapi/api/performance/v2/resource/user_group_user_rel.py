@@ -17,8 +17,11 @@ class UserGroupUserRel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def write(self, request: WriteUserGroupUserRelRequest,
-              option: Optional[RequestOption] = None) -> WriteUserGroupUserRelResponse:
+    def write(
+        self,
+        request: WriteUserGroupUserRelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WriteUserGroupUserRelResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class UserGroupUserRel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: WriteUserGroupUserRelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 WriteUserGroupUserRelResponse)
+        response: WriteUserGroupUserRelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WriteUserGroupUserRelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def awrite(self, request: WriteUserGroupUserRelRequest,
-                     option: Optional[RequestOption] = None) -> WriteUserGroupUserRelResponse:
+    async def awrite(
+        self,
+        request: WriteUserGroupUserRelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WriteUserGroupUserRelResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class UserGroupUserRel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: WriteUserGroupUserRelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 WriteUserGroupUserRelResponse)
+        response: WriteUserGroupUserRelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WriteUserGroupUserRelResponse
+        )
         response.raw = resp
 
         return response

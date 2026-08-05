@@ -29,7 +29,9 @@ class CollectionDetailBuilder(object):
         self._collection_detail.employment_id = employment_id
         return self
 
-    def activities(self, activities: List[CollectionActivityDataWithDetails]) -> "CollectionDetailBuilder":
+    def activities(
+        self, activities: List[CollectionActivityDataWithDetails]
+    ) -> "CollectionDetailBuilder":
         self._collection_detail.activities = activities
         return self
 

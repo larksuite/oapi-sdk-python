@@ -10,9 +10,13 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_probation_assessment_request import CreateProbationAssessmentRequest
-from ..model.create_probation_assessment_response import CreateProbationAssessmentResponse
+from ..model.create_probation_assessment_response import (
+    CreateProbationAssessmentResponse,
+)
 from ..model.delete_probation_assessment_request import DeleteProbationAssessmentRequest
-from ..model.delete_probation_assessment_response import DeleteProbationAssessmentResponse
+from ..model.delete_probation_assessment_response import (
+    DeleteProbationAssessmentResponse,
+)
 from ..model.patch_probation_assessment_request import PatchProbationAssessmentRequest
 from ..model.patch_probation_assessment_response import PatchProbationAssessmentResponse
 
@@ -21,8 +25,11 @@ class ProbationAssessment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateProbationAssessmentRequest,
-               option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
+    def create(
+        self,
+        request: CreateProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +44,18 @@ class ProbationAssessment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateProbationAssessmentResponse)
+        response: CreateProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateProbationAssessmentRequest,
-                      option: Optional[RequestOption] = None) -> CreateProbationAssessmentResponse:
+    async def acreate(
+        self,
+        request: CreateProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +66,18 @@ class ProbationAssessment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateProbationAssessmentResponse)
+        response: CreateProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteProbationAssessmentRequest,
-               option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
+    def delete(
+        self,
+        request: DeleteProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +92,18 @@ class ProbationAssessment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteProbationAssessmentResponse)
+        response: DeleteProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteProbationAssessmentRequest,
-                      option: Optional[RequestOption] = None) -> DeleteProbationAssessmentResponse:
+    async def adelete(
+        self,
+        request: DeleteProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +114,18 @@ class ProbationAssessment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteProbationAssessmentResponse)
+        response: DeleteProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchProbationAssessmentRequest,
-              option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
+    def patch(
+        self,
+        request: PatchProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +140,18 @@ class ProbationAssessment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    PatchProbationAssessmentResponse)
+        response: PatchProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchProbationAssessmentRequest,
-                     option: Optional[RequestOption] = None) -> PatchProbationAssessmentResponse:
+    async def apatch(
+        self,
+        request: PatchProbationAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchProbationAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +162,9 @@ class ProbationAssessment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchProbationAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    PatchProbationAssessmentResponse)
+        response: PatchProbationAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchProbationAssessmentResponse
+        )
         response.raw = resp
 
         return response

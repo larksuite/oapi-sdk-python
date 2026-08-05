@@ -9,7 +9,6 @@ from .list_interview_round_type_response_body import ListInterviewRoundTypeRespo
 class ListInterviewRoundTypeResponse(BaseResponse):
     _types = {
         "data": ListInterviewRoundTypeResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -29,7 +29,9 @@ class ApplicationOfferCustomModuleBuilder(object):
         self._application_offer_custom_module.id = id
         return self
 
-    def object_list(self, object_list: List[ApplicationOfferCustomValue]) -> "ApplicationOfferCustomModuleBuilder":
+    def object_list(
+        self, object_list: List[ApplicationOfferCustomValue]
+    ) -> "ApplicationOfferCustomModuleBuilder":
         self._application_offer_custom_module.object_list = object_list
         return self
 

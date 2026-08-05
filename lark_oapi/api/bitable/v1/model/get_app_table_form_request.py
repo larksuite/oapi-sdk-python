@@ -18,13 +18,19 @@ class GetAppTableFormRequest(BaseRequest):
 
 
 class GetAppTableFormRequestBuilder(object):
-
     def __init__(self) -> None:
         get_app_table_form_request = GetAppTableFormRequest()
         get_app_table_form_request.http_method = HttpMethod.GET
-        get_app_table_form_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id"
-        get_app_table_form_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_app_table_form_request: GetAppTableFormRequest = get_app_table_form_request
+        get_app_table_form_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id"
+        )
+        get_app_table_form_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_app_table_form_request: GetAppTableFormRequest = (
+            get_app_table_form_request
+        )
 
     def app_token(self, app_token: str) -> "GetAppTableFormRequestBuilder":
         self._get_app_table_form_request.app_token = app_token

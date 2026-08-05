@@ -59,11 +59,15 @@ class CompositeTalentEducationInfoBuilder(object):
         self._composite_talent_education_info.end_time = end_time
         return self
 
-    def education_type(self, education_type: int) -> "CompositeTalentEducationInfoBuilder":
+    def education_type(
+        self, education_type: int
+    ) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.education_type = education_type
         return self
 
-    def academic_ranking(self, academic_ranking: int) -> "CompositeTalentEducationInfoBuilder":
+    def academic_ranking(
+        self, academic_ranking: int
+    ) -> "CompositeTalentEducationInfoBuilder":
         self._composite_talent_education_info.academic_ranking = academic_ranking
         return self
 
@@ -71,9 +75,12 @@ class CompositeTalentEducationInfoBuilder(object):
         self._composite_talent_education_info.tag_list = tag_list
         return self
 
-    def customized_data_list(self, customized_data_list: List[
-        TalentCustomizedDataChild]) -> "CompositeTalentEducationInfoBuilder":
-        self._composite_talent_education_info.customized_data_list = customized_data_list
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "CompositeTalentEducationInfoBuilder":
+        self._composite_talent_education_info.customized_data_list = (
+            customized_data_list
+        )
         return self
 
     def build(self) -> "CompositeTalentEducationInfo":

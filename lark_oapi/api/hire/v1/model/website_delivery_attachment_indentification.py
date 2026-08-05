@@ -22,14 +22,24 @@ class WebsiteDeliveryAttachmentIndentification(object):
 
 class WebsiteDeliveryAttachmentIndentificationBuilder(object):
     def __init__(self) -> None:
-        self._website_delivery_attachment_indentification = WebsiteDeliveryAttachmentIndentification()
+        self._website_delivery_attachment_indentification = (
+            WebsiteDeliveryAttachmentIndentification()
+        )
 
-    def identification_type(self, identification_type: int) -> "WebsiteDeliveryAttachmentIndentificationBuilder":
-        self._website_delivery_attachment_indentification.identification_type = identification_type
+    def identification_type(
+        self, identification_type: int
+    ) -> "WebsiteDeliveryAttachmentIndentificationBuilder":
+        self._website_delivery_attachment_indentification.identification_type = (
+            identification_type
+        )
         return self
 
-    def identification_number(self, identification_number: str) -> "WebsiteDeliveryAttachmentIndentificationBuilder":
-        self._website_delivery_attachment_indentification.identification_number = identification_number
+    def identification_number(
+        self, identification_number: str
+    ) -> "WebsiteDeliveryAttachmentIndentificationBuilder":
+        self._website_delivery_attachment_indentification.identification_number = (
+            identification_number
+        )
         return self
 
     def build(self) -> "WebsiteDeliveryAttachmentIndentification":

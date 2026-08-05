@@ -17,15 +17,20 @@ class ProtectSearchAgencyRequest(BaseRequest):
 
 
 class ProtectSearchAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         protect_search_agency_request = ProtectSearchAgencyRequest()
         protect_search_agency_request.http_method = HttpMethod.POST
-        protect_search_agency_request.uri = "/open-apis/hire/v1/agencies/protection_period/search"
+        protect_search_agency_request.uri = (
+            "/open-apis/hire/v1/agencies/protection_period/search"
+        )
         protect_search_agency_request.token_types = {AccessTokenType.TENANT}
-        self._protect_search_agency_request: ProtectSearchAgencyRequest = protect_search_agency_request
+        self._protect_search_agency_request: ProtectSearchAgencyRequest = (
+            protect_search_agency_request
+        )
 
-    def request_body(self, request_body: ProtectSearchAgencyRequestBody) -> "ProtectSearchAgencyRequestBuilder":
+    def request_body(
+        self, request_body: ProtectSearchAgencyRequestBody
+    ) -> "ProtectSearchAgencyRequestBuilder":
         self._protect_search_agency_request.request_body = request_body
         self._protect_search_agency_request.body = request_body
         return self

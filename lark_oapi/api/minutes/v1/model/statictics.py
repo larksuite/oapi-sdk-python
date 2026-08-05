@@ -35,7 +35,9 @@ class StaticticsBuilder(object):
         self._statictics.page_view_count = page_view_count
         return self
 
-    def user_view_list(self, user_view_list: List[UserViewDetail]) -> "StaticticsBuilder":
+    def user_view_list(
+        self, user_view_list: List[UserViewDetail]
+    ) -> "StaticticsBuilder":
         self._statictics.user_view_list = user_view_list
         return self
 

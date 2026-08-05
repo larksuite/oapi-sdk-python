@@ -4,7 +4,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .reply_content import ReplyContent
 from .reply_extra import ReplyExtra
-from .file_comment_v2_batch_query_reaction_data import FileCommentV2BatchQueryReactionData
+from .file_comment_v2_batch_query_reaction_data import (
+    FileCommentV2BatchQueryReactionData,
+)
 
 
 class FileCommentReply(object):
@@ -61,7 +63,9 @@ class FileCommentReplyBuilder(object):
         self._file_comment_reply.extra = extra
         return self
 
-    def reactions(self, reactions: List[FileCommentV2BatchQueryReactionData]) -> "FileCommentReplyBuilder":
+    def reactions(
+        self, reactions: List[FileCommentV2BatchQueryReactionData]
+    ) -> "FileCommentReplyBuilder":
         self._file_comment_reply.reactions = reactions
         return self
 

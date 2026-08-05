@@ -60,7 +60,9 @@ class DepartmentBuilder(object):
         self._department.is_confidential = is_confidential
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "DepartmentBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "DepartmentBuilder":
         self._department.hiberarchy_common = hiberarchy_common
         return self
 
@@ -72,7 +74,9 @@ class DepartmentBuilder(object):
         self._department.expiration_time = expiration_time
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DepartmentBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "DepartmentBuilder":
         self._department.custom_fields = custom_fields
         return self
 

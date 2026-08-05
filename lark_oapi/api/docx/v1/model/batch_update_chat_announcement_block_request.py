@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_chat_announcement_block_request_body import BatchUpdateChatAnnouncementBlockRequestBody
+from .batch_update_chat_announcement_block_request_body import (
+    BatchUpdateChatAnnouncementBlockRequestBody,
+)
 
 
 class BatchUpdateChatAnnouncementBlockRequest(BaseRequest):
@@ -21,36 +23,57 @@ class BatchUpdateChatAnnouncementBlockRequest(BaseRequest):
 
 
 class BatchUpdateChatAnnouncementBlockRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_update_chat_announcement_block_request = BatchUpdateChatAnnouncementBlockRequest()
+        batch_update_chat_announcement_block_request = (
+            BatchUpdateChatAnnouncementBlockRequest()
+        )
         batch_update_chat_announcement_block_request.http_method = HttpMethod.PATCH
-        batch_update_chat_announcement_block_request.uri = "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/batch_update"
-        batch_update_chat_announcement_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        batch_update_chat_announcement_block_request.uri = (
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/batch_update"
+        )
+        batch_update_chat_announcement_block_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._batch_update_chat_announcement_block_request: BatchUpdateChatAnnouncementBlockRequest = batch_update_chat_announcement_block_request
 
-    def revision_id(self, revision_id: int) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
+    def revision_id(
+        self, revision_id: int
+    ) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
         self._batch_update_chat_announcement_block_request.revision_id = revision_id
-        self._batch_update_chat_announcement_block_request.add_query("revision_id", revision_id)
+        self._batch_update_chat_announcement_block_request.add_query(
+            "revision_id", revision_id
+        )
         return self
 
-    def client_token(self, client_token: str) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
         self._batch_update_chat_announcement_block_request.client_token = client_token
-        self._batch_update_chat_announcement_block_request.add_query("client_token", client_token)
+        self._batch_update_chat_announcement_block_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
         self._batch_update_chat_announcement_block_request.user_id_type = user_id_type
-        self._batch_update_chat_announcement_block_request.add_query("user_id_type", user_id_type)
+        self._batch_update_chat_announcement_block_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def chat_id(self, chat_id: str) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
         self._batch_update_chat_announcement_block_request.chat_id = chat_id
-        self._batch_update_chat_announcement_block_request.paths["chat_id"] = str(chat_id)
+        self._batch_update_chat_announcement_block_request.paths["chat_id"] = str(
+            chat_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchUpdateChatAnnouncementBlockRequestBody) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateChatAnnouncementBlockRequestBody
+    ) -> "BatchUpdateChatAnnouncementBlockRequestBuilder":
         self._batch_update_chat_announcement_block_request.request_body = request_body
         self._batch_update_chat_announcement_block_request.body = request_body
         return self

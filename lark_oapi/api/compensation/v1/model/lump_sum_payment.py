@@ -98,7 +98,9 @@ class LumpSumPaymentBuilder(object):
         self._lump_sum_payment.remark = remark
         return self
 
-    def issuance_detail_text(self, issuance_detail_text: I18n) -> "LumpSumPaymentBuilder":
+    def issuance_detail_text(
+        self, issuance_detail_text: I18n
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.issuance_detail_text = issuance_detail_text
         return self
 
@@ -106,16 +108,24 @@ class LumpSumPaymentBuilder(object):
         self._lump_sum_payment.apply_source = apply_source
         return self
 
-    def return_amount_before_tax(self, return_amount_before_tax: str) -> "LumpSumPaymentBuilder":
+    def return_amount_before_tax(
+        self, return_amount_before_tax: str
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.return_amount_before_tax = return_amount_before_tax
         return self
 
-    def return_amount_after_tax(self, return_amount_after_tax: str) -> "LumpSumPaymentBuilder":
+    def return_amount_after_tax(
+        self, return_amount_after_tax: str
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.return_amount_after_tax = return_amount_after_tax
         return self
 
-    def binding_period_offboarding_type(self, binding_period_offboarding_type: str) -> "LumpSumPaymentBuilder":
-        self._lump_sum_payment.binding_period_offboarding_type = binding_period_offboarding_type
+    def binding_period_offboarding_type(
+        self, binding_period_offboarding_type: str
+    ) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.binding_period_offboarding_type = (
+            binding_period_offboarding_type
+        )
         return self
 
     def create_time(self, create_time: str) -> "LumpSumPaymentBuilder":
@@ -126,11 +136,15 @@ class LumpSumPaymentBuilder(object):
         self._lump_sum_payment.modify_time = modify_time
         return self
 
-    def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentBuilder":
+    def reference_period_start_date(
+        self, reference_period_start_date: str
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.reference_period_start_date = reference_period_start_date
         return self
 
-    def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentBuilder":
+    def reference_period_end_date(
+        self, reference_period_end_date: str
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.reference_period_end_date = reference_period_end_date
         return self
 
@@ -138,7 +152,9 @@ class LumpSumPaymentBuilder(object):
         self._lump_sum_payment.details = details
         return self
 
-    def binding_period_decimal(self, binding_period_decimal: str) -> "LumpSumPaymentBuilder":
+    def binding_period_decimal(
+        self, binding_period_decimal: str
+    ) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.binding_period_decimal = binding_period_decimal
         return self
 

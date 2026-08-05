@@ -26,7 +26,9 @@ class ListInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_instance_response_body = ListInstanceResponseBody()
 
-    def instance_code_list(self, instance_code_list: List[str]) -> "ListInstanceResponseBodyBuilder":
+    def instance_code_list(
+        self, instance_code_list: List[str]
+    ) -> "ListInstanceResponseBodyBuilder":
         self._list_instance_response_body.instance_code_list = instance_code_list
         return self
 

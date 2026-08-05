@@ -43,7 +43,9 @@ class FaqUpdateInfoBuilder(object):
         self._faq_update_info.answer = answer
         return self
 
-    def answer_richtext(self, answer_richtext: List[Richtext]) -> "FaqUpdateInfoBuilder":
+    def answer_richtext(
+        self, answer_richtext: List[Richtext]
+    ) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.answer_richtext = answer_richtext
         return self
 

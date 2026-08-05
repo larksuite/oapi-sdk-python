@@ -33,7 +33,9 @@ class ParamMessageFilterBuilder(object):
         self._param_message_filter.owner_ids = owner_ids
         return self
 
-    def create_time_range(self, create_time_range: TimeRange) -> "ParamMessageFilterBuilder":
+    def create_time_range(
+        self, create_time_range: TimeRange
+    ) -> "ParamMessageFilterBuilder":
         self._param_message_filter.create_time_range = create_time_range
         return self
 

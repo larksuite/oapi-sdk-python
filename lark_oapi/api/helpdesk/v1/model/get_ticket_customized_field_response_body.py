@@ -50,14 +50,21 @@ class GetTicketCustomizedFieldResponseBody(object):
 
 class GetTicketCustomizedFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_ticket_customized_field_response_body = GetTicketCustomizedFieldResponseBody()
+        self._get_ticket_customized_field_response_body = (
+            GetTicketCustomizedFieldResponseBody()
+        )
 
-    def ticket_customized_field_id(self,
-                                   ticket_customized_field_id: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
-        self._get_ticket_customized_field_response_body.ticket_customized_field_id = ticket_customized_field_id
+    def ticket_customized_field_id(
+        self, ticket_customized_field_id: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+        self._get_ticket_customized_field_response_body.ticket_customized_field_id = (
+            ticket_customized_field_id
+        )
         return self
 
-    def helpdesk_id(self, helpdesk_id: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def helpdesk_id(
+        self, helpdesk_id: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.helpdesk_id = helpdesk_id
         return self
 
@@ -65,7 +72,9 @@ class GetTicketCustomizedFieldResponseBodyBuilder(object):
         self._get_ticket_customized_field_response_body.key_name = key_name
         return self
 
-    def display_name(self, display_name: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def display_name(
+        self, display_name: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.display_name = display_name
         return self
 
@@ -73,11 +82,15 @@ class GetTicketCustomizedFieldResponseBodyBuilder(object):
         self._get_ticket_customized_field_response_body.position = position
         return self
 
-    def field_type(self, field_type: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def field_type(
+        self, field_type: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.field_type = field_type
         return self
 
-    def description(self, description: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def description(
+        self, description: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.description = description
         return self
 
@@ -93,24 +106,36 @@ class GetTicketCustomizedFieldResponseBodyBuilder(object):
         self._get_ticket_customized_field_response_body.required = required
         return self
 
-    def created_at(self, created_at: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def created_at(
+        self, created_at: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.created_at = created_at
         return self
 
-    def updated_at(self, updated_at: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def updated_at(
+        self, updated_at: str
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.updated_at = updated_at
         return self
 
-    def created_by(self, created_by: TicketUser) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def created_by(
+        self, created_by: TicketUser
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.created_by = created_by
         return self
 
-    def updated_by(self, updated_by: TicketUser) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+    def updated_by(
+        self, updated_by: TicketUser
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
         self._get_ticket_customized_field_response_body.updated_by = updated_by
         return self
 
-    def dropdown_allow_multiple(self, dropdown_allow_multiple: bool) -> "GetTicketCustomizedFieldResponseBodyBuilder":
-        self._get_ticket_customized_field_response_body.dropdown_allow_multiple = dropdown_allow_multiple
+    def dropdown_allow_multiple(
+        self, dropdown_allow_multiple: bool
+    ) -> "GetTicketCustomizedFieldResponseBodyBuilder":
+        self._get_ticket_customized_field_response_body.dropdown_allow_multiple = (
+            dropdown_allow_multiple
+        )
         return self
 
     def build(self) -> "GetTicketCustomizedFieldResponseBody":

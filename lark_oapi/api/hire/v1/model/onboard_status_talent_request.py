@@ -18,20 +18,25 @@ class OnboardStatusTalentRequest(BaseRequest):
 
 
 class OnboardStatusTalentRequestBuilder(object):
-
     def __init__(self) -> None:
         onboard_status_talent_request = OnboardStatusTalentRequest()
         onboard_status_talent_request.http_method = HttpMethod.POST
-        onboard_status_talent_request.uri = "/open-apis/hire/v1/talents/:talent_id/onboard_status"
+        onboard_status_talent_request.uri = (
+            "/open-apis/hire/v1/talents/:talent_id/onboard_status"
+        )
         onboard_status_talent_request.token_types = {AccessTokenType.TENANT}
-        self._onboard_status_talent_request: OnboardStatusTalentRequest = onboard_status_talent_request
+        self._onboard_status_talent_request: OnboardStatusTalentRequest = (
+            onboard_status_talent_request
+        )
 
     def talent_id(self, talent_id: str) -> "OnboardStatusTalentRequestBuilder":
         self._onboard_status_talent_request.talent_id = talent_id
         self._onboard_status_talent_request.paths["talent_id"] = str(talent_id)
         return self
 
-    def request_body(self, request_body: OnboardStatusTalentRequestBody) -> "OnboardStatusTalentRequestBuilder":
+    def request_body(
+        self, request_body: OnboardStatusTalentRequestBody
+    ) -> "OnboardStatusTalentRequestBuilder":
         self._onboard_status_talent_request.request_body = request_body
         self._onboard_status_talent_request.body = request_body
         return self

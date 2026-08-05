@@ -22,47 +22,89 @@ class VisibleOrganizationCollaborationTenantRequest(BaseRequest):
 
 
 class VisibleOrganizationCollaborationTenantRequestBuilder(object):
-
     def __init__(self) -> None:
-        visible_organization_collaboration_tenant_request = VisibleOrganizationCollaborationTenantRequest()
+        visible_organization_collaboration_tenant_request = (
+            VisibleOrganizationCollaborationTenantRequest()
+        )
         visible_organization_collaboration_tenant_request.http_method = HttpMethod.GET
         visible_organization_collaboration_tenant_request.uri = "/open-apis/trust_party/v1/collaboration_tenants/:target_tenant_key/visible_organization"
-        visible_organization_collaboration_tenant_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        visible_organization_collaboration_tenant_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._visible_organization_collaboration_tenant_request: VisibleOrganizationCollaborationTenantRequest = visible_organization_collaboration_tenant_request
 
-    def department_id_type(self, department_id_type: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
-        self._visible_organization_collaboration_tenant_request.department_id_type = department_id_type
-        self._visible_organization_collaboration_tenant_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+        self._visible_organization_collaboration_tenant_request.department_id_type = (
+            department_id_type
+        )
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def target_department_id(self, target_department_id: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
-        self._visible_organization_collaboration_tenant_request.target_department_id = target_department_id
-        self._visible_organization_collaboration_tenant_request.add_query("target_department_id", target_department_id)
+    def target_department_id(
+        self, target_department_id: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+        self._visible_organization_collaboration_tenant_request.target_department_id = (
+            target_department_id
+        )
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "target_department_id", target_department_id
+        )
         return self
 
-    def page_token(self, page_token: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
         self._visible_organization_collaboration_tenant_request.page_token = page_token
-        self._visible_organization_collaboration_tenant_request.add_query("page_token", page_token)
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "page_token", page_token
+        )
         return self
 
-    def page_size(self, page_size: int) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+    def page_size(
+        self, page_size: int
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
         self._visible_organization_collaboration_tenant_request.page_size = page_size
-        self._visible_organization_collaboration_tenant_request.add_query("page_size", page_size)
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "page_size", page_size
+        )
         return self
 
-    def group_id_type(self, group_id_type: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
-        self._visible_organization_collaboration_tenant_request.group_id_type = group_id_type
-        self._visible_organization_collaboration_tenant_request.add_query("group_id_type", group_id_type)
+    def group_id_type(
+        self, group_id_type: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+        self._visible_organization_collaboration_tenant_request.group_id_type = (
+            group_id_type
+        )
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "group_id_type", group_id_type
+        )
         return self
 
-    def target_group_id(self, target_group_id: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
-        self._visible_organization_collaboration_tenant_request.target_group_id = target_group_id
-        self._visible_organization_collaboration_tenant_request.add_query("target_group_id", target_group_id)
+    def target_group_id(
+        self, target_group_id: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+        self._visible_organization_collaboration_tenant_request.target_group_id = (
+            target_group_id
+        )
+        self._visible_organization_collaboration_tenant_request.add_query(
+            "target_group_id", target_group_id
+        )
         return self
 
-    def target_tenant_key(self, target_tenant_key: str) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
-        self._visible_organization_collaboration_tenant_request.target_tenant_key = target_tenant_key
-        self._visible_organization_collaboration_tenant_request.paths["target_tenant_key"] = str(target_tenant_key)
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "VisibleOrganizationCollaborationTenantRequestBuilder":
+        self._visible_organization_collaboration_tenant_request.target_tenant_key = (
+            target_tenant_key
+        )
+        self._visible_organization_collaboration_tenant_request.paths[
+            "target_tenant_key"
+        ] = str(target_tenant_key)
         return self
 
     def build(self) -> VisibleOrganizationCollaborationTenantRequest:

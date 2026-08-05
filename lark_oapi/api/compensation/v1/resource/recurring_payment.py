@@ -9,12 +9,24 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_recurring_payment_request import BatchCreateRecurringPaymentRequest
-from ..model.batch_create_recurring_payment_response import BatchCreateRecurringPaymentResponse
-from ..model.batch_remove_recurring_payment_request import BatchRemoveRecurringPaymentRequest
-from ..model.batch_remove_recurring_payment_response import BatchRemoveRecurringPaymentResponse
-from ..model.batch_update_recurring_payment_request import BatchUpdateRecurringPaymentRequest
-from ..model.batch_update_recurring_payment_response import BatchUpdateRecurringPaymentResponse
+from ..model.batch_create_recurring_payment_request import (
+    BatchCreateRecurringPaymentRequest,
+)
+from ..model.batch_create_recurring_payment_response import (
+    BatchCreateRecurringPaymentResponse,
+)
+from ..model.batch_remove_recurring_payment_request import (
+    BatchRemoveRecurringPaymentRequest,
+)
+from ..model.batch_remove_recurring_payment_response import (
+    BatchRemoveRecurringPaymentResponse,
+)
+from ..model.batch_update_recurring_payment_request import (
+    BatchUpdateRecurringPaymentRequest,
+)
+from ..model.batch_update_recurring_payment_response import (
+    BatchUpdateRecurringPaymentResponse,
+)
 from ..model.query_recurring_payment_request import QueryRecurringPaymentRequest
 from ..model.query_recurring_payment_response import QueryRecurringPaymentResponse
 
@@ -23,8 +35,11 @@ class RecurringPayment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateRecurringPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreateRecurringPaymentResponse:
+    def batch_create(
+        self,
+        request: BatchCreateRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +54,18 @@ class RecurringPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchCreateRecurringPaymentResponse)
+        response: BatchCreateRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create(self, request: BatchCreateRecurringPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreateRecurringPaymentResponse:
+    async def abatch_create(
+        self,
+        request: BatchCreateRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +76,18 @@ class RecurringPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchCreateRecurringPaymentResponse)
+        response: BatchCreateRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_remove(self, request: BatchRemoveRecurringPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchRemoveRecurringPaymentResponse:
+    def batch_remove(
+        self,
+        request: BatchRemoveRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +102,18 @@ class RecurringPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchRemoveRecurringPaymentResponse)
+        response: BatchRemoveRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_remove(self, request: BatchRemoveRecurringPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchRemoveRecurringPaymentResponse:
+    async def abatch_remove(
+        self,
+        request: BatchRemoveRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchRemoveRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +124,18 @@ class RecurringPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchRemoveRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchRemoveRecurringPaymentResponse)
+        response: BatchRemoveRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchRemoveRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_update(self, request: BatchUpdateRecurringPaymentRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateRecurringPaymentResponse:
+    def batch_update(
+        self,
+        request: BatchUpdateRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +150,18 @@ class RecurringPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchUpdateRecurringPaymentResponse)
+        response: BatchUpdateRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_update(self, request: BatchUpdateRecurringPaymentRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateRecurringPaymentResponse:
+    async def abatch_update(
+        self,
+        request: BatchUpdateRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +172,18 @@ class RecurringPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchUpdateRecurringPaymentResponse)
+        response: BatchUpdateRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryRecurringPaymentRequest,
-              option: Optional[RequestOption] = None) -> QueryRecurringPaymentResponse:
+    def query(
+        self,
+        request: QueryRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +198,18 @@ class RecurringPayment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryRecurringPaymentResponse)
+        response: QueryRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryRecurringPaymentRequest,
-                     option: Optional[RequestOption] = None) -> QueryRecurringPaymentResponse:
+    async def aquery(
+        self,
+        request: QueryRecurringPaymentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecurringPaymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,8 +220,9 @@ class RecurringPayment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecurringPaymentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryRecurringPaymentResponse)
+        response: QueryRecurringPaymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecurringPaymentResponse
+        )
         response.raw = resp
 
         return response

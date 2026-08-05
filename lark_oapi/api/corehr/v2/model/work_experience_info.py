@@ -39,7 +39,9 @@ class WorkExperienceInfoBuilder(object):
     def __init__(self) -> None:
         self._work_experience_info = WorkExperienceInfo()
 
-    def company_organization(self, company_organization: List[I18n]) -> "WorkExperienceInfoBuilder":
+    def company_organization(
+        self, company_organization: List[I18n]
+    ) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.company_organization = company_organization
         return self
 
@@ -63,7 +65,9 @@ class WorkExperienceInfoBuilder(object):
         self._work_experience_info.end_date = end_date
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "WorkExperienceInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.custom_fields = custom_fields
         return self
 

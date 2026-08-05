@@ -9,7 +9,6 @@ from .create_faq_response_body import CreateFaqResponseBody
 class CreateFaqResponse(BaseResponse):
     _types = {
         "data": CreateFaqResponseBody,
-
     }
 
     def __init__(self, d=None):

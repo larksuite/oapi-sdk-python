@@ -62,7 +62,9 @@ class QueryLumpSumPaymentRequestBodyBuilder(object):
         self._query_lump_sum_payment_request_body.ids = ids
         return self
 
-    def unique_ids(self, unique_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def unique_ids(
+        self, unique_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.unique_ids = unique_ids
         return self
 
@@ -74,63 +76,95 @@ class QueryLumpSumPaymentRequestBodyBuilder(object):
         self._query_lump_sum_payment_request_body.item_ids = item_ids
         return self
 
-    def create_time_gte(self, create_time_gte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def create_time_gte(
+        self, create_time_gte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.create_time_gte = create_time_gte
         return self
 
-    def create_time_lte(self, create_time_lte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def create_time_lte(
+        self, create_time_lte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.create_time_lte = create_time_lte
         return self
 
-    def modify_time_gte(self, modify_time_gte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def modify_time_gte(
+        self, modify_time_gte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.modify_time_gte = modify_time_gte
         return self
 
-    def modify_time_lte(self, modify_time_lte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def modify_time_lte(
+        self, modify_time_lte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.modify_time_lte = modify_time_lte
         return self
 
-    def company_ids(self, company_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def company_ids(
+        self, company_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.company_ids = company_ids
         return self
 
-    def service_company_ids(self, service_company_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
-        self._query_lump_sum_payment_request_body.service_company_ids = service_company_ids
+    def service_company_ids(
+        self, service_company_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
+        self._query_lump_sum_payment_request_body.service_company_ids = (
+            service_company_ids
+        )
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.department_ids = department_ids
         return self
 
-    def job_family_ids(self, job_family_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def job_family_ids(
+        self, job_family_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.job_family_ids = job_family_ids
         return self
 
-    def job_level_ids(self, job_level_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def job_level_ids(
+        self, job_level_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.job_level_ids = job_level_ids
         return self
 
-    def work_location_ids(self, work_location_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def work_location_ids(
+        self, work_location_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.work_location_ids = work_location_ids
         return self
 
-    def employee_type_ids(self, employee_type_ids: List[str]) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def employee_type_ids(
+        self, employee_type_ids: List[str]
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.employee_type_ids = employee_type_ids
         return self
 
-    def onboard_date_gte(self, onboard_date_gte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def onboard_date_gte(
+        self, onboard_date_gte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.onboard_date_gte = onboard_date_gte
         return self
 
-    def onboard_date_lte(self, onboard_date_lte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def onboard_date_lte(
+        self, onboard_date_lte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.onboard_date_lte = onboard_date_lte
         return self
 
-    def offboard_date_gte(self, offboard_date_gte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def offboard_date_gte(
+        self, offboard_date_gte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.offboard_date_gte = offboard_date_gte
         return self
 
-    def offboard_date_lte(self, offboard_date_lte: str) -> "QueryLumpSumPaymentRequestBodyBuilder":
+    def offboard_date_lte(
+        self, offboard_date_lte: str
+    ) -> "QueryLumpSumPaymentRequestBodyBuilder":
         self._query_lump_sum_payment_request_body.offboard_date_lte = offboard_date_lte
         return self
 

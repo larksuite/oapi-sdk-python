@@ -21,9 +21,13 @@ class RemoveDependenciesTaskRequestBody(object):
 
 class RemoveDependenciesTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._remove_dependencies_task_request_body = RemoveDependenciesTaskRequestBody()
+        self._remove_dependencies_task_request_body = (
+            RemoveDependenciesTaskRequestBody()
+        )
 
-    def dependencies(self, dependencies: List[TaskDependency]) -> "RemoveDependenciesTaskRequestBodyBuilder":
+    def dependencies(
+        self, dependencies: List[TaskDependency]
+    ) -> "RemoveDependenciesTaskRequestBodyBuilder":
         self._remove_dependencies_task_request_body.dependencies = dependencies
         return self
 

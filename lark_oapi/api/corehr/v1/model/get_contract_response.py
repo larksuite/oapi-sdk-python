@@ -9,7 +9,6 @@ from .get_contract_response_body import GetContractResponseBody
 class GetContractResponse(BaseResponse):
     _types = {
         "data": GetContractResponseBody,
-
     }
 
     def __init__(self, d=None):

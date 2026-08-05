@@ -20,7 +20,6 @@ class UpdateUserRequest(BaseRequest):
 
 
 class UpdateUserRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_request = UpdateUserRequest()
         update_user_request.http_method = HttpMethod.PUT

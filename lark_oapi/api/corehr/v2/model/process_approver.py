@@ -47,7 +47,9 @@ class ProcessApproverBuilder(object):
         self._process_approver.reason = reason
         return self
 
-    def field_values_v2(self, field_values_v2: List[ProcessFormVariableV2]) -> "ProcessApproverBuilder":
+    def field_values_v2(
+        self, field_values_v2: List[ProcessFormVariableV2]
+    ) -> "ProcessApproverBuilder":
         self._process_approver.field_values_v2 = field_values_v2
         return self
 

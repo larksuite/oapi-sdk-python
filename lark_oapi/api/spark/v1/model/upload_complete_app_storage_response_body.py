@@ -28,7 +28,9 @@ class UploadCompleteAppStorageResponseBody(object):
 
 class UploadCompleteAppStorageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_complete_app_storage_response_body = UploadCompleteAppStorageResponseBody()
+        self._upload_complete_app_storage_response_body = (
+            UploadCompleteAppStorageResponseBody()
+        )
 
     def file_key(self, file_key: str) -> "UploadCompleteAppStorageResponseBodyBuilder":
         self._upload_complete_app_storage_response_body.file_key = file_key
@@ -38,15 +40,21 @@ class UploadCompleteAppStorageResponseBodyBuilder(object):
         self._upload_complete_app_storage_response_body.file_url = file_url
         return self
 
-    def file_name(self, file_name: str) -> "UploadCompleteAppStorageResponseBodyBuilder":
+    def file_name(
+        self, file_name: str
+    ) -> "UploadCompleteAppStorageResponseBodyBuilder":
         self._upload_complete_app_storage_response_body.file_name = file_name
         return self
 
-    def file_size(self, file_size: int) -> "UploadCompleteAppStorageResponseBodyBuilder":
+    def file_size(
+        self, file_size: int
+    ) -> "UploadCompleteAppStorageResponseBodyBuilder":
         self._upload_complete_app_storage_response_body.file_size = file_size
         return self
 
-    def mime_type(self, mime_type: str) -> "UploadCompleteAppStorageResponseBodyBuilder":
+    def mime_type(
+        self, mime_type: str
+    ) -> "UploadCompleteAppStorageResponseBodyBuilder":
         self._upload_complete_app_storage_response_body.mime_type = mime_type
         return self
 

@@ -44,11 +44,15 @@ class SiteJobPostSearchRequestBuilder(object):
         self._site_job_post_search_request.limit = limit
         return self
 
-    def job_type_id_list(self, job_type_id_list: List[str]) -> "SiteJobPostSearchRequestBuilder":
+    def job_type_id_list(
+        self, job_type_id_list: List[str]
+    ) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.job_type_id_list = job_type_id_list
         return self
 
-    def city_code_list(self, city_code_list: List[str]) -> "SiteJobPostSearchRequestBuilder":
+    def city_code_list(
+        self, city_code_list: List[str]
+    ) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.city_code_list = city_code_list
         return self
 

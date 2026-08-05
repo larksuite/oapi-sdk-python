@@ -51,7 +51,9 @@ class TalentCombinedEducationInfoBuilder(object):
         self._talent_combined_education_info.school = school
         return self
 
-    def field_of_study(self, field_of_study: str) -> "TalentCombinedEducationInfoBuilder":
+    def field_of_study(
+        self, field_of_study: str
+    ) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.field_of_study = field_of_study
         return self
 
@@ -63,16 +65,21 @@ class TalentCombinedEducationInfoBuilder(object):
         self._talent_combined_education_info.end_time = end_time
         return self
 
-    def education_type(self, education_type: int) -> "TalentCombinedEducationInfoBuilder":
+    def education_type(
+        self, education_type: int
+    ) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.education_type = education_type
         return self
 
-    def academic_ranking(self, academic_ranking: int) -> "TalentCombinedEducationInfoBuilder":
+    def academic_ranking(
+        self, academic_ranking: int
+    ) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.academic_ranking = academic_ranking
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedEducationInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.customized_data = customized_data
         return self
 

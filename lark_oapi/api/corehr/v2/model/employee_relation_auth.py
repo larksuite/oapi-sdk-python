@@ -43,11 +43,15 @@ class EmployeeRelationAuthBuilder(object):
         self._employee_relation_auth.entity = entity
         return self
 
-    def related_fields(self, related_fields: List[str]) -> "EmployeeRelationAuthBuilder":
+    def related_fields(
+        self, related_fields: List[str]
+    ) -> "EmployeeRelationAuthBuilder":
         self._employee_relation_auth.related_fields = related_fields
         return self
 
-    def related_entity_action(self, related_entity_action: int) -> "EmployeeRelationAuthBuilder":
+    def related_entity_action(
+        self, related_entity_action: int
+    ) -> "EmployeeRelationAuthBuilder":
         self._employee_relation_auth.related_entity_action = related_entity_action
         return self
 

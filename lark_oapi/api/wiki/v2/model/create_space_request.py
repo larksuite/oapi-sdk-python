@@ -17,7 +17,6 @@ class CreateSpaceRequest(BaseRequest):
 
 
 class CreateSpaceRequestBuilder(object):
-
     def __init__(self) -> None:
         create_space_request = CreateSpaceRequest()
         create_space_request.http_method = HttpMethod.POST

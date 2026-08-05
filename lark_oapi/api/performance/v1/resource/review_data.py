@@ -17,7 +17,9 @@ class ReviewData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryReviewDataRequest, option: Optional[RequestOption] = None) -> QueryReviewDataResponse:
+    def query(
+        self, request: QueryReviewDataRequest, option: Optional[RequestOption] = None
+    ) -> QueryReviewDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class ReviewData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryReviewDataResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryReviewDataResponse)
+        response: QueryReviewDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryReviewDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryReviewDataRequest,
-                     option: Optional[RequestOption] = None) -> QueryReviewDataResponse:
+    async def aquery(
+        self, request: QueryReviewDataRequest, option: Optional[RequestOption] = None
+    ) -> QueryReviewDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class ReviewData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryReviewDataResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryReviewDataResponse)
+        response: QueryReviewDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryReviewDataResponse
+        )
         response.raw = resp
 
         return response

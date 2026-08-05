@@ -38,29 +38,51 @@ class TransferOnboardApplicationRequestBody(object):
 
 class TransferOnboardApplicationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._transfer_onboard_application_request_body = TransferOnboardApplicationRequestBody()
+        self._transfer_onboard_application_request_body = (
+            TransferOnboardApplicationRequestBody()
+        )
 
-    def actual_onboard_time(self, actual_onboard_time: int) -> "TransferOnboardApplicationRequestBodyBuilder":
-        self._transfer_onboard_application_request_body.actual_onboard_time = actual_onboard_time
+    def actual_onboard_time(
+        self, actual_onboard_time: int
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
+        self._transfer_onboard_application_request_body.actual_onboard_time = (
+            actual_onboard_time
+        )
         return self
 
-    def expected_conversion_time(self, expected_conversion_time: int) -> "TransferOnboardApplicationRequestBodyBuilder":
-        self._transfer_onboard_application_request_body.expected_conversion_time = expected_conversion_time
+    def expected_conversion_time(
+        self, expected_conversion_time: int
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
+        self._transfer_onboard_application_request_body.expected_conversion_time = (
+            expected_conversion_time
+        )
         return self
 
-    def job_requirement_id(self, job_requirement_id: str) -> "TransferOnboardApplicationRequestBodyBuilder":
-        self._transfer_onboard_application_request_body.job_requirement_id = job_requirement_id
+    def job_requirement_id(
+        self, job_requirement_id: str
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
+        self._transfer_onboard_application_request_body.job_requirement_id = (
+            job_requirement_id
+        )
         return self
 
-    def operator_id(self, operator_id: str) -> "TransferOnboardApplicationRequestBodyBuilder":
+    def operator_id(
+        self, operator_id: str
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
         self._transfer_onboard_application_request_body.operator_id = operator_id
         return self
 
-    def onboard_city_code(self, onboard_city_code: str) -> "TransferOnboardApplicationRequestBodyBuilder":
-        self._transfer_onboard_application_request_body.onboard_city_code = onboard_city_code
+    def onboard_city_code(
+        self, onboard_city_code: str
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
+        self._transfer_onboard_application_request_body.onboard_city_code = (
+            onboard_city_code
+        )
         return self
 
-    def department(self, department: str) -> "TransferOnboardApplicationRequestBodyBuilder":
+    def department(
+        self, department: str
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
         self._transfer_onboard_application_request_body.department = department
         return self
 
@@ -76,7 +98,9 @@ class TransferOnboardApplicationRequestBodyBuilder(object):
         self._transfer_onboard_application_request_body.level = level
         return self
 
-    def employee_type(self, employee_type: str) -> "TransferOnboardApplicationRequestBodyBuilder":
+    def employee_type(
+        self, employee_type: str
+    ) -> "TransferOnboardApplicationRequestBodyBuilder":
         self._transfer_onboard_application_request_body.employee_type = employee_type
         return self
 

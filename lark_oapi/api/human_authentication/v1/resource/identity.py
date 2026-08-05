@@ -17,7 +17,9 @@ class Identity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateIdentityRequest, option: Optional[RequestOption] = None) -> CreateIdentityResponse:
+    def create(
+        self, request: CreateIdentityRequest, option: Optional[RequestOption] = None
+    ) -> CreateIdentityResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Identity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateIdentityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateIdentityResponse)
+        response: CreateIdentityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateIdentityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateIdentityRequest,
-                      option: Optional[RequestOption] = None) -> CreateIdentityResponse:
+    async def acreate(
+        self, request: CreateIdentityRequest, option: Optional[RequestOption] = None
+    ) -> CreateIdentityResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Identity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateIdentityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateIdentityResponse)
+        response: CreateIdentityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateIdentityResponse
+        )
         response.raw = resp
 
         return response

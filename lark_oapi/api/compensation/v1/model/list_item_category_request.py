@@ -17,13 +17,14 @@ class ListItemCategoryRequest(BaseRequest):
 
 
 class ListItemCategoryRequestBuilder(object):
-
     def __init__(self) -> None:
         list_item_category_request = ListItemCategoryRequest()
         list_item_category_request.http_method = HttpMethod.GET
         list_item_category_request.uri = "/open-apis/compensation/v1/item_categories"
         list_item_category_request.token_types = {AccessTokenType.TENANT}
-        self._list_item_category_request: ListItemCategoryRequest = list_item_category_request
+        self._list_item_category_request: ListItemCategoryRequest = (
+            list_item_category_request
+        )
 
     def page_size(self, page_size: int) -> "ListItemCategoryRequestBuilder":
         self._list_item_category_request.page_size = page_size

@@ -18,20 +18,29 @@ class UpdateExternalOfferRequest(BaseRequest):
 
 
 class UpdateExternalOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         update_external_offer_request = UpdateExternalOfferRequest()
         update_external_offer_request.http_method = HttpMethod.PUT
-        update_external_offer_request.uri = "/open-apis/hire/v1/external_offers/:external_offer_id"
+        update_external_offer_request.uri = (
+            "/open-apis/hire/v1/external_offers/:external_offer_id"
+        )
         update_external_offer_request.token_types = {AccessTokenType.TENANT}
-        self._update_external_offer_request: UpdateExternalOfferRequest = update_external_offer_request
+        self._update_external_offer_request: UpdateExternalOfferRequest = (
+            update_external_offer_request
+        )
 
-    def external_offer_id(self, external_offer_id: str) -> "UpdateExternalOfferRequestBuilder":
+    def external_offer_id(
+        self, external_offer_id: str
+    ) -> "UpdateExternalOfferRequestBuilder":
         self._update_external_offer_request.external_offer_id = external_offer_id
-        self._update_external_offer_request.paths["external_offer_id"] = str(external_offer_id)
+        self._update_external_offer_request.paths["external_offer_id"] = str(
+            external_offer_id
+        )
         return self
 
-    def request_body(self, request_body: ExternalOffer) -> "UpdateExternalOfferRequestBuilder":
+    def request_body(
+        self, request_body: ExternalOffer
+    ) -> "UpdateExternalOfferRequestBuilder":
         self._update_external_offer_request.request_body = request_body
         self._update_external_offer_request.body = request_body
         return self

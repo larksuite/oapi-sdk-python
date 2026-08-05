@@ -51,7 +51,9 @@ class SocialArchiveItemBuilder(object):
         self._social_archive_item.company_deduction = company_deduction
         return self
 
-    def company_setting(self, company_setting: SocialPlanItemSetting) -> "SocialArchiveItemBuilder":
+    def company_setting(
+        self, company_setting: SocialPlanItemSetting
+    ) -> "SocialArchiveItemBuilder":
         self._social_archive_item.company_setting = company_setting
         return self
 
@@ -59,7 +61,9 @@ class SocialArchiveItemBuilder(object):
         self._social_archive_item.personal_deduction = personal_deduction
         return self
 
-    def personal_setting(self, personal_setting: SocialPlanItemSetting) -> "SocialArchiveItemBuilder":
+    def personal_setting(
+        self, personal_setting: SocialPlanItemSetting
+    ) -> "SocialArchiveItemBuilder":
         self._social_archive_item.personal_setting = personal_setting
         return self
 

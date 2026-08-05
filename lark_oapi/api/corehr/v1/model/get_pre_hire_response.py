@@ -9,7 +9,6 @@ from .get_pre_hire_response_body import GetPreHireResponseBody
 class GetPreHireResponse(BaseResponse):
     _types = {
         "data": GetPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

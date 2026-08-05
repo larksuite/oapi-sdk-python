@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_spreadsheet_sheet_filter_view_response_body import QuerySpreadsheetSheetFilterViewResponseBody
+from .query_spreadsheet_sheet_filter_view_response_body import (
+    QuerySpreadsheetSheetFilterViewResponseBody,
+)
 
 
 class QuerySpreadsheetSheetFilterViewResponse(BaseResponse):
     _types = {
         "data": QuerySpreadsheetSheetFilterViewResponseBody,
-
     }
 
     def __init__(self, d=None):

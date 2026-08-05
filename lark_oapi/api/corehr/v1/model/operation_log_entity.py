@@ -31,7 +31,9 @@ class OperationLogEntityBuilder(object):
         self._operation_log_entity.opt_type = opt_type
         return self
 
-    def fields(self, fields: List[OperationLogEntityField]) -> "OperationLogEntityBuilder":
+    def fields(
+        self, fields: List[OperationLogEntityField]
+    ) -> "OperationLogEntityBuilder":
         self._operation_log_entity.fields = fields
         return self
 

@@ -64,8 +64,12 @@ class RecurringPaymentForUpdateBuilder(object):
         self._recurring_payment_for_update.remark = remark
         return self
 
-    def issuance_country_region_id(self, issuance_country_region_id: str) -> "RecurringPaymentForUpdateBuilder":
-        self._recurring_payment_for_update.issuance_country_region_id = issuance_country_region_id
+    def issuance_country_region_id(
+        self, issuance_country_region_id: str
+    ) -> "RecurringPaymentForUpdateBuilder":
+        self._recurring_payment_for_update.issuance_country_region_id = (
+            issuance_country_region_id
+        )
         return self
 
     def build(self) -> "RecurringPaymentForUpdate":

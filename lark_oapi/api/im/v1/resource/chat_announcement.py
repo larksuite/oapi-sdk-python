@@ -19,8 +19,11 @@ class ChatAnnouncement(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetChatAnnouncementRequest,
-            option: Optional[RequestOption] = None) -> GetChatAnnouncementResponse:
+    def get(
+        self,
+        request: GetChatAnnouncementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetChatAnnouncementResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class ChatAnnouncement(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetChatAnnouncementResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatAnnouncementResponse)
+        response: GetChatAnnouncementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatAnnouncementResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetChatAnnouncementRequest,
-                   option: Optional[RequestOption] = None) -> GetChatAnnouncementResponse:
+    async def aget(
+        self,
+        request: GetChatAnnouncementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetChatAnnouncementResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class ChatAnnouncement(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetChatAnnouncementResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatAnnouncementResponse)
+        response: GetChatAnnouncementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatAnnouncementResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchChatAnnouncementRequest,
-              option: Optional[RequestOption] = None) -> PatchChatAnnouncementResponse:
+    def patch(
+        self,
+        request: PatchChatAnnouncementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchChatAnnouncementResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class ChatAnnouncement(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchChatAnnouncementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchChatAnnouncementResponse)
+        response: PatchChatAnnouncementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchChatAnnouncementResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchChatAnnouncementRequest,
-                     option: Optional[RequestOption] = None) -> PatchChatAnnouncementResponse:
+    async def apatch(
+        self,
+        request: PatchChatAnnouncementRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchChatAnnouncementResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +108,9 @@ class ChatAnnouncement(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchChatAnnouncementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchChatAnnouncementResponse)
+        response: PatchChatAnnouncementResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchChatAnnouncementResponse
+        )
         response.raw = resp
 
         return response

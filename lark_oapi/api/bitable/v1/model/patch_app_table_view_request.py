@@ -21,13 +21,19 @@ class PatchAppTableViewRequest(BaseRequest):
 
 
 class PatchAppTableViewRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_app_table_view_request = PatchAppTableViewRequest()
         patch_app_table_view_request.http_method = HttpMethod.PATCH
-        patch_app_table_view_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
-        patch_app_table_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_app_table_view_request: PatchAppTableViewRequest = patch_app_table_view_request
+        patch_app_table_view_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
+        )
+        patch_app_table_view_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_app_table_view_request: PatchAppTableViewRequest = (
+            patch_app_table_view_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "PatchAppTableViewRequestBuilder":
         self._patch_app_table_view_request.user_id_type = user_id_type
@@ -49,7 +55,9 @@ class PatchAppTableViewRequestBuilder(object):
         self._patch_app_table_view_request.paths["view_id"] = str(view_id)
         return self
 
-    def request_body(self, request_body: PatchAppTableViewRequestBody) -> "PatchAppTableViewRequestBuilder":
+    def request_body(
+        self, request_body: PatchAppTableViewRequestBody
+    ) -> "PatchAppTableViewRequestBuilder":
         self._patch_app_table_view_request.request_body = request_body
         self._patch_app_table_view_request.body = request_body
         return self

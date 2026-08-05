@@ -35,7 +35,9 @@ class OkrObjectiveAlignedObjectiveBuilder(object):
         self._okr_objective_aligned_objective.okr_id = okr_id
         return self
 
-    def owner(self, owner: OkrObjectiveAlignedObjectiveOwner) -> "OkrObjectiveAlignedObjectiveBuilder":
+    def owner(
+        self, owner: OkrObjectiveAlignedObjectiveOwner
+    ) -> "OkrObjectiveAlignedObjectiveBuilder":
         self._okr_objective_aligned_objective.owner = owner
         return self
 

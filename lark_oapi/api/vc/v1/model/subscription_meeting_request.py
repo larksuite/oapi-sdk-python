@@ -17,15 +17,18 @@ class SubscriptionMeetingRequest(BaseRequest):
 
 
 class SubscriptionMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_meeting_request = SubscriptionMeetingRequest()
         subscription_meeting_request.http_method = HttpMethod.POST
         subscription_meeting_request.uri = "/open-apis/vc/v1/meetings/subscription"
         subscription_meeting_request.token_types = {AccessTokenType.USER}
-        self._subscription_meeting_request: SubscriptionMeetingRequest = subscription_meeting_request
+        self._subscription_meeting_request: SubscriptionMeetingRequest = (
+            subscription_meeting_request
+        )
 
-    def request_body(self, request_body: SubscriptionMeetingRequestBody) -> "SubscriptionMeetingRequestBuilder":
+    def request_body(
+        self, request_body: SubscriptionMeetingRequestBody
+    ) -> "SubscriptionMeetingRequestBuilder":
         self._subscription_meeting_request.request_body = request_body
         self._subscription_meeting_request.body = request_body
         return self

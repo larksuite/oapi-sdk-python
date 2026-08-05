@@ -22,7 +22,9 @@ class ReserveCorrectionCheckInfoBuilder(object):
     def __init__(self) -> None:
         self._reserve_correction_check_info = ReserveCorrectionCheckInfo()
 
-    def invalid_host_id_list(self, invalid_host_id_list: List[str]) -> "ReserveCorrectionCheckInfoBuilder":
+    def invalid_host_id_list(
+        self, invalid_host_id_list: List[str]
+    ) -> "ReserveCorrectionCheckInfoBuilder":
         self._reserve_correction_check_info.invalid_host_id_list = invalid_host_id_list
         return self
 

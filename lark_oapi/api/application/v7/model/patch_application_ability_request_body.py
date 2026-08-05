@@ -24,9 +24,13 @@ class PatchApplicationAbilityRequestBody(object):
 
 class PatchApplicationAbilityRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_application_ability_request_body = PatchApplicationAbilityRequestBody()
+        self._patch_application_ability_request_body = (
+            PatchApplicationAbilityRequestBody()
+        )
 
-    def web_app(self, web_app: AppAbilityWeb) -> "PatchApplicationAbilityRequestBodyBuilder":
+    def web_app(
+        self, web_app: AppAbilityWeb
+    ) -> "PatchApplicationAbilityRequestBodyBuilder":
         self._patch_application_ability_request_body.web_app = web_app
         return self
 

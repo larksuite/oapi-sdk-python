@@ -17,8 +17,11 @@ class ApplicationPublish(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateApplicationPublishRequest,
-               option: Optional[RequestOption] = None) -> CreateApplicationPublishResponse:
+    def create(
+        self,
+        request: CreateApplicationPublishRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateApplicationPublishResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ApplicationPublish(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateApplicationPublishResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateApplicationPublishResponse)
+        response: CreateApplicationPublishResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateApplicationPublishResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateApplicationPublishRequest,
-                      option: Optional[RequestOption] = None) -> CreateApplicationPublishResponse:
+    async def acreate(
+        self,
+        request: CreateApplicationPublishRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateApplicationPublishResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ApplicationPublish(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateApplicationPublishResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateApplicationPublishResponse)
+        response: CreateApplicationPublishResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateApplicationPublishResponse
+        )
         response.raw = resp
 
         return response

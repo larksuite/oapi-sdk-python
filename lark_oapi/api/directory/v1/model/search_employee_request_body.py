@@ -34,15 +34,21 @@ class SearchEmployeeRequestBodyBuilder(object):
         self._search_employee_request_body.query = query
         return self
 
-    def page_request(self, page_request: PageCondition) -> "SearchEmployeeRequestBodyBuilder":
+    def page_request(
+        self, page_request: PageCondition
+    ) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.page_request = page_request
         return self
 
-    def required_fields(self, required_fields: List[str]) -> "SearchEmployeeRequestBodyBuilder":
+    def required_fields(
+        self, required_fields: List[str]
+    ) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.required_fields = required_fields
         return self
 
-    def filter(self, filter: SearchEmployeeFilter) -> "SearchEmployeeRequestBodyBuilder":
+    def filter(
+        self, filter: SearchEmployeeFilter
+    ) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.filter = filter
         return self
 

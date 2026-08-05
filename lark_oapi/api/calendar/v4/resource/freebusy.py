@@ -19,7 +19,9 @@ class Freebusy(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch(self, request: BatchFreebusyRequest, option: Optional[RequestOption] = None) -> BatchFreebusyResponse:
+    def batch(
+        self, request: BatchFreebusyRequest, option: Optional[RequestOption] = None
+    ) -> BatchFreebusyResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class Freebusy(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchFreebusyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchFreebusyResponse)
+        response: BatchFreebusyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchFreebusyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch(self, request: BatchFreebusyRequest,
-                     option: Optional[RequestOption] = None) -> BatchFreebusyResponse:
+    async def abatch(
+        self, request: BatchFreebusyRequest, option: Optional[RequestOption] = None
+    ) -> BatchFreebusyResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class Freebusy(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchFreebusyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchFreebusyResponse)
+        response: BatchFreebusyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchFreebusyResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListFreebusyRequest, option: Optional[RequestOption] = None) -> ListFreebusyResponse:
+    def list(
+        self, request: ListFreebusyRequest, option: Optional[RequestOption] = None
+    ) -> ListFreebusyResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,12 +80,16 @@ class Freebusy(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListFreebusyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFreebusyResponse)
+        response: ListFreebusyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFreebusyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListFreebusyRequest, option: Optional[RequestOption] = None) -> ListFreebusyResponse:
+    async def alist(
+        self, request: ListFreebusyRequest, option: Optional[RequestOption] = None
+    ) -> ListFreebusyResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +100,9 @@ class Freebusy(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListFreebusyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFreebusyResponse)
+        response: ListFreebusyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFreebusyResponse
+        )
         response.raw = resp
 
         return response

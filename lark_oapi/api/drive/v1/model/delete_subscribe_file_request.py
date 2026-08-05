@@ -18,13 +18,19 @@ class DeleteSubscribeFileRequest(BaseRequest):
 
 
 class DeleteSubscribeFileRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_subscribe_file_request = DeleteSubscribeFileRequest()
         delete_subscribe_file_request.http_method = HttpMethod.DELETE
-        delete_subscribe_file_request.uri = "/open-apis/drive/v1/files/:file_token/delete_subscribe"
-        delete_subscribe_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_subscribe_file_request: DeleteSubscribeFileRequest = delete_subscribe_file_request
+        delete_subscribe_file_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/delete_subscribe"
+        )
+        delete_subscribe_file_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_subscribe_file_request: DeleteSubscribeFileRequest = (
+            delete_subscribe_file_request
+        )
 
     def file_type(self, file_type: str) -> "DeleteSubscribeFileRequestBuilder":
         self._delete_subscribe_file_request.file_type = file_type

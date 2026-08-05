@@ -43,39 +43,55 @@ class MeetingActivityItemBuilder(object):
     def __init__(self) -> None:
         self._meeting_activity_item = MeetingActivityItem()
 
-    def meeting(self, meeting: MeetingAgentEventMeeting) -> "MeetingActivityItemBuilder":
+    def meeting(
+        self, meeting: MeetingAgentEventMeeting
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.meeting = meeting
         return self
 
-    def activity_event_type(self, activity_event_type: str) -> "MeetingActivityItemBuilder":
+    def activity_event_type(
+        self, activity_event_type: str
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.activity_event_type = activity_event_type
         return self
 
-    def participant_joined_items(self,
-                                 participant_joined_items: List[ParticipantJoinedItem]) -> "MeetingActivityItemBuilder":
+    def participant_joined_items(
+        self, participant_joined_items: List[ParticipantJoinedItem]
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.participant_joined_items = participant_joined_items
         return self
 
-    def participant_left_items(self, participant_left_items: List[ParticipantLeftItem]) -> "MeetingActivityItemBuilder":
+    def participant_left_items(
+        self, participant_left_items: List[ParticipantLeftItem]
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.participant_left_items = participant_left_items
         return self
 
-    def transcript_received_items(self,
-                                  transcript_received_items: List[TranscriptItem]) -> "MeetingActivityItemBuilder":
-        self._meeting_activity_item.transcript_received_items = transcript_received_items
+    def transcript_received_items(
+        self, transcript_received_items: List[TranscriptItem]
+    ) -> "MeetingActivityItemBuilder":
+        self._meeting_activity_item.transcript_received_items = (
+            transcript_received_items
+        )
         return self
 
-    def chat_received_items(self, chat_received_items: List[ChatMessageItem]) -> "MeetingActivityItemBuilder":
+    def chat_received_items(
+        self, chat_received_items: List[ChatMessageItem]
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.chat_received_items = chat_received_items
         return self
 
-    def magic_share_started_items(self, magic_share_started_items: List[
-        MagicShareStartedItem]) -> "MeetingActivityItemBuilder":
-        self._meeting_activity_item.magic_share_started_items = magic_share_started_items
+    def magic_share_started_items(
+        self, magic_share_started_items: List[MagicShareStartedItem]
+    ) -> "MeetingActivityItemBuilder":
+        self._meeting_activity_item.magic_share_started_items = (
+            magic_share_started_items
+        )
         return self
 
-    def magic_share_ended_items(self,
-                                magic_share_ended_items: List[MagicShareEndedItem]) -> "MeetingActivityItemBuilder":
+    def magic_share_ended_items(
+        self, magic_share_ended_items: List[MagicShareEndedItem]
+    ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.magic_share_ended_items = magic_share_ended_items
         return self
 

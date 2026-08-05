@@ -9,7 +9,6 @@ from .get_spreadsheet_response_body import GetSpreadsheetResponseBody
 class GetSpreadsheetResponse(BaseResponse):
     _types = {
         "data": GetSpreadsheetResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,7 +20,9 @@ class CreateExternalReferralRewardResponseBody(object):
 
 class CreateExternalReferralRewardResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_external_referral_reward_response_body = CreateExternalReferralRewardResponseBody()
+        self._create_external_referral_reward_response_body = (
+            CreateExternalReferralRewardResponseBody()
+        )
 
     def id(self, id: str) -> "CreateExternalReferralRewardResponseBodyBuilder":
         self._create_external_referral_reward_response_body.id = id

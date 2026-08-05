@@ -70,91 +70,137 @@ class QueryRecurringPaymentRequestBodyBuilder(object):
         self._query_recurring_payment_request_body.ids = ids
         return self
 
-    def unique_ids(self, unique_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def unique_ids(
+        self, unique_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.unique_ids = unique_ids
         return self
 
-    def user_ids(self, user_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.user_ids = user_ids
         return self
 
-    def item_ids(self, item_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def item_ids(
+        self, item_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.item_ids = item_ids
         return self
 
-    def start_date_gte(self, start_date_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def start_date_gte(
+        self, start_date_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.start_date_gte = start_date_gte
         return self
 
-    def start_date_lte(self, start_date_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def start_date_lte(
+        self, start_date_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.start_date_lte = start_date_lte
         return self
 
-    def end_date_gte(self, end_date_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def end_date_gte(
+        self, end_date_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.end_date_gte = end_date_gte
         return self
 
-    def end_date_lte(self, end_date_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def end_date_lte(
+        self, end_date_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.end_date_lte = end_date_lte
         return self
 
-    def create_time_gte(self, create_time_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def create_time_gte(
+        self, create_time_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.create_time_gte = create_time_gte
         return self
 
-    def create_time_lte(self, create_time_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def create_time_lte(
+        self, create_time_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.create_time_lte = create_time_lte
         return self
 
-    def modify_time_gte(self, modify_time_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def modify_time_gte(
+        self, modify_time_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.modify_time_gte = modify_time_gte
         return self
 
-    def modify_time_lte(self, modify_time_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def modify_time_lte(
+        self, modify_time_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.modify_time_lte = modify_time_lte
         return self
 
-    def company_ids(self, company_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def company_ids(
+        self, company_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.company_ids = company_ids
         return self
 
-    def service_company_ids(self, service_company_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
-        self._query_recurring_payment_request_body.service_company_ids = service_company_ids
+    def service_company_ids(
+        self, service_company_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
+        self._query_recurring_payment_request_body.service_company_ids = (
+            service_company_ids
+        )
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.department_ids = department_ids
         return self
 
-    def job_family_ids(self, job_family_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def job_family_ids(
+        self, job_family_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.job_family_ids = job_family_ids
         return self
 
-    def job_level_ids(self, job_level_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def job_level_ids(
+        self, job_level_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.job_level_ids = job_level_ids
         return self
 
-    def work_location_ids(self, work_location_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def work_location_ids(
+        self, work_location_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.work_location_ids = work_location_ids
         return self
 
-    def employee_type_ids(self, employee_type_ids: List[str]) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def employee_type_ids(
+        self, employee_type_ids: List[str]
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.employee_type_ids = employee_type_ids
         return self
 
-    def onboard_date_gte(self, onboard_date_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def onboard_date_gte(
+        self, onboard_date_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.onboard_date_gte = onboard_date_gte
         return self
 
-    def onboard_date_lte(self, onboard_date_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def onboard_date_lte(
+        self, onboard_date_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.onboard_date_lte = onboard_date_lte
         return self
 
-    def offboard_date_gte(self, offboard_date_gte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def offboard_date_gte(
+        self, offboard_date_gte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.offboard_date_gte = offboard_date_gte
         return self
 
-    def offboard_date_lte(self, offboard_date_lte: str) -> "QueryRecurringPaymentRequestBodyBuilder":
+    def offboard_date_lte(
+        self, offboard_date_lte: str
+    ) -> "QueryRecurringPaymentRequestBodyBuilder":
         self._query_recurring_payment_request_body.offboard_date_lte = offboard_date_lte
         return self
 

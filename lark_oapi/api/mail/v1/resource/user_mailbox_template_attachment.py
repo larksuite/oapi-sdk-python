@@ -9,18 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.download_url_user_mailbox_template_attachment_request import \
-    DownloadUrlUserMailboxTemplateAttachmentRequest
-from ..model.download_url_user_mailbox_template_attachment_response import \
-    DownloadUrlUserMailboxTemplateAttachmentResponse
+from ..model.download_url_user_mailbox_template_attachment_request import (
+    DownloadUrlUserMailboxTemplateAttachmentRequest,
+)
+from ..model.download_url_user_mailbox_template_attachment_response import (
+    DownloadUrlUserMailboxTemplateAttachmentResponse,
+)
 
 
 class UserMailboxTemplateAttachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download_url(self, request: DownloadUrlUserMailboxTemplateAttachmentRequest,
-                     option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxTemplateAttachmentResponse:
+    def download_url(
+        self,
+        request: DownloadUrlUserMailboxTemplateAttachmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadUrlUserMailboxTemplateAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +40,18 @@ class UserMailboxTemplateAttachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DownloadUrlUserMailboxTemplateAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    DownloadUrlUserMailboxTemplateAttachmentResponse)
+        response: DownloadUrlUserMailboxTemplateAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DownloadUrlUserMailboxTemplateAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adownload_url(self, request: DownloadUrlUserMailboxTemplateAttachmentRequest,
-                            option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxTemplateAttachmentResponse:
+    async def adownload_url(
+        self,
+        request: DownloadUrlUserMailboxTemplateAttachmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadUrlUserMailboxTemplateAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,8 +62,9 @@ class UserMailboxTemplateAttachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DownloadUrlUserMailboxTemplateAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    DownloadUrlUserMailboxTemplateAttachmentResponse)
+        response: DownloadUrlUserMailboxTemplateAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DownloadUrlUserMailboxTemplateAttachmentResponse
+        )
         response.raw = resp
 
         return response

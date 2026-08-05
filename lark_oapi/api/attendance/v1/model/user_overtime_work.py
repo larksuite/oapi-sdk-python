@@ -80,11 +80,15 @@ class UserOvertimeWorkBuilder(object):
         self._user_overtime_work.idempotent_id = idempotent_id
         return self
 
-    def correct_process_id(self, correct_process_id: List[str]) -> "UserOvertimeWorkBuilder":
+    def correct_process_id(
+        self, correct_process_id: List[str]
+    ) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.correct_process_id = correct_process_id
         return self
 
-    def cancel_process_id(self, cancel_process_id: List[str]) -> "UserOvertimeWorkBuilder":
+    def cancel_process_id(
+        self, cancel_process_id: List[str]
+    ) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.cancel_process_id = cancel_process_id
         return self
 

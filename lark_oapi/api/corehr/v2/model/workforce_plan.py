@@ -38,7 +38,9 @@ class WorkforcePlanBuilder(object):
         self._workforce_plan.workforce_plan_id = workforce_plan_id
         return self
 
-    def workforce_plan_name(self, workforce_plan_name: List[I18n]) -> "WorkforcePlanBuilder":
+    def workforce_plan_name(
+        self, workforce_plan_name: List[I18n]
+    ) -> "WorkforcePlanBuilder":
         self._workforce_plan.workforce_plan_name = workforce_plan_name
         return self
 
@@ -54,7 +56,9 @@ class WorkforcePlanBuilder(object):
         self._workforce_plan.active = active
         return self
 
-    def dimension_lists(self, dimension_lists: List[WorkforcePlanDimension]) -> "WorkforcePlanBuilder":
+    def dimension_lists(
+        self, dimension_lists: List[WorkforcePlanDimension]
+    ) -> "WorkforcePlanBuilder":
         self._workforce_plan.dimension_lists = dimension_lists
         return self
 

@@ -9,7 +9,6 @@ from .create_process_start_response_body import CreateProcessStartResponseBody
 class CreateProcessStartResponse(BaseResponse):
     _types = {
         "data": CreateProcessStartResponseBody,
-
     }
 
     def __init__(self, d=None):

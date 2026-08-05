@@ -71,7 +71,9 @@ class QrCodeBuilder(object):
         self._qr_code.updated_at = updated_at
         return self
 
-    def dimension_value_list(self, dimension_value_list: List[QrCodeDimensionValue]) -> "QrCodeBuilder":
+    def dimension_value_list(
+        self, dimension_value_list: List[QrCodeDimensionValue]
+    ) -> "QrCodeBuilder":
         self._qr_code.dimension_value_list = dimension_value_list
         return self
 

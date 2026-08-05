@@ -36,19 +36,28 @@ class DirectProjectLeaderRecordInfoBuilder(object):
         self._direct_project_leader_record_info.reviewer_id = reviewer_id
         return self
 
-    def cooperation_projects(self,
-                             cooperation_projects: List[CooperationProject]) -> "DirectProjectLeaderRecordInfoBuilder":
-        self._direct_project_leader_record_info.cooperation_projects = cooperation_projects
+    def cooperation_projects(
+        self, cooperation_projects: List[CooperationProject]
+    ) -> "DirectProjectLeaderRecordInfoBuilder":
+        self._direct_project_leader_record_info.cooperation_projects = (
+            cooperation_projects
+        )
         return self
 
-    def review_depend_projects(self, review_depend_projects: List[
-        CooperationProject]) -> "DirectProjectLeaderRecordInfoBuilder":
-        self._direct_project_leader_record_info.review_depend_projects = review_depend_projects
+    def review_depend_projects(
+        self, review_depend_projects: List[CooperationProject]
+    ) -> "DirectProjectLeaderRecordInfoBuilder":
+        self._direct_project_leader_record_info.review_depend_projects = (
+            review_depend_projects
+        )
         return self
 
-    def participated_projects(self, participated_projects: List[
-        CooperationProject]) -> "DirectProjectLeaderRecordInfoBuilder":
-        self._direct_project_leader_record_info.participated_projects = participated_projects
+    def participated_projects(
+        self, participated_projects: List[CooperationProject]
+    ) -> "DirectProjectLeaderRecordInfoBuilder":
+        self._direct_project_leader_record_info.participated_projects = (
+            participated_projects
+        )
         return self
 
     def build(self) -> "DirectProjectLeaderRecordInfo":

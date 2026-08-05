@@ -9,7 +9,6 @@ from .batch_close_system_status_response_body import BatchCloseSystemStatusRespo
 class BatchCloseSystemStatusResponse(BaseResponse):
     _types = {
         "data": BatchCloseSystemStatusResponseBody,
-
     }
 
     def __init__(self, d=None):

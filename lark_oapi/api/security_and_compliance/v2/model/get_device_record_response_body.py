@@ -23,7 +23,9 @@ class GetDeviceRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_device_record_response_body = GetDeviceRecordResponseBody()
 
-    def device_record(self, device_record: DeviceRecord) -> "GetDeviceRecordResponseBodyBuilder":
+    def device_record(
+        self, device_record: DeviceRecord
+    ) -> "GetDeviceRecordResponseBodyBuilder":
         self._get_device_record_response_body.device_record = device_record
         return self
 

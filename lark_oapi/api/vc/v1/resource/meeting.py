@@ -33,7 +33,9 @@ class Meeting(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def end(self, request: EndMeetingRequest, option: Optional[RequestOption] = None) -> EndMeetingResponse:
+    def end(
+        self, request: EndMeetingRequest, option: Optional[RequestOption] = None
+    ) -> EndMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,12 +50,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EndMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), EndMeetingResponse)
+        response: EndMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EndMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aend(self, request: EndMeetingRequest, option: Optional[RequestOption] = None) -> EndMeetingResponse:
+    async def aend(
+        self, request: EndMeetingRequest, option: Optional[RequestOption] = None
+    ) -> EndMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -64,12 +70,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EndMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), EndMeetingResponse)
+        response: EndMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EndMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetMeetingRequest, option: Optional[RequestOption] = None) -> GetMeetingResponse:
+    def get(
+        self, request: GetMeetingRequest, option: Optional[RequestOption] = None
+    ) -> GetMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -84,12 +94,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingResponse)
+        response: GetMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetMeetingRequest, option: Optional[RequestOption] = None) -> GetMeetingResponse:
+    async def aget(
+        self, request: GetMeetingRequest, option: Optional[RequestOption] = None
+    ) -> GetMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,12 +114,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingResponse)
+        response: GetMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def invite(self, request: InviteMeetingRequest, option: Optional[RequestOption] = None) -> InviteMeetingResponse:
+    def invite(
+        self, request: InviteMeetingRequest, option: Optional[RequestOption] = None
+    ) -> InviteMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,13 +138,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: InviteMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), InviteMeetingResponse)
+        response: InviteMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InviteMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ainvite(self, request: InviteMeetingRequest,
-                      option: Optional[RequestOption] = None) -> InviteMeetingResponse:
+    async def ainvite(
+        self, request: InviteMeetingRequest, option: Optional[RequestOption] = None
+    ) -> InviteMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,12 +158,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: InviteMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), InviteMeetingResponse)
+        response: InviteMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InviteMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def kickout(self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
+    def kickout(
+        self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None
+    ) -> KickoutMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,13 +182,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: KickoutMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), KickoutMeetingResponse)
+        response: KickoutMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), KickoutMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def akickout(self, request: KickoutMeetingRequest,
-                       option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
+    async def akickout(
+        self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None
+    ) -> KickoutMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -174,13 +202,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: KickoutMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), KickoutMeetingResponse)
+        response: KickoutMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), KickoutMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def list_by_no(self, request: ListByNoMeetingRequest,
-                   option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
+    def list_by_no(
+        self, request: ListByNoMeetingRequest, option: Optional[RequestOption] = None
+    ) -> ListByNoMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -195,13 +226,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListByNoMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), ListByNoMeetingResponse)
+        response: ListByNoMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByNoMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_by_no(self, request: ListByNoMeetingRequest,
-                          option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
+    async def alist_by_no(
+        self, request: ListByNoMeetingRequest, option: Optional[RequestOption] = None
+    ) -> ListByNoMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -212,12 +246,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListByNoMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), ListByNoMeetingResponse)
+        response: ListByNoMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByNoMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchMeetingRequest, option: Optional[RequestOption] = None) -> SearchMeetingResponse:
+    def search(
+        self, request: SearchMeetingRequest, option: Optional[RequestOption] = None
+    ) -> SearchMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -232,13 +270,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMeetingResponse)
+        response: SearchMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchMeetingRequest,
-                      option: Optional[RequestOption] = None) -> SearchMeetingResponse:
+    async def asearch(
+        self, request: SearchMeetingRequest, option: Optional[RequestOption] = None
+    ) -> SearchMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -249,13 +290,16 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchMeetingResponse)
+        response: SearchMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def set_host(self, request: SetHostMeetingRequest,
-                 option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
+    def set_host(
+        self, request: SetHostMeetingRequest, option: Optional[RequestOption] = None
+    ) -> SetHostMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -270,13 +314,16 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SetHostMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetHostMeetingResponse)
+        response: SetHostMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SetHostMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aset_host(self, request: SetHostMeetingRequest,
-                        option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
+    async def aset_host(
+        self, request: SetHostMeetingRequest, option: Optional[RequestOption] = None
+    ) -> SetHostMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -287,13 +334,18 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SetHostMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetHostMeetingResponse)
+        response: SetHostMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SetHostMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def subscription(self, request: SubscriptionMeetingRequest,
-                     option: Optional[RequestOption] = None) -> SubscriptionMeetingResponse:
+    def subscription(
+        self,
+        request: SubscriptionMeetingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -308,13 +360,18 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMeetingResponse)
+        response: SubscriptionMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscription(self, request: SubscriptionMeetingRequest,
-                            option: Optional[RequestOption] = None) -> SubscriptionMeetingResponse:
+    async def asubscription(
+        self,
+        request: SubscriptionMeetingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -325,13 +382,18 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionMeetingResponse)
+        response: SubscriptionMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    def unsubscription(self, request: UnsubscriptionMeetingRequest,
-                       option: Optional[RequestOption] = None) -> UnsubscriptionMeetingResponse:
+    def unsubscription(
+        self,
+        request: UnsubscriptionMeetingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -346,14 +408,18 @@ class Meeting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UnsubscriptionMeetingResponse)
+        response: UnsubscriptionMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionMeetingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aunsubscription(self, request: UnsubscriptionMeetingRequest,
-                              option: Optional[RequestOption] = None) -> UnsubscriptionMeetingResponse:
+    async def aunsubscription(
+        self,
+        request: UnsubscriptionMeetingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscriptionMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -364,8 +430,9 @@ class Meeting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscriptionMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UnsubscriptionMeetingResponse)
+        response: UnsubscriptionMeetingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionMeetingResponse
+        )
         response.raw = resp
 
         return response

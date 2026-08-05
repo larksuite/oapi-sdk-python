@@ -42,7 +42,9 @@ class ReviewDataChangeBuilder(object):
         self._review_data_change.activity_id = activity_id
         return self
 
-    def stage_changes(self, stage_changes: List[StageChange]) -> "ReviewDataChangeBuilder":
+    def stage_changes(
+        self, stage_changes: List[StageChange]
+    ) -> "ReviewDataChangeBuilder":
         self._review_data_change.stage_changes = stage_changes
         return self
 

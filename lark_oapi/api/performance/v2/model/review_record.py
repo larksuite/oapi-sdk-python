@@ -20,7 +20,9 @@ class ReviewRecord(object):
         self.progress: Optional[int] = None
         self.units: Optional[List[ReviewUnit]] = None
         self.invited_review_record_info: Optional[InvitedReviewRecordInfo] = None
-        self.direct_project_leader_record_info: Optional[DirectProjectLeaderRecordInfo] = None
+        self.direct_project_leader_record_info: Optional[
+            DirectProjectLeaderRecordInfo
+        ] = None
         self.record_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -41,13 +43,18 @@ class ReviewRecordBuilder(object):
         self._review_record.units = units
         return self
 
-    def invited_review_record_info(self, invited_review_record_info: InvitedReviewRecordInfo) -> "ReviewRecordBuilder":
+    def invited_review_record_info(
+        self, invited_review_record_info: InvitedReviewRecordInfo
+    ) -> "ReviewRecordBuilder":
         self._review_record.invited_review_record_info = invited_review_record_info
         return self
 
-    def direct_project_leader_record_info(self,
-                                          direct_project_leader_record_info: DirectProjectLeaderRecordInfo) -> "ReviewRecordBuilder":
-        self._review_record.direct_project_leader_record_info = direct_project_leader_record_info
+    def direct_project_leader_record_info(
+        self, direct_project_leader_record_info: DirectProjectLeaderRecordInfo
+    ) -> "ReviewRecordBuilder":
+        self._review_record.direct_project_leader_record_info = (
+            direct_project_leader_record_info
+        )
         return self
 
     def record_id(self, record_id: str) -> "ReviewRecordBuilder":

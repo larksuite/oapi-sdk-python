@@ -23,13 +23,16 @@ class ListApplicationFeedbackRequest(BaseRequest):
 
 
 class ListApplicationFeedbackRequestBuilder(object):
-
     def __init__(self) -> None:
         list_application_feedback_request = ListApplicationFeedbackRequest()
         list_application_feedback_request.http_method = HttpMethod.GET
-        list_application_feedback_request.uri = "/open-apis/application/v6/applications/:app_id/feedbacks"
+        list_application_feedback_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/feedbacks"
+        )
         list_application_feedback_request.token_types = {AccessTokenType.TENANT}
-        self._list_application_feedback_request: ListApplicationFeedbackRequest = list_application_feedback_request
+        self._list_application_feedback_request: ListApplicationFeedbackRequest = (
+            list_application_feedback_request
+        )
 
     def from_date(self, from_date: str) -> "ListApplicationFeedbackRequestBuilder":
         self._list_application_feedback_request.from_date = from_date
@@ -41,9 +44,13 @@ class ListApplicationFeedbackRequestBuilder(object):
         self._list_application_feedback_request.add_query("to_date", to_date)
         return self
 
-    def feedback_type(self, feedback_type: int) -> "ListApplicationFeedbackRequestBuilder":
+    def feedback_type(
+        self, feedback_type: int
+    ) -> "ListApplicationFeedbackRequestBuilder":
         self._list_application_feedback_request.feedback_type = feedback_type
-        self._list_application_feedback_request.add_query("feedback_type", feedback_type)
+        self._list_application_feedback_request.add_query(
+            "feedback_type", feedback_type
+        )
         return self
 
     def status(self, status: int) -> "ListApplicationFeedbackRequestBuilder":
@@ -51,7 +58,9 @@ class ListApplicationFeedbackRequestBuilder(object):
         self._list_application_feedback_request.add_query("status", status)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListApplicationFeedbackRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListApplicationFeedbackRequestBuilder":
         self._list_application_feedback_request.user_id_type = user_id_type
         self._list_application_feedback_request.add_query("user_id_type", user_id_type)
         return self

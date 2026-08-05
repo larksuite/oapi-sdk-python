@@ -55,7 +55,9 @@ class OfferApplyFormModuleInfoBuilder(object):
         self._offer_apply_form_module_info.hint = hint
         return self
 
-    def object_list(self, object_list: List[OfferApplyFormObjectInfo]) -> "OfferApplyFormModuleInfoBuilder":
+    def object_list(
+        self, object_list: List[OfferApplyFormObjectInfo]
+    ) -> "OfferApplyFormModuleInfoBuilder":
         self._offer_apply_form_module_info.object_list = object_list
         return self
 

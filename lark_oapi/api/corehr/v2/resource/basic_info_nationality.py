@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_basic_info_nationality_request import SearchBasicInfoNationalityRequest
-from ..model.search_basic_info_nationality_response import SearchBasicInfoNationalityResponse
+from ..model.search_basic_info_nationality_request import (
+    SearchBasicInfoNationalityRequest,
+)
+from ..model.search_basic_info_nationality_response import (
+    SearchBasicInfoNationalityResponse,
+)
 
 
 class BasicInfoNationality(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoNationalityRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
+    def search(
+        self,
+        request: SearchBasicInfoNationalityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoNationalityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class BasicInfoNationality(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      SearchBasicInfoNationalityResponse)
+        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoNationalityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchBasicInfoNationalityRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoNationalityResponse:
+    async def asearch(
+        self,
+        request: SearchBasicInfoNationalityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoNationalityResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class BasicInfoNationality(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      SearchBasicInfoNationalityResponse)
+        response: SearchBasicInfoNationalityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoNationalityResponse
+        )
         response.raw = resp
 
         return response

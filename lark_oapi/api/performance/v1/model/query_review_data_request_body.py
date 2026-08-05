@@ -42,23 +42,35 @@ class QueryReviewDataRequestBodyBuilder(object):
         self._query_review_data_request_body.end_time = end_time
         return self
 
-    def stage_types(self, stage_types: List[str]) -> "QueryReviewDataRequestBodyBuilder":
+    def stage_types(
+        self, stage_types: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.stage_types = stage_types
         return self
 
-    def stage_progress(self, stage_progress: List[int]) -> "QueryReviewDataRequestBodyBuilder":
+    def stage_progress(
+        self, stage_progress: List[int]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.stage_progress = stage_progress
         return self
 
-    def semester_id_list(self, semester_id_list: List[str]) -> "QueryReviewDataRequestBodyBuilder":
+    def semester_id_list(
+        self, semester_id_list: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.semester_id_list = semester_id_list
         return self
 
-    def reviewee_user_id_list(self, reviewee_user_id_list: List[str]) -> "QueryReviewDataRequestBodyBuilder":
-        self._query_review_data_request_body.reviewee_user_id_list = reviewee_user_id_list
+    def reviewee_user_id_list(
+        self, reviewee_user_id_list: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
+        self._query_review_data_request_body.reviewee_user_id_list = (
+            reviewee_user_id_list
+        )
         return self
 
-    def updated_later_than(self, updated_later_than: int) -> "QueryReviewDataRequestBodyBuilder":
+    def updated_later_than(
+        self, updated_later_than: int
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.updated_later_than = updated_later_than
         return self
 

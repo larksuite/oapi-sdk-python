@@ -25,18 +25,27 @@ class ListSignatureTemplateInfoWithThumbnailResponseBody(object):
 
 class ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_signature_template_info_with_thumbnail_response_body = ListSignatureTemplateInfoWithThumbnailResponseBody()
+        self._list_signature_template_info_with_thumbnail_response_body = (
+            ListSignatureTemplateInfoWithThumbnailResponseBody()
+        )
 
-    def items(self, items: List[
-        SignatureTemplateInfoWithThumbnail]) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
+    def items(
+        self, items: List[SignatureTemplateInfoWithThumbnail]
+    ) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
         self._list_signature_template_info_with_thumbnail_response_body.items = items
         return self
 
-    def page_token(self, page_token: int) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
-        self._list_signature_template_info_with_thumbnail_response_body.page_token = page_token
+    def page_token(
+        self, page_token: int
+    ) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
+        self._list_signature_template_info_with_thumbnail_response_body.page_token = (
+            page_token
+        )
         return self
 
-    def count(self, count: int) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
+    def count(
+        self, count: int
+    ) -> "ListSignatureTemplateInfoWithThumbnailResponseBodyBuilder":
         self._list_signature_template_info_with_thumbnail_response_body.count = count
         return self
 

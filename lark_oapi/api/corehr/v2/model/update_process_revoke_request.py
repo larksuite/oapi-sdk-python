@@ -19,13 +19,16 @@ class UpdateProcessRevokeRequest(BaseRequest):
 
 
 class UpdateProcessRevokeRequestBuilder(object):
-
     def __init__(self) -> None:
         update_process_revoke_request = UpdateProcessRevokeRequest()
         update_process_revoke_request.http_method = HttpMethod.PUT
-        update_process_revoke_request.uri = "/open-apis/corehr/v2/process_revoke/:process_id"
+        update_process_revoke_request.uri = (
+            "/open-apis/corehr/v2/process_revoke/:process_id"
+        )
         update_process_revoke_request.token_types = {AccessTokenType.TENANT}
-        self._update_process_revoke_request: UpdateProcessRevokeRequest = update_process_revoke_request
+        self._update_process_revoke_request: UpdateProcessRevokeRequest = (
+            update_process_revoke_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateProcessRevokeRequestBuilder":
         self._update_process_revoke_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class UpdateProcessRevokeRequestBuilder(object):
         self._update_process_revoke_request.paths["process_id"] = str(process_id)
         return self
 
-    def request_body(self, request_body: ProcessRevokeAndWithdraw) -> "UpdateProcessRevokeRequestBuilder":
+    def request_body(
+        self, request_body: ProcessRevokeAndWithdraw
+    ) -> "UpdateProcessRevokeRequestBuilder":
         self._update_process_revoke_request.request_body = request_body
         self._update_process_revoke_request.body = request_body
         return self

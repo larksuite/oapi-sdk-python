@@ -74,7 +74,9 @@ class RecurringPaymentForCreateBuilder(object):
         self._recurring_payment_for_create.issuance_type = issuance_type
         return self
 
-    def issuance_period(self, issuance_period: str) -> "RecurringPaymentForCreateBuilder":
+    def issuance_period(
+        self, issuance_period: str
+    ) -> "RecurringPaymentForCreateBuilder":
         self._recurring_payment_for_create.issuance_period = issuance_period
         return self
 
@@ -82,8 +84,12 @@ class RecurringPaymentForCreateBuilder(object):
         self._recurring_payment_for_create.remark = remark
         return self
 
-    def issuance_country_region_id(self, issuance_country_region_id: str) -> "RecurringPaymentForCreateBuilder":
-        self._recurring_payment_for_create.issuance_country_region_id = issuance_country_region_id
+    def issuance_country_region_id(
+        self, issuance_country_region_id: str
+    ) -> "RecurringPaymentForCreateBuilder":
+        self._recurring_payment_for_create.issuance_country_region_id = (
+            issuance_country_region_id
+        )
         return self
 
     def build(self) -> "RecurringPaymentForCreate":

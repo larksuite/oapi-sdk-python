@@ -17,8 +17,11 @@ class WebsiteDeliveryTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetWebsiteDeliveryTaskRequest,
-            option: Optional[RequestOption] = None) -> GetWebsiteDeliveryTaskResponse:
+    def get(
+        self,
+        request: GetWebsiteDeliveryTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetWebsiteDeliveryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class WebsiteDeliveryTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetWebsiteDeliveryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetWebsiteDeliveryTaskResponse)
+        response: GetWebsiteDeliveryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWebsiteDeliveryTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetWebsiteDeliveryTaskRequest,
-                   option: Optional[RequestOption] = None) -> GetWebsiteDeliveryTaskResponse:
+    async def aget(
+        self,
+        request: GetWebsiteDeliveryTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetWebsiteDeliveryTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class WebsiteDeliveryTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetWebsiteDeliveryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetWebsiteDeliveryTaskResponse)
+        response: GetWebsiteDeliveryTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWebsiteDeliveryTaskResponse
+        )
         response.raw = resp
 
         return response

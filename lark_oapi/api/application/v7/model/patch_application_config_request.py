@@ -20,17 +20,27 @@ class PatchApplicationConfigRequest(BaseRequest):
 
 
 class PatchApplicationConfigRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_application_config_request = PatchApplicationConfigRequest()
         patch_application_config_request.http_method = HttpMethod.PATCH
-        patch_application_config_request.uri = "/open-apis/application/v7/applications/:app_id/config"
-        patch_application_config_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_application_config_request: PatchApplicationConfigRequest = patch_application_config_request
+        patch_application_config_request.uri = (
+            "/open-apis/application/v7/applications/:app_id/config"
+        )
+        patch_application_config_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_application_config_request: PatchApplicationConfigRequest = (
+            patch_application_config_request
+        )
 
-    def department_id_type(self, department_id_type: str) -> "PatchApplicationConfigRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchApplicationConfigRequestBuilder":
         self._patch_application_config_request.department_id_type = department_id_type
-        self._patch_application_config_request.add_query("department_id_type", department_id_type)
+        self._patch_application_config_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "PatchApplicationConfigRequestBuilder":
@@ -43,7 +53,9 @@ class PatchApplicationConfigRequestBuilder(object):
         self._patch_application_config_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: PatchApplicationConfigRequestBody) -> "PatchApplicationConfigRequestBuilder":
+    def request_body(
+        self, request_body: PatchApplicationConfigRequestBody
+    ) -> "PatchApplicationConfigRequestBuilder":
         self._patch_application_config_request.request_body = request_body
         self._patch_application_config_request.body = request_body
         return self

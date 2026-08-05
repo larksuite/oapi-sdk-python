@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.update_reaction_comment_reaction_request import UpdateReactionCommentReactionRequest
-from ..model.update_reaction_comment_reaction_response import UpdateReactionCommentReactionResponse
+from ..model.update_reaction_comment_reaction_request import (
+    UpdateReactionCommentReactionRequest,
+)
+from ..model.update_reaction_comment_reaction_response import (
+    UpdateReactionCommentReactionResponse,
+)
 
 
 class CommentReaction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update_reaction(self, request: UpdateReactionCommentReactionRequest,
-                        option: Optional[RequestOption] = None) -> UpdateReactionCommentReactionResponse:
+    def update_reaction(
+        self,
+        request: UpdateReactionCommentReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateReactionCommentReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class CommentReaction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateReactionCommentReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         UpdateReactionCommentReactionResponse)
+        response: UpdateReactionCommentReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateReactionCommentReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_reaction(self, request: UpdateReactionCommentReactionRequest,
-                               option: Optional[RequestOption] = None) -> UpdateReactionCommentReactionResponse:
+    async def aupdate_reaction(
+        self,
+        request: UpdateReactionCommentReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateReactionCommentReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class CommentReaction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateReactionCommentReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         UpdateReactionCommentReactionResponse)
+        response: UpdateReactionCommentReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateReactionCommentReactionResponse
+        )
         response.raw = resp
 
         return response

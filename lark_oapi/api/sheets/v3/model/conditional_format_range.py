@@ -42,11 +42,15 @@ class ConditionalFormatRangeBuilder(object):
         self._conditional_format_range.end_row_index = end_row_index
         return self
 
-    def start_column_index(self, start_column_index: int) -> "ConditionalFormatRangeBuilder":
+    def start_column_index(
+        self, start_column_index: int
+    ) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.start_column_index = start_column_index
         return self
 
-    def end_column_index(self, end_column_index: int) -> "ConditionalFormatRangeBuilder":
+    def end_column_index(
+        self, end_column_index: int
+    ) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.end_column_index = end_column_index
         return self
 

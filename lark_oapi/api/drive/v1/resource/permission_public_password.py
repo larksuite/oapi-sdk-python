@@ -9,20 +9,35 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_permission_public_password_request import CreatePermissionPublicPasswordRequest
-from ..model.create_permission_public_password_response import CreatePermissionPublicPasswordResponse
-from ..model.delete_permission_public_password_request import DeletePermissionPublicPasswordRequest
-from ..model.delete_permission_public_password_response import DeletePermissionPublicPasswordResponse
-from ..model.update_permission_public_password_request import UpdatePermissionPublicPasswordRequest
-from ..model.update_permission_public_password_response import UpdatePermissionPublicPasswordResponse
+from ..model.create_permission_public_password_request import (
+    CreatePermissionPublicPasswordRequest,
+)
+from ..model.create_permission_public_password_response import (
+    CreatePermissionPublicPasswordResponse,
+)
+from ..model.delete_permission_public_password_request import (
+    DeletePermissionPublicPasswordRequest,
+)
+from ..model.delete_permission_public_password_response import (
+    DeletePermissionPublicPasswordResponse,
+)
+from ..model.update_permission_public_password_request import (
+    UpdatePermissionPublicPasswordRequest,
+)
+from ..model.update_permission_public_password_response import (
+    UpdatePermissionPublicPasswordResponse,
+)
 
 
 class PermissionPublicPassword(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreatePermissionPublicPasswordRequest,
-               option: Optional[RequestOption] = None) -> CreatePermissionPublicPasswordResponse:
+    def create(
+        self,
+        request: CreatePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +52,18 @@ class PermissionPublicPassword(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          CreatePermissionPublicPasswordResponse)
+        response: CreatePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePermissionPublicPasswordRequest,
-                      option: Optional[RequestOption] = None) -> CreatePermissionPublicPasswordResponse:
+    async def acreate(
+        self,
+        request: CreatePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +74,18 @@ class PermissionPublicPassword(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          CreatePermissionPublicPasswordResponse)
+        response: CreatePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeletePermissionPublicPasswordRequest,
-               option: Optional[RequestOption] = None) -> DeletePermissionPublicPasswordResponse:
+    def delete(
+        self,
+        request: DeletePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeletePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +100,18 @@ class PermissionPublicPassword(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeletePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          DeletePermissionPublicPasswordResponse)
+        response: DeletePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeletePermissionPublicPasswordRequest,
-                      option: Optional[RequestOption] = None) -> DeletePermissionPublicPasswordResponse:
+    async def adelete(
+        self,
+        request: DeletePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeletePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +122,18 @@ class PermissionPublicPassword(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeletePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          DeletePermissionPublicPasswordResponse)
+        response: DeletePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdatePermissionPublicPasswordRequest,
-               option: Optional[RequestOption] = None) -> UpdatePermissionPublicPasswordResponse:
+    def update(
+        self,
+        request: UpdatePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdatePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +148,18 @@ class PermissionPublicPassword(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdatePermissionPublicPasswordResponse)
+        response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdatePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdatePermissionPublicPasswordRequest,
-                      option: Optional[RequestOption] = None) -> UpdatePermissionPublicPasswordResponse:
+    async def aupdate(
+        self,
+        request: UpdatePermissionPublicPasswordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdatePermissionPublicPasswordResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +170,9 @@ class PermissionPublicPassword(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdatePermissionPublicPasswordResponse)
+        response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdatePermissionPublicPasswordResponse
+        )
         response.raw = resp
 
         return response

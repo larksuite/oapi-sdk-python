@@ -34,7 +34,9 @@ class VerifDataSourceRuleBuilder(object):
         self._verif_data_source_rule.api_name = api_name
         return self
 
-    def datasource_name(self, datasource_name: IdWithName) -> "VerifDataSourceRuleBuilder":
+    def datasource_name(
+        self, datasource_name: IdWithName
+    ) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.datasource_name = datasource_name
         return self
 
@@ -42,7 +44,9 @@ class VerifDataSourceRuleBuilder(object):
         self._verif_data_source_rule.object_type = object_type
         return self
 
-    def datasource_items(self, datasource_items: List[VerifDatasourceItem]) -> "VerifDataSourceRuleBuilder":
+    def datasource_items(
+        self, datasource_items: List[VerifDatasourceItem]
+    ) -> "VerifDataSourceRuleBuilder":
         self._verif_data_source_rule.datasource_items = datasource_items
         return self
 

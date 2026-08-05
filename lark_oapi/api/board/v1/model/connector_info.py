@@ -28,7 +28,9 @@ class ConnectorInfoBuilder(object):
     def __init__(self) -> None:
         self._connector_info = ConnectorInfo()
 
-    def attached_object(self, attached_object: ConnectorAttachedObject) -> "ConnectorInfoBuilder":
+    def attached_object(
+        self, attached_object: ConnectorAttachedObject
+    ) -> "ConnectorInfoBuilder":
         self._connector_info.attached_object = attached_object
         return self
 

@@ -91,6 +91,9 @@ class PersonInfoBt(object):
         "visas": List[Visa],
         "passports": List[Passport],
         "person_for_countries": List[PersonForCountry],
+        "mother_name": str,
+        "city_of_birth": str,
+        "region_of_birth": str,
     }
 
     def __init__(self, d=None):
@@ -151,6 +154,9 @@ class PersonInfoBt(object):
         self.visas: Optional[List[Visa]] = None
         self.passports: Optional[List[Passport]] = None
         self.person_for_countries: Optional[List[PersonForCountry]] = None
+        self.mother_name: Optional[str] = None
+        self.city_of_birth: Optional[str] = None
+        self.region_of_birth: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -182,11 +188,15 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.preferred_name = preferred_name
         return self
 
-    def preferred_local_full_name(self, preferred_local_full_name: str) -> "PersonInfoBtBuilder":
+    def preferred_local_full_name(
+        self, preferred_local_full_name: str
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.preferred_local_full_name = preferred_local_full_name
         return self
 
-    def preferred_english_full_name(self, preferred_english_full_name: str) -> "PersonInfoBtBuilder":
+    def preferred_english_full_name(
+        self, preferred_english_full_name: str
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.preferred_english_full_name = preferred_english_full_name
         return self
 
@@ -210,11 +220,15 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.nationality_id_v2 = nationality_id_v2
         return self
 
-    def additional_nationalities(self, additional_nationalities: List[Nationality]) -> "PersonInfoBtBuilder":
+    def additional_nationalities(
+        self, additional_nationalities: List[Nationality]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.additional_nationalities = additional_nationalities
         return self
 
-    def citizenship_status(self, citizenship_status: List[CitizenshipStatus]) -> "PersonInfoBtBuilder":
+    def citizenship_status(
+        self, citizenship_status: List[CitizenshipStatus]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.citizenship_status = citizenship_status
         return self
 
@@ -238,7 +252,9 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.email_list = email_list
         return self
 
-    def work_experience_list(self, work_experience_list: List[WorkExperienceInfo]) -> "PersonInfoBtBuilder":
+    def work_experience_list(
+        self, work_experience_list: List[WorkExperienceInfo]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.work_experience_list = work_experience_list
         return self
 
@@ -246,11 +262,15 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.education_list = education_list
         return self
 
-    def bank_account_list(self, bank_account_list: List[BankAccount]) -> "PersonInfoBtBuilder":
+    def bank_account_list(
+        self, bank_account_list: List[BankAccount]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.bank_account_list = bank_account_list
         return self
 
-    def national_id_list(self, national_id_list: List[NationalId]) -> "PersonInfoBtBuilder":
+    def national_id_list(
+        self, national_id_list: List[NationalId]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.national_id_list = national_id_list
         return self
 
@@ -258,11 +278,15 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.dependent_list = dependent_list
         return self
 
-    def emergency_contact_list(self, emergency_contact_list: List[EmergencyContact]) -> "PersonInfoBtBuilder":
+    def emergency_contact_list(
+        self, emergency_contact_list: List[EmergencyContact]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.emergency_contact_list = emergency_contact_list
         return self
 
-    def date_entered_workforce(self, date_entered_workforce: str) -> "PersonInfoBtBuilder":
+    def date_entered_workforce(
+        self, date_entered_workforce: str
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.date_entered_workforce = date_entered_workforce
         return self
 
@@ -282,15 +306,21 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.age = age
         return self
 
-    def highest_level_of_education(self, highest_level_of_education: Education) -> "PersonInfoBtBuilder":
+    def highest_level_of_education(
+        self, highest_level_of_education: Education
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.highest_level_of_education = highest_level_of_education
         return self
 
-    def highest_degree_of_education(self, highest_degree_of_education: Education) -> "PersonInfoBtBuilder":
+    def highest_degree_of_education(
+        self, highest_degree_of_education: Education
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.highest_degree_of_education = highest_degree_of_education
         return self
 
-    def personal_profile(self, personal_profile: List[PersonalProfile]) -> "PersonInfoBtBuilder":
+    def personal_profile(
+        self, personal_profile: List[PersonalProfile]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.personal_profile = personal_profile
         return self
 
@@ -306,7 +336,9 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.hukou_location = hukou_location
         return self
 
-    def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoBtBuilder":
+    def political_affiliations(
+        self, political_affiliations: List[Enum]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.political_affiliations = political_affiliations
         return self
 
@@ -314,7 +346,9 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.talent_id = talent_id
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PersonInfoBtBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.custom_fields = custom_fields
         return self
 
@@ -350,7 +384,9 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.is_old_alone = is_old_alone
         return self
 
-    def resident_taxes(self, resident_taxes: List[ResidentTax]) -> "PersonInfoBtBuilder":
+    def resident_taxes(
+        self, resident_taxes: List[ResidentTax]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.resident_taxes = resident_taxes
         return self
 
@@ -374,7 +410,9 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.legal_name_v2s = legal_name_v2s
         return self
 
-    def national_id_v2s(self, national_id_v2s: List[NationalId]) -> "PersonInfoBtBuilder":
+    def national_id_v2s(
+        self, national_id_v2s: List[NationalId]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.national_id_v2s = national_id_v2s
         return self
 
@@ -386,8 +424,22 @@ class PersonInfoBtBuilder(object):
         self._person_info_bt.passports = passports
         return self
 
-    def person_for_countries(self, person_for_countries: List[PersonForCountry]) -> "PersonInfoBtBuilder":
+    def person_for_countries(
+        self, person_for_countries: List[PersonForCountry]
+    ) -> "PersonInfoBtBuilder":
         self._person_info_bt.person_for_countries = person_for_countries
+        return self
+
+    def mother_name(self, mother_name: str) -> "PersonInfoBtBuilder":
+        self._person_info_bt.mother_name = mother_name
+        return self
+
+    def city_of_birth(self, city_of_birth: str) -> "PersonInfoBtBuilder":
+        self._person_info_bt.city_of_birth = city_of_birth
+        return self
+
+    def region_of_birth(self, region_of_birth: str) -> "PersonInfoBtBuilder":
+        self._person_info_bt.region_of_birth = region_of_birth
         return self
 
     def build(self) -> "PersonInfoBt":

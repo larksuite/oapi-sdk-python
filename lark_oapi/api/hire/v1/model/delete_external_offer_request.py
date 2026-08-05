@@ -16,17 +16,24 @@ class DeleteExternalOfferRequest(BaseRequest):
 
 
 class DeleteExternalOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_external_offer_request = DeleteExternalOfferRequest()
         delete_external_offer_request.http_method = HttpMethod.DELETE
-        delete_external_offer_request.uri = "/open-apis/hire/v1/external_offers/:external_offer_id"
+        delete_external_offer_request.uri = (
+            "/open-apis/hire/v1/external_offers/:external_offer_id"
+        )
         delete_external_offer_request.token_types = {AccessTokenType.TENANT}
-        self._delete_external_offer_request: DeleteExternalOfferRequest = delete_external_offer_request
+        self._delete_external_offer_request: DeleteExternalOfferRequest = (
+            delete_external_offer_request
+        )
 
-    def external_offer_id(self, external_offer_id: str) -> "DeleteExternalOfferRequestBuilder":
+    def external_offer_id(
+        self, external_offer_id: str
+    ) -> "DeleteExternalOfferRequestBuilder":
         self._delete_external_offer_request.external_offer_id = external_offer_id
-        self._delete_external_offer_request.paths["external_offer_id"] = str(external_offer_id)
+        self._delete_external_offer_request.paths["external_offer_id"] = str(
+            external_offer_id
+        )
         return self
 
     def build(self) -> DeleteExternalOfferRequest:

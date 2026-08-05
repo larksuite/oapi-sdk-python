@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .upload_initialize_app_storage_request_body import UploadInitializeAppStorageRequestBody
+from .upload_initialize_app_storage_request_body import (
+    UploadInitializeAppStorageRequestBody,
+)
 
 
 class UploadInitializeAppStorageRequest(BaseRequest):
@@ -18,11 +20,12 @@ class UploadInitializeAppStorageRequest(BaseRequest):
 
 
 class UploadInitializeAppStorageRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_initialize_app_storage_request = UploadInitializeAppStorageRequest()
         upload_initialize_app_storage_request.http_method = HttpMethod.POST
-        upload_initialize_app_storage_request.uri = "/open-apis/spark/v1/apps/:app_id/storage/upload/initialize"
+        upload_initialize_app_storage_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/storage/upload/initialize"
+        )
         upload_initialize_app_storage_request.token_types = {AccessTokenType.USER}
         self._upload_initialize_app_storage_request: UploadInitializeAppStorageRequest = upload_initialize_app_storage_request
 
@@ -31,8 +34,9 @@ class UploadInitializeAppStorageRequestBuilder(object):
         self._upload_initialize_app_storage_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self,
-                     request_body: UploadInitializeAppStorageRequestBody) -> "UploadInitializeAppStorageRequestBuilder":
+    def request_body(
+        self, request_body: UploadInitializeAppStorageRequestBody
+    ) -> "UploadInitializeAppStorageRequestBuilder":
         self._upload_initialize_app_storage_request.request_body = request_body
         self._upload_initialize_app_storage_request.body = request_body
         return self

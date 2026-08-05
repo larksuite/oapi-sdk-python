@@ -29,7 +29,9 @@ class PatchSectionRequestBodyBuilder(object):
         self._patch_section_request_body.section = section
         return self
 
-    def update_fields(self, update_fields: List[str]) -> "PatchSectionRequestBodyBuilder":
+    def update_fields(
+        self, update_fields: List[str]
+    ) -> "PatchSectionRequestBodyBuilder":
         self._patch_section_request_body.update_fields = update_fields
         return self
 

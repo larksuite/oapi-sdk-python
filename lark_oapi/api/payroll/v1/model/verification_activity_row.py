@@ -68,7 +68,9 @@ class VerificationActivityRowBuilder(object):
         self._verification_activity_row.employee_id = employee_id
         return self
 
-    def working_hours_type(self, working_hours_type: IdWithName) -> "VerificationActivityRowBuilder":
+    def working_hours_type(
+        self, working_hours_type: IdWithName
+    ) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.working_hours_type = working_hours_type
         return self
 
@@ -88,11 +90,15 @@ class VerificationActivityRowBuilder(object):
         self._verification_activity_row.cutoff_date = cutoff_date
         return self
 
-    def item_values(self, item_values: List[VerifActItemValue]) -> "VerificationActivityRowBuilder":
+    def item_values(
+        self, item_values: List[VerifActItemValue]
+    ) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.item_values = item_values
         return self
 
-    def prorations(self, prorations: List[VerifActProration]) -> "VerificationActivityRowBuilder":
+    def prorations(
+        self, prorations: List[VerifActProration]
+    ) -> "VerificationActivityRowBuilder":
         self._verification_activity_row.prorations = prorations
         return self
 

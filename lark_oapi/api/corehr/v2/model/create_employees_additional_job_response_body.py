@@ -21,11 +21,16 @@ class CreateEmployeesAdditionalJobResponseBody(object):
 
 class CreateEmployeesAdditionalJobResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_employees_additional_job_response_body = CreateEmployeesAdditionalJobResponseBody()
+        self._create_employees_additional_job_response_body = (
+            CreateEmployeesAdditionalJobResponseBody()
+        )
 
-    def additional_job(self,
-                       additional_job: EmployeesAdditionalJobWriteResp) -> "CreateEmployeesAdditionalJobResponseBodyBuilder":
-        self._create_employees_additional_job_response_body.additional_job = additional_job
+    def additional_job(
+        self, additional_job: EmployeesAdditionalJobWriteResp
+    ) -> "CreateEmployeesAdditionalJobResponseBodyBuilder":
+        self._create_employees_additional_job_response_body.additional_job = (
+            additional_job
+        )
         return self
 
     def build(self) -> "CreateEmployeesAdditionalJobResponseBody":

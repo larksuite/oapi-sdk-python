@@ -13,7 +13,9 @@ class OfferApplyFormObjectDisplayConfigInfo(object):
 
     def __init__(self, d=None):
         self.display_condition: Optional[int] = None
-        self.pre_object_config_list: Optional[List[OfferApplyFormPreObjectConfigInfo]] = None
+        self.pre_object_config_list: Optional[
+            List[OfferApplyFormPreObjectConfigInfo]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,15 +25,24 @@ class OfferApplyFormObjectDisplayConfigInfo(object):
 
 class OfferApplyFormObjectDisplayConfigInfoBuilder(object):
     def __init__(self) -> None:
-        self._offer_apply_form_object_display_config_info = OfferApplyFormObjectDisplayConfigInfo()
+        self._offer_apply_form_object_display_config_info = (
+            OfferApplyFormObjectDisplayConfigInfo()
+        )
 
-    def display_condition(self, display_condition: int) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
-        self._offer_apply_form_object_display_config_info.display_condition = display_condition
+    def display_condition(
+        self, display_condition: int
+    ) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
+        self._offer_apply_form_object_display_config_info.display_condition = (
+            display_condition
+        )
         return self
 
-    def pre_object_config_list(self, pre_object_config_list: List[
-        OfferApplyFormPreObjectConfigInfo]) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
-        self._offer_apply_form_object_display_config_info.pre_object_config_list = pre_object_config_list
+    def pre_object_config_list(
+        self, pre_object_config_list: List[OfferApplyFormPreObjectConfigInfo]
+    ) -> "OfferApplyFormObjectDisplayConfigInfoBuilder":
+        self._offer_apply_form_object_display_config_info.pre_object_config_list = (
+            pre_object_config_list
+        )
         return self
 
     def build(self) -> "OfferApplyFormObjectDisplayConfigInfo":

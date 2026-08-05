@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .reserve_scope_reserve_config_response_body import ReserveScopeReserveConfigResponseBody
+from .reserve_scope_reserve_config_response_body import (
+    ReserveScopeReserveConfigResponseBody,
+)
 
 
 class ReserveScopeReserveConfigResponse(BaseResponse):
     _types = {
         "data": ReserveScopeReserveConfigResponseBody,
-
     }
 
     def __init__(self, d=None):

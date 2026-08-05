@@ -108,7 +108,9 @@ class ArchiveDetailBuilder(object):
         self._archive_detail.archive_items = archive_items
         return self
 
-    def archive_indicators(self, archive_indicators: List[ArchiveIndicator]) -> "ArchiveDetailBuilder":
+    def archive_indicators(
+        self, archive_indicators: List[ArchiveIndicator]
+    ) -> "ArchiveDetailBuilder":
         self._archive_detail.archive_indicators = archive_indicators
         return self
 

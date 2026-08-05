@@ -18,20 +18,25 @@ class CreateMailgroupAliasRequest(BaseRequest):
 
 
 class CreateMailgroupAliasRequestBuilder(object):
-
     def __init__(self) -> None:
         create_mailgroup_alias_request = CreateMailgroupAliasRequest()
         create_mailgroup_alias_request.http_method = HttpMethod.POST
-        create_mailgroup_alias_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases"
+        create_mailgroup_alias_request.uri = (
+            "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases"
+        )
         create_mailgroup_alias_request.token_types = {AccessTokenType.TENANT}
-        self._create_mailgroup_alias_request: CreateMailgroupAliasRequest = create_mailgroup_alias_request
+        self._create_mailgroup_alias_request: CreateMailgroupAliasRequest = (
+            create_mailgroup_alias_request
+        )
 
     def mailgroup_id(self, mailgroup_id: str) -> "CreateMailgroupAliasRequestBuilder":
         self._create_mailgroup_alias_request.mailgroup_id = mailgroup_id
         self._create_mailgroup_alias_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
-    def request_body(self, request_body: EmailAlias) -> "CreateMailgroupAliasRequestBuilder":
+    def request_body(
+        self, request_body: EmailAlias
+    ) -> "CreateMailgroupAliasRequestBuilder":
         self._create_mailgroup_alias_request.request_body = request_body
         self._create_mailgroup_alias_request.body = request_body
         return self

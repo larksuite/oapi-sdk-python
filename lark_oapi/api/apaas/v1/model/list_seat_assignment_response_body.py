@@ -27,7 +27,9 @@ class ListSeatAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_seat_assignment_response_body = ListSeatAssignmentResponseBody()
 
-    def items(self, items: List[SeatAssignment]) -> "ListSeatAssignmentResponseBodyBuilder":
+    def items(
+        self, items: List[SeatAssignment]
+    ) -> "ListSeatAssignmentResponseBodyBuilder":
         self._list_seat_assignment_response_body.items = items
         return self
 

@@ -27,8 +27,9 @@ class WebsiteDeliveryCertificateBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_certificate = WebsiteDeliveryCertificate()
 
-    def customized_data(self,
-                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCertificateBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryCertificateBuilder":
         self._website_delivery_certificate.customized_data = customized_data
         return self
 

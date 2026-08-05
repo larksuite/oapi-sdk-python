@@ -3,22 +3,36 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_contact_custom_attr_event_updated_v3 import P2ContactCustomAttrEventUpdatedV3
+from .model.p2_contact_custom_attr_event_updated_v3 import (
+    P2ContactCustomAttrEventUpdatedV3,
+)
 from .model.p2_contact_department_created_v3 import P2ContactDepartmentCreatedV3
 from .model.p2_contact_department_deleted_v3 import P2ContactDepartmentDeletedV3
 from .model.p2_contact_department_updated_v3 import P2ContactDepartmentUpdatedV3
-from .model.p2_contact_employee_type_enum_actived_v3 import P2ContactEmployeeTypeEnumActivedV3
-from .model.p2_contact_employee_type_enum_created_v3 import P2ContactEmployeeTypeEnumCreatedV3
-from .model.p2_contact_employee_type_enum_deactivated_v3 import P2ContactEmployeeTypeEnumDeactivatedV3
-from .model.p2_contact_employee_type_enum_deleted_v3 import P2ContactEmployeeTypeEnumDeletedV3
-from .model.p2_contact_employee_type_enum_updated_v3 import P2ContactEmployeeTypeEnumUpdatedV3
+from .model.p2_contact_employee_type_enum_actived_v3 import (
+    P2ContactEmployeeTypeEnumActivedV3,
+)
+from .model.p2_contact_employee_type_enum_created_v3 import (
+    P2ContactEmployeeTypeEnumCreatedV3,
+)
+from .model.p2_contact_employee_type_enum_deactivated_v3 import (
+    P2ContactEmployeeTypeEnumDeactivatedV3,
+)
+from .model.p2_contact_employee_type_enum_deleted_v3 import (
+    P2ContactEmployeeTypeEnumDeletedV3,
+)
+from .model.p2_contact_employee_type_enum_updated_v3 import (
+    P2ContactEmployeeTypeEnumUpdatedV3,
+)
 from .model.p2_contact_scope_updated_v3 import P2ContactScopeUpdatedV3
 from .model.p2_contact_user_created_v3 import P2ContactUserCreatedV3
 from .model.p2_contact_user_deleted_v3 import P2ContactUserDeletedV3
 from .model.p2_contact_user_updated_v3 import P2ContactUserUpdatedV3
 
 
-class P2ContactCustomAttrEventUpdatedV3Processor(IEventProcessor[P2ContactCustomAttrEventUpdatedV3]):
+class P2ContactCustomAttrEventUpdatedV3Processor(
+    IEventProcessor[P2ContactCustomAttrEventUpdatedV3]
+):
     def __init__(self, f: Callable[[P2ContactCustomAttrEventUpdatedV3], None]):
         self.f = f
 
@@ -29,7 +43,9 @@ class P2ContactCustomAttrEventUpdatedV3Processor(IEventProcessor[P2ContactCustom
         self.f(data)
 
 
-class P2ContactDepartmentCreatedV3Processor(IEventProcessor[P2ContactDepartmentCreatedV3]):
+class P2ContactDepartmentCreatedV3Processor(
+    IEventProcessor[P2ContactDepartmentCreatedV3]
+):
     def __init__(self, f: Callable[[P2ContactDepartmentCreatedV3], None]):
         self.f = f
 
@@ -40,7 +56,9 @@ class P2ContactDepartmentCreatedV3Processor(IEventProcessor[P2ContactDepartmentC
         self.f(data)
 
 
-class P2ContactDepartmentDeletedV3Processor(IEventProcessor[P2ContactDepartmentDeletedV3]):
+class P2ContactDepartmentDeletedV3Processor(
+    IEventProcessor[P2ContactDepartmentDeletedV3]
+):
     def __init__(self, f: Callable[[P2ContactDepartmentDeletedV3], None]):
         self.f = f
 
@@ -51,7 +69,9 @@ class P2ContactDepartmentDeletedV3Processor(IEventProcessor[P2ContactDepartmentD
         self.f(data)
 
 
-class P2ContactDepartmentUpdatedV3Processor(IEventProcessor[P2ContactDepartmentUpdatedV3]):
+class P2ContactDepartmentUpdatedV3Processor(
+    IEventProcessor[P2ContactDepartmentUpdatedV3]
+):
     def __init__(self, f: Callable[[P2ContactDepartmentUpdatedV3], None]):
         self.f = f
 
@@ -62,7 +82,9 @@ class P2ContactDepartmentUpdatedV3Processor(IEventProcessor[P2ContactDepartmentU
         self.f(data)
 
 
-class P2ContactEmployeeTypeEnumActivedV3Processor(IEventProcessor[P2ContactEmployeeTypeEnumActivedV3]):
+class P2ContactEmployeeTypeEnumActivedV3Processor(
+    IEventProcessor[P2ContactEmployeeTypeEnumActivedV3]
+):
     def __init__(self, f: Callable[[P2ContactEmployeeTypeEnumActivedV3], None]):
         self.f = f
 
@@ -73,7 +95,9 @@ class P2ContactEmployeeTypeEnumActivedV3Processor(IEventProcessor[P2ContactEmplo
         self.f(data)
 
 
-class P2ContactEmployeeTypeEnumCreatedV3Processor(IEventProcessor[P2ContactEmployeeTypeEnumCreatedV3]):
+class P2ContactEmployeeTypeEnumCreatedV3Processor(
+    IEventProcessor[P2ContactEmployeeTypeEnumCreatedV3]
+):
     def __init__(self, f: Callable[[P2ContactEmployeeTypeEnumCreatedV3], None]):
         self.f = f
 
@@ -84,7 +108,9 @@ class P2ContactEmployeeTypeEnumCreatedV3Processor(IEventProcessor[P2ContactEmplo
         self.f(data)
 
 
-class P2ContactEmployeeTypeEnumDeactivatedV3Processor(IEventProcessor[P2ContactEmployeeTypeEnumDeactivatedV3]):
+class P2ContactEmployeeTypeEnumDeactivatedV3Processor(
+    IEventProcessor[P2ContactEmployeeTypeEnumDeactivatedV3]
+):
     def __init__(self, f: Callable[[P2ContactEmployeeTypeEnumDeactivatedV3], None]):
         self.f = f
 
@@ -95,7 +121,9 @@ class P2ContactEmployeeTypeEnumDeactivatedV3Processor(IEventProcessor[P2ContactE
         self.f(data)
 
 
-class P2ContactEmployeeTypeEnumDeletedV3Processor(IEventProcessor[P2ContactEmployeeTypeEnumDeletedV3]):
+class P2ContactEmployeeTypeEnumDeletedV3Processor(
+    IEventProcessor[P2ContactEmployeeTypeEnumDeletedV3]
+):
     def __init__(self, f: Callable[[P2ContactEmployeeTypeEnumDeletedV3], None]):
         self.f = f
 
@@ -106,7 +134,9 @@ class P2ContactEmployeeTypeEnumDeletedV3Processor(IEventProcessor[P2ContactEmplo
         self.f(data)
 
 
-class P2ContactEmployeeTypeEnumUpdatedV3Processor(IEventProcessor[P2ContactEmployeeTypeEnumUpdatedV3]):
+class P2ContactEmployeeTypeEnumUpdatedV3Processor(
+    IEventProcessor[P2ContactEmployeeTypeEnumUpdatedV3]
+):
     def __init__(self, f: Callable[[P2ContactEmployeeTypeEnumUpdatedV3], None]):
         self.f = f
 

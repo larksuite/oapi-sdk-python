@@ -38,11 +38,15 @@ class TenantThirdPartyEncryptionAppBuilder(object):
         self._tenant_third_party_encryption_app.status = status
         return self
 
-    def service_start_time(self, service_start_time: int) -> "TenantThirdPartyEncryptionAppBuilder":
+    def service_start_time(
+        self, service_start_time: int
+    ) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.service_start_time = service_start_time
         return self
 
-    def service_end_time(self, service_end_time: int) -> "TenantThirdPartyEncryptionAppBuilder":
+    def service_end_time(
+        self, service_end_time: int
+    ) -> "TenantThirdPartyEncryptionAppBuilder":
         self._tenant_third_party_encryption_app.service_end_time = service_end_time
         return self
 

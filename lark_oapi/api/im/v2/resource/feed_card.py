@@ -19,8 +19,11 @@ class FeedCard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def bot_time_sentive(self, request: BotTimeSentiveFeedCardRequest,
-                         option: Optional[RequestOption] = None) -> BotTimeSentiveFeedCardResponse:
+    def bot_time_sentive(
+        self,
+        request: BotTimeSentiveFeedCardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BotTimeSentiveFeedCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class FeedCard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BotTimeSentiveFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BotTimeSentiveFeedCardResponse)
+        response: BotTimeSentiveFeedCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BotTimeSentiveFeedCardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abot_time_sentive(self, request: BotTimeSentiveFeedCardRequest,
-                                option: Optional[RequestOption] = None) -> BotTimeSentiveFeedCardResponse:
+    async def abot_time_sentive(
+        self,
+        request: BotTimeSentiveFeedCardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BotTimeSentiveFeedCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,13 +60,16 @@ class FeedCard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BotTimeSentiveFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  BotTimeSentiveFeedCardResponse)
+        response: BotTimeSentiveFeedCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BotTimeSentiveFeedCardResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchFeedCardRequest, option: Optional[RequestOption] = None) -> PatchFeedCardResponse:
+    def patch(
+        self, request: PatchFeedCardRequest, option: Optional[RequestOption] = None
+    ) -> PatchFeedCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -74,13 +84,16 @@ class FeedCard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFeedCardResponse)
+        response: PatchFeedCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFeedCardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchFeedCardRequest,
-                     option: Optional[RequestOption] = None) -> PatchFeedCardResponse:
+    async def apatch(
+        self, request: PatchFeedCardRequest, option: Optional[RequestOption] = None
+    ) -> PatchFeedCardResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,7 +104,9 @@ class FeedCard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchFeedCardResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFeedCardResponse)
+        response: PatchFeedCardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFeedCardResponse
+        )
         response.raw = resp
 
         return response

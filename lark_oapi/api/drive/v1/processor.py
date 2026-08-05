@@ -3,21 +3,33 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_drive_file_bitable_field_changed_v1 import P2DriveFileBitableFieldChangedV1
-from .model.p2_drive_file_bitable_record_changed_v1 import P2DriveFileBitableRecordChangedV1
+from .model.p2_drive_file_bitable_field_changed_v1 import (
+    P2DriveFileBitableFieldChangedV1,
+)
+from .model.p2_drive_file_bitable_record_changed_v1 import (
+    P2DriveFileBitableRecordChangedV1,
+)
 from .model.p2_drive_file_created_in_folder_v1 import P2DriveFileCreatedInFolderV1
 from .model.p2_drive_file_deleted_v1 import P2DriveFileDeletedV1
 from .model.p2_drive_file_edit_v1 import P2DriveFileEditV1
-from .model.p2_drive_file_permission_member_added_v1 import P2DriveFilePermissionMemberAddedV1
-from .model.p2_drive_file_permission_member_applied_v1 import P2DriveFilePermissionMemberAppliedV1
-from .model.p2_drive_file_permission_member_removed_v1 import P2DriveFilePermissionMemberRemovedV1
+from .model.p2_drive_file_permission_member_added_v1 import (
+    P2DriveFilePermissionMemberAddedV1,
+)
+from .model.p2_drive_file_permission_member_applied_v1 import (
+    P2DriveFilePermissionMemberAppliedV1,
+)
+from .model.p2_drive_file_permission_member_removed_v1 import (
+    P2DriveFilePermissionMemberRemovedV1,
+)
 from .model.p2_drive_file_read_v1 import P2DriveFileReadV1
 from .model.p2_drive_file_title_updated_v1 import P2DriveFileTitleUpdatedV1
 from .model.p2_drive_file_trashed_v1 import P2DriveFileTrashedV1
 from .model.p2_drive_notice_comment_add_v1 import P2DriveNoticeCommentAddV1
 
 
-class P2DriveFileBitableFieldChangedV1Processor(IEventProcessor[P2DriveFileBitableFieldChangedV1]):
+class P2DriveFileBitableFieldChangedV1Processor(
+    IEventProcessor[P2DriveFileBitableFieldChangedV1]
+):
     def __init__(self, f: Callable[[P2DriveFileBitableFieldChangedV1], None]):
         self.f = f
 
@@ -28,7 +40,9 @@ class P2DriveFileBitableFieldChangedV1Processor(IEventProcessor[P2DriveFileBitab
         self.f(data)
 
 
-class P2DriveFileBitableRecordChangedV1Processor(IEventProcessor[P2DriveFileBitableRecordChangedV1]):
+class P2DriveFileBitableRecordChangedV1Processor(
+    IEventProcessor[P2DriveFileBitableRecordChangedV1]
+):
     def __init__(self, f: Callable[[P2DriveFileBitableRecordChangedV1], None]):
         self.f = f
 
@@ -39,7 +53,9 @@ class P2DriveFileBitableRecordChangedV1Processor(IEventProcessor[P2DriveFileBita
         self.f(data)
 
 
-class P2DriveFileCreatedInFolderV1Processor(IEventProcessor[P2DriveFileCreatedInFolderV1]):
+class P2DriveFileCreatedInFolderV1Processor(
+    IEventProcessor[P2DriveFileCreatedInFolderV1]
+):
     def __init__(self, f: Callable[[P2DriveFileCreatedInFolderV1], None]):
         self.f = f
 
@@ -72,7 +88,9 @@ class P2DriveFileEditV1Processor(IEventProcessor[P2DriveFileEditV1]):
         self.f(data)
 
 
-class P2DriveFilePermissionMemberAddedV1Processor(IEventProcessor[P2DriveFilePermissionMemberAddedV1]):
+class P2DriveFilePermissionMemberAddedV1Processor(
+    IEventProcessor[P2DriveFilePermissionMemberAddedV1]
+):
     def __init__(self, f: Callable[[P2DriveFilePermissionMemberAddedV1], None]):
         self.f = f
 
@@ -83,7 +101,9 @@ class P2DriveFilePermissionMemberAddedV1Processor(IEventProcessor[P2DriveFilePer
         self.f(data)
 
 
-class P2DriveFilePermissionMemberAppliedV1Processor(IEventProcessor[P2DriveFilePermissionMemberAppliedV1]):
+class P2DriveFilePermissionMemberAppliedV1Processor(
+    IEventProcessor[P2DriveFilePermissionMemberAppliedV1]
+):
     def __init__(self, f: Callable[[P2DriveFilePermissionMemberAppliedV1], None]):
         self.f = f
 
@@ -94,7 +114,9 @@ class P2DriveFilePermissionMemberAppliedV1Processor(IEventProcessor[P2DriveFileP
         self.f(data)
 
 
-class P2DriveFilePermissionMemberRemovedV1Processor(IEventProcessor[P2DriveFilePermissionMemberRemovedV1]):
+class P2DriveFilePermissionMemberRemovedV1Processor(
+    IEventProcessor[P2DriveFilePermissionMemberRemovedV1]
+):
     def __init__(self, f: Callable[[P2DriveFilePermissionMemberRemovedV1], None]):
         self.f = f
 

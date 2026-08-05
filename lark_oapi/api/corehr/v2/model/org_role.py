@@ -40,7 +40,9 @@ class OrgRoleBuilder(object):
         self._org_role.employment_ids = employment_ids
         return self
 
-    def inherit_employment_ids(self, inherit_employment_ids: List[str]) -> "OrgRoleBuilder":
+    def inherit_employment_ids(
+        self, inherit_employment_ids: List[str]
+    ) -> "OrgRoleBuilder":
         self._org_role.inherit_employment_ids = inherit_employment_ids
         return self
 

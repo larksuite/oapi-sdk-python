@@ -17,7 +17,9 @@ class Repo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListRepoRequest, option: Optional[RequestOption] = None) -> ListRepoResponse:
+    def list(
+        self, request: ListRepoRequest, option: Optional[RequestOption] = None
+    ) -> ListRepoResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Repo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListRepoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRepoResponse)
+        response: ListRepoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRepoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListRepoRequest, option: Optional[RequestOption] = None) -> ListRepoResponse:
+    async def alist(
+        self, request: ListRepoRequest, option: Optional[RequestOption] = None
+    ) -> ListRepoResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Repo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListRepoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRepoResponse)
+        response: ListRepoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRepoResponse
+        )
         response.raw = resp
 
         return response

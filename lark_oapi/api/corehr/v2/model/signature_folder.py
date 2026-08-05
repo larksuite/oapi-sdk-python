@@ -4,7 +4,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .enum import Enum
 from .signature_human_info import SignatureHumanInfo
-from .signature_template_id_with_system_and_custom_field import SignatureTemplateIdWithSystemAndCustomField
+from .signature_template_id_with_system_and_custom_field import (
+    SignatureTemplateIdWithSystemAndCustomField,
+)
 
 
 class SignatureFolder(object):
@@ -19,7 +21,9 @@ class SignatureFolder(object):
     def __init__(self, d=None):
         self.biz_type: Optional[Enum] = None
         self.owner_info: Optional[SignatureHumanInfo] = None
-        self.signature_template_fields: Optional[List[SignatureTemplateIdWithSystemAndCustomField]] = None
+        self.signature_template_fields: Optional[
+            List[SignatureTemplateIdWithSystemAndCustomField]
+        ] = None
         self.unique_key: Optional[int] = None
         self.biz_process_id: Optional[str] = None
         init(self, d, self._types)
@@ -41,8 +45,10 @@ class SignatureFolderBuilder(object):
         self._signature_folder.owner_info = owner_info
         return self
 
-    def signature_template_fields(self, signature_template_fields: List[
-        SignatureTemplateIdWithSystemAndCustomField]) -> "SignatureFolderBuilder":
+    def signature_template_fields(
+        self,
+        signature_template_fields: List[SignatureTemplateIdWithSystemAndCustomField],
+    ) -> "SignatureFolderBuilder":
         self._signature_folder.signature_template_fields = signature_template_fields
         return self
 

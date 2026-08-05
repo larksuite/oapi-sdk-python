@@ -16,9 +16,7 @@ class P2CorehrPersonCreatedV1Data(object):
 
 
 class P2CorehrPersonCreatedV1(EventContext):
-    _types = {
-        "event": P2CorehrPersonCreatedV1Data
-    }
+    _types = {"event": P2CorehrPersonCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

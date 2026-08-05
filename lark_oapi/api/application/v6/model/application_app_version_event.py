@@ -92,7 +92,9 @@ class ApplicationAppVersionEventBuilder(object):
         self._application_app_version_event.i18n = i18n
         return self
 
-    def common_categories(self, common_categories: List[str]) -> "ApplicationAppVersionEventBuilder":
+    def common_categories(
+        self, common_categories: List[str]
+    ) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.common_categories = common_categories
         return self
 
@@ -116,7 +118,9 @@ class ApplicationAppVersionEventBuilder(object):
         self._application_app_version_event.ability = ability
         return self
 
-    def remark(self, remark: AppVersionRemarkEvent) -> "ApplicationAppVersionEventBuilder":
+    def remark(
+        self, remark: AppVersionRemarkEvent
+    ) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.remark = remark
         return self
 

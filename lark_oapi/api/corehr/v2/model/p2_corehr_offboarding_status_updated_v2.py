@@ -25,9 +25,7 @@ class P2CorehrOffboardingStatusUpdatedV2Data(object):
 
 
 class P2CorehrOffboardingStatusUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrOffboardingStatusUpdatedV2Data
-    }
+    _types = {"event": P2CorehrOffboardingStatusUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

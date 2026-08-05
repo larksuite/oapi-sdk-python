@@ -9,7 +9,6 @@ from .list_outbound_ip_response_body import ListOutboundIpResponseBody
 class ListOutboundIpResponse(BaseResponse):
     _types = {
         "data": ListOutboundIpResponseBody,
-
     }
 
     def __init__(self, d=None):

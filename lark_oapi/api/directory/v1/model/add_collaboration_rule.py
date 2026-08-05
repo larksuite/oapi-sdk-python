@@ -26,11 +26,15 @@ class AddCollaborationRuleBuilder(object):
     def __init__(self) -> None:
         self._add_collaboration_rule = AddCollaborationRule()
 
-    def subjects(self, subjects: CollaborationRuleEntities) -> "AddCollaborationRuleBuilder":
+    def subjects(
+        self, subjects: CollaborationRuleEntities
+    ) -> "AddCollaborationRuleBuilder":
         self._add_collaboration_rule.subjects = subjects
         return self
 
-    def objects(self, objects: CollaborationRuleEntities) -> "AddCollaborationRuleBuilder":
+    def objects(
+        self, objects: CollaborationRuleEntities
+    ) -> "AddCollaborationRuleBuilder":
         self._add_collaboration_rule.objects = objects
         return self
 

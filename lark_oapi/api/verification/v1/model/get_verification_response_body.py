@@ -23,7 +23,9 @@ class GetVerificationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_verification_response_body = GetVerificationResponseBody()
 
-    def verification(self, verification: Verification) -> "GetVerificationResponseBodyBuilder":
+    def verification(
+        self, verification: Verification
+    ) -> "GetVerificationResponseBodyBuilder":
         self._get_verification_response_body.verification = verification
         return self
 

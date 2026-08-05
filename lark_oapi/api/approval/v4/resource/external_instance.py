@@ -19,8 +19,11 @@ class ExternalInstance(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def check(self, request: CheckExternalInstanceRequest,
-              option: Optional[RequestOption] = None) -> CheckExternalInstanceResponse:
+    def check(
+        self,
+        request: CheckExternalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CheckExternalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class ExternalInstance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CheckExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CheckExternalInstanceResponse)
+        response: CheckExternalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CheckExternalInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acheck(self, request: CheckExternalInstanceRequest,
-                     option: Optional[RequestOption] = None) -> CheckExternalInstanceResponse:
+    async def acheck(
+        self,
+        request: CheckExternalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CheckExternalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +60,18 @@ class ExternalInstance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CheckExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CheckExternalInstanceResponse)
+        response: CheckExternalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CheckExternalInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateExternalInstanceRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalInstanceResponse:
+    def create(
+        self,
+        request: CreateExternalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +86,18 @@ class ExternalInstance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateExternalInstanceResponse)
+        response: CreateExternalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateExternalInstanceRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalInstanceResponse:
+    async def acreate(
+        self,
+        request: CreateExternalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +108,9 @@ class ExternalInstance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateExternalInstanceResponse)
+        response: CreateExternalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalInstanceResponse
+        )
         response.raw = resp
 
         return response

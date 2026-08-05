@@ -20,9 +20,13 @@ class PostTableRecordsAppTableResponseBody(object):
 
 class PostTableRecordsAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._post_table_records_app_table_response_body = PostTableRecordsAppTableResponseBody()
+        self._post_table_records_app_table_response_body = (
+            PostTableRecordsAppTableResponseBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "PostTableRecordsAppTableResponseBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "PostTableRecordsAppTableResponseBodyBuilder":
         self._post_table_records_app_table_response_body.record_ids = record_ids
         return self
 

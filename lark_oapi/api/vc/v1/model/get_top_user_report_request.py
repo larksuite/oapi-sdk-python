@@ -21,13 +21,14 @@ class GetTopUserReportRequest(BaseRequest):
 
 
 class GetTopUserReportRequestBuilder(object):
-
     def __init__(self) -> None:
         get_top_user_report_request = GetTopUserReportRequest()
         get_top_user_report_request.http_method = HttpMethod.GET
         get_top_user_report_request.uri = "/open-apis/vc/v1/reports/get_top_user"
         get_top_user_report_request.token_types = {AccessTokenType.TENANT}
-        self._get_top_user_report_request: GetTopUserReportRequest = get_top_user_report_request
+        self._get_top_user_report_request: GetTopUserReportRequest = (
+            get_top_user_report_request
+        )
 
     def start_time(self, start_time: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.start_time = start_time

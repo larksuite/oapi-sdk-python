@@ -71,22 +71,32 @@ class CourseRegistrationBuilder(object):
         self._course_registration.learning_state = learning_state
         return self
 
-    def compulsory_lesson_id_list(self, compulsory_lesson_id_list: List[str]) -> "CourseRegistrationBuilder":
+    def compulsory_lesson_id_list(
+        self, compulsory_lesson_id_list: List[str]
+    ) -> "CourseRegistrationBuilder":
         self._course_registration.compulsory_lesson_id_list = compulsory_lesson_id_list
         return self
 
-    def learned_compulsory_lesson_id_list(self,
-                                          learned_compulsory_lesson_id_list: List[str]) -> "CourseRegistrationBuilder":
-        self._course_registration.learned_compulsory_lesson_id_list = learned_compulsory_lesson_id_list
+    def learned_compulsory_lesson_id_list(
+        self, learned_compulsory_lesson_id_list: List[str]
+    ) -> "CourseRegistrationBuilder":
+        self._course_registration.learned_compulsory_lesson_id_list = (
+            learned_compulsory_lesson_id_list
+        )
         return self
 
-    def optional_lesson_id_list(self, optional_lesson_id_list: List[str]) -> "CourseRegistrationBuilder":
+    def optional_lesson_id_list(
+        self, optional_lesson_id_list: List[str]
+    ) -> "CourseRegistrationBuilder":
         self._course_registration.optional_lesson_id_list = optional_lesson_id_list
         return self
 
-    def learned_optional_lesson_id_list(self,
-                                        learned_optional_lesson_id_list: List[str]) -> "CourseRegistrationBuilder":
-        self._course_registration.learned_optional_lesson_id_list = learned_optional_lesson_id_list
+    def learned_optional_lesson_id_list(
+        self, learned_optional_lesson_id_list: List[str]
+    ) -> "CourseRegistrationBuilder":
+        self._course_registration.learned_optional_lesson_id_list = (
+            learned_optional_lesson_id_list
+        )
         return self
 
     def build(self) -> "CourseRegistration":

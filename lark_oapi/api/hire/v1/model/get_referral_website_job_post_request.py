@@ -19,32 +19,53 @@ class GetReferralWebsiteJobPostRequest(BaseRequest):
 
 
 class GetReferralWebsiteJobPostRequestBuilder(object):
-
     def __init__(self) -> None:
         get_referral_website_job_post_request = GetReferralWebsiteJobPostRequest()
         get_referral_website_job_post_request.http_method = HttpMethod.GET
-        get_referral_website_job_post_request.uri = "/open-apis/hire/v1/referral_websites/job_posts/:job_post_id"
+        get_referral_website_job_post_request.uri = (
+            "/open-apis/hire/v1/referral_websites/job_posts/:job_post_id"
+        )
         get_referral_website_job_post_request.token_types = {AccessTokenType.TENANT}
         self._get_referral_website_job_post_request: GetReferralWebsiteJobPostRequest = get_referral_website_job_post_request
 
-    def user_id_type(self, user_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.user_id_type = user_id_type
-        self._get_referral_website_job_post_request.add_query("user_id_type", user_id_type)
+        self._get_referral_website_job_post_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
-        self._get_referral_website_job_post_request.department_id_type = department_id_type
-        self._get_referral_website_job_post_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetReferralWebsiteJobPostRequestBuilder":
+        self._get_referral_website_job_post_request.department_id_type = (
+            department_id_type
+        )
+        self._get_referral_website_job_post_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
-        self._get_referral_website_job_post_request.job_level_id_type = job_level_id_type
-        self._get_referral_website_job_post_request.add_query("job_level_id_type", job_level_id_type)
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "GetReferralWebsiteJobPostRequestBuilder":
+        self._get_referral_website_job_post_request.job_level_id_type = (
+            job_level_id_type
+        )
+        self._get_referral_website_job_post_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
-    def job_post_id(self, job_post_id: str) -> "GetReferralWebsiteJobPostRequestBuilder":
+    def job_post_id(
+        self, job_post_id: str
+    ) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.job_post_id = job_post_id
-        self._get_referral_website_job_post_request.paths["job_post_id"] = str(job_post_id)
+        self._get_referral_website_job_post_request.paths["job_post_id"] = str(
+            job_post_id
+        )
         return self
 
     def build(self) -> GetReferralWebsiteJobPostRequest:

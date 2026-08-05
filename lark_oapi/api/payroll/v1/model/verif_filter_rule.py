@@ -25,7 +25,9 @@ class VerifFilterRuleBuilder(object):
     def __init__(self) -> None:
         self._verif_filter_rule = VerifFilterRule()
 
-    def filter_conditions(self, filter_conditions: List[VerifFilterCondition]) -> "VerifFilterRuleBuilder":
+    def filter_conditions(
+        self, filter_conditions: List[VerifFilterCondition]
+    ) -> "VerifFilterRuleBuilder":
         self._verif_filter_rule.filter_conditions = filter_conditions
         return self
 

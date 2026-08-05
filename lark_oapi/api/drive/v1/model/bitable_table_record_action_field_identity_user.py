@@ -27,9 +27,13 @@ class BitableTableRecordActionFieldIdentityUser(object):
 
 class BitableTableRecordActionFieldIdentityUserBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_record_action_field_identity_user = BitableTableRecordActionFieldIdentityUser()
+        self._bitable_table_record_action_field_identity_user = (
+            BitableTableRecordActionFieldIdentityUser()
+        )
 
-    def user_id(self, user_id: UserId) -> "BitableTableRecordActionFieldIdentityUserBuilder":
+    def user_id(
+        self, user_id: UserId
+    ) -> "BitableTableRecordActionFieldIdentityUserBuilder":
         self._bitable_table_record_action_field_identity_user.user_id = user_id
         return self
 
@@ -37,11 +41,15 @@ class BitableTableRecordActionFieldIdentityUserBuilder(object):
         self._bitable_table_record_action_field_identity_user.name = name
         return self
 
-    def en_name(self, en_name: str) -> "BitableTableRecordActionFieldIdentityUserBuilder":
+    def en_name(
+        self, en_name: str
+    ) -> "BitableTableRecordActionFieldIdentityUserBuilder":
         self._bitable_table_record_action_field_identity_user.en_name = en_name
         return self
 
-    def avatar_url(self, avatar_url: str) -> "BitableTableRecordActionFieldIdentityUserBuilder":
+    def avatar_url(
+        self, avatar_url: str
+    ) -> "BitableTableRecordActionFieldIdentityUserBuilder":
         self._bitable_table_record_action_field_identity_user.avatar_url = avatar_url
         return self
 

@@ -19,25 +19,32 @@ class BatchGetDepartmentRequest(BaseRequest):
 
 
 class BatchGetDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_department_request = BatchGetDepartmentRequest()
         batch_get_department_request.http_method = HttpMethod.POST
         batch_get_department_request.uri = "/open-apis/corehr/v2/departments/batch_get"
         batch_get_department_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_department_request: BatchGetDepartmentRequest = batch_get_department_request
+        self._batch_get_department_request: BatchGetDepartmentRequest = (
+            batch_get_department_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "BatchGetDepartmentRequestBuilder":
         self._batch_get_department_request.user_id_type = user_id_type
         self._batch_get_department_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "BatchGetDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "BatchGetDepartmentRequestBuilder":
         self._batch_get_department_request.department_id_type = department_id_type
-        self._batch_get_department_request.add_query("department_id_type", department_id_type)
+        self._batch_get_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: BatchGetDepartmentRequestBody) -> "BatchGetDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetDepartmentRequestBody
+    ) -> "BatchGetDepartmentRequestBuilder":
         self._batch_get_department_request.request_body = request_body
         self._batch_get_department_request.body = request_body
         return self

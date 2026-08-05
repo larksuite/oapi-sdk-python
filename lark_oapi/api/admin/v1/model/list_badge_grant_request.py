@@ -21,7 +21,6 @@ class ListBadgeGrantRequest(BaseRequest):
 
 
 class ListBadgeGrantRequestBuilder(object):
-
     def __init__(self) -> None:
         list_badge_grant_request = ListBadgeGrantRequest()
         list_badge_grant_request.http_method = HttpMethod.GET
@@ -44,9 +43,13 @@ class ListBadgeGrantRequestBuilder(object):
         self._list_badge_grant_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListBadgeGrantRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListBadgeGrantRequestBuilder":
         self._list_badge_grant_request.department_id_type = department_id_type
-        self._list_badge_grant_request.add_query("department_id_type", department_id_type)
+        self._list_badge_grant_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def name(self, name: str) -> "ListBadgeGrantRequestBuilder":

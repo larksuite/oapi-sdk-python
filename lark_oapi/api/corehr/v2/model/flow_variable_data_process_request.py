@@ -19,27 +19,40 @@ class FlowVariableDataProcessRequest(BaseRequest):
 
 
 class FlowVariableDataProcessRequestBuilder(object):
-
     def __init__(self) -> None:
         flow_variable_data_process_request = FlowVariableDataProcessRequest()
         flow_variable_data_process_request.http_method = HttpMethod.GET
-        flow_variable_data_process_request.uri = "/open-apis/corehr/v2/processes/:process_id/flow_variable_data"
+        flow_variable_data_process_request.uri = (
+            "/open-apis/corehr/v2/processes/:process_id/flow_variable_data"
+        )
         flow_variable_data_process_request.token_types = {AccessTokenType.TENANT}
-        self._flow_variable_data_process_request: FlowVariableDataProcessRequest = flow_variable_data_process_request
+        self._flow_variable_data_process_request: FlowVariableDataProcessRequest = (
+            flow_variable_data_process_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "FlowVariableDataProcessRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "FlowVariableDataProcessRequestBuilder":
         self._flow_variable_data_process_request.user_id_type = user_id_type
         self._flow_variable_data_process_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "FlowVariableDataProcessRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "FlowVariableDataProcessRequestBuilder":
         self._flow_variable_data_process_request.department_id_type = department_id_type
-        self._flow_variable_data_process_request.add_query("department_id_type", department_id_type)
+        self._flow_variable_data_process_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def variable_keys(self, variable_keys: List[str]) -> "FlowVariableDataProcessRequestBuilder":
+    def variable_keys(
+        self, variable_keys: List[str]
+    ) -> "FlowVariableDataProcessRequestBuilder":
         self._flow_variable_data_process_request.variable_keys = variable_keys
-        self._flow_variable_data_process_request.add_query("variable_keys", variable_keys)
+        self._flow_variable_data_process_request.add_query(
+            "variable_keys", variable_keys
+        )
         return self
 
     def process_id(self, process_id: str) -> "FlowVariableDataProcessRequestBuilder":

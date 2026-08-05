@@ -29,7 +29,9 @@ class ListWorkforcePlanResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_workforce_plan_response_body = ListWorkforcePlanResponseBody()
 
-    def items(self, items: List[WorkforcePlan]) -> "ListWorkforcePlanResponseBodyBuilder":
+    def items(
+        self, items: List[WorkforcePlan]
+    ) -> "ListWorkforcePlanResponseBodyBuilder":
         self._list_workforce_plan_response_body.items = items
         return self
 

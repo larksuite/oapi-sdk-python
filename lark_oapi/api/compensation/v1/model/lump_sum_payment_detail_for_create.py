@@ -15,6 +15,7 @@ class LumpSumPaymentDetailForCreate(object):
         "issuance_pay_group_id": str,
         "detail_reference_period_start_date": str,
         "detail_reference_period_end_date": str,
+        "is_not_issued_due_to_offboardings": int,
     }
 
     def __init__(self, d=None):
@@ -27,6 +28,7 @@ class LumpSumPaymentDetailForCreate(object):
         self.issuance_pay_group_id: Optional[str] = None
         self.detail_reference_period_start_date: Optional[str] = None
         self.detail_reference_period_end_date: Optional[str] = None
+        self.is_not_issued_due_to_offboardings: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -38,11 +40,15 @@ class LumpSumPaymentDetailForCreateBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_detail_for_create = LumpSumPaymentDetailForCreate()
 
-    def issuance_amount(self, issuance_amount: str) -> "LumpSumPaymentDetailForCreateBuilder":
+    def issuance_amount(
+        self, issuance_amount: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_amount = issuance_amount
         return self
 
-    def issuance_status(self, issuance_status: str) -> "LumpSumPaymentDetailForCreateBuilder":
+    def issuance_status(
+        self, issuance_status: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_status = issuance_status
         return self
 
@@ -50,7 +56,9 @@ class LumpSumPaymentDetailForCreateBuilder(object):
         self._lump_sum_payment_detail_for_create.issuance_way = issuance_way
         return self
 
-    def issuance_time(self, issuance_time: str) -> "LumpSumPaymentDetailForCreateBuilder":
+    def issuance_time(
+        self, issuance_time: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_time = issuance_time
         return self
 
@@ -58,22 +66,44 @@ class LumpSumPaymentDetailForCreateBuilder(object):
         self._lump_sum_payment_detail_for_create.belong_time = belong_time
         return self
 
-    def issuance_country_region_id(self, issuance_country_region_id: str) -> "LumpSumPaymentDetailForCreateBuilder":
-        self._lump_sum_payment_detail_for_create.issuance_country_region_id = issuance_country_region_id
+    def issuance_country_region_id(
+        self, issuance_country_region_id: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.issuance_country_region_id = (
+            issuance_country_region_id
+        )
         return self
 
-    def issuance_pay_group_id(self, issuance_pay_group_id: str) -> "LumpSumPaymentDetailForCreateBuilder":
-        self._lump_sum_payment_detail_for_create.issuance_pay_group_id = issuance_pay_group_id
+    def issuance_pay_group_id(
+        self, issuance_pay_group_id: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.issuance_pay_group_id = (
+            issuance_pay_group_id
+        )
         return self
 
-    def detail_reference_period_start_date(self,
-                                           detail_reference_period_start_date: str) -> "LumpSumPaymentDetailForCreateBuilder":
-        self._lump_sum_payment_detail_for_create.detail_reference_period_start_date = detail_reference_period_start_date
+    def detail_reference_period_start_date(
+        self, detail_reference_period_start_date: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.detail_reference_period_start_date = (
+            detail_reference_period_start_date
+        )
         return self
 
-    def detail_reference_period_end_date(self,
-                                         detail_reference_period_end_date: str) -> "LumpSumPaymentDetailForCreateBuilder":
-        self._lump_sum_payment_detail_for_create.detail_reference_period_end_date = detail_reference_period_end_date
+    def detail_reference_period_end_date(
+        self, detail_reference_period_end_date: str
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.detail_reference_period_end_date = (
+            detail_reference_period_end_date
+        )
+        return self
+
+    def is_not_issued_due_to_offboardings(
+        self, is_not_issued_due_to_offboardings: int
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.is_not_issued_due_to_offboardings = (
+            is_not_issued_due_to_offboardings
+        )
         return self
 
     def build(self) -> "LumpSumPaymentDetailForCreate":

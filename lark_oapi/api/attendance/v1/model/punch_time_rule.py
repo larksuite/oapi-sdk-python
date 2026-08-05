@@ -62,11 +62,15 @@ class PunchTimeRuleBuilder(object):
         self._punch_time_rule.on_advance_minutes = on_advance_minutes
         return self
 
-    def early_minutes_as_early(self, early_minutes_as_early: int) -> "PunchTimeRuleBuilder":
+    def early_minutes_as_early(
+        self, early_minutes_as_early: int
+    ) -> "PunchTimeRuleBuilder":
         self._punch_time_rule.early_minutes_as_early = early_minutes_as_early
         return self
 
-    def early_minutes_as_lack(self, early_minutes_as_lack: int) -> "PunchTimeRuleBuilder":
+    def early_minutes_as_lack(
+        self, early_minutes_as_lack: int
+    ) -> "PunchTimeRuleBuilder":
         self._punch_time_rule.early_minutes_as_lack = early_minutes_as_lack
         return self
 
@@ -74,8 +78,12 @@ class PunchTimeRuleBuilder(object):
         self._punch_time_rule.off_delay_minutes = off_delay_minutes
         return self
 
-    def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "PunchTimeRuleBuilder":
-        self._punch_time_rule.late_minutes_as_serious_late = late_minutes_as_serious_late
+    def late_minutes_as_serious_late(
+        self, late_minutes_as_serious_late: int
+    ) -> "PunchTimeRuleBuilder":
+        self._punch_time_rule.late_minutes_as_serious_late = (
+            late_minutes_as_serious_late
+        )
         return self
 
     def no_need_on(self, no_need_on: bool) -> "PunchTimeRuleBuilder":

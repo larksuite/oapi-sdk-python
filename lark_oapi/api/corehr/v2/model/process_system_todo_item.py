@@ -49,7 +49,9 @@ class ProcessSystemTodoItemBuilder(object):
         self._process_system_todo_item.links = links
         return self
 
-    def operator_name(self, operator_name: DataengineI18n) -> "ProcessSystemTodoItemBuilder":
+    def operator_name(
+        self, operator_name: DataengineI18n
+    ) -> "ProcessSystemTodoItemBuilder":
         self._process_system_todo_item.operator_name = operator_name
         return self
 
@@ -61,7 +63,9 @@ class ProcessSystemTodoItemBuilder(object):
         self._process_system_todo_item.create_time = create_time
         return self
 
-    def node_definition_id(self, node_definition_id: str) -> "ProcessSystemTodoItemBuilder":
+    def node_definition_id(
+        self, node_definition_id: str
+    ) -> "ProcessSystemTodoItemBuilder":
         self._process_system_todo_item.node_definition_id = node_definition_id
         return self
 

@@ -254,7 +254,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.is_rehire = is_rehire
         return self
 
-    def employment_id_before_rehire(self, employment_id_before_rehire: str) -> "PreHireForAiBuilder":
+    def employment_id_before_rehire(
+        self, employment_id_before_rehire: str
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.employment_id_before_rehire = employment_id_before_rehire
         return self
 
@@ -262,11 +264,15 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.suspected_rehiring = suspected_rehiring
         return self
 
-    def reuse_feishu_account(self, reuse_feishu_account: PreHireField) -> "PreHireForAiBuilder":
+    def reuse_feishu_account(
+        self, reuse_feishu_account: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.reuse_feishu_account = reuse_feishu_account
         return self
 
-    def reused_feishu_account(self, reused_feishu_account: PreHireEmployee) -> "PreHireForAiBuilder":
+    def reused_feishu_account(
+        self, reused_feishu_account: PreHireEmployee
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.reused_feishu_account = reused_feishu_account
         return self
 
@@ -274,7 +280,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.stage = stage
         return self
 
-    def current_assignees(self, current_assignees: List[PreHireEmployee]) -> "PreHireForAiBuilder":
+    def current_assignees(
+        self, current_assignees: List[PreHireEmployee]
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.current_assignees = current_assignees
         return self
 
@@ -330,7 +338,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.service_company = service_company
         return self
 
-    def department_full_path(self, department_full_path: PreHireField) -> "PreHireForAiBuilder":
+    def department_full_path(
+        self, department_full_path: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.department_full_path = department_full_path
         return self
 
@@ -354,11 +364,15 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.pathway = pathway
         return self
 
-    def dotted_line_manager(self, dotted_line_manager: PreHireEmployee) -> "PreHireForAiBuilder":
+    def dotted_line_manager(
+        self, dotted_line_manager: PreHireEmployee
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.dotted_line_manager = dotted_line_manager
         return self
 
-    def employee_sub_type(self, employee_sub_type: PreHireField) -> "PreHireForAiBuilder":
+    def employee_sub_type(
+        self, employee_sub_type: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.employee_sub_type = employee_sub_type
         return self
 
@@ -370,11 +384,15 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.probation_info = probation_info
         return self
 
-    def social_security_city(self, social_security_city: PreHireField) -> "PreHireForAiBuilder":
+    def social_security_city(
+        self, social_security_city: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.social_security_city = social_security_city
         return self
 
-    def working_hours_type(self, working_hours_type: PreHireField) -> "PreHireForAiBuilder":
+    def working_hours_type(
+        self, working_hours_type: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.working_hours_type = working_hours_type
         return self
 
@@ -406,7 +424,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.recruitment_type = recruitment_type
         return self
 
-    def compensation_type(self, compensation_type: PreHireField) -> "PreHireForAiBuilder":
+    def compensation_type(
+        self, compensation_type: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.compensation_type = compensation_type
         return self
 
@@ -422,7 +442,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.seniority_date = seniority_date
         return self
 
-    def seniority_date_formatted(self, seniority_date_formatted: str) -> "PreHireForAiBuilder":
+    def seniority_date_formatted(
+        self, seniority_date_formatted: str
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.seniority_date_formatted = seniority_date_formatted
         return self
 
@@ -438,7 +460,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.onboard_location = onboard_location
         return self
 
-    def onboarding_address(self, onboarding_address: PreHireField) -> "PreHireForAiBuilder":
+    def onboarding_address(
+        self, onboarding_address: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.onboarding_address = onboarding_address
         return self
 
@@ -450,46 +474,75 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.check_in_time = check_in_time
         return self
 
-    def notice_period_probation_voluntary(self,
-                                          notice_period_probation_voluntary: PreHireField) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.notice_period_probation_voluntary = notice_period_probation_voluntary
+    def notice_period_probation_voluntary(
+        self, notice_period_probation_voluntary: PreHireField
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.notice_period_probation_voluntary = (
+            notice_period_probation_voluntary
+        )
         return self
 
-    def notice_period_probation_in_voluntary(self,
-                                             notice_period_probation_in_voluntary: PreHireField) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.notice_period_probation_in_voluntary = notice_period_probation_in_voluntary
+    def notice_period_probation_in_voluntary(
+        self, notice_period_probation_in_voluntary: PreHireField
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.notice_period_probation_in_voluntary = (
+            notice_period_probation_in_voluntary
+        )
         return self
 
-    def notice_period_positive_voluntary(self, notice_period_positive_voluntary: PreHireField) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.notice_period_positive_voluntary = notice_period_positive_voluntary
+    def notice_period_positive_voluntary(
+        self, notice_period_positive_voluntary: PreHireField
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.notice_period_positive_voluntary = (
+            notice_period_positive_voluntary
+        )
         return self
 
-    def notice_period_positive_in_voluntary(self,
-                                            notice_period_positive_in_voluntary: PreHireField) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.notice_period_positive_in_voluntary = notice_period_positive_in_voluntary
+    def notice_period_positive_in_voluntary(
+        self, notice_period_positive_in_voluntary: PreHireField
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.notice_period_positive_in_voluntary = (
+            notice_period_positive_in_voluntary
+        )
         return self
 
-    def default_cost_center(self, default_cost_center: PreHireField) -> "PreHireForAiBuilder":
+    def default_cost_center(
+        self, default_cost_center: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.default_cost_center = default_cost_center
         return self
 
-    def cost_allocations(self, cost_allocations: List[PreHireField]) -> "PreHireForAiBuilder":
+    def cost_allocations(
+        self, cost_allocations: List[PreHireField]
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.cost_allocations = cost_allocations
         return self
 
-    def cost_allocation_effective_time(self, cost_allocation_effective_time: str) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.cost_allocation_effective_time = cost_allocation_effective_time
+    def cost_allocation_effective_time(
+        self, cost_allocation_effective_time: str
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.cost_allocation_effective_time = (
+            cost_allocation_effective_time
+        )
         return self
 
-    def cost_allocation_expiration_time(self, cost_allocation_expiration_time: str) -> "PreHireForAiBuilder":
-        self._pre_hire_for_ai.cost_allocation_expiration_time = cost_allocation_expiration_time
+    def cost_allocation_expiration_time(
+        self, cost_allocation_expiration_time: str
+    ) -> "PreHireForAiBuilder":
+        self._pre_hire_for_ai.cost_allocation_expiration_time = (
+            cost_allocation_expiration_time
+        )
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHireForAiBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.custom_fields = custom_fields
         return self
 
-    def employment_before_rehire(self, employment_before_rehire: PreHireEmployee) -> "PreHireForAiBuilder":
+    def employment_before_rehire(
+        self, employment_before_rehire: PreHireEmployee
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.employment_before_rehire = employment_before_rehire
         return self
 
@@ -501,7 +554,9 @@ class PreHireForAiBuilder(object):
         self._pre_hire_for_ai.assignee_to_pre_hire = assignee_to_pre_hire
         return self
 
-    def flow_instance_name(self, flow_instance_name: PreHireField) -> "PreHireForAiBuilder":
+    def flow_instance_name(
+        self, flow_instance_name: PreHireField
+    ) -> "PreHireForAiBuilder":
         self._pre_hire_for_ai.flow_instance_name = flow_instance_name
         return self
 

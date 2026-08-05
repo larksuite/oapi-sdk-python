@@ -53,12 +53,20 @@ class JobChangeBuilder(object):
         self._job_change.status = status
         return self
 
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: str) -> "JobChangeBuilder":
-        self._job_change.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "JobChangeBuilder":
+        self._job_change.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
-    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: str) -> "JobChangeBuilder":
-        self._job_change.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "JobChangeBuilder":
+        self._job_change.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def process_id(self, process_id: str) -> "JobChangeBuilder":

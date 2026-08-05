@@ -9,7 +9,6 @@ from .remove_tasklist_task_response_body import RemoveTasklistTaskResponseBody
 class RemoveTasklistTaskResponse(BaseResponse):
     _types = {
         "data": RemoveTasklistTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

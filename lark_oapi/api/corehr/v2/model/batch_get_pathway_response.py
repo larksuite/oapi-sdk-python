@@ -9,7 +9,6 @@ from .batch_get_pathway_response_body import BatchGetPathwayResponseBody
 class BatchGetPathwayResponse(BaseResponse):
     _types = {
         "data": BatchGetPathwayResponseBody,
-
     }
 
     def __init__(self, d=None):

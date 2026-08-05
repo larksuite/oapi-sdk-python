@@ -32,11 +32,15 @@ class StageTaskBuilder(object):
         self._stage_task.user_id = user_id
         return self
 
-    def stage_num_lists(self, stage_num_lists: List[StageTaskStatusNum]) -> "StageTaskBuilder":
+    def stage_num_lists(
+        self, stage_num_lists: List[StageTaskStatusNum]
+    ) -> "StageTaskBuilder":
         self._stage_task.stage_num_lists = stage_num_lists
         return self
 
-    def stage_task_info_lists(self, stage_task_info_lists: List[StageTaskInfo]) -> "StageTaskBuilder":
+    def stage_task_info_lists(
+        self, stage_task_info_lists: List[StageTaskInfo]
+    ) -> "StageTaskBuilder":
         self._stage_task.stage_task_info_lists = stage_task_info_lists
         return self
 

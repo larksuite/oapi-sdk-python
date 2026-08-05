@@ -55,8 +55,12 @@ class InvitedReviewRecordInfoBuilder(object):
         self._invited_review_record_info.avg_diff = avg_diff
         return self
 
-    def relationship_with_reviewee(self, relationship_with_reviewee: str) -> "InvitedReviewRecordInfoBuilder":
-        self._invited_review_record_info.relationship_with_reviewee = relationship_with_reviewee
+    def relationship_with_reviewee(
+        self, relationship_with_reviewee: str
+    ) -> "InvitedReviewRecordInfoBuilder":
+        self._invited_review_record_info.relationship_with_reviewee = (
+            relationship_with_reviewee
+        )
         return self
 
     def invitedby(self, invitedby: str) -> "InvitedReviewRecordInfoBuilder":

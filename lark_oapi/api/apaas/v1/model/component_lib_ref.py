@@ -71,7 +71,9 @@ class ComponentLibRefBuilder(object):
         self._component_lib_ref.comps_count = comps_count
         return self
 
-    def operating_task_info(self, operating_task_info: TaskInfo) -> "ComponentLibRefBuilder":
+    def operating_task_info(
+        self, operating_task_info: TaskInfo
+    ) -> "ComponentLibRefBuilder":
         self._component_lib_ref.operating_task_info = operating_task_info
         return self
 
@@ -79,7 +81,9 @@ class ComponentLibRefBuilder(object):
         self._component_lib_ref.operating_type = operating_type
         return self
 
-    def latest_version_number(self, latest_version_number: str) -> "ComponentLibRefBuilder":
+    def latest_version_number(
+        self, latest_version_number: str
+    ) -> "ComponentLibRefBuilder":
         self._component_lib_ref.latest_version_number = latest_version_number
         return self
 

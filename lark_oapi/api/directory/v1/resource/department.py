@@ -27,8 +27,9 @@ class Department(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDepartmentRequest,
-               option: Optional[RequestOption] = None) -> CreateDepartmentResponse:
+    def create(
+        self, request: CreateDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> CreateDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -43,13 +44,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDepartmentResponse)
+        response: CreateDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateDepartmentRequest,
-                      option: Optional[RequestOption] = None) -> CreateDepartmentResponse:
+    async def acreate(
+        self, request: CreateDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> CreateDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -60,13 +64,16 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDepartmentResponse)
+        response: CreateDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteDepartmentRequest,
-               option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
+    def delete(
+        self, request: DeleteDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,13 +88,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
+        response: DeleteDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteDepartmentRequest,
-                      option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
+    async def adelete(
+        self, request: DeleteDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -98,13 +108,16 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
+        response: DeleteDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def filter(self, request: FilterDepartmentRequest,
-               option: Optional[RequestOption] = None) -> FilterDepartmentResponse:
+    def filter(
+        self, request: FilterDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> FilterDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,13 +132,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FilterDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), FilterDepartmentResponse)
+        response: FilterDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FilterDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afilter(self, request: FilterDepartmentRequest,
-                      option: Optional[RequestOption] = None) -> FilterDepartmentResponse:
+    async def afilter(
+        self, request: FilterDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> FilterDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -136,12 +152,16 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FilterDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), FilterDepartmentResponse)
+        response: FilterDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FilterDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def mget(self, request: MgetDepartmentRequest, option: Optional[RequestOption] = None) -> MgetDepartmentResponse:
+    def mget(
+        self, request: MgetDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> MgetDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +176,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MgetDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetDepartmentResponse)
+        response: MgetDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MgetDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amget(self, request: MgetDepartmentRequest,
-                    option: Optional[RequestOption] = None) -> MgetDepartmentResponse:
+    async def amget(
+        self, request: MgetDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> MgetDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,12 +196,16 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MgetDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), MgetDepartmentResponse)
+        response: MgetDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MgetDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
+    def patch(
+        self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> PatchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -193,13 +220,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
+        response: PatchDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchDepartmentRequest,
-                     option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
+    async def apatch(
+        self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> PatchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,13 +240,16 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
+        response: PatchDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchDepartmentRequest,
-               option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+    def search(
+        self, request: SearchDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> SearchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -231,13 +264,16 @@ class Department(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
+        response: SearchDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDepartmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchDepartmentRequest,
-                      option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+    async def asearch(
+        self, request: SearchDepartmentRequest, option: Optional[RequestOption] = None
+    ) -> SearchDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -248,7 +284,9 @@ class Department(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
+        response: SearchDepartmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDepartmentResponse
+        )
         response.raw = resp
 
         return response

@@ -19,25 +19,36 @@ class CreateCostCenterVersionRequest(BaseRequest):
 
 
 class CreateCostCenterVersionRequestBuilder(object):
-
     def __init__(self) -> None:
         create_cost_center_version_request = CreateCostCenterVersionRequest()
         create_cost_center_version_request.http_method = HttpMethod.POST
-        create_cost_center_version_request.uri = "/open-apis/corehr/v2/cost_centers/:cost_center_id/versions"
+        create_cost_center_version_request.uri = (
+            "/open-apis/corehr/v2/cost_centers/:cost_center_id/versions"
+        )
         create_cost_center_version_request.token_types = {AccessTokenType.TENANT}
-        self._create_cost_center_version_request: CreateCostCenterVersionRequest = create_cost_center_version_request
+        self._create_cost_center_version_request: CreateCostCenterVersionRequest = (
+            create_cost_center_version_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "CreateCostCenterVersionRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "CreateCostCenterVersionRequestBuilder":
         self._create_cost_center_version_request.user_id_type = user_id_type
         self._create_cost_center_version_request.add_query("user_id_type", user_id_type)
         return self
 
-    def cost_center_id(self, cost_center_id: str) -> "CreateCostCenterVersionRequestBuilder":
+    def cost_center_id(
+        self, cost_center_id: str
+    ) -> "CreateCostCenterVersionRequestBuilder":
         self._create_cost_center_version_request.cost_center_id = cost_center_id
-        self._create_cost_center_version_request.paths["cost_center_id"] = str(cost_center_id)
+        self._create_cost_center_version_request.paths["cost_center_id"] = str(
+            cost_center_id
+        )
         return self
 
-    def request_body(self, request_body: CreateCostCenterVersionRequestBody) -> "CreateCostCenterVersionRequestBuilder":
+    def request_body(
+        self, request_body: CreateCostCenterVersionRequestBody
+    ) -> "CreateCostCenterVersionRequestBuilder":
         self._create_cost_center_version_request.request_body = request_body
         self._create_cost_center_version_request.body = request_body
         return self

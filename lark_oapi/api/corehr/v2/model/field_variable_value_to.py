@@ -76,11 +76,15 @@ class FieldVariableValueToBuilder(object):
         self._field_variable_value_to.date_time_value = date_time_value
         return self
 
-    def i18n_value(self, i18n_value: FieldVariableValueI18n) -> "FieldVariableValueToBuilder":
+    def i18n_value(
+        self, i18n_value: FieldVariableValueI18n
+    ) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.i18n_value = i18n_value
         return self
 
-    def object_value(self, object_value: FieldVariableValueToObject) -> "FieldVariableValueToBuilder":
+    def object_value(
+        self, object_value: FieldVariableValueToObject
+    ) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.object_value = object_value
         return self
 
@@ -92,7 +96,9 @@ class FieldVariableValueToBuilder(object):
         self._field_variable_value_to.department_value = department_value
         return self
 
-    def record_values(self, record_values: List[FieldVariableValueToRecord]) -> "FieldVariableValueToBuilder":
+    def record_values(
+        self, record_values: List[FieldVariableValueToRecord]
+    ) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.record_values = record_values
         return self
 
@@ -104,7 +110,9 @@ class FieldVariableValueToBuilder(object):
         self._field_variable_value_to.list_values = list_values
         return self
 
-    def file_value(self, file_value: FieldVariableValueToFile) -> "FieldVariableValueToBuilder":
+    def file_value(
+        self, file_value: FieldVariableValueToFile
+    ) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.file_value = file_value
         return self
 

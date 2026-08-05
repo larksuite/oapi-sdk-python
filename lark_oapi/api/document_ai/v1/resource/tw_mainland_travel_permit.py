@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.recognize_tw_mainland_travel_permit_request import RecognizeTwMainlandTravelPermitRequest
-from ..model.recognize_tw_mainland_travel_permit_response import RecognizeTwMainlandTravelPermitResponse
+from ..model.recognize_tw_mainland_travel_permit_request import (
+    RecognizeTwMainlandTravelPermitRequest,
+)
+from ..model.recognize_tw_mainland_travel_permit_response import (
+    RecognizeTwMainlandTravelPermitResponse,
+)
 
 
 class TwMainlandTravelPermit(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeTwMainlandTravelPermitRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
+    def recognize(
+        self,
+        request: RecognizeTwMainlandTravelPermitRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeTwMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class TwMainlandTravelPermit(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           RecognizeTwMainlandTravelPermitResponse)
+        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeTwMainlandTravelPermitResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeTwMainlandTravelPermitRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
+    async def arecognize(
+        self,
+        request: RecognizeTwMainlandTravelPermitRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeTwMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +67,9 @@ class TwMainlandTravelPermit(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           RecognizeTwMainlandTravelPermitResponse)
+        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeTwMainlandTravelPermitResponse
+        )
         response.raw = resp
 
         return response

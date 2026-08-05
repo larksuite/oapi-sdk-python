@@ -27,7 +27,9 @@ class SearchWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_website_job_post_response_body = SearchWebsiteJobPostResponseBody()
 
-    def items(self, items: List[WebsiteJobPost]) -> "SearchWebsiteJobPostResponseBodyBuilder":
+    def items(
+        self, items: List[WebsiteJobPost]
+    ) -> "SearchWebsiteJobPostResponseBodyBuilder":
         self._search_website_job_post_response_body.items = items
         return self
 

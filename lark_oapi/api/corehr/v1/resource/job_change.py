@@ -17,8 +17,9 @@ class JobChange(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateJobChangeRequest,
-               option: Optional[RequestOption] = None) -> CreateJobChangeResponse:
+    def create(
+        self, request: CreateJobChangeRequest, option: Optional[RequestOption] = None
+    ) -> CreateJobChangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class JobChange(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateJobChangeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobChangeResponse)
+        response: CreateJobChangeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateJobChangeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateJobChangeRequest,
-                      option: Optional[RequestOption] = None) -> CreateJobChangeResponse:
+    async def acreate(
+        self, request: CreateJobChangeRequest, option: Optional[RequestOption] = None
+    ) -> CreateJobChangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class JobChange(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateJobChangeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobChangeResponse)
+        response: CreateJobChangeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateJobChangeResponse
+        )
         response.raw = resp
 
         return response

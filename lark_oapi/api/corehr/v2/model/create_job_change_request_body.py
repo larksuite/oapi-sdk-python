@@ -51,20 +51,27 @@ class CreateJobChangeRequestBodyBuilder(object):
         self._create_job_change_request_body.employment_id = employment_id
         return self
 
-    def transfer_type_unique_identifier(self,
-                                        transfer_type_unique_identifier: str) -> "CreateJobChangeRequestBodyBuilder":
-        self._create_job_change_request_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
     def flow_id(self, flow_id: str) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.flow_id = flow_id
         return self
 
-    def effective_date(self, effective_date: str) -> "CreateJobChangeRequestBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.effective_date = effective_date
         return self
 
-    def transfer_info(self, transfer_info: CreateTransferInfo) -> "CreateJobChangeRequestBodyBuilder":
+    def transfer_info(
+        self, transfer_info: CreateTransferInfo
+    ) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.transfer_info = transfer_info
         return self
 
@@ -76,17 +83,24 @@ class CreateJobChangeRequestBodyBuilder(object):
         self._create_job_change_request_body.initiator_id = initiator_id
         return self
 
-    def transfer_reason_unique_identifier(self,
-                                          transfer_reason_unique_identifier: str) -> "CreateJobChangeRequestBodyBuilder":
-        self._create_job_change_request_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def update_method(self, update_method: str) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.update_method = update_method
         return self
 
-    def update_method_offboarding(self, update_method_offboarding: str) -> "CreateJobChangeRequestBodyBuilder":
-        self._create_job_change_request_body.update_method_offboarding = update_method_offboarding
+    def update_method_offboarding(
+        self, update_method_offboarding: str
+    ) -> "CreateJobChangeRequestBodyBuilder":
+        self._create_job_change_request_body.update_method_offboarding = (
+            update_method_offboarding
+        )
         return self
 
     def build(self) -> "CreateJobChangeRequestBody":

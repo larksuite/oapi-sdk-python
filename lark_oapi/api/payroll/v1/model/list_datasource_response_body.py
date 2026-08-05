@@ -35,7 +35,9 @@ class ListDatasourceResponseBodyBuilder(object):
         self._list_datasource_response_body.has_more = has_more
         return self
 
-    def datasources(self, datasources: List[Datasource]) -> "ListDatasourceResponseBodyBuilder":
+    def datasources(
+        self, datasources: List[Datasource]
+    ) -> "ListDatasourceResponseBodyBuilder":
         self._list_datasource_response_body.datasources = datasources
         return self
 

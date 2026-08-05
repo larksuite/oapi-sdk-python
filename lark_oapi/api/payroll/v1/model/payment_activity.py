@@ -40,7 +40,9 @@ class PaymentActivityBuilder(object):
         self._payment_activity.activity_id = activity_id
         return self
 
-    def activity_names(self, activity_names: List[I18nContent]) -> "PaymentActivityBuilder":
+    def activity_names(
+        self, activity_names: List[I18nContent]
+    ) -> "PaymentActivityBuilder":
         self._payment_activity.activity_names = activity_names
         return self
 
@@ -48,15 +50,23 @@ class PaymentActivityBuilder(object):
         self._payment_activity.pay_date = pay_date
         return self
 
-    def total_number_of_payroll(self, total_number_of_payroll: int) -> "PaymentActivityBuilder":
+    def total_number_of_payroll(
+        self, total_number_of_payroll: int
+    ) -> "PaymentActivityBuilder":
         self._payment_activity.total_number_of_payroll = total_number_of_payroll
         return self
 
-    def number_of_calculation_activities(self, number_of_calculation_activities: int) -> "PaymentActivityBuilder":
-        self._payment_activity.number_of_calculation_activities = number_of_calculation_activities
+    def number_of_calculation_activities(
+        self, number_of_calculation_activities: int
+    ) -> "PaymentActivityBuilder":
+        self._payment_activity.number_of_calculation_activities = (
+            number_of_calculation_activities
+        )
         return self
 
-    def calculation_activities(self, calculation_activities: List[CalculationActivity]) -> "PaymentActivityBuilder":
+    def calculation_activities(
+        self, calculation_activities: List[CalculationActivity]
+    ) -> "PaymentActivityBuilder":
         self._payment_activity.calculation_activities = calculation_activities
         return self
 

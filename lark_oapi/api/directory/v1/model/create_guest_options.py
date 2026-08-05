@@ -35,7 +35,9 @@ class CreateGuestOptionsBuilder(object):
         self._create_guest_options.home_user_id = home_user_id
         return self
 
-    def guest_trace_info(self, guest_trace_info: GuestTraceInfo) -> "CreateGuestOptionsBuilder":
+    def guest_trace_info(
+        self, guest_trace_info: GuestTraceInfo
+    ) -> "CreateGuestOptionsBuilder":
         self._create_guest_options.guest_trace_info = guest_trace_info
         return self
 

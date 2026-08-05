@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n_v2 import I18nV2
+from .filter_enum import FilterEnum
 
 
 class RenewalFieldMeta(object):
@@ -12,6 +13,7 @@ class RenewalFieldMeta(object):
         "type": str,
         "sortable": bool,
         "filterable": bool,
+        "enums": List[FilterEnum],
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class RenewalFieldMeta(object):
         self.type: Optional[str] = None
         self.sortable: Optional[bool] = None
         self.filterable: Optional[bool] = None
+        self.enums: Optional[List[FilterEnum]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class RenewalFieldMetaBuilder(object):
 
     def filterable(self, filterable: bool) -> "RenewalFieldMetaBuilder":
         self._renewal_field_meta.filterable = filterable
+        return self
+
+    def enums(self, enums: List[FilterEnum]) -> "RenewalFieldMetaBuilder":
+        self._renewal_field_meta.enums = enums
         return self
 
     def build(self) -> "RenewalFieldMeta":

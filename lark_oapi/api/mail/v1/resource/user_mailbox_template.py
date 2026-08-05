@@ -9,24 +9,39 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_user_mailbox_template_request import CreateUserMailboxTemplateRequest
-from ..model.create_user_mailbox_template_response import CreateUserMailboxTemplateResponse
-from ..model.delete_user_mailbox_template_request import DeleteUserMailboxTemplateRequest
-from ..model.delete_user_mailbox_template_response import DeleteUserMailboxTemplateResponse
+from ..model.create_user_mailbox_template_request import (
+    CreateUserMailboxTemplateRequest,
+)
+from ..model.create_user_mailbox_template_response import (
+    CreateUserMailboxTemplateResponse,
+)
+from ..model.delete_user_mailbox_template_request import (
+    DeleteUserMailboxTemplateRequest,
+)
+from ..model.delete_user_mailbox_template_response import (
+    DeleteUserMailboxTemplateResponse,
+)
 from ..model.get_user_mailbox_template_request import GetUserMailboxTemplateRequest
 from ..model.get_user_mailbox_template_response import GetUserMailboxTemplateResponse
 from ..model.list_user_mailbox_template_request import ListUserMailboxTemplateRequest
 from ..model.list_user_mailbox_template_response import ListUserMailboxTemplateResponse
-from ..model.update_user_mailbox_template_request import UpdateUserMailboxTemplateRequest
-from ..model.update_user_mailbox_template_response import UpdateUserMailboxTemplateResponse
+from ..model.update_user_mailbox_template_request import (
+    UpdateUserMailboxTemplateRequest,
+)
+from ..model.update_user_mailbox_template_response import (
+    UpdateUserMailboxTemplateResponse,
+)
 
 
 class UserMailboxTemplate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxTemplateRequest,
-               option: Optional[RequestOption] = None) -> CreateUserMailboxTemplateResponse:
+    def create(
+        self,
+        request: CreateUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +56,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateUserMailboxTemplateResponse)
+        response: CreateUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserMailboxTemplateRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserMailboxTemplateResponse:
+    async def acreate(
+        self,
+        request: CreateUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +78,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateUserMailboxTemplateResponse)
+        response: CreateUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteUserMailboxTemplateRequest,
-               option: Optional[RequestOption] = None) -> DeleteUserMailboxTemplateResponse:
+    def delete(
+        self,
+        request: DeleteUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +104,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteUserMailboxTemplateResponse)
+        response: DeleteUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteUserMailboxTemplateRequest,
-                      option: Optional[RequestOption] = None) -> DeleteUserMailboxTemplateResponse:
+    async def adelete(
+        self,
+        request: DeleteUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +126,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteUserMailboxTemplateResponse)
+        response: DeleteUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetUserMailboxTemplateRequest,
-            option: Optional[RequestOption] = None) -> GetUserMailboxTemplateResponse:
+    def get(
+        self,
+        request: GetUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +152,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetUserMailboxTemplateResponse)
+        response: GetUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserMailboxTemplateRequest,
-                   option: Optional[RequestOption] = None) -> GetUserMailboxTemplateResponse:
+    async def aget(
+        self,
+        request: GetUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +174,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetUserMailboxTemplateResponse)
+        response: GetUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserMailboxTemplateRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxTemplateResponse:
+    def list(
+        self,
+        request: ListUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,14 +200,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListUserMailboxTemplateResponse)
+        response: ListUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserMailboxTemplateRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxTemplateResponse:
+    async def alist(
+        self,
+        request: ListUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -179,14 +222,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListUserMailboxTemplateResponse)
+        response: ListUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateUserMailboxTemplateRequest,
-               option: Optional[RequestOption] = None) -> UpdateUserMailboxTemplateResponse:
+    def update(
+        self,
+        request: UpdateUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -201,14 +248,18 @@ class UserMailboxTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UpdateUserMailboxTemplateResponse)
+        response: UpdateUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateUserMailboxTemplateRequest,
-                      option: Optional[RequestOption] = None) -> UpdateUserMailboxTemplateResponse:
+    async def aupdate(
+        self,
+        request: UpdateUserMailboxTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateUserMailboxTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -219,8 +270,9 @@ class UserMailboxTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateUserMailboxTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UpdateUserMailboxTemplateResponse)
+        response: UpdateUserMailboxTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateUserMailboxTemplateResponse
+        )
         response.raw = resp
 
         return response

@@ -17,7 +17,9 @@ class MeetingList(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMeetingListRequest, option: Optional[RequestOption] = None) -> GetMeetingListResponse:
+    def get(
+        self, request: GetMeetingListRequest, option: Optional[RequestOption] = None
+    ) -> GetMeetingListResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class MeetingList(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetMeetingListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingListResponse)
+        response: GetMeetingListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMeetingListResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetMeetingListRequest,
-                   option: Optional[RequestOption] = None) -> GetMeetingListResponse:
+    async def aget(
+        self, request: GetMeetingListRequest, option: Optional[RequestOption] = None
+    ) -> GetMeetingListResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class MeetingList(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetMeetingListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingListResponse)
+        response: GetMeetingListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetMeetingListResponse
+        )
         response.raw = resp
 
         return response

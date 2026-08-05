@@ -28,25 +28,39 @@ class FindByUserListStageTaskRequestBody(object):
 
 class FindByUserListStageTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._find_by_user_list_stage_task_request_body = FindByUserListStageTaskRequestBody()
+        self._find_by_user_list_stage_task_request_body = (
+            FindByUserListStageTaskRequestBody()
+        )
 
-    def semester_id(self, semester_id: str) -> "FindByUserListStageTaskRequestBodyBuilder":
+    def semester_id(
+        self, semester_id: str
+    ) -> "FindByUserListStageTaskRequestBodyBuilder":
         self._find_by_user_list_stage_task_request_body.semester_id = semester_id
         return self
 
-    def user_id_lists(self, user_id_lists: List[str]) -> "FindByUserListStageTaskRequestBodyBuilder":
+    def user_id_lists(
+        self, user_id_lists: List[str]
+    ) -> "FindByUserListStageTaskRequestBodyBuilder":
         self._find_by_user_list_stage_task_request_body.user_id_lists = user_id_lists
         return self
 
-    def task_option_lists(self, task_option_lists: List[int]) -> "FindByUserListStageTaskRequestBodyBuilder":
-        self._find_by_user_list_stage_task_request_body.task_option_lists = task_option_lists
+    def task_option_lists(
+        self, task_option_lists: List[int]
+    ) -> "FindByUserListStageTaskRequestBodyBuilder":
+        self._find_by_user_list_stage_task_request_body.task_option_lists = (
+            task_option_lists
+        )
         return self
 
-    def after_time(self, after_time: int) -> "FindByUserListStageTaskRequestBodyBuilder":
+    def after_time(
+        self, after_time: int
+    ) -> "FindByUserListStageTaskRequestBodyBuilder":
         self._find_by_user_list_stage_task_request_body.after_time = after_time
         return self
 
-    def before_time(self, before_time: int) -> "FindByUserListStageTaskRequestBodyBuilder":
+    def before_time(
+        self, before_time: int
+    ) -> "FindByUserListStageTaskRequestBodyBuilder":
         self._find_by_user_list_stage_task_request_body.before_time = before_time
         return self
 

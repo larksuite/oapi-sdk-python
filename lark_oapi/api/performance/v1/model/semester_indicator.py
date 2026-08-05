@@ -29,7 +29,9 @@ class SemesterIndicatorBuilder(object):
         self._semester_indicator.semester_id = semester_id
         return self
 
-    def indicators(self, indicators: List[BriefIndicator]) -> "SemesterIndicatorBuilder":
+    def indicators(
+        self, indicators: List[BriefIndicator]
+    ) -> "SemesterIndicatorBuilder":
         self._semester_indicator.indicators = indicators
         return self
 

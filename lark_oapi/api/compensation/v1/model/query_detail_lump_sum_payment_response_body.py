@@ -25,17 +25,25 @@ class QueryDetailLumpSumPaymentResponseBody(object):
 
 class QueryDetailLumpSumPaymentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_detail_lump_sum_payment_response_body = QueryDetailLumpSumPaymentResponseBody()
+        self._query_detail_lump_sum_payment_response_body = (
+            QueryDetailLumpSumPaymentResponseBody()
+        )
 
-    def page_token(self, page_token: str) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
         self._query_detail_lump_sum_payment_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
         self._query_detail_lump_sum_payment_response_body.has_more = has_more
         return self
 
-    def records(self, records: List[LumpSumPaymentDetail]) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
+    def records(
+        self, records: List[LumpSumPaymentDetail]
+    ) -> "QueryDetailLumpSumPaymentResponseBodyBuilder":
         self._query_detail_lump_sum_payment_response_body.records = records
         return self
 

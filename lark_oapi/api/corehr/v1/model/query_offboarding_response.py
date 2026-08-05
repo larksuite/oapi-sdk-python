@@ -9,7 +9,6 @@ from .query_offboarding_response_body import QueryOffboardingResponseBody
 class QueryOffboardingResponse(BaseResponse):
     _types = {
         "data": QueryOffboardingResponseBody,
-
     }
 
     def __init__(self, d=None):

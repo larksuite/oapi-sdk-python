@@ -50,7 +50,9 @@ class AppTableFieldBuilder(object):
         self._app_table_field.property = property
         return self
 
-    def description(self, description: AppTableFieldDescription) -> "AppTableFieldBuilder":
+    def description(
+        self, description: AppTableFieldDescription
+    ) -> "AppTableFieldBuilder":
         self._app_table_field.description = description
         return self
 

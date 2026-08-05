@@ -17,7 +17,9 @@ class Okr(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
+    def batch_get(
+        self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetOkrResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Okr(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetOkrResponse)
+        response: BatchGetOkrResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetOkrResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetOkrRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
+    async def abatch_get(
+        self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetOkrResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Okr(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetOkrResponse)
+        response: BatchGetOkrResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetOkrResponse
+        )
         response.raw = resp
 
         return response

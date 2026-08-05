@@ -18,7 +18,6 @@ class CreateNoteRequest(BaseRequest):
 
 
 class CreateNoteRequestBuilder(object):
-
     def __init__(self) -> None:
         create_note_request = CreateNoteRequest()
         create_note_request.http_method = HttpMethod.POST

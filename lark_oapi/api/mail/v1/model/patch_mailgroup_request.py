@@ -18,7 +18,6 @@ class PatchMailgroupRequest(BaseRequest):
 
 
 class PatchMailgroupRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_mailgroup_request = PatchMailgroupRequest()
         patch_mailgroup_request.http_method = HttpMethod.PATCH

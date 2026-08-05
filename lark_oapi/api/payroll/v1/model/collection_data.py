@@ -78,11 +78,15 @@ class CollectionDataBuilder(object):
         self._collection_data.currency_code = currency_code
         return self
 
-    def collection_item_values(self, collection_item_values: List[CollectionItemValue]) -> "CollectionDataBuilder":
+    def collection_item_values(
+        self, collection_item_values: List[CollectionItemValue]
+    ) -> "CollectionDataBuilder":
         self._collection_data.collection_item_values = collection_item_values
         return self
 
-    def template_snapshot(self, template_snapshot: CollectionTemplateSnapshot) -> "CollectionDataBuilder":
+    def template_snapshot(
+        self, template_snapshot: CollectionTemplateSnapshot
+    ) -> "CollectionDataBuilder":
         self._collection_data.template_snapshot = template_snapshot
         return self
 
@@ -102,7 +106,9 @@ class CollectionDataBuilder(object):
         self._collection_data.modifier_info = modifier_info
         return self
 
-    def calendar_period(self, calendar_period: CalendarPeriod) -> "CollectionDataBuilder":
+    def calendar_period(
+        self, calendar_period: CalendarPeriod
+    ) -> "CollectionDataBuilder":
         self._collection_data.calendar_period = calendar_period
         return self
 

@@ -20,7 +20,6 @@ class QueryTaskRequest(BaseRequest):
 
 
 class QueryTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         query_task_request = QueryTaskRequest()
         query_task_request.http_method = HttpMethod.GET

@@ -20,13 +20,14 @@ class ListTenantAppStatRequest(BaseRequest):
 
 
 class ListTenantAppStatRequestBuilder(object):
-
     def __init__(self) -> None:
         list_tenant_app_stat_request = ListTenantAppStatRequest()
         list_tenant_app_stat_request.http_method = HttpMethod.GET
         list_tenant_app_stat_request.uri = "/open-apis/aily/v1/app_stats"
         list_tenant_app_stat_request.token_types = {AccessTokenType.TENANT}
-        self._list_tenant_app_stat_request: ListTenantAppStatRequest = list_tenant_app_stat_request
+        self._list_tenant_app_stat_request: ListTenantAppStatRequest = (
+            list_tenant_app_stat_request
+        )
 
     def start_at(self, start_at: str) -> "ListTenantAppStatRequestBuilder":
         self._list_tenant_app_stat_request.start_at = start_at

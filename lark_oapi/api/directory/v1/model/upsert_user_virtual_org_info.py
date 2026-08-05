@@ -14,7 +14,9 @@ class UpsertUserVirtualOrgInfo(object):
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
-        self.employee_order_in_departments: Optional[List[UpsertUserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[
+            List[UpsertUserDepartmentSortInfo]
+        ] = None
         self.leaders: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -31,9 +33,12 @@ class UpsertUserVirtualOrgInfoBuilder(object):
         self._upsert_user_virtual_org_info.id = id
         return self
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UpsertUserDepartmentSortInfo]) -> "UpsertUserVirtualOrgInfoBuilder":
-        self._upsert_user_virtual_org_info.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UpsertUserDepartmentSortInfo]
+    ) -> "UpsertUserVirtualOrgInfoBuilder":
+        self._upsert_user_virtual_org_info.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
     def leaders(self, leaders: List[str]) -> "UpsertUserVirtualOrgInfoBuilder":

@@ -17,8 +17,11 @@ class WorkspaceView(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def views_get(self, request: ViewsGetWorkspaceViewRequest,
-                  option: Optional[RequestOption] = None) -> ViewsGetWorkspaceViewResponse:
+    def views_get(
+        self,
+        request: ViewsGetWorkspaceViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ViewsGetWorkspaceViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class WorkspaceView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ViewsGetWorkspaceViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ViewsGetWorkspaceViewResponse)
+        response: ViewsGetWorkspaceViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ViewsGetWorkspaceViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aviews_get(self, request: ViewsGetWorkspaceViewRequest,
-                         option: Optional[RequestOption] = None) -> ViewsGetWorkspaceViewResponse:
+    async def aviews_get(
+        self,
+        request: ViewsGetWorkspaceViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ViewsGetWorkspaceViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class WorkspaceView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ViewsGetWorkspaceViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ViewsGetWorkspaceViewResponse)
+        response: ViewsGetWorkspaceViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ViewsGetWorkspaceViewResponse
+        )
         response.raw = resp
 
         return response

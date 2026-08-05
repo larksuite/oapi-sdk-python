@@ -28,17 +28,23 @@ class UserOkrObjectiveAlignedObjectiveOwner(object):
 
 class UserOkrObjectiveAlignedObjectiveOwnerBuilder(object):
     def __init__(self) -> None:
-        self._user_okr_objective_aligned_objective_owner = UserOkrObjectiveAlignedObjectiveOwner()
+        self._user_okr_objective_aligned_objective_owner = (
+            UserOkrObjectiveAlignedObjectiveOwner()
+        )
 
     def open_id(self, open_id: str) -> "UserOkrObjectiveAlignedObjectiveOwnerBuilder":
         self._user_okr_objective_aligned_objective_owner.open_id = open_id
         return self
 
-    def employee_id(self, employee_id: str) -> "UserOkrObjectiveAlignedObjectiveOwnerBuilder":
+    def employee_id(
+        self, employee_id: str
+    ) -> "UserOkrObjectiveAlignedObjectiveOwnerBuilder":
         self._user_okr_objective_aligned_objective_owner.employee_id = employee_id
         return self
 
-    def employee_no(self, employee_no: str) -> "UserOkrObjectiveAlignedObjectiveOwnerBuilder":
+    def employee_no(
+        self, employee_no: str
+    ) -> "UserOkrObjectiveAlignedObjectiveOwnerBuilder":
         self._user_okr_objective_aligned_objective_owner.employee_no = employee_no
         return self
 

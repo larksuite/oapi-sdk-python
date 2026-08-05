@@ -20,7 +20,9 @@ class UploadCompleteAppStorageRequestBody(object):
 
 class UploadCompleteAppStorageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_complete_app_storage_request_body = UploadCompleteAppStorageRequestBody()
+        self._upload_complete_app_storage_request_body = (
+            UploadCompleteAppStorageRequestBody()
+        )
 
     def upload_id(self, upload_id: str) -> "UploadCompleteAppStorageRequestBodyBuilder":
         self._upload_complete_app_storage_request_body.upload_id = upload_id

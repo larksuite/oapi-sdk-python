@@ -54,7 +54,9 @@ class InstanceSearchBuilder(object):
         self._instance_search.instance_code = instance_code
         return self
 
-    def instance_external_id(self, instance_external_id: str) -> "InstanceSearchBuilder":
+    def instance_external_id(
+        self, instance_external_id: str
+    ) -> "InstanceSearchBuilder":
         self._instance_search.instance_external_id = instance_external_id
         return self
 
@@ -70,11 +72,15 @@ class InstanceSearchBuilder(object):
         self._instance_search.instance_status = instance_status
         return self
 
-    def instance_start_time_from(self, instance_start_time_from: int) -> "InstanceSearchBuilder":
+    def instance_start_time_from(
+        self, instance_start_time_from: int
+    ) -> "InstanceSearchBuilder":
         self._instance_search.instance_start_time_from = instance_start_time_from
         return self
 
-    def instance_start_time_to(self, instance_start_time_to: int) -> "InstanceSearchBuilder":
+    def instance_start_time_to(
+        self, instance_start_time_to: int
+    ) -> "InstanceSearchBuilder":
         self._instance_search.instance_start_time_to = instance_start_time_to
         return self
 
@@ -82,7 +88,9 @@ class InstanceSearchBuilder(object):
         self._instance_search.locale = locale
         return self
 
-    def with_revoked_instance(self, with_revoked_instance: bool) -> "InstanceSearchBuilder":
+    def with_revoked_instance(
+        self, with_revoked_instance: bool
+    ) -> "InstanceSearchBuilder":
         self._instance_search.with_revoked_instance = with_revoked_instance
         return self
 

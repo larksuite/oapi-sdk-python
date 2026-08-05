@@ -17,12 +17,14 @@ class ListJobProcessRequest(BaseRequest):
 
 
 class ListJobProcessRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_process_request = ListJobProcessRequest()
         list_job_process_request.http_method = HttpMethod.GET
         list_job_process_request.uri = "/open-apis/hire/v1/job_processes"
-        list_job_process_request.token_types = {AccessTokenType.TENANT}
+        list_job_process_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_job_process_request: ListJobProcessRequest = list_job_process_request
 
     def page_size(self, page_size: int) -> "ListJobProcessRequestBuilder":

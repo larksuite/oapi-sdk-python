@@ -22,7 +22,9 @@ class CancelApprovalInstanceRequestBody(object):
 
 class CancelApprovalInstanceRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._cancel_approval_instance_request_body = CancelApprovalInstanceRequestBody()
+        self._cancel_approval_instance_request_body = (
+            CancelApprovalInstanceRequestBody()
+        )
 
     def user_id(self, user_id: str) -> "CancelApprovalInstanceRequestBodyBuilder":
         self._cancel_approval_instance_request_body.user_id = user_id

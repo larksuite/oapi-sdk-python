@@ -151,7 +151,9 @@ class PersonBuilder(object):
         self._person.email_list = email_list
         return self
 
-    def work_experience_list(self, work_experience_list: List[WorkExperience]) -> "PersonBuilder":
+    def work_experience_list(
+        self, work_experience_list: List[WorkExperience]
+    ) -> "PersonBuilder":
         self._person.work_experience_list = work_experience_list
         return self
 
@@ -159,7 +161,9 @@ class PersonBuilder(object):
         self._person.education_list = education_list
         return self
 
-    def bank_account_list(self, bank_account_list: List[BankAccount]) -> "PersonBuilder":
+    def bank_account_list(
+        self, bank_account_list: List[BankAccount]
+    ) -> "PersonBuilder":
         self._person.bank_account_list = bank_account_list
         return self
 
@@ -171,7 +175,9 @@ class PersonBuilder(object):
         self._person.dependent_list = dependent_list
         return self
 
-    def emergency_contact_list(self, emergency_contact_list: List[EmergencyContact]) -> "PersonBuilder":
+    def emergency_contact_list(
+        self, emergency_contact_list: List[EmergencyContact]
+    ) -> "PersonBuilder":
         self._person.emergency_contact_list = emergency_contact_list
         return self
 
@@ -199,15 +205,21 @@ class PersonBuilder(object):
         self._person.age = age
         return self
 
-    def highest_level_of_education(self, highest_level_of_education: Education) -> "PersonBuilder":
+    def highest_level_of_education(
+        self, highest_level_of_education: Education
+    ) -> "PersonBuilder":
         self._person.highest_level_of_education = highest_level_of_education
         return self
 
-    def highest_degree_of_education(self, highest_degree_of_education: Education) -> "PersonBuilder":
+    def highest_degree_of_education(
+        self, highest_degree_of_education: Education
+    ) -> "PersonBuilder":
         self._person.highest_degree_of_education = highest_degree_of_education
         return self
 
-    def personal_profile(self, personal_profile: List[PersonalProfile]) -> "PersonBuilder":
+    def personal_profile(
+        self, personal_profile: List[PersonalProfile]
+    ) -> "PersonBuilder":
         self._person.personal_profile = personal_profile
         return self
 

@@ -9,7 +9,6 @@ from .get_daily_report_response_body import GetDailyReportResponseBody
 class GetDailyReportResponse(BaseResponse):
     _types = {
         "data": GetDailyReportResponseBody,
-
     }
 
     def __init__(self, d=None):

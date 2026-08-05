@@ -18,20 +18,25 @@ class QueryMetricDetailRequest(BaseRequest):
 
 
 class QueryMetricDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         query_metric_detail_request = QueryMetricDetailRequest()
         query_metric_detail_request.http_method = HttpMethod.POST
-        query_metric_detail_request.uri = "/open-apis/performance/v2/metric_details/query"
+        query_metric_detail_request.uri = (
+            "/open-apis/performance/v2/metric_details/query"
+        )
         query_metric_detail_request.token_types = {AccessTokenType.TENANT}
-        self._query_metric_detail_request: QueryMetricDetailRequest = query_metric_detail_request
+        self._query_metric_detail_request: QueryMetricDetailRequest = (
+            query_metric_detail_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "QueryMetricDetailRequestBuilder":
         self._query_metric_detail_request.user_id_type = user_id_type
         self._query_metric_detail_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryMetricDetailRequestBody) -> "QueryMetricDetailRequestBuilder":
+    def request_body(
+        self, request_body: QueryMetricDetailRequestBody
+    ) -> "QueryMetricDetailRequestBuilder":
         self._query_metric_detail_request.request_body = request_body
         self._query_metric_detail_request.body = request_body
         return self

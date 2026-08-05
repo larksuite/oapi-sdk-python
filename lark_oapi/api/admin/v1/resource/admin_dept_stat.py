@@ -17,8 +17,9 @@ class AdminDeptStat(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAdminDeptStatRequest,
-             option: Optional[RequestOption] = None) -> ListAdminDeptStatResponse:
+    def list(
+        self, request: ListAdminDeptStatRequest, option: Optional[RequestOption] = None
+    ) -> ListAdminDeptStatResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class AdminDeptStat(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAdminDeptStatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAdminDeptStatResponse)
+        response: ListAdminDeptStatResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAdminDeptStatResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAdminDeptStatRequest,
-                    option: Optional[RequestOption] = None) -> ListAdminDeptStatResponse:
+    async def alist(
+        self, request: ListAdminDeptStatRequest, option: Optional[RequestOption] = None
+    ) -> ListAdminDeptStatResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class AdminDeptStat(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAdminDeptStatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAdminDeptStatResponse)
+        response: ListAdminDeptStatResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAdminDeptStatResponse
+        )
         response.raw = resp
 
         return response

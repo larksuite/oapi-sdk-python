@@ -19,11 +19,12 @@ class QueryRecentChangeCostCenterRequest(BaseRequest):
 
 
 class QueryRecentChangeCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
         query_recent_change_cost_center_request = QueryRecentChangeCostCenterRequest()
         query_recent_change_cost_center_request.http_method = HttpMethod.GET
-        query_recent_change_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers/query_recent_change"
+        query_recent_change_cost_center_request.uri = (
+            "/open-apis/corehr/v2/cost_centers/query_recent_change"
+        )
         query_recent_change_cost_center_request.token_types = {AccessTokenType.TENANT}
         self._query_recent_change_cost_center_request: QueryRecentChangeCostCenterRequest = query_recent_change_cost_center_request
 
@@ -32,14 +33,22 @@ class QueryRecentChangeCostCenterRequestBuilder(object):
         self._query_recent_change_cost_center_request.add_query("page_size", page_size)
         return self
 
-    def page_token(self, page_token: str) -> "QueryRecentChangeCostCenterRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryRecentChangeCostCenterRequestBuilder":
         self._query_recent_change_cost_center_request.page_token = page_token
-        self._query_recent_change_cost_center_request.add_query("page_token", page_token)
+        self._query_recent_change_cost_center_request.add_query(
+            "page_token", page_token
+        )
         return self
 
-    def start_date(self, start_date: str) -> "QueryRecentChangeCostCenterRequestBuilder":
+    def start_date(
+        self, start_date: str
+    ) -> "QueryRecentChangeCostCenterRequestBuilder":
         self._query_recent_change_cost_center_request.start_date = start_date
-        self._query_recent_change_cost_center_request.add_query("start_date", start_date)
+        self._query_recent_change_cost_center_request.add_query(
+            "start_date", start_date
+        )
         return self
 
     def end_date(self, end_date: str) -> "QueryRecentChangeCostCenterRequestBuilder":

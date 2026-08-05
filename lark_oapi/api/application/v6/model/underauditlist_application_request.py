@@ -19,13 +19,16 @@ class UnderauditlistApplicationRequest(BaseRequest):
 
 
 class UnderauditlistApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         underauditlist_application_request = UnderauditlistApplicationRequest()
         underauditlist_application_request.http_method = HttpMethod.GET
-        underauditlist_application_request.uri = "/open-apis/application/v6/applications/underauditlist"
+        underauditlist_application_request.uri = (
+            "/open-apis/application/v6/applications/underauditlist"
+        )
         underauditlist_application_request.token_types = {AccessTokenType.TENANT}
-        self._underauditlist_application_request: UnderauditlistApplicationRequest = underauditlist_application_request
+        self._underauditlist_application_request: UnderauditlistApplicationRequest = (
+            underauditlist_application_request
+        )
 
     def lang(self, lang: str) -> "UnderauditlistApplicationRequestBuilder":
         self._underauditlist_application_request.lang = lang
@@ -42,7 +45,9 @@ class UnderauditlistApplicationRequestBuilder(object):
         self._underauditlist_application_request.add_query("page_size", page_size)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "UnderauditlistApplicationRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "UnderauditlistApplicationRequestBuilder":
         self._underauditlist_application_request.user_id_type = user_id_type
         self._underauditlist_application_request.add_query("user_id_type", user_id_type)
         return self

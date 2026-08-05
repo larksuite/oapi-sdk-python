@@ -3,14 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_collaboration_tenant_collaboration_user_response_body import \
-    GetCollaborationTenantCollaborationUserResponseBody
+from .get_collaboration_tenant_collaboration_user_response_body import (
+    GetCollaborationTenantCollaborationUserResponseBody,
+)
 
 
 class GetCollaborationTenantCollaborationUserResponse(BaseResponse):
     _types = {
         "data": GetCollaborationTenantCollaborationUserResponseBody,
-
     }
 
     def __init__(self, d=None):

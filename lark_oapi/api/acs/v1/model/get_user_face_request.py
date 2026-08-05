@@ -18,7 +18,6 @@ class GetUserFaceRequest(BaseRequest):
 
 
 class GetUserFaceRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_face_request = GetUserFaceRequest()
         get_user_face_request.http_method = HttpMethod.GET

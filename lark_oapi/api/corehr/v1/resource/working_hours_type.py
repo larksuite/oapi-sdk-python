@@ -25,8 +25,11 @@ class WorkingHoursType(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateWorkingHoursTypeRequest,
-               option: Optional[RequestOption] = None) -> CreateWorkingHoursTypeResponse:
+    def create(
+        self,
+        request: CreateWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +44,18 @@ class WorkingHoursType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateWorkingHoursTypeResponse)
+        response: CreateWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateWorkingHoursTypeRequest,
-                      option: Optional[RequestOption] = None) -> CreateWorkingHoursTypeResponse:
+    async def acreate(
+        self,
+        request: CreateWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +66,18 @@ class WorkingHoursType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateWorkingHoursTypeResponse)
+        response: CreateWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteWorkingHoursTypeRequest,
-               option: Optional[RequestOption] = None) -> DeleteWorkingHoursTypeResponse:
+    def delete(
+        self,
+        request: DeleteWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +92,18 @@ class WorkingHoursType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteWorkingHoursTypeResponse)
+        response: DeleteWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteWorkingHoursTypeRequest,
-                      option: Optional[RequestOption] = None) -> DeleteWorkingHoursTypeResponse:
+    async def adelete(
+        self,
+        request: DeleteWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +114,18 @@ class WorkingHoursType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteWorkingHoursTypeResponse)
+        response: DeleteWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetWorkingHoursTypeRequest,
-            option: Optional[RequestOption] = None) -> GetWorkingHoursTypeResponse:
+    def get(
+        self,
+        request: GetWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,13 +140,18 @@ class WorkingHoursType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWorkingHoursTypeResponse)
+        response: GetWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetWorkingHoursTypeRequest,
-                   option: Optional[RequestOption] = None) -> GetWorkingHoursTypeResponse:
+    async def aget(
+        self,
+        request: GetWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -138,13 +162,18 @@ class WorkingHoursType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWorkingHoursTypeResponse)
+        response: GetWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListWorkingHoursTypeRequest,
-             option: Optional[RequestOption] = None) -> ListWorkingHoursTypeResponse:
+    def list(
+        self,
+        request: ListWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,13 +188,18 @@ class WorkingHoursType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkingHoursTypeResponse)
+        response: ListWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWorkingHoursTypeRequest,
-                    option: Optional[RequestOption] = None) -> ListWorkingHoursTypeResponse:
+    async def alist(
+        self,
+        request: ListWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -176,13 +210,18 @@ class WorkingHoursType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkingHoursTypeResponse)
+        response: ListWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchWorkingHoursTypeRequest,
-              option: Optional[RequestOption] = None) -> PatchWorkingHoursTypeResponse:
+    def patch(
+        self,
+        request: PatchWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -197,14 +236,18 @@ class WorkingHoursType(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchWorkingHoursTypeResponse)
+        response: PatchWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchWorkingHoursTypeRequest,
-                     option: Optional[RequestOption] = None) -> PatchWorkingHoursTypeResponse:
+    async def apatch(
+        self,
+        request: PatchWorkingHoursTypeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchWorkingHoursTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -215,8 +258,9 @@ class WorkingHoursType(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchWorkingHoursTypeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchWorkingHoursTypeResponse)
+        response: PatchWorkingHoursTypeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchWorkingHoursTypeResponse
+        )
         response.raw = resp
 
         return response

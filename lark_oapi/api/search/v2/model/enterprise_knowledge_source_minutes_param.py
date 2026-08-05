@@ -20,9 +20,13 @@ class EnterpriseKnowledgeSourceMinutesParam(object):
 
 class EnterpriseKnowledgeSourceMinutesParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_minutes_param = EnterpriseKnowledgeSourceMinutesParam()
+        self._enterprise_knowledge_source_minutes_param = (
+            EnterpriseKnowledgeSourceMinutesParam()
+        )
 
-    def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceMinutesParamBuilder":
+    def searchable(
+        self, searchable: bool
+    ) -> "EnterpriseKnowledgeSourceMinutesParamBuilder":
         self._enterprise_knowledge_source_minutes_param.searchable = searchable
         return self
 

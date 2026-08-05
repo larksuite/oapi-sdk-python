@@ -42,7 +42,9 @@ class GetMailgroupMemberResponseBodyBuilder(object):
         self._get_mailgroup_member_response_body.user_id = user_id
         return self
 
-    def department_id(self, department_id: str) -> "GetMailgroupMemberResponseBodyBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "GetMailgroupMemberResponseBodyBuilder":
         self._get_mailgroup_member_response_body.department_id = department_id
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .modify_user_mailbox_message_request_body import ModifyUserMailboxMessageRequestBody
+from .modify_user_mailbox_message_request_body import (
+    ModifyUserMailboxMessageRequestBody,
+)
 
 
 class ModifyUserMailboxMessageRequest(BaseRequest):
@@ -19,17 +21,25 @@ class ModifyUserMailboxMessageRequest(BaseRequest):
 
 
 class ModifyUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         modify_user_mailbox_message_request = ModifyUserMailboxMessageRequest()
         modify_user_mailbox_message_request.http_method = HttpMethod.PUT
         modify_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/modify"
-        modify_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._modify_user_mailbox_message_request: ModifyUserMailboxMessageRequest = modify_user_mailbox_message_request
+        modify_user_mailbox_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._modify_user_mailbox_message_request: ModifyUserMailboxMessageRequest = (
+            modify_user_mailbox_message_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ModifyUserMailboxMessageRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ModifyUserMailboxMessageRequestBuilder":
         self._modify_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._modify_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._modify_user_mailbox_message_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def message_id(self, message_id: str) -> "ModifyUserMailboxMessageRequestBuilder":
@@ -37,8 +47,9 @@ class ModifyUserMailboxMessageRequestBuilder(object):
         self._modify_user_mailbox_message_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self,
-                     request_body: ModifyUserMailboxMessageRequestBody) -> "ModifyUserMailboxMessageRequestBuilder":
+    def request_body(
+        self, request_body: ModifyUserMailboxMessageRequestBody
+    ) -> "ModifyUserMailboxMessageRequestBuilder":
         self._modify_user_mailbox_message_request.request_body = request_body
         self._modify_user_mailbox_message_request.body = request_body
         return self

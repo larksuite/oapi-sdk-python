@@ -49,11 +49,17 @@ class GetChatMembersResponseBodyBuilder(object):
         self._get_chat_members_response_body.member_total = member_total
         return self
 
-    def trigger_security_conf_limit(self, trigger_security_conf_limit: bool) -> "GetChatMembersResponseBodyBuilder":
-        self._get_chat_members_response_body.trigger_security_conf_limit = trigger_security_conf_limit
+    def trigger_security_conf_limit(
+        self, trigger_security_conf_limit: bool
+    ) -> "GetChatMembersResponseBodyBuilder":
+        self._get_chat_members_response_body.trigger_security_conf_limit = (
+            trigger_security_conf_limit
+        )
         return self
 
-    def security_conf_limit(self, security_conf_limit: int) -> "GetChatMembersResponseBodyBuilder":
+    def security_conf_limit(
+        self, security_conf_limit: int
+    ) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.security_conf_limit = security_conf_limit
         return self
 

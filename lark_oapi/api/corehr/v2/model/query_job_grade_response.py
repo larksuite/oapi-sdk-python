@@ -9,7 +9,6 @@ from .query_job_grade_response_body import QueryJobGradeResponseBody
 class QueryJobGradeResponse(BaseResponse):
     _types = {
         "data": QueryJobGradeResponseBody,
-
     }
 
     def __init__(self, d=None):

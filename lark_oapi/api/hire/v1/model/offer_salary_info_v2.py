@@ -49,11 +49,17 @@ class OfferSalaryInfoV2Builder(object):
         self._offer_salary_info_v2.salary_status = salary_status
         return self
 
-    def probation_salary_percentage(self, probation_salary_percentage: str) -> "OfferSalaryInfoV2Builder":
-        self._offer_salary_info_v2.probation_salary_percentage = probation_salary_percentage
+    def probation_salary_percentage(
+        self, probation_salary_percentage: str
+    ) -> "OfferSalaryInfoV2Builder":
+        self._offer_salary_info_v2.probation_salary_percentage = (
+            probation_salary_percentage
+        )
         return self
 
-    def award_salary_multiple(self, award_salary_multiple: str) -> "OfferSalaryInfoV2Builder":
+    def award_salary_multiple(
+        self, award_salary_multiple: str
+    ) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.award_salary_multiple = award_salary_multiple
         return self
 
@@ -73,7 +79,9 @@ class OfferSalaryInfoV2Builder(object):
         self._offer_salary_info_v2.total_annual_cash = total_annual_cash
         return self
 
-    def customize_info_list(self, customize_info_list: List[ApplicationOfferCustomValue]) -> "OfferSalaryInfoV2Builder":
+    def customize_info_list(
+        self, customize_info_list: List[ApplicationOfferCustomValue]
+    ) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.customize_info_list = customize_info_list
         return self
 

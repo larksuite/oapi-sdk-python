@@ -48,11 +48,15 @@ class OkrCommentBuilder(object):
         self._okr_comment.comment_time = comment_time
         return self
 
-    def commentator(self, commentator: OkrObjectiveAlignedObjectiveOwner) -> "OkrCommentBuilder":
+    def commentator(
+        self, commentator: OkrObjectiveAlignedObjectiveOwner
+    ) -> "OkrCommentBuilder":
         self._okr_comment.commentator = commentator
         return self
 
-    def last_modifier(self, last_modifier: OkrObjectiveAlignedObjectiveOwner) -> "OkrCommentBuilder":
+    def last_modifier(
+        self, last_modifier: OkrObjectiveAlignedObjectiveOwner
+    ) -> "OkrCommentBuilder":
         self._okr_comment.last_modifier = last_modifier
         return self
 

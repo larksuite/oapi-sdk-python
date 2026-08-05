@@ -9,7 +9,6 @@ from .query_archive_response_body import QueryArchiveResponseBody
 class QueryArchiveResponse(BaseResponse):
     _types = {
         "data": QueryArchiveResponseBody,
-
     }
 
     def __init__(self, d=None):

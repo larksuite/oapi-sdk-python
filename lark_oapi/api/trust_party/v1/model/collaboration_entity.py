@@ -56,7 +56,9 @@ class CollaborationEntityBuilder(object):
     def __init__(self) -> None:
         self._collaboration_entity = CollaborationEntity()
 
-    def collaboration_entity_type(self, collaboration_entity_type: str) -> "CollaborationEntityBuilder":
+    def collaboration_entity_type(
+        self, collaboration_entity_type: str
+    ) -> "CollaborationEntityBuilder":
         self._collaboration_entity.collaboration_entity_type = collaboration_entity_type
         return self
 
@@ -64,7 +66,9 @@ class CollaborationEntityBuilder(object):
         self._collaboration_entity.department_id = department_id
         return self
 
-    def open_department_id(self, open_department_id: str) -> "CollaborationEntityBuilder":
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "CollaborationEntityBuilder":
         self._collaboration_entity.open_department_id = open_department_id
         return self
 
@@ -84,7 +88,9 @@ class CollaborationEntityBuilder(object):
         self._collaboration_entity.department_name = department_name
         return self
 
-    def i18n_department_name(self, i18n_department_name: I18nName) -> "CollaborationEntityBuilder":
+    def i18n_department_name(
+        self, i18n_department_name: I18nName
+    ) -> "CollaborationEntityBuilder":
         self._collaboration_entity.i18n_department_name = i18n_department_name
         return self
 
@@ -116,7 +122,9 @@ class CollaborationEntityBuilder(object):
         self._collaboration_entity.group_name = group_name
         return self
 
-    def i18n_group_name(self, i18n_group_name: I18nName) -> "CollaborationEntityBuilder":
+    def i18n_group_name(
+        self, i18n_group_name: I18nName
+    ) -> "CollaborationEntityBuilder":
         self._collaboration_entity.i18n_group_name = i18n_group_name
         return self
 

@@ -36,7 +36,9 @@ class FindByPageStageTaskRequestBodyBuilder(object):
         self._find_by_page_stage_task_request_body.semester_id = semester_id
         return self
 
-    def task_option_lists(self, task_option_lists: List[int]) -> "FindByPageStageTaskRequestBodyBuilder":
+    def task_option_lists(
+        self, task_option_lists: List[int]
+    ) -> "FindByPageStageTaskRequestBodyBuilder":
         self._find_by_page_stage_task_request_body.task_option_lists = task_option_lists
         return self
 

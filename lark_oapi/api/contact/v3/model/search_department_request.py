@@ -21,22 +21,27 @@ class SearchDepartmentRequest(BaseRequest):
 
 
 class SearchDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         search_department_request = SearchDepartmentRequest()
         search_department_request.http_method = HttpMethod.POST
         search_department_request.uri = "/open-apis/contact/v3/departments/search"
         search_department_request.token_types = {AccessTokenType.USER}
-        self._search_department_request: SearchDepartmentRequest = search_department_request
+        self._search_department_request: SearchDepartmentRequest = (
+            search_department_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.user_id_type = user_id_type
         self._search_department_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.department_id_type = department_id_type
-        self._search_department_request.add_query("department_id_type", department_id_type)
+        self._search_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def page_token(self, page_token: str) -> "SearchDepartmentRequestBuilder":
@@ -49,7 +54,9 @@ class SearchDepartmentRequestBuilder(object):
         self._search_department_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: SearchDepartmentRequestBody) -> "SearchDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: SearchDepartmentRequestBody
+    ) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.request_body = request_body
         self._search_department_request.body = request_body
         return self

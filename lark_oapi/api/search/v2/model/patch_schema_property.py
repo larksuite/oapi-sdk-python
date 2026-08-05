@@ -35,7 +35,9 @@ class PatchSchemaPropertyBuilder(object):
         self._patch_schema_property.desc = desc
         return self
 
-    def answer_option(self, answer_option: SchemaFieldAnswerOption) -> "PatchSchemaPropertyBuilder":
+    def answer_option(
+        self, answer_option: SchemaFieldAnswerOption
+    ) -> "PatchSchemaPropertyBuilder":
         self._patch_schema_property.answer_option = answer_option
         return self
 

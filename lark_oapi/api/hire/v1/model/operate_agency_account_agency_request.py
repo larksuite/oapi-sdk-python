@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .operate_agency_account_agency_request_body import OperateAgencyAccountAgencyRequestBody
+from .operate_agency_account_agency_request_body import (
+    OperateAgencyAccountAgencyRequestBody,
+)
 
 
 class OperateAgencyAccountAgencyRequest(BaseRequest):
@@ -17,16 +19,18 @@ class OperateAgencyAccountAgencyRequest(BaseRequest):
 
 
 class OperateAgencyAccountAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         operate_agency_account_agency_request = OperateAgencyAccountAgencyRequest()
         operate_agency_account_agency_request.http_method = HttpMethod.POST
-        operate_agency_account_agency_request.uri = "/open-apis/hire/v1/agencies/operate_agency_account"
+        operate_agency_account_agency_request.uri = (
+            "/open-apis/hire/v1/agencies/operate_agency_account"
+        )
         operate_agency_account_agency_request.token_types = {AccessTokenType.TENANT}
         self._operate_agency_account_agency_request: OperateAgencyAccountAgencyRequest = operate_agency_account_agency_request
 
-    def request_body(self,
-                     request_body: OperateAgencyAccountAgencyRequestBody) -> "OperateAgencyAccountAgencyRequestBuilder":
+    def request_body(
+        self, request_body: OperateAgencyAccountAgencyRequestBody
+    ) -> "OperateAgencyAccountAgencyRequestBuilder":
         self._operate_agency_account_agency_request.request_body = request_body
         self._operate_agency_account_agency_request.body = request_body
         return self

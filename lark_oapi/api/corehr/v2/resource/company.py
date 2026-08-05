@@ -13,17 +13,25 @@ from ..model.active_company_request import ActiveCompanyRequest
 from ..model.active_company_response import ActiveCompanyResponse
 from ..model.batch_get_company_request import BatchGetCompanyRequest
 from ..model.batch_get_company_response import BatchGetCompanyResponse
-from ..model.query_multi_timeline_company_request import QueryMultiTimelineCompanyRequest
-from ..model.query_multi_timeline_company_response import QueryMultiTimelineCompanyResponse
+from ..model.query_multi_timeline_company_request import (
+    QueryMultiTimelineCompanyRequest,
+)
+from ..model.query_multi_timeline_company_response import (
+    QueryMultiTimelineCompanyResponse,
+)
 from ..model.query_recent_change_company_request import QueryRecentChangeCompanyRequest
-from ..model.query_recent_change_company_response import QueryRecentChangeCompanyResponse
+from ..model.query_recent_change_company_response import (
+    QueryRecentChangeCompanyResponse,
+)
 
 
 class Company(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def active(self, request: ActiveCompanyRequest, option: Optional[RequestOption] = None) -> ActiveCompanyResponse:
+    def active(
+        self, request: ActiveCompanyRequest, option: Optional[RequestOption] = None
+    ) -> ActiveCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,13 +46,16 @@ class Company(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ActiveCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCompanyResponse)
+        response: ActiveCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActiveCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aactive(self, request: ActiveCompanyRequest,
-                      option: Optional[RequestOption] = None) -> ActiveCompanyResponse:
+    async def aactive(
+        self, request: ActiveCompanyRequest, option: Optional[RequestOption] = None
+    ) -> ActiveCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,13 +66,16 @@ class Company(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ActiveCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCompanyResponse)
+        response: ActiveCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActiveCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_get(self, request: BatchGetCompanyRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
+    def batch_get(
+        self, request: BatchGetCompanyRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -76,13 +90,16 @@ class Company(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetCompanyResponse)
+        response: BatchGetCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetCompanyRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
+    async def abatch_get(
+        self, request: BatchGetCompanyRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,13 +110,18 @@ class Company(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetCompanyResponse)
+        response: BatchGetCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineCompanyRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineCompanyResponse:
+    def query_multi_timeline(
+        self,
+        request: QueryMultiTimelineCompanyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,14 +136,18 @@ class Company(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryMultiTimelineCompanyResponse)
+        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineCompanyRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineCompanyResponse:
+    async def aquery_multi_timeline(
+        self,
+        request: QueryMultiTimelineCompanyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,14 +158,18 @@ class Company(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryMultiTimelineCompanyResponse)
+        response: QueryMultiTimelineCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeCompanyRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeCompanyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,14 +184,18 @@ class Company(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    QueryRecentChangeCompanyResponse)
+        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeCompanyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeCompanyRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeCompanyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -172,8 +206,9 @@ class Company(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    QueryRecentChangeCompanyResponse)
+        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeCompanyResponse
+        )
         response.raw = resp
 
         return response

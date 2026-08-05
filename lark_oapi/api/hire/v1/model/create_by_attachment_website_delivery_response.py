@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_by_attachment_website_delivery_response_body import CreateByAttachmentWebsiteDeliveryResponseBody
+from .create_by_attachment_website_delivery_response_body import (
+    CreateByAttachmentWebsiteDeliveryResponseBody,
+)
 
 
 class CreateByAttachmentWebsiteDeliveryResponse(BaseResponse):
     _types = {
         "data": CreateByAttachmentWebsiteDeliveryResponseBody,
-
     }
 
     def __init__(self, d=None):

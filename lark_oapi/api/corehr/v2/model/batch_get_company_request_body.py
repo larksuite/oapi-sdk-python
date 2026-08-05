@@ -22,7 +22,9 @@ class BatchGetCompanyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_company_request_body = BatchGetCompanyRequestBody()
 
-    def company_ids(self, company_ids: List[str]) -> "BatchGetCompanyRequestBodyBuilder":
+    def company_ids(
+        self, company_ids: List[str]
+    ) -> "BatchGetCompanyRequestBodyBuilder":
         self._batch_get_company_request_body.company_ids = company_ids
         return self
 

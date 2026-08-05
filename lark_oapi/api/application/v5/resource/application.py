@@ -19,8 +19,11 @@ class Application(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def favourite(self, request: FavouriteApplicationRequest,
-                  option: Optional[RequestOption] = None) -> FavouriteApplicationResponse:
+    def favourite(
+        self,
+        request: FavouriteApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FavouriteApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FavouriteApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), FavouriteApplicationResponse)
+        response: FavouriteApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FavouriteApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def afavourite(self, request: FavouriteApplicationRequest,
-                         option: Optional[RequestOption] = None) -> FavouriteApplicationResponse:
+    async def afavourite(
+        self,
+        request: FavouriteApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FavouriteApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FavouriteApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), FavouriteApplicationResponse)
+        response: FavouriteApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FavouriteApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def recommend(self, request: RecommendApplicationRequest,
-                  option: Optional[RequestOption] = None) -> RecommendApplicationResponse:
+    def recommend(
+        self,
+        request: RecommendApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecommendApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +86,18 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecommendApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecommendApplicationResponse)
+        response: RecommendApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecommendApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecommend(self, request: RecommendApplicationRequest,
-                         option: Optional[RequestOption] = None) -> RecommendApplicationResponse:
+    async def arecommend(
+        self,
+        request: RecommendApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecommendApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +108,9 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecommendApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecommendApplicationResponse)
+        response: RecommendApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecommendApplicationResponse
+        )
         response.raw = resp
 
         return response

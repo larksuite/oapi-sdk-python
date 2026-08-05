@@ -18,7 +18,6 @@ class BatchGetJobRequest(BaseRequest):
 
 
 class BatchGetJobRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_job_request = BatchGetJobRequest()
         batch_get_job_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class BatchGetJobRequestBuilder(object):
         self._batch_get_job_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: BatchGetJobRequestBody) -> "BatchGetJobRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetJobRequestBody
+    ) -> "BatchGetJobRequestBuilder":
         self._batch_get_job_request.request_body = request_body
         self._batch_get_job_request.body = request_body
         return self

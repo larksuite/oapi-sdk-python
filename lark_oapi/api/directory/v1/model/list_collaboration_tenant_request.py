@@ -17,13 +17,19 @@ class ListCollaborationTenantRequest(BaseRequest):
 
 
 class ListCollaborationTenantRequestBuilder(object):
-
     def __init__(self) -> None:
         list_collaboration_tenant_request = ListCollaborationTenantRequest()
         list_collaboration_tenant_request.http_method = HttpMethod.GET
-        list_collaboration_tenant_request.uri = "/open-apis/directory/v1/collaboration_tenants"
-        list_collaboration_tenant_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_collaboration_tenant_request: ListCollaborationTenantRequest = list_collaboration_tenant_request
+        list_collaboration_tenant_request.uri = (
+            "/open-apis/directory/v1/collaboration_tenants"
+        )
+        list_collaboration_tenant_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_collaboration_tenant_request: ListCollaborationTenantRequest = (
+            list_collaboration_tenant_request
+        )
 
     def page_size(self, page_size: int) -> "ListCollaborationTenantRequestBuilder":
         self._list_collaboration_tenant_request.page_size = page_size

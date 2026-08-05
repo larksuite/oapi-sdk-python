@@ -9,7 +9,6 @@ from .update_user_mailbox_draft_response_body import UpdateUserMailboxDraftRespo
 class UpdateUserMailboxDraftResponse(BaseResponse):
     _types = {
         "data": UpdateUserMailboxDraftResponseBody,
-
     }
 
     def __init__(self, d=None):

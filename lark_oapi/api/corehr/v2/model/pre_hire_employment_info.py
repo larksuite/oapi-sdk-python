@@ -10,7 +10,9 @@ from .pre_hire_pay_group_info import PreHirePayGroupInfo
 from .pre_hire_abnormal_reason import PreHireAbnormalReason
 from .enum import Enum
 from .enum import Enum
-from .prehire_seniority_adjust_information_query import PrehireSeniorityAdjustInformationQuery
+from .prehire_seniority_adjust_information_query import (
+    PrehireSeniorityAdjustInformationQuery,
+)
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
@@ -74,7 +76,9 @@ class PreHireEmploymentInfo(object):
         "background_check_order_start_time": str,
         "background_check_order_complete_time": str,
         "background_check_order_status": Enum,
-        "seniority_adjust_information_list": List[PrehireSeniorityAdjustInformationQuery],
+        "seniority_adjust_information_list": List[
+            PrehireSeniorityAdjustInformationQuery
+        ],
         "notice_period_positive_voluntary": NoticePeriodDetail,
         "notice_period_probation_involuntary": NoticePeriodDetail,
         "notice_period_positive_involuntary": NoticePeriodDetail,
@@ -146,7 +150,9 @@ class PreHireEmploymentInfo(object):
         self.background_check_order_start_time: Optional[str] = None
         self.background_check_order_complete_time: Optional[str] = None
         self.background_check_order_status: Optional[Enum] = None
-        self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformationQuery]] = None
+        self.seniority_adjust_information_list: Optional[
+            List[PrehireSeniorityAdjustInformationQuery]
+        ] = None
         self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
         self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
         self.notice_period_positive_involuntary: Optional[NoticePeriodDetail] = None
@@ -177,11 +183,15 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.department_id = department_id
         return self
 
-    def cost_center_rates(self, cost_center_rates: List[JobDataCostCenter]) -> "PreHireEmploymentInfoBuilder":
+    def cost_center_rates(
+        self, cost_center_rates: List[JobDataCostCenter]
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.cost_center_rates = cost_center_rates
         return self
 
-    def office_location_id(self, office_location_id: str) -> "PreHireEmploymentInfoBuilder":
+    def office_location_id(
+        self, office_location_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.office_location_id = office_location_id
         return self
 
@@ -197,7 +207,9 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.worker_id = worker_id
         return self
 
-    def compensation_type(self, compensation_type: Enum) -> "PreHireEmploymentInfoBuilder":
+    def compensation_type(
+        self, compensation_type: Enum
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.compensation_type = compensation_type
         return self
 
@@ -205,7 +217,9 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.direct_leader_id = direct_leader_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "PreHireEmploymentInfoBuilder":
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.dotted_line_manager_id = dotted_line_manager_id
         return self
 
@@ -233,7 +247,9 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.employee_type_id = employee_type_id
         return self
 
-    def employee_subtype_id(self, employee_subtype_id: str) -> "PreHireEmploymentInfoBuilder":
+    def employee_subtype_id(
+        self, employee_subtype_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.employee_subtype_id = employee_subtype_id
         return self
 
@@ -249,15 +265,21 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.company_id = company_id
         return self
 
-    def social_security_city_id(self, social_security_city_id: str) -> "PreHireEmploymentInfoBuilder":
+    def social_security_city_id(
+        self, social_security_city_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.social_security_city_id = social_security_city_id
         return self
 
-    def non_compete_covenant(self, non_compete_covenant: bool) -> "PreHireEmploymentInfoBuilder":
+    def non_compete_covenant(
+        self, non_compete_covenant: bool
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.non_compete_covenant = non_compete_covenant
         return self
 
-    def weekly_working_hours(self, weekly_working_hours: int) -> "PreHireEmploymentInfoBuilder":
+    def weekly_working_hours(
+        self, weekly_working_hours: int
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.weekly_working_hours = weekly_working_hours
         return self
 
@@ -265,15 +287,21 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.rehire = rehire
         return self
 
-    def rehire_employment_id(self, rehire_employment_id: str) -> "PreHireEmploymentInfoBuilder":
+    def rehire_employment_id(
+        self, rehire_employment_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.rehire_employment_id = rehire_employment_id
         return self
 
-    def working_hours_type(self, working_hours_type: str) -> "PreHireEmploymentInfoBuilder":
+    def working_hours_type(
+        self, working_hours_type: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.working_hours_type = working_hours_type
         return self
 
-    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "PreHireEmploymentInfoBuilder":
+    def weekly_working_hours_v2(
+        self, weekly_working_hours_v2: float
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 
@@ -281,7 +309,9 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.office_address = office_address
         return self
 
-    def working_calendar_id(self, working_calendar_id: str) -> "PreHireEmploymentInfoBuilder":
+    def working_calendar_id(
+        self, working_calendar_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.working_calendar_id = working_calendar_id
         return self
 
@@ -289,15 +319,21 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.updated_at = updated_at
         return self
 
-    def suspected_rehiring(self, suspected_rehiring: bool) -> "PreHireEmploymentInfoBuilder":
+    def suspected_rehiring(
+        self, suspected_rehiring: bool
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.suspected_rehiring = suspected_rehiring
         return self
 
-    def condition_worker(self, condition_worker: bool) -> "PreHireEmploymentInfoBuilder":
+    def condition_worker(
+        self, condition_worker: bool
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.condition_worker = condition_worker
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHireEmploymentInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.custom_fields = custom_fields
         return self
 
@@ -305,28 +341,41 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.position_id = position_id
         return self
 
-    def company_manual_updated(self, company_manual_updated: bool) -> "PreHireEmploymentInfoBuilder":
+    def company_manual_updated(
+        self, company_manual_updated: bool
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.company_manual_updated = company_manual_updated
         return self
 
-    def pay_group(self, pay_group: PreHirePayGroupInfo) -> "PreHireEmploymentInfoBuilder":
+    def pay_group(
+        self, pay_group: PreHirePayGroupInfo
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.pay_group = pay_group
         return self
 
-    def whether_the_information_is_abnormal(self,
-                                            whether_the_information_is_abnormal: bool) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.whether_the_information_is_abnormal = whether_the_information_is_abnormal
+    def whether_the_information_is_abnormal(
+        self, whether_the_information_is_abnormal: bool
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.whether_the_information_is_abnormal = (
+            whether_the_information_is_abnormal
+        )
         return self
 
-    def abnormal_reason(self, abnormal_reason: List[PreHireAbnormalReason]) -> "PreHireEmploymentInfoBuilder":
+    def abnormal_reason(
+        self, abnormal_reason: List[PreHireAbnormalReason]
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.abnormal_reason = abnormal_reason
         return self
 
-    def has_offer_salary(self, has_offer_salary: bool) -> "PreHireEmploymentInfoBuilder":
+    def has_offer_salary(
+        self, has_offer_salary: bool
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.has_offer_salary = has_offer_salary
         return self
 
-    def recruitment_project_id(self, recruitment_project_id: str) -> "PreHireEmploymentInfoBuilder":
+    def recruitment_project_id(
+        self, recruitment_project_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.recruitment_project_id = recruitment_project_id
         return self
 
@@ -350,75 +399,125 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.seniority_date = seniority_date
         return self
 
-    def background_check_order_id(self, background_check_order_id: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_id = background_check_order_id
+    def background_check_order_id(
+        self, background_check_order_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_id = (
+            background_check_order_id
+        )
         return self
 
-    def background_check_order_name(self, background_check_order_name: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_name = background_check_order_name
+    def background_check_order_name(
+        self, background_check_order_name: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_name = (
+            background_check_order_name
+        )
         return self
 
-    def background_check_order_package_name(self,
-                                            background_check_order_package_name: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_package_name = background_check_order_package_name
+    def background_check_order_package_name(
+        self, background_check_order_package_name: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_package_name = (
+            background_check_order_package_name
+        )
         return self
 
-    def background_check_order_result(self, background_check_order_result: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_result = background_check_order_result
+    def background_check_order_result(
+        self, background_check_order_result: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_result = (
+            background_check_order_result
+        )
         return self
 
-    def background_check_order_supplier_name(self,
-                                             background_check_order_supplier_name: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_supplier_name = background_check_order_supplier_name
+    def background_check_order_supplier_name(
+        self, background_check_order_supplier_name: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_supplier_name = (
+            background_check_order_supplier_name
+        )
         return self
 
-    def background_check_order_account_name(self,
-                                            background_check_order_account_name: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_account_name = background_check_order_account_name
+    def background_check_order_account_name(
+        self, background_check_order_account_name: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_account_name = (
+            background_check_order_account_name
+        )
         return self
 
-    def background_check_order_start_time(self,
-                                          background_check_order_start_time: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_start_time = background_check_order_start_time
+    def background_check_order_start_time(
+        self, background_check_order_start_time: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_start_time = (
+            background_check_order_start_time
+        )
         return self
 
-    def background_check_order_complete_time(self,
-                                             background_check_order_complete_time: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_complete_time = background_check_order_complete_time
+    def background_check_order_complete_time(
+        self, background_check_order_complete_time: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_complete_time = (
+            background_check_order_complete_time
+        )
         return self
 
-    def background_check_order_status(self, background_check_order_status: Enum) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.background_check_order_status = background_check_order_status
+    def background_check_order_status(
+        self, background_check_order_status: Enum
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.background_check_order_status = (
+            background_check_order_status
+        )
         return self
 
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
-        PrehireSeniorityAdjustInformationQuery]) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.seniority_adjust_information_list = seniority_adjust_information_list
+    def seniority_adjust_information_list(
+        self,
+        seniority_adjust_information_list: List[PrehireSeniorityAdjustInformationQuery],
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.seniority_adjust_information_list = (
+            seniority_adjust_information_list
+        )
         return self
 
-    def notice_period_positive_voluntary(self,
-                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.notice_period_positive_voluntary = notice_period_positive_voluntary
+    def notice_period_positive_voluntary(
+        self, notice_period_positive_voluntary: NoticePeriodDetail
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_positive_voluntary = (
+            notice_period_positive_voluntary
+        )
         return self
 
-    def notice_period_probation_involuntary(self,
-                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.notice_period_probation_involuntary = notice_period_probation_involuntary
+    def notice_period_probation_involuntary(
+        self, notice_period_probation_involuntary: NoticePeriodDetail
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_probation_involuntary = (
+            notice_period_probation_involuntary
+        )
         return self
 
-    def notice_period_positive_involuntary(self,
-                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.notice_period_positive_involuntary = notice_period_positive_involuntary
+    def notice_period_positive_involuntary(
+        self, notice_period_positive_involuntary: NoticePeriodDetail
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_positive_involuntary = (
+            notice_period_positive_involuntary
+        )
         return self
 
-    def notice_period_probation_voluntary(self,
-                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.notice_period_probation_voluntary = notice_period_probation_voluntary
+    def notice_period_probation_voluntary(
+        self, notice_period_probation_voluntary: NoticePeriodDetail
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_probation_voluntary = (
+            notice_period_probation_voluntary
+        )
         return self
 
-    def working_hours_type_manual_updated(self,
-                                          working_hours_type_manual_updated: bool) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.working_hours_type_manual_updated = working_hours_type_manual_updated
+    def working_hours_type_manual_updated(
+        self, working_hours_type_manual_updated: bool
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.working_hours_type_manual_updated = (
+            working_hours_type_manual_updated
+        )
         return self
 
     def is_over_due(self, is_over_due: bool) -> "PreHireEmploymentInfoBuilder":
@@ -429,7 +528,9 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.task_completed = task_completed
         return self
 
-    def expected_graduate_date(self, expected_graduate_date: str) -> "PreHireEmploymentInfoBuilder":
+    def expected_graduate_date(
+        self, expected_graduate_date: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.expected_graduate_date = expected_graduate_date
         return self
 
@@ -441,20 +542,30 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.pathway = pathway
         return self
 
-    def default_cost_center(self, default_cost_center: DefaultCostCenter) -> "PreHireEmploymentInfoBuilder":
+    def default_cost_center(
+        self, default_cost_center: DefaultCostCenter
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.default_cost_center = default_cost_center
         return self
 
-    def cost_allocation(self, cost_allocation: CostAllocation) -> "PreHireEmploymentInfoBuilder":
+    def cost_allocation(
+        self, cost_allocation: CostAllocation
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.cost_allocation = cost_allocation
         return self
 
-    def reuse_feishu_account(self, reuse_feishu_account: str) -> "PreHireEmploymentInfoBuilder":
+    def reuse_feishu_account(
+        self, reuse_feishu_account: str
+    ) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.reuse_feishu_account = reuse_feishu_account
         return self
 
-    def reused_feishu_account_id(self, reused_feishu_account_id: str) -> "PreHireEmploymentInfoBuilder":
-        self._pre_hire_employment_info.reused_feishu_account_id = reused_feishu_account_id
+    def reused_feishu_account_id(
+        self, reused_feishu_account_id: str
+    ) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.reused_feishu_account_id = (
+            reused_feishu_account_id
+        )
         return self
 
     def work_country_id(self, work_country_id: str) -> "PreHireEmploymentInfoBuilder":

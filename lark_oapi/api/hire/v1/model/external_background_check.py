@@ -45,8 +45,12 @@ class ExternalBackgroundCheckBuilder(object):
         self._external_background_check.external_id = external_id
         return self
 
-    def external_application_id(self, external_application_id: str) -> "ExternalBackgroundCheckBuilder":
-        self._external_background_check.external_application_id = external_application_id
+    def external_application_id(
+        self, external_application_id: str
+    ) -> "ExternalBackgroundCheckBuilder":
+        self._external_background_check.external_application_id = (
+            external_application_id
+        )
         return self
 
     def date(self, date: int) -> "ExternalBackgroundCheckBuilder":
@@ -61,12 +65,15 @@ class ExternalBackgroundCheckBuilder(object):
         self._external_background_check.result = result
         return self
 
-    def attachment_id_list(self, attachment_id_list: List[str]) -> "ExternalBackgroundCheckBuilder":
+    def attachment_id_list(
+        self, attachment_id_list: List[str]
+    ) -> "ExternalBackgroundCheckBuilder":
         self._external_background_check.attachment_id_list = attachment_id_list
         return self
 
-    def attachment_list(self,
-                        attachment_list: List[ExternalBackgroundCheckAttachment]) -> "ExternalBackgroundCheckBuilder":
+    def attachment_list(
+        self, attachment_list: List[ExternalBackgroundCheckAttachment]
+    ) -> "ExternalBackgroundCheckBuilder":
         self._external_background_check.attachment_list = attachment_list
         return self
 

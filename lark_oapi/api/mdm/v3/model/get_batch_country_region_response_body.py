@@ -21,9 +21,13 @@ class GetBatchCountryRegionResponseBody(object):
 
 class GetBatchCountryRegionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_batch_country_region_response_body = GetBatchCountryRegionResponseBody()
+        self._get_batch_country_region_response_body = (
+            GetBatchCountryRegionResponseBody()
+        )
 
-    def data(self, data: List[CountryRegion]) -> "GetBatchCountryRegionResponseBodyBuilder":
+    def data(
+        self, data: List[CountryRegion]
+    ) -> "GetBatchCountryRegionResponseBodyBuilder":
         self._get_batch_country_region_response_body.data = data
         return self
 

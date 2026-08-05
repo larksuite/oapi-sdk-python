@@ -19,9 +19,7 @@ class P2ImMessageMessageReadV1Data(object):
 
 
 class P2ImMessageMessageReadV1(EventContext):
-    _types = {
-        "event": P2ImMessageMessageReadV1Data
-    }
+    _types = {"event": P2ImMessageMessageReadV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

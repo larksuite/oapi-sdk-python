@@ -27,7 +27,9 @@ class ListEmployeeTypeEnumResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_employee_type_enum_response_body = ListEmployeeTypeEnumResponseBody()
 
-    def items(self, items: List[EmployeeTypeEnum]) -> "ListEmployeeTypeEnumResponseBodyBuilder":
+    def items(
+        self, items: List[EmployeeTypeEnum]
+    ) -> "ListEmployeeTypeEnumResponseBodyBuilder":
         self._list_employee_type_enum_response_body.items = items
         return self
 

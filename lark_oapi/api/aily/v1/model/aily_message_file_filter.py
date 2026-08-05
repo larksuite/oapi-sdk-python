@@ -22,7 +22,9 @@ class AilyMessageFileFilterBuilder(object):
     def __init__(self) -> None:
         self._aily_message_file_filter = AilyMessageFileFilter()
 
-    def with_preview_url(self, with_preview_url: bool) -> "AilyMessageFileFilterBuilder":
+    def with_preview_url(
+        self, with_preview_url: bool
+    ) -> "AilyMessageFileFilterBuilder":
         self._aily_message_file_filter.with_preview_url = with_preview_url
         return self
 

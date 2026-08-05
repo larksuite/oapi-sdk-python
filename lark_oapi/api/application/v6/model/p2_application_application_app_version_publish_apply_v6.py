@@ -25,12 +25,12 @@ class P2ApplicationApplicationAppVersionPublishApplyV6Data(object):
 
 
 class P2ApplicationApplicationAppVersionPublishApplyV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationAppVersionPublishApplyV6Data
-    }
+    _types = {"event": P2ApplicationApplicationAppVersionPublishApplyV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)
         self._types.update(super()._types)
-        self.event: Optional[P2ApplicationApplicationAppVersionPublishApplyV6Data] = None
+        self.event: Optional[P2ApplicationApplicationAppVersionPublishApplyV6Data] = (
+            None
+        )
         init(self, d, self._types)

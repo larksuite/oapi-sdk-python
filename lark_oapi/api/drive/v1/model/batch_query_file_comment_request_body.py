@@ -8,11 +8,13 @@ class BatchQueryFileCommentRequestBody(object):
     _types = {
         "comment_ids": List[str],
         "need_reaction": bool,
+        "need_relation": bool,
     }
 
     def __init__(self, d=None):
         self.comment_ids: Optional[List[str]] = None
         self.need_reaction: Optional[bool] = None
+        self.need_relation: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,12 +26,22 @@ class BatchQueryFileCommentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_file_comment_request_body = BatchQueryFileCommentRequestBody()
 
-    def comment_ids(self, comment_ids: List[str]) -> "BatchQueryFileCommentRequestBodyBuilder":
+    def comment_ids(
+        self, comment_ids: List[str]
+    ) -> "BatchQueryFileCommentRequestBodyBuilder":
         self._batch_query_file_comment_request_body.comment_ids = comment_ids
         return self
 
-    def need_reaction(self, need_reaction: bool) -> "BatchQueryFileCommentRequestBodyBuilder":
+    def need_reaction(
+        self, need_reaction: bool
+    ) -> "BatchQueryFileCommentRequestBodyBuilder":
         self._batch_query_file_comment_request_body.need_reaction = need_reaction
+        return self
+
+    def need_relation(
+        self, need_relation: bool
+    ) -> "BatchQueryFileCommentRequestBodyBuilder":
+        self._batch_query_file_comment_request_body.need_relation = need_relation
         return self
 
     def build(self) -> "BatchQueryFileCommentRequestBody":

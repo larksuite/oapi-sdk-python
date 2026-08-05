@@ -9,7 +9,6 @@ from .protect_search_agency_response_body import ProtectSearchAgencyResponseBody
 class ProtectSearchAgencyResponse(BaseResponse):
     _types = {
         "data": ProtectSearchAgencyResponseBody,
-
     }
 
     def __init__(self, d=None):

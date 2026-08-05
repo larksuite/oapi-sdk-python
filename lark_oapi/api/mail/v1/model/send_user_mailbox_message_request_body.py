@@ -43,7 +43,9 @@ class SendUserMailboxMessageRequestBody(object):
 
 class SendUserMailboxMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._send_user_mailbox_message_request_body = SendUserMailboxMessageRequestBody()
+        self._send_user_mailbox_message_request_body = (
+            SendUserMailboxMessageRequestBody()
+        )
 
     def subject(self, subject: str) -> "SendUserMailboxMessageRequestBodyBuilder":
         self._send_user_mailbox_message_request_body.subject = subject
@@ -69,11 +71,15 @@ class SendUserMailboxMessageRequestBodyBuilder(object):
         self._send_user_mailbox_message_request_body.body_html = body_html
         return self
 
-    def body_plain_text(self, body_plain_text: str) -> "SendUserMailboxMessageRequestBodyBuilder":
+    def body_plain_text(
+        self, body_plain_text: str
+    ) -> "SendUserMailboxMessageRequestBodyBuilder":
         self._send_user_mailbox_message_request_body.body_plain_text = body_plain_text
         return self
 
-    def attachments(self, attachments: List[Attachment]) -> "SendUserMailboxMessageRequestBodyBuilder":
+    def attachments(
+        self, attachments: List[Attachment]
+    ) -> "SendUserMailboxMessageRequestBodyBuilder":
         self._send_user_mailbox_message_request_body.attachments = attachments
         return self
 
@@ -81,7 +87,9 @@ class SendUserMailboxMessageRequestBodyBuilder(object):
         self._send_user_mailbox_message_request_body.dedupe_key = dedupe_key
         return self
 
-    def head_from(self, head_from: MailAddress) -> "SendUserMailboxMessageRequestBodyBuilder":
+    def head_from(
+        self, head_from: MailAddress
+    ) -> "SendUserMailboxMessageRequestBodyBuilder":
         self._send_user_mailbox_message_request_body.head_from = head_from
         return self
 

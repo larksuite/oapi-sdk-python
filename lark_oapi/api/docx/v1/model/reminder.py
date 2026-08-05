@@ -53,7 +53,9 @@ class ReminderBuilder(object):
         self._reminder.notify_time = notify_time
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "ReminderBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "ReminderBuilder":
         self._reminder.text_element_style = text_element_style
         return self
 

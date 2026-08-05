@@ -23,7 +23,6 @@ class ListTalentRequest(BaseRequest):
 
 
 class ListTalentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_talent_request = ListTalentRequest()
         list_talent_request.http_method = HttpMethod.GET

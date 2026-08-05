@@ -91,11 +91,15 @@ class ProbationInfoBuilder(object):
         self._probation_info.probation_start_date = probation_start_date
         return self
 
-    def probation_expected_end_date(self, probation_expected_end_date: str) -> "ProbationInfoBuilder":
+    def probation_expected_end_date(
+        self, probation_expected_end_date: str
+    ) -> "ProbationInfoBuilder":
         self._probation_info.probation_expected_end_date = probation_expected_end_date
         return self
 
-    def actual_probation_end_date(self, actual_probation_end_date: str) -> "ProbationInfoBuilder":
+    def actual_probation_end_date(
+        self, actual_probation_end_date: str
+    ) -> "ProbationInfoBuilder":
         self._probation_info.actual_probation_end_date = actual_probation_end_date
         return self
 
@@ -131,31 +135,45 @@ class ProbationInfoBuilder(object):
         self._probation_info.converted_via_bpm = converted_via_bpm
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "ProbationInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "ProbationInfoBuilder":
         self._probation_info.custom_fields = custom_fields
         return self
 
-    def final_assessment_status(self, final_assessment_status: Enum) -> "ProbationInfoBuilder":
+    def final_assessment_status(
+        self, final_assessment_status: Enum
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_status = final_assessment_status
         return self
 
-    def final_assessment_result(self, final_assessment_result: Enum) -> "ProbationInfoBuilder":
+    def final_assessment_result(
+        self, final_assessment_result: Enum
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_result = final_assessment_result
         return self
 
-    def final_assessment_score(self, final_assessment_score: float) -> "ProbationInfoBuilder":
+    def final_assessment_score(
+        self, final_assessment_score: float
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_score = final_assessment_score
         return self
 
-    def final_assessment_grade(self, final_assessment_grade: Enum) -> "ProbationInfoBuilder":
+    def final_assessment_grade(
+        self, final_assessment_grade: Enum
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_grade = final_assessment_grade
         return self
 
-    def final_assessment_comment(self, final_assessment_comment: str) -> "ProbationInfoBuilder":
+    def final_assessment_comment(
+        self, final_assessment_comment: str
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_comment = final_assessment_comment
         return self
 
-    def final_assessment_detail(self, final_assessment_detail: str) -> "ProbationInfoBuilder":
+    def final_assessment_detail(
+        self, final_assessment_detail: str
+    ) -> "ProbationInfoBuilder":
         self._probation_info.final_assessment_detail = final_assessment_detail
         return self
 
@@ -163,16 +181,28 @@ class ProbationInfoBuilder(object):
         self._probation_info.assessments = assessments
         return self
 
-    def probation_extend_expected_end_date(self, probation_extend_expected_end_date: str) -> "ProbationInfoBuilder":
-        self._probation_info.probation_extend_expected_end_date = probation_extend_expected_end_date
+    def probation_extend_expected_end_date(
+        self, probation_extend_expected_end_date: str
+    ) -> "ProbationInfoBuilder":
+        self._probation_info.probation_extend_expected_end_date = (
+            probation_extend_expected_end_date
+        )
         return self
 
-    def extended_probation_period_duration(self, extended_probation_period_duration: int) -> "ProbationInfoBuilder":
-        self._probation_info.extended_probation_period_duration = extended_probation_period_duration
+    def extended_probation_period_duration(
+        self, extended_probation_period_duration: int
+    ) -> "ProbationInfoBuilder":
+        self._probation_info.extended_probation_period_duration = (
+            extended_probation_period_duration
+        )
         return self
 
-    def extended_probation_period_unit(self, extended_probation_period_unit: Enum) -> "ProbationInfoBuilder":
-        self._probation_info.extended_probation_period_unit = extended_probation_period_unit
+    def extended_probation_period_unit(
+        self, extended_probation_period_unit: Enum
+    ) -> "ProbationInfoBuilder":
+        self._probation_info.extended_probation_period_unit = (
+            extended_probation_period_unit
+        )
         return self
 
     def probation_outcome(self, probation_outcome: Enum) -> "ProbationInfoBuilder":

@@ -18,13 +18,16 @@ class GetEnumDetailAppEnumRequest(BaseRequest):
 
 
 class GetEnumDetailAppEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         get_enum_detail_app_enum_request = GetEnumDetailAppEnumRequest()
         get_enum_detail_app_enum_request.http_method = HttpMethod.GET
-        get_enum_detail_app_enum_request.uri = "/open-apis/spark/v1/apps/:app_id/enums/:enum_name"
+        get_enum_detail_app_enum_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/enums/:enum_name"
+        )
         get_enum_detail_app_enum_request.token_types = {AccessTokenType.USER}
-        self._get_enum_detail_app_enum_request: GetEnumDetailAppEnumRequest = get_enum_detail_app_enum_request
+        self._get_enum_detail_app_enum_request: GetEnumDetailAppEnumRequest = (
+            get_enum_detail_app_enum_request
+        )
 
     def env(self, env: str) -> "GetEnumDetailAppEnumRequestBuilder":
         self._get_enum_detail_app_enum_request.env = env

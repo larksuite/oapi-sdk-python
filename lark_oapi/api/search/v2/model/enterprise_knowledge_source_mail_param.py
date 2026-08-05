@@ -20,9 +20,13 @@ class EnterpriseKnowledgeSourceMailParam(object):
 
 class EnterpriseKnowledgeSourceMailParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_mail_param = EnterpriseKnowledgeSourceMailParam()
+        self._enterprise_knowledge_source_mail_param = (
+            EnterpriseKnowledgeSourceMailParam()
+        )
 
-    def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceMailParamBuilder":
+    def searchable(
+        self, searchable: bool
+    ) -> "EnterpriseKnowledgeSourceMailParamBuilder":
         self._enterprise_knowledge_source_mail_param.searchable = searchable
         return self
 

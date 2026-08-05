@@ -21,10 +21,16 @@ class GetOfferApplicationFormResponseBody(object):
 
 class GetOfferApplicationFormResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_offer_application_form_response_body = GetOfferApplicationFormResponseBody()
+        self._get_offer_application_form_response_body = (
+            GetOfferApplicationFormResponseBody()
+        )
 
-    def offer_apply_form(self, offer_apply_form: OfferApplyFormInfo) -> "GetOfferApplicationFormResponseBodyBuilder":
-        self._get_offer_application_form_response_body.offer_apply_form = offer_apply_form
+    def offer_apply_form(
+        self, offer_apply_form: OfferApplyFormInfo
+    ) -> "GetOfferApplicationFormResponseBodyBuilder":
+        self._get_offer_application_form_response_body.offer_apply_form = (
+            offer_apply_form
+        )
         return self
 
     def build(self) -> "GetOfferApplicationFormResponseBody":

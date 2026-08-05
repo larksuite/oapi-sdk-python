@@ -20,12 +20,14 @@ class QueryArchiveRequest(BaseRequest):
 
 
 class QueryArchiveRequestBuilder(object):
-
     def __init__(self) -> None:
         query_archive_request = QueryArchiveRequest()
         query_archive_request.http_method = HttpMethod.POST
         query_archive_request.uri = "/open-apis/compensation/v1/archives/query"
-        query_archive_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        query_archive_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._query_archive_request: QueryArchiveRequest = query_archive_request
 
     def page_size(self, page_size: int) -> "QueryArchiveRequestBuilder":
@@ -43,7 +45,9 @@ class QueryArchiveRequestBuilder(object):
         self._query_archive_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryArchiveRequestBody) -> "QueryArchiveRequestBuilder":
+    def request_body(
+        self, request_body: QueryArchiveRequestBody
+    ) -> "QueryArchiveRequestBuilder":
         self._query_archive_request.request_body = request_body
         self._query_archive_request.body = request_body
         return self

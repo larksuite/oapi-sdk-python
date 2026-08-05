@@ -25,7 +25,9 @@ class CreateAppFeedCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_feed_card_request_body = CreateAppFeedCardRequestBody()
 
-    def app_feed_card(self, app_feed_card: OpenAppFeedCard) -> "CreateAppFeedCardRequestBodyBuilder":
+    def app_feed_card(
+        self, app_feed_card: OpenAppFeedCard
+    ) -> "CreateAppFeedCardRequestBodyBuilder":
         self._create_app_feed_card_request_body.app_feed_card = app_feed_card
         return self
 

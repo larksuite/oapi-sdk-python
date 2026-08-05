@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_delete_document_block_children_response_body import BatchDeleteDocumentBlockChildrenResponseBody
+from .batch_delete_document_block_children_response_body import (
+    BatchDeleteDocumentBlockChildrenResponseBody,
+)
 
 
 class BatchDeleteDocumentBlockChildrenResponse(BaseResponse):
     _types = {
         "data": BatchDeleteDocumentBlockChildrenResponseBody,
-
     }
 
     def __init__(self, d=None):

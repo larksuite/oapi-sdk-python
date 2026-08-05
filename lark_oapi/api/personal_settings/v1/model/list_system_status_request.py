@@ -17,13 +17,16 @@ class ListSystemStatusRequest(BaseRequest):
 
 
 class ListSystemStatusRequestBuilder(object):
-
     def __init__(self) -> None:
         list_system_status_request = ListSystemStatusRequest()
         list_system_status_request.http_method = HttpMethod.GET
-        list_system_status_request.uri = "/open-apis/personal_settings/v1/system_statuses"
+        list_system_status_request.uri = (
+            "/open-apis/personal_settings/v1/system_statuses"
+        )
         list_system_status_request.token_types = {AccessTokenType.TENANT}
-        self._list_system_status_request: ListSystemStatusRequest = list_system_status_request
+        self._list_system_status_request: ListSystemStatusRequest = (
+            list_system_status_request
+        )
 
     def page_size(self, page_size: int) -> "ListSystemStatusRequestBuilder":
         self._list_system_status_request.page_size = page_size

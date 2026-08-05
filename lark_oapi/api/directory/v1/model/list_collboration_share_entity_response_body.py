@@ -31,26 +31,39 @@ class ListCollborationShareEntityResponseBody(object):
 
 class ListCollborationShareEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_collboration_share_entity_response_body = ListCollborationShareEntityResponseBody()
+        self._list_collboration_share_entity_response_body = (
+            ListCollborationShareEntityResponseBody()
+        )
 
-    def page_token(self, page_token: str) -> "ListCollborationShareEntityResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListCollborationShareEntityResponseBodyBuilder":
         self._list_collboration_share_entity_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "ListCollborationShareEntityResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListCollborationShareEntityResponseBodyBuilder":
         self._list_collboration_share_entity_response_body.has_more = has_more
         return self
 
-    def share_departments(self,
-                          share_departments: List[ShareDepartment]) -> "ListCollborationShareEntityResponseBodyBuilder":
-        self._list_collboration_share_entity_response_body.share_departments = share_departments
+    def share_departments(
+        self, share_departments: List[ShareDepartment]
+    ) -> "ListCollborationShareEntityResponseBodyBuilder":
+        self._list_collboration_share_entity_response_body.share_departments = (
+            share_departments
+        )
         return self
 
-    def share_groups(self, share_groups: List[ShareGroup]) -> "ListCollborationShareEntityResponseBodyBuilder":
+    def share_groups(
+        self, share_groups: List[ShareGroup]
+    ) -> "ListCollborationShareEntityResponseBodyBuilder":
         self._list_collboration_share_entity_response_body.share_groups = share_groups
         return self
 
-    def share_users(self, share_users: List[ShareUser]) -> "ListCollborationShareEntityResponseBodyBuilder":
+    def share_users(
+        self, share_users: List[ShareUser]
+    ) -> "ListCollborationShareEntityResponseBodyBuilder":
         self._list_collboration_share_entity_response_body.share_users = share_users
         return self
 

@@ -29,7 +29,9 @@ class ProcessFormVariableBuilder(object):
         self._process_form_variable.variable_api_name = variable_api_name
         return self
 
-    def variable_value(self, variable_value: FormVariableValueInfo) -> "ProcessFormVariableBuilder":
+    def variable_value(
+        self, variable_value: FormVariableValueInfo
+    ) -> "ProcessFormVariableBuilder":
         self._process_form_variable.variable_value = variable_value
         return self
 

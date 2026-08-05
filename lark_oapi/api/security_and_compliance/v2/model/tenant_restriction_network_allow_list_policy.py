@@ -24,17 +24,25 @@ class TenantRestrictionNetworkAllowListPolicy(object):
 
 class TenantRestrictionNetworkAllowListPolicyBuilder(object):
     def __init__(self) -> None:
-        self._tenant_restriction_network_allow_list_policy = TenantRestrictionNetworkAllowListPolicy()
+        self._tenant_restriction_network_allow_list_policy = (
+            TenantRestrictionNetworkAllowListPolicy()
+        )
 
-    def self_only(self, self_only: bool) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
+    def self_only(
+        self, self_only: bool
+    ) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
         self._tenant_restriction_network_allow_list_policy.self_only = self_only
         return self
 
-    def allow_tenants(self, allow_tenants: List[str]) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
+    def allow_tenants(
+        self, allow_tenants: List[str]
+    ) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
         self._tenant_restriction_network_allow_list_policy.allow_tenants = allow_tenants
         return self
 
-    def observe_mode(self, observe_mode: bool) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
+    def observe_mode(
+        self, observe_mode: bool
+    ) -> "TenantRestrictionNetworkAllowListPolicyBuilder":
         self._tenant_restriction_network_allow_list_policy.observe_mode = observe_mode
         return self
 

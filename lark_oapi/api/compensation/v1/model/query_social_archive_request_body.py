@@ -24,11 +24,15 @@ class QuerySocialArchiveRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_social_archive_request_body = QuerySocialArchiveRequestBody()
 
-    def user_id_list(self, user_id_list: List[str]) -> "QuerySocialArchiveRequestBodyBuilder":
+    def user_id_list(
+        self, user_id_list: List[str]
+    ) -> "QuerySocialArchiveRequestBodyBuilder":
         self._query_social_archive_request_body.user_id_list = user_id_list
         return self
 
-    def effective_date(self, effective_date: str) -> "QuerySocialArchiveRequestBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "QuerySocialArchiveRequestBodyBuilder":
         self._query_social_archive_request_body.effective_date = effective_date
         return self
 

@@ -6,29 +6,31 @@ from lark_oapi.core.construct import init
 
 class UserRemedyApproval(object):
     _types = {
-        "user_id": str,
-        "status": int,
-        "reason": str,
-        "time": str,
-        "time_zone": str,
-        "remedy_date": int,
-        "punch_no": int,
-        "work_type": int,
         "approval_id": str,
+        "reason": str,
+        "approve_pass_time": str,
+        "approve_apply_time": str,
         "remedy_time": str,
+        "clock_no": str,
+        "clock_type": int,
+        "day": str,
+        "remedy_type": int,
+        "status": int,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
-        self.user_id: Optional[str] = None
-        self.status: Optional[int] = None
-        self.reason: Optional[str] = None
-        self.time: Optional[str] = None
-        self.time_zone: Optional[str] = None
-        self.remedy_date: Optional[int] = None
-        self.punch_no: Optional[int] = None
-        self.work_type: Optional[int] = None
         self.approval_id: Optional[str] = None
+        self.reason: Optional[str] = None
+        self.approve_pass_time: Optional[str] = None
+        self.approve_apply_time: Optional[str] = None
         self.remedy_time: Optional[str] = None
+        self.clock_no: Optional[str] = None
+        self.clock_type: Optional[int] = None
+        self.day: Optional[str] = None
+        self.remedy_type: Optional[int] = None
+        self.status: Optional[int] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,44 +42,50 @@ class UserRemedyApprovalBuilder(object):
     def __init__(self) -> None:
         self._user_remedy_approval = UserRemedyApproval()
 
-    def user_id(self, user_id: str) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.user_id = user_id
-        return self
-
-    def status(self, status: int) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.status = status
+    def approval_id(self, approval_id: str) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.approval_id = approval_id
         return self
 
     def reason(self, reason: str) -> "UserRemedyApprovalBuilder":
         self._user_remedy_approval.reason = reason
         return self
 
-    def time(self, time: str) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.time = time
+    def approve_pass_time(self, approve_pass_time: str) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.approve_pass_time = approve_pass_time
         return self
 
-    def time_zone(self, time_zone: str) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.time_zone = time_zone
-        return self
-
-    def remedy_date(self, remedy_date: int) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.remedy_date = remedy_date
-        return self
-
-    def punch_no(self, punch_no: int) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.punch_no = punch_no
-        return self
-
-    def work_type(self, work_type: int) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.work_type = work_type
-        return self
-
-    def approval_id(self, approval_id: str) -> "UserRemedyApprovalBuilder":
-        self._user_remedy_approval.approval_id = approval_id
+    def approve_apply_time(
+        self, approve_apply_time: str
+    ) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.approve_apply_time = approve_apply_time
         return self
 
     def remedy_time(self, remedy_time: str) -> "UserRemedyApprovalBuilder":
         self._user_remedy_approval.remedy_time = remedy_time
+        return self
+
+    def clock_no(self, clock_no: str) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.clock_no = clock_no
+        return self
+
+    def clock_type(self, clock_type: int) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.clock_type = clock_type
+        return self
+
+    def day(self, day: str) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.day = day
+        return self
+
+    def remedy_type(self, remedy_type: int) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.remedy_type = remedy_type
+        return self
+
+    def status(self, status: int) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.status = status
+        return self
+
+    def time_zone(self, time_zone: str) -> "UserRemedyApprovalBuilder":
+        self._user_remedy_approval.time_zone = time_zone
         return self
 
     def build(self) -> "UserRemedyApproval":

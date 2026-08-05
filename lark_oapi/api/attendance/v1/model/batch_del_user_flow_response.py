@@ -9,7 +9,6 @@ from .batch_del_user_flow_response_body import BatchDelUserFlowResponseBody
 class BatchDelUserFlowResponse(BaseResponse):
     _types = {
         "data": BatchDelUserFlowResponseBody,
-
     }
 
     def __init__(self, d=None):

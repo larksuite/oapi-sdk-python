@@ -20,13 +20,16 @@ class GetAgencyAccountAgencyRequest(BaseRequest):
 
 
 class GetAgencyAccountAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         get_agency_account_agency_request = GetAgencyAccountAgencyRequest()
         get_agency_account_agency_request.http_method = HttpMethod.POST
-        get_agency_account_agency_request.uri = "/open-apis/hire/v1/agencies/get_agency_account"
+        get_agency_account_agency_request.uri = (
+            "/open-apis/hire/v1/agencies/get_agency_account"
+        )
         get_agency_account_agency_request.token_types = {AccessTokenType.TENANT}
-        self._get_agency_account_agency_request: GetAgencyAccountAgencyRequest = get_agency_account_agency_request
+        self._get_agency_account_agency_request: GetAgencyAccountAgencyRequest = (
+            get_agency_account_agency_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetAgencyAccountAgencyRequestBuilder":
         self._get_agency_account_agency_request.user_id_type = user_id_type
@@ -43,7 +46,9 @@ class GetAgencyAccountAgencyRequestBuilder(object):
         self._get_agency_account_agency_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: GetAgencyAccountAgencyRequestBody) -> "GetAgencyAccountAgencyRequestBuilder":
+    def request_body(
+        self, request_body: GetAgencyAccountAgencyRequestBody
+    ) -> "GetAgencyAccountAgencyRequestBuilder":
         self._get_agency_account_agency_request.request_body = request_body
         self._get_agency_account_agency_request.body = request_body
         return self

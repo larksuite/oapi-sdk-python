@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .recognize_health_certificate_response_body import RecognizeHealthCertificateResponseBody
+from .recognize_health_certificate_response_body import (
+    RecognizeHealthCertificateResponseBody,
+)
 
 
 class RecognizeHealthCertificateResponse(BaseResponse):
     _types = {
         "data": RecognizeHealthCertificateResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,6 +20,7 @@ class SearchOffboardingRequestBody(object):
         "employee_reasons": List[str],
         "department_ids": List[str],
         "select_fields": List[str],
+        "filter_str": str,
     }
 
     def __init__(self, d=None):
@@ -37,6 +38,7 @@ class SearchOffboardingRequestBody(object):
         self.employee_reasons: Optional[List[str]] = None
         self.department_ids: Optional[List[str]] = None
         self.select_fields: Optional[List[str]] = None
+        self.filter_str: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,42 +50,74 @@ class SearchOffboardingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_offboarding_request_body = SearchOffboardingRequestBody()
 
-    def employment_ids(self, employment_ids: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+    def employment_ids(
+        self, employment_ids: List[str]
+    ) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.employment_ids = employment_ids
         return self
 
-    def apply_initiating_time_start(self, apply_initiating_time_start: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.apply_initiating_time_start = apply_initiating_time_start
+    def apply_initiating_time_start(
+        self, apply_initiating_time_start: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.apply_initiating_time_start = (
+            apply_initiating_time_start
+        )
         return self
 
-    def apply_initiating_time_end(self, apply_initiating_time_end: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.apply_initiating_time_end = apply_initiating_time_end
+    def apply_initiating_time_end(
+        self, apply_initiating_time_end: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.apply_initiating_time_end = (
+            apply_initiating_time_end
+        )
         return self
 
-    def apply_finished_time_start(self, apply_finished_time_start: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.apply_finished_time_start = apply_finished_time_start
+    def apply_finished_time_start(
+        self, apply_finished_time_start: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.apply_finished_time_start = (
+            apply_finished_time_start
+        )
         return self
 
-    def apply_finished_time_end(self, apply_finished_time_end: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.apply_finished_time_end = apply_finished_time_end
+    def apply_finished_time_end(
+        self, apply_finished_time_end: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.apply_finished_time_end = (
+            apply_finished_time_end
+        )
         return self
 
-    def expected_offboarding_date_start(self,
-                                        expected_offboarding_date_start: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.expected_offboarding_date_start = expected_offboarding_date_start
+    def expected_offboarding_date_start(
+        self, expected_offboarding_date_start: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.expected_offboarding_date_start = (
+            expected_offboarding_date_start
+        )
         return self
 
-    def expected_offboarding_date_end(self,
-                                      expected_offboarding_date_end: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.expected_offboarding_date_end = expected_offboarding_date_end
+    def expected_offboarding_date_end(
+        self, expected_offboarding_date_end: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.expected_offboarding_date_end = (
+            expected_offboarding_date_end
+        )
         return self
 
-    def offboarding_date_start(self, offboarding_date_start: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.offboarding_date_start = offboarding_date_start
+    def offboarding_date_start(
+        self, offboarding_date_start: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.offboarding_date_start = (
+            offboarding_date_start
+        )
         return self
 
-    def offboarding_date_end(self, offboarding_date_end: str) -> "SearchOffboardingRequestBodyBuilder":
-        self._search_offboarding_request_body.offboarding_date_end = offboarding_date_end
+    def offboarding_date_end(
+        self, offboarding_date_end: str
+    ) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.offboarding_date_end = (
+            offboarding_date_end
+        )
         return self
 
     def statuses(self, statuses: List[str]) -> "SearchOffboardingRequestBodyBuilder":
@@ -94,16 +128,26 @@ class SearchOffboardingRequestBodyBuilder(object):
         self._search_offboarding_request_body.reasons = reasons
         return self
 
-    def employee_reasons(self, employee_reasons: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+    def employee_reasons(
+        self, employee_reasons: List[str]
+    ) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.employee_reasons = employee_reasons
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.department_ids = department_ids
         return self
 
-    def select_fields(self, select_fields: List[str]) -> "SearchOffboardingRequestBodyBuilder":
+    def select_fields(
+        self, select_fields: List[str]
+    ) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.select_fields = select_fields
+        return self
+
+    def filter_str(self, filter_str: str) -> "SearchOffboardingRequestBodyBuilder":
+        self._search_offboarding_request_body.filter_str = filter_str
         return self
 
     def build(self) -> "SearchOffboardingRequestBody":

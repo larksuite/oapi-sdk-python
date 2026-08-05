@@ -17,7 +17,6 @@ class GetUserRequest(BaseRequest):
 
 
 class GetUserRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_request = GetUserRequest()
         get_user_request.http_method = HttpMethod.GET

@@ -22,13 +22,17 @@ class UpdateFileCommentReplyRequest(BaseRequest):
 
 
 class UpdateFileCommentReplyRequestBuilder(object):
-
     def __init__(self) -> None:
         update_file_comment_reply_request = UpdateFileCommentReplyRequest()
         update_file_comment_reply_request.http_method = HttpMethod.PUT
         update_file_comment_reply_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
-        update_file_comment_reply_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_file_comment_reply_request: UpdateFileCommentReplyRequest = update_file_comment_reply_request
+        update_file_comment_reply_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_file_comment_reply_request: UpdateFileCommentReplyRequest = (
+            update_file_comment_reply_request
+        )
 
     def file_type(self, file_type: str) -> "UpdateFileCommentReplyRequestBuilder":
         self._update_file_comment_reply_request.file_type = file_type
@@ -55,7 +59,9 @@ class UpdateFileCommentReplyRequestBuilder(object):
         self._update_file_comment_reply_request.paths["reply_id"] = str(reply_id)
         return self
 
-    def request_body(self, request_body: UpdateFileCommentReplyRequestBody) -> "UpdateFileCommentReplyRequestBuilder":
+    def request_body(
+        self, request_body: UpdateFileCommentReplyRequestBody
+    ) -> "UpdateFileCommentReplyRequestBuilder":
         self._update_file_comment_reply_request.request_body = request_body
         self._update_file_comment_reply_request.body = request_body
         return self

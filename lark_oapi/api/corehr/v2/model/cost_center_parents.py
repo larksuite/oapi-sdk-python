@@ -29,8 +29,9 @@ class CostCenterParentsBuilder(object):
         self._cost_center_parents.cost_center_id = cost_center_id
         return self
 
-    def parent_cost_center_list(self,
-                                parent_cost_center_list: List[CostCenterParentInfo]) -> "CostCenterParentsBuilder":
+    def parent_cost_center_list(
+        self, parent_cost_center_list: List[CostCenterParentInfo]
+    ) -> "CostCenterParentsBuilder":
         self._cost_center_parents.parent_cost_center_list = parent_cost_center_list
         return self
 

@@ -18,13 +18,16 @@ class FavouriteApplicationRequest(BaseRequest):
 
 
 class FavouriteApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         favourite_application_request = FavouriteApplicationRequest()
         favourite_application_request.http_method = HttpMethod.GET
-        favourite_application_request.uri = "/open-apis/application/v5/applications/favourite"
+        favourite_application_request.uri = (
+            "/open-apis/application/v5/applications/favourite"
+        )
         favourite_application_request.token_types = {AccessTokenType.USER}
-        self._favourite_application_request: FavouriteApplicationRequest = favourite_application_request
+        self._favourite_application_request: FavouriteApplicationRequest = (
+            favourite_application_request
+        )
 
     def language(self, language: str) -> "FavouriteApplicationRequestBuilder":
         self._favourite_application_request.language = language

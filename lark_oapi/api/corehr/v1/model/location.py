@@ -53,7 +53,9 @@ class LocationBuilder(object):
         self._location.id = id
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "LocationBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "LocationBuilder":
         self._location.hiberarchy_common = hiberarchy_common
         return self
 
@@ -93,7 +95,9 @@ class LocationBuilder(object):
         self._location.display_language_id = display_language_id
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "LocationBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "LocationBuilder":
         self._location.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

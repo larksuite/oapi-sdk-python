@@ -134,7 +134,9 @@ class TenantBuilder(object):
         self._tenant.domain_modify_count = domain_modify_count
         return self
 
-    def multi_geo_full_domains(self, multi_geo_full_domains: Dict[str, str]) -> "TenantBuilder":
+    def multi_geo_full_domains(
+        self, multi_geo_full_domains: Dict[str, str]
+    ) -> "TenantBuilder":
         self._tenant.multi_geo_full_domains = multi_geo_full_domains
         return self
 

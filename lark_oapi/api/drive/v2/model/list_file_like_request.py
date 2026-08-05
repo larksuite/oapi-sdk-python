@@ -20,12 +20,14 @@ class ListFileLikeRequest(BaseRequest):
 
 
 class ListFileLikeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_file_like_request = ListFileLikeRequest()
         list_file_like_request.http_method = HttpMethod.GET
         list_file_like_request.uri = "/open-apis/drive/v2/files/:file_token/likes"
-        list_file_like_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_file_like_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_file_like_request: ListFileLikeRequest = list_file_like_request
 
     def file_type(self, file_type: str) -> "ListFileLikeRequestBuilder":

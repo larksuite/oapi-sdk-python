@@ -17,8 +17,11 @@ class VehicleLicense(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeVehicleLicenseRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeVehicleLicenseResponse:
+    def recognize(
+        self,
+        request: RecognizeVehicleLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeVehicleLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class VehicleLicense(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeVehicleLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   RecognizeVehicleLicenseResponse)
+        response: RecognizeVehicleLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeVehicleLicenseResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeVehicleLicenseRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeVehicleLicenseResponse:
+    async def arecognize(
+        self,
+        request: RecognizeVehicleLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeVehicleLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class VehicleLicense(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeVehicleLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   RecognizeVehicleLicenseResponse)
+        response: RecognizeVehicleLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeVehicleLicenseResponse
+        )
         response.raw = resp
 
         return response

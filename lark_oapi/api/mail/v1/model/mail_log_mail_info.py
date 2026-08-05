@@ -83,15 +83,21 @@ class MailLogMailInfoBuilder(object):
         self._mail_log_mail_info.header_from = header_from
         return self
 
-    def to_recipients(self, to_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
+    def to_recipients(
+        self, to_recipients: List[MailAddress]
+    ) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.to_recipients = to_recipients
         return self
 
-    def cc_recipients(self, cc_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
+    def cc_recipients(
+        self, cc_recipients: List[MailAddress]
+    ) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.cc_recipients = cc_recipients
         return self
 
-    def bcc_recipients(self, bcc_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
+    def bcc_recipients(
+        self, bcc_recipients: List[MailAddress]
+    ) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.bcc_recipients = bcc_recipients
         return self
 

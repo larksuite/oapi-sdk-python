@@ -19,7 +19,6 @@ class PatchUserRequest(BaseRequest):
 
 
 class PatchUserRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_user_request = PatchUserRequest()
         patch_user_request.http_method = HttpMethod.PATCH

@@ -19,13 +19,19 @@ class CreateTaskCollaboratorRequest(BaseRequest):
 
 
 class CreateTaskCollaboratorRequestBuilder(object):
-
     def __init__(self) -> None:
         create_task_collaborator_request = CreateTaskCollaboratorRequest()
         create_task_collaborator_request.http_method = HttpMethod.POST
-        create_task_collaborator_request.uri = "/open-apis/task/v1/tasks/:task_id/collaborators"
-        create_task_collaborator_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_task_collaborator_request: CreateTaskCollaboratorRequest = create_task_collaborator_request
+        create_task_collaborator_request.uri = (
+            "/open-apis/task/v1/tasks/:task_id/collaborators"
+        )
+        create_task_collaborator_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_task_collaborator_request: CreateTaskCollaboratorRequest = (
+            create_task_collaborator_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateTaskCollaboratorRequestBuilder":
         self._create_task_collaborator_request.user_id_type = user_id_type
@@ -37,7 +43,9 @@ class CreateTaskCollaboratorRequestBuilder(object):
         self._create_task_collaborator_request.paths["task_id"] = str(task_id)
         return self
 
-    def request_body(self, request_body: Collaborator) -> "CreateTaskCollaboratorRequestBuilder":
+    def request_body(
+        self, request_body: Collaborator
+    ) -> "CreateTaskCollaboratorRequestBuilder":
         self._create_task_collaborator_request.request_body = request_body
         self._create_task_collaborator_request.body = request_body
         return self

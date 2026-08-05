@@ -17,22 +17,38 @@ class DeleteCollaborationRuleRequest(BaseRequest):
 
 
 class DeleteCollaborationRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_collaboration_rule_request = DeleteCollaborationRuleRequest()
         delete_collaboration_rule_request.http_method = HttpMethod.DELETE
-        delete_collaboration_rule_request.uri = "/open-apis/directory/v1/collaboration_rules/:collaboration_rule_id"
-        delete_collaboration_rule_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_collaboration_rule_request: DeleteCollaborationRuleRequest = delete_collaboration_rule_request
+        delete_collaboration_rule_request.uri = (
+            "/open-apis/directory/v1/collaboration_rules/:collaboration_rule_id"
+        )
+        delete_collaboration_rule_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_collaboration_rule_request: DeleteCollaborationRuleRequest = (
+            delete_collaboration_rule_request
+        )
 
-    def target_tenant_key(self, target_tenant_key: str) -> "DeleteCollaborationRuleRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "DeleteCollaborationRuleRequestBuilder":
         self._delete_collaboration_rule_request.target_tenant_key = target_tenant_key
-        self._delete_collaboration_rule_request.add_query("target_tenant_key", target_tenant_key)
+        self._delete_collaboration_rule_request.add_query(
+            "target_tenant_key", target_tenant_key
+        )
         return self
 
-    def collaboration_rule_id(self, collaboration_rule_id: str) -> "DeleteCollaborationRuleRequestBuilder":
-        self._delete_collaboration_rule_request.collaboration_rule_id = collaboration_rule_id
-        self._delete_collaboration_rule_request.paths["collaboration_rule_id"] = str(collaboration_rule_id)
+    def collaboration_rule_id(
+        self, collaboration_rule_id: str
+    ) -> "DeleteCollaborationRuleRequestBuilder":
+        self._delete_collaboration_rule_request.collaboration_rule_id = (
+            collaboration_rule_id
+        )
+        self._delete_collaboration_rule_request.paths["collaboration_rule_id"] = str(
+            collaboration_rule_id
+        )
         return self
 
     def build(self) -> DeleteCollaborationRuleRequest:

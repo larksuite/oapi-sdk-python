@@ -24,11 +24,12 @@ class GetTableRecordListAppTableRequest(BaseRequest):
 
 
 class GetTableRecordListAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         get_table_record_list_app_table_request = GetTableRecordListAppTableRequest()
         get_table_record_list_app_table_request.http_method = HttpMethod.GET
-        get_table_record_list_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        get_table_record_list_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        )
         get_table_record_list_app_table_request.token_types = {AccessTokenType.USER}
         self._get_table_record_list_app_table_request: GetTableRecordListAppTableRequest = get_table_record_list_app_table_request
 
@@ -39,7 +40,9 @@ class GetTableRecordListAppTableRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "GetTableRecordListAppTableRequestBuilder":
         self._get_table_record_list_app_table_request.page_token = page_token
-        self._get_table_record_list_app_table_request.add_query("page_token", page_token)
+        self._get_table_record_list_app_table_request.add_query(
+            "page_token", page_token
+        )
         return self
 
     def select(self, select: str) -> "GetTableRecordListAppTableRequestBuilder":
@@ -62,9 +65,15 @@ class GetTableRecordListAppTableRequestBuilder(object):
         self._get_table_record_list_app_table_request.add_query("env", env)
         return self
 
-    def user_identifier_type(self, user_identifier_type: str) -> "GetTableRecordListAppTableRequestBuilder":
-        self._get_table_record_list_app_table_request.user_identifier_type = user_identifier_type
-        self._get_table_record_list_app_table_request.add_query("user_identifier_type", user_identifier_type)
+    def user_identifier_type(
+        self, user_identifier_type: str
+    ) -> "GetTableRecordListAppTableRequestBuilder":
+        self._get_table_record_list_app_table_request.user_identifier_type = (
+            user_identifier_type
+        )
+        self._get_table_record_list_app_table_request.add_query(
+            "user_identifier_type", user_identifier_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "GetTableRecordListAppTableRequestBuilder":
@@ -74,7 +83,9 @@ class GetTableRecordListAppTableRequestBuilder(object):
 
     def table_name(self, table_name: str) -> "GetTableRecordListAppTableRequestBuilder":
         self._get_table_record_list_app_table_request.table_name = table_name
-        self._get_table_record_list_app_table_request.paths["table_name"] = str(table_name)
+        self._get_table_record_list_app_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
     def build(self) -> GetTableRecordListAppTableRequest:

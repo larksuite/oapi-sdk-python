@@ -19,7 +19,6 @@ class InviteMeetingRequest(BaseRequest):
 
 
 class InviteMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         invite_meeting_request = InviteMeetingRequest()
         invite_meeting_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class InviteMeetingRequestBuilder(object):
         self._invite_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
-    def request_body(self, request_body: InviteMeetingRequestBody) -> "InviteMeetingRequestBuilder":
+    def request_body(
+        self, request_body: InviteMeetingRequestBody
+    ) -> "InviteMeetingRequestBuilder":
         self._invite_meeting_request.request_body = request_body
         self._invite_meeting_request.body = request_body
         return self

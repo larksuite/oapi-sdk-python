@@ -34,7 +34,9 @@ class MailRecipientLogI18nTextParamBuilder(object):
         self._mail_recipient_log_i18n_text_param.param_type = param_type
         return self
 
-    def param_extra(self, param_extra: Dict[str, str]) -> "MailRecipientLogI18nTextParamBuilder":
+    def param_extra(
+        self, param_extra: Dict[str, str]
+    ) -> "MailRecipientLogI18nTextParamBuilder":
         self._mail_recipient_log_i18n_text_param.param_extra = param_extra
         return self
 

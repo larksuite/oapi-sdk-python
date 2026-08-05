@@ -31,7 +31,9 @@ class CreateResignedEmployeeOptionsBuilder(object):
         self._create_resigned_employee_options.geo_name = geo_name
         return self
 
-    def employee_trace_info(self, employee_trace_info: EmployeeTraceInfo) -> "CreateResignedEmployeeOptionsBuilder":
+    def employee_trace_info(
+        self, employee_trace_info: EmployeeTraceInfo
+    ) -> "CreateResignedEmployeeOptionsBuilder":
         self._create_resigned_employee_options.employee_trace_info = employee_trace_info
         return self
 

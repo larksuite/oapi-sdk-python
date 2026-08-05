@@ -42,7 +42,9 @@ class TalentCustomizedDataBuilder(object):
         self._talent_customized_data.object_type = object_type
         return self
 
-    def children(self, children: List[TalentCustomizedDataChild]) -> "TalentCustomizedDataBuilder":
+    def children(
+        self, children: List[TalentCustomizedDataChild]
+    ) -> "TalentCustomizedDataBuilder":
         self._talent_customized_data.children = children
         return self
 

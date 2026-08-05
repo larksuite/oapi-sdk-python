@@ -21,7 +21,9 @@ class GetApplicationAuditLogResponseBody(object):
 
 class GetApplicationAuditLogResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_application_audit_log_response_body = GetApplicationAuditLogResponseBody()
+        self._get_application_audit_log_response_body = (
+            GetApplicationAuditLogResponseBody()
+        )
 
     def data(self, data: AuditLogDetail) -> "GetApplicationAuditLogResponseBodyBuilder":
         self._get_application_audit_log_response_body.data = data

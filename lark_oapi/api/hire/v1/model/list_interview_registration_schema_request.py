@@ -17,22 +17,35 @@ class ListInterviewRegistrationSchemaRequest(BaseRequest):
 
 
 class ListInterviewRegistrationSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
-        list_interview_registration_schema_request = ListInterviewRegistrationSchemaRequest()
+        list_interview_registration_schema_request = (
+            ListInterviewRegistrationSchemaRequest()
+        )
         list_interview_registration_schema_request.http_method = HttpMethod.GET
-        list_interview_registration_schema_request.uri = "/open-apis/hire/v1/interview_registration_schemas"
-        list_interview_registration_schema_request.token_types = {AccessTokenType.TENANT}
+        list_interview_registration_schema_request.uri = (
+            "/open-apis/hire/v1/interview_registration_schemas"
+        )
+        list_interview_registration_schema_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._list_interview_registration_schema_request: ListInterviewRegistrationSchemaRequest = list_interview_registration_schema_request
 
-    def page_token(self, page_token: str) -> "ListInterviewRegistrationSchemaRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListInterviewRegistrationSchemaRequestBuilder":
         self._list_interview_registration_schema_request.page_token = page_token
-        self._list_interview_registration_schema_request.add_query("page_token", page_token)
+        self._list_interview_registration_schema_request.add_query(
+            "page_token", page_token
+        )
         return self
 
-    def page_size(self, page_size: int) -> "ListInterviewRegistrationSchemaRequestBuilder":
+    def page_size(
+        self, page_size: int
+    ) -> "ListInterviewRegistrationSchemaRequestBuilder":
         self._list_interview_registration_schema_request.page_size = page_size
-        self._list_interview_registration_schema_request.add_query("page_size", page_size)
+        self._list_interview_registration_schema_request.add_query(
+            "page_size", page_size
+        )
         return self
 
     def build(self) -> ListInterviewRegistrationSchemaRequest:

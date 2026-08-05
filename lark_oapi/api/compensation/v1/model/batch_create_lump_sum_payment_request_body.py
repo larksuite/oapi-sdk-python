@@ -21,9 +21,13 @@ class BatchCreateLumpSumPaymentRequestBody(object):
 
 class BatchCreateLumpSumPaymentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_create_lump_sum_payment_request_body = BatchCreateLumpSumPaymentRequestBody()
+        self._batch_create_lump_sum_payment_request_body = (
+            BatchCreateLumpSumPaymentRequestBody()
+        )
 
-    def records(self, records: List[LumpSumPaymentForCreate]) -> "BatchCreateLumpSumPaymentRequestBodyBuilder":
+    def records(
+        self, records: List[LumpSumPaymentForCreate]
+    ) -> "BatchCreateLumpSumPaymentRequestBodyBuilder":
         self._batch_create_lump_sum_payment_request_body.records = records
         return self
 

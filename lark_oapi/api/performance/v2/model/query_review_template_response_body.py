@@ -27,7 +27,9 @@ class QueryReviewTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_template_response_body = QueryReviewTemplateResponseBody()
 
-    def review_templates(self, review_templates: List[ReviewTemplate]) -> "QueryReviewTemplateResponseBodyBuilder":
+    def review_templates(
+        self, review_templates: List[ReviewTemplate]
+    ) -> "QueryReviewTemplateResponseBodyBuilder":
         self._query_review_template_response_body.review_templates = review_templates
         return self
 

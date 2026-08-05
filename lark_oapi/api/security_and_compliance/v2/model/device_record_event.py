@@ -127,11 +127,15 @@ class DeviceRecordEventBuilder(object):
         self._device_record_event.device_status = device_status
         return self
 
-    def certification_level(self, certification_level: int) -> "DeviceRecordEventBuilder":
+    def certification_level(
+        self, certification_level: int
+    ) -> "DeviceRecordEventBuilder":
         self._device_record_event.certification_level = certification_level
         return self
 
-    def device_terminal_type(self, device_terminal_type: int) -> "DeviceRecordEventBuilder":
+    def device_terminal_type(
+        self, device_terminal_type: int
+    ) -> "DeviceRecordEventBuilder":
         self._device_record_event.device_terminal_type = device_terminal_type
         return self
 
@@ -147,7 +151,9 @@ class DeviceRecordEventBuilder(object):
         self._device_record_event.mdm_provider_name = mdm_provider_name
         return self
 
-    def device_env_detect_status(self, device_env_detect_status: int) -> "DeviceRecordEventBuilder":
+    def device_env_detect_status(
+        self, device_env_detect_status: int
+    ) -> "DeviceRecordEventBuilder":
         self._device_record_event.device_env_detect_status = device_env_detect_status
         return self
 

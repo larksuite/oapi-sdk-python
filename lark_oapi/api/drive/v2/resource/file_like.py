@@ -17,7 +17,9 @@ class FileLike(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListFileLikeRequest, option: Optional[RequestOption] = None) -> ListFileLikeResponse:
+    def list(
+        self, request: ListFileLikeRequest, option: Optional[RequestOption] = None
+    ) -> ListFileLikeResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class FileLike(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListFileLikeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileLikeResponse)
+        response: ListFileLikeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFileLikeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListFileLikeRequest, option: Optional[RequestOption] = None) -> ListFileLikeResponse:
+    async def alist(
+        self, request: ListFileLikeRequest, option: Optional[RequestOption] = None
+    ) -> ListFileLikeResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class FileLike(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListFileLikeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileLikeResponse)
+        response: ListFileLikeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFileLikeResponse
+        )
         response.raw = resp
 
         return response

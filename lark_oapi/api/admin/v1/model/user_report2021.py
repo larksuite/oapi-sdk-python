@@ -94,7 +94,9 @@ class UserReport2021Builder(object):
         self._user_report2021.reaction_count = reaction_count
         return self
 
-    def conference_create_count(self, conference_create_count: str) -> "UserReport2021Builder":
+    def conference_create_count(
+        self, conference_create_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.conference_create_count = conference_create_count
         return self
 
@@ -102,7 +104,9 @@ class UserReport2021Builder(object):
         self._user_report2021.total_parti_count = total_parti_count
         return self
 
-    def minutes_object_count(self, minutes_object_count: str) -> "UserReport2021Builder":
+    def minutes_object_count(
+        self, minutes_object_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.minutes_object_count = minutes_object_count
         return self
 
@@ -110,7 +114,9 @@ class UserReport2021Builder(object):
         self._user_report2021.minutes_duration = minutes_duration
         return self
 
-    def create_edit_file_count(self, create_edit_file_count: str) -> "UserReport2021Builder":
+    def create_edit_file_count(
+        self, create_edit_file_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.create_edit_file_count = create_edit_file_count
         return self
 
@@ -118,7 +124,9 @@ class UserReport2021Builder(object):
         self._user_report2021.create_file_count = create_file_count
         return self
 
-    def cooperate_edit_file_count(self, cooperate_edit_file_count: str) -> "UserReport2021Builder":
+    def cooperate_edit_file_count(
+        self, cooperate_edit_file_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.cooperate_edit_file_count = cooperate_edit_file_count
         return self
 
@@ -134,27 +142,39 @@ class UserReport2021Builder(object):
         self._user_report2021.okr_cum_kr_count = okr_cum_kr_count
         return self
 
-    def okr_aligned_user_rankfirst(self, okr_aligned_user_rankfirst: str) -> "UserReport2021Builder":
+    def okr_aligned_user_rankfirst(
+        self, okr_aligned_user_rankfirst: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.okr_aligned_user_rankfirst = okr_aligned_user_rankfirst
         return self
 
-    def approval_start_count(self, approval_start_count: str) -> "UserReport2021Builder":
+    def approval_start_count(
+        self, approval_start_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.approval_start_count = approval_start_count
         return self
 
-    def approval_execute_count(self, approval_execute_count: str) -> "UserReport2021Builder":
+    def approval_execute_count(
+        self, approval_execute_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.approval_execute_count = approval_execute_count
         return self
 
-    def approval_relation_user_rankfirst(self, approval_relation_user_rankfirst: str) -> "UserReport2021Builder":
-        self._user_report2021.approval_relation_user_rankfirst = approval_relation_user_rankfirst
+    def approval_relation_user_rankfirst(
+        self, approval_relation_user_rankfirst: str
+    ) -> "UserReport2021Builder":
+        self._user_report2021.approval_relation_user_rankfirst = (
+            approval_relation_user_rankfirst
+        )
         return self
 
     def user_id(self, user_id: str) -> "UserReport2021Builder":
         self._user_report2021.user_id = user_id
         return self
 
-    def busy_week_sum_duration(self, busy_week_sum_duration: str) -> "UserReport2021Builder":
+    def busy_week_sum_duration(
+        self, busy_week_sum_duration: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.busy_week_sum_duration = busy_week_sum_duration
         return self
 
@@ -166,7 +186,9 @@ class UserReport2021Builder(object):
         self._user_report2021.busy_week_act_days = busy_week_act_days
         return self
 
-    def create_read_user_count(self, create_read_user_count: str) -> "UserReport2021Builder":
+    def create_read_user_count(
+        self, create_read_user_count: str
+    ) -> "UserReport2021Builder":
         self._user_report2021.create_read_user_count = create_read_user_count
         return self
 

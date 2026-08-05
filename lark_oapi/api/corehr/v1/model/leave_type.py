@@ -50,7 +50,9 @@ class LeaveTypeBuilder(object):
         self._leave_type.status = status
         return self
 
-    def leave_subtype_list(self, leave_subtype_list: List[LeaveSubtype]) -> "LeaveTypeBuilder":
+    def leave_subtype_list(
+        self, leave_subtype_list: List[LeaveSubtype]
+    ) -> "LeaveTypeBuilder":
         self._leave_type.leave_subtype_list = leave_subtype_list
         return self
 

@@ -9,7 +9,6 @@ from .update_app_response_body import UpdateAppResponseBody
 class UpdateAppResponse(BaseResponse):
     _types = {
         "data": UpdateAppResponseBody,
-
     }
 
     def __init__(self, d=None):

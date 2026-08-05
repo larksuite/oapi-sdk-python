@@ -17,8 +17,9 @@ class UserStatsData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryUserStatsDataRequest,
-              option: Optional[RequestOption] = None) -> QueryUserStatsDataResponse:
+    def query(
+        self, request: QueryUserStatsDataRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserStatsDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class UserStatsData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserStatsDataResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsDataResponse)
+        response: QueryUserStatsDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserStatsDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryUserStatsDataRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserStatsDataResponse:
+    async def aquery(
+        self, request: QueryUserStatsDataRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserStatsDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class UserStatsData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserStatsDataResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsDataResponse)
+        response: QueryUserStatsDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserStatsDataResponse
+        )
         response.raw = resp
 
         return response

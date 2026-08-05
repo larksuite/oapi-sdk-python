@@ -20,10 +20,16 @@ class CreateTalentExternalInfoRequestBody(object):
 
 class CreateTalentExternalInfoRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_talent_external_info_request_body = CreateTalentExternalInfoRequestBody()
+        self._create_talent_external_info_request_body = (
+            CreateTalentExternalInfoRequestBody()
+        )
 
-    def external_create_time(self, external_create_time: str) -> "CreateTalentExternalInfoRequestBodyBuilder":
-        self._create_talent_external_info_request_body.external_create_time = external_create_time
+    def external_create_time(
+        self, external_create_time: str
+    ) -> "CreateTalentExternalInfoRequestBodyBuilder":
+        self._create_talent_external_info_request_body.external_create_time = (
+            external_create_time
+        )
         return self
 
     def build(self) -> "CreateTalentExternalInfoRequestBody":

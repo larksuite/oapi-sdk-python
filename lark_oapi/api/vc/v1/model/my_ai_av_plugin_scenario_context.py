@@ -35,7 +35,9 @@ class MyAiAvPluginScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_av_plugin_scenario_context = MyAiAvPluginScenarioContext()
 
-    def plugins(self, plugins: List[MyAiPluginContext]) -> "MyAiAvPluginScenarioContextBuilder":
+    def plugins(
+        self, plugins: List[MyAiPluginContext]
+    ) -> "MyAiAvPluginScenarioContextBuilder":
         self._my_ai_av_plugin_scenario_context.plugins = plugins
         return self
 
@@ -51,11 +53,15 @@ class MyAiAvPluginScenarioContextBuilder(object):
         self._my_ai_av_plugin_scenario_context.session_id = session_id
         return self
 
-    def upload_objects(self, upload_objects: List[MyAiAvPluginUploadObject]) -> "MyAiAvPluginScenarioContextBuilder":
+    def upload_objects(
+        self, upload_objects: List[MyAiAvPluginUploadObject]
+    ) -> "MyAiAvPluginScenarioContextBuilder":
         self._my_ai_av_plugin_scenario_context.upload_objects = upload_objects
         return self
 
-    def system_info(self, system_info: MyAiAvPluginContextSystemInfo) -> "MyAiAvPluginScenarioContextBuilder":
+    def system_info(
+        self, system_info: MyAiAvPluginContextSystemInfo
+    ) -> "MyAiAvPluginScenarioContextBuilder":
         self._my_ai_av_plugin_scenario_context.system_info = system_info
         return self
 

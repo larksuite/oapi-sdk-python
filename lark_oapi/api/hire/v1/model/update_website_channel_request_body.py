@@ -22,7 +22,9 @@ class UpdateWebsiteChannelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_website_channel_request_body = UpdateWebsiteChannelRequestBody()
 
-    def channel_name(self, channel_name: str) -> "UpdateWebsiteChannelRequestBodyBuilder":
+    def channel_name(
+        self, channel_name: str
+    ) -> "UpdateWebsiteChannelRequestBodyBuilder":
         self._update_website_channel_request_body.channel_name = channel_name
         return self
 

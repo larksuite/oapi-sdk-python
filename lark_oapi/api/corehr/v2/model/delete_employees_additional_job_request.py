@@ -16,17 +16,24 @@ class DeleteEmployeesAdditionalJobRequest(BaseRequest):
 
 
 class DeleteEmployeesAdditionalJobRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_employees_additional_job_request = DeleteEmployeesAdditionalJobRequest()
         delete_employees_additional_job_request.http_method = HttpMethod.DELETE
-        delete_employees_additional_job_request.uri = "/open-apis/corehr/v2/employees/additional_jobs/:additional_job_id"
+        delete_employees_additional_job_request.uri = (
+            "/open-apis/corehr/v2/employees/additional_jobs/:additional_job_id"
+        )
         delete_employees_additional_job_request.token_types = {AccessTokenType.TENANT}
         self._delete_employees_additional_job_request: DeleteEmployeesAdditionalJobRequest = delete_employees_additional_job_request
 
-    def additional_job_id(self, additional_job_id: str) -> "DeleteEmployeesAdditionalJobRequestBuilder":
-        self._delete_employees_additional_job_request.additional_job_id = additional_job_id
-        self._delete_employees_additional_job_request.paths["additional_job_id"] = str(additional_job_id)
+    def additional_job_id(
+        self, additional_job_id: str
+    ) -> "DeleteEmployeesAdditionalJobRequestBuilder":
+        self._delete_employees_additional_job_request.additional_job_id = (
+            additional_job_id
+        )
+        self._delete_employees_additional_job_request.paths["additional_job_id"] = str(
+            additional_job_id
+        )
         return self
 
     def build(self) -> DeleteEmployeesAdditionalJobRequest:

@@ -18,7 +18,6 @@ class GetJobDataRequest(BaseRequest):
 
 
 class GetJobDataRequestBuilder(object):
-
     def __init__(self) -> None:
         get_job_data_request = GetJobDataRequest()
         get_job_data_request.http_method = HttpMethod.GET

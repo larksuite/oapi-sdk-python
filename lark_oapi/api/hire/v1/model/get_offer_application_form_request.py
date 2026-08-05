@@ -16,17 +16,26 @@ class GetOfferApplicationFormRequest(BaseRequest):
 
 
 class GetOfferApplicationFormRequestBuilder(object):
-
     def __init__(self) -> None:
         get_offer_application_form_request = GetOfferApplicationFormRequest()
         get_offer_application_form_request.http_method = HttpMethod.GET
-        get_offer_application_form_request.uri = "/open-apis/hire/v1/offer_application_forms/:offer_application_form_id"
+        get_offer_application_form_request.uri = (
+            "/open-apis/hire/v1/offer_application_forms/:offer_application_form_id"
+        )
         get_offer_application_form_request.token_types = {AccessTokenType.TENANT}
-        self._get_offer_application_form_request: GetOfferApplicationFormRequest = get_offer_application_form_request
+        self._get_offer_application_form_request: GetOfferApplicationFormRequest = (
+            get_offer_application_form_request
+        )
 
-    def offer_application_form_id(self, offer_application_form_id: str) -> "GetOfferApplicationFormRequestBuilder":
-        self._get_offer_application_form_request.offer_application_form_id = offer_application_form_id
-        self._get_offer_application_form_request.paths["offer_application_form_id"] = str(offer_application_form_id)
+    def offer_application_form_id(
+        self, offer_application_form_id: str
+    ) -> "GetOfferApplicationFormRequestBuilder":
+        self._get_offer_application_form_request.offer_application_form_id = (
+            offer_application_form_id
+        )
+        self._get_offer_application_form_request.paths["offer_application_form_id"] = (
+            str(offer_application_form_id)
+        )
         return self
 
     def build(self) -> GetOfferApplicationFormRequest:

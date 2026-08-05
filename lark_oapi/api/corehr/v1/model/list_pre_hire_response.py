@@ -9,7 +9,6 @@ from .list_pre_hire_response_body import ListPreHireResponseBody
 class ListPreHireResponse(BaseResponse):
     _types = {
         "data": ListPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

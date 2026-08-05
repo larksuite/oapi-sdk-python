@@ -18,21 +18,29 @@ class CancelOnboardApplicationRequest(BaseRequest):
 
 
 class CancelOnboardApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         cancel_onboard_application_request = CancelOnboardApplicationRequest()
         cancel_onboard_application_request.http_method = HttpMethod.POST
-        cancel_onboard_application_request.uri = "/open-apis/hire/v1/applications/:application_id/cancel_onboard"
+        cancel_onboard_application_request.uri = (
+            "/open-apis/hire/v1/applications/:application_id/cancel_onboard"
+        )
         cancel_onboard_application_request.token_types = {AccessTokenType.TENANT}
-        self._cancel_onboard_application_request: CancelOnboardApplicationRequest = cancel_onboard_application_request
+        self._cancel_onboard_application_request: CancelOnboardApplicationRequest = (
+            cancel_onboard_application_request
+        )
 
-    def application_id(self, application_id: str) -> "CancelOnboardApplicationRequestBuilder":
+    def application_id(
+        self, application_id: str
+    ) -> "CancelOnboardApplicationRequestBuilder":
         self._cancel_onboard_application_request.application_id = application_id
-        self._cancel_onboard_application_request.paths["application_id"] = str(application_id)
+        self._cancel_onboard_application_request.paths["application_id"] = str(
+            application_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: CancelOnboardApplicationRequestBody) -> "CancelOnboardApplicationRequestBuilder":
+    def request_body(
+        self, request_body: CancelOnboardApplicationRequestBody
+    ) -> "CancelOnboardApplicationRequestBuilder":
         self._cancel_onboard_application_request.request_body = request_body
         self._cancel_onboard_application_request.body = request_body
         return self

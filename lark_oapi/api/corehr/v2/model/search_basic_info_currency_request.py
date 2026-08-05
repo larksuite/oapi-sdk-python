@@ -19,13 +19,16 @@ class SearchBasicInfoCurrencyRequest(BaseRequest):
 
 
 class SearchBasicInfoCurrencyRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_currency_request = SearchBasicInfoCurrencyRequest()
         search_basic_info_currency_request.http_method = HttpMethod.POST
-        search_basic_info_currency_request.uri = "/open-apis/corehr/v2/basic_info/currencies/search"
+        search_basic_info_currency_request.uri = (
+            "/open-apis/corehr/v2/basic_info/currencies/search"
+        )
         search_basic_info_currency_request.token_types = {AccessTokenType.TENANT}
-        self._search_basic_info_currency_request: SearchBasicInfoCurrencyRequest = search_basic_info_currency_request
+        self._search_basic_info_currency_request: SearchBasicInfoCurrencyRequest = (
+            search_basic_info_currency_request
+        )
 
     def page_size(self, page_size: int) -> "SearchBasicInfoCurrencyRequestBuilder":
         self._search_basic_info_currency_request.page_size = page_size
@@ -37,7 +40,9 @@ class SearchBasicInfoCurrencyRequestBuilder(object):
         self._search_basic_info_currency_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: SearchBasicInfoCurrencyRequestBody) -> "SearchBasicInfoCurrencyRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoCurrencyRequestBody
+    ) -> "SearchBasicInfoCurrencyRequestBuilder":
         self._search_basic_info_currency_request.request_body = request_body
         self._search_basic_info_currency_request.body = request_body
         return self

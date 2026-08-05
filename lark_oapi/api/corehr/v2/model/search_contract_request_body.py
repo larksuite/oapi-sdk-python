@@ -24,11 +24,15 @@ class SearchContractRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_contract_request_body = SearchContractRequestBody()
 
-    def employment_id_list(self, employment_id_list: List[str]) -> "SearchContractRequestBodyBuilder":
+    def employment_id_list(
+        self, employment_id_list: List[str]
+    ) -> "SearchContractRequestBodyBuilder":
         self._search_contract_request_body.employment_id_list = employment_id_list
         return self
 
-    def contract_id_list(self, contract_id_list: List[str]) -> "SearchContractRequestBodyBuilder":
+    def contract_id_list(
+        self, contract_id_list: List[str]
+    ) -> "SearchContractRequestBodyBuilder":
         self._search_contract_request_body.contract_id_list = contract_id_list
         return self
 

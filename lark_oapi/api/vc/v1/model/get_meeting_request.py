@@ -20,7 +20,6 @@ class GetMeetingRequest(BaseRequest):
 
 
 class GetMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         get_meeting_request = GetMeetingRequest()
         get_meeting_request.http_method = HttpMethod.GET
@@ -33,9 +32,13 @@ class GetMeetingRequestBuilder(object):
         self._get_meeting_request.add_query("with_participants", with_participants)
         return self
 
-    def with_meeting_ability(self, with_meeting_ability: bool) -> "GetMeetingRequestBuilder":
+    def with_meeting_ability(
+        self, with_meeting_ability: bool
+    ) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.with_meeting_ability = with_meeting_ability
-        self._get_meeting_request.add_query("with_meeting_ability", with_meeting_ability)
+        self._get_meeting_request.add_query(
+            "with_meeting_ability", with_meeting_ability
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetMeetingRequestBuilder":

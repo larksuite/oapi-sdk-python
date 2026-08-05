@@ -9,7 +9,6 @@ from .save_datasource_record_response_body import SaveDatasourceRecordResponseBo
 class SaveDatasourceRecordResponse(BaseResponse):
     _types = {
         "data": SaveDatasourceRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -21,7 +21,9 @@ class User(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetUserRequest, option: Optional[RequestOption] = None) -> GetUserResponse:
+    def get(
+        self, request: GetUserRequest, option: Optional[RequestOption] = None
+    ) -> GetUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,12 +38,16 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserResponse)
+        response: GetUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserRequest, option: Optional[RequestOption] = None) -> GetUserResponse:
+    async def aget(
+        self, request: GetUserRequest, option: Optional[RequestOption] = None
+    ) -> GetUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,12 +58,16 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserResponse)
+        response: GetUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserRequest, option: Optional[RequestOption] = None) -> ListUserResponse:
+    def list(
+        self, request: ListUserRequest, option: Optional[RequestOption] = None
+    ) -> ListUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,12 +82,16 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserResponse)
+        response: ListUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserRequest, option: Optional[RequestOption] = None) -> ListUserResponse:
+    async def alist(
+        self, request: ListUserRequest, option: Optional[RequestOption] = None
+    ) -> ListUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,12 +102,16 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserResponse)
+        response: ListUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchUserRequest, option: Optional[RequestOption] = None) -> PatchUserResponse:
+    def patch(
+        self, request: PatchUserRequest, option: Optional[RequestOption] = None
+    ) -> PatchUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -108,12 +126,16 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserResponse)
+        response: PatchUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchUserRequest, option: Optional[RequestOption] = None) -> PatchUserResponse:
+    async def apatch(
+        self, request: PatchUserRequest, option: Optional[RequestOption] = None
+    ) -> PatchUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -124,7 +146,9 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserResponse)
+        response: PatchUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserResponse
+        )
         response.raw = resp
 
         return response

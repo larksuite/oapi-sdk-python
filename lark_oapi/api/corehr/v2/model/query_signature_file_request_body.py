@@ -28,7 +28,9 @@ class QuerySignatureFileRequestBodyBuilder(object):
         self._query_signature_file_request_body.states = states
         return self
 
-    def template_ids(self, template_ids: List[str]) -> "QuerySignatureFileRequestBodyBuilder":
+    def template_ids(
+        self, template_ids: List[str]
+    ) -> "QuerySignatureFileRequestBodyBuilder":
         self._query_signature_file_request_body.template_ids = template_ids
         return self
 

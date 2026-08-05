@@ -23,7 +23,9 @@ class PatchChatMenuItemResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_chat_menu_item_response_body = PatchChatMenuItemResponseBody()
 
-    def chat_menu_item(self, chat_menu_item: ChatMenuItem) -> "PatchChatMenuItemResponseBodyBuilder":
+    def chat_menu_item(
+        self, chat_menu_item: ChatMenuItem
+    ) -> "PatchChatMenuItemResponseBodyBuilder":
         self._patch_chat_menu_item_response_body.chat_menu_item = chat_menu_item
         return self
 

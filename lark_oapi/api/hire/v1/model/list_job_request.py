@@ -19,6 +19,8 @@ class ListJobRequest(BaseRequest):
         self.recruiter_id_list: Optional[List[str]] = None
         self.hiring_manager_id_list: Optional[List[str]] = None
         self.assistant_id_list: Optional[List[str]] = None
+        self.department_id: Optional[str] = None
+        self.with_sub_department: Optional[bool] = None
 
     @staticmethod
     def builder() -> "ListJobRequestBuilder":
@@ -26,7 +28,6 @@ class ListJobRequest(BaseRequest):
 
 
 class ListJobRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_request = ListJobRequest()
         list_job_request.http_method = HttpMethod.GET
@@ -74,19 +75,37 @@ class ListJobRequestBuilder(object):
         self._list_job_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
-    def recruiter_id_list(self, recruiter_id_list: List[str]) -> "ListJobRequestBuilder":
+    def recruiter_id_list(
+        self, recruiter_id_list: List[str]
+    ) -> "ListJobRequestBuilder":
         self._list_job_request.recruiter_id_list = recruiter_id_list
         self._list_job_request.add_query("recruiter_id_list", recruiter_id_list)
         return self
 
-    def hiring_manager_id_list(self, hiring_manager_id_list: List[str]) -> "ListJobRequestBuilder":
+    def hiring_manager_id_list(
+        self, hiring_manager_id_list: List[str]
+    ) -> "ListJobRequestBuilder":
         self._list_job_request.hiring_manager_id_list = hiring_manager_id_list
-        self._list_job_request.add_query("hiring_manager_id_list", hiring_manager_id_list)
+        self._list_job_request.add_query(
+            "hiring_manager_id_list", hiring_manager_id_list
+        )
         return self
 
-    def assistant_id_list(self, assistant_id_list: List[str]) -> "ListJobRequestBuilder":
+    def assistant_id_list(
+        self, assistant_id_list: List[str]
+    ) -> "ListJobRequestBuilder":
         self._list_job_request.assistant_id_list = assistant_id_list
         self._list_job_request.add_query("assistant_id_list", assistant_id_list)
+        return self
+
+    def department_id(self, department_id: str) -> "ListJobRequestBuilder":
+        self._list_job_request.department_id = department_id
+        self._list_job_request.add_query("department_id", department_id)
+        return self
+
+    def with_sub_department(self, with_sub_department: bool) -> "ListJobRequestBuilder":
+        self._list_job_request.with_sub_department = with_sub_department
+        self._list_job_request.add_query("with_sub_department", with_sub_department)
         return self
 
     def build(self) -> ListJobRequest:

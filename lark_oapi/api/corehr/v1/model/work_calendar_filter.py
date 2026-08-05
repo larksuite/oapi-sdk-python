@@ -29,7 +29,9 @@ class WorkCalendarFilterBuilder(object):
     def __init__(self) -> None:
         self._work_calendar_filter = WorkCalendarFilter()
 
-    def wk_calendar_ids(self, wk_calendar_ids: List[str]) -> "WorkCalendarFilterBuilder":
+    def wk_calendar_ids(
+        self, wk_calendar_ids: List[str]
+    ) -> "WorkCalendarFilterBuilder":
         self._work_calendar_filter.wk_calendar_ids = wk_calendar_ids
         return self
 

@@ -16,7 +16,6 @@ class DeleteNoteRequest(BaseRequest):
 
 
 class DeleteNoteRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_note_request = DeleteNoteRequest()
         delete_note_request.http_method = HttpMethod.DELETE

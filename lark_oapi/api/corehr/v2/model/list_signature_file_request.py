@@ -24,17 +24,22 @@ class ListSignatureFileRequest(BaseRequest):
 
 
 class ListSignatureFileRequestBuilder(object):
-
     def __init__(self) -> None:
         list_signature_file_request = ListSignatureFileRequest()
         list_signature_file_request.http_method = HttpMethod.GET
         list_signature_file_request.uri = "/open-apis/corehr/v2/signature_files"
         list_signature_file_request.token_types = {AccessTokenType.TENANT}
-        self._list_signature_file_request: ListSignatureFileRequest = list_signature_file_request
+        self._list_signature_file_request: ListSignatureFileRequest = (
+            list_signature_file_request
+        )
 
-    def signature_file_id(self, signature_file_id: str) -> "ListSignatureFileRequestBuilder":
+    def signature_file_id(
+        self, signature_file_id: str
+    ) -> "ListSignatureFileRequestBuilder":
         self._list_signature_file_request.signature_file_id = signature_file_id
-        self._list_signature_file_request.add_query("signature_file_id", signature_file_id)
+        self._list_signature_file_request.add_query(
+            "signature_file_id", signature_file_id
+        )
         return self
 
     def page_size(self, page_size: int) -> "ListSignatureFileRequestBuilder":
@@ -52,12 +57,18 @@ class ListSignatureFileRequestBuilder(object):
         self._list_signature_file_request.add_query("states", states)
         return self
 
-    def update_time_start(self, update_time_start: str) -> "ListSignatureFileRequestBuilder":
+    def update_time_start(
+        self, update_time_start: str
+    ) -> "ListSignatureFileRequestBuilder":
         self._list_signature_file_request.update_time_start = update_time_start
-        self._list_signature_file_request.add_query("update_time_start", update_time_start)
+        self._list_signature_file_request.add_query(
+            "update_time_start", update_time_start
+        )
         return self
 
-    def update_time_end(self, update_time_end: str) -> "ListSignatureFileRequestBuilder":
+    def update_time_end(
+        self, update_time_end: str
+    ) -> "ListSignatureFileRequestBuilder":
         self._list_signature_file_request.update_time_end = update_time_end
         self._list_signature_file_request.add_query("update_time_end", update_time_end)
         return self
@@ -72,7 +83,9 @@ class ListSignatureFileRequestBuilder(object):
         self._list_signature_file_request.add_query("template_ids", template_ids)
         return self
 
-    def select_sign_url(self, select_sign_url: bool) -> "ListSignatureFileRequestBuilder":
+    def select_sign_url(
+        self, select_sign_url: bool
+    ) -> "ListSignatureFileRequestBuilder":
         self._list_signature_file_request.select_sign_url = select_sign_url
         self._list_signature_file_request.add_query("select_sign_url", select_sign_url)
         return self

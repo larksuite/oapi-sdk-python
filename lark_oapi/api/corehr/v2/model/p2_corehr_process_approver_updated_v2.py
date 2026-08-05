@@ -32,9 +32,7 @@ class P2CorehrProcessApproverUpdatedV2Data(object):
 
 
 class P2CorehrProcessApproverUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrProcessApproverUpdatedV2Data
-    }
+    _types = {"event": P2CorehrProcessApproverUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

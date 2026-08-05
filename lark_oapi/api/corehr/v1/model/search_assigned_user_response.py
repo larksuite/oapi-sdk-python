@@ -9,7 +9,6 @@ from .search_assigned_user_response_body import SearchAssignedUserResponseBody
 class SearchAssignedUserResponse(BaseResponse):
     _types = {
         "data": SearchAssignedUserResponseBody,
-
     }
 
     def __init__(self, d=None):

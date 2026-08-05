@@ -35,7 +35,9 @@ class StandardScopeBuilder(object):
         self._standard_scope.define_expression = define_expression
         return self
 
-    def expressions(self, expressions: List[StandardScopeExpression]) -> "StandardScopeBuilder":
+    def expressions(
+        self, expressions: List[StandardScopeExpression]
+    ) -> "StandardScopeBuilder":
         self._standard_scope.expressions = expressions
         return self
 

@@ -23,7 +23,9 @@ class ToBeResignedEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._to_be_resigned_employee_request_body = ToBeResignedEmployeeRequestBody()
 
-    def employee(self, employee: SetEmployeePreResigned) -> "ToBeResignedEmployeeRequestBodyBuilder":
+    def employee(
+        self, employee: SetEmployeePreResigned
+    ) -> "ToBeResignedEmployeeRequestBodyBuilder":
         self._to_be_resigned_employee_request_body.employee = employee
         return self
 

@@ -38,7 +38,9 @@ class SingleOptionBuilder(object):
         self._single_option.range = range
         return self
 
-    def data_validation_values(self, data_validation_values: List[DataValidationValue]) -> "SingleOptionBuilder":
+    def data_validation_values(
+        self, data_validation_values: List[DataValidationValue]
+    ) -> "SingleOptionBuilder":
         self._single_option.data_validation_values = data_validation_values
         return self
 

@@ -28,7 +28,9 @@ class ApplicationMigrateRecordInfoBuilder(object):
     def __init__(self) -> None:
         self._application_migrate_record_info = ApplicationMigrateRecordInfo()
 
-    def application_id(self, application_id: str) -> "ApplicationMigrateRecordInfoBuilder":
+    def application_id(
+        self, application_id: str
+    ) -> "ApplicationMigrateRecordInfoBuilder":
         self._application_migrate_record_info.application_id = application_id
         return self
 
@@ -40,7 +42,9 @@ class ApplicationMigrateRecordInfoBuilder(object):
         self._application_migrate_record_info.is_latest = is_latest
         return self
 
-    def pre_application_id(self, pre_application_id: str) -> "ApplicationMigrateRecordInfoBuilder":
+    def pre_application_id(
+        self, pre_application_id: str
+    ) -> "ApplicationMigrateRecordInfoBuilder":
         self._application_migrate_record_info.pre_application_id = pre_application_id
         return self
 

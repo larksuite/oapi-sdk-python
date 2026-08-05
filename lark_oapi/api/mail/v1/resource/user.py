@@ -17,7 +17,9 @@ class User(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryUserRequest, option: Optional[RequestOption] = None) -> QueryUserResponse:
+    def query(
+        self, request: QueryUserRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserResponse)
+        response: QueryUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryUserRequest, option: Optional[RequestOption] = None) -> QueryUserResponse:
+    async def aquery(
+        self, request: QueryUserRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserResponse)
+        response: QueryUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserResponse
+        )
         response.raw = resp
 
         return response

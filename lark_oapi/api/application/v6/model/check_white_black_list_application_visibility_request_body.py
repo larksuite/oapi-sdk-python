@@ -24,18 +24,30 @@ class CheckWhiteBlackListApplicationVisibilityRequestBody(object):
 
 class CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._check_white_black_list_application_visibility_request_body = CheckWhiteBlackListApplicationVisibilityRequestBody()
+        self._check_white_black_list_application_visibility_request_body = (
+            CheckWhiteBlackListApplicationVisibilityRequestBody()
+        )
 
-    def user_ids(self, user_ids: List[str]) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
-        self._check_white_black_list_application_visibility_request_body.user_ids = user_ids
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
+        self._check_white_black_list_application_visibility_request_body.user_ids = (
+            user_ids
+        )
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
         self._check_white_black_list_application_visibility_request_body.department_ids = department_ids
         return self
 
-    def group_ids(self, group_ids: List[str]) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
-        self._check_white_black_list_application_visibility_request_body.group_ids = group_ids
+    def group_ids(
+        self, group_ids: List[str]
+    ) -> "CheckWhiteBlackListApplicationVisibilityRequestBodyBuilder":
+        self._check_white_black_list_application_visibility_request_body.group_ids = (
+            group_ids
+        )
         return self
 
     def build(self) -> "CheckWhiteBlackListApplicationVisibilityRequestBody":

@@ -17,7 +17,6 @@ class GetSectionRequest(BaseRequest):
 
 
 class GetSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         get_section_request = GetSectionRequest()
         get_section_request.http_method = HttpMethod.GET

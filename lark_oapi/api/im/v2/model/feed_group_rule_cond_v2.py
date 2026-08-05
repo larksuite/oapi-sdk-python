@@ -29,7 +29,9 @@ class FeedGroupRuleCondV2Builder(object):
         self._feed_group_rule_cond_v2.match_type = match_type
         return self
 
-    def condition_items(self, condition_items: List[FeedGroupRuleCondItemV2]) -> "FeedGroupRuleCondV2Builder":
+    def condition_items(
+        self, condition_items: List[FeedGroupRuleCondItemV2]
+    ) -> "FeedGroupRuleCondV2Builder":
         self._feed_group_rule_cond_v2.condition_items = condition_items
         return self
 

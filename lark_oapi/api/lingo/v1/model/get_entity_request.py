@@ -12,6 +12,7 @@ class GetEntityRequest(BaseRequest):
         self.outer_id: Optional[str] = None
         self.user_id_type: Optional[str] = None
         self.entity_id: Optional[str] = None
+        self.repo_id: Optional[int] = None
 
     @staticmethod
     def builder() -> "GetEntityRequestBuilder":
@@ -19,7 +20,6 @@ class GetEntityRequest(BaseRequest):
 
 
 class GetEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         get_entity_request = GetEntityRequest()
         get_entity_request.http_method = HttpMethod.GET
@@ -45,6 +45,11 @@ class GetEntityRequestBuilder(object):
     def entity_id(self, entity_id: str) -> "GetEntityRequestBuilder":
         self._get_entity_request.entity_id = entity_id
         self._get_entity_request.paths["entity_id"] = str(entity_id)
+        return self
+
+    def repo_id(self, repo_id: int) -> "GetEntityRequestBuilder":
+        self._get_entity_request.repo_id = repo_id
+        self._get_entity_request.paths["repo_id"] = str(repo_id)
         return self
 
     def build(self) -> GetEntityRequest:

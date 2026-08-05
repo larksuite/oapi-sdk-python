@@ -19,7 +19,6 @@ class CreateEntityRequest(BaseRequest):
 
 
 class CreateEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         create_entity_request = CreateEntityRequest()
         create_entity_request.http_method = HttpMethod.POST

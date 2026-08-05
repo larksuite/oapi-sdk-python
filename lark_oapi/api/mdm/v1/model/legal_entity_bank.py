@@ -119,7 +119,9 @@ class LegalEntityBankBuilder(object):
         self._legal_entity_bank.clearing_account = clearing_account
         return self
 
-    def account_attribute_desc(self, account_attribute_desc: str) -> "LegalEntityBankBuilder":
+    def account_attribute_desc(
+        self, account_attribute_desc: str
+    ) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.account_attribute_desc = account_attribute_desc
         return self
 

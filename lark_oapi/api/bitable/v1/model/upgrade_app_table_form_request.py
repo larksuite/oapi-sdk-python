@@ -20,13 +20,17 @@ class UpgradeAppTableFormRequest(BaseRequest):
 
 
 class UpgradeAppTableFormRequestBuilder(object):
-
     def __init__(self) -> None:
         upgrade_app_table_form_request = UpgradeAppTableFormRequest()
         upgrade_app_table_form_request.http_method = HttpMethod.POST
         upgrade_app_table_form_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/upgrade"
-        upgrade_app_table_form_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._upgrade_app_table_form_request: UpgradeAppTableFormRequest = upgrade_app_table_form_request
+        upgrade_app_table_form_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._upgrade_app_table_form_request: UpgradeAppTableFormRequest = (
+            upgrade_app_table_form_request
+        )
 
     def app_token(self, app_token: str) -> "UpgradeAppTableFormRequestBuilder":
         self._upgrade_app_table_form_request.app_token = app_token
@@ -43,7 +47,9 @@ class UpgradeAppTableFormRequestBuilder(object):
         self._upgrade_app_table_form_request.paths["form_id"] = str(form_id)
         return self
 
-    def request_body(self, request_body: UpgradeAppTableFormRequestBody) -> "UpgradeAppTableFormRequestBuilder":
+    def request_body(
+        self, request_body: UpgradeAppTableFormRequestBody
+    ) -> "UpgradeAppTableFormRequestBuilder":
         self._upgrade_app_table_form_request.request_body = request_body
         self._upgrade_app_table_form_request.body = request_body
         return self

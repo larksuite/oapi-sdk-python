@@ -12,7 +12,9 @@ from requests_toolbelt import MultipartEncoder
 from ..model.get_employee_request import GetEmployeeRequest
 from ..model.get_employee_response import GetEmployeeResponse
 from ..model.get_by_application_employee_request import GetByApplicationEmployeeRequest
-from ..model.get_by_application_employee_response import GetByApplicationEmployeeResponse
+from ..model.get_by_application_employee_response import (
+    GetByApplicationEmployeeResponse,
+)
 from ..model.patch_employee_request import PatchEmployeeRequest
 from ..model.patch_employee_response import PatchEmployeeResponse
 
@@ -21,7 +23,9 @@ class Employee(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetEmployeeRequest, option: Optional[RequestOption] = None) -> GetEmployeeResponse:
+    def get(
+        self, request: GetEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> GetEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,12 +40,16 @@ class Employee(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEmployeeResponse)
+        response: GetEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetEmployeeRequest, option: Optional[RequestOption] = None) -> GetEmployeeResponse:
+    async def aget(
+        self, request: GetEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> GetEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class Employee(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEmployeeResponse)
+        response: GetEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_by_application(self, request: GetByApplicationEmployeeRequest,
-                           option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
+    def get_by_application(
+        self,
+        request: GetByApplicationEmployeeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByApplicationEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class Employee(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationEmployeeResponse)
+        response: GetByApplicationEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByApplicationEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_by_application(self, request: GetByApplicationEmployeeRequest,
-                                  option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
+    async def aget_by_application(
+        self,
+        request: GetByApplicationEmployeeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByApplicationEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,13 +108,16 @@ class Employee(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationEmployeeResponse)
+        response: GetByApplicationEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByApplicationEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
+    def patch(
+        self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> PatchEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,13 +132,16 @@ class Employee(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeeResponse)
+        response: PatchEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchEmployeeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchEmployeeRequest,
-                     option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
+    async def apatch(
+        self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None
+    ) -> PatchEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,7 +152,9 @@ class Employee(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeeResponse)
+        response: PatchEmployeeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchEmployeeResponse
+        )
         response.raw = resp
 
         return response

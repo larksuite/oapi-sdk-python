@@ -17,7 +17,9 @@ class Test(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchTestRequest, option: Optional[RequestOption] = None) -> SearchTestResponse:
+    def search(
+        self, request: SearchTestRequest, option: Optional[RequestOption] = None
+    ) -> SearchTestResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Test(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchTestResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTestResponse)
+        response: SearchTestResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTestResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchTestRequest, option: Optional[RequestOption] = None) -> SearchTestResponse:
+    async def asearch(
+        self, request: SearchTestRequest, option: Optional[RequestOption] = None
+    ) -> SearchTestResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Test(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchTestResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTestResponse)
+        response: SearchTestResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTestResponse
+        )
         response.raw = resp
 
         return response

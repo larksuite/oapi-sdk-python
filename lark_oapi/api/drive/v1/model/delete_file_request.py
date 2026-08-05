@@ -9,6 +9,7 @@ class DeleteFileRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.type: Optional[str] = None
+        self.async_: Optional[bool] = None
         self.file_token: Optional[str] = None
 
     @staticmethod
@@ -17,7 +18,6 @@ class DeleteFileRequest(BaseRequest):
 
 
 class DeleteFileRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_file_request = DeleteFileRequest()
         delete_file_request.http_method = HttpMethod.DELETE
@@ -28,6 +28,11 @@ class DeleteFileRequestBuilder(object):
     def type(self, type: str) -> "DeleteFileRequestBuilder":
         self._delete_file_request.type = type
         self._delete_file_request.add_query("type", type)
+        return self
+
+    def async_(self, async_: bool) -> "DeleteFileRequestBuilder":
+        self._delete_file_request.async_ = async_
+        self._delete_file_request.add_query("async", async_)
         return self
 
     def file_token(self, file_token: str) -> "DeleteFileRequestBuilder":

@@ -24,7 +24,9 @@ class DataAssetImportKnowledgeWikiSubDoc(object):
 
 class DataAssetImportKnowledgeWikiSubDocBuilder(object):
     def __init__(self) -> None:
-        self._data_asset_import_knowledge_wiki_sub_doc = DataAssetImportKnowledgeWikiSubDoc()
+        self._data_asset_import_knowledge_wiki_sub_doc = (
+            DataAssetImportKnowledgeWikiSubDoc()
+        )
 
     def type(self, type: str) -> "DataAssetImportKnowledgeWikiSubDocBuilder":
         self._data_asset_import_knowledge_wiki_sub_doc.type = type

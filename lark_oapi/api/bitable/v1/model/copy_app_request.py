@@ -18,7 +18,6 @@ class CopyAppRequest(BaseRequest):
 
 
 class CopyAppRequestBuilder(object):
-
     def __init__(self) -> None:
         copy_app_request = CopyAppRequest()
         copy_app_request.http_method = HttpMethod.POST

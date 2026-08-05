@@ -21,13 +21,17 @@ class SearchOffboardingRequest(BaseRequest):
 
 
 class SearchOffboardingRequestBuilder(object):
-
     def __init__(self) -> None:
         search_offboarding_request = SearchOffboardingRequest()
         search_offboarding_request.http_method = HttpMethod.POST
         search_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/search"
-        search_offboarding_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._search_offboarding_request: SearchOffboardingRequest = search_offboarding_request
+        search_offboarding_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._search_offboarding_request: SearchOffboardingRequest = (
+            search_offboarding_request
+        )
 
     def page_size(self, page_size: int) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.page_size = page_size
@@ -44,12 +48,18 @@ class SearchOffboardingRequestBuilder(object):
         self._search_offboarding_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchOffboardingRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.department_id_type = department_id_type
-        self._search_offboarding_request.add_query("department_id_type", department_id_type)
+        self._search_offboarding_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: SearchOffboardingRequestBody) -> "SearchOffboardingRequestBuilder":
+    def request_body(
+        self, request_body: SearchOffboardingRequestBody
+    ) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.request_body = request_body
         self._search_offboarding_request.body = request_body
         return self

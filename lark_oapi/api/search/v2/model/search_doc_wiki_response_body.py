@@ -11,6 +11,7 @@ class SearchDocWikiResponseBody(object):
         "has_more": bool,
         "res_units": List[DocResUnit],
         "page_token": str,
+        "notice": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class SearchDocWikiResponseBody(object):
         self.has_more: Optional[bool] = None
         self.res_units: Optional[List[DocResUnit]] = None
         self.page_token: Optional[str] = None
+        self.notice: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,12 +39,18 @@ class SearchDocWikiResponseBodyBuilder(object):
         self._search_doc_wiki_response_body.has_more = has_more
         return self
 
-    def res_units(self, res_units: List[DocResUnit]) -> "SearchDocWikiResponseBodyBuilder":
+    def res_units(
+        self, res_units: List[DocResUnit]
+    ) -> "SearchDocWikiResponseBodyBuilder":
         self._search_doc_wiki_response_body.res_units = res_units
         return self
 
     def page_token(self, page_token: str) -> "SearchDocWikiResponseBodyBuilder":
         self._search_doc_wiki_response_body.page_token = page_token
+        return self
+
+    def notice(self, notice: str) -> "SearchDocWikiResponseBodyBuilder":
+        self._search_doc_wiki_response_body.notice = notice
         return self
 
     def build(self) -> "SearchDocWikiResponseBody":

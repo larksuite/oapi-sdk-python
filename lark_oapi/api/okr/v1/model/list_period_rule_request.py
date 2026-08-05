@@ -15,7 +15,6 @@ class ListPeriodRuleRequest(BaseRequest):
 
 
 class ListPeriodRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_period_rule_request = ListPeriodRuleRequest()
         list_period_rule_request.http_method = HttpMethod.GET

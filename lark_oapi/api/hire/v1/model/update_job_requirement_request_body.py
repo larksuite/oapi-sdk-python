@@ -82,7 +82,9 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.name = name
         return self
 
-    def display_progress(self, display_progress: int) -> "UpdateJobRequirementRequestBodyBuilder":
+    def display_progress(
+        self, display_progress: int
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.display_progress = display_progress
         return self
 
@@ -90,19 +92,29 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.head_count = head_count
         return self
 
-    def recruitment_type_id(self, recruitment_type_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
-        self._update_job_requirement_request_body.recruitment_type_id = recruitment_type_id
+    def recruitment_type_id(
+        self, recruitment_type_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
+        self._update_job_requirement_request_body.recruitment_type_id = (
+            recruitment_type_id
+        )
         return self
 
-    def employee_type_id(self, employee_type_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.employee_type_id = employee_type_id
         return self
 
-    def max_level_id(self, max_level_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
+    def max_level_id(
+        self, max_level_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.max_level_id = max_level_id
         return self
 
-    def min_level_id(self, min_level_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
+    def min_level_id(
+        self, min_level_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.min_level_id = min_level_id
         return self
 
@@ -114,21 +126,32 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.category = category
         return self
 
-    def department_id(self, department_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.department_id = department_id
         return self
 
-    def recruiter_id_list(self, recruiter_id_list: List[str]) -> "UpdateJobRequirementRequestBodyBuilder":
+    def recruiter_id_list(
+        self, recruiter_id_list: List[str]
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.recruiter_id_list = recruiter_id_list
         return self
 
-    def jr_hiring_manager_id_list(self,
-                                  jr_hiring_manager_id_list: List[str]) -> "UpdateJobRequirementRequestBodyBuilder":
-        self._update_job_requirement_request_body.jr_hiring_manager_id_list = jr_hiring_manager_id_list
+    def jr_hiring_manager_id_list(
+        self, jr_hiring_manager_id_list: List[str]
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
+        self._update_job_requirement_request_body.jr_hiring_manager_id_list = (
+            jr_hiring_manager_id_list
+        )
         return self
 
-    def direct_leader_id_list(self, direct_leader_id_list: List[str]) -> "UpdateJobRequirementRequestBodyBuilder":
-        self._update_job_requirement_request_body.direct_leader_id_list = direct_leader_id_list
+    def direct_leader_id_list(
+        self, direct_leader_id_list: List[str]
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
+        self._update_job_requirement_request_body.direct_leader_id_list = (
+            direct_leader_id_list
+        )
         return self
 
     def start_time(self, start_time: str) -> "UpdateJobRequirementRequestBodyBuilder":
@@ -143,7 +166,9 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.priority = priority
         return self
 
-    def required_degree(self, required_degree: int) -> "UpdateJobRequirementRequestBodyBuilder":
+    def required_degree(
+        self, required_degree: int
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.required_degree = required_degree
         return self
 
@@ -163,12 +188,17 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.description = description
         return self
 
-    def customized_data_list(self, customized_data_list: List[
-        JobRequirementCustomizedData]) -> "UpdateJobRequirementRequestBodyBuilder":
-        self._update_job_requirement_request_body.customized_data_list = customized_data_list
+    def customized_data_list(
+        self, customized_data_list: List[JobRequirementCustomizedData]
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
+        self._update_job_requirement_request_body.customized_data_list = (
+            customized_data_list
+        )
         return self
 
-    def process_type(self, process_type: int) -> "UpdateJobRequirementRequestBodyBuilder":
+    def process_type(
+        self, process_type: int
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.process_type = process_type
         return self
 
@@ -176,11 +206,15 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.job_type_id = job_type_id
         return self
 
-    def job_id_list(self, job_id_list: List[str]) -> "UpdateJobRequirementRequestBodyBuilder":
+    def job_id_list(
+        self, job_id_list: List[str]
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.job_id_list = job_id_list
         return self
 
-    def employment_job_id(self, employment_job_id: str) -> "UpdateJobRequirementRequestBodyBuilder":
+    def employment_job_id(
+        self, employment_job_id: str
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.employment_job_id = employment_job_id
         return self
 
@@ -188,7 +222,9 @@ class UpdateJobRequirementRequestBodyBuilder(object):
         self._update_job_requirement_request_body.position_id = position_id
         return self
 
-    def update_option(self, update_option: JobRequirementUpdateOption) -> "UpdateJobRequirementRequestBodyBuilder":
+    def update_option(
+        self, update_option: JobRequirementUpdateOption
+    ) -> "UpdateJobRequirementRequestBodyBuilder":
         self._update_job_requirement_request_body.update_option = update_option
         return self
 

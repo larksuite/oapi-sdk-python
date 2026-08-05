@@ -20,22 +20,29 @@ class CreateMailgroupMemberRequest(BaseRequest):
 
 
 class CreateMailgroupMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         create_mailgroup_member_request = CreateMailgroupMemberRequest()
         create_mailgroup_member_request.http_method = HttpMethod.POST
-        create_mailgroup_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/members"
+        create_mailgroup_member_request.uri = (
+            "/open-apis/mail/v1/mailgroups/:mailgroup_id/members"
+        )
         create_mailgroup_member_request.token_types = {AccessTokenType.TENANT}
-        self._create_mailgroup_member_request: CreateMailgroupMemberRequest = create_mailgroup_member_request
+        self._create_mailgroup_member_request: CreateMailgroupMemberRequest = (
+            create_mailgroup_member_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateMailgroupMemberRequestBuilder":
         self._create_mailgroup_member_request.user_id_type = user_id_type
         self._create_mailgroup_member_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "CreateMailgroupMemberRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateMailgroupMemberRequestBuilder":
         self._create_mailgroup_member_request.department_id_type = department_id_type
-        self._create_mailgroup_member_request.add_query("department_id_type", department_id_type)
+        self._create_mailgroup_member_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def mailgroup_id(self, mailgroup_id: str) -> "CreateMailgroupMemberRequestBuilder":
@@ -43,7 +50,9 @@ class CreateMailgroupMemberRequestBuilder(object):
         self._create_mailgroup_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
-    def request_body(self, request_body: MailgroupMember) -> "CreateMailgroupMemberRequestBuilder":
+    def request_body(
+        self, request_body: MailgroupMember
+    ) -> "CreateMailgroupMemberRequestBuilder":
         self._create_mailgroup_member_request.request_body = request_body
         self._create_mailgroup_member_request.body = request_body
         return self

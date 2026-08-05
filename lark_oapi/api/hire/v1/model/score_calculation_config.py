@@ -28,7 +28,9 @@ class ScoreCalculationConfigBuilder(object):
         self._score_calculation_config.enabled = enabled
         return self
 
-    def calculation_mode(self, calculation_mode: int) -> "ScoreCalculationConfigBuilder":
+    def calculation_mode(
+        self, calculation_mode: int
+    ) -> "ScoreCalculationConfigBuilder":
         self._score_calculation_config.calculation_mode = calculation_mode
         return self
 

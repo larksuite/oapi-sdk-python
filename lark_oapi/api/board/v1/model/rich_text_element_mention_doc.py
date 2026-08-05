@@ -29,7 +29,9 @@ class RichTextElementMentionDocBuilder(object):
         self._rich_text_element_mention_doc.doc_url = doc_url
         return self
 
-    def text_style(self, text_style: RichTextElementTextStyle) -> "RichTextElementMentionDocBuilder":
+    def text_style(
+        self, text_style: RichTextElementTextStyle
+    ) -> "RichTextElementMentionDocBuilder":
         self._rich_text_element_mention_doc.text_style = text_style
         return self
 

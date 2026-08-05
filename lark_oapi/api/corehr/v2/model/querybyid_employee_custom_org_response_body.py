@@ -23,9 +23,13 @@ class QuerybyidEmployeeCustomOrgResponseBody(object):
 
 class QuerybyidEmployeeCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._querybyid_employee_custom_org_response_body = QuerybyidEmployeeCustomOrgResponseBody()
+        self._querybyid_employee_custom_org_response_body = (
+            QuerybyidEmployeeCustomOrgResponseBody()
+        )
 
-    def custom_org(self, custom_org: List[EmpCustomOrgList]) -> "QuerybyidEmployeeCustomOrgResponseBodyBuilder":
+    def custom_org(
+        self, custom_org: List[EmpCustomOrgList]
+    ) -> "QuerybyidEmployeeCustomOrgResponseBodyBuilder":
         self._querybyid_employee_custom_org_response_body.custom_org = custom_org
         return self
 

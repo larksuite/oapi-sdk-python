@@ -19,7 +19,6 @@ class PatchPathwayRequest(BaseRequest):
 
 
 class PatchPathwayRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_pathway_request = PatchPathwayRequest()
         patch_pathway_request.http_method = HttpMethod.PATCH

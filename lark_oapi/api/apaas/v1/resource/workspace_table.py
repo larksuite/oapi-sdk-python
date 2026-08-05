@@ -11,16 +11,34 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.list_workspace_table_request import ListWorkspaceTableRequest
 from ..model.list_workspace_table_response import ListWorkspaceTableResponse
-from ..model.records_batch_update_workspace_table_request import RecordsBatchUpdateWorkspaceTableRequest
-from ..model.records_batch_update_workspace_table_response import RecordsBatchUpdateWorkspaceTableResponse
-from ..model.records_delete_workspace_table_request import RecordsDeleteWorkspaceTableRequest
-from ..model.records_delete_workspace_table_response import RecordsDeleteWorkspaceTableResponse
+from ..model.records_batch_update_workspace_table_request import (
+    RecordsBatchUpdateWorkspaceTableRequest,
+)
+from ..model.records_batch_update_workspace_table_response import (
+    RecordsBatchUpdateWorkspaceTableResponse,
+)
+from ..model.records_delete_workspace_table_request import (
+    RecordsDeleteWorkspaceTableRequest,
+)
+from ..model.records_delete_workspace_table_response import (
+    RecordsDeleteWorkspaceTableResponse,
+)
 from ..model.records_get_workspace_table_request import RecordsGetWorkspaceTableRequest
-from ..model.records_get_workspace_table_response import RecordsGetWorkspaceTableResponse
-from ..model.records_patch_workspace_table_request import RecordsPatchWorkspaceTableRequest
-from ..model.records_patch_workspace_table_response import RecordsPatchWorkspaceTableResponse
-from ..model.records_post_workspace_table_request import RecordsPostWorkspaceTableRequest
-from ..model.records_post_workspace_table_response import RecordsPostWorkspaceTableResponse
+from ..model.records_get_workspace_table_response import (
+    RecordsGetWorkspaceTableResponse,
+)
+from ..model.records_patch_workspace_table_request import (
+    RecordsPatchWorkspaceTableRequest,
+)
+from ..model.records_patch_workspace_table_response import (
+    RecordsPatchWorkspaceTableResponse,
+)
+from ..model.records_post_workspace_table_request import (
+    RecordsPostWorkspaceTableRequest,
+)
+from ..model.records_post_workspace_table_response import (
+    RecordsPostWorkspaceTableResponse,
+)
 from ..model.table_get_workspace_table_request import TableGetWorkspaceTableRequest
 from ..model.table_get_workspace_table_response import TableGetWorkspaceTableResponse
 
@@ -29,8 +47,9 @@ class WorkspaceTable(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListWorkspaceTableRequest,
-             option: Optional[RequestOption] = None) -> ListWorkspaceTableResponse:
+    def list(
+        self, request: ListWorkspaceTableRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,13 +64,16 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceTableResponse)
+        response: ListWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWorkspaceTableRequest,
-                    option: Optional[RequestOption] = None) -> ListWorkspaceTableResponse:
+    async def alist(
+        self, request: ListWorkspaceTableRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,13 +84,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceTableResponse)
+        response: ListWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def records_batch_update(self, request: RecordsBatchUpdateWorkspaceTableRequest,
-                             option: Optional[RequestOption] = None) -> RecordsBatchUpdateWorkspaceTableResponse:
+    def records_batch_update(
+        self,
+        request: RecordsBatchUpdateWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsBatchUpdateWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,14 +110,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecordsBatchUpdateWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            RecordsBatchUpdateWorkspaceTableResponse)
+        response: RecordsBatchUpdateWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsBatchUpdateWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecords_batch_update(self, request: RecordsBatchUpdateWorkspaceTableRequest,
-                                    option: Optional[RequestOption] = None) -> RecordsBatchUpdateWorkspaceTableResponse:
+    async def arecords_batch_update(
+        self,
+        request: RecordsBatchUpdateWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsBatchUpdateWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -101,14 +132,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecordsBatchUpdateWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            RecordsBatchUpdateWorkspaceTableResponse)
+        response: RecordsBatchUpdateWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsBatchUpdateWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def records_delete(self, request: RecordsDeleteWorkspaceTableRequest,
-                       option: Optional[RequestOption] = None) -> RecordsDeleteWorkspaceTableResponse:
+    def records_delete(
+        self,
+        request: RecordsDeleteWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsDeleteWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -123,14 +158,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecordsDeleteWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       RecordsDeleteWorkspaceTableResponse)
+        response: RecordsDeleteWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsDeleteWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecords_delete(self, request: RecordsDeleteWorkspaceTableRequest,
-                              option: Optional[RequestOption] = None) -> RecordsDeleteWorkspaceTableResponse:
+    async def arecords_delete(
+        self,
+        request: RecordsDeleteWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsDeleteWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -141,14 +180,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecordsDeleteWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       RecordsDeleteWorkspaceTableResponse)
+        response: RecordsDeleteWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsDeleteWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def records_get(self, request: RecordsGetWorkspaceTableRequest,
-                    option: Optional[RequestOption] = None) -> RecordsGetWorkspaceTableResponse:
+    def records_get(
+        self,
+        request: RecordsGetWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsGetWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -163,14 +206,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecordsGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecordsGetWorkspaceTableResponse)
+        response: RecordsGetWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsGetWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecords_get(self, request: RecordsGetWorkspaceTableRequest,
-                           option: Optional[RequestOption] = None) -> RecordsGetWorkspaceTableResponse:
+    async def arecords_get(
+        self,
+        request: RecordsGetWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsGetWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -181,14 +228,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecordsGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecordsGetWorkspaceTableResponse)
+        response: RecordsGetWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsGetWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def records_patch(self, request: RecordsPatchWorkspaceTableRequest,
-                      option: Optional[RequestOption] = None) -> RecordsPatchWorkspaceTableResponse:
+    def records_patch(
+        self,
+        request: RecordsPatchWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsPatchWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -203,14 +254,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecordsPatchWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecordsPatchWorkspaceTableResponse)
+        response: RecordsPatchWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsPatchWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecords_patch(self, request: RecordsPatchWorkspaceTableRequest,
-                             option: Optional[RequestOption] = None) -> RecordsPatchWorkspaceTableResponse:
+    async def arecords_patch(
+        self,
+        request: RecordsPatchWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsPatchWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -221,14 +276,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecordsPatchWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecordsPatchWorkspaceTableResponse)
+        response: RecordsPatchWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsPatchWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def records_post(self, request: RecordsPostWorkspaceTableRequest,
-                     option: Optional[RequestOption] = None) -> RecordsPostWorkspaceTableResponse:
+    def records_post(
+        self,
+        request: RecordsPostWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsPostWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,14 +302,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecordsPostWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     RecordsPostWorkspaceTableResponse)
+        response: RecordsPostWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsPostWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecords_post(self, request: RecordsPostWorkspaceTableRequest,
-                            option: Optional[RequestOption] = None) -> RecordsPostWorkspaceTableResponse:
+    async def arecords_post(
+        self,
+        request: RecordsPostWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecordsPostWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -261,14 +324,18 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecordsPostWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     RecordsPostWorkspaceTableResponse)
+        response: RecordsPostWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecordsPostWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def table_get(self, request: TableGetWorkspaceTableRequest,
-                  option: Optional[RequestOption] = None) -> TableGetWorkspaceTableResponse:
+    def table_get(
+        self,
+        request: TableGetWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TableGetWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -283,14 +350,18 @@ class WorkspaceTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TableGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TableGetWorkspaceTableResponse)
+        response: TableGetWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TableGetWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atable_get(self, request: TableGetWorkspaceTableRequest,
-                         option: Optional[RequestOption] = None) -> TableGetWorkspaceTableResponse:
+    async def atable_get(
+        self,
+        request: TableGetWorkspaceTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TableGetWorkspaceTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -301,8 +372,9 @@ class WorkspaceTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TableGetWorkspaceTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TableGetWorkspaceTableResponse)
+        response: TableGetWorkspaceTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TableGetWorkspaceTableResponse
+        )
         response.raw = resp
 
         return response

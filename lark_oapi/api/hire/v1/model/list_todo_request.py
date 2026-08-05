@@ -20,7 +20,6 @@ class ListTodoRequest(BaseRequest):
 
 
 class ListTodoRequestBuilder(object):
-
     def __init__(self) -> None:
         list_todo_request = ListTodoRequest()
         list_todo_request.http_method = HttpMethod.GET

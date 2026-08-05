@@ -20,12 +20,14 @@ class PatchEmployeeRequest(BaseRequest):
 
 
 class PatchEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_employee_request = PatchEmployeeRequest()
         patch_employee_request.http_method = HttpMethod.PATCH
         patch_employee_request.uri = "/open-apis/directory/v1/employees/:employee_id"
-        patch_employee_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        patch_employee_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._patch_employee_request: PatchEmployeeRequest = patch_employee_request
 
     def employee_id_type(self, employee_id_type: str) -> "PatchEmployeeRequestBuilder":
@@ -33,7 +35,9 @@ class PatchEmployeeRequestBuilder(object):
         self._patch_employee_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.department_id_type = department_id_type
         self._patch_employee_request.add_query("department_id_type", department_id_type)
         return self
@@ -43,7 +47,9 @@ class PatchEmployeeRequestBuilder(object):
         self._patch_employee_request.paths["employee_id"] = str(employee_id)
         return self
 
-    def request_body(self, request_body: PatchEmployeeRequestBody) -> "PatchEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: PatchEmployeeRequestBody
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.request_body = request_body
         self._patch_employee_request.body = request_body
         return self

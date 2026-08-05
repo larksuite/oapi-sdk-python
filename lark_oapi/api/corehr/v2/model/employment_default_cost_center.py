@@ -47,11 +47,15 @@ class EmploymentDefaultCostCenterBuilder(object):
         self._employment_default_cost_center.wk_tid = wk_tid
         return self
 
-    def effective_time(self, effective_time: str) -> "EmploymentDefaultCostCenterBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "EmploymentDefaultCostCenterBuilder":
         self._employment_default_cost_center.effective_time = effective_time
         return self
 
-    def cost_center_id(self, cost_center_id: str) -> "EmploymentDefaultCostCenterBuilder":
+    def cost_center_id(
+        self, cost_center_id: str
+    ) -> "EmploymentDefaultCostCenterBuilder":
         self._employment_default_cost_center.cost_center_id = cost_center_id
         return self
 
@@ -63,7 +67,9 @@ class EmploymentDefaultCostCenterBuilder(object):
         self._employment_default_cost_center.is_inherit = is_inherit
         return self
 
-    def inherit_source(self, inherit_source: Enum) -> "EmploymentDefaultCostCenterBuilder":
+    def inherit_source(
+        self, inherit_source: Enum
+    ) -> "EmploymentDefaultCostCenterBuilder":
         self._employment_default_cost_center.inherit_source = inherit_source
         return self
 

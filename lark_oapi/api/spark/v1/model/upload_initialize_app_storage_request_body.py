@@ -24,17 +24,25 @@ class UploadInitializeAppStorageRequestBody(object):
 
 class UploadInitializeAppStorageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_initialize_app_storage_request_body = UploadInitializeAppStorageRequestBody()
+        self._upload_initialize_app_storage_request_body = (
+            UploadInitializeAppStorageRequestBody()
+        )
 
-    def file_name(self, file_name: str) -> "UploadInitializeAppStorageRequestBodyBuilder":
+    def file_name(
+        self, file_name: str
+    ) -> "UploadInitializeAppStorageRequestBodyBuilder":
         self._upload_initialize_app_storage_request_body.file_name = file_name
         return self
 
-    def file_size(self, file_size: int) -> "UploadInitializeAppStorageRequestBodyBuilder":
+    def file_size(
+        self, file_size: int
+    ) -> "UploadInitializeAppStorageRequestBodyBuilder":
         self._upload_initialize_app_storage_request_body.file_size = file_size
         return self
 
-    def mime_type(self, mime_type: str) -> "UploadInitializeAppStorageRequestBodyBuilder":
+    def mime_type(
+        self, mime_type: str
+    ) -> "UploadInitializeAppStorageRequestBodyBuilder":
         self._upload_initialize_app_storage_request_body.mime_type = mime_type
         return self
 

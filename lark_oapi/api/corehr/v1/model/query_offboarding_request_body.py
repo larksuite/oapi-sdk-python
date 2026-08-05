@@ -28,9 +28,12 @@ class QueryOffboardingRequestBodyBuilder(object):
         self._query_offboarding_request_body.active = active
         return self
 
-    def offboarding_reason_unique_identifier(self, offboarding_reason_unique_identifier: List[
-        str]) -> "QueryOffboardingRequestBodyBuilder":
-        self._query_offboarding_request_body.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
+    def offboarding_reason_unique_identifier(
+        self, offboarding_reason_unique_identifier: List[str]
+    ) -> "QueryOffboardingRequestBodyBuilder":
+        self._query_offboarding_request_body.offboarding_reason_unique_identifier = (
+            offboarding_reason_unique_identifier
+        )
         return self
 
     def build(self) -> "QueryOffboardingRequestBody":

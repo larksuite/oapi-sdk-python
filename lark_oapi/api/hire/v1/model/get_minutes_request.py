@@ -18,12 +18,11 @@ class GetMinutesRequest(BaseRequest):
 
 
 class GetMinutesRequestBuilder(object):
-
     def __init__(self) -> None:
         get_minutes_request = GetMinutesRequest()
         get_minutes_request.http_method = HttpMethod.GET
         get_minutes_request.uri = "/open-apis/hire/v1/minutes"
-        get_minutes_request.token_types = {AccessTokenType.TENANT}
+        get_minutes_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_minutes_request: GetMinutesRequest = get_minutes_request
 
     def interview_id(self, interview_id: str) -> "GetMinutesRequestBuilder":

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .delete_additional_informations_batch_request_body import DeleteAdditionalInformationsBatchRequestBody
+from .delete_additional_informations_batch_request_body import (
+    DeleteAdditionalInformationsBatchRequestBody,
+)
 
 
 class DeleteAdditionalInformationsBatchRequest(BaseRequest):
@@ -18,21 +20,31 @@ class DeleteAdditionalInformationsBatchRequest(BaseRequest):
 
 
 class DeleteAdditionalInformationsBatchRequestBuilder(object):
-
     def __init__(self) -> None:
-        delete_additional_informations_batch_request = DeleteAdditionalInformationsBatchRequest()
+        delete_additional_informations_batch_request = (
+            DeleteAdditionalInformationsBatchRequest()
+        )
         delete_additional_informations_batch_request.http_method = HttpMethod.DELETE
-        delete_additional_informations_batch_request.uri = "/open-apis/performance/v2/additional_informations/batch"
-        delete_additional_informations_batch_request.token_types = {AccessTokenType.TENANT}
+        delete_additional_informations_batch_request.uri = (
+            "/open-apis/performance/v2/additional_informations/batch"
+        )
+        delete_additional_informations_batch_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._delete_additional_informations_batch_request: DeleteAdditionalInformationsBatchRequest = delete_additional_informations_batch_request
 
-    def user_id_type(self, user_id_type: str) -> "DeleteAdditionalInformationsBatchRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "DeleteAdditionalInformationsBatchRequestBuilder":
         self._delete_additional_informations_batch_request.user_id_type = user_id_type
-        self._delete_additional_informations_batch_request.add_query("user_id_type", user_id_type)
+        self._delete_additional_informations_batch_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: DeleteAdditionalInformationsBatchRequestBody) -> "DeleteAdditionalInformationsBatchRequestBuilder":
+    def request_body(
+        self, request_body: DeleteAdditionalInformationsBatchRequestBody
+    ) -> "DeleteAdditionalInformationsBatchRequestBuilder":
         self._delete_additional_informations_batch_request.request_body = request_body
         self._delete_additional_informations_batch_request.body = request_body
         return self

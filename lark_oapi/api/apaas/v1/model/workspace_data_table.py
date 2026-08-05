@@ -35,7 +35,9 @@ class WorkspaceDataTableBuilder(object):
         self._workspace_data_table.description = description
         return self
 
-    def columns(self, columns: List[WorkspaceDataTableColumnInfo]) -> "WorkspaceDataTableBuilder":
+    def columns(
+        self, columns: List[WorkspaceDataTableColumnInfo]
+    ) -> "WorkspaceDataTableBuilder":
         self._workspace_data_table.columns = columns
         return self
 

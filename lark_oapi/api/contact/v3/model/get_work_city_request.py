@@ -16,12 +16,14 @@ class GetWorkCityRequest(BaseRequest):
 
 
 class GetWorkCityRequestBuilder(object):
-
     def __init__(self) -> None:
         get_work_city_request = GetWorkCityRequest()
         get_work_city_request.http_method = HttpMethod.GET
         get_work_city_request.uri = "/open-apis/contact/v3/work_cities/:work_city_id"
-        get_work_city_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_work_city_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_work_city_request: GetWorkCityRequest = get_work_city_request
 
     def work_city_id(self, work_city_id: str) -> "GetWorkCityRequestBuilder":

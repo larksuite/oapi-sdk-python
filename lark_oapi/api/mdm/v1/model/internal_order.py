@@ -50,7 +50,9 @@ class InternalOrderBuilder(object):
         self._internal_order.type = type
         return self
 
-    def responsible_user_union_id(self, responsible_user_union_id: str) -> "InternalOrderBuilder":
+    def responsible_user_union_id(
+        self, responsible_user_union_id: str
+    ) -> "InternalOrderBuilder":
         self._internal_order.responsible_user_union_id = responsible_user_union_id
         return self
 

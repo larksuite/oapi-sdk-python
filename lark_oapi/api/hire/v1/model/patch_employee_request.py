@@ -23,7 +23,6 @@ class PatchEmployeeRequest(BaseRequest):
 
 
 class PatchEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_employee_request = PatchEmployeeRequest()
         patch_employee_request.http_method = HttpMethod.PATCH
@@ -36,24 +35,34 @@ class PatchEmployeeRequestBuilder(object):
         self._patch_employee_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.department_id_type = department_id_type
         self._patch_employee_request.add_query("department_id_type", department_id_type)
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "PatchEmployeeRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.job_level_id_type = job_level_id_type
         self._patch_employee_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
-    def job_family_id_type(self, job_family_id_type: str) -> "PatchEmployeeRequestBuilder":
+    def job_family_id_type(
+        self, job_family_id_type: str
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.job_family_id_type = job_family_id_type
         self._patch_employee_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "PatchEmployeeRequestBuilder":
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.employee_type_id_type = employee_type_id_type
-        self._patch_employee_request.add_query("employee_type_id_type", employee_type_id_type)
+        self._patch_employee_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
     def employee_id(self, employee_id: str) -> "PatchEmployeeRequestBuilder":
@@ -61,7 +70,9 @@ class PatchEmployeeRequestBuilder(object):
         self._patch_employee_request.paths["employee_id"] = str(employee_id)
         return self
 
-    def request_body(self, request_body: ChangeEmployeeStage) -> "PatchEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: ChangeEmployeeStage
+    ) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.request_body = request_body
         self._patch_employee_request.body = request_body
         return self

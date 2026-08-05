@@ -9,7 +9,6 @@ from .search_contract_response_body import SearchContractResponseBody
 class SearchContractResponse(BaseResponse):
     _types = {
         "data": SearchContractResponseBody,
-
     }
 
     def __init__(self, d=None):

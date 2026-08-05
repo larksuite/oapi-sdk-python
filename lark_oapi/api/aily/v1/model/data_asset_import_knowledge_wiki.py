@@ -31,7 +31,9 @@ class DataAssetImportKnowledgeWikiBuilder(object):
         self._data_asset_import_knowledge_wiki.space_id = space_id
         return self
 
-    def sub_docs(self, sub_docs: List[DataAssetImportKnowledgeWikiSubDoc]) -> "DataAssetImportKnowledgeWikiBuilder":
+    def sub_docs(
+        self, sub_docs: List[DataAssetImportKnowledgeWikiSubDoc]
+    ) -> "DataAssetImportKnowledgeWikiBuilder":
         self._data_asset_import_knowledge_wiki.sub_docs = sub_docs
         return self
 

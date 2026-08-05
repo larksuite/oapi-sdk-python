@@ -16,13 +16,19 @@ class SubscriptionStatusUserRequest(BaseRequest):
 
 
 class SubscriptionStatusUserRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_status_user_request = SubscriptionStatusUserRequest()
         subscription_status_user_request.http_method = HttpMethod.GET
-        subscription_status_user_request.uri = "/open-apis/drive/v1/user/subscription_status"
-        subscription_status_user_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._subscription_status_user_request: SubscriptionStatusUserRequest = subscription_status_user_request
+        subscription_status_user_request.uri = (
+            "/open-apis/drive/v1/user/subscription_status"
+        )
+        subscription_status_user_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._subscription_status_user_request: SubscriptionStatusUserRequest = (
+            subscription_status_user_request
+        )
 
     def event_type(self, event_type: str) -> "SubscriptionStatusUserRequestBuilder":
         self._subscription_status_user_request.event_type = event_type

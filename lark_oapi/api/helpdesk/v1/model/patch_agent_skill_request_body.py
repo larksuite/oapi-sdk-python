@@ -23,7 +23,9 @@ class PatchAgentSkillRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_agent_skill_request_body = PatchAgentSkillRequestBody()
 
-    def agent_skill(self, agent_skill: AgentSkill) -> "PatchAgentSkillRequestBodyBuilder":
+    def agent_skill(
+        self, agent_skill: AgentSkill
+    ) -> "PatchAgentSkillRequestBodyBuilder":
         self._patch_agent_skill_request_body.agent_skill = agent_skill
         return self
 

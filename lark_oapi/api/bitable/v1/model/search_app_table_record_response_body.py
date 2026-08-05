@@ -29,7 +29,9 @@ class SearchAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_app_table_record_response_body = SearchAppTableRecordResponseBody()
 
-    def items(self, items: List[AppTableRecord]) -> "SearchAppTableRecordResponseBodyBuilder":
+    def items(
+        self, items: List[AppTableRecord]
+    ) -> "SearchAppTableRecordResponseBodyBuilder":
         self._search_app_table_record_response_body.items = items
         return self
 

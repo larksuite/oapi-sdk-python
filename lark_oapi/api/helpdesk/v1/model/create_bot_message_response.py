@@ -9,7 +9,6 @@ from .create_bot_message_response_body import CreateBotMessageResponseBody
 class CreateBotMessageResponse(BaseResponse):
     _types = {
         "data": CreateBotMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

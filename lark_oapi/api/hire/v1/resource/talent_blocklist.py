@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.change_talent_block_talent_blocklist_request import ChangeTalentBlockTalentBlocklistRequest
-from ..model.change_talent_block_talent_blocklist_response import ChangeTalentBlockTalentBlocklistResponse
+from ..model.change_talent_block_talent_blocklist_request import (
+    ChangeTalentBlockTalentBlocklistRequest,
+)
+from ..model.change_talent_block_talent_blocklist_response import (
+    ChangeTalentBlockTalentBlocklistResponse,
+)
 
 
 class TalentBlocklist(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def change_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest,
-                            option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
+    def change_talent_block(
+        self,
+        request: ChangeTalentBlockTalentBlocklistRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ChangeTalentBlockTalentBlocklistResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class TalentBlocklist(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            ChangeTalentBlockTalentBlocklistResponse)
+        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ChangeTalentBlockTalentBlocklistResponse
+        )
         response.raw = resp
 
         return response
 
-    async def achange_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest,
-                                   option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
+    async def achange_talent_block(
+        self,
+        request: ChangeTalentBlockTalentBlocklistRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ChangeTalentBlockTalentBlocklistResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class TalentBlocklist(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            ChangeTalentBlockTalentBlocklistResponse)
+        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ChangeTalentBlockTalentBlocklistResponse
+        )
         response.raw = resp
 
         return response

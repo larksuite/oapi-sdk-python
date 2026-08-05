@@ -30,7 +30,9 @@ class SearchCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_cost_center_request_body = SearchCostCenterRequestBody()
 
-    def cost_center_id_list(self, cost_center_id_list: List[str]) -> "SearchCostCenterRequestBodyBuilder":
+    def cost_center_id_list(
+        self, cost_center_id_list: List[str]
+    ) -> "SearchCostCenterRequestBodyBuilder":
         self._search_cost_center_request_body.cost_center_id_list = cost_center_id_list
         return self
 
@@ -42,11 +44,17 @@ class SearchCostCenterRequestBodyBuilder(object):
         self._search_cost_center_request_body.code = code
         return self
 
-    def parent_cost_center_id(self, parent_cost_center_id: str) -> "SearchCostCenterRequestBodyBuilder":
-        self._search_cost_center_request_body.parent_cost_center_id = parent_cost_center_id
+    def parent_cost_center_id(
+        self, parent_cost_center_id: str
+    ) -> "SearchCostCenterRequestBodyBuilder":
+        self._search_cost_center_request_body.parent_cost_center_id = (
+            parent_cost_center_id
+        )
         return self
 
-    def get_all_version(self, get_all_version: bool) -> "SearchCostCenterRequestBodyBuilder":
+    def get_all_version(
+        self, get_all_version: bool
+    ) -> "SearchCostCenterRequestBodyBuilder":
         self._search_cost_center_request_body.get_all_version = get_all_version
         return self
 

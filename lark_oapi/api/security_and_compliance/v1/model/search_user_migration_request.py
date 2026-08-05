@@ -18,20 +18,28 @@ class SearchUserMigrationRequest(BaseRequest):
 
 
 class SearchUserMigrationRequestBuilder(object):
-
     def __init__(self) -> None:
         search_user_migration_request = SearchUserMigrationRequest()
         search_user_migration_request.http_method = HttpMethod.POST
-        search_user_migration_request.uri = "/open-apis/security_and_compliance/v1/user_migrations/search"
-        search_user_migration_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._search_user_migration_request: SearchUserMigrationRequest = search_user_migration_request
+        search_user_migration_request.uri = (
+            "/open-apis/security_and_compliance/v1/user_migrations/search"
+        )
+        search_user_migration_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._search_user_migration_request: SearchUserMigrationRequest = (
+            search_user_migration_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "SearchUserMigrationRequestBuilder":
         self._search_user_migration_request.user_id_type = user_id_type
         self._search_user_migration_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchUserMigrationRequestBody) -> "SearchUserMigrationRequestBuilder":
+    def request_body(
+        self, request_body: SearchUserMigrationRequestBody
+    ) -> "SearchUserMigrationRequestBuilder":
         self._search_user_migration_request.request_body = request_body
         self._search_user_migration_request.body = request_body
         return self

@@ -18,20 +18,23 @@ class RevokeOffboardingRequest(BaseRequest):
 
 
 class RevokeOffboardingRequestBuilder(object):
-
     def __init__(self) -> None:
         revoke_offboarding_request = RevokeOffboardingRequest()
         revoke_offboarding_request.http_method = HttpMethod.POST
         revoke_offboarding_request.uri = "/open-apis/corehr/v2/offboardings/revoke"
         revoke_offboarding_request.token_types = {AccessTokenType.TENANT}
-        self._revoke_offboarding_request: RevokeOffboardingRequest = revoke_offboarding_request
+        self._revoke_offboarding_request: RevokeOffboardingRequest = (
+            revoke_offboarding_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "RevokeOffboardingRequestBuilder":
         self._revoke_offboarding_request.user_id_type = user_id_type
         self._revoke_offboarding_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: RevokeOffboardingRequestBody) -> "RevokeOffboardingRequestBuilder":
+    def request_body(
+        self, request_body: RevokeOffboardingRequestBody
+    ) -> "RevokeOffboardingRequestBuilder":
         self._revoke_offboarding_request.request_body = request_body
         self._revoke_offboarding_request.body = request_body
         return self

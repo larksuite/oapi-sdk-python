@@ -21,22 +21,32 @@ class ListAppTableFieldRequest(BaseRequest):
 
 
 class ListAppTableFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_table_field_request = ListAppTableFieldRequest()
         list_app_table_field_request.http_method = HttpMethod.GET
-        list_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
-        list_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_app_table_field_request: ListAppTableFieldRequest = list_app_table_field_request
+        list_app_table_field_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
+        )
+        list_app_table_field_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_app_table_field_request: ListAppTableFieldRequest = (
+            list_app_table_field_request
+        )
 
     def view_id(self, view_id: str) -> "ListAppTableFieldRequestBuilder":
         self._list_app_table_field_request.view_id = view_id
         self._list_app_table_field_request.add_query("view_id", view_id)
         return self
 
-    def text_field_as_array(self, text_field_as_array: bool) -> "ListAppTableFieldRequestBuilder":
+    def text_field_as_array(
+        self, text_field_as_array: bool
+    ) -> "ListAppTableFieldRequestBuilder":
         self._list_app_table_field_request.text_field_as_array = text_field_as_array
-        self._list_app_table_field_request.add_query("text_field_as_array", text_field_as_array)
+        self._list_app_table_field_request.add_query(
+            "text_field_as_array", text_field_as_array
+        )
         return self
 
     def page_size(self, page_size: int) -> "ListAppTableFieldRequestBuilder":

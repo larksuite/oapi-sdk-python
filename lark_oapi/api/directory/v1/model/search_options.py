@@ -26,15 +26,21 @@ class SearchOptionsBuilder(object):
     def __init__(self) -> None:
         self._search_options = SearchOptions()
 
-    def filter_permission_resource(self, filter_permission_resource: str) -> "SearchOptionsBuilder":
+    def filter_permission_resource(
+        self, filter_permission_resource: str
+    ) -> "SearchOptionsBuilder":
         self._search_options.filter_permission_resource = filter_permission_resource
         return self
 
-    def admin_role_permission_scope(self, admin_role_permission_scope: str) -> "SearchOptionsBuilder":
+    def admin_role_permission_scope(
+        self, admin_role_permission_scope: str
+    ) -> "SearchOptionsBuilder":
         self._search_options.admin_role_permission_scope = admin_role_permission_scope
         return self
 
-    def admin_role_permission_type(self, admin_role_permission_type: str) -> "SearchOptionsBuilder":
+    def admin_role_permission_type(
+        self, admin_role_permission_type: str
+    ) -> "SearchOptionsBuilder":
         self._search_options.admin_role_permission_type = admin_role_permission_type
         return self
 

@@ -53,7 +53,9 @@ class FormFieldBuilder(object):
         self._form_field.visible = visible
         return self
 
-    def rich_description(self, rich_description: List[AppRichDescriptionSegment]) -> "FormFieldBuilder":
+    def rich_description(
+        self, rich_description: List[AppRichDescriptionSegment]
+    ) -> "FormFieldBuilder":
         self._form_field.rich_description = rich_description
         return self
 

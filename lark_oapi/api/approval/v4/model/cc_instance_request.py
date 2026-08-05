@@ -18,7 +18,6 @@ class CcInstanceRequest(BaseRequest):
 
 
 class CcInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         cc_instance_request = CcInstanceRequest()
         cc_instance_request.http_method = HttpMethod.POST

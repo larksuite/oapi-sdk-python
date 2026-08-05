@@ -22,7 +22,6 @@ class CreateOfferRequest(BaseRequest):
 
 
 class CreateOfferRequestBuilder(object):
-
     def __init__(self) -> None:
         create_offer_request = CreateOfferRequest()
         create_offer_request.http_method = HttpMethod.POST
@@ -35,7 +34,9 @@ class CreateOfferRequestBuilder(object):
         self._create_offer_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "CreateOfferRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateOfferRequestBuilder":
         self._create_offer_request.department_id_type = department_id_type
         self._create_offer_request.add_query("department_id_type", department_id_type)
         return self
@@ -45,14 +46,20 @@ class CreateOfferRequestBuilder(object):
         self._create_offer_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
-    def job_family_id_type(self, job_family_id_type: str) -> "CreateOfferRequestBuilder":
+    def job_family_id_type(
+        self, job_family_id_type: str
+    ) -> "CreateOfferRequestBuilder":
         self._create_offer_request.job_family_id_type = job_family_id_type
         self._create_offer_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
-    def employee_type_id_type(self, employee_type_id_type: str) -> "CreateOfferRequestBuilder":
+    def employee_type_id_type(
+        self, employee_type_id_type: str
+    ) -> "CreateOfferRequestBuilder":
         self._create_offer_request.employee_type_id_type = employee_type_id_type
-        self._create_offer_request.add_query("employee_type_id_type", employee_type_id_type)
+        self._create_offer_request.add_query(
+            "employee_type_id_type", employee_type_id_type
+        )
         return self
 
     def request_body(self, request_body: OfferInfo) -> "CreateOfferRequestBuilder":

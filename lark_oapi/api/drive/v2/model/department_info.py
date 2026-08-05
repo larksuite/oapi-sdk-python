@@ -30,7 +30,9 @@ class DepartmentInfoBuilder(object):
         self._department_info.department_name = department_name
         return self
 
-    def department_full_path(self, department_full_path: str) -> "DepartmentInfoBuilder":
+    def department_full_path(
+        self, department_full_path: str
+    ) -> "DepartmentInfoBuilder":
         self._department_info.department_full_path = department_full_path
         return self
 

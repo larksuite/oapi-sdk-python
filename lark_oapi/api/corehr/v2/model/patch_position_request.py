@@ -20,7 +20,6 @@ class PatchPositionRequest(BaseRequest):
 
 
 class PatchPositionRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_position_request = PatchPositionRequest()
         patch_position_request.http_method = HttpMethod.PATCH
@@ -33,7 +32,9 @@ class PatchPositionRequestBuilder(object):
         self._patch_position_request.add_query("client_token", client_token)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchPositionRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchPositionRequestBuilder":
         self._patch_position_request.department_id_type = department_id_type
         self._patch_position_request.add_query("department_id_type", department_id_type)
         return self
@@ -43,7 +44,9 @@ class PatchPositionRequestBuilder(object):
         self._patch_position_request.paths["position_id"] = str(position_id)
         return self
 
-    def request_body(self, request_body: PositionUpdate) -> "PatchPositionRequestBuilder":
+    def request_body(
+        self, request_body: PositionUpdate
+    ) -> "PatchPositionRequestBuilder":
         self._patch_position_request.request_body = request_body
         self._patch_position_request.body = request_body
         return self

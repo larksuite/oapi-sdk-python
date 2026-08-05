@@ -9,7 +9,6 @@ from .task_check_file_response_body import TaskCheckFileResponseBody
 class TaskCheckFileResponse(BaseResponse):
     _types = {
         "data": TaskCheckFileResponseBody,
-
     }
 
     def __init__(self, d=None):

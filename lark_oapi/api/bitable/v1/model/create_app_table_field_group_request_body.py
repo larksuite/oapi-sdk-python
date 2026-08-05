@@ -21,9 +21,13 @@ class CreateAppTableFieldGroupRequestBody(object):
 
 class CreateAppTableFieldGroupRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_app_table_field_group_request_body = CreateAppTableFieldGroupRequestBody()
+        self._create_app_table_field_group_request_body = (
+            CreateAppTableFieldGroupRequestBody()
+        )
 
-    def field_groups(self, field_groups: List[FieldGroup]) -> "CreateAppTableFieldGroupRequestBodyBuilder":
+    def field_groups(
+        self, field_groups: List[FieldGroup]
+    ) -> "CreateAppTableFieldGroupRequestBodyBuilder":
         self._create_app_table_field_group_request_body.field_groups = field_groups
         return self
 

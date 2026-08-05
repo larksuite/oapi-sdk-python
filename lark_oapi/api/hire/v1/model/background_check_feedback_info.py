@@ -30,7 +30,9 @@ class BackgroundCheckFeedbackInfoBuilder(object):
         self._background_check_feedback_info.feedback_id = feedback_id
         return self
 
-    def attachment_url(self, attachment_url: str) -> "BackgroundCheckFeedbackInfoBuilder":
+    def attachment_url(
+        self, attachment_url: str
+    ) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.attachment_url = attachment_url
         return self
 

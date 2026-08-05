@@ -3,14 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .check_white_black_list_application_visibility_response_body import \
-    CheckWhiteBlackListApplicationVisibilityResponseBody
+from .check_white_black_list_application_visibility_response_body import (
+    CheckWhiteBlackListApplicationVisibilityResponseBody,
+)
 
 
 class CheckWhiteBlackListApplicationVisibilityResponse(BaseResponse):
     _types = {
         "data": CheckWhiteBlackListApplicationVisibilityResponseBody,
-
     }
 
     def __init__(self, d=None):

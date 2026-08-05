@@ -20,10 +20,16 @@ class UpdateDepartmentIdDepartmentRequestBody(object):
 
 class UpdateDepartmentIdDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_department_id_department_request_body = UpdateDepartmentIdDepartmentRequestBody()
+        self._update_department_id_department_request_body = (
+            UpdateDepartmentIdDepartmentRequestBody()
+        )
 
-    def new_department_id(self, new_department_id: str) -> "UpdateDepartmentIdDepartmentRequestBodyBuilder":
-        self._update_department_id_department_request_body.new_department_id = new_department_id
+    def new_department_id(
+        self, new_department_id: str
+    ) -> "UpdateDepartmentIdDepartmentRequestBodyBuilder":
+        self._update_department_id_department_request_body.new_department_id = (
+            new_department_id
+        )
         return self
 
     def build(self) -> "UpdateDepartmentIdDepartmentRequestBody":

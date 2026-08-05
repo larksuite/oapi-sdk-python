@@ -30,24 +30,35 @@ class DepartmentCostCenterRelationshipBuilder(object):
     def __init__(self) -> None:
         self._department_cost_center_relationship = DepartmentCostCenterRelationship()
 
-    def department_cost_center_relationship_uid(self,
-                                                department_cost_center_relationship_uid: str) -> "DepartmentCostCenterRelationshipBuilder":
+    def department_cost_center_relationship_uid(
+        self, department_cost_center_relationship_uid: str
+    ) -> "DepartmentCostCenterRelationshipBuilder":
         self._department_cost_center_relationship.department_cost_center_relationship_uid = department_cost_center_relationship_uid
         return self
 
-    def company_code(self, company_code: str) -> "DepartmentCostCenterRelationshipBuilder":
+    def company_code(
+        self, company_code: str
+    ) -> "DepartmentCostCenterRelationshipBuilder":
         self._department_cost_center_relationship.company_code = company_code
         return self
 
-    def open_department_id(self, open_department_id: str) -> "DepartmentCostCenterRelationshipBuilder":
-        self._department_cost_center_relationship.open_department_id = open_department_id
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "DepartmentCostCenterRelationshipBuilder":
+        self._department_cost_center_relationship.open_department_id = (
+            open_department_id
+        )
         return self
 
-    def cost_center_code(self, cost_center_code: str) -> "DepartmentCostCenterRelationshipBuilder":
+    def cost_center_code(
+        self, cost_center_code: str
+    ) -> "DepartmentCostCenterRelationshipBuilder":
         self._department_cost_center_relationship.cost_center_code = cost_center_code
         return self
 
-    def department_id(self, department_id: str) -> "DepartmentCostCenterRelationshipBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "DepartmentCostCenterRelationshipBuilder":
         self._department_cost_center_relationship.department_id = department_id
         return self
 

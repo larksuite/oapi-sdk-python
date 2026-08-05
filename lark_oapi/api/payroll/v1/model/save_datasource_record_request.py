@@ -17,15 +17,23 @@ class SaveDatasourceRecordRequest(BaseRequest):
 
 
 class SaveDatasourceRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         save_datasource_record_request = SaveDatasourceRecordRequest()
         save_datasource_record_request.http_method = HttpMethod.POST
-        save_datasource_record_request.uri = "/open-apis/payroll/v1/datasource_records/save"
-        save_datasource_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._save_datasource_record_request: SaveDatasourceRecordRequest = save_datasource_record_request
+        save_datasource_record_request.uri = (
+            "/open-apis/payroll/v1/datasource_records/save"
+        )
+        save_datasource_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._save_datasource_record_request: SaveDatasourceRecordRequest = (
+            save_datasource_record_request
+        )
 
-    def request_body(self, request_body: SaveDatasourceRecordRequestBody) -> "SaveDatasourceRecordRequestBuilder":
+    def request_body(
+        self, request_body: SaveDatasourceRecordRequestBody
+    ) -> "SaveDatasourceRecordRequestBuilder":
         self._save_datasource_record_request.request_body = request_body
         self._save_datasource_record_request.body = request_body
         return self

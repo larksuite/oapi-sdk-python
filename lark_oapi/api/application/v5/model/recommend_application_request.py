@@ -19,20 +19,25 @@ class RecommendApplicationRequest(BaseRequest):
 
 
 class RecommendApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         recommend_application_request = RecommendApplicationRequest()
         recommend_application_request.http_method = HttpMethod.GET
-        recommend_application_request.uri = "/open-apis/application/v5/applications/recommend"
+        recommend_application_request.uri = (
+            "/open-apis/application/v5/applications/recommend"
+        )
         recommend_application_request.token_types = {AccessTokenType.USER}
-        self._recommend_application_request: RecommendApplicationRequest = recommend_application_request
+        self._recommend_application_request: RecommendApplicationRequest = (
+            recommend_application_request
+        )
 
     def language(self, language: str) -> "RecommendApplicationRequestBuilder":
         self._recommend_application_request.language = language
         self._recommend_application_request.add_query("language", language)
         return self
 
-    def recommend_type(self, recommend_type: str) -> "RecommendApplicationRequestBuilder":
+    def recommend_type(
+        self, recommend_type: str
+    ) -> "RecommendApplicationRequestBuilder":
         self._recommend_application_request.recommend_type = recommend_type
         self._recommend_application_request.add_query("recommend_type", recommend_type)
         return self

@@ -19,13 +19,19 @@ class ListAppDashboardRequest(BaseRequest):
 
 
 class ListAppDashboardRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_dashboard_request = ListAppDashboardRequest()
         list_app_dashboard_request.http_method = HttpMethod.GET
-        list_app_dashboard_request.uri = "/open-apis/bitable/v1/apps/:app_token/dashboards"
-        list_app_dashboard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_app_dashboard_request: ListAppDashboardRequest = list_app_dashboard_request
+        list_app_dashboard_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/dashboards"
+        )
+        list_app_dashboard_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_app_dashboard_request: ListAppDashboardRequest = (
+            list_app_dashboard_request
+        )
 
     def page_size(self, page_size: int) -> "ListAppDashboardRequestBuilder":
         self._list_app_dashboard_request.page_size = page_size
@@ -37,9 +43,13 @@ class ListAppDashboardRequestBuilder(object):
         self._list_app_dashboard_request.add_query("page_token", page_token)
         return self
 
-    def with_share_config(self, with_share_config: bool) -> "ListAppDashboardRequestBuilder":
+    def with_share_config(
+        self, with_share_config: bool
+    ) -> "ListAppDashboardRequestBuilder":
         self._list_app_dashboard_request.with_share_config = with_share_config
-        self._list_app_dashboard_request.add_query("with_share_config", with_share_config)
+        self._list_app_dashboard_request.add_query(
+            "with_share_config", with_share_config
+        )
         return self
 
     def app_token(self, app_token: str) -> "ListAppDashboardRequestBuilder":

@@ -26,11 +26,15 @@ class UpdateDocumentRequestBuilder(object):
     def __init__(self) -> None:
         self._update_document_request = UpdateDocumentRequest()
 
-    def update_display_setting(self, update_display_setting: DocumentDisplaySetting) -> "UpdateDocumentRequestBuilder":
+    def update_display_setting(
+        self, update_display_setting: DocumentDisplaySetting
+    ) -> "UpdateDocumentRequestBuilder":
         self._update_document_request.update_display_setting = update_display_setting
         return self
 
-    def update_cover(self, update_cover: UpdateCoverRequest) -> "UpdateDocumentRequestBuilder":
+    def update_cover(
+        self, update_cover: UpdateCoverRequest
+    ) -> "UpdateDocumentRequestBuilder":
         self._update_document_request.update_cover = update_cover
         return self
 

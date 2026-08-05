@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .update_user_mailbox_template_response_body import UpdateUserMailboxTemplateResponseBody
+from .update_user_mailbox_template_response_body import (
+    UpdateUserMailboxTemplateResponseBody,
+)
 
 
 class UpdateUserMailboxTemplateResponse(BaseResponse):
     _types = {
         "data": UpdateUserMailboxTemplateResponseBody,
-
     }
 
     def __init__(self, d=None):

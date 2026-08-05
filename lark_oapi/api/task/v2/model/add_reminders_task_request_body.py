@@ -23,7 +23,9 @@ class AddRemindersTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_reminders_task_request_body = AddRemindersTaskRequestBody()
 
-    def reminders(self, reminders: List[Reminder]) -> "AddRemindersTaskRequestBodyBuilder":
+    def reminders(
+        self, reminders: List[Reminder]
+    ) -> "AddRemindersTaskRequestBodyBuilder":
         self._add_reminders_task_request_body.reminders = reminders
         return self
 

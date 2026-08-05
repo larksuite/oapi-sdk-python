@@ -20,9 +20,13 @@ class TransformOnboardingTaskPreHireResponseBody(object):
 
 class TransformOnboardingTaskPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._transform_onboarding_task_pre_hire_response_body = TransformOnboardingTaskPreHireResponseBody()
+        self._transform_onboarding_task_pre_hire_response_body = (
+            TransformOnboardingTaskPreHireResponseBody()
+        )
 
-    def success(self, success: bool) -> "TransformOnboardingTaskPreHireResponseBodyBuilder":
+    def success(
+        self, success: bool
+    ) -> "TransformOnboardingTaskPreHireResponseBodyBuilder":
         self._transform_onboarding_task_pre_hire_response_body.success = success
         return self
 

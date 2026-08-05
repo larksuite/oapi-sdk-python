@@ -17,7 +17,6 @@ class GetNoteRequest(BaseRequest):
 
 
 class GetNoteRequestBuilder(object):
-
     def __init__(self) -> None:
         get_note_request = GetNoteRequest()
         get_note_request.http_method = HttpMethod.GET

@@ -26,11 +26,15 @@ class MgetEmployeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._mget_employee_response_body = MgetEmployeeResponseBody()
 
-    def employees(self, employees: List[EmployeeEntity]) -> "MgetEmployeeResponseBodyBuilder":
+    def employees(
+        self, employees: List[EmployeeEntity]
+    ) -> "MgetEmployeeResponseBodyBuilder":
         self._mget_employee_response_body.employees = employees
         return self
 
-    def abnormals(self, abnormals: List[AbnormalRecord]) -> "MgetEmployeeResponseBodyBuilder":
+    def abnormals(
+        self, abnormals: List[AbnormalRecord]
+    ) -> "MgetEmployeeResponseBodyBuilder":
         self._mget_employee_response_body.abnormals = abnormals
         return self
 

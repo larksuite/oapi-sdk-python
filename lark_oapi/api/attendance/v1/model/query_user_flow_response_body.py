@@ -23,7 +23,9 @@ class QueryUserFlowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_flow_response_body = QueryUserFlowResponseBody()
 
-    def user_flow_results(self, user_flow_results: List[UserFlow]) -> "QueryUserFlowResponseBodyBuilder":
+    def user_flow_results(
+        self, user_flow_results: List[UserFlow]
+    ) -> "QueryUserFlowResponseBodyBuilder":
         self._query_user_flow_response_body.user_flow_results = user_flow_results
         return self
 

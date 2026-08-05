@@ -20,13 +20,19 @@ class PatchFileCommentRequest(BaseRequest):
 
 
 class PatchFileCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_file_comment_request = PatchFileCommentRequest()
         patch_file_comment_request.http_method = HttpMethod.PATCH
-        patch_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-        patch_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._patch_file_comment_request: PatchFileCommentRequest = patch_file_comment_request
+        patch_file_comment_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+        )
+        patch_file_comment_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._patch_file_comment_request: PatchFileCommentRequest = (
+            patch_file_comment_request
+        )
 
     def file_type(self, file_type: str) -> "PatchFileCommentRequestBuilder":
         self._patch_file_comment_request.file_type = file_type
@@ -43,7 +49,9 @@ class PatchFileCommentRequestBuilder(object):
         self._patch_file_comment_request.paths["comment_id"] = str(comment_id)
         return self
 
-    def request_body(self, request_body: PatchFileCommentRequestBody) -> "PatchFileCommentRequestBuilder":
+    def request_body(
+        self, request_body: PatchFileCommentRequestBody
+    ) -> "PatchFileCommentRequestBuilder":
         self._patch_file_comment_request.request_body = request_body
         self._patch_file_comment_request.body = request_body
         return self

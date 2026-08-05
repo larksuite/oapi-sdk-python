@@ -9,7 +9,6 @@ from .list_application_feedback_response_body import ListApplicationFeedbackResp
 class ListApplicationFeedbackResponse(BaseResponse):
     _types = {
         "data": ListApplicationFeedbackResponseBody,
-
     }
 
     def __init__(self, d=None):

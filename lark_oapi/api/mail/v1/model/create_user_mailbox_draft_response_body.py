@@ -23,7 +23,9 @@ class CreateUserMailboxDraftResponseBody(object):
 
 class CreateUserMailboxDraftResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_user_mailbox_draft_response_body = CreateUserMailboxDraftResponseBody()
+        self._create_user_mailbox_draft_response_body = (
+            CreateUserMailboxDraftResponseBody()
+        )
 
     def draft(self, draft: Draft) -> "CreateUserMailboxDraftResponseBodyBuilder":
         self._create_user_mailbox_draft_response_body.draft = draft

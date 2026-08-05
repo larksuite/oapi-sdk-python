@@ -19,13 +19,16 @@ class SearchBasicInfoDistrictRequest(BaseRequest):
 
 
 class SearchBasicInfoDistrictRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_district_request = SearchBasicInfoDistrictRequest()
         search_basic_info_district_request.http_method = HttpMethod.POST
-        search_basic_info_district_request.uri = "/open-apis/corehr/v2/basic_info/districts/search"
+        search_basic_info_district_request.uri = (
+            "/open-apis/corehr/v2/basic_info/districts/search"
+        )
         search_basic_info_district_request.token_types = {AccessTokenType.TENANT}
-        self._search_basic_info_district_request: SearchBasicInfoDistrictRequest = search_basic_info_district_request
+        self._search_basic_info_district_request: SearchBasicInfoDistrictRequest = (
+            search_basic_info_district_request
+        )
 
     def page_size(self, page_size: int) -> "SearchBasicInfoDistrictRequestBuilder":
         self._search_basic_info_district_request.page_size = page_size
@@ -37,7 +40,9 @@ class SearchBasicInfoDistrictRequestBuilder(object):
         self._search_basic_info_district_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: SearchBasicInfoDistrictRequestBody) -> "SearchBasicInfoDistrictRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoDistrictRequestBody
+    ) -> "SearchBasicInfoDistrictRequestBuilder":
         self._search_basic_info_district_request.request_body = request_body
         self._search_basic_info_district_request.body = request_body
         return self

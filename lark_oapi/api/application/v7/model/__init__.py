@@ -15,9 +15,15 @@ from .app_scope import *
 from .app_slash_command import *
 from .app_slash_command_i18n import *
 from .app_slash_command_i18n_text import *
+from .app_slash_command_icon import *
 from .app_visibility_id_list import *
 from .application import *
 from .application_owner import *
+from .bot_menu_config import *
+from .bot_menu_config1 import *
+from .bot_menu_node import *
+from .bot_menu_redirect_link import *
+from .bot_menu_ud_icon import *
 from .callback import *
 from .department_id import *
 from .event_and_callback_encrypt_strategy import *

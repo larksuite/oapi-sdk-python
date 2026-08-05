@@ -21,9 +21,13 @@ class WriteUserGroupUserRelResponseBody(object):
 
 class WriteUserGroupUserRelResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._write_user_group_user_rel_response_body = WriteUserGroupUserRelResponseBody()
+        self._write_user_group_user_rel_response_body = (
+            WriteUserGroupUserRelResponseBody()
+        )
 
-    def data(self, data: WriteUserGroupScopeData) -> "WriteUserGroupUserRelResponseBodyBuilder":
+    def data(
+        self, data: WriteUserGroupScopeData
+    ) -> "WriteUserGroupUserRelResponseBodyBuilder":
         self._write_user_group_user_rel_response_body.data = data
         return self
 

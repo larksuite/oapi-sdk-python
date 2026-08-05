@@ -47,7 +47,9 @@ class TalentWorksInfoBuilder(object):
         self._talent_works_info.name = name
         return self
 
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentWorksInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentWorksInfoBuilder":
         self._talent_works_info.customized_data_list = customized_data_list
         return self
 

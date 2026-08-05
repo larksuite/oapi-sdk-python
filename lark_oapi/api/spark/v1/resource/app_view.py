@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_view_record_list_app_view_request import GetViewRecordListAppViewRequest
-from ..model.get_view_record_list_app_view_response import GetViewRecordListAppViewResponse
+from ..model.get_view_record_list_app_view_request import (
+    GetViewRecordListAppViewRequest,
+)
+from ..model.get_view_record_list_app_view_response import (
+    GetViewRecordListAppViewResponse,
+)
 
 
 class AppView(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_view_record_list(self, request: GetViewRecordListAppViewRequest,
-                             option: Optional[RequestOption] = None) -> GetViewRecordListAppViewResponse:
+    def get_view_record_list(
+        self,
+        request: GetViewRecordListAppViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetViewRecordListAppViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class AppView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetViewRecordListAppViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetViewRecordListAppViewResponse)
+        response: GetViewRecordListAppViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetViewRecordListAppViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_view_record_list(self, request: GetViewRecordListAppViewRequest,
-                                    option: Optional[RequestOption] = None) -> GetViewRecordListAppViewResponse:
+    async def aget_view_record_list(
+        self,
+        request: GetViewRecordListAppViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetViewRecordListAppViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class AppView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetViewRecordListAppViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetViewRecordListAppViewResponse)
+        response: GetViewRecordListAppViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetViewRecordListAppViewResponse
+        )
         response.raw = resp
 
         return response

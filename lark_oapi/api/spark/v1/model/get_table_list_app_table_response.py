@@ -9,7 +9,6 @@ from .get_table_list_app_table_response_body import GetTableListAppTableResponse
 class GetTableListAppTableResponse(BaseResponse):
     _types = {
         "data": GetTableListAppTableResponseBody,
-
     }
 
     def __init__(self, d=None):

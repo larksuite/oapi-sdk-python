@@ -17,7 +17,6 @@ class TranslateTextRequest(BaseRequest):
 
 
 class TranslateTextRequestBuilder(object):
-
     def __init__(self) -> None:
         translate_text_request = TranslateTextRequest()
         translate_text_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class TranslateTextRequestBuilder(object):
         translate_text_request.token_types = {AccessTokenType.TENANT}
         self._translate_text_request: TranslateTextRequest = translate_text_request
 
-    def request_body(self, request_body: TranslateTextRequestBody) -> "TranslateTextRequestBuilder":
+    def request_body(
+        self, request_body: TranslateTextRequestBody
+    ) -> "TranslateTextRequestBuilder":
         self._translate_text_request.request_body = request_body
         self._translate_text_request.body = request_body
         return self

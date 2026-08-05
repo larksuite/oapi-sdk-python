@@ -36,8 +36,12 @@ class VisibleMainRuleBuilder(object):
         self._visible_main_rule.unit_type = unit_type
         return self
 
-    def dept_leader_visible_the_dept(self, dept_leader_visible_the_dept: bool) -> "VisibleMainRuleBuilder":
-        self._visible_main_rule.dept_leader_visible_the_dept = dept_leader_visible_the_dept
+    def dept_leader_visible_the_dept(
+        self, dept_leader_visible_the_dept: bool
+    ) -> "VisibleMainRuleBuilder":
+        self._visible_main_rule.dept_leader_visible_the_dept = (
+            dept_leader_visible_the_dept
+        )
         return self
 
     def sub_depts_visible(self, sub_depts_visible: bool) -> "VisibleMainRuleBuilder":

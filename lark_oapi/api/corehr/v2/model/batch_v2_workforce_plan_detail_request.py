@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_v2_workforce_plan_detail_request_body import BatchV2WorkforcePlanDetailRequestBody
+from .batch_v2_workforce_plan_detail_request_body import (
+    BatchV2WorkforcePlanDetailRequestBody,
+)
 
 
 class BatchV2WorkforcePlanDetailRequest(BaseRequest):
@@ -19,12 +21,16 @@ class BatchV2WorkforcePlanDetailRequest(BaseRequest):
 
 
 class BatchV2WorkforcePlanDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_v2_workforce_plan_detail_request = BatchV2WorkforcePlanDetailRequest()
         batch_v2_workforce_plan_detail_request.http_method = HttpMethod.POST
-        batch_v2_workforce_plan_detail_request.uri = "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-        batch_v2_workforce_plan_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_v2_workforce_plan_detail_request.uri = (
+            "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
+        )
+        batch_v2_workforce_plan_detail_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_v2_workforce_plan_detail_request: BatchV2WorkforcePlanDetailRequest = batch_v2_workforce_plan_detail_request
 
     def page_token(self, page_token: str) -> "BatchV2WorkforcePlanDetailRequestBuilder":
@@ -37,8 +43,9 @@ class BatchV2WorkforcePlanDetailRequestBuilder(object):
         self._batch_v2_workforce_plan_detail_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self,
-                     request_body: BatchV2WorkforcePlanDetailRequestBody) -> "BatchV2WorkforcePlanDetailRequestBuilder":
+    def request_body(
+        self, request_body: BatchV2WorkforcePlanDetailRequestBody
+    ) -> "BatchV2WorkforcePlanDetailRequestBuilder":
         self._batch_v2_workforce_plan_detail_request.request_body = request_body
         self._batch_v2_workforce_plan_detail_request.body = request_body
         return self

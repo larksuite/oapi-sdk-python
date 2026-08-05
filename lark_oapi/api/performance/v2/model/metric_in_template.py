@@ -67,19 +67,27 @@ class MetricInTemplateBuilder(object):
         self._metric_in_template.is_from_library = is_from_library
         return self
 
-    def scoring_setting_type(self, scoring_setting_type: str) -> "MetricInTemplateBuilder":
+    def scoring_setting_type(
+        self, scoring_setting_type: str
+    ) -> "MetricInTemplateBuilder":
         self._metric_in_template.scoring_setting_type = scoring_setting_type
         return self
 
-    def data_source_inputters(self, data_source_inputters: List[User]) -> "MetricInTemplateBuilder":
+    def data_source_inputters(
+        self, data_source_inputters: List[User]
+    ) -> "MetricInTemplateBuilder":
         self._metric_in_template.data_source_inputters = data_source_inputters
         return self
 
-    def metric_dimension_id(self, metric_dimension_id: int) -> "MetricInTemplateBuilder":
+    def metric_dimension_id(
+        self, metric_dimension_id: int
+    ) -> "MetricInTemplateBuilder":
         self._metric_in_template.metric_dimension_id = metric_dimension_id
         return self
 
-    def review_rule_config(self, review_rule_config: MetricReviewRuleConfig) -> "MetricInTemplateBuilder":
+    def review_rule_config(
+        self, review_rule_config: MetricReviewRuleConfig
+    ) -> "MetricInTemplateBuilder":
         self._metric_in_template.review_rule_config = review_rule_config
         return self
 

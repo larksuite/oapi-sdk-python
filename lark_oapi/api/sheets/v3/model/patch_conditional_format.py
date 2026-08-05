@@ -28,12 +28,15 @@ class PatchConditionalFormatBuilder(object):
     def __init__(self) -> None:
         self._patch_conditional_format = PatchConditionalFormat()
 
-    def ranges(self, ranges: List[ConditionalFormatRange]) -> "PatchConditionalFormatBuilder":
+    def ranges(
+        self, ranges: List[ConditionalFormatRange]
+    ) -> "PatchConditionalFormatBuilder":
         self._patch_conditional_format.ranges = ranges
         return self
 
-    def conditional_format_rule(self,
-                                conditional_format_rule: ConditionalFormatRule) -> "PatchConditionalFormatBuilder":
+    def conditional_format_rule(
+        self, conditional_format_rule: ConditionalFormatRule
+    ) -> "PatchConditionalFormatBuilder":
         self._patch_conditional_format.conditional_format_rule = conditional_format_rule
         return self
 

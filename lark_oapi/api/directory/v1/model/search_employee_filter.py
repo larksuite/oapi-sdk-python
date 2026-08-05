@@ -25,8 +25,12 @@ class SearchEmployeeFilterBuilder(object):
     def __init__(self) -> None:
         self._search_employee_filter = SearchEmployeeFilter()
 
-    def contain_resigned_employee(self, contain_resigned_employee: bool) -> "SearchEmployeeFilterBuilder":
-        self._search_employee_filter.contain_resigned_employee = contain_resigned_employee
+    def contain_resigned_employee(
+        self, contain_resigned_employee: bool
+    ) -> "SearchEmployeeFilterBuilder":
+        self._search_employee_filter.contain_resigned_employee = (
+            contain_resigned_employee
+        )
         return self
 
     def options(self, options: SearchOptions) -> "SearchEmployeeFilterBuilder":

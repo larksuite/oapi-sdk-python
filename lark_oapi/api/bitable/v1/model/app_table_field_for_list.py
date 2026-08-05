@@ -45,7 +45,9 @@ class AppTableFieldForListBuilder(object):
         self._app_table_field_for_list.type = type
         return self
 
-    def property(self, property: AppTableFieldProperty) -> "AppTableFieldForListBuilder":
+    def property(
+        self, property: AppTableFieldProperty
+    ) -> "AppTableFieldForListBuilder":
         self._app_table_field_for_list.property = property
         return self
 

@@ -18,20 +18,26 @@ class QueryReviewDataRequest(BaseRequest):
 
 
 class QueryReviewDataRequestBuilder(object):
-
     def __init__(self) -> None:
         query_review_data_request = QueryReviewDataRequest()
         query_review_data_request.http_method = HttpMethod.POST
         query_review_data_request.uri = "/open-apis/performance/v1/review_datas/query"
-        query_review_data_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._query_review_data_request: QueryReviewDataRequest = query_review_data_request
+        query_review_data_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._query_review_data_request: QueryReviewDataRequest = (
+            query_review_data_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "QueryReviewDataRequestBuilder":
         self._query_review_data_request.user_id_type = user_id_type
         self._query_review_data_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryReviewDataRequestBody) -> "QueryReviewDataRequestBuilder":
+    def request_body(
+        self, request_body: QueryReviewDataRequestBody
+    ) -> "QueryReviewDataRequestBuilder":
         self._query_review_data_request.request_body = request_body
         self._query_review_data_request.body = request_body
         return self

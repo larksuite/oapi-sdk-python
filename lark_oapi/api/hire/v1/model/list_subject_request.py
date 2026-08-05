@@ -19,7 +19,6 @@ class ListSubjectRequest(BaseRequest):
 
 
 class ListSubjectRequestBuilder(object):
-
     def __init__(self) -> None:
         list_subject_request = ListSubjectRequest()
         list_subject_request.http_method = HttpMethod.GET

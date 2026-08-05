@@ -23,7 +23,9 @@ class AppRecommendRule(object):
         self.status: Optional[str] = None
         self.visibility_info: Optional[AppRecommendRuleVisibilityInfo] = None
         self.recommend_item_infos: Optional[List[AppRecommendRuleItemInfo]] = None
-        self.distributed_recommend_item_infos: Optional[List[AppRecommendRuleItemInfo]] = None
+        self.distributed_recommend_item_infos: Optional[
+            List[AppRecommendRuleItemInfo]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -47,17 +49,24 @@ class AppRecommendRuleBuilder(object):
         self._app_recommend_rule.status = status
         return self
 
-    def visibility_info(self, visibility_info: AppRecommendRuleVisibilityInfo) -> "AppRecommendRuleBuilder":
+    def visibility_info(
+        self, visibility_info: AppRecommendRuleVisibilityInfo
+    ) -> "AppRecommendRuleBuilder":
         self._app_recommend_rule.visibility_info = visibility_info
         return self
 
-    def recommend_item_infos(self, recommend_item_infos: List[AppRecommendRuleItemInfo]) -> "AppRecommendRuleBuilder":
+    def recommend_item_infos(
+        self, recommend_item_infos: List[AppRecommendRuleItemInfo]
+    ) -> "AppRecommendRuleBuilder":
         self._app_recommend_rule.recommend_item_infos = recommend_item_infos
         return self
 
-    def distributed_recommend_item_infos(self, distributed_recommend_item_infos: List[
-        AppRecommendRuleItemInfo]) -> "AppRecommendRuleBuilder":
-        self._app_recommend_rule.distributed_recommend_item_infos = distributed_recommend_item_infos
+    def distributed_recommend_item_infos(
+        self, distributed_recommend_item_infos: List[AppRecommendRuleItemInfo]
+    ) -> "AppRecommendRuleBuilder":
+        self._app_recommend_rule.distributed_recommend_item_infos = (
+            distributed_recommend_item_infos
+        )
         return self
 
     def build(self) -> "AppRecommendRule":

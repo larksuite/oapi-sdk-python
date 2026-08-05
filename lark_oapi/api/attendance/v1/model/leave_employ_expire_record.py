@@ -59,11 +59,15 @@ class LeaveEmployExpireRecordBuilder(object):
         self._leave_employ_expire_record.leave_type_id = leave_type_id
         return self
 
-    def granting_quantity(self, granting_quantity: str) -> "LeaveEmployExpireRecordBuilder":
+    def granting_quantity(
+        self, granting_quantity: str
+    ) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.granting_quantity = granting_quantity
         return self
 
-    def left_granting_quantity(self, left_granting_quantity: str) -> "LeaveEmployExpireRecordBuilder":
+    def left_granting_quantity(
+        self, left_granting_quantity: str
+    ) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.left_granting_quantity = left_granting_quantity
         return self
 
@@ -83,7 +87,9 @@ class LeaveEmployExpireRecordBuilder(object):
         self._leave_employ_expire_record.reason = reason
         return self
 
-    def is_update_by_external(self, is_update_by_external: bool) -> "LeaveEmployExpireRecordBuilder":
+    def is_update_by_external(
+        self, is_update_by_external: bool
+    ) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.is_update_by_external = is_update_by_external
         return self
 
@@ -91,7 +97,9 @@ class LeaveEmployExpireRecordBuilder(object):
         self._leave_employ_expire_record.accrual_source = accrual_source
         return self
 
-    def leave_sub_type_id(self, leave_sub_type_id: str) -> "LeaveEmployExpireRecordBuilder":
+    def leave_sub_type_id(
+        self, leave_sub_type_id: str
+    ) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.leave_sub_type_id = leave_sub_type_id
         return self
 

@@ -37,7 +37,9 @@ class ParamMessageContextBuilder(object):
         self._param_message_context.owner_ids = owner_ids
         return self
 
-    def create_time_range(self, create_time_range: TimeRange) -> "ParamMessageContextBuilder":
+    def create_time_range(
+        self, create_time_range: TimeRange
+    ) -> "ParamMessageContextBuilder":
         self._param_message_context.create_time_range = create_time_range
         return self
 
@@ -53,7 +55,9 @@ class ParamMessageContextBuilder(object):
         self._param_message_context.query = query
         return self
 
-    def message_context_radius(self, message_context_radius: int) -> "ParamMessageContextBuilder":
+    def message_context_radius(
+        self, message_context_radius: int
+    ) -> "ParamMessageContextBuilder":
         self._param_message_context.message_context_radius = message_context_radius
         return self
 

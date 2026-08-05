@@ -35,7 +35,9 @@ class ListAdminDeptStatResponseBodyBuilder(object):
         self._list_admin_dept_stat_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[AdminDeptStat]) -> "ListAdminDeptStatResponseBodyBuilder":
+    def items(
+        self, items: List[AdminDeptStat]
+    ) -> "ListAdminDeptStatResponseBodyBuilder":
         self._list_admin_dept_stat_response_body.items = items
         return self
 

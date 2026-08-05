@@ -19,8 +19,9 @@ class Report(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_daily(self, request: GetDailyReportRequest,
-                  option: Optional[RequestOption] = None) -> GetDailyReportResponse:
+    def get_daily(
+        self, request: GetDailyReportRequest, option: Optional[RequestOption] = None
+    ) -> GetDailyReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class Report(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetDailyReportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDailyReportResponse)
+        response: GetDailyReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDailyReportResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_daily(self, request: GetDailyReportRequest,
-                         option: Optional[RequestOption] = None) -> GetDailyReportResponse:
+    async def aget_daily(
+        self, request: GetDailyReportRequest, option: Optional[RequestOption] = None
+    ) -> GetDailyReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,16 @@ class Report(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetDailyReportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDailyReportResponse)
+        response: GetDailyReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDailyReportResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_top_user(self, request: GetTopUserReportRequest,
-                     option: Optional[RequestOption] = None) -> GetTopUserReportResponse:
+    def get_top_user(
+        self, request: GetTopUserReportRequest, option: Optional[RequestOption] = None
+    ) -> GetTopUserReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +80,16 @@ class Report(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTopUserReportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTopUserReportResponse)
+        response: GetTopUserReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTopUserReportResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_top_user(self, request: GetTopUserReportRequest,
-                            option: Optional[RequestOption] = None) -> GetTopUserReportResponse:
+    async def aget_top_user(
+        self, request: GetTopUserReportRequest, option: Optional[RequestOption] = None
+    ) -> GetTopUserReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +100,9 @@ class Report(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTopUserReportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTopUserReportResponse)
+        response: GetTopUserReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTopUserReportResponse
+        )
         response.raw = resp
 
         return response

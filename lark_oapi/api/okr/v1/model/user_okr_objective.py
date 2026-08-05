@@ -29,8 +29,12 @@ class UserOkrObjective(object):
         self.score: Optional[str] = None
         self.progress_rate: Optional[UserOkrObjectiveProgressRate] = None
         self.kr_list: Optional[List[UserOkrObjectiveKr]] = None
-        self.aligned_objective_list: Optional[List[UserOkrObjectiveAlignedObjective]] = None
-        self.aligning_objective_list: Optional[List[UserOkrObjectiveAlignedObjective]] = None
+        self.aligned_objective_list: Optional[
+            List[UserOkrObjectiveAlignedObjective]
+        ] = None
+        self.aligning_objective_list: Optional[
+            List[UserOkrObjectiveAlignedObjective]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,7 +66,9 @@ class UserOkrObjectiveBuilder(object):
         self._user_okr_objective.score = score
         return self
 
-    def progress_rate(self, progress_rate: UserOkrObjectiveProgressRate) -> "UserOkrObjectiveBuilder":
+    def progress_rate(
+        self, progress_rate: UserOkrObjectiveProgressRate
+    ) -> "UserOkrObjectiveBuilder":
         self._user_okr_objective.progress_rate = progress_rate
         return self
 
@@ -70,13 +76,15 @@ class UserOkrObjectiveBuilder(object):
         self._user_okr_objective.kr_list = kr_list
         return self
 
-    def aligned_objective_list(self, aligned_objective_list: List[
-        UserOkrObjectiveAlignedObjective]) -> "UserOkrObjectiveBuilder":
+    def aligned_objective_list(
+        self, aligned_objective_list: List[UserOkrObjectiveAlignedObjective]
+    ) -> "UserOkrObjectiveBuilder":
         self._user_okr_objective.aligned_objective_list = aligned_objective_list
         return self
 
-    def aligning_objective_list(self, aligning_objective_list: List[
-        UserOkrObjectiveAlignedObjective]) -> "UserOkrObjectiveBuilder":
+    def aligning_objective_list(
+        self, aligning_objective_list: List[UserOkrObjectiveAlignedObjective]
+    ) -> "UserOkrObjectiveBuilder":
         self._user_okr_objective.aligning_objective_list = aligning_objective_list
         return self
 

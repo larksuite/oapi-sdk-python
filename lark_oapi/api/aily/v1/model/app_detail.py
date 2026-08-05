@@ -45,7 +45,9 @@ class AppDetailBuilder(object):
         self._app_detail.name = name
         return self
 
-    def avg_daily_active_user_num(self, avg_daily_active_user_num: float) -> "AppDetailBuilder":
+    def avg_daily_active_user_num(
+        self, avg_daily_active_user_num: float
+    ) -> "AppDetailBuilder":
         self._app_detail.avg_daily_active_user_num = avg_daily_active_user_num
         return self
 
@@ -53,7 +55,9 @@ class AppDetailBuilder(object):
         self._app_detail.avg_daily_run_num = avg_daily_run_num
         return self
 
-    def avg_daily_credit_usage(self, avg_daily_credit_usage: float) -> "AppDetailBuilder":
+    def avg_daily_credit_usage(
+        self, avg_daily_credit_usage: float
+    ) -> "AppDetailBuilder":
         self._app_detail.avg_daily_credit_usage = avg_daily_credit_usage
         return self
 

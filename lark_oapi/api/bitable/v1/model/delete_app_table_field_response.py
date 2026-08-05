@@ -9,7 +9,6 @@ from .delete_app_table_field_response_body import DeleteAppTableFieldResponseBod
 class DeleteAppTableFieldResponse(BaseResponse):
     _types = {
         "data": DeleteAppTableFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

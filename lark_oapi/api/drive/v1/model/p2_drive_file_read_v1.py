@@ -24,9 +24,7 @@ class P2DriveFileReadV1Data(object):
 
 
 class P2DriveFileReadV1(EventContext):
-    _types = {
-        "event": P2DriveFileReadV1Data
-    }
+    _types = {"event": P2DriveFileReadV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

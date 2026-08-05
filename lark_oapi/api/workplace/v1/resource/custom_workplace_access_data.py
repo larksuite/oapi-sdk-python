@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_custom_workplace_access_data_request import SearchCustomWorkplaceAccessDataRequest
-from ..model.search_custom_workplace_access_data_response import SearchCustomWorkplaceAccessDataResponse
+from ..model.search_custom_workplace_access_data_request import (
+    SearchCustomWorkplaceAccessDataRequest,
+)
+from ..model.search_custom_workplace_access_data_response import (
+    SearchCustomWorkplaceAccessDataResponse,
+)
 
 
 class CustomWorkplaceAccessData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchCustomWorkplaceAccessDataRequest,
-               option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
+    def search(
+        self,
+        request: SearchCustomWorkplaceAccessDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchCustomWorkplaceAccessDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class CustomWorkplaceAccessData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           SearchCustomWorkplaceAccessDataResponse)
+        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCustomWorkplaceAccessDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchCustomWorkplaceAccessDataRequest,
-                      option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
+    async def asearch(
+        self,
+        request: SearchCustomWorkplaceAccessDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchCustomWorkplaceAccessDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class CustomWorkplaceAccessData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           SearchCustomWorkplaceAccessDataResponse)
+        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchCustomWorkplaceAccessDataResponse
+        )
         response.raw = resp
 
         return response

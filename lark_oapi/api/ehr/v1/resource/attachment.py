@@ -17,7 +17,9 @@ class Attachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+    def get(
+        self, request: GetAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> GetAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -44,8 +46,9 @@ class Attachment(object):
         response.raw = resp
         return response
 
-    async def aget(self, request: GetAttachmentRequest,
-                   option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+    async def aget(
+        self, request: GetAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> GetAttachmentResponse:
         if option is None:
             option = RequestOption()
 

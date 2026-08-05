@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
-from .interview_round_type_assessment_template import InterviewRoundTypeAssessmentTemplate
+from .interview_round_type_assessment_template import (
+    InterviewRoundTypeAssessmentTemplate,
+)
 
 
 class InterviewRoundType(object):
@@ -22,7 +24,9 @@ class InterviewRoundType(object):
         self.name: Optional[I18n] = None
         self.process_type: Optional[int] = None
         self.active_status: Optional[int] = None
-        self.interview_assessment_template_info: Optional[InterviewRoundTypeAssessmentTemplate] = None
+        self.interview_assessment_template_info: Optional[
+            InterviewRoundTypeAssessmentTemplate
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,9 +58,12 @@ class InterviewRoundTypeBuilder(object):
         self._interview_round_type.active_status = active_status
         return self
 
-    def interview_assessment_template_info(self,
-                                           interview_assessment_template_info: InterviewRoundTypeAssessmentTemplate) -> "InterviewRoundTypeBuilder":
-        self._interview_round_type.interview_assessment_template_info = interview_assessment_template_info
+    def interview_assessment_template_info(
+        self, interview_assessment_template_info: InterviewRoundTypeAssessmentTemplate
+    ) -> "InterviewRoundTypeBuilder":
+        self._interview_round_type.interview_assessment_template_info = (
+            interview_assessment_template_info
+        )
         return self
 
     def build(self) -> "InterviewRoundType":

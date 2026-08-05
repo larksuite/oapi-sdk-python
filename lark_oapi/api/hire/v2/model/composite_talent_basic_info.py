@@ -79,7 +79,9 @@ class CompositeTalentBasicInfoBuilder(object):
         self._composite_talent_basic_info.email = email
         return self
 
-    def experience_years(self, experience_years: int) -> "CompositeTalentBasicInfoBuilder":
+    def experience_years(
+        self, experience_years: int
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.experience_years = experience_years
         return self
 
@@ -87,7 +89,9 @@ class CompositeTalentBasicInfoBuilder(object):
         self._composite_talent_basic_info.age = age
         return self
 
-    def nationality_code(self, nationality_code: str) -> "CompositeTalentBasicInfoBuilder":
+    def nationality_code(
+        self, nationality_code: str
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.nationality_code = nationality_code
         return self
 
@@ -95,28 +99,41 @@ class CompositeTalentBasicInfoBuilder(object):
         self._composite_talent_basic_info.gender = gender
         return self
 
-    def current_location_code(self, current_location_code: str) -> "CompositeTalentBasicInfoBuilder":
+    def current_location_code(
+        self, current_location_code: str
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.current_location_code = current_location_code
         return self
 
-    def hometown_location_code(self, hometown_location_code: str) -> "CompositeTalentBasicInfoBuilder":
-        self._composite_talent_basic_info.hometown_location_code = hometown_location_code
+    def hometown_location_code(
+        self, hometown_location_code: str
+    ) -> "CompositeTalentBasicInfoBuilder":
+        self._composite_talent_basic_info.hometown_location_code = (
+            hometown_location_code
+        )
         return self
 
-    def preferred_location_code_list(self,
-                                     preferred_location_code_list: List[str]) -> "CompositeTalentBasicInfoBuilder":
-        self._composite_talent_basic_info.preferred_location_code_list = preferred_location_code_list
+    def preferred_location_code_list(
+        self, preferred_location_code_list: List[str]
+    ) -> "CompositeTalentBasicInfoBuilder":
+        self._composite_talent_basic_info.preferred_location_code_list = (
+            preferred_location_code_list
+        )
         return self
 
     def home_address(self, home_address: str) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.home_address = home_address
         return self
 
-    def identification_type(self, identification_type: int) -> "CompositeTalentBasicInfoBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "CompositeTalentBasicInfoBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.identification_number = identification_number
         return self
 
@@ -128,12 +145,15 @@ class CompositeTalentBasicInfoBuilder(object):
         self._composite_talent_basic_info.marital_status = marital_status
         return self
 
-    def customized_data_list(self, customized_data_list: List[
-        TalentCustomizedDataChild]) -> "CompositeTalentBasicInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.customized_data_list = customized_data_list
         return self
 
-    def hukou_location_code(self, hukou_location_code: str) -> "CompositeTalentBasicInfoBuilder":
+    def hukou_location_code(
+        self, hukou_location_code: str
+    ) -> "CompositeTalentBasicInfoBuilder":
         self._composite_talent_basic_info.hukou_location_code = hukou_location_code
         return self
 

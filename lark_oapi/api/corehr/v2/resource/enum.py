@@ -17,7 +17,9 @@ class Enum(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchEnumRequest, option: Optional[RequestOption] = None) -> SearchEnumResponse:
+    def search(
+        self, request: SearchEnumRequest, option: Optional[RequestOption] = None
+    ) -> SearchEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Enum(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEnumResponse)
+        response: SearchEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchEnumRequest, option: Optional[RequestOption] = None) -> SearchEnumResponse:
+    async def asearch(
+        self, request: SearchEnumRequest, option: Optional[RequestOption] = None
+    ) -> SearchEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Enum(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEnumResponse)
+        response: SearchEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchEnumResponse
+        )
         response.raw = resp
 
         return response

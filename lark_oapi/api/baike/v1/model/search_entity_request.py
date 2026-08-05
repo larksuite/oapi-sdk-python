@@ -20,12 +20,14 @@ class SearchEntityRequest(BaseRequest):
 
 
 class SearchEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         search_entity_request = SearchEntityRequest()
         search_entity_request.http_method = HttpMethod.POST
         search_entity_request.uri = "/open-apis/baike/v1/entities/search"
-        search_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        search_entity_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._search_entity_request: SearchEntityRequest = search_entity_request
 
     def page_size(self, page_size: int) -> "SearchEntityRequestBuilder":
@@ -43,7 +45,9 @@ class SearchEntityRequestBuilder(object):
         self._search_entity_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchEntityRequestBody) -> "SearchEntityRequestBuilder":
+    def request_body(
+        self, request_body: SearchEntityRequestBody
+    ) -> "SearchEntityRequestBuilder":
         self._search_entity_request.request_body = request_body
         self._search_entity_request.body = request_body
         return self

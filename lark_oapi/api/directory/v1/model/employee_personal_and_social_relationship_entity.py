@@ -56,9 +56,13 @@ class EmployeePersonalAndSocialRelationshipEntity(object):
 
 class EmployeePersonalAndSocialRelationshipEntityBuilder(object):
     def __init__(self) -> None:
-        self._employee_personal_and_social_relationship_entity = EmployeePersonalAndSocialRelationshipEntity()
+        self._employee_personal_and_social_relationship_entity = (
+            EmployeePersonalAndSocialRelationshipEntity()
+        )
 
-    def birthday(self, birthday: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def birthday(
+        self, birthday: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.birthday = birthday
         return self
 
@@ -66,66 +70,109 @@ class EmployeePersonalAndSocialRelationshipEntityBuilder(object):
         self._employee_personal_and_social_relationship_entity.age = age
         return self
 
-    def nationality(self, nationality: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def nationality(
+        self, nationality: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.nationality = nationality
         return self
 
-    def native_place(self, native_place: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.native_place = native_place
+    def native_place(
+        self, native_place: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.native_place = (
+            native_place
+        )
         return self
 
-    def ethnicity(self, ethnicity: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def ethnicity(
+        self, ethnicity: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.ethnicity = ethnicity
         return self
 
-    def marital_status(self, marital_status: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.marital_status = marital_status
+    def marital_status(
+        self, marital_status: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.marital_status = (
+            marital_status
+        )
         return self
 
-    def politics_status(self, politics_status: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.politics_status = politics_status
+    def politics_status(
+        self, politics_status: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.politics_status = (
+            politics_status
+        )
         return self
 
-    def bank_accounts(self, bank_accounts: List[BankAccount]) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.bank_accounts = bank_accounts
+    def bank_accounts(
+        self, bank_accounts: List[BankAccount]
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.bank_accounts = (
+            bank_accounts
+        )
         return self
 
-    def certificates(self, certificates: List[Certificate]) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.certificates = certificates
+    def certificates(
+        self, certificates: List[Certificate]
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.certificates = (
+            certificates
+        )
         return self
 
-    def registered_residence_type(self,
-                                  registered_residence_type: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def registered_residence_type(
+        self, registered_residence_type: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.registered_residence_type = registered_residence_type
         return self
 
-    def location(self, location: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def location(
+        self, location: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.location = location
         return self
 
-    def social_security_number(self,
-                               social_security_number: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def social_security_number(
+        self, social_security_number: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.social_security_number = social_security_number
         return self
 
-    def provident_fund_number(self, provident_fund_number: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.provident_fund_number = provident_fund_number
+    def provident_fund_number(
+        self, provident_fund_number: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.provident_fund_number = (
+            provident_fund_number
+        )
         return self
 
-    def emergency_contacts(self, emergency_contacts: List[
-        EmergencyContact]) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.emergency_contacts = emergency_contacts
+    def emergency_contacts(
+        self, emergency_contacts: List[EmergencyContact]
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.emergency_contacts = (
+            emergency_contacts
+        )
         return self
 
-    def dependents(self, dependents: List[Dependent]) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def dependents(
+        self, dependents: List[Dependent]
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.dependents = dependents
         return self
 
-    def resident_taxs(self, resident_taxs: List[str]) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
-        self._employee_personal_and_social_relationship_entity.resident_taxs = resident_taxs
+    def resident_taxs(
+        self, resident_taxs: List[str]
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+        self._employee_personal_and_social_relationship_entity.resident_taxs = (
+            resident_taxs
+        )
         return self
 
-    def religion(self, religion: str) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
+    def religion(
+        self, religion: str
+    ) -> "EmployeePersonalAndSocialRelationshipEntityBuilder":
         self._employee_personal_and_social_relationship_entity.religion = religion
         return self
 

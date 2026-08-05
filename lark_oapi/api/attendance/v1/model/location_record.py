@@ -66,7 +66,9 @@ class LocationRecordBuilder(object):
         self._location_record.type = type
         return self
 
-    def scan_wifi_list(self, scan_wifi_list: List[ScanWifiInfo]) -> "LocationRecordBuilder":
+    def scan_wifi_list(
+        self, scan_wifi_list: List[ScanWifiInfo]
+    ) -> "LocationRecordBuilder":
         self._location_record.scan_wifi_list = scan_wifi_list
         return self
 

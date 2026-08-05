@@ -17,15 +17,20 @@ class BatchSaveReportDetailRowRequest(BaseRequest):
 
 
 class BatchSaveReportDetailRowRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_save_report_detail_row_request = BatchSaveReportDetailRowRequest()
         batch_save_report_detail_row_request.http_method = HttpMethod.POST
-        batch_save_report_detail_row_request.uri = "/open-apis/corehr/v2/report_detail_row/batchSave"
+        batch_save_report_detail_row_request.uri = (
+            "/open-apis/corehr/v2/report_detail_row/batchSave"
+        )
         batch_save_report_detail_row_request.token_types = {AccessTokenType.TENANT}
-        self._batch_save_report_detail_row_request: BatchSaveReportDetailRowRequest = batch_save_report_detail_row_request
+        self._batch_save_report_detail_row_request: BatchSaveReportDetailRowRequest = (
+            batch_save_report_detail_row_request
+        )
 
-    def request_body(self, request_body: ReportDetailReq) -> "BatchSaveReportDetailRowRequestBuilder":
+    def request_body(
+        self, request_body: ReportDetailReq
+    ) -> "BatchSaveReportDetailRowRequestBuilder":
         self._batch_save_report_detail_row_request.request_body = request_body
         self._batch_save_report_detail_row_request.body = request_body
         return self

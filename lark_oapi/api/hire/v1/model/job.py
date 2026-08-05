@@ -189,7 +189,9 @@ class JobBuilder(object):
         self._job.process_en_name = process_en_name
         return self
 
-    def customized_data_list(self, customized_data_list: List[JobCustomizedData]) -> "JobBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[JobCustomizedData]
+    ) -> "JobBuilder":
         self._job.customized_data_list = customized_data_list
         return self
 
@@ -245,7 +247,9 @@ class JobBuilder(object):
         self._job.expiry_timestamp = expiry_timestamp
         return self
 
-    def target_major_list(self, target_major_list: List[TargetMajorInfo]) -> "JobBuilder":
+    def target_major_list(
+        self, target_major_list: List[TargetMajorInfo]
+    ) -> "JobBuilder":
         self._job.target_major_list = target_major_list
         return self
 

@@ -23,7 +23,9 @@ class QueryUserSettingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_setting_response_body = QueryUserSettingResponseBody()
 
-    def user_settings(self, user_settings: List[UserSetting]) -> "QueryUserSettingResponseBodyBuilder":
+    def user_settings(
+        self, user_settings: List[UserSetting]
+    ) -> "QueryUserSettingResponseBodyBuilder":
         self._query_user_setting_response_body.user_settings = user_settings
         return self
 

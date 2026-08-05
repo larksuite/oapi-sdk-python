@@ -22,7 +22,9 @@ class RemoveRemindersTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_reminders_task_request_body = RemoveRemindersTaskRequestBody()
 
-    def reminder_ids(self, reminder_ids: List[str]) -> "RemoveRemindersTaskRequestBodyBuilder":
+    def reminder_ids(
+        self, reminder_ids: List[str]
+    ) -> "RemoveRemindersTaskRequestBodyBuilder":
         self._remove_reminders_task_request_body.reminder_ids = reminder_ids
         return self
 

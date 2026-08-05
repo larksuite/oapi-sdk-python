@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .patch_table_records_app_table_request_body import PatchTableRecordsAppTableRequestBody
+from .patch_table_records_app_table_request_body import (
+    PatchTableRecordsAppTableRequestBody,
+)
 
 
 class PatchTableRecordsAppTableRequest(BaseRequest):
@@ -22,11 +24,12 @@ class PatchTableRecordsAppTableRequest(BaseRequest):
 
 
 class PatchTableRecordsAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_table_records_app_table_request = PatchTableRecordsAppTableRequest()
         patch_table_records_app_table_request.http_method = HttpMethod.PATCH
-        patch_table_records_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        patch_table_records_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        )
         patch_table_records_app_table_request.token_types = {AccessTokenType.USER}
         self._patch_table_records_app_table_request: PatchTableRecordsAppTableRequest = patch_table_records_app_table_request
 
@@ -40,9 +43,15 @@ class PatchTableRecordsAppTableRequestBuilder(object):
         self._patch_table_records_app_table_request.add_query("env", env)
         return self
 
-    def user_identifier_type(self, user_identifier_type: str) -> "PatchTableRecordsAppTableRequestBuilder":
-        self._patch_table_records_app_table_request.user_identifier_type = user_identifier_type
-        self._patch_table_records_app_table_request.add_query("user_identifier_type", user_identifier_type)
+    def user_identifier_type(
+        self, user_identifier_type: str
+    ) -> "PatchTableRecordsAppTableRequestBuilder":
+        self._patch_table_records_app_table_request.user_identifier_type = (
+            user_identifier_type
+        )
+        self._patch_table_records_app_table_request.add_query(
+            "user_identifier_type", user_identifier_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "PatchTableRecordsAppTableRequestBuilder":
@@ -52,11 +61,14 @@ class PatchTableRecordsAppTableRequestBuilder(object):
 
     def table_name(self, table_name: str) -> "PatchTableRecordsAppTableRequestBuilder":
         self._patch_table_records_app_table_request.table_name = table_name
-        self._patch_table_records_app_table_request.paths["table_name"] = str(table_name)
+        self._patch_table_records_app_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
-    def request_body(self,
-                     request_body: PatchTableRecordsAppTableRequestBody) -> "PatchTableRecordsAppTableRequestBuilder":
+    def request_body(
+        self, request_body: PatchTableRecordsAppTableRequestBody
+    ) -> "PatchTableRecordsAppTableRequestBuilder":
         self._patch_table_records_app_table_request.request_body = request_body
         self._patch_table_records_app_table_request.body = request_body
         return self

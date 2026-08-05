@@ -21,7 +21,9 @@ class AppSkill(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetAppSkillRequest, option: Optional[RequestOption] = None) -> GetAppSkillResponse:
+    def get(
+        self, request: GetAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> GetAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,12 +38,16 @@ class AppSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppSkillResponse)
+        response: GetAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAppSkillRequest, option: Optional[RequestOption] = None) -> GetAppSkillResponse:
+    async def aget(
+        self, request: GetAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> GetAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,12 +58,16 @@ class AppSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppSkillResponse)
+        response: GetAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAppSkillRequest, option: Optional[RequestOption] = None) -> ListAppSkillResponse:
+    def list(
+        self, request: ListAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> ListAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,12 +82,16 @@ class AppSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppSkillResponse)
+        response: ListAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppSkillRequest, option: Optional[RequestOption] = None) -> ListAppSkillResponse:
+    async def alist(
+        self, request: ListAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> ListAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,12 +102,16 @@ class AppSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppSkillResponse)
+        response: ListAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def start(self, request: StartAppSkillRequest, option: Optional[RequestOption] = None) -> StartAppSkillResponse:
+    def start(
+        self, request: StartAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> StartAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -108,13 +126,16 @@ class AppSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: StartAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), StartAppSkillResponse)
+        response: StartAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StartAppSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def astart(self, request: StartAppSkillRequest,
-                     option: Optional[RequestOption] = None) -> StartAppSkillResponse:
+    async def astart(
+        self, request: StartAppSkillRequest, option: Optional[RequestOption] = None
+    ) -> StartAppSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -125,7 +146,9 @@ class AppSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: StartAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), StartAppSkillResponse)
+        response: StartAppSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), StartAppSkillResponse
+        )
         response.raw = resp
 
         return response

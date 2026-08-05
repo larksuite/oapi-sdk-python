@@ -19,7 +19,6 @@ class QueryQuestionRequest(BaseRequest):
 
 
 class QueryQuestionRequestBuilder(object):
-
     def __init__(self) -> None:
         query_question_request = QueryQuestionRequest()
         query_question_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class QueryQuestionRequestBuilder(object):
         self._query_question_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryQuestionRequestBody) -> "QueryQuestionRequestBuilder":
+    def request_body(
+        self, request_body: QueryQuestionRequestBody
+    ) -> "QueryQuestionRequestBuilder":
         self._query_question_request.request_body = request_body
         self._query_question_request.body = request_body
         return self

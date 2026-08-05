@@ -26,13 +26,20 @@ class BatchGetEmployeesBpResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_employees_bp_response_body = BatchGetEmployeesBpResponseBody()
 
-    def employment_direct_bps(self,
-                              employment_direct_bps: List[EmploymentBp]) -> "BatchGetEmployeesBpResponseBodyBuilder":
-        self._batch_get_employees_bp_response_body.employment_direct_bps = employment_direct_bps
+    def employment_direct_bps(
+        self, employment_direct_bps: List[EmploymentBp]
+    ) -> "BatchGetEmployeesBpResponseBodyBuilder":
+        self._batch_get_employees_bp_response_body.employment_direct_bps = (
+            employment_direct_bps
+        )
         return self
 
-    def employment_all_bps(self, employment_all_bps: List[EmploymentBp]) -> "BatchGetEmployeesBpResponseBodyBuilder":
-        self._batch_get_employees_bp_response_body.employment_all_bps = employment_all_bps
+    def employment_all_bps(
+        self, employment_all_bps: List[EmploymentBp]
+    ) -> "BatchGetEmployeesBpResponseBodyBuilder":
+        self._batch_get_employees_bp_response_body.employment_all_bps = (
+            employment_all_bps
+        )
         return self
 
     def build(self) -> "BatchGetEmployeesBpResponseBody":

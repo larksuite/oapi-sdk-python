@@ -17,8 +17,11 @@ class ApplicationConfig(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchApplicationConfigRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationConfigResponse:
+    def patch(
+        self,
+        request: PatchApplicationConfigRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationConfigResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ApplicationConfig(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchApplicationConfigResponse)
+        response: PatchApplicationConfigResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationConfigResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationConfigRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationConfigResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationConfigRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationConfigResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ApplicationConfig(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchApplicationConfigResponse)
+        response: PatchApplicationConfigResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationConfigResponse
+        )
         response.raw = resp
 
         return response

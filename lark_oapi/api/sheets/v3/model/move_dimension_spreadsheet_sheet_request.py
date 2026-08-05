@@ -19,17 +19,27 @@ class MoveDimensionSpreadsheetSheetRequest(BaseRequest):
 
 
 class MoveDimensionSpreadsheetSheetRequestBuilder(object):
-
     def __init__(self) -> None:
-        move_dimension_spreadsheet_sheet_request = MoveDimensionSpreadsheetSheetRequest()
+        move_dimension_spreadsheet_sheet_request = (
+            MoveDimensionSpreadsheetSheetRequest()
+        )
         move_dimension_spreadsheet_sheet_request.http_method = HttpMethod.POST
         move_dimension_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
-        move_dimension_spreadsheet_sheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        move_dimension_spreadsheet_sheet_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._move_dimension_spreadsheet_sheet_request: MoveDimensionSpreadsheetSheetRequest = move_dimension_spreadsheet_sheet_request
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
-        self._move_dimension_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
-        self._move_dimension_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
+        self._move_dimension_spreadsheet_sheet_request.spreadsheet_token = (
+            spreadsheet_token
+        )
+        self._move_dimension_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
@@ -37,7 +47,9 @@ class MoveDimensionSpreadsheetSheetRequestBuilder(object):
         self._move_dimension_spreadsheet_sheet_request.paths["sheet_id"] = str(sheet_id)
         return self
 
-    def request_body(self, request_body: MoveDimension) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
+    def request_body(
+        self, request_body: MoveDimension
+    ) -> "MoveDimensionSpreadsheetSheetRequestBuilder":
         self._move_dimension_spreadsheet_sheet_request.request_body = request_body
         self._move_dimension_spreadsheet_sheet_request.body = request_body
         return self

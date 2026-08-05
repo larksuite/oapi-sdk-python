@@ -17,15 +17,20 @@ class FieldExtractionContractRequest(BaseRequest):
 
 
 class FieldExtractionContractRequestBuilder(object):
-
     def __init__(self) -> None:
         field_extraction_contract_request = FieldExtractionContractRequest()
         field_extraction_contract_request.http_method = HttpMethod.POST
-        field_extraction_contract_request.uri = "/open-apis/document_ai/v1/contract/field_extraction"
+        field_extraction_contract_request.uri = (
+            "/open-apis/document_ai/v1/contract/field_extraction"
+        )
         field_extraction_contract_request.token_types = {AccessTokenType.TENANT}
-        self._field_extraction_contract_request: FieldExtractionContractRequest = field_extraction_contract_request
+        self._field_extraction_contract_request: FieldExtractionContractRequest = (
+            field_extraction_contract_request
+        )
 
-    def request_body(self, request_body: FieldExtractionContractRequestBody) -> "FieldExtractionContractRequestBuilder":
+    def request_body(
+        self, request_body: FieldExtractionContractRequestBody
+    ) -> "FieldExtractionContractRequestBuilder":
         self._field_extraction_contract_request.request_body = request_body
         self._field_extraction_contract_request.body = request_body
         return self

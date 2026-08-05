@@ -4,7 +4,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .reply_content import ReplyContent
 from .reply_extra import ReplyExtra
-from .file_comment_v2_batch_query_reaction_data import FileCommentV2BatchQueryReactionData
+from .file_comment_v2_batch_query_reaction_data import (
+    FileCommentV2BatchQueryReactionData,
+)
 
 
 class CreateFileCommentReplyResponseBody(object):
@@ -35,9 +37,13 @@ class CreateFileCommentReplyResponseBody(object):
 
 class CreateFileCommentReplyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_file_comment_reply_response_body = CreateFileCommentReplyResponseBody()
+        self._create_file_comment_reply_response_body = (
+            CreateFileCommentReplyResponseBody()
+        )
 
-    def content(self, content: ReplyContent) -> "CreateFileCommentReplyResponseBodyBuilder":
+    def content(
+        self, content: ReplyContent
+    ) -> "CreateFileCommentReplyResponseBodyBuilder":
         self._create_file_comment_reply_response_body.content = content
         return self
 
@@ -49,11 +55,15 @@ class CreateFileCommentReplyResponseBodyBuilder(object):
         self._create_file_comment_reply_response_body.user_id = user_id
         return self
 
-    def create_time(self, create_time: int) -> "CreateFileCommentReplyResponseBodyBuilder":
+    def create_time(
+        self, create_time: int
+    ) -> "CreateFileCommentReplyResponseBodyBuilder":
         self._create_file_comment_reply_response_body.create_time = create_time
         return self
 
-    def update_time(self, update_time: int) -> "CreateFileCommentReplyResponseBodyBuilder":
+    def update_time(
+        self, update_time: int
+    ) -> "CreateFileCommentReplyResponseBodyBuilder":
         self._create_file_comment_reply_response_body.update_time = update_time
         return self
 
@@ -61,8 +71,9 @@ class CreateFileCommentReplyResponseBodyBuilder(object):
         self._create_file_comment_reply_response_body.extra = extra
         return self
 
-    def reactions(self,
-                  reactions: List[FileCommentV2BatchQueryReactionData]) -> "CreateFileCommentReplyResponseBodyBuilder":
+    def reactions(
+        self, reactions: List[FileCommentV2BatchQueryReactionData]
+    ) -> "CreateFileCommentReplyResponseBodyBuilder":
         self._create_file_comment_reply_response_body.reactions = reactions
         return self
 

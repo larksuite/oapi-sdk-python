@@ -22,13 +22,16 @@ class ViewsGetWorkspaceViewRequest(BaseRequest):
 
 
 class ViewsGetWorkspaceViewRequestBuilder(object):
-
     def __init__(self) -> None:
         views_get_workspace_view_request = ViewsGetWorkspaceViewRequest()
         views_get_workspace_view_request.http_method = HttpMethod.GET
-        views_get_workspace_view_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/views/:view_name/records"
+        views_get_workspace_view_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/views/:view_name/records"
+        )
         views_get_workspace_view_request.token_types = {AccessTokenType.USER}
-        self._views_get_workspace_view_request: ViewsGetWorkspaceViewRequest = views_get_workspace_view_request
+        self._views_get_workspace_view_request: ViewsGetWorkspaceViewRequest = (
+            views_get_workspace_view_request
+        )
 
     def page_size(self, page_size: int) -> "ViewsGetWorkspaceViewRequestBuilder":
         self._views_get_workspace_view_request.page_size = page_size

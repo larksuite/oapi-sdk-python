@@ -18,7 +18,6 @@ class QueryReviewRequest(BaseRequest):
 
 
 class QueryReviewRequestBuilder(object):
-
     def __init__(self) -> None:
         query_review_request = QueryReviewRequest()
         query_review_request.http_method = HttpMethod.GET

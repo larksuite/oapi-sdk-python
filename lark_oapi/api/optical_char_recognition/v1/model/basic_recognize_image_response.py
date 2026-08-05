@@ -9,7 +9,6 @@ from .basic_recognize_image_response_body import BasicRecognizeImageResponseBody
 class BasicRecognizeImageResponse(BaseResponse):
     _types = {
         "data": BasicRecognizeImageResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -25,13 +25,16 @@ class ListWebsiteJobPostRequest(BaseRequest):
 
 
 class ListWebsiteJobPostRequestBuilder(object):
-
     def __init__(self) -> None:
         list_website_job_post_request = ListWebsiteJobPostRequest()
         list_website_job_post_request.http_method = HttpMethod.GET
-        list_website_job_post_request.uri = "/open-apis/hire/v1/websites/:website_id/job_posts"
+        list_website_job_post_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/job_posts"
+        )
         list_website_job_post_request.token_types = {AccessTokenType.TENANT}
-        self._list_website_job_post_request: ListWebsiteJobPostRequest = list_website_job_post_request
+        self._list_website_job_post_request: ListWebsiteJobPostRequest = (
+            list_website_job_post_request
+        )
 
     def page_token(self, page_token: str) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.page_token = page_token
@@ -48,34 +51,58 @@ class ListWebsiteJobPostRequestBuilder(object):
         self._list_website_job_post_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListWebsiteJobPostRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.department_id_type = department_id_type
-        self._list_website_job_post_request.add_query("department_id_type", department_id_type)
+        self._list_website_job_post_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "ListWebsiteJobPostRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.job_level_id_type = job_level_id_type
-        self._list_website_job_post_request.add_query("job_level_id_type", job_level_id_type)
+        self._list_website_job_post_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
-    def update_start_time(self, update_start_time: str) -> "ListWebsiteJobPostRequestBuilder":
+    def update_start_time(
+        self, update_start_time: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.update_start_time = update_start_time
-        self._list_website_job_post_request.add_query("update_start_time", update_start_time)
+        self._list_website_job_post_request.add_query(
+            "update_start_time", update_start_time
+        )
         return self
 
-    def update_end_time(self, update_end_time: str) -> "ListWebsiteJobPostRequestBuilder":
+    def update_end_time(
+        self, update_end_time: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.update_end_time = update_end_time
-        self._list_website_job_post_request.add_query("update_end_time", update_end_time)
+        self._list_website_job_post_request.add_query(
+            "update_end_time", update_end_time
+        )
         return self
 
-    def create_start_time(self, create_start_time: str) -> "ListWebsiteJobPostRequestBuilder":
+    def create_start_time(
+        self, create_start_time: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.create_start_time = create_start_time
-        self._list_website_job_post_request.add_query("create_start_time", create_start_time)
+        self._list_website_job_post_request.add_query(
+            "create_start_time", create_start_time
+        )
         return self
 
-    def create_end_time(self, create_end_time: str) -> "ListWebsiteJobPostRequestBuilder":
+    def create_end_time(
+        self, create_end_time: str
+    ) -> "ListWebsiteJobPostRequestBuilder":
         self._list_website_job_post_request.create_end_time = create_end_time
-        self._list_website_job_post_request.add_query("create_end_time", create_end_time)
+        self._list_website_job_post_request.add_query(
+            "create_end_time", create_end_time
+        )
         return self
 
     def website_id(self, website_id: str) -> "ListWebsiteJobPostRequestBuilder":

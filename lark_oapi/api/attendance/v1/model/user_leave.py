@@ -96,7 +96,9 @@ class UserLeaveBuilder(object):
         self._user_leave.idempotent_id = idempotent_id
         return self
 
-    def leave_detail_range_objs(self, leave_detail_range_objs: List[TimeRangeList]) -> "UserLeaveBuilder":
+    def leave_detail_range_objs(
+        self, leave_detail_range_objs: List[TimeRangeList]
+    ) -> "UserLeaveBuilder":
         self._user_leave.leave_detail_range_objs = leave_detail_range_objs
         return self
 

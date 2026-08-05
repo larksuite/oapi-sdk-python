@@ -20,7 +20,9 @@ class PostTableRecordsAppTableRequestBody(object):
 
 class PostTableRecordsAppTableRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._post_table_records_app_table_request_body = PostTableRecordsAppTableRequestBody()
+        self._post_table_records_app_table_request_body = (
+            PostTableRecordsAppTableRequestBody()
+        )
 
     def records(self, records: str) -> "PostTableRecordsAppTableRequestBodyBuilder":
         self._post_table_records_app_table_request_body.records = records

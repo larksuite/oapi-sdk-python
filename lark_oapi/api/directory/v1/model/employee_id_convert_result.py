@@ -36,11 +36,15 @@ class EmployeeIdConvertResultBuilder(object):
         self._employee_id_convert_result.employee_id = employee_id
         return self
 
-    def open_employee_id(self, open_employee_id: str) -> "EmployeeIdConvertResultBuilder":
+    def open_employee_id(
+        self, open_employee_id: str
+    ) -> "EmployeeIdConvertResultBuilder":
         self._employee_id_convert_result.open_employee_id = open_employee_id
         return self
 
-    def union_employee_id(self, union_employee_id: str) -> "EmployeeIdConvertResultBuilder":
+    def union_employee_id(
+        self, union_employee_id: str
+    ) -> "EmployeeIdConvertResultBuilder":
         self._employee_id_convert_result.union_employee_id = union_employee_id
         return self
 

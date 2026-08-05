@@ -39,11 +39,15 @@ class TasklistActivitySubscriptionBuilder(object):
         self._tasklist_activity_subscription.name = name
         return self
 
-    def subscribers(self, subscribers: List[Member]) -> "TasklistActivitySubscriptionBuilder":
+    def subscribers(
+        self, subscribers: List[Member]
+    ) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.subscribers = subscribers
         return self
 
-    def include_keys(self, include_keys: List[int]) -> "TasklistActivitySubscriptionBuilder":
+    def include_keys(
+        self, include_keys: List[int]
+    ) -> "TasklistActivitySubscriptionBuilder":
         self._tasklist_activity_subscription.include_keys = include_keys
         return self
 

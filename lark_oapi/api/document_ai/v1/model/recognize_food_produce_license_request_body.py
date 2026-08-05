@@ -20,7 +20,9 @@ class RecognizeFoodProduceLicenseRequestBody(object):
 
 class RecognizeFoodProduceLicenseRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_food_produce_license_request_body = RecognizeFoodProduceLicenseRequestBody()
+        self._recognize_food_produce_license_request_body = (
+            RecognizeFoodProduceLicenseRequestBody()
+        )
 
     def file(self, file: IO[Any]) -> "RecognizeFoodProduceLicenseRequestBodyBuilder":
         self._recognize_food_produce_license_request_body.file = file

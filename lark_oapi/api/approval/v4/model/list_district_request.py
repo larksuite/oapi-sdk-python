@@ -20,12 +20,14 @@ class ListDistrictRequest(BaseRequest):
 
 
 class ListDistrictRequestBuilder(object):
-
     def __init__(self) -> None:
         list_district_request = ListDistrictRequest()
         list_district_request.http_method = HttpMethod.GET
         list_district_request.uri = "/open-apis/approval/v4/districts"
-        list_district_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_district_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_district_request: ListDistrictRequest = list_district_request
 
     def page_size(self, page_size: int) -> "ListDistrictRequestBuilder":

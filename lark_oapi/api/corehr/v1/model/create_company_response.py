@@ -9,7 +9,6 @@ from .create_company_response_body import CreateCompanyResponseBody
 class CreateCompanyResponse(BaseResponse):
     _types = {
         "data": CreateCompanyResponseBody,
-
     }
 
     def __init__(self, d=None):

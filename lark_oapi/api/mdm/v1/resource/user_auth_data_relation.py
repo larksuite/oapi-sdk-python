@@ -10,17 +10,26 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.bind_user_auth_data_relation_request import BindUserAuthDataRelationRequest
-from ..model.bind_user_auth_data_relation_response import BindUserAuthDataRelationResponse
-from ..model.unbind_user_auth_data_relation_request import UnbindUserAuthDataRelationRequest
-from ..model.unbind_user_auth_data_relation_response import UnbindUserAuthDataRelationResponse
+from ..model.bind_user_auth_data_relation_response import (
+    BindUserAuthDataRelationResponse,
+)
+from ..model.unbind_user_auth_data_relation_request import (
+    UnbindUserAuthDataRelationRequest,
+)
+from ..model.unbind_user_auth_data_relation_response import (
+    UnbindUserAuthDataRelationResponse,
+)
 
 
 class UserAuthDataRelation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def bind(self, request: BindUserAuthDataRelationRequest,
-             option: Optional[RequestOption] = None) -> BindUserAuthDataRelationResponse:
+    def bind(
+        self,
+        request: BindUserAuthDataRelationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BindUserAuthDataRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +44,18 @@ class UserAuthDataRelation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BindUserAuthDataRelationResponse)
+        response: BindUserAuthDataRelationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BindUserAuthDataRelationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abind(self, request: BindUserAuthDataRelationRequest,
-                    option: Optional[RequestOption] = None) -> BindUserAuthDataRelationResponse:
+    async def abind(
+        self,
+        request: BindUserAuthDataRelationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BindUserAuthDataRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +66,18 @@ class UserAuthDataRelation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BindUserAuthDataRelationResponse)
+        response: BindUserAuthDataRelationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BindUserAuthDataRelationResponse
+        )
         response.raw = resp
 
         return response
 
-    def unbind(self, request: UnbindUserAuthDataRelationRequest,
-               option: Optional[RequestOption] = None) -> UnbindUserAuthDataRelationResponse:
+    def unbind(
+        self,
+        request: UnbindUserAuthDataRelationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnbindUserAuthDataRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +92,18 @@ class UserAuthDataRelation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      UnbindUserAuthDataRelationResponse)
+        response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnbindUserAuthDataRelationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aunbind(self, request: UnbindUserAuthDataRelationRequest,
-                      option: Optional[RequestOption] = None) -> UnbindUserAuthDataRelationResponse:
+    async def aunbind(
+        self,
+        request: UnbindUserAuthDataRelationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnbindUserAuthDataRelationResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +114,9 @@ class UserAuthDataRelation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      UnbindUserAuthDataRelationResponse)
+        response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnbindUserAuthDataRelationResponse
+        )
         response.raw = resp
 
         return response

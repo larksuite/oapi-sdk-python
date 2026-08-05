@@ -21,9 +21,13 @@ class GetByApplicationReferralResponseBody(object):
 
 class GetByApplicationReferralResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_by_application_referral_response_body = GetByApplicationReferralResponseBody()
+        self._get_by_application_referral_response_body = (
+            GetByApplicationReferralResponseBody()
+        )
 
-    def referral(self, referral: Referral) -> "GetByApplicationReferralResponseBodyBuilder":
+    def referral(
+        self, referral: Referral
+    ) -> "GetByApplicationReferralResponseBodyBuilder":
         self._get_by_application_referral_response_body.referral = referral
         return self
 

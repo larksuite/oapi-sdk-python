@@ -96,7 +96,9 @@ class EventMessageBuilder(object):
         self._event_message.user_agent = user_agent
         return self
 
-    def lark_agent_context(self, lark_agent_context: LarkAgentContext) -> "EventMessageBuilder":
+    def lark_agent_context(
+        self, lark_agent_context: LarkAgentContext
+    ) -> "EventMessageBuilder":
         self._event_message.lark_agent_context = lark_agent_context
         return self
 

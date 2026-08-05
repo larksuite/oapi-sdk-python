@@ -21,9 +21,13 @@ class DataChangeLogDetailApplicationAuditLogResponseBody(object):
 
 class DataChangeLogDetailApplicationAuditLogResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._data_change_log_detail_application_audit_log_response_body = DataChangeLogDetailApplicationAuditLogResponseBody()
+        self._data_change_log_detail_application_audit_log_response_body = (
+            DataChangeLogDetailApplicationAuditLogResponseBody()
+        )
 
-    def data(self, data: AuditLogDetail) -> "DataChangeLogDetailApplicationAuditLogResponseBodyBuilder":
+    def data(
+        self, data: AuditLogDetail
+    ) -> "DataChangeLogDetailApplicationAuditLogResponseBodyBuilder":
         self._data_change_log_detail_application_audit_log_response_body.data = data
         return self
 

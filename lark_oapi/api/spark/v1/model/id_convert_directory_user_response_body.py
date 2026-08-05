@@ -21,9 +21,13 @@ class IdConvertDirectoryUserResponseBody(object):
 
 class IdConvertDirectoryUserResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._id_convert_directory_user_response_body = IdConvertDirectoryUserResponseBody()
+        self._id_convert_directory_user_response_body = (
+            IdConvertDirectoryUserResponseBody()
+        )
 
-    def items(self, items: List[IdMapItem]) -> "IdConvertDirectoryUserResponseBodyBuilder":
+    def items(
+        self, items: List[IdMapItem]
+    ) -> "IdConvertDirectoryUserResponseBodyBuilder":
         self._id_convert_directory_user_response_body.items = items
         return self
 

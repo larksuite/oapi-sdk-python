@@ -16,13 +16,19 @@ class SubscribeCalendarRequest(BaseRequest):
 
 
 class SubscribeCalendarRequestBuilder(object):
-
     def __init__(self) -> None:
         subscribe_calendar_request = SubscribeCalendarRequest()
         subscribe_calendar_request.http_method = HttpMethod.POST
-        subscribe_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
-        subscribe_calendar_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._subscribe_calendar_request: SubscribeCalendarRequest = subscribe_calendar_request
+        subscribe_calendar_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+        )
+        subscribe_calendar_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._subscribe_calendar_request: SubscribeCalendarRequest = (
+            subscribe_calendar_request
+        )
 
     def calendar_id(self, calendar_id: str) -> "SubscribeCalendarRequestBuilder":
         self._subscribe_calendar_request.calendar_id = calendar_id

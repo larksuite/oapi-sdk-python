@@ -22,14 +22,24 @@ class BatchDeleteChatAnnouncementBlockChildrenRequestBody(object):
 
 class BatchDeleteChatAnnouncementBlockChildrenRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_chat_announcement_block_children_request_body = BatchDeleteChatAnnouncementBlockChildrenRequestBody()
+        self._batch_delete_chat_announcement_block_children_request_body = (
+            BatchDeleteChatAnnouncementBlockChildrenRequestBody()
+        )
 
-    def start_index(self, start_index: int) -> "BatchDeleteChatAnnouncementBlockChildrenRequestBodyBuilder":
-        self._batch_delete_chat_announcement_block_children_request_body.start_index = start_index
+    def start_index(
+        self, start_index: int
+    ) -> "BatchDeleteChatAnnouncementBlockChildrenRequestBodyBuilder":
+        self._batch_delete_chat_announcement_block_children_request_body.start_index = (
+            start_index
+        )
         return self
 
-    def end_index(self, end_index: int) -> "BatchDeleteChatAnnouncementBlockChildrenRequestBodyBuilder":
-        self._batch_delete_chat_announcement_block_children_request_body.end_index = end_index
+    def end_index(
+        self, end_index: int
+    ) -> "BatchDeleteChatAnnouncementBlockChildrenRequestBodyBuilder":
+        self._batch_delete_chat_announcement_block_children_request_body.end_index = (
+            end_index
+        )
         return self
 
     def build(self) -> "BatchDeleteChatAnnouncementBlockChildrenRequestBody":

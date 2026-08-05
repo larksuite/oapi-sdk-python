@@ -59,7 +59,9 @@ class AppRoleTableRoleBuilder(object):
         self._app_role_table_role.allow_add_record = allow_add_record
         return self
 
-    def allow_delete_record(self, allow_delete_record: bool) -> "AppRoleTableRoleBuilder":
+    def allow_delete_record(
+        self, allow_delete_record: bool
+    ) -> "AppRoleTableRoleBuilder":
         self._app_role_table_role.allow_delete_record = allow_delete_record
         return self
 

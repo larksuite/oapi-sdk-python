@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_application_object_record_request_body import BatchUpdateApplicationObjectRecordRequestBody
+from .batch_update_application_object_record_request_body import (
+    BatchUpdateApplicationObjectRecordRequestBody,
+)
 
 
 class BatchUpdateApplicationObjectRecordRequest(BaseRequest):
@@ -11,7 +13,9 @@ class BatchUpdateApplicationObjectRecordRequest(BaseRequest):
         super().__init__()
         self.namespace: Optional[str] = None
         self.object_api_name: Optional[str] = None
-        self.request_body: Optional[BatchUpdateApplicationObjectRecordRequestBody] = None
+        self.request_body: Optional[BatchUpdateApplicationObjectRecordRequestBody] = (
+            None
+        )
 
     @staticmethod
     def builder() -> "BatchUpdateApplicationObjectRecordRequestBuilder":
@@ -19,26 +23,40 @@ class BatchUpdateApplicationObjectRecordRequest(BaseRequest):
 
 
 class BatchUpdateApplicationObjectRecordRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_update_application_object_record_request = BatchUpdateApplicationObjectRecordRequest()
+        batch_update_application_object_record_request = (
+            BatchUpdateApplicationObjectRecordRequest()
+        )
         batch_update_application_object_record_request.http_method = HttpMethod.PATCH
         batch_update_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
-        batch_update_application_object_record_request.token_types = {AccessTokenType.TENANT}
+        batch_update_application_object_record_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._batch_update_application_object_record_request: BatchUpdateApplicationObjectRecordRequest = batch_update_application_object_record_request
 
-    def namespace(self, namespace: str) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
+    def namespace(
+        self, namespace: str
+    ) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
         self._batch_update_application_object_record_request.namespace = namespace
-        self._batch_update_application_object_record_request.paths["namespace"] = str(namespace)
+        self._batch_update_application_object_record_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def object_api_name(self, object_api_name: str) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
-        self._batch_update_application_object_record_request.object_api_name = object_api_name
-        self._batch_update_application_object_record_request.paths["object_api_name"] = str(object_api_name)
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
+        self._batch_update_application_object_record_request.object_api_name = (
+            object_api_name
+        )
+        self._batch_update_application_object_record_request.paths[
+            "object_api_name"
+        ] = str(object_api_name)
         return self
 
-    def request_body(self,
-                     request_body: BatchUpdateApplicationObjectRecordRequestBody) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateApplicationObjectRecordRequestBody
+    ) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
         self._batch_update_application_object_record_request.request_body = request_body
         self._batch_update_application_object_record_request.body = request_body
         return self

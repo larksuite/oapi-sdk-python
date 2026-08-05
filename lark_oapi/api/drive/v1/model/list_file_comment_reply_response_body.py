@@ -27,7 +27,9 @@ class ListFileCommentReplyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_file_comment_reply_response_body = ListFileCommentReplyResponseBody()
 
-    def items(self, items: List[FileCommentReply]) -> "ListFileCommentReplyResponseBodyBuilder":
+    def items(
+        self, items: List[FileCommentReply]
+    ) -> "ListFileCommentReplyResponseBodyBuilder":
         self._list_file_comment_reply_response_body.items = items
         return self
 

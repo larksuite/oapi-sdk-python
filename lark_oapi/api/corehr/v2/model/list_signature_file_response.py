@@ -9,7 +9,6 @@ from .list_signature_file_response_body import ListSignatureFileResponseBody
 class ListSignatureFileResponse(BaseResponse):
     _types = {
         "data": ListSignatureFileResponseBody,
-
     }
 
     def __init__(self, d=None):

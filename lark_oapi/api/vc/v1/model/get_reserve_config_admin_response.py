@@ -9,7 +9,6 @@ from .get_reserve_config_admin_response_body import GetReserveConfigAdminRespons
 class GetReserveConfigAdminResponse(BaseResponse):
     _types = {
         "data": GetReserveConfigAdminResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -35,7 +35,9 @@ class ListCountryRegionResponseBodyBuilder(object):
         self._list_country_region_response_body.total = total
         return self
 
-    def next_page_token(self, next_page_token: str) -> "ListCountryRegionResponseBodyBuilder":
+    def next_page_token(
+        self, next_page_token: str
+    ) -> "ListCountryRegionResponseBodyBuilder":
         self._list_country_region_response_body.next_page_token = next_page_token
         return self
 

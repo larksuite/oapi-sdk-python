@@ -41,7 +41,9 @@ class ListAppTableFieldResponseBodyBuilder(object):
         self._list_app_table_field_response_body.total = total
         return self
 
-    def items(self, items: List[AppTableFieldForList]) -> "ListAppTableFieldResponseBodyBuilder":
+    def items(
+        self, items: List[AppTableFieldForList]
+    ) -> "ListAppTableFieldResponseBodyBuilder":
         self._list_app_table_field_response_body.items = items
         return self
 

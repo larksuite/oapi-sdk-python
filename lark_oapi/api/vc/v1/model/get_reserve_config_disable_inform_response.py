@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_reserve_config_disable_inform_response_body import GetReserveConfigDisableInformResponseBody
+from .get_reserve_config_disable_inform_response_body import (
+    GetReserveConfigDisableInformResponseBody,
+)
 
 
 class GetReserveConfigDisableInformResponse(BaseResponse):
     _types = {
         "data": GetReserveConfigDisableInformResponseBody,
-
     }
 
     def __init__(self, d=None):

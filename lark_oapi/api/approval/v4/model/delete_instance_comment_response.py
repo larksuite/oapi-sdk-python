@@ -9,7 +9,6 @@ from .delete_instance_comment_response_body import DeleteInstanceCommentResponse
 class DeleteInstanceCommentResponse(BaseResponse):
     _types = {
         "data": DeleteInstanceCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

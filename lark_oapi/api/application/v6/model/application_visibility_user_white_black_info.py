@@ -26,21 +26,29 @@ class ApplicationVisibilityUserWhiteBlackInfo(object):
 
 class ApplicationVisibilityUserWhiteBlackInfoBuilder(object):
     def __init__(self) -> None:
-        self._application_visibility_user_white_black_info = ApplicationVisibilityUserWhiteBlackInfo()
+        self._application_visibility_user_white_black_info = (
+            ApplicationVisibilityUserWhiteBlackInfo()
+        )
 
     def user_id(self, user_id: int) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
         self._application_visibility_user_white_black_info.user_id = user_id
         return self
 
-    def in_white_list(self, in_white_list: bool) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
+    def in_white_list(
+        self, in_white_list: bool
+    ) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
         self._application_visibility_user_white_black_info.in_white_list = in_white_list
         return self
 
-    def in_black_list(self, in_black_list: bool) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
+    def in_black_list(
+        self, in_black_list: bool
+    ) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
         self._application_visibility_user_white_black_info.in_black_list = in_black_list
         return self
 
-    def in_paid_list(self, in_paid_list: bool) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
+    def in_paid_list(
+        self, in_paid_list: bool
+    ) -> "ApplicationVisibilityUserWhiteBlackInfoBuilder":
         self._application_visibility_user_white_black_info.in_paid_list = in_paid_list
         return self
 

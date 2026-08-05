@@ -21,9 +21,13 @@ class BatchUpdateLumpSumPaymentRequestBody(object):
 
 class BatchUpdateLumpSumPaymentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_lump_sum_payment_request_body = BatchUpdateLumpSumPaymentRequestBody()
+        self._batch_update_lump_sum_payment_request_body = (
+            BatchUpdateLumpSumPaymentRequestBody()
+        )
 
-    def records(self, records: List[LumpSumPaymentForUpdate]) -> "BatchUpdateLumpSumPaymentRequestBodyBuilder":
+    def records(
+        self, records: List[LumpSumPaymentForUpdate]
+    ) -> "BatchUpdateLumpSumPaymentRequestBodyBuilder":
         self._batch_update_lump_sum_payment_request_body.records = records
         return self
 

@@ -16,7 +16,6 @@ class DeleteShiftRequest(BaseRequest):
 
 
 class DeleteShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_shift_request = DeleteShiftRequest()
         delete_shift_request.http_method = HttpMethod.DELETE

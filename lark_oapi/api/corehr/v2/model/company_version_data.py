@@ -44,7 +44,9 @@ class CompanyVersionDataBuilder(object):
         self._company_version_data.company_id = company_id
         return self
 
-    def company_version_id(self, company_version_id: str) -> "CompanyVersionDataBuilder":
+    def company_version_id(
+        self, company_version_id: str
+    ) -> "CompanyVersionDataBuilder":
         self._company_version_data.company_version_id = company_version_id
         return self
 

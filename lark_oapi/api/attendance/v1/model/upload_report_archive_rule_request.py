@@ -18,20 +18,29 @@ class UploadReportArchiveRuleRequest(BaseRequest):
 
 
 class UploadReportArchiveRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_report_archive_rule_request = UploadReportArchiveRuleRequest()
         upload_report_archive_rule_request.http_method = HttpMethod.POST
-        upload_report_archive_rule_request.uri = "/open-apis/attendance/v1/archive_rule/upload_report"
+        upload_report_archive_rule_request.uri = (
+            "/open-apis/attendance/v1/archive_rule/upload_report"
+        )
         upload_report_archive_rule_request.token_types = {AccessTokenType.TENANT}
-        self._upload_report_archive_rule_request: UploadReportArchiveRuleRequest = upload_report_archive_rule_request
+        self._upload_report_archive_rule_request: UploadReportArchiveRuleRequest = (
+            upload_report_archive_rule_request
+        )
 
-    def employee_type(self, employee_type: str) -> "UploadReportArchiveRuleRequestBuilder":
+    def employee_type(
+        self, employee_type: str
+    ) -> "UploadReportArchiveRuleRequestBuilder":
         self._upload_report_archive_rule_request.employee_type = employee_type
-        self._upload_report_archive_rule_request.add_query("employee_type", employee_type)
+        self._upload_report_archive_rule_request.add_query(
+            "employee_type", employee_type
+        )
         return self
 
-    def request_body(self, request_body: UploadReportArchiveRuleRequestBody) -> "UploadReportArchiveRuleRequestBuilder":
+    def request_body(
+        self, request_body: UploadReportArchiveRuleRequestBody
+    ) -> "UploadReportArchiveRuleRequestBuilder":
         self._upload_report_archive_rule_request.request_body = request_body
         self._upload_report_archive_rule_request.body = request_body
         return self

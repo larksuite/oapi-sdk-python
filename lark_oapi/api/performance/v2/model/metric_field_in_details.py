@@ -35,7 +35,9 @@ class MetricFieldInDetailsBuilder(object):
         self._metric_field_in_details.field_value = field_value
         return self
 
-    def field_value_person(self, field_value_person: User) -> "MetricFieldInDetailsBuilder":
+    def field_value_person(
+        self, field_value_person: User
+    ) -> "MetricFieldInDetailsBuilder":
         self._metric_field_in_details.field_value_person = field_value_person
         return self
 

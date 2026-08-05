@@ -41,7 +41,9 @@ class ProcessCommentInfoBuilder(object):
         self._process_comment_info.commentor_id = commentor_id
         return self
 
-    def commentor_name(self, commentor_name: DataengineI18n) -> "ProcessCommentInfoBuilder":
+    def commentor_name(
+        self, commentor_name: DataengineI18n
+    ) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.commentor_name = commentor_name
         return self
 

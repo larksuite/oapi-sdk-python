@@ -25,12 +25,18 @@ class CalculationActivityBuilder(object):
     def __init__(self) -> None:
         self._calculation_activity = CalculationActivity()
 
-    def calculation_activity_id(self, calculation_activity_id: int) -> "CalculationActivityBuilder":
+    def calculation_activity_id(
+        self, calculation_activity_id: int
+    ) -> "CalculationActivityBuilder":
         self._calculation_activity.calculation_activity_id = calculation_activity_id
         return self
 
-    def calculation_activity_names(self, calculation_activity_names: List[I18nContent]) -> "CalculationActivityBuilder":
-        self._calculation_activity.calculation_activity_names = calculation_activity_names
+    def calculation_activity_names(
+        self, calculation_activity_names: List[I18nContent]
+    ) -> "CalculationActivityBuilder":
+        self._calculation_activity.calculation_activity_names = (
+            calculation_activity_names
+        )
         return self
 
     def build(self) -> "CalculationActivity":

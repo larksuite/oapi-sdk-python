@@ -9,7 +9,6 @@ from .list_indicator_response_body import ListIndicatorResponseBody
 class ListIndicatorResponse(BaseResponse):
     _types = {
         "data": ListIndicatorResponseBody,
-
     }
 
     def __init__(self, d=None):

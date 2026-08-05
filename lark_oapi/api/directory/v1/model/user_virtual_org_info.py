@@ -20,7 +20,9 @@ class UserVirtualOrgInfo(object):
         self.id: Optional[str] = None
         self.departments: Optional[List[Department]] = None
         self.department_path_base_infos: Optional[List[DepartmentBaseInfo]] = None
-        self.employee_order_in_departments: Optional[List[UserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[List[UserDepartmentSortInfo]] = (
+            None
+        )
         self.leaders: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -41,14 +43,20 @@ class UserVirtualOrgInfoBuilder(object):
         self._user_virtual_org_info.departments = departments
         return self
 
-    def department_path_base_infos(self,
-                                   department_path_base_infos: List[DepartmentBaseInfo]) -> "UserVirtualOrgInfoBuilder":
-        self._user_virtual_org_info.department_path_base_infos = department_path_base_infos
+    def department_path_base_infos(
+        self, department_path_base_infos: List[DepartmentBaseInfo]
+    ) -> "UserVirtualOrgInfoBuilder":
+        self._user_virtual_org_info.department_path_base_infos = (
+            department_path_base_infos
+        )
         return self
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UserDepartmentSortInfo]) -> "UserVirtualOrgInfoBuilder":
-        self._user_virtual_org_info.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UserDepartmentSortInfo]
+    ) -> "UserVirtualOrgInfoBuilder":
+        self._user_virtual_org_info.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
     def leaders(self, leaders: List[str]) -> "UserVirtualOrgInfoBuilder":

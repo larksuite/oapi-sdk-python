@@ -9,7 +9,6 @@ from .query_talent_object_response_body import QueryTalentObjectResponseBody
 class QueryTalentObjectResponse(BaseResponse):
     _types = {
         "data": QueryTalentObjectResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -19,7 +19,9 @@ class SocialPlan(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSocialPlanRequest, option: Optional[RequestOption] = None) -> ListSocialPlanResponse:
+    def list(
+        self, request: ListSocialPlanRequest, option: Optional[RequestOption] = None
+    ) -> ListSocialPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class SocialPlan(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSocialPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSocialPlanResponse)
+        response: ListSocialPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSocialPlanResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSocialPlanRequest,
-                    option: Optional[RequestOption] = None) -> ListSocialPlanResponse:
+    async def alist(
+        self, request: ListSocialPlanRequest, option: Optional[RequestOption] = None
+    ) -> ListSocialPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class SocialPlan(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSocialPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSocialPlanResponse)
+        response: ListSocialPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSocialPlanResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QuerySocialPlanRequest, option: Optional[RequestOption] = None) -> QuerySocialPlanResponse:
+    def query(
+        self, request: QuerySocialPlanRequest, option: Optional[RequestOption] = None
+    ) -> QuerySocialPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,13 +80,16 @@ class SocialPlan(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySocialPlanResponse)
+        response: QuerySocialPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialPlanResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySocialPlanRequest,
-                     option: Optional[RequestOption] = None) -> QuerySocialPlanResponse:
+    async def aquery(
+        self, request: QuerySocialPlanRequest, option: Optional[RequestOption] = None
+    ) -> QuerySocialPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,7 +100,9 @@ class SocialPlan(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySocialPlanResponse)
+        response: QuerySocialPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialPlanResponse
+        )
         response.raw = resp
 
         return response

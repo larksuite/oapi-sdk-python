@@ -17,7 +17,6 @@ class GetPostRequest(BaseRequest):
 
 
 class GetPostRequestBuilder(object):
-
     def __init__(self) -> None:
         get_post_request = GetPostRequest()
         get_post_request.http_method = HttpMethod.GET

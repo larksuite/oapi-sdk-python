@@ -22,9 +22,7 @@ class P2TaskTaskCommentUpdatedV1Data(object):
 
 
 class P2TaskTaskCommentUpdatedV1(EventContext):
-    _types = {
-        "event": P2TaskTaskCommentUpdatedV1Data
-    }
+    _types = {"event": P2TaskTaskCommentUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -63,11 +63,15 @@ class RoleMemberBuilder(object):
         self._role_member.user_filter = user_filter
         return self
 
-    def user_display_infos(self, user_display_infos: List[PermissionNameInfo]) -> "RoleMemberBuilder":
+    def user_display_infos(
+        self, user_display_infos: List[PermissionNameInfo]
+    ) -> "RoleMemberBuilder":
         self._role_member.user_display_infos = user_display_infos
         return self
 
-    def department_display_infos(self, department_display_infos: List[PermissionNameInfo]) -> "RoleMemberBuilder":
+    def department_display_infos(
+        self, department_display_infos: List[PermissionNameInfo]
+    ) -> "RoleMemberBuilder":
         self._role_member.department_display_infos = department_display_infos
         return self
 

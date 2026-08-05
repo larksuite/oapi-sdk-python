@@ -21,12 +21,14 @@ class ListDepartmentRequest(BaseRequest):
 
 
 class ListDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_department_request = ListDepartmentRequest()
         list_department_request.http_method = HttpMethod.GET
         list_department_request.uri = "/open-apis/contact/v3/departments"
-        list_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_department_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_department_request: ListDepartmentRequest = list_department_request
 
     def user_id_type(self, user_id_type: str) -> "ListDepartmentRequestBuilder":
@@ -34,14 +36,22 @@ class ListDepartmentRequestBuilder(object):
         self._list_department_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListDepartmentRequestBuilder":
         self._list_department_request.department_id_type = department_id_type
-        self._list_department_request.add_query("department_id_type", department_id_type)
+        self._list_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "ListDepartmentRequestBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "ListDepartmentRequestBuilder":
         self._list_department_request.parent_department_id = parent_department_id
-        self._list_department_request.add_query("parent_department_id", parent_department_id)
+        self._list_department_request.add_query(
+            "parent_department_id", parent_department_id
+        )
         return self
 
     def fetch_child(self, fetch_child: bool) -> "ListDepartmentRequestBuilder":

@@ -21,13 +21,16 @@ class ListApplicationAppVersionRequest(BaseRequest):
 
 
 class ListApplicationAppVersionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_application_app_version_request = ListApplicationAppVersionRequest()
         list_application_app_version_request.http_method = HttpMethod.GET
-        list_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions"
+        list_application_app_version_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/app_versions"
+        )
         list_application_app_version_request.token_types = {AccessTokenType.TENANT}
-        self._list_application_app_version_request: ListApplicationAppVersionRequest = list_application_app_version_request
+        self._list_application_app_version_request: ListApplicationAppVersionRequest = (
+            list_application_app_version_request
+        )
 
     def lang(self, lang: str) -> "ListApplicationAppVersionRequestBuilder":
         self._list_application_app_version_request.lang = lang
@@ -49,9 +52,13 @@ class ListApplicationAppVersionRequestBuilder(object):
         self._list_application_app_version_request.add_query("order", order)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListApplicationAppVersionRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListApplicationAppVersionRequestBuilder":
         self._list_application_app_version_request.user_id_type = user_id_type
-        self._list_application_app_version_request.add_query("user_id_type", user_id_type)
+        self._list_application_app_version_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "ListApplicationAppVersionRequestBuilder":

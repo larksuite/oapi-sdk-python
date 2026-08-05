@@ -9,7 +9,6 @@ from .create_task_comment_response_body import CreateTaskCommentResponseBody
 class CreateTaskCommentResponse(BaseResponse):
     _types = {
         "data": CreateTaskCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -16,7 +16,6 @@ class GetFileRequest(BaseRequest):
 
 
 class GetFileRequestBuilder(object):
-
     def __init__(self) -> None:
         get_file_request = GetFileRequest()
         get_file_request.http_method = HttpMethod.GET

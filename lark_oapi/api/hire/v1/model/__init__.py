@@ -27,6 +27,7 @@ from .appli_talent_certificate_info import *
 from .appli_talent_competition_info import *
 from .appli_talent_education_info import *
 from .application import *
+from .application_active_status_item import *
 from .application_basic_info import *
 from .application_detail_basic_info import *
 from .application_detail_info import *
@@ -124,6 +125,7 @@ from .common_schema_setting import *
 from .competition_info import *
 from .contract_period import *
 from .contract_period_info import *
+from .convert_address_id_dto import *
 from .country import *
 from .data_permission import *
 from .degree_filter import *
@@ -152,6 +154,8 @@ from .eco_background_check_package_additional_item import *
 from .eco_background_check_package_data import *
 from .eco_background_check_report_file import *
 from .eco_exam_create_event_candidate_info import *
+from .eco_exam_create_event_job_department import *
+from .eco_exam_create_event_job_info import *
 from .eco_exam_create_event_mobile import *
 from .eco_exam_login_info import *
 from .eco_exam_paper import *
@@ -167,6 +171,7 @@ from .employee_overboard_info import *
 from .employee_v2 import *
 from .entity_info import *
 from .evaluation import *
+from .evaluation_conclusion import *
 from .evaluation_task import *
 from .exam_marking_task import *
 from .external_application import *
@@ -193,6 +198,12 @@ from .interview_address import *
 from .interview_aggregation import *
 from .interview_appointment_config import *
 from .interview_appointment_config_content import *
+from .interview_arrangement import *
+from .interview_arrangement_round import *
+from .interview_arrangement_round_input import *
+from .interview_arrangement_round_result import *
+from .interview_arrangement_round_update import *
+from .interview_arrangement_video import *
 from .interview_assessment_dimension import *
 from .interview_assessment_dimension_args import *
 from .interview_assessment_dimension_args_score import *
@@ -248,6 +259,7 @@ from .job_detail_recruitment_type import *
 from .job_detail_tag import *
 from .job_detail_target_major_info import *
 from .job_detail_type import *
+from .job_evaluation_item import *
 from .job_function import *
 from .job_highlight import *
 from .job_level import *
@@ -290,6 +302,7 @@ from .mobile import *
 from .module_assessment import *
 from .nationality import *
 from .note import *
+from .notification_template import *
 from .object_attribute import *
 from .object_id_name import *
 from .offer import *
@@ -336,7 +349,6 @@ from .point import *
 from .portal_job_post import *
 from .project_info import *
 from .provider_id_name_object import *
-from .push_stage import *
 from .question import *
 from .question_assessment import *
 from .questionnaire import *
@@ -396,7 +408,6 @@ from .stage_count_info import *
 from .store import *
 from .subject import *
 from .talent import *
-from .talent_interview_registration import *
 from .talent_award_info import *
 from .talent_basic_info import *
 from .talent_basic_info_v2 import *
@@ -437,7 +448,6 @@ from .talent_pool import *
 from .talent_pool_talent_basic import *
 from .talent_project_info import *
 from .talent_resume_source import *
-from .talent_schema import *
 from .talent_schema_child_object import *
 from .talent_schema_object import *
 from .talent_schema_option import *

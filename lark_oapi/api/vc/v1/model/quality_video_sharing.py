@@ -58,11 +58,17 @@ class QualityVideoSharingBuilder(object):
         self._quality_video_sharing.jitter_received = jitter_received
         return self
 
-    def maximum_resolution_received(self, maximum_resolution_received: str) -> "QualityVideoSharingBuilder":
-        self._quality_video_sharing.maximum_resolution_received = maximum_resolution_received
+    def maximum_resolution_received(
+        self, maximum_resolution_received: str
+    ) -> "QualityVideoSharingBuilder":
+        self._quality_video_sharing.maximum_resolution_received = (
+            maximum_resolution_received
+        )
         return self
 
-    def framerate_received(self, framerate_received: str) -> "QualityVideoSharingBuilder":
+    def framerate_received(
+        self, framerate_received: str
+    ) -> "QualityVideoSharingBuilder":
         self._quality_video_sharing.framerate_received = framerate_received
         return self
 
@@ -78,7 +84,9 @@ class QualityVideoSharingBuilder(object):
         self._quality_video_sharing.jitter_sent = jitter_sent
         return self
 
-    def maximum_resolution_sent(self, maximum_resolution_sent: str) -> "QualityVideoSharingBuilder":
+    def maximum_resolution_sent(
+        self, maximum_resolution_sent: str
+    ) -> "QualityVideoSharingBuilder":
         self._quality_video_sharing.maximum_resolution_sent = maximum_resolution_sent
         return self
 

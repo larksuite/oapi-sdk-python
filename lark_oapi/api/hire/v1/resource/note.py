@@ -25,7 +25,9 @@ class Note(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateNoteRequest, option: Optional[RequestOption] = None) -> CreateNoteResponse:
+    def create(
+        self, request: CreateNoteRequest, option: Optional[RequestOption] = None
+    ) -> CreateNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,12 +42,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNoteResponse)
+        response: CreateNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateNoteRequest, option: Optional[RequestOption] = None) -> CreateNoteResponse:
+    async def acreate(
+        self, request: CreateNoteRequest, option: Optional[RequestOption] = None
+    ) -> CreateNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,12 +62,16 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNoteResponse)
+        response: CreateNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteNoteRequest, option: Optional[RequestOption] = None) -> DeleteNoteResponse:
+    def delete(
+        self, request: DeleteNoteRequest, option: Optional[RequestOption] = None
+    ) -> DeleteNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -76,12 +86,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNoteResponse)
+        response: DeleteNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteNoteRequest, option: Optional[RequestOption] = None) -> DeleteNoteResponse:
+    async def adelete(
+        self, request: DeleteNoteRequest, option: Optional[RequestOption] = None
+    ) -> DeleteNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,12 +106,16 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNoteResponse)
+        response: DeleteNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetNoteRequest, option: Optional[RequestOption] = None) -> GetNoteResponse:
+    def get(
+        self, request: GetNoteRequest, option: Optional[RequestOption] = None
+    ) -> GetNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,12 +130,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNoteResponse)
+        response: GetNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetNoteRequest, option: Optional[RequestOption] = None) -> GetNoteResponse:
+    async def aget(
+        self, request: GetNoteRequest, option: Optional[RequestOption] = None
+    ) -> GetNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -128,12 +150,16 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNoteResponse)
+        response: GetNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListNoteRequest, option: Optional[RequestOption] = None) -> ListNoteResponse:
+    def list(
+        self, request: ListNoteRequest, option: Optional[RequestOption] = None
+    ) -> ListNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -148,12 +174,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), ListNoteResponse)
+        response: ListNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListNoteRequest, option: Optional[RequestOption] = None) -> ListNoteResponse:
+    async def alist(
+        self, request: ListNoteRequest, option: Optional[RequestOption] = None
+    ) -> ListNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -164,12 +194,16 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), ListNoteResponse)
+        response: ListNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchNoteRequest, option: Optional[RequestOption] = None) -> PatchNoteResponse:
+    def patch(
+        self, request: PatchNoteRequest, option: Optional[RequestOption] = None
+    ) -> PatchNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -184,12 +218,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNoteResponse)
+        response: PatchNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchNoteRequest, option: Optional[RequestOption] = None) -> PatchNoteResponse:
+    async def apatch(
+        self, request: PatchNoteRequest, option: Optional[RequestOption] = None
+    ) -> PatchNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -200,7 +238,9 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNoteResponse)
+        response: PatchNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchNoteResponse
+        )
         response.raw = resp
 
         return response

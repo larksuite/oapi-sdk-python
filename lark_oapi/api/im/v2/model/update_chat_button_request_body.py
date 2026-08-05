@@ -41,7 +41,9 @@ class UpdateChatButtonRequestBodyBuilder(object):
         self._update_chat_button_request_body.chat_id = chat_id
         return self
 
-    def buttons(self, buttons: OpenAppFeedCardButtons) -> "UpdateChatButtonRequestBodyBuilder":
+    def buttons(
+        self, buttons: OpenAppFeedCardButtons
+    ) -> "UpdateChatButtonRequestBodyBuilder":
         self._update_chat_button_request_body.buttons = buttons
         return self
 

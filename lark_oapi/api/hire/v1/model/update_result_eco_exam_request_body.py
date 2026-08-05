@@ -40,11 +40,15 @@ class UpdateResultEcoExamRequestBodyBuilder(object):
         self._update_result_eco_exam_request_body.result_time = result_time
         return self
 
-    def report_list(self, report_list: List[EcoExamResultReport]) -> "UpdateResultEcoExamRequestBodyBuilder":
+    def report_list(
+        self, report_list: List[EcoExamResultReport]
+    ) -> "UpdateResultEcoExamRequestBodyBuilder":
         self._update_result_eco_exam_request_body.report_list = report_list
         return self
 
-    def detail_list(self, detail_list: List[EcoExamResultDetail]) -> "UpdateResultEcoExamRequestBodyBuilder":
+    def detail_list(
+        self, detail_list: List[EcoExamResultDetail]
+    ) -> "UpdateResultEcoExamRequestBodyBuilder":
         self._update_result_eco_exam_request_body.detail_list = detail_list
         return self
 

@@ -56,15 +56,21 @@ class LocationVersionDataBuilder(object):
         self._location_version_data.location_id = location_id
         return self
 
-    def location_version_id(self, location_version_id: str) -> "LocationVersionDataBuilder":
+    def location_version_id(
+        self, location_version_id: str
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.location_version_id = location_version_id
         return self
 
-    def location_names(self, location_names: List[I18n]) -> "LocationVersionDataBuilder":
+    def location_names(
+        self, location_names: List[I18n]
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.location_names = location_names
         return self
 
-    def parent_location_id(self, parent_location_id: str) -> "LocationVersionDataBuilder":
+    def parent_location_id(
+        self, parent_location_id: str
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.parent_location_id = parent_location_id
         return self
 
@@ -88,7 +94,9 @@ class LocationVersionDataBuilder(object):
         self._location_version_data.code = code
         return self
 
-    def location_usages(self, location_usages: List[Enum]) -> "LocationVersionDataBuilder":
+    def location_usages(
+        self, location_usages: List[Enum]
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.location_usages = location_usages
         return self
 
@@ -100,11 +108,15 @@ class LocationVersionDataBuilder(object):
         self._location_version_data.time_zone_id = time_zone_id
         return self
 
-    def display_language_id(self, display_language_id: str) -> "LocationVersionDataBuilder":
+    def display_language_id(
+        self, display_language_id: str
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.display_language_id = display_language_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "LocationVersionDataBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "LocationVersionDataBuilder":
         self._location_version_data.working_hours_type_id = working_hours_type_id
         return self
 

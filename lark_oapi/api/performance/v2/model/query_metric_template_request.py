@@ -20,13 +20,16 @@ class QueryMetricTemplateRequest(BaseRequest):
 
 
 class QueryMetricTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
         query_metric_template_request = QueryMetricTemplateRequest()
         query_metric_template_request.http_method = HttpMethod.POST
-        query_metric_template_request.uri = "/open-apis/performance/v2/metric_templates/query"
+        query_metric_template_request.uri = (
+            "/open-apis/performance/v2/metric_templates/query"
+        )
         query_metric_template_request.token_types = {AccessTokenType.TENANT}
-        self._query_metric_template_request: QueryMetricTemplateRequest = query_metric_template_request
+        self._query_metric_template_request: QueryMetricTemplateRequest = (
+            query_metric_template_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "QueryMetricTemplateRequestBuilder":
         self._query_metric_template_request.user_id_type = user_id_type
@@ -43,7 +46,9 @@ class QueryMetricTemplateRequestBuilder(object):
         self._query_metric_template_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryMetricTemplateRequestBody) -> "QueryMetricTemplateRequestBuilder":
+    def request_body(
+        self, request_body: QueryMetricTemplateRequestBody
+    ) -> "QueryMetricTemplateRequestBuilder":
         self._query_metric_template_request.request_body = request_body
         self._query_metric_template_request.body = request_body
         return self

@@ -24,7 +24,9 @@ class BitableTableFieldActionValuePropertyOption(object):
 
 class BitableTableFieldActionValuePropertyOptionBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_field_action_value_property_option = BitableTableFieldActionValuePropertyOption()
+        self._bitable_table_field_action_value_property_option = (
+            BitableTableFieldActionValuePropertyOption()
+        )
 
     def name(self, name: str) -> "BitableTableFieldActionValuePropertyOptionBuilder":
         self._bitable_table_field_action_value_property_option.name = name

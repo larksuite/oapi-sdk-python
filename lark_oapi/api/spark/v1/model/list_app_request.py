@@ -10,6 +10,10 @@ class ListAppRequest(BaseRequest):
         super().__init__()
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.app_type: Optional[str] = None
+        self.keyword: Optional[str] = None
+        self.scope: Optional[str] = None
+        self.ownership: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListAppRequestBuilder":
@@ -17,7 +21,6 @@ class ListAppRequest(BaseRequest):
 
 
 class ListAppRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_request = ListAppRequest()
         list_app_request.http_method = HttpMethod.GET
@@ -33,6 +36,26 @@ class ListAppRequestBuilder(object):
     def page_token(self, page_token: str) -> "ListAppRequestBuilder":
         self._list_app_request.page_token = page_token
         self._list_app_request.add_query("page_token", page_token)
+        return self
+
+    def app_type(self, app_type: str) -> "ListAppRequestBuilder":
+        self._list_app_request.app_type = app_type
+        self._list_app_request.add_query("app_type", app_type)
+        return self
+
+    def keyword(self, keyword: str) -> "ListAppRequestBuilder":
+        self._list_app_request.keyword = keyword
+        self._list_app_request.add_query("keyword", keyword)
+        return self
+
+    def scope(self, scope: str) -> "ListAppRequestBuilder":
+        self._list_app_request.scope = scope
+        self._list_app_request.add_query("scope", scope)
+        return self
+
+    def ownership(self, ownership: str) -> "ListAppRequestBuilder":
+        self._list_app_request.ownership = ownership
+        self._list_app_request.add_query("ownership", ownership)
         return self
 
     def build(self) -> ListAppRequest:

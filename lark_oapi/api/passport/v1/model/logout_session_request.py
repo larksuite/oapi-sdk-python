@@ -18,7 +18,6 @@ class LogoutSessionRequest(BaseRequest):
 
 
 class LogoutSessionRequestBuilder(object):
-
     def __init__(self) -> None:
         logout_session_request = LogoutSessionRequest()
         logout_session_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class LogoutSessionRequestBuilder(object):
         self._logout_session_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: LogoutSessionRequestBody) -> "LogoutSessionRequestBuilder":
+    def request_body(
+        self, request_body: LogoutSessionRequestBody
+    ) -> "LogoutSessionRequestBuilder":
         self._logout_session_request.request_body = request_body
         self._logout_session_request.body = request_body
         return self
