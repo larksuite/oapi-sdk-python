@@ -26,20 +26,32 @@ class PatchApplicationContactsRangeRequestBody(object):
 
 class PatchApplicationContactsRangeRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_application_contacts_range_request_body = PatchApplicationContactsRangeRequestBody()
+        self._patch_application_contacts_range_request_body = (
+            PatchApplicationContactsRangeRequestBody()
+        )
 
-    def contacts_range_type(self, contacts_range_type: str) -> "PatchApplicationContactsRangeRequestBodyBuilder":
-        self._patch_application_contacts_range_request_body.contacts_range_type = contacts_range_type
+    def contacts_range_type(
+        self, contacts_range_type: str
+    ) -> "PatchApplicationContactsRangeRequestBodyBuilder":
+        self._patch_application_contacts_range_request_body.contacts_range_type = (
+            contacts_range_type
+        )
         return self
 
-    def add_visible_list(self,
-                         add_visible_list: AppContactsRangeIdList) -> "PatchApplicationContactsRangeRequestBodyBuilder":
-        self._patch_application_contacts_range_request_body.add_visible_list = add_visible_list
+    def add_visible_list(
+        self, add_visible_list: AppContactsRangeIdList
+    ) -> "PatchApplicationContactsRangeRequestBodyBuilder":
+        self._patch_application_contacts_range_request_body.add_visible_list = (
+            add_visible_list
+        )
         return self
 
-    def del_visible_list(self,
-                         del_visible_list: AppContactsRangeIdList) -> "PatchApplicationContactsRangeRequestBodyBuilder":
-        self._patch_application_contacts_range_request_body.del_visible_list = del_visible_list
+    def del_visible_list(
+        self, del_visible_list: AppContactsRangeIdList
+    ) -> "PatchApplicationContactsRangeRequestBodyBuilder":
+        self._patch_application_contacts_range_request_body.del_visible_list = (
+            del_visible_list
+        )
         return self
 
     def build(self) -> "PatchApplicationContactsRangeRequestBody":

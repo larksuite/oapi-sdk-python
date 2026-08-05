@@ -21,11 +21,16 @@ class SearchSignatureTemplateResponseBody(object):
 
 class SearchSignatureTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_signature_template_response_body = SearchSignatureTemplateResponseBody()
+        self._search_signature_template_response_body = (
+            SearchSignatureTemplateResponseBody()
+        )
 
-    def signature_templates(self, signature_templates: List[
-        SignatureTemplate]) -> "SearchSignatureTemplateResponseBodyBuilder":
-        self._search_signature_template_response_body.signature_templates = signature_templates
+    def signature_templates(
+        self, signature_templates: List[SignatureTemplate]
+    ) -> "SearchSignatureTemplateResponseBodyBuilder":
+        self._search_signature_template_response_body.signature_templates = (
+            signature_templates
+        )
         return self
 
     def build(self) -> "SearchSignatureTemplateResponseBody":

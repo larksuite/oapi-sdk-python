@@ -23,7 +23,9 @@ class BatchFreebusyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_freebusy_response_body = BatchFreebusyResponseBody()
 
-    def freebusy_lists(self, freebusy_lists: List[UserFreebusy]) -> "BatchFreebusyResponseBodyBuilder":
+    def freebusy_lists(
+        self, freebusy_lists: List[UserFreebusy]
+    ) -> "BatchFreebusyResponseBodyBuilder":
         self._batch_freebusy_response_body.freebusy_lists = freebusy_lists
         return self
 

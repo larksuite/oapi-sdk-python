@@ -18,20 +18,25 @@ class SqlCommandsWorkspaceRequest(BaseRequest):
 
 
 class SqlCommandsWorkspaceRequestBuilder(object):
-
     def __init__(self) -> None:
         sql_commands_workspace_request = SqlCommandsWorkspaceRequest()
         sql_commands_workspace_request.http_method = HttpMethod.POST
-        sql_commands_workspace_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/sql_commands"
+        sql_commands_workspace_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/sql_commands"
+        )
         sql_commands_workspace_request.token_types = {AccessTokenType.USER}
-        self._sql_commands_workspace_request: SqlCommandsWorkspaceRequest = sql_commands_workspace_request
+        self._sql_commands_workspace_request: SqlCommandsWorkspaceRequest = (
+            sql_commands_workspace_request
+        )
 
     def workspace_id(self, workspace_id: str) -> "SqlCommandsWorkspaceRequestBuilder":
         self._sql_commands_workspace_request.workspace_id = workspace_id
         self._sql_commands_workspace_request.paths["workspace_id"] = str(workspace_id)
         return self
 
-    def request_body(self, request_body: SqlCommandsWorkspaceRequestBody) -> "SqlCommandsWorkspaceRequestBuilder":
+    def request_body(
+        self, request_body: SqlCommandsWorkspaceRequestBody
+    ) -> "SqlCommandsWorkspaceRequestBuilder":
         self._sql_commands_workspace_request.request_body = request_body
         self._sql_commands_workspace_request.body = request_body
         return self

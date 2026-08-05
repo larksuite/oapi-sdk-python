@@ -50,7 +50,9 @@ class DatasourceFieldBuilder(object):
         self._datasource_field.active_status = active_status
         return self
 
-    def i18n_description(self, i18n_description: List[I18nContent]) -> "DatasourceFieldBuilder":
+    def i18n_description(
+        self, i18n_description: List[I18nContent]
+    ) -> "DatasourceFieldBuilder":
         self._datasource_field.i18n_description = i18n_description
         return self
 

@@ -23,7 +23,9 @@ class CreateUserMigrationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_migration_response_body = CreateUserMigrationResponseBody()
 
-    def user_migrations(self, user_migrations: List[UserMigration]) -> "CreateUserMigrationResponseBodyBuilder":
+    def user_migrations(
+        self, user_migrations: List[UserMigration]
+    ) -> "CreateUserMigrationResponseBodyBuilder":
         self._create_user_migration_response_body.user_migrations = user_migrations
         return self
 

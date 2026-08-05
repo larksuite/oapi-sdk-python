@@ -40,7 +40,9 @@ class CollectionTemplateSnapshotBuilder(object):
         self._collection_template_snapshot.template_name = template_name
         return self
 
-    def template_version_id(self, template_version_id: str) -> "CollectionTemplateSnapshotBuilder":
+    def template_version_id(
+        self, template_version_id: str
+    ) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.template_version_id = template_version_id
         return self
 

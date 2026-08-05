@@ -19,8 +19,11 @@ class AppFeedCardBatch(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteAppFeedCardBatchRequest,
-               option: Optional[RequestOption] = None) -> DeleteAppFeedCardBatchResponse:
+    def delete(
+        self,
+        request: DeleteAppFeedCardBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteAppFeedCardBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class AppFeedCardBatch(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAppFeedCardBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteAppFeedCardBatchResponse)
+        response: DeleteAppFeedCardBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAppFeedCardBatchResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteAppFeedCardBatchRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAppFeedCardBatchResponse:
+    async def adelete(
+        self,
+        request: DeleteAppFeedCardBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteAppFeedCardBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +60,18 @@ class AppFeedCardBatch(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAppFeedCardBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteAppFeedCardBatchResponse)
+        response: DeleteAppFeedCardBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAppFeedCardBatchResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateAppFeedCardBatchRequest,
-               option: Optional[RequestOption] = None) -> UpdateAppFeedCardBatchResponse:
+    def update(
+        self,
+        request: UpdateAppFeedCardBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateAppFeedCardBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +86,18 @@ class AppFeedCardBatch(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppFeedCardBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateAppFeedCardBatchResponse)
+        response: UpdateAppFeedCardBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppFeedCardBatchResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateAppFeedCardBatchRequest,
-                      option: Optional[RequestOption] = None) -> UpdateAppFeedCardBatchResponse:
+    async def aupdate(
+        self,
+        request: UpdateAppFeedCardBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateAppFeedCardBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +108,9 @@ class AppFeedCardBatch(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppFeedCardBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateAppFeedCardBatchResponse)
+        response: UpdateAppFeedCardBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppFeedCardBatchResponse
+        )
         response.raw = resp
 
         return response

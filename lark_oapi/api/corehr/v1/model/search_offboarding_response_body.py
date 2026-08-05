@@ -10,12 +10,16 @@ class SearchOffboardingResponseBody(object):
         "items": List[Offboarding],
         "page_token": str,
         "has_more": bool,
+        "total": int,
+        "reject_export": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[Offboarding]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
+        self.total: Optional[int] = None
+        self.reject_export: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +41,16 @@ class SearchOffboardingResponseBodyBuilder(object):
 
     def has_more(self, has_more: bool) -> "SearchOffboardingResponseBodyBuilder":
         self._search_offboarding_response_body.has_more = has_more
+        return self
+
+    def total(self, total: int) -> "SearchOffboardingResponseBodyBuilder":
+        self._search_offboarding_response_body.total = total
+        return self
+
+    def reject_export(
+        self, reject_export: bool
+    ) -> "SearchOffboardingResponseBodyBuilder":
+        self._search_offboarding_response_body.reject_export = reject_export
         return self
 
     def build(self) -> "SearchOffboardingResponseBody":

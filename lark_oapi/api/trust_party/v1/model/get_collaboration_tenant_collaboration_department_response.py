@@ -3,17 +3,19 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_collaboration_tenant_collaboration_department_response_body import \
-    GetCollaborationTenantCollaborationDepartmentResponseBody
+from .get_collaboration_tenant_collaboration_department_response_body import (
+    GetCollaborationTenantCollaborationDepartmentResponseBody,
+)
 
 
 class GetCollaborationTenantCollaborationDepartmentResponse(BaseResponse):
     _types = {
         "data": GetCollaborationTenantCollaborationDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):
         super().__init__(d)
-        self.data: Optional[GetCollaborationTenantCollaborationDepartmentResponseBody] = None
+        self.data: Optional[
+            GetCollaborationTenantCollaborationDepartmentResponseBody
+        ] = None
         init(self, d, self._types)

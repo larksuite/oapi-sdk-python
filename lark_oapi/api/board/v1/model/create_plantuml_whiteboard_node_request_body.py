@@ -32,33 +32,51 @@ class CreatePlantumlWhiteboardNodeRequestBody(object):
 
 class CreatePlantumlWhiteboardNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_plantuml_whiteboard_node_request_body = CreatePlantumlWhiteboardNodeRequestBody()
+        self._create_plantuml_whiteboard_node_request_body = (
+            CreatePlantumlWhiteboardNodeRequestBody()
+        )
 
-    def plant_uml_code(self, plant_uml_code: str) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
-        self._create_plantuml_whiteboard_node_request_body.plant_uml_code = plant_uml_code
+    def plant_uml_code(
+        self, plant_uml_code: str
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+        self._create_plantuml_whiteboard_node_request_body.plant_uml_code = (
+            plant_uml_code
+        )
         return self
 
-    def style_type(self, style_type: int) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def style_type(
+        self, style_type: int
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.style_type = style_type
         return self
 
-    def syntax_type(self, syntax_type: int) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def syntax_type(
+        self, syntax_type: int
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.syntax_type = syntax_type
         return self
 
-    def diagram_type(self, diagram_type: int) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def diagram_type(
+        self, diagram_type: int
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.diagram_type = diagram_type
         return self
 
-    def overwrite(self, overwrite: bool) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def overwrite(
+        self, overwrite: bool
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.overwrite = overwrite
         return self
 
-    def parse_mode(self, parse_mode: int) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def parse_mode(
+        self, parse_mode: int
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.parse_mode = parse_mode
         return self
 
-    def look_type(self, look_type: int) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
+    def look_type(
+        self, look_type: int
+    ) -> "CreatePlantumlWhiteboardNodeRequestBodyBuilder":
         self._create_plantuml_whiteboard_node_request_body.look_type = look_type
         return self
 

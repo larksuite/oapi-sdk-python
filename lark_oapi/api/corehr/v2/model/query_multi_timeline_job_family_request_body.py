@@ -26,21 +26,33 @@ class QueryMultiTimelineJobFamilyRequestBody(object):
 
 class QueryMultiTimelineJobFamilyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_job_family_request_body = QueryMultiTimelineJobFamilyRequestBody()
+        self._query_multi_timeline_job_family_request_body = (
+            QueryMultiTimelineJobFamilyRequestBody()
+        )
 
-    def job_family_ids(self, job_family_ids: List[str]) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
-        self._query_multi_timeline_job_family_request_body.job_family_ids = job_family_ids
+    def job_family_ids(
+        self, job_family_ids: List[str]
+    ) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
+        self._query_multi_timeline_job_family_request_body.job_family_ids = (
+            job_family_ids
+        )
         return self
 
-    def start_date(self, start_date: str) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
+    def start_date(
+        self, start_date: str
+    ) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
         self._query_multi_timeline_job_family_request_body.start_date = start_date
         return self
 
-    def end_date(self, end_date: str) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
+    def end_date(
+        self, end_date: str
+    ) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
         self._query_multi_timeline_job_family_request_body.end_date = end_date
         return self
 
-    def fields(self, fields: List[str]) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
+    def fields(
+        self, fields: List[str]
+    ) -> "QueryMultiTimelineJobFamilyRequestBodyBuilder":
         self._query_multi_timeline_job_family_request_body.fields = fields
         return self
 

@@ -77,7 +77,9 @@ class PreHireQueryBuilder(object):
         self._pre_hire_query.person_id = person_id
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PreHireQueryBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "PreHireQueryBuilder":
         self._pre_hire_query.custom_fields = custom_fields
         return self
 
@@ -85,7 +87,9 @@ class PreHireQueryBuilder(object):
         self._pre_hire_query.onboarding_status = onboarding_status
         return self
 
-    def cost_center_rate(self, cost_center_rate: List[SupportCostCenterItem]) -> "PreHireQueryBuilder":
+    def cost_center_rate(
+        self, cost_center_rate: List[SupportCostCenterItem]
+    ) -> "PreHireQueryBuilder":
         self._pre_hire_query.cost_center_rate = cost_center_rate
         return self
 

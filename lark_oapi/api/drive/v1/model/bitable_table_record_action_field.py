@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .bitable_table_record_action_field_identity import BitableTableRecordActionFieldIdentity
+from .bitable_table_record_action_field_identity import (
+    BitableTableRecordActionFieldIdentity,
+)
 
 
 class BitableTableRecordActionField(object):
@@ -15,7 +17,9 @@ class BitableTableRecordActionField(object):
     def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.field_value: Optional[str] = None
-        self.field_identity_value: Optional[BitableTableRecordActionFieldIdentity] = None
+        self.field_identity_value: Optional[BitableTableRecordActionFieldIdentity] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -35,9 +39,12 @@ class BitableTableRecordActionFieldBuilder(object):
         self._bitable_table_record_action_field.field_value = field_value
         return self
 
-    def field_identity_value(self,
-                             field_identity_value: BitableTableRecordActionFieldIdentity) -> "BitableTableRecordActionFieldBuilder":
-        self._bitable_table_record_action_field.field_identity_value = field_identity_value
+    def field_identity_value(
+        self, field_identity_value: BitableTableRecordActionFieldIdentity
+    ) -> "BitableTableRecordActionFieldBuilder":
+        self._bitable_table_record_action_field.field_identity_value = (
+            field_identity_value
+        )
         return self
 
     def build(self) -> "BitableTableRecordActionField":

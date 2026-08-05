@@ -53,7 +53,9 @@ class AilyMessageFileBuilder(object):
         self._aily_message_file.created_at = created_at
         return self
 
-    def preview_url(self, preview_url: AilyMessageFilePreview) -> "AilyMessageFileBuilder":
+    def preview_url(
+        self, preview_url: AilyMessageFilePreview
+    ) -> "AilyMessageFileBuilder":
         self._aily_message_file.preview_url = preview_url
         return self
 

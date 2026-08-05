@@ -58,7 +58,9 @@ class ApplicationOwnerBuilder(object):
         self._application_owner.phone = phone
         return self
 
-    def customer_service_account(self, customer_service_account: str) -> "ApplicationOwnerBuilder":
+    def customer_service_account(
+        self, customer_service_account: str
+    ) -> "ApplicationOwnerBuilder":
         self._application_owner.customer_service_account = customer_service_account
         return self
 

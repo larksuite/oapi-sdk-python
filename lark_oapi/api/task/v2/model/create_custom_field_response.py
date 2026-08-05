@@ -9,7 +9,6 @@ from .create_custom_field_response_body import CreateCustomFieldResponseBody
 class CreateCustomFieldResponse(BaseResponse):
     _types = {
         "data": CreateCustomFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

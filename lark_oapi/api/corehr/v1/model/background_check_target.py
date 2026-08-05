@@ -58,11 +58,15 @@ class BackgroundCheckTargetBuilder(object):
         self._background_check_target.email = email
         return self
 
-    def work_country(self, work_country: BackgroundCheckCountry) -> "BackgroundCheckTargetBuilder":
+    def work_country(
+        self, work_country: BackgroundCheckCountry
+    ) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.work_country = work_country
         return self
 
-    def work_city(self, work_city: BackgroundCheckCity) -> "BackgroundCheckTargetBuilder":
+    def work_city(
+        self, work_city: BackgroundCheckCity
+    ) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.work_city = work_city
         return self
 
@@ -78,7 +82,9 @@ class BackgroundCheckTargetBuilder(object):
         self._background_check_target.biz_unit = biz_unit
         return self
 
-    def offer_hr_department_id(self, offer_hr_department_id: str) -> "BackgroundCheckTargetBuilder":
+    def offer_hr_department_id(
+        self, offer_hr_department_id: str
+    ) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.offer_hr_department_id = offer_hr_department_id
         return self
 

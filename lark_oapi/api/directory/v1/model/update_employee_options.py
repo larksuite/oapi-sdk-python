@@ -22,7 +22,9 @@ class UpdateEmployeeOptions(object):
 
     def __init__(self, d=None):
         self.enterprise_email_password: Optional[str] = None
-        self.resigned_user_resouce_receiver: Optional[ResignedUserResouceReceiver] = None
+        self.resigned_user_resouce_receiver: Optional[ResignedUserResouceReceiver] = (
+            None
+        )
         self.data_source: Optional[int] = None
         self.resurrect_employee_options: Optional[ResurrectEmployeeOptions] = None
         self.scenario: Optional[Scenario] = None
@@ -39,29 +41,41 @@ class UpdateEmployeeOptionsBuilder(object):
     def __init__(self) -> None:
         self._update_employee_options = UpdateEmployeeOptions()
 
-    def enterprise_email_password(self, enterprise_email_password: str) -> "UpdateEmployeeOptionsBuilder":
-        self._update_employee_options.enterprise_email_password = enterprise_email_password
+    def enterprise_email_password(
+        self, enterprise_email_password: str
+    ) -> "UpdateEmployeeOptionsBuilder":
+        self._update_employee_options.enterprise_email_password = (
+            enterprise_email_password
+        )
         return self
 
-    def resigned_user_resouce_receiver(self,
-                                       resigned_user_resouce_receiver: ResignedUserResouceReceiver) -> "UpdateEmployeeOptionsBuilder":
-        self._update_employee_options.resigned_user_resouce_receiver = resigned_user_resouce_receiver
+    def resigned_user_resouce_receiver(
+        self, resigned_user_resouce_receiver: ResignedUserResouceReceiver
+    ) -> "UpdateEmployeeOptionsBuilder":
+        self._update_employee_options.resigned_user_resouce_receiver = (
+            resigned_user_resouce_receiver
+        )
         return self
 
     def data_source(self, data_source: int) -> "UpdateEmployeeOptionsBuilder":
         self._update_employee_options.data_source = data_source
         return self
 
-    def resurrect_employee_options(self,
-                                   resurrect_employee_options: ResurrectEmployeeOptions) -> "UpdateEmployeeOptionsBuilder":
-        self._update_employee_options.resurrect_employee_options = resurrect_employee_options
+    def resurrect_employee_options(
+        self, resurrect_employee_options: ResurrectEmployeeOptions
+    ) -> "UpdateEmployeeOptionsBuilder":
+        self._update_employee_options.resurrect_employee_options = (
+            resurrect_employee_options
+        )
         return self
 
     def scenario(self, scenario: Scenario) -> "UpdateEmployeeOptionsBuilder":
         self._update_employee_options.scenario = scenario
         return self
 
-    def migrate_geo_options(self, migrate_geo_options: MigrateGeoOptions) -> "UpdateEmployeeOptionsBuilder":
+    def migrate_geo_options(
+        self, migrate_geo_options: MigrateGeoOptions
+    ) -> "UpdateEmployeeOptionsBuilder":
         self._update_employee_options.migrate_geo_options = migrate_geo_options
         return self
 

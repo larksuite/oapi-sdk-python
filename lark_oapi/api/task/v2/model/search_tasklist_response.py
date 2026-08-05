@@ -9,7 +9,6 @@ from .search_tasklist_response_body import SearchTasklistResponseBody
 class SearchTasklistResponse(BaseResponse):
     _types = {
         "data": SearchTasklistResponseBody,
-
     }
 
     def __init__(self, d=None):

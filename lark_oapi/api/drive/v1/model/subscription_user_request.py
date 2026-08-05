@@ -17,15 +17,21 @@ class SubscriptionUserRequest(BaseRequest):
 
 
 class SubscriptionUserRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_user_request = SubscriptionUserRequest()
         subscription_user_request.http_method = HttpMethod.POST
         subscription_user_request.uri = "/open-apis/drive/v1/user/subscription"
-        subscription_user_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._subscription_user_request: SubscriptionUserRequest = subscription_user_request
+        subscription_user_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._subscription_user_request: SubscriptionUserRequest = (
+            subscription_user_request
+        )
 
-    def request_body(self, request_body: SubscriptionUserRequestBody) -> "SubscriptionUserRequestBuilder":
+    def request_body(
+        self, request_body: SubscriptionUserRequestBody
+    ) -> "SubscriptionUserRequestBuilder":
         self._subscription_user_request.request_body = request_body
         self._subscription_user_request.body = request_body
         return self

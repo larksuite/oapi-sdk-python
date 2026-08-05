@@ -70,7 +70,9 @@ class BankAccountBuilder(object):
         self._bank_account.bank = bank
         return self
 
-    def bank_identification_code(self, bank_identification_code: str) -> "BankAccountBuilder":
+    def bank_identification_code(
+        self, bank_identification_code: str
+    ) -> "BankAccountBuilder":
         self._bank_account.bank_identification_code = bank_identification_code
         return self
 
@@ -94,7 +96,9 @@ class BankAccountBuilder(object):
         self._bank_account.branch_id_v2 = branch_id_v2
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BankAccountBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "BankAccountBuilder":
         self._bank_account.custom_fields = custom_fields
         return self
 
@@ -102,7 +106,9 @@ class BankAccountBuilder(object):
         self._bank_account.country_region_id = country_region_id
         return self
 
-    def bank_account_usage(self, bank_account_usage: List[Enum]) -> "BankAccountBuilder":
+    def bank_account_usage(
+        self, bank_account_usage: List[Enum]
+    ) -> "BankAccountBuilder":
         self._bank_account.bank_account_usage = bank_account_usage
         return self
 

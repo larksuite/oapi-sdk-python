@@ -29,7 +29,9 @@ class TemplateWorkplaceAccessDataBuilder(object):
         self._template_workplace_access_data.tpl_id = tpl_id
         return self
 
-    def access_data(self, access_data: AccessData) -> "TemplateWorkplaceAccessDataBuilder":
+    def access_data(
+        self, access_data: AccessData
+    ) -> "TemplateWorkplaceAccessDataBuilder":
         self._template_workplace_access_data.access_data = access_data
         return self
 

@@ -68,7 +68,9 @@ class RelatedMetaBuilder(object):
         self._related_meta.abbreviations = abbreviations
         return self
 
-    def classifications(self, classifications: List[Classification]) -> "RelatedMetaBuilder":
+    def classifications(
+        self, classifications: List[Classification]
+    ) -> "RelatedMetaBuilder":
         self._related_meta.classifications = classifications
         return self
 

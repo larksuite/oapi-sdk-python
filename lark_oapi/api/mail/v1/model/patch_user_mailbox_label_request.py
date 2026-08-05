@@ -19,17 +19,27 @@ class PatchUserMailboxLabelRequest(BaseRequest):
 
 
 class PatchUserMailboxLabelRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_user_mailbox_label_request = PatchUserMailboxLabelRequest()
         patch_user_mailbox_label_request.http_method = HttpMethod.PATCH
-        patch_user_mailbox_label_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels/:label_id"
-        patch_user_mailbox_label_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_user_mailbox_label_request: PatchUserMailboxLabelRequest = patch_user_mailbox_label_request
+        patch_user_mailbox_label_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/labels/:label_id"
+        )
+        patch_user_mailbox_label_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_user_mailbox_label_request: PatchUserMailboxLabelRequest = (
+            patch_user_mailbox_label_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "PatchUserMailboxLabelRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "PatchUserMailboxLabelRequestBuilder":
         self._patch_user_mailbox_label_request.user_mailbox_id = user_mailbox_id
-        self._patch_user_mailbox_label_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._patch_user_mailbox_label_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def label_id(self, label_id: str) -> "PatchUserMailboxLabelRequestBuilder":
@@ -37,7 +47,9 @@ class PatchUserMailboxLabelRequestBuilder(object):
         self._patch_user_mailbox_label_request.paths["label_id"] = str(label_id)
         return self
 
-    def request_body(self, request_body: PatchUserMailboxLabelRequestBody) -> "PatchUserMailboxLabelRequestBuilder":
+    def request_body(
+        self, request_body: PatchUserMailboxLabelRequestBody
+    ) -> "PatchUserMailboxLabelRequestBuilder":
         self._patch_user_mailbox_label_request.request_body = request_body
         self._patch_user_mailbox_label_request.body = request_body
         return self

@@ -35,7 +35,9 @@ class EmpCustomOrgListBuilder(object):
     def __init__(self) -> None:
         self._emp_custom_org_list = EmpCustomOrgList()
 
-    def custom_org_list(self, custom_org_list: List[CustomOrgList]) -> "EmpCustomOrgListBuilder":
+    def custom_org_list(
+        self, custom_org_list: List[CustomOrgList]
+    ) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.custom_org_list = custom_org_list
         return self
 
@@ -47,7 +49,9 @@ class EmpCustomOrgListBuilder(object):
         self._emp_custom_org_list.start_reason = start_reason
         return self
 
-    def job_data_custom_org_id(self, job_data_custom_org_id: str) -> "EmpCustomOrgListBuilder":
+    def job_data_custom_org_id(
+        self, job_data_custom_org_id: str
+    ) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.job_data_custom_org_id = job_data_custom_org_id
         return self
 

@@ -34,7 +34,9 @@ class EcoBackgroundCheckReportFileBuilder(object):
         self._eco_background_check_report_file.report_url = report_url
         return self
 
-    def report_url_type(self, report_url_type: int) -> "EcoBackgroundCheckReportFileBuilder":
+    def report_url_type(
+        self, report_url_type: int
+    ) -> "EcoBackgroundCheckReportFileBuilder":
         self._eco_background_check_report_file.report_url_type = report_url_type
         return self
 

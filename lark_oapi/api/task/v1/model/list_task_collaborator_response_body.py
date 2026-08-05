@@ -27,7 +27,9 @@ class ListTaskCollaboratorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_task_collaborator_response_body = ListTaskCollaboratorResponseBody()
 
-    def items(self, items: List[Collaborator]) -> "ListTaskCollaboratorResponseBodyBuilder":
+    def items(
+        self, items: List[Collaborator]
+    ) -> "ListTaskCollaboratorResponseBodyBuilder":
         self._list_task_collaborator_response_body.items = items
         return self
 

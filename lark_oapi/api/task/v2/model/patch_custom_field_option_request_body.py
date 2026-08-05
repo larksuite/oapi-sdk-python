@@ -23,13 +23,17 @@ class PatchCustomFieldOptionRequestBody(object):
 
 class PatchCustomFieldOptionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_custom_field_option_request_body = PatchCustomFieldOptionRequestBody()
+        self._patch_custom_field_option_request_body = (
+            PatchCustomFieldOptionRequestBody()
+        )
 
     def option(self, option: InputOption) -> "PatchCustomFieldOptionRequestBodyBuilder":
         self._patch_custom_field_option_request_body.option = option
         return self
 
-    def update_fields(self, update_fields: List[str]) -> "PatchCustomFieldOptionRequestBodyBuilder":
+    def update_fields(
+        self, update_fields: List[str]
+    ) -> "PatchCustomFieldOptionRequestBodyBuilder":
         self._patch_custom_field_option_request_body.update_fields = update_fields
         return self
 

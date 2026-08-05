@@ -18,18 +18,26 @@ class ListInterviewFeedbackFormRequest(BaseRequest):
 
 
 class ListInterviewFeedbackFormRequestBuilder(object):
-
     def __init__(self) -> None:
         list_interview_feedback_form_request = ListInterviewFeedbackFormRequest()
         list_interview_feedback_form_request.http_method = HttpMethod.GET
-        list_interview_feedback_form_request.uri = "/open-apis/hire/v1/interview_feedback_forms"
+        list_interview_feedback_form_request.uri = (
+            "/open-apis/hire/v1/interview_feedback_forms"
+        )
         list_interview_feedback_form_request.token_types = {AccessTokenType.TENANT}
-        self._list_interview_feedback_form_request: ListInterviewFeedbackFormRequest = list_interview_feedback_form_request
+        self._list_interview_feedback_form_request: ListInterviewFeedbackFormRequest = (
+            list_interview_feedback_form_request
+        )
 
-    def interview_feedback_form_ids(self, interview_feedback_form_ids: List[
-        str]) -> "ListInterviewFeedbackFormRequestBuilder":
-        self._list_interview_feedback_form_request.interview_feedback_form_ids = interview_feedback_form_ids
-        self._list_interview_feedback_form_request.add_query("interview_feedback_form_ids", interview_feedback_form_ids)
+    def interview_feedback_form_ids(
+        self, interview_feedback_form_ids: List[str]
+    ) -> "ListInterviewFeedbackFormRequestBuilder":
+        self._list_interview_feedback_form_request.interview_feedback_form_ids = (
+            interview_feedback_form_ids
+        )
+        self._list_interview_feedback_form_request.add_query(
+            "interview_feedback_form_ids", interview_feedback_form_ids
+        )
         return self
 
     def page_size(self, page_size: int) -> "ListInterviewFeedbackFormRequestBuilder":

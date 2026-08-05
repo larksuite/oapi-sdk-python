@@ -24,13 +24,16 @@ class GetViewRecordListAppViewRequest(BaseRequest):
 
 
 class GetViewRecordListAppViewRequestBuilder(object):
-
     def __init__(self) -> None:
         get_view_record_list_app_view_request = GetViewRecordListAppViewRequest()
         get_view_record_list_app_view_request.http_method = HttpMethod.GET
-        get_view_record_list_app_view_request.uri = "/open-apis/spark/v1/apps/:app_id/views/:view_name/records"
+        get_view_record_list_app_view_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/views/:view_name/records"
+        )
         get_view_record_list_app_view_request.token_types = {AccessTokenType.USER}
-        self._get_view_record_list_app_view_request: GetViewRecordListAppViewRequest = get_view_record_list_app_view_request
+        self._get_view_record_list_app_view_request: GetViewRecordListAppViewRequest = (
+            get_view_record_list_app_view_request
+        )
 
     def page_size(self, page_size: int) -> "GetViewRecordListAppViewRequestBuilder":
         self._get_view_record_list_app_view_request.page_size = page_size
@@ -62,9 +65,15 @@ class GetViewRecordListAppViewRequestBuilder(object):
         self._get_view_record_list_app_view_request.add_query("env", env)
         return self
 
-    def user_identifier_type(self, user_identifier_type: str) -> "GetViewRecordListAppViewRequestBuilder":
-        self._get_view_record_list_app_view_request.user_identifier_type = user_identifier_type
-        self._get_view_record_list_app_view_request.add_query("user_identifier_type", user_identifier_type)
+    def user_identifier_type(
+        self, user_identifier_type: str
+    ) -> "GetViewRecordListAppViewRequestBuilder":
+        self._get_view_record_list_app_view_request.user_identifier_type = (
+            user_identifier_type
+        )
+        self._get_view_record_list_app_view_request.add_query(
+            "user_identifier_type", user_identifier_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "GetViewRecordListAppViewRequestBuilder":

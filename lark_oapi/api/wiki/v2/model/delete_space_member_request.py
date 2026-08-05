@@ -19,13 +19,19 @@ class DeleteSpaceMemberRequest(BaseRequest):
 
 
 class DeleteSpaceMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_space_member_request = DeleteSpaceMemberRequest()
         delete_space_member_request.http_method = HttpMethod.DELETE
-        delete_space_member_request.uri = "/open-apis/wiki/v2/spaces/:space_id/members/:member_id"
-        delete_space_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_space_member_request: DeleteSpaceMemberRequest = delete_space_member_request
+        delete_space_member_request.uri = (
+            "/open-apis/wiki/v2/spaces/:space_id/members/:member_id"
+        )
+        delete_space_member_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_space_member_request: DeleteSpaceMemberRequest = (
+            delete_space_member_request
+        )
 
     def space_id(self, space_id: str) -> "DeleteSpaceMemberRequestBuilder":
         self._delete_space_member_request.space_id = space_id

@@ -9,7 +9,6 @@ from .delete_chat_menu_tree_response_body import DeleteChatMenuTreeResponseBody
 class DeleteChatMenuTreeResponse(BaseResponse):
     _types = {
         "data": DeleteChatMenuTreeResponseBody,
-
     }
 
     def __init__(self, d=None):

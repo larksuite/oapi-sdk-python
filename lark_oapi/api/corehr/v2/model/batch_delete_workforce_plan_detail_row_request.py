@@ -17,15 +17,22 @@ class BatchDeleteWorkforcePlanDetailRowRequest(BaseRequest):
 
 
 class BatchDeleteWorkforcePlanDetailRowRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_delete_workforce_plan_detail_row_request = BatchDeleteWorkforcePlanDetailRowRequest()
+        batch_delete_workforce_plan_detail_row_request = (
+            BatchDeleteWorkforcePlanDetailRowRequest()
+        )
         batch_delete_workforce_plan_detail_row_request.http_method = HttpMethod.POST
-        batch_delete_workforce_plan_detail_row_request.uri = "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
-        batch_delete_workforce_plan_detail_row_request.token_types = {AccessTokenType.TENANT}
+        batch_delete_workforce_plan_detail_row_request.uri = (
+            "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
+        )
+        batch_delete_workforce_plan_detail_row_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._batch_delete_workforce_plan_detail_row_request: BatchDeleteWorkforcePlanDetailRowRequest = batch_delete_workforce_plan_detail_row_request
 
-    def request_body(self, request_body: WorkforcePlanDetailReq) -> "BatchDeleteWorkforcePlanDetailRowRequestBuilder":
+    def request_body(
+        self, request_body: WorkforcePlanDetailReq
+    ) -> "BatchDeleteWorkforcePlanDetailRowRequestBuilder":
         self._batch_delete_workforce_plan_detail_row_request.request_body = request_body
         self._batch_delete_workforce_plan_detail_row_request.body = request_body
         return self

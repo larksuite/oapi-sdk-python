@@ -87,7 +87,9 @@ class PositionUpdateBuilder(object):
         self._position_update.job_level_ids = job_level_ids
         return self
 
-    def employee_type_ids(self, employee_type_ids: List[str]) -> "PositionUpdateBuilder":
+    def employee_type_ids(
+        self, employee_type_ids: List[str]
+    ) -> "PositionUpdateBuilder":
         self._position_update.employee_type_ids = employee_type_ids
         return self
 
@@ -95,11 +97,15 @@ class PositionUpdateBuilder(object):
         self._position_update.job_grade_ids = job_grade_ids
         return self
 
-    def work_location_ids(self, work_location_ids: List[str]) -> "PositionUpdateBuilder":
+    def work_location_ids(
+        self, work_location_ids: List[str]
+    ) -> "PositionUpdateBuilder":
         self._position_update.work_location_ids = work_location_ids
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "PositionUpdateBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "PositionUpdateBuilder":
         self._position_update.working_hours_type_id = working_hours_type_id
         return self
 
@@ -111,7 +117,9 @@ class PositionUpdateBuilder(object):
         self._position_update.direct_leader_id = direct_leader_id
         return self
 
-    def dotted_line_leader_id(self, dotted_line_leader_id: str) -> "PositionUpdateBuilder":
+    def dotted_line_leader_id(
+        self, dotted_line_leader_id: str
+    ) -> "PositionUpdateBuilder":
         self._position_update.dotted_line_leader_id = dotted_line_leader_id
         return self
 
@@ -123,11 +131,15 @@ class PositionUpdateBuilder(object):
         self._position_update.effective_time = effective_time
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PositionUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PositionUpdateBuilder":
         self._position_update.custom_fields = custom_fields
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "PositionUpdateBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "PositionUpdateBuilder":
         self._position_update.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

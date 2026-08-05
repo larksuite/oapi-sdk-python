@@ -64,7 +64,9 @@ class MessageMetaBuilder(object):
         self._message_meta.reply_message_id = reply_message_id
         return self
 
-    def transmit_parent_message_id(self, transmit_parent_message_id: int) -> "MessageMetaBuilder":
+    def transmit_parent_message_id(
+        self, transmit_parent_message_id: int
+    ) -> "MessageMetaBuilder":
         self._message_meta.transmit_parent_message_id = transmit_parent_message_id
         return self
 

@@ -37,7 +37,9 @@ class CurrencyBuilder(object):
         self._currency.currency_id = currency_id
         return self
 
-    def country_region_id_list(self, country_region_id_list: List[str]) -> "CurrencyBuilder":
+    def country_region_id_list(
+        self, country_region_id_list: List[str]
+    ) -> "CurrencyBuilder":
         self._currency.country_region_id_list = country_region_id_list
         return self
 

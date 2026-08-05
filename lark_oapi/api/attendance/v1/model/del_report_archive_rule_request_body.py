@@ -36,7 +36,9 @@ class DelReportArchiveRuleRequestBodyBuilder(object):
         self._del_report_archive_rule_request_body.operator_id = operator_id
         return self
 
-    def archive_rule_id(self, archive_rule_id: str) -> "DelReportArchiveRuleRequestBodyBuilder":
+    def archive_rule_id(
+        self, archive_rule_id: str
+    ) -> "DelReportArchiveRuleRequestBodyBuilder":
         self._del_report_archive_rule_request_body.archive_rule_id = archive_rule_id
         return self
 

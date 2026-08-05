@@ -11,6 +11,7 @@ class SearchMeetingResponseBody(object):
         "has_more": bool,
         "items": List[MeetingSearchItem],
         "page_token": str,
+        "notice": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class SearchMeetingResponseBody(object):
         self.has_more: Optional[bool] = None
         self.items: Optional[List[MeetingSearchItem]] = None
         self.page_token: Optional[str] = None
+        self.notice: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,12 +39,18 @@ class SearchMeetingResponseBodyBuilder(object):
         self._search_meeting_response_body.has_more = has_more
         return self
 
-    def items(self, items: List[MeetingSearchItem]) -> "SearchMeetingResponseBodyBuilder":
+    def items(
+        self, items: List[MeetingSearchItem]
+    ) -> "SearchMeetingResponseBodyBuilder":
         self._search_meeting_response_body.items = items
         return self
 
     def page_token(self, page_token: str) -> "SearchMeetingResponseBodyBuilder":
         self._search_meeting_response_body.page_token = page_token
+        return self
+
+    def notice(self, notice: str) -> "SearchMeetingResponseBodyBuilder":
+        self._search_meeting_response_body.notice = notice
         return self
 
     def build(self) -> "SearchMeetingResponseBody":

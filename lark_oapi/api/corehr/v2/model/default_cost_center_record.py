@@ -35,7 +35,9 @@ class DefaultCostCenterRecordBuilder(object):
         self._default_cost_center_record.is_inherit = is_inherit
         return self
 
-    def cost_center_id(self, cost_center_id: CostCenterId) -> "DefaultCostCenterRecordBuilder":
+    def cost_center_id(
+        self, cost_center_id: CostCenterId
+    ) -> "DefaultCostCenterRecordBuilder":
         self._default_cost_center_record.cost_center_id = cost_center_id
         return self
 

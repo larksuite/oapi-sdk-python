@@ -9,7 +9,6 @@ from .create_folder_file_response_body import CreateFolderFileResponseBody
 class CreateFolderFileResponse(BaseResponse):
     _types = {
         "data": CreateFolderFileResponseBody,
-
     }
 
     def __init__(self, d=None):

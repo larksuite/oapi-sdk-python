@@ -29,7 +29,9 @@ class OfferApplyFormSchemaBuilder(object):
         self._offer_apply_form_schema.id = id
         return self
 
-    def module_list(self, module_list: List[OfferApplyFormModuleInfo]) -> "OfferApplyFormSchemaBuilder":
+    def module_list(
+        self, module_list: List[OfferApplyFormModuleInfo]
+    ) -> "OfferApplyFormSchemaBuilder":
         self._offer_apply_form_schema.module_list = module_list
         return self
 

@@ -23,8 +23,11 @@ class ProgressRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateProgressRecordRequest,
-               option: Optional[RequestOption] = None) -> CreateProgressRecordResponse:
+    def create(
+        self,
+        request: CreateProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,13 +42,18 @@ class ProgressRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateProgressRecordResponse)
+        response: CreateProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateProgressRecordRequest,
-                      option: Optional[RequestOption] = None) -> CreateProgressRecordResponse:
+    async def acreate(
+        self,
+        request: CreateProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,13 +64,18 @@ class ProgressRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateProgressRecordResponse)
+        response: CreateProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteProgressRecordRequest,
-               option: Optional[RequestOption] = None) -> DeleteProgressRecordResponse:
+    def delete(
+        self,
+        request: DeleteProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +90,18 @@ class ProgressRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteProgressRecordResponse)
+        response: DeleteProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteProgressRecordRequest,
-                      option: Optional[RequestOption] = None) -> DeleteProgressRecordResponse:
+    async def adelete(
+        self,
+        request: DeleteProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,13 +112,16 @@ class ProgressRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteProgressRecordResponse)
+        response: DeleteProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetProgressRecordRequest,
-            option: Optional[RequestOption] = None) -> GetProgressRecordResponse:
+    def get(
+        self, request: GetProgressRecordRequest, option: Optional[RequestOption] = None
+    ) -> GetProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,13 +136,16 @@ class ProgressRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetProgressRecordResponse)
+        response: GetProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetProgressRecordRequest,
-                   option: Optional[RequestOption] = None) -> GetProgressRecordResponse:
+    async def aget(
+        self, request: GetProgressRecordRequest, option: Optional[RequestOption] = None
+    ) -> GetProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,13 +156,18 @@ class ProgressRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetProgressRecordResponse)
+        response: GetProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateProgressRecordRequest,
-               option: Optional[RequestOption] = None) -> UpdateProgressRecordResponse:
+    def update(
+        self,
+        request: UpdateProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,13 +182,18 @@ class ProgressRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProgressRecordResponse)
+        response: UpdateProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProgressRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateProgressRecordRequest,
-                      option: Optional[RequestOption] = None) -> UpdateProgressRecordResponse:
+    async def aupdate(
+        self,
+        request: UpdateProgressRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProgressRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -170,7 +204,9 @@ class ProgressRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProgressRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProgressRecordResponse)
+        response: UpdateProgressRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProgressRecordResponse
+        )
         response.raw = resp
 
         return response

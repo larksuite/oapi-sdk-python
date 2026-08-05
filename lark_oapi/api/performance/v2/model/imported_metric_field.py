@@ -34,7 +34,9 @@ class ImportedMetricFieldBuilder(object):
         self._imported_metric_field.field_value = field_value
         return self
 
-    def field_value_person(self, field_value_person: str) -> "ImportedMetricFieldBuilder":
+    def field_value_person(
+        self, field_value_person: str
+    ) -> "ImportedMetricFieldBuilder":
         self._imported_metric_field.field_value_person = field_value_person
         return self
 

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .recognize_business_license_response_body import RecognizeBusinessLicenseResponseBody
+from .recognize_business_license_response_body import (
+    RecognizeBusinessLicenseResponseBody,
+)
 
 
 class RecognizeBusinessLicenseResponse(BaseResponse):
     _types = {
         "data": RecognizeBusinessLicenseResponseBody,
-
     }
 
     def __init__(self, d=None):

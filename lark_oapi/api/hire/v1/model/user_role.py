@@ -23,7 +23,9 @@ class UserRole(object):
         self.modify_time: Optional[str] = None
         self.role_name: Optional[I18n] = None
         self.role_description: Optional[I18n] = None
-        self.business_management_scopes: Optional[List[UserBusinessManagementScope]] = None
+        self.business_management_scopes: Optional[List[UserBusinessManagementScope]] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -55,8 +57,9 @@ class UserRoleBuilder(object):
         self._user_role.role_description = role_description
         return self
 
-    def business_management_scopes(self,
-                                   business_management_scopes: List[UserBusinessManagementScope]) -> "UserRoleBuilder":
+    def business_management_scopes(
+        self, business_management_scopes: List[UserBusinessManagementScope]
+    ) -> "UserRoleBuilder":
         self._user_role.business_management_scopes = business_management_scopes
         return self
 

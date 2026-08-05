@@ -9,7 +9,6 @@ from .get_verification_response_body import GetVerificationResponseBody
 class GetVerificationResponse(BaseResponse):
     _types = {
         "data": GetVerificationResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .list_object_api_name_custom_field_response_body import ListObjectApiNameCustomFieldResponseBody
+from .list_object_api_name_custom_field_response_body import (
+    ListObjectApiNameCustomFieldResponseBody,
+)
 
 
 class ListObjectApiNameCustomFieldResponse(BaseResponse):
     _types = {
         "data": ListObjectApiNameCustomFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

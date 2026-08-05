@@ -97,7 +97,9 @@ class JobVersionDataBuilder(object):
         self._job_version_data.pathway_id = pathway_id
         return self
 
-    def working_hours_type_id(self, working_hours_type_id: str) -> "JobVersionDataBuilder":
+    def working_hours_type_id(
+        self, working_hours_type_id: str
+    ) -> "JobVersionDataBuilder":
         self._job_version_data.working_hours_type_id = working_hours_type_id
         return self
 

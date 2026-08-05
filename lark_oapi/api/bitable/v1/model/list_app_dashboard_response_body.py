@@ -29,7 +29,9 @@ class ListAppDashboardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_dashboard_response_body = ListAppDashboardResponseBody()
 
-    def dashboards(self, dashboards: List[AppDashboard]) -> "ListAppDashboardResponseBodyBuilder":
+    def dashboards(
+        self, dashboards: List[AppDashboard]
+    ) -> "ListAppDashboardResponseBodyBuilder":
         self._list_app_dashboard_response_body.dashboards = dashboards
         return self
 

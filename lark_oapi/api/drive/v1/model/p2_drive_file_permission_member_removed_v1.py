@@ -31,9 +31,7 @@ class P2DriveFilePermissionMemberRemovedV1Data(object):
 
 
 class P2DriveFilePermissionMemberRemovedV1(EventContext):
-    _types = {
-        "event": P2DriveFilePermissionMemberRemovedV1Data
-    }
+    _types = {"event": P2DriveFilePermissionMemberRemovedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

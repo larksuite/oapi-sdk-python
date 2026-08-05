@@ -30,7 +30,9 @@ class DatasourceRecordFieldFilterBuilder(object):
         self._datasource_record_field_filter.field_code = field_code
         return self
 
-    def field_values(self, field_values: List[str]) -> "DatasourceRecordFieldFilterBuilder":
+    def field_values(
+        self, field_values: List[str]
+    ) -> "DatasourceRecordFieldFilterBuilder":
         self._datasource_record_field_filter.field_values = field_values
         return self
 

@@ -35,11 +35,15 @@ class DepartmentParentInfoBuilder(object):
         self._department_parent_info.department_id = department_id
         return self
 
-    def department_name(self, department_name: List[I18n]) -> "DepartmentParentInfoBuilder":
+    def department_name(
+        self, department_name: List[I18n]
+    ) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.department_name = department_name
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "DepartmentParentInfoBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.parent_department_id = parent_department_id
         return self
 

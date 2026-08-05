@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_application_environment_variable_request import GetApplicationEnvironmentVariableRequest
-from ..model.get_application_environment_variable_response import GetApplicationEnvironmentVariableResponse
-from ..model.query_application_environment_variable_request import QueryApplicationEnvironmentVariableRequest
-from ..model.query_application_environment_variable_response import QueryApplicationEnvironmentVariableResponse
+from ..model.get_application_environment_variable_request import (
+    GetApplicationEnvironmentVariableRequest,
+)
+from ..model.get_application_environment_variable_response import (
+    GetApplicationEnvironmentVariableResponse,
+)
+from ..model.query_application_environment_variable_request import (
+    QueryApplicationEnvironmentVariableRequest,
+)
+from ..model.query_application_environment_variable_response import (
+    QueryApplicationEnvironmentVariableResponse,
+)
 
 
 class ApplicationEnvironmentVariable(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetApplicationEnvironmentVariableRequest,
-            option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
+    def get(
+        self,
+        request: GetApplicationEnvironmentVariableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class ApplicationEnvironmentVariable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             GetApplicationEnvironmentVariableResponse)
+        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationEnvironmentVariableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetApplicationEnvironmentVariableRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationEnvironmentVariableResponse:
+    async def aget(
+        self,
+        request: GetApplicationEnvironmentVariableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class ApplicationEnvironmentVariable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             GetApplicationEnvironmentVariableResponse)
+        response: GetApplicationEnvironmentVariableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationEnvironmentVariableResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryApplicationEnvironmentVariableRequest,
-              option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
+    def query(
+        self,
+        request: QueryApplicationEnvironmentVariableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class ApplicationEnvironmentVariable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               QueryApplicationEnvironmentVariableResponse)
+        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryApplicationEnvironmentVariableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryApplicationEnvironmentVariableRequest,
-                     option: Optional[RequestOption] = None) -> QueryApplicationEnvironmentVariableResponse:
+    async def aquery(
+        self,
+        request: QueryApplicationEnvironmentVariableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryApplicationEnvironmentVariableResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class ApplicationEnvironmentVariable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               QueryApplicationEnvironmentVariableResponse)
+        response: QueryApplicationEnvironmentVariableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryApplicationEnvironmentVariableResponse
+        )
         response.raw = resp
 
         return response

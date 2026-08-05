@@ -16,13 +16,19 @@ class ListAppWorkflowRequest(BaseRequest):
 
 
 class ListAppWorkflowRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_workflow_request = ListAppWorkflowRequest()
         list_app_workflow_request.http_method = HttpMethod.GET
-        list_app_workflow_request.uri = "/open-apis/bitable/v1/apps/:app_token/workflows"
-        list_app_workflow_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_app_workflow_request: ListAppWorkflowRequest = list_app_workflow_request
+        list_app_workflow_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/workflows"
+        )
+        list_app_workflow_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_app_workflow_request: ListAppWorkflowRequest = (
+            list_app_workflow_request
+        )
 
     def app_token(self, app_token: str) -> "ListAppWorkflowRequestBuilder":
         self._list_app_workflow_request.app_token = app_token

@@ -86,7 +86,9 @@ class CreateAccessTokenResponseBodyBuilder(object):
         self._create_access_token_response_body.avatar_thumb = avatar_thumb
         return self
 
-    def avatar_middle(self, avatar_middle: str) -> "CreateAccessTokenResponseBodyBuilder":
+    def avatar_middle(
+        self, avatar_middle: str
+    ) -> "CreateAccessTokenResponseBodyBuilder":
         self._create_access_token_response_body.avatar_middle = avatar_middle
         return self
 
@@ -106,7 +108,9 @@ class CreateAccessTokenResponseBodyBuilder(object):
         self._create_access_token_response_body.email = email
         return self
 
-    def enterprise_email(self, enterprise_email: str) -> "CreateAccessTokenResponseBodyBuilder":
+    def enterprise_email(
+        self, enterprise_email: str
+    ) -> "CreateAccessTokenResponseBodyBuilder":
         self._create_access_token_response_body.enterprise_email = enterprise_email
         return self
 
@@ -122,11 +126,15 @@ class CreateAccessTokenResponseBodyBuilder(object):
         self._create_access_token_response_body.tenant_key = tenant_key
         return self
 
-    def refresh_expires_in(self, refresh_expires_in: int) -> "CreateAccessTokenResponseBodyBuilder":
+    def refresh_expires_in(
+        self, refresh_expires_in: int
+    ) -> "CreateAccessTokenResponseBodyBuilder":
         self._create_access_token_response_body.refresh_expires_in = refresh_expires_in
         return self
 
-    def refresh_token(self, refresh_token: str) -> "CreateAccessTokenResponseBodyBuilder":
+    def refresh_token(
+        self, refresh_token: str
+    ) -> "CreateAccessTokenResponseBodyBuilder":
         self._create_access_token_response_body.refresh_token = refresh_token
         return self
 

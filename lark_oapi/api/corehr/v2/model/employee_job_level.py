@@ -61,7 +61,9 @@ class EmployeeJobLevelBuilder(object):
         self._employee_job_level.active = active
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeeJobLevelBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.custom_fields = custom_fields
         return self
 

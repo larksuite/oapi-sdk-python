@@ -72,14 +72,20 @@ class DependentBuilder(object):
         self._dependent.spouses_working_status = spouses_working_status
         return self
 
-    def is_this_person_covered_by_health_insurance(self,
-                                                   is_this_person_covered_by_health_insurance: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+    def is_this_person_covered_by_health_insurance(
+        self, is_this_person_covered_by_health_insurance: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_covered_by_health_insurance = (
+            is_this_person_covered_by_health_insurance
+        )
         return self
 
-    def is_this_person_allowed_for_tax_deduction(self,
-                                                 is_this_person_allowed_for_tax_deduction: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+    def is_this_person_allowed_for_tax_deduction(
+        self, is_this_person_allowed_for_tax_deduction: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_allowed_for_tax_deduction = (
+            is_this_person_allowed_for_tax_deduction
+        )
         return self
 
     def build(self) -> "Dependent":

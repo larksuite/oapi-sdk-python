@@ -9,7 +9,6 @@ from .list_tripartite_agreement_response_body import ListTripartiteAgreementResp
 class ListTripartiteAgreementResponse(BaseResponse):
     _types = {
         "data": ListTripartiteAgreementResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -59,7 +59,9 @@ class EventCourseRegistrationBuilder(object):
         self._event_course_registration.enroll_type = enroll_type
         return self
 
-    def learning_duration(self, learning_duration: int) -> "EventCourseRegistrationBuilder":
+    def learning_duration(
+        self, learning_duration: int
+    ) -> "EventCourseRegistrationBuilder":
         self._event_course_registration.learning_duration = learning_duration
         return self
 
@@ -71,21 +73,32 @@ class EventCourseRegistrationBuilder(object):
         self._event_course_registration.learning_state = learning_state
         return self
 
-    def compulsory_lesson_ids(self, compulsory_lesson_ids: List[str]) -> "EventCourseRegistrationBuilder":
+    def compulsory_lesson_ids(
+        self, compulsory_lesson_ids: List[str]
+    ) -> "EventCourseRegistrationBuilder":
         self._event_course_registration.compulsory_lesson_ids = compulsory_lesson_ids
         return self
 
-    def learned_compulsory_lesson_ids(self,
-                                      learned_compulsory_lesson_ids: List[str]) -> "EventCourseRegistrationBuilder":
-        self._event_course_registration.learned_compulsory_lesson_ids = learned_compulsory_lesson_ids
+    def learned_compulsory_lesson_ids(
+        self, learned_compulsory_lesson_ids: List[str]
+    ) -> "EventCourseRegistrationBuilder":
+        self._event_course_registration.learned_compulsory_lesson_ids = (
+            learned_compulsory_lesson_ids
+        )
         return self
 
-    def optional_lesson_ids(self, optional_lesson_ids: List[str]) -> "EventCourseRegistrationBuilder":
+    def optional_lesson_ids(
+        self, optional_lesson_ids: List[str]
+    ) -> "EventCourseRegistrationBuilder":
         self._event_course_registration.optional_lesson_ids = optional_lesson_ids
         return self
 
-    def learned_optional_lesson_ids(self, learned_optional_lesson_ids: List[str]) -> "EventCourseRegistrationBuilder":
-        self._event_course_registration.learned_optional_lesson_ids = learned_optional_lesson_ids
+    def learned_optional_lesson_ids(
+        self, learned_optional_lesson_ids: List[str]
+    ) -> "EventCourseRegistrationBuilder":
+        self._event_course_registration.learned_optional_lesson_ids = (
+            learned_optional_lesson_ids
+        )
         return self
 
     def build(self) -> "EventCourseRegistration":

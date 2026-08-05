@@ -21,10 +21,13 @@ class BatchOpenSystemStatusResponseBody(object):
 
 class BatchOpenSystemStatusResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_open_system_status_response_body = BatchOpenSystemStatusResponseBody()
+        self._batch_open_system_status_response_body = (
+            BatchOpenSystemStatusResponseBody()
+        )
 
-    def result_list(self,
-                    result_list: List[SystemStatusUserOpenResultEntity]) -> "BatchOpenSystemStatusResponseBodyBuilder":
+    def result_list(
+        self, result_list: List[SystemStatusUserOpenResultEntity]
+    ) -> "BatchOpenSystemStatusResponseBodyBuilder":
         self._batch_open_system_status_response_body.result_list = result_list
         return self
 

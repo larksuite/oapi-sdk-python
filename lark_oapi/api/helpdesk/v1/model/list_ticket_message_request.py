@@ -20,13 +20,16 @@ class ListTicketMessageRequest(BaseRequest):
 
 
 class ListTicketMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         list_ticket_message_request = ListTicketMessageRequest()
         list_ticket_message_request.http_method = HttpMethod.GET
-        list_ticket_message_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id/messages"
+        list_ticket_message_request.uri = (
+            "/open-apis/helpdesk/v1/tickets/:ticket_id/messages"
+        )
         list_ticket_message_request.token_types = {AccessTokenType.TENANT}
-        self._list_ticket_message_request: ListTicketMessageRequest = list_ticket_message_request
+        self._list_ticket_message_request: ListTicketMessageRequest = (
+            list_ticket_message_request
+        )
 
     def time_start(self, time_start: int) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.time_start = time_start

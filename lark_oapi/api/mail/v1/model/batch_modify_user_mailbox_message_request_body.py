@@ -26,21 +26,35 @@ class BatchModifyUserMailboxMessageRequestBody(object):
 
 class BatchModifyUserMailboxMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_modify_user_mailbox_message_request_body = BatchModifyUserMailboxMessageRequestBody()
+        self._batch_modify_user_mailbox_message_request_body = (
+            BatchModifyUserMailboxMessageRequestBody()
+        )
 
-    def message_ids(self, message_ids: List[str]) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
+    def message_ids(
+        self, message_ids: List[str]
+    ) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
         self._batch_modify_user_mailbox_message_request_body.message_ids = message_ids
         return self
 
-    def add_label_ids(self, add_label_ids: List[str]) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
-        self._batch_modify_user_mailbox_message_request_body.add_label_ids = add_label_ids
+    def add_label_ids(
+        self, add_label_ids: List[str]
+    ) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
+        self._batch_modify_user_mailbox_message_request_body.add_label_ids = (
+            add_label_ids
+        )
         return self
 
-    def remove_label_ids(self, remove_label_ids: List[str]) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
-        self._batch_modify_user_mailbox_message_request_body.remove_label_ids = remove_label_ids
+    def remove_label_ids(
+        self, remove_label_ids: List[str]
+    ) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
+        self._batch_modify_user_mailbox_message_request_body.remove_label_ids = (
+            remove_label_ids
+        )
         return self
 
-    def add_folder(self, add_folder: str) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
+    def add_folder(
+        self, add_folder: str
+    ) -> "BatchModifyUserMailboxMessageRequestBodyBuilder":
         self._batch_modify_user_mailbox_message_request_body.add_folder = add_folder
         return self
 

@@ -32,7 +32,6 @@ class ListTicketRequest(BaseRequest):
 
 
 class ListTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         list_ticket_request = ListTicketRequest()
         list_ticket_request.http_method = HttpMethod.GET

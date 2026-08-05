@@ -9,7 +9,6 @@ from .delete_tabs_chat_tab_response_body import DeleteTabsChatTabResponseBody
 class DeleteTabsChatTabResponse(BaseResponse):
     _types = {
         "data": DeleteTabsChatTabResponseBody,
-
     }
 
     def __init__(self, d=None):

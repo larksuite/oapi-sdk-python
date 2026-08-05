@@ -34,7 +34,9 @@ class ReserveFormConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_form_config = ReserveFormConfig()
 
-    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "ReserveFormConfigBuilder":
+    def if_cover_child_scope(
+        self, if_cover_child_scope: bool
+    ) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.if_cover_child_scope = if_cover_child_scope
         return self
 
@@ -42,7 +44,9 @@ class ReserveFormConfigBuilder(object):
         self._reserve_form_config.reserve_form = reserve_form
         return self
 
-    def notified_users(self, notified_users: List[SubscribeUser]) -> "ReserveFormConfigBuilder":
+    def notified_users(
+        self, notified_users: List[SubscribeUser]
+    ) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.notified_users = notified_users
         return self
 

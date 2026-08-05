@@ -32,7 +32,9 @@ class InstanceRelationInfoBuilder(object):
         self._instance_relation_info.instance_id = instance_id
         return self
 
-    def meeting_instance_ids(self, meeting_instance_ids: List[str]) -> "InstanceRelationInfoBuilder":
+    def meeting_instance_ids(
+        self, meeting_instance_ids: List[str]
+    ) -> "InstanceRelationInfoBuilder":
         self._instance_relation_info.meeting_instance_ids = meeting_instance_ids
         return self
 
@@ -40,7 +42,9 @@ class InstanceRelationInfoBuilder(object):
         self._instance_relation_info.meeting_notes = meeting_notes
         return self
 
-    def ai_meeting_notes(self, ai_meeting_notes: List[str]) -> "InstanceRelationInfoBuilder":
+    def ai_meeting_notes(
+        self, ai_meeting_notes: List[str]
+    ) -> "InstanceRelationInfoBuilder":
         self._instance_relation_info.ai_meeting_notes = ai_meeting_notes
         return self
 

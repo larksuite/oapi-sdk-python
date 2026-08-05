@@ -14,6 +14,7 @@ class QueryCustomOrgRequestBody(object):
         "parent_id": str,
         "active": bool,
         "need_match_rule": bool,
+        "manager_id": str,
     }
 
     def __init__(self, d=None):
@@ -25,6 +26,7 @@ class QueryCustomOrgRequestBody(object):
         self.parent_id: Optional[str] = None
         self.active: Optional[bool] = None
         self.need_match_rule: Optional[bool] = None
+        self.manager_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,7 +38,9 @@ class QueryCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_custom_org_request_body = QueryCustomOrgRequestBody()
 
-    def object_api_name(self, object_api_name: str) -> "QueryCustomOrgRequestBodyBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.object_api_name = object_api_name
         return self
 
@@ -44,7 +48,9 @@ class QueryCustomOrgRequestBodyBuilder(object):
         self._query_custom_org_request_body.org_fields = org_fields
         return self
 
-    def org_role_fields(self, org_role_fields: List[str]) -> "QueryCustomOrgRequestBodyBuilder":
+    def org_role_fields(
+        self, org_role_fields: List[str]
+    ) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.org_role_fields = org_role_fields
         return self
 
@@ -64,8 +70,14 @@ class QueryCustomOrgRequestBodyBuilder(object):
         self._query_custom_org_request_body.active = active
         return self
 
-    def need_match_rule(self, need_match_rule: bool) -> "QueryCustomOrgRequestBodyBuilder":
+    def need_match_rule(
+        self, need_match_rule: bool
+    ) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.need_match_rule = need_match_rule
+        return self
+
+    def manager_id(self, manager_id: str) -> "QueryCustomOrgRequestBodyBuilder":
+        self._query_custom_org_request_body.manager_id = manager_id
         return self
 
     def build(self) -> "QueryCustomOrgRequestBody":

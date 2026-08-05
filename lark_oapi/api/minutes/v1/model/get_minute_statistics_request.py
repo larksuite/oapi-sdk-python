@@ -17,13 +17,19 @@ class GetMinuteStatisticsRequest(BaseRequest):
 
 
 class GetMinuteStatisticsRequestBuilder(object):
-
     def __init__(self) -> None:
         get_minute_statistics_request = GetMinuteStatisticsRequest()
         get_minute_statistics_request.http_method = HttpMethod.GET
-        get_minute_statistics_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/statistics"
-        get_minute_statistics_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_minute_statistics_request: GetMinuteStatisticsRequest = get_minute_statistics_request
+        get_minute_statistics_request.uri = (
+            "/open-apis/minutes/v1/minutes/:minute_token/statistics"
+        )
+        get_minute_statistics_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_minute_statistics_request: GetMinuteStatisticsRequest = (
+            get_minute_statistics_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetMinuteStatisticsRequestBuilder":
         self._get_minute_statistics_request.user_id_type = user_id_type

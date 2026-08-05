@@ -29,27 +29,44 @@ class CreateEmpCustomOrgEmployeeCustomOrgRequestBody(object):
 
 class CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_emp_custom_org_employee_custom_org_request_body = CreateEmpCustomOrgEmployeeCustomOrgRequestBody()
+        self._create_emp_custom_org_employee_custom_org_request_body = (
+            CreateEmpCustomOrgEmployeeCustomOrgRequestBody()
+        )
 
-    def user_id(self, user_id: str) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+    def user_id(
+        self, user_id: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
         self._create_emp_custom_org_employee_custom_org_request_body.user_id = user_id
         return self
 
-    def object_api_name(self, object_api_name: str) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._create_emp_custom_org_employee_custom_org_request_body.object_api_name = object_api_name
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._create_emp_custom_org_employee_custom_org_request_body.object_api_name = (
+            object_api_name
+        )
         return self
 
-    def custom_org_with_rates(self, custom_org_with_rates: List[
-        CustomOrgWithRate]) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+    def custom_org_with_rates(
+        self, custom_org_with_rates: List[CustomOrgWithRate]
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
         self._create_emp_custom_org_employee_custom_org_request_body.custom_org_with_rates = custom_org_with_rates
         return self
 
-    def start_reason(self, start_reason: str) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._create_emp_custom_org_employee_custom_org_request_body.start_reason = start_reason
+    def start_reason(
+        self, start_reason: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._create_emp_custom_org_employee_custom_org_request_body.start_reason = (
+            start_reason
+        )
         return self
 
-    def effective_time(self, effective_time: str) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
-        self._create_emp_custom_org_employee_custom_org_request_body.effective_time = effective_time
+    def effective_time(
+        self, effective_time: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBodyBuilder":
+        self._create_emp_custom_org_employee_custom_org_request_body.effective_time = (
+            effective_time
+        )
         return self
 
     def build(self) -> "CreateEmpCustomOrgEmployeeCustomOrgRequestBody":

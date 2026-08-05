@@ -22,7 +22,9 @@ class BatchGetLocationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_location_request_body = BatchGetLocationRequestBody()
 
-    def location_ids(self, location_ids: List[str]) -> "BatchGetLocationRequestBodyBuilder":
+    def location_ids(
+        self, location_ids: List[str]
+    ) -> "BatchGetLocationRequestBodyBuilder":
         self._batch_get_location_request_body.location_ids = location_ids
         return self
 

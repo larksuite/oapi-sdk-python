@@ -54,6 +54,9 @@ from .block import *
 from .block_i18n_info import *
 from .bot import *
 from .bot_display_info import *
+from .bot_menu_node import *
+from .bot_menu_redirect_link import *
+from .bot_menu_ud_icon import *
 from .callback import *
 from .callback_info import *
 from .client_badge_num import *
@@ -64,7 +67,6 @@ from .docs_block import *
 from .event import *
 from .event_and_callback_encrypt_strategy import *
 from .gadget import *
-from .larksuite_cli_app import *
 from .message_action import *
 from .message_action_i18n_info import *
 from .message_overview_item import *
@@ -85,7 +87,6 @@ from .usage_user import *
 from .user import *
 from .user_id import *
 from .web_app import *
-from .widget import *
 from .workplace_widget import *
 from .set_app_badge_request import *
 from .list_app_recommend_rule_request import *

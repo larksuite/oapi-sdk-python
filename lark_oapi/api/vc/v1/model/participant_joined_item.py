@@ -25,7 +25,9 @@ class ParticipantJoinedItemBuilder(object):
     def __init__(self) -> None:
         self._participant_joined_item = ParticipantJoinedItem()
 
-    def participant(self, participant: MeetingAgentEventUser) -> "ParticipantJoinedItemBuilder":
+    def participant(
+        self, participant: MeetingAgentEventUser
+    ) -> "ParticipantJoinedItemBuilder":
         self._participant_joined_item.participant = participant
         return self
 

@@ -33,7 +33,9 @@ class SearchCcInstanceResponseBodyBuilder(object):
         self._search_cc_instance_response_body.count = count
         return self
 
-    def cc_list(self, cc_list: List[CcSearchItem]) -> "SearchCcInstanceResponseBodyBuilder":
+    def cc_list(
+        self, cc_list: List[CcSearchItem]
+    ) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.cc_list = cc_list
         return self
 

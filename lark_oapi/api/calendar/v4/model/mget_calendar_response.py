@@ -9,7 +9,6 @@ from .mget_calendar_response_body import MgetCalendarResponseBody
 class MgetCalendarResponse(BaseResponse):
     _types = {
         "data": MgetCalendarResponseBody,
-
     }
 
     def __init__(self, d=None):

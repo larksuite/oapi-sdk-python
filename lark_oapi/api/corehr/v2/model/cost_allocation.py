@@ -35,7 +35,9 @@ class CostAllocationBuilder(object):
         self._cost_allocation.expiration_time = expiration_time
         return self
 
-    def cost_center_rates(self, cost_center_rates: List[JobDataCostCenter]) -> "CostAllocationBuilder":
+    def cost_center_rates(
+        self, cost_center_rates: List[JobDataCostCenter]
+    ) -> "CostAllocationBuilder":
         self._cost_allocation.cost_center_rates = cost_center_rates
         return self
 

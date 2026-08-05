@@ -15,7 +15,6 @@ class ListAgentSkillRequest(BaseRequest):
 
 
 class ListAgentSkillRequestBuilder(object):
-
     def __init__(self) -> None:
         list_agent_skill_request = ListAgentSkillRequest()
         list_agent_skill_request.http_method = HttpMethod.GET

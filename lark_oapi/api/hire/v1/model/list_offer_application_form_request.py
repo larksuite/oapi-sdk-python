@@ -17,13 +17,16 @@ class ListOfferApplicationFormRequest(BaseRequest):
 
 
 class ListOfferApplicationFormRequestBuilder(object):
-
     def __init__(self) -> None:
         list_offer_application_form_request = ListOfferApplicationFormRequest()
         list_offer_application_form_request.http_method = HttpMethod.GET
-        list_offer_application_form_request.uri = "/open-apis/hire/v1/offer_application_forms"
+        list_offer_application_form_request.uri = (
+            "/open-apis/hire/v1/offer_application_forms"
+        )
         list_offer_application_form_request.token_types = {AccessTokenType.TENANT}
-        self._list_offer_application_form_request: ListOfferApplicationFormRequest = list_offer_application_form_request
+        self._list_offer_application_form_request: ListOfferApplicationFormRequest = (
+            list_offer_application_form_request
+        )
 
     def page_token(self, page_token: str) -> "ListOfferApplicationFormRequestBuilder":
         self._list_offer_application_form_request.page_token = page_token

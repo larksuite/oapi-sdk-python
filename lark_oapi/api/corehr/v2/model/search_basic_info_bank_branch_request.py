@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .search_basic_info_bank_branch_request_body import SearchBasicInfoBankBranchRequestBody
+from .search_basic_info_bank_branch_request_body import (
+    SearchBasicInfoBankBranchRequestBody,
+)
 
 
 class SearchBasicInfoBankBranchRequest(BaseRequest):
@@ -19,11 +21,12 @@ class SearchBasicInfoBankBranchRequest(BaseRequest):
 
 
 class SearchBasicInfoBankBranchRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_bank_branch_request = SearchBasicInfoBankBranchRequest()
         search_basic_info_bank_branch_request.http_method = HttpMethod.POST
-        search_basic_info_bank_branch_request.uri = "/open-apis/corehr/v2/basic_info/bank_branchs/search"
+        search_basic_info_bank_branch_request.uri = (
+            "/open-apis/corehr/v2/basic_info/bank_branchs/search"
+        )
         search_basic_info_bank_branch_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_bank_branch_request: SearchBasicInfoBankBranchRequest = search_basic_info_bank_branch_request
 
@@ -37,8 +40,9 @@ class SearchBasicInfoBankBranchRequestBuilder(object):
         self._search_basic_info_bank_branch_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self,
-                     request_body: SearchBasicInfoBankBranchRequestBody) -> "SearchBasicInfoBankBranchRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoBankBranchRequestBody
+    ) -> "SearchBasicInfoBankBranchRequestBuilder":
         self._search_basic_info_bank_branch_request.request_body = request_body
         self._search_basic_info_bank_branch_request.body = request_body
         return self

@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_update_document_block_response_body import BatchUpdateDocumentBlockResponseBody
+from .batch_update_document_block_response_body import (
+    BatchUpdateDocumentBlockResponseBody,
+)
 
 
 class BatchUpdateDocumentBlockResponse(BaseResponse):
     _types = {
         "data": BatchUpdateDocumentBlockResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -17,15 +17,18 @@ class BatchGetCompanyRequest(BaseRequest):
 
 
 class BatchGetCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_company_request = BatchGetCompanyRequest()
         batch_get_company_request.http_method = HttpMethod.POST
         batch_get_company_request.uri = "/open-apis/corehr/v2/companies/batch_get"
         batch_get_company_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_company_request: BatchGetCompanyRequest = batch_get_company_request
+        self._batch_get_company_request: BatchGetCompanyRequest = (
+            batch_get_company_request
+        )
 
-    def request_body(self, request_body: BatchGetCompanyRequestBody) -> "BatchGetCompanyRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetCompanyRequestBody
+    ) -> "BatchGetCompanyRequestBuilder":
         self._batch_get_company_request.request_body = request_body
         self._batch_get_company_request.body = request_body
         return self

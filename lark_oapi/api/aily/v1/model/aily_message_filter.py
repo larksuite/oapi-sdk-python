@@ -28,7 +28,9 @@ class AilyMessageFilterBuilder(object):
         self._aily_message_filter.run_id = run_id
         return self
 
-    def with_partial_message(self, with_partial_message: bool) -> "AilyMessageFilterBuilder":
+    def with_partial_message(
+        self, with_partial_message: bool
+    ) -> "AilyMessageFilterBuilder":
         self._aily_message_filter.with_partial_message = with_partial_message
         return self
 

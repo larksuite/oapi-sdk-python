@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_multi_timeline_job_family_request_body import QueryMultiTimelineJobFamilyRequestBody
+from .query_multi_timeline_job_family_request_body import (
+    QueryMultiTimelineJobFamilyRequestBody,
+)
 
 
 class QueryMultiTimelineJobFamilyRequest(BaseRequest):
@@ -17,16 +19,18 @@ class QueryMultiTimelineJobFamilyRequest(BaseRequest):
 
 
 class QueryMultiTimelineJobFamilyRequestBuilder(object):
-
     def __init__(self) -> None:
         query_multi_timeline_job_family_request = QueryMultiTimelineJobFamilyRequest()
         query_multi_timeline_job_family_request.http_method = HttpMethod.POST
-        query_multi_timeline_job_family_request.uri = "/open-apis/corehr/v2/job_families/query_multi_timeline"
+        query_multi_timeline_job_family_request.uri = (
+            "/open-apis/corehr/v2/job_families/query_multi_timeline"
+        )
         query_multi_timeline_job_family_request.token_types = {AccessTokenType.TENANT}
         self._query_multi_timeline_job_family_request: QueryMultiTimelineJobFamilyRequest = query_multi_timeline_job_family_request
 
-    def request_body(self,
-                     request_body: QueryMultiTimelineJobFamilyRequestBody) -> "QueryMultiTimelineJobFamilyRequestBuilder":
+    def request_body(
+        self, request_body: QueryMultiTimelineJobFamilyRequestBody
+    ) -> "QueryMultiTimelineJobFamilyRequestBuilder":
         self._query_multi_timeline_job_family_request.request_body = request_body
         self._query_multi_timeline_job_family_request.body = request_body
         return self

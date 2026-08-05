@@ -22,14 +22,22 @@ class DeleteManagersChatManagersResponseBody(object):
 
 class DeleteManagersChatManagersResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_managers_chat_managers_response_body = DeleteManagersChatManagersResponseBody()
+        self._delete_managers_chat_managers_response_body = (
+            DeleteManagersChatManagersResponseBody()
+        )
 
-    def chat_managers(self, chat_managers: List[str]) -> "DeleteManagersChatManagersResponseBodyBuilder":
+    def chat_managers(
+        self, chat_managers: List[str]
+    ) -> "DeleteManagersChatManagersResponseBodyBuilder":
         self._delete_managers_chat_managers_response_body.chat_managers = chat_managers
         return self
 
-    def chat_bot_managers(self, chat_bot_managers: List[str]) -> "DeleteManagersChatManagersResponseBodyBuilder":
-        self._delete_managers_chat_managers_response_body.chat_bot_managers = chat_bot_managers
+    def chat_bot_managers(
+        self, chat_bot_managers: List[str]
+    ) -> "DeleteManagersChatManagersResponseBodyBuilder":
+        self._delete_managers_chat_managers_response_body.chat_bot_managers = (
+            chat_bot_managers
+        )
         return self
 
     def build(self) -> "DeleteManagersChatManagersResponseBody":

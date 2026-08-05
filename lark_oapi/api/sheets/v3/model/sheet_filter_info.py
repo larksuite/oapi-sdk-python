@@ -31,7 +31,9 @@ class SheetFilterInfoBuilder(object):
         self._sheet_filter_info.range = range
         return self
 
-    def filtered_out_rows(self, filtered_out_rows: List[int]) -> "SheetFilterInfoBuilder":
+    def filtered_out_rows(
+        self, filtered_out_rows: List[int]
+    ) -> "SheetFilterInfoBuilder":
         self._sheet_filter_info.filtered_out_rows = filtered_out_rows
         return self
 

@@ -17,11 +17,12 @@ class ListByFileIdSignatureNodeRequest(BaseRequest):
 
 
 class ListByFileIdSignatureNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_by_file_id_signature_node_request = ListByFileIdSignatureNodeRequest()
         list_by_file_id_signature_node_request.http_method = HttpMethod.GET
-        list_by_file_id_signature_node_request.uri = "/open-apis/corehr/v2/signature_nodes/list_by_file_id"
+        list_by_file_id_signature_node_request.uri = (
+            "/open-apis/corehr/v2/signature_nodes/list_by_file_id"
+        )
         list_by_file_id_signature_node_request.token_types = {AccessTokenType.TENANT}
         self._list_by_file_id_signature_node_request: ListByFileIdSignatureNodeRequest = list_by_file_id_signature_node_request
 
@@ -30,9 +31,13 @@ class ListByFileIdSignatureNodeRequestBuilder(object):
         self._list_by_file_id_signature_node_request.add_query("file_id", file_id)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListByFileIdSignatureNodeRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListByFileIdSignatureNodeRequestBuilder":
         self._list_by_file_id_signature_node_request.user_id_type = user_id_type
-        self._list_by_file_id_signature_node_request.add_query("user_id_type", user_id_type)
+        self._list_by_file_id_signature_node_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def build(self) -> ListByFileIdSignatureNodeRequest:

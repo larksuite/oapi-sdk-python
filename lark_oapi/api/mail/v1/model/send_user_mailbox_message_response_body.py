@@ -22,9 +22,13 @@ class SendUserMailboxMessageResponseBody(object):
 
 class SendUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._send_user_mailbox_message_response_body = SendUserMailboxMessageResponseBody()
+        self._send_user_mailbox_message_response_body = (
+            SendUserMailboxMessageResponseBody()
+        )
 
-    def message_id(self, message_id: str) -> "SendUserMailboxMessageResponseBodyBuilder":
+    def message_id(
+        self, message_id: str
+    ) -> "SendUserMailboxMessageResponseBodyBuilder":
         self._send_user_mailbox_message_response_body.message_id = message_id
         return self
 

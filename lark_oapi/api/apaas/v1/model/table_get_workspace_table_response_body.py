@@ -25,17 +25,23 @@ class TableGetWorkspaceTableResponseBody(object):
 
 class TableGetWorkspaceTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._table_get_workspace_table_response_body = TableGetWorkspaceTableResponseBody()
+        self._table_get_workspace_table_response_body = (
+            TableGetWorkspaceTableResponseBody()
+        )
 
     def name(self, name: str) -> "TableGetWorkspaceTableResponseBodyBuilder":
         self._table_get_workspace_table_response_body.name = name
         return self
 
-    def description(self, description: str) -> "TableGetWorkspaceTableResponseBodyBuilder":
+    def description(
+        self, description: str
+    ) -> "TableGetWorkspaceTableResponseBodyBuilder":
         self._table_get_workspace_table_response_body.description = description
         return self
 
-    def columns(self, columns: List[WorkspaceDataTableColumnInfo]) -> "TableGetWorkspaceTableResponseBodyBuilder":
+    def columns(
+        self, columns: List[WorkspaceDataTableColumnInfo]
+    ) -> "TableGetWorkspaceTableResponseBodyBuilder":
         self._table_get_workspace_table_response_body.columns = columns
         return self
 

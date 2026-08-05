@@ -23,7 +23,9 @@ class CreateChatMenuTreeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_menu_tree_request_body = CreateChatMenuTreeRequestBody()
 
-    def menu_tree(self, menu_tree: ChatMenuTree) -> "CreateChatMenuTreeRequestBodyBuilder":
+    def menu_tree(
+        self, menu_tree: ChatMenuTree
+    ) -> "CreateChatMenuTreeRequestBodyBuilder":
         self._create_chat_menu_tree_request_body.menu_tree = menu_tree
         return self
 

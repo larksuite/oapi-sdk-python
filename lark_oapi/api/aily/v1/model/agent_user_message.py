@@ -25,11 +25,15 @@ class AgentUserMessageBuilder(object):
     def __init__(self) -> None:
         self._agent_user_message = AgentUserMessage()
 
-    def content(self, content: List[AgentUserMessageContent]) -> "AgentUserMessageBuilder":
+    def content(
+        self, content: List[AgentUserMessageContent]
+    ) -> "AgentUserMessageBuilder":
         self._agent_user_message.content = content
         return self
 
-    def agent_attachment_ids(self, agent_attachment_ids: List[str]) -> "AgentUserMessageBuilder":
+    def agent_attachment_ids(
+        self, agent_attachment_ids: List[str]
+    ) -> "AgentUserMessageBuilder":
         self._agent_user_message.agent_attachment_ids = agent_attachment_ids
         return self
 

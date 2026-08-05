@@ -52,7 +52,9 @@ class GetChatAnnouncementResponseBodyBuilder(object):
         self._get_chat_announcement_response_body.update_time = update_time
         return self
 
-    def owner_id_type(self, owner_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def owner_id_type(
+        self, owner_id_type: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.owner_id_type = owner_id_type
         return self
 
@@ -60,7 +62,9 @@ class GetChatAnnouncementResponseBodyBuilder(object):
         self._get_chat_announcement_response_body.owner_id = owner_id
         return self
 
-    def modifier_id_type(self, modifier_id_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def modifier_id_type(
+        self, modifier_id_type: str
+    ) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.modifier_id_type = modifier_id_type
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_get_employees_job_data_request_body import BatchGetEmployeesJobDataRequestBody
+from .batch_get_employees_job_data_request_body import (
+    BatchGetEmployeesJobDataRequestBody,
+)
 
 
 class BatchGetEmployeesJobDataRequest(BaseRequest):
@@ -19,26 +21,40 @@ class BatchGetEmployeesJobDataRequest(BaseRequest):
 
 
 class BatchGetEmployeesJobDataRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_employees_job_data_request = BatchGetEmployeesJobDataRequest()
         batch_get_employees_job_data_request.http_method = HttpMethod.POST
-        batch_get_employees_job_data_request.uri = "/open-apis/corehr/v2/employees/job_datas/batch_get"
+        batch_get_employees_job_data_request.uri = (
+            "/open-apis/corehr/v2/employees/job_datas/batch_get"
+        )
         batch_get_employees_job_data_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_employees_job_data_request: BatchGetEmployeesJobDataRequest = batch_get_employees_job_data_request
+        self._batch_get_employees_job_data_request: BatchGetEmployeesJobDataRequest = (
+            batch_get_employees_job_data_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "BatchGetEmployeesJobDataRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchGetEmployeesJobDataRequestBuilder":
         self._batch_get_employees_job_data_request.user_id_type = user_id_type
-        self._batch_get_employees_job_data_request.add_query("user_id_type", user_id_type)
+        self._batch_get_employees_job_data_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "BatchGetEmployeesJobDataRequestBuilder":
-        self._batch_get_employees_job_data_request.department_id_type = department_id_type
-        self._batch_get_employees_job_data_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "BatchGetEmployeesJobDataRequestBuilder":
+        self._batch_get_employees_job_data_request.department_id_type = (
+            department_id_type
+        )
+        self._batch_get_employees_job_data_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchGetEmployeesJobDataRequestBody) -> "BatchGetEmployeesJobDataRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetEmployeesJobDataRequestBody
+    ) -> "BatchGetEmployeesJobDataRequestBuilder":
         self._batch_get_employees_job_data_request.request_body = request_body
         self._batch_get_employees_job_data_request.body = request_body
         return self

@@ -35,7 +35,9 @@ class AbnormalReasonBuilder(object):
         self._abnormal_reason.type = type
         return self
 
-    def i18n_elements(self, i18n_elements: List[AbnormalReasonI18nElement]) -> "AbnormalReasonBuilder":
+    def i18n_elements(
+        self, i18n_elements: List[AbnormalReasonI18nElement]
+    ) -> "AbnormalReasonBuilder":
         self._abnormal_reason.i18n_elements = i18n_elements
         return self
 

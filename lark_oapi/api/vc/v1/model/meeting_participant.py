@@ -50,7 +50,9 @@ class MeetingParticipantBuilder(object):
         self._meeting_participant.final_leave_time = final_leave_time
         return self
 
-    def in_meeting_duration(self, in_meeting_duration: int) -> "MeetingParticipantBuilder":
+    def in_meeting_duration(
+        self, in_meeting_duration: int
+    ) -> "MeetingParticipantBuilder":
         self._meeting_participant.in_meeting_duration = in_meeting_duration
         return self
 

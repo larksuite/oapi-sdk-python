@@ -21,9 +21,13 @@ class QueryMultiTimelineLocationResponseBody(object):
 
 class QueryMultiTimelineLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_location_response_body = QueryMultiTimelineLocationResponseBody()
+        self._query_multi_timeline_location_response_body = (
+            QueryMultiTimelineLocationResponseBody()
+        )
 
-    def items(self, items: List[LocationTimeline]) -> "QueryMultiTimelineLocationResponseBodyBuilder":
+    def items(
+        self, items: List[LocationTimeline]
+    ) -> "QueryMultiTimelineLocationResponseBodyBuilder":
         self._query_multi_timeline_location_response_body.items = items
         return self
 

@@ -21,10 +21,13 @@ class CreateExternalBackgroundCheckResponseBody(object):
 
 class CreateExternalBackgroundCheckResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_external_background_check_response_body = CreateExternalBackgroundCheckResponseBody()
+        self._create_external_background_check_response_body = (
+            CreateExternalBackgroundCheckResponseBody()
+        )
 
-    def external_background_check(self,
-                                  external_background_check: ExternalBackgroundCheck) -> "CreateExternalBackgroundCheckResponseBodyBuilder":
+    def external_background_check(
+        self, external_background_check: ExternalBackgroundCheck
+    ) -> "CreateExternalBackgroundCheckResponseBodyBuilder":
         self._create_external_background_check_response_body.external_background_check = external_background_check
         return self
 

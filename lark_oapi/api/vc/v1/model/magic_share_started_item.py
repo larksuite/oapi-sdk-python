@@ -30,7 +30,9 @@ class MagicShareStartedItemBuilder(object):
     def __init__(self) -> None:
         self._magic_share_started_item = MagicShareStartedItem()
 
-    def operator(self, operator: MeetingAgentEventUser) -> "MagicShareStartedItemBuilder":
+    def operator(
+        self, operator: MeetingAgentEventUser
+    ) -> "MagicShareStartedItemBuilder":
         self._magic_share_started_item.operator = operator
         return self
 

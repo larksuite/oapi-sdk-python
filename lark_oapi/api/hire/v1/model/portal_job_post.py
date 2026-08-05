@@ -116,7 +116,9 @@ class PortalJobPostBuilder(object):
         self._portal_job_post.job_process_type = job_process_type
         return self
 
-    def job_recruitment_type(self, job_recruitment_type: IdNameObject) -> "PortalJobPostBuilder":
+    def job_recruitment_type(
+        self, job_recruitment_type: IdNameObject
+    ) -> "PortalJobPostBuilder":
         self._portal_job_post.job_recruitment_type = job_recruitment_type
         return self
 
@@ -160,7 +162,9 @@ class PortalJobPostBuilder(object):
         self._portal_job_post.headcount = headcount
         return self
 
-    def high_light_list(self, high_light_list: List[IdNameObject]) -> "PortalJobPostBuilder":
+    def high_light_list(
+        self, high_light_list: List[IdNameObject]
+    ) -> "PortalJobPostBuilder":
         self._portal_job_post.high_light_list = high_light_list
         return self
 
@@ -184,7 +188,9 @@ class PortalJobPostBuilder(object):
         self._portal_job_post.modify_time = modify_time
         return self
 
-    def customized_data_list(self, customized_data_list: List[WebsiteJobPostCustomizedData]) -> "PortalJobPostBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[WebsiteJobPostCustomizedData]
+    ) -> "PortalJobPostBuilder":
         self._portal_job_post.customized_data_list = customized_data_list
         return self
 

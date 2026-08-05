@@ -55,7 +55,9 @@ class LessonStudyRecordBuilder(object):
         self._lesson_study_record.learning_state = learning_state
         return self
 
-    def exam_record_list(self, exam_record_list: List[ExamRecord]) -> "LessonStudyRecordBuilder":
+    def exam_record_list(
+        self, exam_record_list: List[ExamRecord]
+    ) -> "LessonStudyRecordBuilder":
         self._lesson_study_record.exam_record_list = exam_record_list
         return self
 
@@ -67,7 +69,9 @@ class LessonStudyRecordBuilder(object):
         self._lesson_study_record.thought = thought
         return self
 
-    def activity_session_record(self, activity_session_record: ActivitySessionRecord) -> "LessonStudyRecordBuilder":
+    def activity_session_record(
+        self, activity_session_record: ActivitySessionRecord
+    ) -> "LessonStudyRecordBuilder":
         self._lesson_study_record.activity_session_record = activity_session_record
         return self
 

@@ -66,11 +66,15 @@ class ApprovalNodeBuilder(object):
         self._approval_node.privilege_field = privilege_field
         return self
 
-    def approver_chosen_multi(self, approver_chosen_multi: bool) -> "ApprovalNodeBuilder":
+    def approver_chosen_multi(
+        self, approver_chosen_multi: bool
+    ) -> "ApprovalNodeBuilder":
         self._approval_node.approver_chosen_multi = approver_chosen_multi
         return self
 
-    def approver_chosen_range(self, approver_chosen_range: List[ApproverRange]) -> "ApprovalNodeBuilder":
+    def approver_chosen_range(
+        self, approver_chosen_range: List[ApproverRange]
+    ) -> "ApprovalNodeBuilder":
         self._approval_node.approver_chosen_range = approver_chosen_range
         return self
 

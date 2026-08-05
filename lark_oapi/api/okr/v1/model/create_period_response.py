@@ -9,7 +9,6 @@ from .create_period_response_body import CreatePeriodResponseBody
 class CreatePeriodResponse(BaseResponse):
     _types = {
         "data": CreatePeriodResponseBody,
-
     }
 
     def __init__(self, d=None):

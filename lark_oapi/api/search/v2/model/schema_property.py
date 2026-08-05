@@ -73,11 +73,15 @@ class SchemaPropertyBuilder(object):
         self._schema_property.sort_options = sort_options
         return self
 
-    def type_definitions(self, type_definitions: SchemaTypeDefinitions) -> "SchemaPropertyBuilder":
+    def type_definitions(
+        self, type_definitions: SchemaTypeDefinitions
+    ) -> "SchemaPropertyBuilder":
         self._schema_property.type_definitions = type_definitions
         return self
 
-    def search_options(self, search_options: SchemaSearchOptions) -> "SchemaPropertyBuilder":
+    def search_options(
+        self, search_options: SchemaSearchOptions
+    ) -> "SchemaPropertyBuilder":
         self._schema_property.search_options = search_options
         return self
 
@@ -85,11 +89,15 @@ class SchemaPropertyBuilder(object):
         self._schema_property.is_filterable = is_filterable
         return self
 
-    def filter_options(self, filter_options: SchemaFilterOptions) -> "SchemaPropertyBuilder":
+    def filter_options(
+        self, filter_options: SchemaFilterOptions
+    ) -> "SchemaPropertyBuilder":
         self._schema_property.filter_options = filter_options
         return self
 
-    def answer_option(self, answer_option: SchemaFieldAnswerOption) -> "SchemaPropertyBuilder":
+    def answer_option(
+        self, answer_option: SchemaFieldAnswerOption
+    ) -> "SchemaPropertyBuilder":
         self._schema_property.answer_option = answer_option
         return self
 

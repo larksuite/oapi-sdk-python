@@ -42,7 +42,9 @@ class ApprovalDailyDetailBuilder(object):
         self._approval_daily_detail.overtime_unit = overtime_unit
         return self
 
-    def overtime_date_type(self, overtime_date_type: int) -> "ApprovalDailyDetailBuilder":
+    def overtime_date_type(
+        self, overtime_date_type: int
+    ) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.overtime_date_type = overtime_date_type
         return self
 

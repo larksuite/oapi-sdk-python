@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .records_patch_workspace_table_request_body import RecordsPatchWorkspaceTableRequestBody
+from .records_patch_workspace_table_request_body import (
+    RecordsPatchWorkspaceTableRequestBody,
+)
 
 
 class RecordsPatchWorkspaceTableRequest(BaseRequest):
@@ -20,11 +22,12 @@ class RecordsPatchWorkspaceTableRequest(BaseRequest):
 
 
 class RecordsPatchWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         records_patch_workspace_table_request = RecordsPatchWorkspaceTableRequest()
         records_patch_workspace_table_request.http_method = HttpMethod.PATCH
-        records_patch_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        records_patch_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records"
+        )
         records_patch_workspace_table_request.token_types = {AccessTokenType.USER}
         self._records_patch_workspace_table_request: RecordsPatchWorkspaceTableRequest = records_patch_workspace_table_request
 
@@ -33,18 +36,25 @@ class RecordsPatchWorkspaceTableRequestBuilder(object):
         self._records_patch_workspace_table_request.add_query("filter", filter)
         return self
 
-    def workspace_id(self, workspace_id: str) -> "RecordsPatchWorkspaceTableRequestBuilder":
+    def workspace_id(
+        self, workspace_id: str
+    ) -> "RecordsPatchWorkspaceTableRequestBuilder":
         self._records_patch_workspace_table_request.workspace_id = workspace_id
-        self._records_patch_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._records_patch_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
     def table_name(self, table_name: str) -> "RecordsPatchWorkspaceTableRequestBuilder":
         self._records_patch_workspace_table_request.table_name = table_name
-        self._records_patch_workspace_table_request.paths["table_name"] = str(table_name)
+        self._records_patch_workspace_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
-    def request_body(self,
-                     request_body: RecordsPatchWorkspaceTableRequestBody) -> "RecordsPatchWorkspaceTableRequestBuilder":
+    def request_body(
+        self, request_body: RecordsPatchWorkspaceTableRequestBody
+    ) -> "RecordsPatchWorkspaceTableRequestBuilder":
         self._records_patch_workspace_table_request.request_body = request_body
         self._records_patch_workspace_table_request.body = request_body
         return self

@@ -78,7 +78,9 @@ class PreHireOnboardingInfoBuilder(object):
         self._pre_hire_onboarding_info.onboarding_date = onboarding_date
         return self
 
-    def ats_application_id(self, ats_application_id: str) -> "PreHireOnboardingInfoBuilder":
+    def ats_application_id(
+        self, ats_application_id: str
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.ats_application_id = ats_application_id
         return self
 
@@ -86,23 +88,33 @@ class PreHireOnboardingInfoBuilder(object):
         self._pre_hire_onboarding_info.recruitment_type = recruitment_type
         return self
 
-    def onboarding_location_id(self, onboarding_location_id: str) -> "PreHireOnboardingInfoBuilder":
+    def onboarding_location_id(
+        self, onboarding_location_id: str
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_location_id = onboarding_location_id
         return self
 
-    def company_sponsored_visa(self, company_sponsored_visa: bool) -> "PreHireOnboardingInfoBuilder":
+    def company_sponsored_visa(
+        self, company_sponsored_visa: bool
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.company_sponsored_visa = company_sponsored_visa
         return self
 
-    def onboarding_status(self, onboarding_status: str) -> "PreHireOnboardingInfoBuilder":
+    def onboarding_status(
+        self, onboarding_status: str
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_status = onboarding_status
         return self
 
-    def onboarding_task_list(self, onboarding_task_list: List[OnboardingTask]) -> "PreHireOnboardingInfoBuilder":
+    def onboarding_task_list(
+        self, onboarding_task_list: List[OnboardingTask]
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_task_list = onboarding_task_list
         return self
 
-    def onboarding_address(self, onboarding_address: Address) -> "PreHireOnboardingInfoBuilder":
+    def onboarding_address(
+        self, onboarding_address: Address
+    ) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_address = onboarding_address
         return self
 

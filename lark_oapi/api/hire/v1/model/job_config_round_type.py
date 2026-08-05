@@ -28,8 +28,12 @@ class JobConfigRoundTypeBuilder(object):
         self._job_config_round_type.round_biz_id = round_biz_id
         return self
 
-    def assessment_template_biz_id(self, assessment_template_biz_id: str) -> "JobConfigRoundTypeBuilder":
-        self._job_config_round_type.assessment_template_biz_id = assessment_template_biz_id
+    def assessment_template_biz_id(
+        self, assessment_template_biz_id: str
+    ) -> "JobConfigRoundTypeBuilder":
+        self._job_config_round_type.assessment_template_biz_id = (
+            assessment_template_biz_id
+        )
         return self
 
     def build(self) -> "JobConfigRoundType":

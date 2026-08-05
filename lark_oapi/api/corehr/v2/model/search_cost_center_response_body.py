@@ -27,7 +27,9 @@ class SearchCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_cost_center_response_body = SearchCostCenterResponseBody()
 
-    def items(self, items: List[CostCenterVersion]) -> "SearchCostCenterResponseBodyBuilder":
+    def items(
+        self, items: List[CostCenterVersion]
+    ) -> "SearchCostCenterResponseBodyBuilder":
         self._search_cost_center_response_body.items = items
         return self
 

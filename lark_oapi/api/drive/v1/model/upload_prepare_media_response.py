@@ -9,7 +9,6 @@ from .upload_prepare_media_response_body import UploadPrepareMediaResponseBody
 class UploadPrepareMediaResponse(BaseResponse):
     _types = {
         "data": UploadPrepareMediaResponseBody,
-
     }
 
     def __init__(self, d=None):

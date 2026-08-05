@@ -73,7 +73,9 @@ class UpdateTenantBuilder(object):
         self._update_tenant.sub_domain = sub_domain
         return self
 
-    def can_domain_be_modified(self, can_domain_be_modified: bool) -> "UpdateTenantBuilder":
+    def can_domain_be_modified(
+        self, can_domain_be_modified: bool
+    ) -> "UpdateTenantBuilder":
         self._update_tenant.can_domain_be_modified = can_domain_be_modified
         return self
 

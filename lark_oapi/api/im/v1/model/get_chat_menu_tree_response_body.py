@@ -23,7 +23,9 @@ class GetChatMenuTreeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_chat_menu_tree_response_body = GetChatMenuTreeResponseBody()
 
-    def menu_tree(self, menu_tree: ChatMenuTree) -> "GetChatMenuTreeResponseBodyBuilder":
+    def menu_tree(
+        self, menu_tree: ChatMenuTree
+    ) -> "GetChatMenuTreeResponseBodyBuilder":
         self._get_chat_menu_tree_response_body.menu_tree = menu_tree
         return self
 

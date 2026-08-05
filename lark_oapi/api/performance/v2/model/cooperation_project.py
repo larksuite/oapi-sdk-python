@@ -46,11 +46,15 @@ class CooperationProjectBuilder(object):
         self._cooperation_project.roles = roles
         return self
 
-    def user_roles(self, user_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
+    def user_roles(
+        self, user_roles: List[CooperationUserRole]
+    ) -> "CooperationProjectBuilder":
         self._cooperation_project.user_roles = user_roles
         return self
 
-    def underling_roles(self, underling_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
+    def underling_roles(
+        self, underling_roles: List[CooperationUserRole]
+    ) -> "CooperationProjectBuilder":
         self._cooperation_project.underling_roles = underling_roles
         return self
 

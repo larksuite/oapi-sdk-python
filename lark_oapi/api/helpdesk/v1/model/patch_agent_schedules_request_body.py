@@ -23,7 +23,9 @@ class PatchAgentSchedulesRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_agent_schedules_request_body = PatchAgentSchedulesRequestBody()
 
-    def agent_schedule(self, agent_schedule: AgentScheduleUpdateInfo) -> "PatchAgentSchedulesRequestBodyBuilder":
+    def agent_schedule(
+        self, agent_schedule: AgentScheduleUpdateInfo
+    ) -> "PatchAgentSchedulesRequestBodyBuilder":
         self._patch_agent_schedules_request_body.agent_schedule = agent_schedule
         return self
 

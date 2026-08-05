@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_lump_sum_payment_request_body import BatchUpdateLumpSumPaymentRequestBody
+from .batch_update_lump_sum_payment_request_body import (
+    BatchUpdateLumpSumPaymentRequestBody,
+)
 
 
 class BatchUpdateLumpSumPaymentRequest(BaseRequest):
@@ -17,16 +19,18 @@ class BatchUpdateLumpSumPaymentRequest(BaseRequest):
 
 
 class BatchUpdateLumpSumPaymentRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_update_lump_sum_payment_request = BatchUpdateLumpSumPaymentRequest()
         batch_update_lump_sum_payment_request.http_method = HttpMethod.POST
-        batch_update_lump_sum_payment_request.uri = "/open-apis/compensation/v1/lump_sum_payment/batch_update"
+        batch_update_lump_sum_payment_request.uri = (
+            "/open-apis/compensation/v1/lump_sum_payment/batch_update"
+        )
         batch_update_lump_sum_payment_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_lump_sum_payment_request: BatchUpdateLumpSumPaymentRequest = batch_update_lump_sum_payment_request
 
-    def request_body(self,
-                     request_body: BatchUpdateLumpSumPaymentRequestBody) -> "BatchUpdateLumpSumPaymentRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateLumpSumPaymentRequestBody
+    ) -> "BatchUpdateLumpSumPaymentRequestBuilder":
         self._batch_update_lump_sum_payment_request.request_body = request_body
         self._batch_update_lump_sum_payment_request.body = request_body
         return self

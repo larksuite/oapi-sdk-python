@@ -17,12 +17,14 @@ class GetTasklistRequest(BaseRequest):
 
 
 class GetTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         get_tasklist_request = GetTasklistRequest()
         get_tasklist_request.http_method = HttpMethod.GET
         get_tasklist_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid"
-        get_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_tasklist_request: GetTasklistRequest = get_tasklist_request
 
     def user_id_type(self, user_id_type: str) -> "GetTasklistRequestBuilder":

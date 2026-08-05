@@ -27,7 +27,9 @@ class PatchDataValidationBuilder(object):
     def __init__(self) -> None:
         self._patch_data_validation = PatchDataValidation()
 
-    def data_validation_rule(self, data_validation_rule: DataValidationRule) -> "PatchDataValidationBuilder":
+    def data_validation_rule(
+        self, data_validation_rule: DataValidationRule
+    ) -> "PatchDataValidationBuilder":
         self._patch_data_validation.data_validation_rule = data_validation_rule
         return self
 

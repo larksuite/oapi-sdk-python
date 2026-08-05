@@ -41,7 +41,9 @@ class StartProcessParamBuilder(object):
         self._start_process_param.system_initiator = system_initiator
         return self
 
-    def flow_data(self, flow_data: List[ProcessFormVariableV2]) -> "StartProcessParamBuilder":
+    def flow_data(
+        self, flow_data: List[ProcessFormVariableV2]
+    ) -> "StartProcessParamBuilder":
         self._start_process_param.flow_data = flow_data
         return self
 

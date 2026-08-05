@@ -19,17 +19,27 @@ class UpdateUserMailboxRuleRequest(BaseRequest):
 
 
 class UpdateUserMailboxRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_mailbox_rule_request = UpdateUserMailboxRuleRequest()
         update_user_mailbox_rule_request.http_method = HttpMethod.PUT
-        update_user_mailbox_rule_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules/:rule_id"
-        update_user_mailbox_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._update_user_mailbox_rule_request: UpdateUserMailboxRuleRequest = update_user_mailbox_rule_request
+        update_user_mailbox_rule_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules/:rule_id"
+        )
+        update_user_mailbox_rule_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._update_user_mailbox_rule_request: UpdateUserMailboxRuleRequest = (
+            update_user_mailbox_rule_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "UpdateUserMailboxRuleRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "UpdateUserMailboxRuleRequestBuilder":
         self._update_user_mailbox_rule_request.user_mailbox_id = user_mailbox_id
-        self._update_user_mailbox_rule_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._update_user_mailbox_rule_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def rule_id(self, rule_id: int) -> "UpdateUserMailboxRuleRequestBuilder":

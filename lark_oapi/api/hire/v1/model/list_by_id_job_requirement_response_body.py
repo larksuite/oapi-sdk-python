@@ -21,9 +21,13 @@ class ListByIdJobRequirementResponseBody(object):
 
 class ListByIdJobRequirementResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_by_id_job_requirement_response_body = ListByIdJobRequirementResponseBody()
+        self._list_by_id_job_requirement_response_body = (
+            ListByIdJobRequirementResponseBody()
+        )
 
-    def items(self, items: List[JobRequirementDto]) -> "ListByIdJobRequirementResponseBodyBuilder":
+    def items(
+        self, items: List[JobRequirementDto]
+    ) -> "ListByIdJobRequirementResponseBodyBuilder":
         self._list_by_id_job_requirement_response_body.items = items
         return self
 

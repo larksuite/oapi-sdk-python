@@ -27,7 +27,9 @@ class ParticipantLeftItemBuilder(object):
     def __init__(self) -> None:
         self._participant_left_item = ParticipantLeftItem()
 
-    def participant(self, participant: MeetingAgentEventUser) -> "ParticipantLeftItemBuilder":
+    def participant(
+        self, participant: MeetingAgentEventUser
+    ) -> "ParticipantLeftItemBuilder":
         self._participant_left_item.participant = participant
         return self
 

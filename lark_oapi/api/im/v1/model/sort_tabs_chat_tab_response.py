@@ -9,7 +9,6 @@ from .sort_tabs_chat_tab_response_body import SortTabsChatTabResponseBody
 class SortTabsChatTabResponse(BaseResponse):
     _types = {
         "data": SortTabsChatTabResponseBody,
-
     }
 
     def __init__(self, d=None):

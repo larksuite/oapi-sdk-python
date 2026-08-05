@@ -9,7 +9,6 @@ from .create_user_mailbox_draft_response_body import CreateUserMailboxDraftRespo
 class CreateUserMailboxDraftResponse(BaseResponse):
     _types = {
         "data": CreateUserMailboxDraftResponseBody,
-
     }
 
     def __init__(self, d=None):

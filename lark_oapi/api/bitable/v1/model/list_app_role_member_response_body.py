@@ -29,7 +29,9 @@ class ListAppRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_role_member_response_body = ListAppRoleMemberResponseBody()
 
-    def items(self, items: List[AppRoleMember]) -> "ListAppRoleMemberResponseBodyBuilder":
+    def items(
+        self, items: List[AppRoleMember]
+    ) -> "ListAppRoleMemberResponseBodyBuilder":
         self._list_app_role_member_response_body.items = items
         return self
 

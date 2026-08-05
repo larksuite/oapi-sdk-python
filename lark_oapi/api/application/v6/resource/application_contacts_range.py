@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.patch_application_contacts_range_request import PatchApplicationContactsRangeRequest
-from ..model.patch_application_contacts_range_response import PatchApplicationContactsRangeResponse
+from ..model.patch_application_contacts_range_request import (
+    PatchApplicationContactsRangeRequest,
+)
+from ..model.patch_application_contacts_range_response import (
+    PatchApplicationContactsRangeResponse,
+)
 
 
 class ApplicationContactsRange(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchApplicationContactsRangeRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
+    def patch(
+        self,
+        request: PatchApplicationContactsRangeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationContactsRangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ApplicationContactsRange(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         PatchApplicationContactsRangeResponse)
+        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationContactsRangeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationContactsRangeRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationContactsRangeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationContactsRangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ApplicationContactsRange(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         PatchApplicationContactsRangeResponse)
+        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationContactsRangeResponse
+        )
         response.raw = resp
 
         return response

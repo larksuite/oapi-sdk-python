@@ -27,19 +27,28 @@ class ReserveScopeReserveConfigResponseBody(object):
 
 class ReserveScopeReserveConfigResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._reserve_scope_reserve_config_response_body = ReserveScopeReserveConfigResponseBody()
+        self._reserve_scope_reserve_config_response_body = (
+            ReserveScopeReserveConfigResponseBody()
+        )
 
-    def approve_config(self, approve_config: ApprovalConfig) -> "ReserveScopeReserveConfigResponseBodyBuilder":
+    def approve_config(
+        self, approve_config: ApprovalConfig
+    ) -> "ReserveScopeReserveConfigResponseBodyBuilder":
         self._reserve_scope_reserve_config_response_body.approve_config = approve_config
         return self
 
-    def time_config(self, time_config: TimeConfig) -> "ReserveScopeReserveConfigResponseBodyBuilder":
+    def time_config(
+        self, time_config: TimeConfig
+    ) -> "ReserveScopeReserveConfigResponseBodyBuilder":
         self._reserve_scope_reserve_config_response_body.time_config = time_config
         return self
 
-    def reserve_scope_config(self,
-                             reserve_scope_config: ReserveScopeConfig) -> "ReserveScopeReserveConfigResponseBodyBuilder":
-        self._reserve_scope_reserve_config_response_body.reserve_scope_config = reserve_scope_config
+    def reserve_scope_config(
+        self, reserve_scope_config: ReserveScopeConfig
+    ) -> "ReserveScopeReserveConfigResponseBodyBuilder":
+        self._reserve_scope_reserve_config_response_body.reserve_scope_config = (
+            reserve_scope_config
+        )
         return self
 
     def build(self) -> "ReserveScopeReserveConfigResponseBody":

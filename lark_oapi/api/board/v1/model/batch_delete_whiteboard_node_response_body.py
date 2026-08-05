@@ -20,9 +20,13 @@ class BatchDeleteWhiteboardNodeResponseBody(object):
 
 class BatchDeleteWhiteboardNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_whiteboard_node_response_body = BatchDeleteWhiteboardNodeResponseBody()
+        self._batch_delete_whiteboard_node_response_body = (
+            BatchDeleteWhiteboardNodeResponseBody()
+        )
 
-    def client_token(self, client_token: str) -> "BatchDeleteWhiteboardNodeResponseBodyBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "BatchDeleteWhiteboardNodeResponseBodyBuilder":
         self._batch_delete_whiteboard_node_response_body.client_token = client_token
         return self
 

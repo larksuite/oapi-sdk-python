@@ -9,7 +9,6 @@ from .get_badge_response_body import GetBadgeResponseBody
 class GetBadgeResponse(BaseResponse):
     _types = {
         "data": GetBadgeResponseBody,
-
     }
 
     def __init__(self, d=None):

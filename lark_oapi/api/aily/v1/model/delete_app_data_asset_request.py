@@ -18,13 +18,19 @@ class DeleteAppDataAssetRequest(BaseRequest):
 
 
 class DeleteAppDataAssetRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_app_data_asset_request = DeleteAppDataAssetRequest()
         delete_app_data_asset_request.http_method = HttpMethod.DELETE
-        delete_app_data_asset_request.uri = "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
-        delete_app_data_asset_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_app_data_asset_request: DeleteAppDataAssetRequest = delete_app_data_asset_request
+        delete_app_data_asset_request.uri = (
+            "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
+        )
+        delete_app_data_asset_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_app_data_asset_request: DeleteAppDataAssetRequest = (
+            delete_app_data_asset_request
+        )
 
     def tenant_type(self, tenant_type: str) -> "DeleteAppDataAssetRequestBuilder":
         self._delete_app_data_asset_request.tenant_type = tenant_type

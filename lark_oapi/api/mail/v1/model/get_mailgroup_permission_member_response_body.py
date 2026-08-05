@@ -28,18 +28,30 @@ class GetMailgroupPermissionMemberResponseBody(object):
 
 class GetMailgroupPermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_mailgroup_permission_member_response_body = GetMailgroupPermissionMemberResponseBody()
+        self._get_mailgroup_permission_member_response_body = (
+            GetMailgroupPermissionMemberResponseBody()
+        )
 
-    def permission_member_id(self, permission_member_id: str) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
-        self._get_mailgroup_permission_member_response_body.permission_member_id = permission_member_id
+    def permission_member_id(
+        self, permission_member_id: str
+    ) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
+        self._get_mailgroup_permission_member_response_body.permission_member_id = (
+            permission_member_id
+        )
         return self
 
-    def user_id(self, user_id: str) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
+    def user_id(
+        self, user_id: str
+    ) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
         self._get_mailgroup_permission_member_response_body.user_id = user_id
         return self
 
-    def department_id(self, department_id: str) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
-        self._get_mailgroup_permission_member_response_body.department_id = department_id
+    def department_id(
+        self, department_id: str
+    ) -> "GetMailgroupPermissionMemberResponseBodyBuilder":
+        self._get_mailgroup_permission_member_response_body.department_id = (
+            department_id
+        )
         return self
 
     def email(self, email: str) -> "GetMailgroupPermissionMemberResponseBodyBuilder":

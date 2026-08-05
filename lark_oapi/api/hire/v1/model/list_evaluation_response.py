@@ -9,7 +9,6 @@ from .list_evaluation_response_body import ListEvaluationResponseBody
 class ListEvaluationResponse(BaseResponse):
     _types = {
         "data": ListEvaluationResponseBody,
-
     }
 
     def __init__(self, d=None):

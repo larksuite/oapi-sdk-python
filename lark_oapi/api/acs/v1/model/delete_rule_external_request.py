@@ -16,13 +16,14 @@ class DeleteRuleExternalRequest(BaseRequest):
 
 
 class DeleteRuleExternalRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_rule_external_request = DeleteRuleExternalRequest()
         delete_rule_external_request.http_method = HttpMethod.DELETE
         delete_rule_external_request.uri = "/open-apis/acs/v1/rule_external"
         delete_rule_external_request.token_types = {AccessTokenType.USER}
-        self._delete_rule_external_request: DeleteRuleExternalRequest = delete_rule_external_request
+        self._delete_rule_external_request: DeleteRuleExternalRequest = (
+            delete_rule_external_request
+        )
 
     def rule_id(self, rule_id: int) -> "DeleteRuleExternalRequestBuilder":
         self._delete_rule_external_request.rule_id = rule_id

@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_workplace_block_access_data_request import SearchWorkplaceBlockAccessDataRequest
-from ..model.search_workplace_block_access_data_response import SearchWorkplaceBlockAccessDataResponse
+from ..model.search_workplace_block_access_data_request import (
+    SearchWorkplaceBlockAccessDataRequest,
+)
+from ..model.search_workplace_block_access_data_response import (
+    SearchWorkplaceBlockAccessDataResponse,
+)
 
 
 class WorkplaceBlockAccessData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchWorkplaceBlockAccessDataRequest,
-               option: Optional[RequestOption] = None) -> SearchWorkplaceBlockAccessDataResponse:
+    def search(
+        self,
+        request: SearchWorkplaceBlockAccessDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchWorkplaceBlockAccessDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class WorkplaceBlockAccessData(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchWorkplaceBlockAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          SearchWorkplaceBlockAccessDataResponse)
+        response: SearchWorkplaceBlockAccessDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchWorkplaceBlockAccessDataResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchWorkplaceBlockAccessDataRequest,
-                      option: Optional[RequestOption] = None) -> SearchWorkplaceBlockAccessDataResponse:
+    async def asearch(
+        self,
+        request: SearchWorkplaceBlockAccessDataRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchWorkplaceBlockAccessDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class WorkplaceBlockAccessData(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchWorkplaceBlockAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          SearchWorkplaceBlockAccessDataResponse)
+        response: SearchWorkplaceBlockAccessDataResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchWorkplaceBlockAccessDataResponse
+        )
         response.raw = resp
 
         return response

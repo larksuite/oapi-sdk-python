@@ -21,11 +21,16 @@ class GetProcessFormVariableDataResponseBody(object):
 
 class GetProcessFormVariableDataResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_process_form_variable_data_response_body = GetProcessFormVariableDataResponseBody()
+        self._get_process_form_variable_data_response_body = (
+            GetProcessFormVariableDataResponseBody()
+        )
 
-    def field_variable_values(self, field_variable_values: List[
-        FormFieldVariable]) -> "GetProcessFormVariableDataResponseBodyBuilder":
-        self._get_process_form_variable_data_response_body.field_variable_values = field_variable_values
+    def field_variable_values(
+        self, field_variable_values: List[FormFieldVariable]
+    ) -> "GetProcessFormVariableDataResponseBodyBuilder":
+        self._get_process_form_variable_data_response_body.field_variable_values = (
+            field_variable_values
+        )
         return self
 
     def build(self) -> "GetProcessFormVariableDataResponseBody":

@@ -25,7 +25,9 @@ class CreateWhiteboardNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_whiteboard_node_request_body = CreateWhiteboardNodeRequestBody()
 
-    def nodes(self, nodes: List[WhiteboardNode]) -> "CreateWhiteboardNodeRequestBodyBuilder":
+    def nodes(
+        self, nodes: List[WhiteboardNode]
+    ) -> "CreateWhiteboardNodeRequestBodyBuilder":
         self._create_whiteboard_node_request_body.nodes = nodes
         return self
 

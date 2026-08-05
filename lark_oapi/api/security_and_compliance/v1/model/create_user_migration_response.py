@@ -9,7 +9,6 @@ from .create_user_migration_response_body import CreateUserMigrationResponseBody
 class CreateUserMigrationResponse(BaseResponse):
     _types = {
         "data": CreateUserMigrationResponseBody,
-
     }
 
     def __init__(self, d=None):

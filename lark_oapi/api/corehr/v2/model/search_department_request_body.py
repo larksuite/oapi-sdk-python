@@ -44,15 +44,21 @@ class SearchDepartmentRequestBodyBuilder(object):
         self._search_department_request_body.active = active
         return self
 
-    def get_all_children(self, get_all_children: bool) -> "SearchDepartmentRequestBodyBuilder":
+    def get_all_children(
+        self, get_all_children: bool
+    ) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.get_all_children = get_all_children
         return self
 
-    def manager_list(self, manager_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
+    def manager_list(
+        self, manager_list: List[str]
+    ) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.manager_list = manager_list
         return self
 
-    def department_id_list(self, department_id_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
+    def department_id_list(
+        self, department_id_list: List[str]
+    ) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.department_id_list = department_id_list
         return self
 
@@ -60,7 +66,9 @@ class SearchDepartmentRequestBodyBuilder(object):
         self._search_department_request_body.name_list = name_list
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "SearchDepartmentRequestBodyBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.parent_department_id = parent_department_id
         return self
 
@@ -68,7 +76,9 @@ class SearchDepartmentRequestBodyBuilder(object):
         self._search_department_request_body.code_list = code_list
         return self
 
-    def get_all_version(self, get_all_version: bool) -> "SearchDepartmentRequestBodyBuilder":
+    def get_all_version(
+        self, get_all_version: bool
+    ) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.get_all_version = get_all_version
         return self
 

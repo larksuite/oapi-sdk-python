@@ -107,7 +107,9 @@ class DepartmentBuilder(object):
         self._department.leaders = leaders
         return self
 
-    def group_chat_employee_types(self, group_chat_employee_types: List[int]) -> "DepartmentBuilder":
+    def group_chat_employee_types(
+        self, group_chat_employee_types: List[int]
+    ) -> "DepartmentBuilder":
         self._department.group_chat_employee_types = group_chat_employee_types
         return self
 

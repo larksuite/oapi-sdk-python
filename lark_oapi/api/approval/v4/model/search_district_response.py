@@ -9,7 +9,6 @@ from .search_district_response_body import SearchDistrictResponseBody
 class SearchDistrictResponse(BaseResponse):
     _types = {
         "data": SearchDistrictResponseBody,
-
     }
 
     def __init__(self, d=None):

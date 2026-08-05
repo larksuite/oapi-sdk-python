@@ -25,7 +25,9 @@ class QueryRecurringPaymentResponseBody(object):
 
 class QueryRecurringPaymentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_recurring_payment_response_body = QueryRecurringPaymentResponseBody()
+        self._query_recurring_payment_response_body = (
+            QueryRecurringPaymentResponseBody()
+        )
 
     def page_token(self, page_token: str) -> "QueryRecurringPaymentResponseBodyBuilder":
         self._query_recurring_payment_response_body.page_token = page_token
@@ -35,7 +37,9 @@ class QueryRecurringPaymentResponseBodyBuilder(object):
         self._query_recurring_payment_response_body.has_more = has_more
         return self
 
-    def records(self, records: List[RecurringPayment]) -> "QueryRecurringPaymentResponseBodyBuilder":
+    def records(
+        self, records: List[RecurringPayment]
+    ) -> "QueryRecurringPaymentResponseBodyBuilder":
         self._query_recurring_payment_response_body.records = records
         return self
 

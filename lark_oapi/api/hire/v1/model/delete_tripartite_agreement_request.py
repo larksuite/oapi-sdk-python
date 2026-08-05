@@ -16,17 +16,26 @@ class DeleteTripartiteAgreementRequest(BaseRequest):
 
 
 class DeleteTripartiteAgreementRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_tripartite_agreement_request = DeleteTripartiteAgreementRequest()
         delete_tripartite_agreement_request.http_method = HttpMethod.DELETE
-        delete_tripartite_agreement_request.uri = "/open-apis/hire/v1/tripartite_agreements/:tripartite_agreement_id"
+        delete_tripartite_agreement_request.uri = (
+            "/open-apis/hire/v1/tripartite_agreements/:tripartite_agreement_id"
+        )
         delete_tripartite_agreement_request.token_types = {AccessTokenType.TENANT}
-        self._delete_tripartite_agreement_request: DeleteTripartiteAgreementRequest = delete_tripartite_agreement_request
+        self._delete_tripartite_agreement_request: DeleteTripartiteAgreementRequest = (
+            delete_tripartite_agreement_request
+        )
 
-    def tripartite_agreement_id(self, tripartite_agreement_id: str) -> "DeleteTripartiteAgreementRequestBuilder":
-        self._delete_tripartite_agreement_request.tripartite_agreement_id = tripartite_agreement_id
-        self._delete_tripartite_agreement_request.paths["tripartite_agreement_id"] = str(tripartite_agreement_id)
+    def tripartite_agreement_id(
+        self, tripartite_agreement_id: str
+    ) -> "DeleteTripartiteAgreementRequestBuilder":
+        self._delete_tripartite_agreement_request.tripartite_agreement_id = (
+            tripartite_agreement_id
+        )
+        self._delete_tripartite_agreement_request.paths["tripartite_agreement_id"] = (
+            str(tripartite_agreement_id)
+        )
         return self
 
     def build(self) -> DeleteTripartiteAgreementRequest:

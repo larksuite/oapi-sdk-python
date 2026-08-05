@@ -19,13 +19,14 @@ class GetEnumListAppEnumRequest(BaseRequest):
 
 
 class GetEnumListAppEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         get_enum_list_app_enum_request = GetEnumListAppEnumRequest()
         get_enum_list_app_enum_request.http_method = HttpMethod.GET
         get_enum_list_app_enum_request.uri = "/open-apis/spark/v1/apps/:app_id/enums"
         get_enum_list_app_enum_request.token_types = {AccessTokenType.USER}
-        self._get_enum_list_app_enum_request: GetEnumListAppEnumRequest = get_enum_list_app_enum_request
+        self._get_enum_list_app_enum_request: GetEnumListAppEnumRequest = (
+            get_enum_list_app_enum_request
+        )
 
     def page_size(self, page_size: int) -> "GetEnumListAppEnumRequestBuilder":
         self._get_enum_list_app_enum_request.page_size = page_size

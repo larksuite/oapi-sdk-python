@@ -27,7 +27,9 @@ class SearchAssignedUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_assigned_user_response_body = SearchAssignedUserResponseBody()
 
-    def items(self, items: List[RoleAuthorization]) -> "SearchAssignedUserResponseBodyBuilder":
+    def items(
+        self, items: List[RoleAuthorization]
+    ) -> "SearchAssignedUserResponseBodyBuilder":
         self._search_assigned_user_response_body.items = items
         return self
 

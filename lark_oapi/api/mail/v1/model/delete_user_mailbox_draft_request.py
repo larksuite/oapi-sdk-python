@@ -17,17 +17,24 @@ class DeleteUserMailboxDraftRequest(BaseRequest):
 
 
 class DeleteUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_user_mailbox_draft_request = DeleteUserMailboxDraftRequest()
         delete_user_mailbox_draft_request.http_method = HttpMethod.DELETE
-        delete_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        delete_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        )
         delete_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._delete_user_mailbox_draft_request: DeleteUserMailboxDraftRequest = delete_user_mailbox_draft_request
+        self._delete_user_mailbox_draft_request: DeleteUserMailboxDraftRequest = (
+            delete_user_mailbox_draft_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "DeleteUserMailboxDraftRequestBuilder":
         self._delete_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._delete_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._delete_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def draft_id(self, draft_id: str) -> "DeleteUserMailboxDraftRequestBuilder":

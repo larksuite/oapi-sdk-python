@@ -9,7 +9,6 @@ from .get_approval_groups_response_body import GetApprovalGroupsResponseBody
 class GetApprovalGroupsResponse(BaseResponse):
     _types = {
         "data": GetApprovalGroupsResponseBody,
-
     }
 
     def __init__(self, d=None):

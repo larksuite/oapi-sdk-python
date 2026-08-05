@@ -9,7 +9,6 @@ from .create_chat_response_body import CreateChatResponseBody
 class CreateChatResponse(BaseResponse):
     _types = {
         "data": CreateChatResponseBody,
-
     }
 
     def __init__(self, d=None):

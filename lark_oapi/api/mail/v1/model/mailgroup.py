@@ -56,11 +56,15 @@ class MailgroupBuilder(object):
         self._mailgroup.direct_members_count = direct_members_count
         return self
 
-    def include_external_member(self, include_external_member: bool) -> "MailgroupBuilder":
+    def include_external_member(
+        self, include_external_member: bool
+    ) -> "MailgroupBuilder":
         self._mailgroup.include_external_member = include_external_member
         return self
 
-    def include_all_company_member(self, include_all_company_member: bool) -> "MailgroupBuilder":
+    def include_all_company_member(
+        self, include_all_company_member: bool
+    ) -> "MailgroupBuilder":
         self._mailgroup.include_all_company_member = include_all_company_member
         return self
 

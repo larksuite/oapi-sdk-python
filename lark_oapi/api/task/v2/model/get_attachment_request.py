@@ -17,12 +17,14 @@ class GetAttachmentRequest(BaseRequest):
 
 
 class GetAttachmentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_attachment_request = GetAttachmentRequest()
         get_attachment_request.http_method = HttpMethod.GET
         get_attachment_request.uri = "/open-apis/task/v2/attachments/:attachment_guid"
-        get_attachment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_attachment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_attachment_request: GetAttachmentRequest = get_attachment_request
 
     def user_id_type(self, user_id_type: str) -> "GetAttachmentRequestBuilder":

@@ -39,7 +39,9 @@ class AuditObjectEntityBuilder(object):
         self._audit_object_entity.object_value = object_value
         return self
 
-    def object_detail(self, object_detail: AuditObjectDetail) -> "AuditObjectEntityBuilder":
+    def object_detail(
+        self, object_detail: AuditObjectDetail
+    ) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_detail = object_detail
         return self
 

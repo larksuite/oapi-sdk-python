@@ -21,8 +21,9 @@ class Employment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateEmploymentRequest,
-               option: Optional[RequestOption] = None) -> CreateEmploymentResponse:
+    def create(
+        self, request: CreateEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> CreateEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +38,16 @@ class Employment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmploymentResponse)
+        response: CreateEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEmploymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateEmploymentRequest,
-                      option: Optional[RequestOption] = None) -> CreateEmploymentResponse:
+    async def acreate(
+        self, request: CreateEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> CreateEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,13 +58,16 @@ class Employment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmploymentResponse)
+        response: CreateEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEmploymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteEmploymentRequest,
-               option: Optional[RequestOption] = None) -> DeleteEmploymentResponse:
+    def delete(
+        self, request: DeleteEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,13 +82,16 @@ class Employment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteEmploymentResponse)
+        response: DeleteEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteEmploymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteEmploymentRequest,
-                      option: Optional[RequestOption] = None) -> DeleteEmploymentResponse:
+    async def adelete(
+        self, request: DeleteEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,12 +102,16 @@ class Employment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteEmploymentResponse)
+        response: DeleteEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteEmploymentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchEmploymentRequest, option: Optional[RequestOption] = None) -> PatchEmploymentResponse:
+    def patch(
+        self, request: PatchEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> PatchEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,13 +126,16 @@ class Employment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmploymentResponse)
+        response: PatchEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchEmploymentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchEmploymentRequest,
-                     option: Optional[RequestOption] = None) -> PatchEmploymentResponse:
+    async def apatch(
+        self, request: PatchEmploymentRequest, option: Optional[RequestOption] = None
+    ) -> PatchEmploymentResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,7 +146,9 @@ class Employment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchEmploymentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmploymentResponse)
+        response: PatchEmploymentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchEmploymentResponse
+        )
         response.raw = resp
 
         return response

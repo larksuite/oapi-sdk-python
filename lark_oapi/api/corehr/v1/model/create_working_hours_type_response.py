@@ -9,7 +9,6 @@ from .create_working_hours_type_response_body import CreateWorkingHoursTypeRespo
 class CreateWorkingHoursTypeResponse(BaseResponse):
     _types = {
         "data": CreateWorkingHoursTypeResponseBody,
-
     }
 
     def __init__(self, d=None):

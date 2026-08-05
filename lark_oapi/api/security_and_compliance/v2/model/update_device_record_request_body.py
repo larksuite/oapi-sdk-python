@@ -26,11 +26,15 @@ class UpdateDeviceRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_device_record_request_body = UpdateDeviceRecordRequestBody()
 
-    def device_ownership(self, device_ownership: int) -> "UpdateDeviceRecordRequestBodyBuilder":
+    def device_ownership(
+        self, device_ownership: int
+    ) -> "UpdateDeviceRecordRequestBodyBuilder":
         self._update_device_record_request_body.device_ownership = device_ownership
         return self
 
-    def device_status(self, device_status: int) -> "UpdateDeviceRecordRequestBodyBuilder":
+    def device_status(
+        self, device_status: int
+    ) -> "UpdateDeviceRecordRequestBodyBuilder":
         self._update_device_record_request_body.device_status = device_status
         return self
 

@@ -27,7 +27,9 @@ class FilterExpressionBuilder(object):
     def __init__(self) -> None:
         self._filter_expression = FilterExpression()
 
-    def conditions(self, conditions: List[FilterCondition]) -> "FilterExpressionBuilder":
+    def conditions(
+        self, conditions: List[FilterCondition]
+    ) -> "FilterExpressionBuilder":
         self._filter_expression.conditions = conditions
         return self
 

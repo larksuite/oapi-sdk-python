@@ -33,9 +33,7 @@ class P2DriveFileBitableFieldChangedV1Data(object):
 
 
 class P2DriveFileBitableFieldChangedV1(EventContext):
-    _types = {
-        "event": P2DriveFileBitableFieldChangedV1Data
-    }
+    _types = {"event": P2DriveFileBitableFieldChangedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

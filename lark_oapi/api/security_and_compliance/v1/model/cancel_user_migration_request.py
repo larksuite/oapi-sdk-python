@@ -18,20 +18,28 @@ class CancelUserMigrationRequest(BaseRequest):
 
 
 class CancelUserMigrationRequestBuilder(object):
-
     def __init__(self) -> None:
         cancel_user_migration_request = CancelUserMigrationRequest()
         cancel_user_migration_request.http_method = HttpMethod.POST
-        cancel_user_migration_request.uri = "/open-apis/security_and_compliance/v1/user_migrations/cancel"
-        cancel_user_migration_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._cancel_user_migration_request: CancelUserMigrationRequest = cancel_user_migration_request
+        cancel_user_migration_request.uri = (
+            "/open-apis/security_and_compliance/v1/user_migrations/cancel"
+        )
+        cancel_user_migration_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._cancel_user_migration_request: CancelUserMigrationRequest = (
+            cancel_user_migration_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CancelUserMigrationRequestBuilder":
         self._cancel_user_migration_request.user_id_type = user_id_type
         self._cancel_user_migration_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CancelUserMigrationRequestBody) -> "CancelUserMigrationRequestBuilder":
+    def request_body(
+        self, request_body: CancelUserMigrationRequestBody
+    ) -> "CancelUserMigrationRequestBuilder":
         self._cancel_user_migration_request.request_body = request_body
         self._cancel_user_migration_request.body = request_body
         return self

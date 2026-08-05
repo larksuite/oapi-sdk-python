@@ -25,7 +25,9 @@ class CompensationCostBuilder(object):
     def __init__(self) -> None:
         self._compensation_cost = CompensationCost()
 
-    def compensation_cost_value(self, compensation_cost_value: str) -> "CompensationCostBuilder":
+    def compensation_cost_value(
+        self, compensation_cost_value: str
+    ) -> "CompensationCostBuilder":
         self._compensation_cost.compensation_cost_value = compensation_cost_value
         return self
 

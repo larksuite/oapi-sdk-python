@@ -18,7 +18,6 @@ class CreateShiftRequest(BaseRequest):
 
 
 class CreateShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         create_shift_request = CreateShiftRequest()
         create_shift_request.http_method = HttpMethod.POST

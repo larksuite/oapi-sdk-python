@@ -57,7 +57,6 @@ from .user_custom_attr_value import *
 from .user_department_info import *
 from .user_event import *
 from .user_group import *
-from .user_group_member import *
 from .user_i18n_name import *
 from .user_id import *
 from .user_order import *

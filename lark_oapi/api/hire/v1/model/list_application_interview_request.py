@@ -20,13 +20,16 @@ class ListApplicationInterviewRequest(BaseRequest):
 
 
 class ListApplicationInterviewRequestBuilder(object):
-
     def __init__(self) -> None:
         list_application_interview_request = ListApplicationInterviewRequest()
         list_application_interview_request.http_method = HttpMethod.GET
-        list_application_interview_request.uri = "/open-apis/hire/v1/applications/:application_id/interviews"
+        list_application_interview_request.uri = (
+            "/open-apis/hire/v1/applications/:application_id/interviews"
+        )
         list_application_interview_request.token_types = {AccessTokenType.TENANT}
-        self._list_application_interview_request: ListApplicationInterviewRequest = list_application_interview_request
+        self._list_application_interview_request: ListApplicationInterviewRequest = (
+            list_application_interview_request
+        )
 
     def page_size(self, page_size: int) -> "ListApplicationInterviewRequestBuilder":
         self._list_application_interview_request.page_size = page_size
@@ -38,19 +41,29 @@ class ListApplicationInterviewRequestBuilder(object):
         self._list_application_interview_request.add_query("page_token", page_token)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListApplicationInterviewRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListApplicationInterviewRequestBuilder":
         self._list_application_interview_request.user_id_type = user_id_type
         self._list_application_interview_request.add_query("user_id_type", user_id_type)
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "ListApplicationInterviewRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "ListApplicationInterviewRequestBuilder":
         self._list_application_interview_request.job_level_id_type = job_level_id_type
-        self._list_application_interview_request.add_query("job_level_id_type", job_level_id_type)
+        self._list_application_interview_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
-    def application_id(self, application_id: str) -> "ListApplicationInterviewRequestBuilder":
+    def application_id(
+        self, application_id: str
+    ) -> "ListApplicationInterviewRequestBuilder":
         self._list_application_interview_request.application_id = application_id
-        self._list_application_interview_request.paths["application_id"] = str(application_id)
+        self._list_application_interview_request.paths["application_id"] = str(
+            application_id
+        )
         return self
 
     def build(self) -> ListApplicationInterviewRequest:

@@ -41,27 +41,39 @@ class TalentPoolMemberRefReqItemBuilder(object):
         self._talent_pool_member_ref_req_item.employment_id = employment_id
         return self
 
-    def tagged_at_date(self, tagged_at_date: str) -> "TalentPoolMemberRefReqItemBuilder":
+    def tagged_at_date(
+        self, tagged_at_date: str
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.tagged_at_date = tagged_at_date
         return self
 
-    def reason_for_joining(self, reason_for_joining: List[I18n]) -> "TalentPoolMemberRefReqItemBuilder":
+    def reason_for_joining(
+        self, reason_for_joining: List[I18n]
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.reason_for_joining = reason_for_joining
         return self
 
-    def removed_at_date(self, removed_at_date: str) -> "TalentPoolMemberRefReqItemBuilder":
+    def removed_at_date(
+        self, removed_at_date: str
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.removed_at_date = removed_at_date
         return self
 
-    def reason_for_removal(self, reason_for_removal: List[I18n]) -> "TalentPoolMemberRefReqItemBuilder":
+    def reason_for_removal(
+        self, reason_for_removal: List[I18n]
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.reason_for_removal = reason_for_removal
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "TalentPoolMemberRefReqItemBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.custom_fields = custom_fields
         return self
 
-    def talent_pool_ref(self, talent_pool_ref: str) -> "TalentPoolMemberRefReqItemBuilder":
+    def talent_pool_ref(
+        self, talent_pool_ref: str
+    ) -> "TalentPoolMemberRefReqItemBuilder":
         self._talent_pool_member_ref_req_item.talent_pool_ref = talent_pool_ref
         return self
 

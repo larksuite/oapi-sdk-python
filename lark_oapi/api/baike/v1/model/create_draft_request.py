@@ -18,12 +18,14 @@ class CreateDraftRequest(BaseRequest):
 
 
 class CreateDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         create_draft_request = CreateDraftRequest()
         create_draft_request.http_method = HttpMethod.POST
         create_draft_request.uri = "/open-apis/baike/v1/drafts"
-        create_draft_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        create_draft_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._create_draft_request: CreateDraftRequest = create_draft_request
 
     def user_id_type(self, user_id_type: str) -> "CreateDraftRequestBuilder":

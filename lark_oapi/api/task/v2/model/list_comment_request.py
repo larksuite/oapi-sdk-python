@@ -21,12 +21,14 @@ class ListCommentRequest(BaseRequest):
 
 
 class ListCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_comment_request = ListCommentRequest()
         list_comment_request.http_method = HttpMethod.GET
         list_comment_request.uri = "/open-apis/task/v2/comments"
-        list_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_comment_request: ListCommentRequest = list_comment_request
 
     def page_size(self, page_size: int) -> "ListCommentRequestBuilder":

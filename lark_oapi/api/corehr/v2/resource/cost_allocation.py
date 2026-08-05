@@ -10,21 +10,38 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_query_cost_allocation_request import BatchQueryCostAllocationRequest
-from ..model.batch_query_cost_allocation_response import BatchQueryCostAllocationResponse
-from ..model.create_version_cost_allocation_request import CreateVersionCostAllocationRequest
-from ..model.create_version_cost_allocation_response import CreateVersionCostAllocationResponse
-from ..model.remove_version_cost_allocation_request import RemoveVersionCostAllocationRequest
-from ..model.remove_version_cost_allocation_response import RemoveVersionCostAllocationResponse
-from ..model.update_version_cost_allocation_request import UpdateVersionCostAllocationRequest
-from ..model.update_version_cost_allocation_response import UpdateVersionCostAllocationResponse
+from ..model.batch_query_cost_allocation_response import (
+    BatchQueryCostAllocationResponse,
+)
+from ..model.create_version_cost_allocation_request import (
+    CreateVersionCostAllocationRequest,
+)
+from ..model.create_version_cost_allocation_response import (
+    CreateVersionCostAllocationResponse,
+)
+from ..model.remove_version_cost_allocation_request import (
+    RemoveVersionCostAllocationRequest,
+)
+from ..model.remove_version_cost_allocation_response import (
+    RemoveVersionCostAllocationResponse,
+)
+from ..model.update_version_cost_allocation_request import (
+    UpdateVersionCostAllocationRequest,
+)
+from ..model.update_version_cost_allocation_response import (
+    UpdateVersionCostAllocationResponse,
+)
 
 
 class CostAllocation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryCostAllocationRequest,
-                    option: Optional[RequestOption] = None) -> BatchQueryCostAllocationResponse:
+    def batch_query(
+        self,
+        request: BatchQueryCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +56,18 @@ class CostAllocation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchQueryCostAllocationResponse)
+        response: BatchQueryCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_query(self, request: BatchQueryCostAllocationRequest,
-                           option: Optional[RequestOption] = None) -> BatchQueryCostAllocationResponse:
+    async def abatch_query(
+        self,
+        request: BatchQueryCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +78,18 @@ class CostAllocation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchQueryCostAllocationResponse)
+        response: BatchQueryCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def create_version(self, request: CreateVersionCostAllocationRequest,
-                       option: Optional[RequestOption] = None) -> CreateVersionCostAllocationResponse:
+    def create_version(
+        self,
+        request: CreateVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +104,18 @@ class CostAllocation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateVersionCostAllocationResponse)
+        response: CreateVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate_version(self, request: CreateVersionCostAllocationRequest,
-                              option: Optional[RequestOption] = None) -> CreateVersionCostAllocationResponse:
+    async def acreate_version(
+        self,
+        request: CreateVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +126,18 @@ class CostAllocation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateVersionCostAllocationResponse)
+        response: CreateVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove_version(self, request: RemoveVersionCostAllocationRequest,
-                       option: Optional[RequestOption] = None) -> RemoveVersionCostAllocationResponse:
+    def remove_version(
+        self,
+        request: RemoveVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +152,18 @@ class CostAllocation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       RemoveVersionCostAllocationResponse)
+        response: RemoveVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_version(self, request: RemoveVersionCostAllocationRequest,
-                              option: Optional[RequestOption] = None) -> RemoveVersionCostAllocationResponse:
+    async def aremove_version(
+        self,
+        request: RemoveVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +174,18 @@ class CostAllocation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       RemoveVersionCostAllocationResponse)
+        response: RemoveVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_version(self, request: UpdateVersionCostAllocationRequest,
-                       option: Optional[RequestOption] = None) -> UpdateVersionCostAllocationResponse:
+    def update_version(
+        self,
+        request: UpdateVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +200,18 @@ class CostAllocation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateVersionCostAllocationResponse)
+        response: UpdateVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_version(self, request: UpdateVersionCostAllocationRequest,
-                              option: Optional[RequestOption] = None) -> UpdateVersionCostAllocationResponse:
+    async def aupdate_version(
+        self,
+        request: UpdateVersionCostAllocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateVersionCostAllocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,8 +222,9 @@ class CostAllocation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateVersionCostAllocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateVersionCostAllocationResponse)
+        response: UpdateVersionCostAllocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateVersionCostAllocationResponse
+        )
         response.raw = resp
 
         return response

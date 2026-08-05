@@ -31,8 +31,12 @@ class ReportDetailReqBuilder(object):
         self._report_detail_req.workforce_plan_id = workforce_plan_id
         return self
 
-    def centralized_reporting_project_id(self, centralized_reporting_project_id: str) -> "ReportDetailReqBuilder":
-        self._report_detail_req.centralized_reporting_project_id = centralized_reporting_project_id
+    def centralized_reporting_project_id(
+        self, centralized_reporting_project_id: str
+    ) -> "ReportDetailReqBuilder":
+        self._report_detail_req.centralized_reporting_project_id = (
+            centralized_reporting_project_id
+        )
         return self
 
     def items(self, items: List[WorkforcePlanDetailRow]) -> "ReportDetailReqBuilder":

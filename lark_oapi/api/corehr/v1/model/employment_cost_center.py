@@ -29,7 +29,9 @@ class EmploymentCostCenterBuilder(object):
         self._employment_cost_center.employment_id = employment_id
         return self
 
-    def cost_center(self, cost_center: List[CostCenter]) -> "EmploymentCostCenterBuilder":
+    def cost_center(
+        self, cost_center: List[CostCenter]
+    ) -> "EmploymentCostCenterBuilder":
         self._employment_cost_center.cost_center = cost_center
         return self
 

@@ -17,15 +17,18 @@ class CreateAppAccessTokenRequest(BaseRequest):
 
 
 class CreateAppAccessTokenRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_access_token_request = CreateAppAccessTokenRequest()
         create_app_access_token_request.http_method = HttpMethod.POST
         create_app_access_token_request.uri = "/open-apis/auth/v3/app_access_token"
         create_app_access_token_request.token_types = {}
-        self._create_app_access_token_request: CreateAppAccessTokenRequest = create_app_access_token_request
+        self._create_app_access_token_request: CreateAppAccessTokenRequest = (
+            create_app_access_token_request
+        )
 
-    def request_body(self, request_body: CreateAppAccessTokenRequestBody) -> "CreateAppAccessTokenRequestBuilder":
+    def request_body(
+        self, request_body: CreateAppAccessTokenRequestBody
+    ) -> "CreateAppAccessTokenRequestBuilder":
         self._create_app_access_token_request.request_body = request_body
         self._create_app_access_token_request.body = request_body
         return self

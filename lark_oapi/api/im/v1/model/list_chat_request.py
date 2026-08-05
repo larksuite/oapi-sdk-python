@@ -20,7 +20,6 @@ class ListChatRequest(BaseRequest):
 
 
 class ListChatRequestBuilder(object):
-
     def __init__(self) -> None:
         list_chat_request = ListChatRequest()
         list_chat_request.http_method = HttpMethod.GET

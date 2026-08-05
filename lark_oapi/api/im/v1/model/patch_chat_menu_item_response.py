@@ -9,7 +9,6 @@ from .patch_chat_menu_item_response_body import PatchChatMenuItemResponseBody
 class PatchChatMenuItemResponse(BaseResponse):
     _types = {
         "data": PatchChatMenuItemResponseBody,
-
     }
 
     def __init__(self, d=None):

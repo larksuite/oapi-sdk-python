@@ -9,7 +9,6 @@ from .list_evaluation_task_response_body import ListEvaluationTaskResponseBody
 class ListEvaluationTaskResponse(BaseResponse):
     _types = {
         "data": ListEvaluationTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

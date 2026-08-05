@@ -23,8 +23,9 @@ class CreateAgentScheduleRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_agent_schedule_request_body = CreateAgentScheduleRequestBody()
 
-    def agent_schedules(self,
-                        agent_schedules: List[AgentScheduleUpdateInfo]) -> "CreateAgentScheduleRequestBodyBuilder":
+    def agent_schedules(
+        self, agent_schedules: List[AgentScheduleUpdateInfo]
+    ) -> "CreateAgentScheduleRequestBodyBuilder":
         self._create_agent_schedule_request_body.agent_schedules = agent_schedules
         return self
 

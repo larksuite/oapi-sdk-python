@@ -18,20 +18,25 @@ class UploadPartAppStorageRequest(BaseRequest):
 
 
 class UploadPartAppStorageRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_part_app_storage_request = UploadPartAppStorageRequest()
         upload_part_app_storage_request.http_method = HttpMethod.POST
-        upload_part_app_storage_request.uri = "/open-apis/spark/v1/apps/:app_id/storage/upload/part"
+        upload_part_app_storage_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/storage/upload/part"
+        )
         upload_part_app_storage_request.token_types = {AccessTokenType.USER}
-        self._upload_part_app_storage_request: UploadPartAppStorageRequest = upload_part_app_storage_request
+        self._upload_part_app_storage_request: UploadPartAppStorageRequest = (
+            upload_part_app_storage_request
+        )
 
     def app_id(self, app_id: str) -> "UploadPartAppStorageRequestBuilder":
         self._upload_part_app_storage_request.app_id = app_id
         self._upload_part_app_storage_request.paths["app_id"] = str(app_id)
         return self
 
-    def request_body(self, request_body: UploadPartAppStorageRequestBody) -> "UploadPartAppStorageRequestBuilder":
+    def request_body(
+        self, request_body: UploadPartAppStorageRequestBody
+    ) -> "UploadPartAppStorageRequestBuilder":
         self._upload_part_app_storage_request.request_body = request_body
         self._upload_part_app_storage_request.body = request_body
         return self

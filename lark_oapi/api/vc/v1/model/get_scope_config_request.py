@@ -18,7 +18,6 @@ class GetScopeConfigRequest(BaseRequest):
 
 
 class GetScopeConfigRequestBuilder(object):
-
     def __init__(self) -> None:
         get_scope_config_request = GetScopeConfigRequest()
         get_scope_config_request.http_method = HttpMethod.GET

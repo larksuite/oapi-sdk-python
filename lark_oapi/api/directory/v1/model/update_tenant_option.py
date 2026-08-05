@@ -24,7 +24,9 @@ class UpdateTenantOptionBuilder(object):
     def __init__(self) -> None:
         self._update_tenant_option = UpdateTenantOption()
 
-    def is_skip_domain_check(self, is_skip_domain_check: bool) -> "UpdateTenantOptionBuilder":
+    def is_skip_domain_check(
+        self, is_skip_domain_check: bool
+    ) -> "UpdateTenantOptionBuilder":
         self._update_tenant_option.is_skip_domain_check = is_skip_domain_check
         return self
 

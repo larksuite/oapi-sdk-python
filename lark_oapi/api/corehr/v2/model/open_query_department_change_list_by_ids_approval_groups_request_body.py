@@ -16,23 +16,31 @@ class OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBody(object):
         init(self, d, self._types)
 
     @staticmethod
-    def builder() -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def builder() -> (
+        "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder"
+    ):
         return OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder()
 
 
 class OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._open_query_department_change_list_by_ids_approval_groups_request_body = OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBody()
+        self._open_query_department_change_list_by_ids_approval_groups_request_body = (
+            OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBody()
+        )
 
-    def department_change_ids(self, department_change_ids: List[
-        str]) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def department_change_ids(
+        self, department_change_ids: List[str]
+    ) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_department_change_list_by_ids_approval_groups_request_body.department_change_ids = department_change_ids
         return self
 
-    def need_department_path(self,
-                             need_department_path: bool) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def need_department_path(
+        self, need_department_path: bool
+    ) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_department_change_list_by_ids_approval_groups_request_body.need_department_path = need_department_path
         return self
 
     def build(self) -> "OpenQueryDepartmentChangeListByIdsApprovalGroupsRequestBody":
-        return self._open_query_department_change_list_by_ids_approval_groups_request_body
+        return (
+            self._open_query_department_change_list_by_ids_approval_groups_request_body
+        )

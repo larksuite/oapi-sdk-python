@@ -17,8 +17,11 @@ class JobPublishRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchJobPublishRecordRequest,
-               option: Optional[RequestOption] = None) -> SearchJobPublishRecordResponse:
+    def search(
+        self,
+        request: SearchJobPublishRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchJobPublishRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class JobPublishRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchJobPublishRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SearchJobPublishRecordResponse)
+        response: SearchJobPublishRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchJobPublishRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchJobPublishRecordRequest,
-                      option: Optional[RequestOption] = None) -> SearchJobPublishRecordResponse:
+    async def asearch(
+        self,
+        request: SearchJobPublishRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchJobPublishRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class JobPublishRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchJobPublishRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SearchJobPublishRecordResponse)
+        response: SearchJobPublishRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchJobPublishRecordResponse
+        )
         response.raw = resp
 
         return response

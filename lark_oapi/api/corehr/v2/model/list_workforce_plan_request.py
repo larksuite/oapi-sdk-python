@@ -8,6 +8,8 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class ListWorkforcePlanRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.limit: Optional[int] = None
+        self.offset: Optional[int] = None
         self.get_all_plan: Optional[bool] = None
         self.active: Optional[bool] = None
         self.start_date: Optional[str] = None
@@ -19,13 +21,27 @@ class ListWorkforcePlanRequest(BaseRequest):
 
 
 class ListWorkforcePlanRequestBuilder(object):
-
     def __init__(self) -> None:
         list_workforce_plan_request = ListWorkforcePlanRequest()
         list_workforce_plan_request.http_method = HttpMethod.GET
         list_workforce_plan_request.uri = "/open-apis/corehr/v2/workforce_plans"
-        list_workforce_plan_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_workforce_plan_request: ListWorkforcePlanRequest = list_workforce_plan_request
+        list_workforce_plan_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_workforce_plan_request: ListWorkforcePlanRequest = (
+            list_workforce_plan_request
+        )
+
+    def limit(self, limit: int) -> "ListWorkforcePlanRequestBuilder":
+        self._list_workforce_plan_request.limit = limit
+        self._list_workforce_plan_request.add_query("limit", limit)
+        return self
+
+    def offset(self, offset: int) -> "ListWorkforcePlanRequestBuilder":
+        self._list_workforce_plan_request.offset = offset
+        self._list_workforce_plan_request.add_query("offset", offset)
+        return self
 
     def get_all_plan(self, get_all_plan: bool) -> "ListWorkforcePlanRequestBuilder":
         self._list_workforce_plan_request.get_all_plan = get_all_plan

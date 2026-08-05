@@ -80,7 +80,9 @@ class WordInfoBuilder(object):
         self._word_info.receive_message_total = receive_message_total
         return self
 
-    def receive_en_message_total(self, receive_en_message_total: int) -> "WordInfoBuilder":
+    def receive_en_message_total(
+        self, receive_en_message_total: int
+    ) -> "WordInfoBuilder":
         self._word_info.receive_en_message_total = receive_en_message_total
         return self
 
@@ -92,27 +94,41 @@ class WordInfoBuilder(object):
         self._word_info.new_words_total = new_words_total
         return self
 
-    def eachday_send_en_message(self, eachday_send_en_message: List[int]) -> "WordInfoBuilder":
+    def eachday_send_en_message(
+        self, eachday_send_en_message: List[int]
+    ) -> "WordInfoBuilder":
         self._word_info.eachday_send_en_message = eachday_send_en_message
         return self
 
-    def eachday_send_message(self, eachday_send_message: List[int]) -> "WordInfoBuilder":
+    def eachday_send_message(
+        self, eachday_send_message: List[int]
+    ) -> "WordInfoBuilder":
         self._word_info.eachday_send_message = eachday_send_message
         return self
 
-    def eachday_receive_en_message(self, eachday_receive_en_message: List[int]) -> "WordInfoBuilder":
+    def eachday_receive_en_message(
+        self, eachday_receive_en_message: List[int]
+    ) -> "WordInfoBuilder":
         self._word_info.eachday_receive_en_message = eachday_receive_en_message
         return self
 
-    def eachday_receive_message(self, eachday_receive_message: List[int]) -> "WordInfoBuilder":
+    def eachday_receive_message(
+        self, eachday_receive_message: List[int]
+    ) -> "WordInfoBuilder":
         self._word_info.eachday_receive_message = eachday_receive_message
         return self
 
-    def send_eng_message_rate_ring_growth(self, send_eng_message_rate_ring_growth: float) -> "WordInfoBuilder":
-        self._word_info.send_eng_message_rate_ring_growth = send_eng_message_rate_ring_growth
+    def send_eng_message_rate_ring_growth(
+        self, send_eng_message_rate_ring_growth: float
+    ) -> "WordInfoBuilder":
+        self._word_info.send_eng_message_rate_ring_growth = (
+            send_eng_message_rate_ring_growth
+        )
         return self
 
-    def send_eng_words_ring_growth(self, send_eng_words_ring_growth: int) -> "WordInfoBuilder":
+    def send_eng_words_ring_growth(
+        self, send_eng_words_ring_growth: int
+    ) -> "WordInfoBuilder":
         self._word_info.send_eng_words_ring_growth = send_eng_words_ring_growth
         return self
 

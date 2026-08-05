@@ -43,7 +43,9 @@ class MigrationTicketMessageBuilder(object):
         self._migration_ticket_message.message_type = message_type
         return self
 
-    def content(self, content: ExportTicketMessageContent) -> "MigrationTicketMessageBuilder":
+    def content(
+        self, content: ExportTicketMessageContent
+    ) -> "MigrationTicketMessageBuilder":
         self._migration_ticket_message.content = content
         return self
 

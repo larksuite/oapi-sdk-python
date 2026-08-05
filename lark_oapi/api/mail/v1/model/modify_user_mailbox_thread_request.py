@@ -19,17 +19,25 @@ class ModifyUserMailboxThreadRequest(BaseRequest):
 
 
 class ModifyUserMailboxThreadRequestBuilder(object):
-
     def __init__(self) -> None:
         modify_user_mailbox_thread_request = ModifyUserMailboxThreadRequest()
         modify_user_mailbox_thread_request.http_method = HttpMethod.POST
         modify_user_mailbox_thread_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id/modify"
-        modify_user_mailbox_thread_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._modify_user_mailbox_thread_request: ModifyUserMailboxThreadRequest = modify_user_mailbox_thread_request
+        modify_user_mailbox_thread_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._modify_user_mailbox_thread_request: ModifyUserMailboxThreadRequest = (
+            modify_user_mailbox_thread_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ModifyUserMailboxThreadRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ModifyUserMailboxThreadRequestBuilder":
         self._modify_user_mailbox_thread_request.user_mailbox_id = user_mailbox_id
-        self._modify_user_mailbox_thread_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._modify_user_mailbox_thread_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def thread_id(self, thread_id: str) -> "ModifyUserMailboxThreadRequestBuilder":
@@ -37,7 +45,9 @@ class ModifyUserMailboxThreadRequestBuilder(object):
         self._modify_user_mailbox_thread_request.paths["thread_id"] = str(thread_id)
         return self
 
-    def request_body(self, request_body: ModifyUserMailboxThreadRequestBody) -> "ModifyUserMailboxThreadRequestBuilder":
+    def request_body(
+        self, request_body: ModifyUserMailboxThreadRequestBody
+    ) -> "ModifyUserMailboxThreadRequestBuilder":
         self._modify_user_mailbox_thread_request.request_body = request_body
         self._modify_user_mailbox_thread_request.body = request_body
         return self

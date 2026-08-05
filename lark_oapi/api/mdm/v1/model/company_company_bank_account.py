@@ -45,8 +45,12 @@ class CompanyCompanyBankAccountBuilder(object):
     def __init__(self) -> None:
         self._company_company_bank_account = CompanyCompanyBankAccount()
 
-    def company_bank_account_uid(self, company_bank_account_uid: str) -> "CompanyCompanyBankAccountBuilder":
-        self._company_company_bank_account.company_bank_account_uid = company_bank_account_uid
+    def company_bank_account_uid(
+        self, company_bank_account_uid: str
+    ) -> "CompanyCompanyBankAccountBuilder":
+        self._company_company_bank_account.company_bank_account_uid = (
+            company_bank_account_uid
+        )
         return self
 
     def company_uid(self, company_uid: str) -> "CompanyCompanyBankAccountBuilder":
@@ -69,15 +73,21 @@ class CompanyCompanyBankAccountBuilder(object):
         self._company_company_bank_account.currency_code = currency_code
         return self
 
-    def local_routing_code(self, local_routing_code: str) -> "CompanyCompanyBankAccountBuilder":
+    def local_routing_code(
+        self, local_routing_code: str
+    ) -> "CompanyCompanyBankAccountBuilder":
         self._company_company_bank_account.local_routing_code = local_routing_code
         return self
 
-    def gl_account_code(self, gl_account_code: str) -> "CompanyCompanyBankAccountBuilder":
+    def gl_account_code(
+        self, gl_account_code: str
+    ) -> "CompanyCompanyBankAccountBuilder":
         self._company_company_bank_account.gl_account_code = gl_account_code
         return self
 
-    def clearing_account_code(self, clearing_account_code: str) -> "CompanyCompanyBankAccountBuilder":
+    def clearing_account_code(
+        self, clearing_account_code: str
+    ) -> "CompanyCompanyBankAccountBuilder":
         self._company_company_bank_account.clearing_account_code = clearing_account_code
         return self
 
@@ -85,12 +95,18 @@ class CompanyCompanyBankAccountBuilder(object):
         self._company_company_bank_account.swift = swift
         return self
 
-    def account_attri_desc(self, account_attri_desc: str) -> "CompanyCompanyBankAccountBuilder":
+    def account_attri_desc(
+        self, account_attri_desc: str
+    ) -> "CompanyCompanyBankAccountBuilder":
         self._company_company_bank_account.account_attri_desc = account_attri_desc
         return self
 
-    def i18n_account_attri_desc(self, i18n_account_attri_desc: List[I18nStruct]) -> "CompanyCompanyBankAccountBuilder":
-        self._company_company_bank_account.i18n_account_attri_desc = i18n_account_attri_desc
+    def i18n_account_attri_desc(
+        self, i18n_account_attri_desc: List[I18nStruct]
+    ) -> "CompanyCompanyBankAccountBuilder":
+        self._company_company_bank_account.i18n_account_attri_desc = (
+            i18n_account_attri_desc
+        )
         return self
 
     def build(self) -> "CompanyCompanyBankAccount":

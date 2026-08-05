@@ -20,7 +20,9 @@ class RecognizeChinesePassportRequestBody(object):
 
 class RecognizeChinesePassportRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_chinese_passport_request_body = RecognizeChinesePassportRequestBody()
+        self._recognize_chinese_passport_request_body = (
+            RecognizeChinesePassportRequestBody()
+        )
 
     def file(self, file: IO[Any]) -> "RecognizeChinesePassportRequestBodyBuilder":
         self._recognize_chinese_passport_request_body.file = file

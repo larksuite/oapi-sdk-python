@@ -29,7 +29,9 @@ class DepartmentParentsBuilder(object):
         self._department_parents.department_id = department_id
         return self
 
-    def parent_department_list(self, parent_department_list: List[DepartmentParentInfo]) -> "DepartmentParentsBuilder":
+    def parent_department_list(
+        self, parent_department_list: List[DepartmentParentInfo]
+    ) -> "DepartmentParentsBuilder":
         self._department_parents.parent_department_list = parent_department_list
         return self
 

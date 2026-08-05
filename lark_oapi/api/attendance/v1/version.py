@@ -8,7 +8,9 @@ class V1(object):
         self.file: File = File(config)
         self.group: Group = Group(config)
         self.leave_accrual_record: LeaveAccrualRecord = LeaveAccrualRecord(config)
-        self.leave_employ_expire_record: LeaveEmployExpireRecord = LeaveEmployExpireRecord(config)
+        self.leave_employ_expire_record: LeaveEmployExpireRecord = (
+            LeaveEmployExpireRecord(config)
+        )
         self.shift: Shift = Shift(config)
         self.user_approval: UserApproval = UserApproval(config)
         self.user_daily_shift: UserDailyShift = UserDailyShift(config)

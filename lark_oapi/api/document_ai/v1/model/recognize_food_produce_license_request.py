@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .recognize_food_produce_license_request_body import RecognizeFoodProduceLicenseRequestBody
+from .recognize_food_produce_license_request_body import (
+    RecognizeFoodProduceLicenseRequestBody,
+)
 
 
 class RecognizeFoodProduceLicenseRequest(BaseRequest):
@@ -17,16 +19,18 @@ class RecognizeFoodProduceLicenseRequest(BaseRequest):
 
 
 class RecognizeFoodProduceLicenseRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_food_produce_license_request = RecognizeFoodProduceLicenseRequest()
         recognize_food_produce_license_request.http_method = HttpMethod.POST
-        recognize_food_produce_license_request.uri = "/open-apis/document_ai/v1/food_produce_license/recognize"
+        recognize_food_produce_license_request.uri = (
+            "/open-apis/document_ai/v1/food_produce_license/recognize"
+        )
         recognize_food_produce_license_request.token_types = {AccessTokenType.TENANT}
         self._recognize_food_produce_license_request: RecognizeFoodProduceLicenseRequest = recognize_food_produce_license_request
 
-    def request_body(self,
-                     request_body: RecognizeFoodProduceLicenseRequestBody) -> "RecognizeFoodProduceLicenseRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeFoodProduceLicenseRequestBody
+    ) -> "RecognizeFoodProduceLicenseRequestBuilder":
         self._recognize_food_produce_license_request.request_body = request_body
         self._recognize_food_produce_license_request.body = request_body
         return self

@@ -54,7 +54,9 @@ class MiniprogramBuilder(object):
         self._miniprogram.mobile_version_id = mobile_version_id
         return self
 
-    def mobile_min_lark_version(self, mobile_min_lark_version: str) -> "MiniprogramBuilder":
+    def mobile_min_lark_version(
+        self, mobile_min_lark_version: str
+    ) -> "MiniprogramBuilder":
         self._miniprogram.mobile_min_lark_version = mobile_min_lark_version
         return self
 

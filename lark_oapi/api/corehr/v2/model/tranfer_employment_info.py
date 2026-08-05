@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .custom_field_data import CustomFieldData
+from .open_notice_period_change_record import OpenNoticePeriodChangeRecord
 
 
 class TranferEmploymentInfo(object):
@@ -11,6 +12,7 @@ class TranferEmploymentInfo(object):
         "seniority_date": str,
         "employee_number": str,
         "custom_fields": List[CustomFieldData],
+        "notice_period_change_record": OpenNoticePeriodChangeRecord,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,7 @@ class TranferEmploymentInfo(object):
         self.seniority_date: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.notice_period_change_record: Optional[OpenNoticePeriodChangeRecord] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,8 +32,12 @@ class TranferEmploymentInfoBuilder(object):
     def __init__(self) -> None:
         self._tranfer_employment_info = TranferEmploymentInfo()
 
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "TranferEmploymentInfoBuilder":
-        self._tranfer_employment_info.regular_employee_start_date = regular_employee_start_date
+    def regular_employee_start_date(
+        self, regular_employee_start_date: str
+    ) -> "TranferEmploymentInfoBuilder":
+        self._tranfer_employment_info.regular_employee_start_date = (
+            regular_employee_start_date
+        )
         return self
 
     def seniority_date(self, seniority_date: str) -> "TranferEmploymentInfoBuilder":
@@ -41,8 +48,18 @@ class TranferEmploymentInfoBuilder(object):
         self._tranfer_employment_info.employee_number = employee_number
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "TranferEmploymentInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "TranferEmploymentInfoBuilder":
         self._tranfer_employment_info.custom_fields = custom_fields
+        return self
+
+    def notice_period_change_record(
+        self, notice_period_change_record: OpenNoticePeriodChangeRecord
+    ) -> "TranferEmploymentInfoBuilder":
+        self._tranfer_employment_info.notice_period_change_record = (
+            notice_period_change_record
+        )
         return self
 
     def build(self) -> "TranferEmploymentInfo":

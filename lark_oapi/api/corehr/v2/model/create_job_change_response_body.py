@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .transfer_info import TransferInfo
 from .custom_field_data import CustomFieldData
 from .employment_lookup_name import EmploymentLookupName
+from .column_approval_node import ColumnApprovalNode
 
 
 class CreateJobChangeResponseBody(object):
@@ -24,6 +25,7 @@ class CreateJobChangeResponseBody(object):
         "employment_name": EmploymentLookupName,
         "exception_status": str,
         "no_permission_fields": List[str],
+        "approval_nodes": List[ColumnApprovalNode],
     }
 
     def __init__(self, d=None):
@@ -42,6 +44,7 @@ class CreateJobChangeResponseBody(object):
         self.employment_name: Optional[EmploymentLookupName] = None
         self.exception_status: Optional[str] = None
         self.no_permission_fields: Optional[List[str]] = None
+        self.approval_nodes: Optional[List[ColumnApprovalNode]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -65,21 +68,29 @@ class CreateJobChangeResponseBodyBuilder(object):
         self._create_job_change_response_body.status = status
         return self
 
-    def transfer_type_unique_identifier(self,
-                                        transfer_type_unique_identifier: str) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
-    def transfer_reason_unique_identifier(self,
-                                          transfer_reason_unique_identifier: str) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def process_id(self, process_id: str) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.process_id = process_id
         return self
 
-    def effective_date(self, effective_date: str) -> "CreateJobChangeResponseBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.effective_date = effective_date
         return self
 
@@ -87,33 +98,56 @@ class CreateJobChangeResponseBodyBuilder(object):
         self._create_job_change_response_body.created_time = created_time
         return self
 
-    def transfer_info(self, transfer_info: TransferInfo) -> "CreateJobChangeResponseBodyBuilder":
+    def transfer_info(
+        self, transfer_info: TransferInfo
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.transfer_info = transfer_info
         return self
 
-    def is_adjust_salary(self, is_adjust_salary: bool) -> "CreateJobChangeResponseBodyBuilder":
+    def is_adjust_salary(
+        self, is_adjust_salary: bool
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.is_adjust_salary = is_adjust_salary
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CreateJobChangeResponseBodyBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.custom_fields = custom_fields
         return self
 
-    def details_of_job_status_change(self,
-                                     details_of_job_status_change: List[str]) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.details_of_job_status_change = details_of_job_status_change
+    def details_of_job_status_change(
+        self, details_of_job_status_change: List[str]
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.details_of_job_status_change = (
+            details_of_job_status_change
+        )
         return self
 
-    def employment_name(self, employment_name: EmploymentLookupName) -> "CreateJobChangeResponseBodyBuilder":
+    def employment_name(
+        self, employment_name: EmploymentLookupName
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.employment_name = employment_name
         return self
 
-    def exception_status(self, exception_status: str) -> "CreateJobChangeResponseBodyBuilder":
+    def exception_status(
+        self, exception_status: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.exception_status = exception_status
         return self
 
-    def no_permission_fields(self, no_permission_fields: List[str]) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.no_permission_fields = no_permission_fields
+    def no_permission_fields(
+        self, no_permission_fields: List[str]
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.no_permission_fields = (
+            no_permission_fields
+        )
+        return self
+
+    def approval_nodes(
+        self, approval_nodes: List[ColumnApprovalNode]
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.approval_nodes = approval_nodes
         return self
 
     def build(self) -> "CreateJobChangeResponseBody":

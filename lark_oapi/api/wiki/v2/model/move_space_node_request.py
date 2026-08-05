@@ -19,12 +19,16 @@ class MoveSpaceNodeRequest(BaseRequest):
 
 
 class MoveSpaceNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         move_space_node_request = MoveSpaceNodeRequest()
         move_space_node_request.http_method = HttpMethod.POST
-        move_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
-        move_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        move_space_node_request.uri = (
+            "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
+        )
+        move_space_node_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._move_space_node_request: MoveSpaceNodeRequest = move_space_node_request
 
     def space_id(self, space_id: str) -> "MoveSpaceNodeRequestBuilder":
@@ -37,7 +41,9 @@ class MoveSpaceNodeRequestBuilder(object):
         self._move_space_node_request.paths["node_token"] = str(node_token)
         return self
 
-    def request_body(self, request_body: MoveSpaceNodeRequestBody) -> "MoveSpaceNodeRequestBuilder":
+    def request_body(
+        self, request_body: MoveSpaceNodeRequestBody
+    ) -> "MoveSpaceNodeRequestBuilder":
         self._move_space_node_request.request_body = request_body
         self._move_space_node_request.body = request_body
         return self

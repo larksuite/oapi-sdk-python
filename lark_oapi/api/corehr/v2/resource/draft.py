@@ -17,7 +17,9 @@ class Draft(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetDraftRequest, option: Optional[RequestOption] = None) -> GetDraftResponse:
+    def get(
+        self, request: GetDraftRequest, option: Optional[RequestOption] = None
+    ) -> GetDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Draft(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDraftResponse)
+        response: GetDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDraftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetDraftRequest, option: Optional[RequestOption] = None) -> GetDraftResponse:
+    async def aget(
+        self, request: GetDraftRequest, option: Optional[RequestOption] = None
+    ) -> GetDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Draft(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDraftResponse)
+        response: GetDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDraftResponse
+        )
         response.raw = resp
 
         return response

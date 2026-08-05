@@ -9,7 +9,6 @@ from .table_get_workspace_table_response_body import TableGetWorkspaceTableRespo
 class TableGetWorkspaceTableResponse(BaseResponse):
     _types = {
         "data": TableGetWorkspaceTableResponseBody,
-
     }
 
     def __init__(self, d=None):

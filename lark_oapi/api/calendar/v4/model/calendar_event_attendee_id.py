@@ -52,7 +52,9 @@ class CalendarEventAttendeeIdBuilder(object):
         self._calendar_event_attendee_id.room_id = room_id
         return self
 
-    def third_party_email(self, third_party_email: str) -> "CalendarEventAttendeeIdBuilder":
+    def third_party_email(
+        self, third_party_email: str
+    ) -> "CalendarEventAttendeeIdBuilder":
         self._calendar_event_attendee_id.third_party_email = third_party_email
         return self
 

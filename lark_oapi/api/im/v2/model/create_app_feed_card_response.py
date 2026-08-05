@@ -9,7 +9,6 @@ from .create_app_feed_card_response_body import CreateAppFeedCardResponseBody
 class CreateAppFeedCardResponse(BaseResponse):
     _types = {
         "data": CreateAppFeedCardResponseBody,
-
     }
 
     def __init__(self, d=None):

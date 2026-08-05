@@ -20,7 +20,6 @@ class SearchTaskRequest(BaseRequest):
 
 
 class SearchTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         search_task_request = SearchTaskRequest()
         search_task_request.http_method = HttpMethod.POST

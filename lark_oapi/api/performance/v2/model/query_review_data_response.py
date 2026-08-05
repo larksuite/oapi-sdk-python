@@ -9,7 +9,6 @@ from .query_review_data_response_body import QueryReviewDataResponseBody
 class QueryReviewDataResponse(BaseResponse):
     _types = {
         "data": QueryReviewDataResponseBody,
-
     }
 
     def __init__(self, d=None):

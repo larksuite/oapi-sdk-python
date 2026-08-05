@@ -43,7 +43,9 @@ class ObjectiveDataBuilder(object):
         self._objective_data.text = text
         return self
 
-    def keyresult_data(self, keyresult_data: List[KeyresultData]) -> "ObjectiveDataBuilder":
+    def keyresult_data(
+        self, keyresult_data: List[KeyresultData]
+    ) -> "ObjectiveDataBuilder":
         self._objective_data.keyresult_data = keyresult_data
         return self
 

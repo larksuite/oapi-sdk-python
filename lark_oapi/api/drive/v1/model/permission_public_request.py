@@ -32,7 +32,9 @@ class PermissionPublicRequestBuilder(object):
     def __init__(self) -> None:
         self._permission_public_request = PermissionPublicRequest()
 
-    def external_access(self, external_access: bool) -> "PermissionPublicRequestBuilder":
+    def external_access(
+        self, external_access: bool
+    ) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.external_access = external_access
         return self
 
@@ -48,11 +50,15 @@ class PermissionPublicRequestBuilder(object):
         self._permission_public_request.share_entity = share_entity
         return self
 
-    def link_share_entity(self, link_share_entity: str) -> "PermissionPublicRequestBuilder":
+    def link_share_entity(
+        self, link_share_entity: str
+    ) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.link_share_entity = link_share_entity
         return self
 
-    def invite_external(self, invite_external: bool) -> "PermissionPublicRequestBuilder":
+    def invite_external(
+        self, invite_external: bool
+    ) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.invite_external = invite_external
         return self
 

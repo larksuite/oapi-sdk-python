@@ -22,7 +22,9 @@ class TaskSubscriptionTaskV2ResponseBody(object):
 
 class TaskSubscriptionTaskV2ResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._task_subscription_task_v2_response_body = TaskSubscriptionTaskV2ResponseBody()
+        self._task_subscription_task_v2_response_body = (
+            TaskSubscriptionTaskV2ResponseBody()
+        )
 
     def code(self, code: int) -> "TaskSubscriptionTaskV2ResponseBodyBuilder":
         self._task_subscription_task_v2_response_body.code = code

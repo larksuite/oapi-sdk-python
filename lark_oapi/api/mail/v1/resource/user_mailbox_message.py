@@ -9,24 +9,52 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_get_user_mailbox_message_request import BatchGetUserMailboxMessageRequest
-from ..model.batch_get_user_mailbox_message_response import BatchGetUserMailboxMessageResponse
-from ..model.batch_modify_user_mailbox_message_request import BatchModifyUserMailboxMessageRequest
-from ..model.batch_modify_user_mailbox_message_response import BatchModifyUserMailboxMessageResponse
-from ..model.batch_trash_user_mailbox_message_request import BatchTrashUserMailboxMessageRequest
-from ..model.batch_trash_user_mailbox_message_response import BatchTrashUserMailboxMessageResponse
+from ..model.batch_get_user_mailbox_message_request import (
+    BatchGetUserMailboxMessageRequest,
+)
+from ..model.batch_get_user_mailbox_message_response import (
+    BatchGetUserMailboxMessageResponse,
+)
+from ..model.batch_modify_user_mailbox_message_request import (
+    BatchModifyUserMailboxMessageRequest,
+)
+from ..model.batch_modify_user_mailbox_message_response import (
+    BatchModifyUserMailboxMessageResponse,
+)
+from ..model.batch_trash_user_mailbox_message_request import (
+    BatchTrashUserMailboxMessageRequest,
+)
+from ..model.batch_trash_user_mailbox_message_response import (
+    BatchTrashUserMailboxMessageResponse,
+)
 from ..model.get_user_mailbox_message_request import GetUserMailboxMessageRequest
 from ..model.get_user_mailbox_message_response import GetUserMailboxMessageResponse
-from ..model.get_by_card_user_mailbox_message_request import GetByCardUserMailboxMessageRequest
-from ..model.get_by_card_user_mailbox_message_response import GetByCardUserMailboxMessageResponse
+from ..model.get_by_card_user_mailbox_message_request import (
+    GetByCardUserMailboxMessageRequest,
+)
+from ..model.get_by_card_user_mailbox_message_response import (
+    GetByCardUserMailboxMessageResponse,
+)
 from ..model.list_user_mailbox_message_request import ListUserMailboxMessageRequest
 from ..model.list_user_mailbox_message_response import ListUserMailboxMessageResponse
-from ..model.list_thread_message_user_mailbox_message_request import ListThreadMessageUserMailboxMessageRequest
-from ..model.list_thread_message_user_mailbox_message_response import ListThreadMessageUserMailboxMessageResponse
+from ..model.list_thread_message_user_mailbox_message_request import (
+    ListThreadMessageUserMailboxMessageRequest,
+)
+from ..model.list_thread_message_user_mailbox_message_response import (
+    ListThreadMessageUserMailboxMessageResponse,
+)
 from ..model.modify_user_mailbox_message_request import ModifyUserMailboxMessageRequest
-from ..model.modify_user_mailbox_message_response import ModifyUserMailboxMessageResponse
+from ..model.modify_user_mailbox_message_response import (
+    ModifyUserMailboxMessageResponse,
+)
 from ..model.send_user_mailbox_message_request import SendUserMailboxMessageRequest
 from ..model.send_user_mailbox_message_response import SendUserMailboxMessageResponse
+from ..model.send_status_user_mailbox_message_request import (
+    SendStatusUserMailboxMessageRequest,
+)
+from ..model.send_status_user_mailbox_message_response import (
+    SendStatusUserMailboxMessageResponse,
+)
 from ..model.trash_user_mailbox_message_request import TrashUserMailboxMessageRequest
 from ..model.trash_user_mailbox_message_response import TrashUserMailboxMessageResponse
 
@@ -35,8 +63,11 @@ class UserMailboxMessage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetUserMailboxMessageRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetUserMailboxMessageResponse:
+    def batch_get(
+        self,
+        request: BatchGetUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchGetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,14 +82,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchGetUserMailboxMessageResponse)
+        response: BatchGetUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetUserMailboxMessageRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetUserMailboxMessageResponse:
+    async def abatch_get(
+        self,
+        request: BatchGetUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchGetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -69,14 +104,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchGetUserMailboxMessageResponse)
+        response: BatchGetUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_modify(self, request: BatchModifyUserMailboxMessageRequest,
-                     option: Optional[RequestOption] = None) -> BatchModifyUserMailboxMessageResponse:
+    def batch_modify(
+        self,
+        request: BatchModifyUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchModifyUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,14 +130,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchModifyUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         BatchModifyUserMailboxMessageResponse)
+        response: BatchModifyUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchModifyUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_modify(self, request: BatchModifyUserMailboxMessageRequest,
-                            option: Optional[RequestOption] = None) -> BatchModifyUserMailboxMessageResponse:
+    async def abatch_modify(
+        self,
+        request: BatchModifyUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchModifyUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -109,14 +152,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchModifyUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         BatchModifyUserMailboxMessageResponse)
+        response: BatchModifyUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchModifyUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_trash(self, request: BatchTrashUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> BatchTrashUserMailboxMessageResponse:
+    def batch_trash(
+        self,
+        request: BatchTrashUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchTrashUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,14 +178,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchTrashUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        BatchTrashUserMailboxMessageResponse)
+        response: BatchTrashUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchTrashUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_trash(self, request: BatchTrashUserMailboxMessageRequest,
-                           option: Optional[RequestOption] = None) -> BatchTrashUserMailboxMessageResponse:
+    async def abatch_trash(
+        self,
+        request: BatchTrashUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchTrashUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -149,14 +200,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchTrashUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        BatchTrashUserMailboxMessageResponse)
+        response: BatchTrashUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchTrashUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetUserMailboxMessageRequest,
-            option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
+    def get(
+        self,
+        request: GetUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,14 +226,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetUserMailboxMessageResponse)
+        response: GetUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserMailboxMessageRequest,
-                   option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
+    async def aget(
+        self,
+        request: GetUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -189,14 +248,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetUserMailboxMessageResponse)
+        response: GetUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_by_card(self, request: GetByCardUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
+    def get_by_card(
+        self,
+        request: GetByCardUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByCardUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -211,14 +274,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetByCardUserMailboxMessageResponse)
+        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByCardUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_by_card(self, request: GetByCardUserMailboxMessageRequest,
-                           option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
+    async def aget_by_card(
+        self,
+        request: GetByCardUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByCardUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -229,14 +296,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetByCardUserMailboxMessageResponse)
+        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByCardUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserMailboxMessageRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
+    def list(
+        self,
+        request: ListUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -251,14 +322,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListUserMailboxMessageResponse)
+        response: ListUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
+    async def alist(
+        self,
+        request: ListUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -269,14 +344,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListUserMailboxMessageResponse)
+        response: ListUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def list_thread_message(self, request: ListThreadMessageUserMailboxMessageRequest,
-                            option: Optional[RequestOption] = None) -> ListThreadMessageUserMailboxMessageResponse:
+    def list_thread_message(
+        self,
+        request: ListThreadMessageUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListThreadMessageUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -291,14 +370,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListThreadMessageUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListThreadMessageUserMailboxMessageResponse)
+        response: ListThreadMessageUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListThreadMessageUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_thread_message(self, request: ListThreadMessageUserMailboxMessageRequest, option: Optional[
-        RequestOption] = None) -> ListThreadMessageUserMailboxMessageResponse:
+    async def alist_thread_message(
+        self,
+        request: ListThreadMessageUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListThreadMessageUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -309,14 +392,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListThreadMessageUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListThreadMessageUserMailboxMessageResponse)
+        response: ListThreadMessageUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListThreadMessageUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def modify(self, request: ModifyUserMailboxMessageRequest,
-               option: Optional[RequestOption] = None) -> ModifyUserMailboxMessageResponse:
+    def modify(
+        self,
+        request: ModifyUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ModifyUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -331,14 +418,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ModifyUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ModifyUserMailboxMessageResponse)
+        response: ModifyUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ModifyUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amodify(self, request: ModifyUserMailboxMessageRequest,
-                      option: Optional[RequestOption] = None) -> ModifyUserMailboxMessageResponse:
+    async def amodify(
+        self,
+        request: ModifyUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ModifyUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -349,14 +440,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ModifyUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ModifyUserMailboxMessageResponse)
+        response: ModifyUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ModifyUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def send(self, request: SendUserMailboxMessageRequest,
-             option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+    def send(
+        self,
+        request: SendUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -371,14 +466,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SendUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asend(self, request: SendUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+    async def asend(
+        self,
+        request: SendUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -389,14 +488,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SendUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    def trash(self, request: TrashUserMailboxMessageRequest,
-              option: Optional[RequestOption] = None) -> TrashUserMailboxMessageResponse:
+    def send_status(
+        self,
+        request: SendStatusUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SendStatusUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -411,14 +514,18 @@ class UserMailboxMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TrashUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   TrashUserMailboxMessageResponse)
+        response: SendStatusUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SendStatusUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atrash(self, request: TrashUserMailboxMessageRequest,
-                     option: Optional[RequestOption] = None) -> TrashUserMailboxMessageResponse:
+    async def asend_status(
+        self,
+        request: SendStatusUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SendStatusUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -429,8 +536,57 @@ class UserMailboxMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TrashUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   TrashUserMailboxMessageResponse)
+        response: SendStatusUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SendStatusUserMailboxMessageResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def trash(
+        self,
+        request: TrashUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TrashUserMailboxMessageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TrashUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TrashUserMailboxMessageResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def atrash(
+        self,
+        request: TrashUserMailboxMessageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TrashUserMailboxMessageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TrashUserMailboxMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TrashUserMailboxMessageResponse
+        )
         response.raw = resp
 
         return response

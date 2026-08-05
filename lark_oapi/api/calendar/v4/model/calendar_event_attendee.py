@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .attendee_chat_member import AttendeeChatMember
-from .calendar_attendee_resource_customization import CalendarAttendeeResourceCustomization
+from .calendar_attendee_resource_customization import (
+    CalendarAttendeeResourceCustomization,
+)
 
 
 class CalendarEventAttendee(object):
@@ -39,7 +41,9 @@ class CalendarEventAttendee(object):
         self.room_id: Optional[str] = None
         self.third_party_email: Optional[str] = None
         self.operate_id: Optional[str] = None
-        self.resource_customization: Optional[List[CalendarAttendeeResourceCustomization]] = None
+        self.resource_customization: Optional[
+            List[CalendarAttendeeResourceCustomization]
+        ] = None
         self.approval_reason: Optional[str] = None
         init(self, d, self._types)
 
@@ -80,7 +84,9 @@ class CalendarEventAttendeeBuilder(object):
         self._calendar_event_attendee.display_name = display_name
         return self
 
-    def chat_members(self, chat_members: List[AttendeeChatMember]) -> "CalendarEventAttendeeBuilder":
+    def chat_members(
+        self, chat_members: List[AttendeeChatMember]
+    ) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.chat_members = chat_members
         return self
 
@@ -96,7 +102,9 @@ class CalendarEventAttendeeBuilder(object):
         self._calendar_event_attendee.room_id = room_id
         return self
 
-    def third_party_email(self, third_party_email: str) -> "CalendarEventAttendeeBuilder":
+    def third_party_email(
+        self, third_party_email: str
+    ) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.third_party_email = third_party_email
         return self
 
@@ -104,8 +112,9 @@ class CalendarEventAttendeeBuilder(object):
         self._calendar_event_attendee.operate_id = operate_id
         return self
 
-    def resource_customization(self, resource_customization: List[
-        CalendarAttendeeResourceCustomization]) -> "CalendarEventAttendeeBuilder":
+    def resource_customization(
+        self, resource_customization: List[CalendarAttendeeResourceCustomization]
+    ) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.resource_customization = resource_customization
         return self
 

@@ -19,13 +19,16 @@ class UrgentPhoneMessageRequest(BaseRequest):
 
 
 class UrgentPhoneMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         urgent_phone_message_request = UrgentPhoneMessageRequest()
         urgent_phone_message_request.http_method = HttpMethod.PATCH
-        urgent_phone_message_request.uri = "/open-apis/im/v1/messages/:message_id/urgent_phone"
+        urgent_phone_message_request.uri = (
+            "/open-apis/im/v1/messages/:message_id/urgent_phone"
+        )
         urgent_phone_message_request.token_types = {AccessTokenType.TENANT}
-        self._urgent_phone_message_request: UrgentPhoneMessageRequest = urgent_phone_message_request
+        self._urgent_phone_message_request: UrgentPhoneMessageRequest = (
+            urgent_phone_message_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UrgentPhoneMessageRequestBuilder":
         self._urgent_phone_message_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class UrgentPhoneMessageRequestBuilder(object):
         self._urgent_phone_message_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self, request_body: UrgentReceivers) -> "UrgentPhoneMessageRequestBuilder":
+    def request_body(
+        self, request_body: UrgentReceivers
+    ) -> "UrgentPhoneMessageRequestBuilder":
         self._urgent_phone_message_request.request_body = request_body
         self._urgent_phone_message_request.body = request_body
         return self

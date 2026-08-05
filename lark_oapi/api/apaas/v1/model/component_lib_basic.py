@@ -91,11 +91,15 @@ class ComponentLibBasicBuilder(object):
         self._component_lib_basic.owner = owner
         return self
 
-    def install_task_info(self, install_task_info: TaskInfo) -> "ComponentLibBasicBuilder":
+    def install_task_info(
+        self, install_task_info: TaskInfo
+    ) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.install_task_info = install_task_info
         return self
 
-    def sandbox_tenant_name(self, sandbox_tenant_name: str) -> "ComponentLibBasicBuilder":
+    def sandbox_tenant_name(
+        self, sandbox_tenant_name: str
+    ) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.sandbox_tenant_name = sandbox_tenant_name
         return self
 
@@ -103,11 +107,15 @@ class ComponentLibBasicBuilder(object):
         self._component_lib_basic.status = status
         return self
 
-    def i_s_v_market_version(self, i_s_v_market_version: str) -> "ComponentLibBasicBuilder":
+    def i_s_v_market_version(
+        self, i_s_v_market_version: str
+    ) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.i_s_v_market_version = i_s_v_market_version
         return self
 
-    def i_s_v_customer_count(self, i_s_v_customer_count: str) -> "ComponentLibBasicBuilder":
+    def i_s_v_customer_count(
+        self, i_s_v_customer_count: str
+    ) -> "ComponentLibBasicBuilder":
         self._component_lib_basic.i_s_v_customer_count = i_s_v_customer_count
         return self
 

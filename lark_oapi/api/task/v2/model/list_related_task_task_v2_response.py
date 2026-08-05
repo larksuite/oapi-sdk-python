@@ -9,7 +9,6 @@ from .list_related_task_task_v2_response_body import ListRelatedTaskTaskV2Respon
 class ListRelatedTaskTaskV2Response(BaseResponse):
     _types = {
         "data": ListRelatedTaskTaskV2ResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -9,7 +9,6 @@ from .get_subscribe_file_response_body import GetSubscribeFileResponseBody
 class GetSubscribeFileResponse(BaseResponse):
     _types = {
         "data": GetSubscribeFileResponseBody,
-
     }
 
     def __init__(self, d=None):

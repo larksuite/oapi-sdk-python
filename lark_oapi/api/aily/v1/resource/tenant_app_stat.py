@@ -17,8 +17,9 @@ class TenantAppStat(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListTenantAppStatRequest,
-             option: Optional[RequestOption] = None) -> ListTenantAppStatResponse:
+    def list(
+        self, request: ListTenantAppStatRequest, option: Optional[RequestOption] = None
+    ) -> ListTenantAppStatResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class TenantAppStat(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTenantAppStatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTenantAppStatResponse)
+        response: ListTenantAppStatResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTenantAppStatResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTenantAppStatRequest,
-                    option: Optional[RequestOption] = None) -> ListTenantAppStatResponse:
+    async def alist(
+        self, request: ListTenantAppStatRequest, option: Optional[RequestOption] = None
+    ) -> ListTenantAppStatResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class TenantAppStat(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTenantAppStatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTenantAppStatResponse)
+        response: ListTenantAppStatResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTenantAppStatResponse
+        )
         response.raw = resp
 
         return response

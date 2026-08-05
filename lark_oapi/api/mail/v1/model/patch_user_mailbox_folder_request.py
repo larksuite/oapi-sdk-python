@@ -19,17 +19,27 @@ class PatchUserMailboxFolderRequest(BaseRequest):
 
 
 class PatchUserMailboxFolderRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_user_mailbox_folder_request = PatchUserMailboxFolderRequest()
         patch_user_mailbox_folder_request.http_method = HttpMethod.PATCH
-        patch_user_mailbox_folder_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/folders/:folder_id"
-        patch_user_mailbox_folder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_user_mailbox_folder_request: PatchUserMailboxFolderRequest = patch_user_mailbox_folder_request
+        patch_user_mailbox_folder_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/folders/:folder_id"
+        )
+        patch_user_mailbox_folder_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_user_mailbox_folder_request: PatchUserMailboxFolderRequest = (
+            patch_user_mailbox_folder_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "PatchUserMailboxFolderRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "PatchUserMailboxFolderRequestBuilder":
         self._patch_user_mailbox_folder_request.user_mailbox_id = user_mailbox_id
-        self._patch_user_mailbox_folder_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._patch_user_mailbox_folder_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def folder_id(self, folder_id: int) -> "PatchUserMailboxFolderRequestBuilder":
@@ -37,7 +47,9 @@ class PatchUserMailboxFolderRequestBuilder(object):
         self._patch_user_mailbox_folder_request.paths["folder_id"] = str(folder_id)
         return self
 
-    def request_body(self, request_body: Folder) -> "PatchUserMailboxFolderRequestBuilder":
+    def request_body(
+        self, request_body: Folder
+    ) -> "PatchUserMailboxFolderRequestBuilder":
         self._patch_user_mailbox_folder_request.request_body = request_body
         self._patch_user_mailbox_folder_request.body = request_body
         return self

@@ -36,11 +36,15 @@ class DeviceApplyRecordEventBuilder(object):
     def __init__(self) -> None:
         self._device_apply_record_event = DeviceApplyRecordEvent()
 
-    def device_apply_record_id(self, device_apply_record_id: int) -> "DeviceApplyRecordEventBuilder":
+    def device_apply_record_id(
+        self, device_apply_record_id: int
+    ) -> "DeviceApplyRecordEventBuilder":
         self._device_apply_record_event.device_apply_record_id = device_apply_record_id
         return self
 
-    def device_record(self, device_record: DeviceRecordEvent) -> "DeviceApplyRecordEventBuilder":
+    def device_record(
+        self, device_record: DeviceRecordEvent
+    ) -> "DeviceApplyRecordEventBuilder":
         self._device_apply_record_event.device_record = device_record
         return self
 
@@ -56,7 +60,9 @@ class DeviceApplyRecordEventBuilder(object):
         self._device_apply_record_event.operator = operator
         return self
 
-    def apply_device_ownership(self, apply_device_ownership: int) -> "DeviceApplyRecordEventBuilder":
+    def apply_device_ownership(
+        self, apply_device_ownership: int
+    ) -> "DeviceApplyRecordEventBuilder":
         self._device_apply_record_event.apply_device_ownership = apply_device_ownership
         return self
 

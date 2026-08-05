@@ -43,11 +43,15 @@ class ProfileSettingNationalBuilder(object):
         self._profile_setting_national.country_region = country_region
         return self
 
-    def national_id_type(self, national_id_type: str) -> "ProfileSettingNationalBuilder":
+    def national_id_type(
+        self, national_id_type: str
+    ) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.national_id_type = national_id_type
         return self
 
-    def national_id_number(self, national_id_number: str) -> "ProfileSettingNationalBuilder":
+    def national_id_number(
+        self, national_id_number: str
+    ) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.national_id_number = national_id_number
         return self
 
@@ -63,7 +67,9 @@ class ProfileSettingNationalBuilder(object):
         self._profile_setting_national.expiration_date = expiration_date
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingNationalBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.custom_fields = custom_fields
         return self
 
@@ -71,8 +77,12 @@ class ProfileSettingNationalBuilder(object):
         self._profile_setting_national.series = series
         return self
 
-    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "ProfileSettingNationalBuilder":
-        self._profile_setting_national.effective_for_a_long_time = effective_for_a_long_time
+    def effective_for_a_long_time(
+        self, effective_for_a_long_time: bool
+    ) -> "ProfileSettingNationalBuilder":
+        self._profile_setting_national.effective_for_a_long_time = (
+            effective_for_a_long_time
+        )
         return self
 
     def build(self) -> "ProfileSettingNational":

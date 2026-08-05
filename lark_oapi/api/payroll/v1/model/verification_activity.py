@@ -70,7 +70,9 @@ class VerificationActivityBuilder(object):
         self._verification_activity.retro_period_seq = retro_period_seq
         return self
 
-    def plan_snapshot(self, plan_snapshot: VerifPlanSnapshot) -> "VerificationActivityBuilder":
+    def plan_snapshot(
+        self, plan_snapshot: VerifPlanSnapshot
+    ) -> "VerificationActivityBuilder":
         self._verification_activity.plan_snapshot = plan_snapshot
         return self
 

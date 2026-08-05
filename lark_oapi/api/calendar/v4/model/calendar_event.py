@@ -44,6 +44,7 @@ class CalendarEvent(object):
         "event_check_in": EventCheckIn,
         "source": str,
         "self_rsvp_status": str,
+        "description_rich": str,
     }
 
     def __init__(self, d=None):
@@ -75,6 +76,7 @@ class CalendarEvent(object):
         self.event_check_in: Optional[EventCheckIn] = None
         self.source: Optional[str] = None
         self.self_rsvp_status: Optional[str] = None
+        self.description_rich: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -90,7 +92,9 @@ class CalendarEventBuilder(object):
         self._calendar_event.event_id = event_id
         return self
 
-    def organizer_calendar_id(self, organizer_calendar_id: str) -> "CalendarEventBuilder":
+    def organizer_calendar_id(
+        self, organizer_calendar_id: str
+    ) -> "CalendarEventBuilder":
         self._calendar_event.organizer_calendar_id = organizer_calendar_id
         return self
 
@@ -166,7 +170,9 @@ class CalendarEventBuilder(object):
         self._calendar_event.schemas = schemas
         return self
 
-    def event_organizer(self, event_organizer: EventOrganizer) -> "CalendarEventBuilder":
+    def event_organizer(
+        self, event_organizer: EventOrganizer
+    ) -> "CalendarEventBuilder":
         self._calendar_event.event_organizer = event_organizer
         return self
 
@@ -174,7 +180,9 @@ class CalendarEventBuilder(object):
         self._calendar_event.app_link = app_link
         return self
 
-    def attendees(self, attendees: List[CalendarEventAttendee]) -> "CalendarEventBuilder":
+    def attendees(
+        self, attendees: List[CalendarEventAttendee]
+    ) -> "CalendarEventBuilder":
         self._calendar_event.attendees = attendees
         return self
 
@@ -196,6 +204,10 @@ class CalendarEventBuilder(object):
 
     def self_rsvp_status(self, self_rsvp_status: str) -> "CalendarEventBuilder":
         self._calendar_event.self_rsvp_status = self_rsvp_status
+        return self
+
+    def description_rich(self, description_rich: str) -> "CalendarEventBuilder":
+        self._calendar_event.description_rich = description_rich
         return self
 
     def build(self) -> "CalendarEvent":

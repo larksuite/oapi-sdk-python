@@ -20,13 +20,14 @@ class BatchQueryAgencyRequest(BaseRequest):
 
 
 class BatchQueryAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_query_agency_request = BatchQueryAgencyRequest()
         batch_query_agency_request.http_method = HttpMethod.POST
         batch_query_agency_request.uri = "/open-apis/hire/v1/agencies/batch_query"
         batch_query_agency_request.token_types = {AccessTokenType.TENANT}
-        self._batch_query_agency_request: BatchQueryAgencyRequest = batch_query_agency_request
+        self._batch_query_agency_request: BatchQueryAgencyRequest = (
+            batch_query_agency_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "BatchQueryAgencyRequestBuilder":
         self._batch_query_agency_request.user_id_type = user_id_type
@@ -43,7 +44,9 @@ class BatchQueryAgencyRequestBuilder(object):
         self._batch_query_agency_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: BatchQueryAgencyRequestBody) -> "BatchQueryAgencyRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryAgencyRequestBody
+    ) -> "BatchQueryAgencyRequestBuilder":
         self._batch_query_agency_request.request_body = request_body
         self._batch_query_agency_request.body = request_body
         return self

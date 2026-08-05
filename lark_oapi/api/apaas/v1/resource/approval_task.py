@@ -23,8 +23,11 @@ class ApprovalTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_assignee(self, request: AddAssigneeApprovalTaskRequest,
-                     option: Optional[RequestOption] = None) -> AddAssigneeApprovalTaskResponse:
+    def add_assignee(
+        self,
+        request: AddAssigneeApprovalTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddAssigneeApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +42,18 @@ class ApprovalTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddAssigneeApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   AddAssigneeApprovalTaskResponse)
+        response: AddAssigneeApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddAssigneeApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_assignee(self, request: AddAssigneeApprovalTaskRequest,
-                            option: Optional[RequestOption] = None) -> AddAssigneeApprovalTaskResponse:
+    async def aadd_assignee(
+        self,
+        request: AddAssigneeApprovalTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddAssigneeApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +64,16 @@ class ApprovalTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddAssigneeApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   AddAssigneeApprovalTaskResponse)
+        response: AddAssigneeApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddAssigneeApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def agree(self, request: AgreeApprovalTaskRequest,
-              option: Optional[RequestOption] = None) -> AgreeApprovalTaskResponse:
+    def agree(
+        self, request: AgreeApprovalTaskRequest, option: Optional[RequestOption] = None
+    ) -> AgreeApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +88,16 @@ class ApprovalTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AgreeApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AgreeApprovalTaskResponse)
+        response: AgreeApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AgreeApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aagree(self, request: AgreeApprovalTaskRequest,
-                     option: Optional[RequestOption] = None) -> AgreeApprovalTaskResponse:
+    async def aagree(
+        self, request: AgreeApprovalTaskRequest, option: Optional[RequestOption] = None
+    ) -> AgreeApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,13 +108,16 @@ class ApprovalTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AgreeApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AgreeApprovalTaskResponse)
+        response: AgreeApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AgreeApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def reject(self, request: RejectApprovalTaskRequest,
-               option: Optional[RequestOption] = None) -> RejectApprovalTaskResponse:
+    def reject(
+        self, request: RejectApprovalTaskRequest, option: Optional[RequestOption] = None
+    ) -> RejectApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +132,16 @@ class ApprovalTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RejectApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RejectApprovalTaskResponse)
+        response: RejectApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RejectApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def areject(self, request: RejectApprovalTaskRequest,
-                      option: Optional[RequestOption] = None) -> RejectApprovalTaskResponse:
+    async def areject(
+        self, request: RejectApprovalTaskRequest, option: Optional[RequestOption] = None
+    ) -> RejectApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,13 +152,18 @@ class ApprovalTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RejectApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RejectApprovalTaskResponse)
+        response: RejectApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RejectApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def transfer(self, request: TransferApprovalTaskRequest,
-                 option: Optional[RequestOption] = None) -> TransferApprovalTaskResponse:
+    def transfer(
+        self,
+        request: TransferApprovalTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TransferApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,13 +178,18 @@ class ApprovalTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TransferApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferApprovalTaskResponse)
+        response: TransferApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransferApprovalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atransfer(self, request: TransferApprovalTaskRequest,
-                        option: Optional[RequestOption] = None) -> TransferApprovalTaskResponse:
+    async def atransfer(
+        self,
+        request: TransferApprovalTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TransferApprovalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -172,7 +200,9 @@ class ApprovalTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TransferApprovalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferApprovalTaskResponse)
+        response: TransferApprovalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TransferApprovalTaskResponse
+        )
         response.raw = resp
 
         return response

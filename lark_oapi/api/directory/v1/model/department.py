@@ -92,7 +92,9 @@ class DepartmentBuilder(object):
         self._department.encrypted_id = encrypted_id
         return self
 
-    def department_count(self, department_count: DepartmentCount) -> "DepartmentBuilder":
+    def department_count(
+        self, department_count: DepartmentCount
+    ) -> "DepartmentBuilder":
         self._department.department_count = department_count
         return self
 
@@ -156,7 +158,9 @@ class DepartmentBuilder(object):
         self._department.is_root = is_root
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "DepartmentBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "DepartmentBuilder":
         self._department.custom_field_values = custom_field_values
         return self
 
@@ -164,7 +168,9 @@ class DepartmentBuilder(object):
         self._department.department_paths = department_paths
         return self
 
-    def department_path_infos(self, department_path_infos: List[DepartmentBaseInfo]) -> "DepartmentBuilder":
+    def department_path_infos(
+        self, department_path_infos: List[DepartmentBaseInfo]
+    ) -> "DepartmentBuilder":
         self._department.department_path_infos = department_path_infos
         return self
 

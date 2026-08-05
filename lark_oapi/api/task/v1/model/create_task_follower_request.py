@@ -19,13 +19,17 @@ class CreateTaskFollowerRequest(BaseRequest):
 
 
 class CreateTaskFollowerRequestBuilder(object):
-
     def __init__(self) -> None:
         create_task_follower_request = CreateTaskFollowerRequest()
         create_task_follower_request.http_method = HttpMethod.POST
         create_task_follower_request.uri = "/open-apis/task/v1/tasks/:task_id/followers"
-        create_task_follower_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_task_follower_request: CreateTaskFollowerRequest = create_task_follower_request
+        create_task_follower_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_task_follower_request: CreateTaskFollowerRequest = (
+            create_task_follower_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.user_id_type = user_id_type
@@ -37,7 +41,9 @@ class CreateTaskFollowerRequestBuilder(object):
         self._create_task_follower_request.paths["task_id"] = str(task_id)
         return self
 
-    def request_body(self, request_body: Follower) -> "CreateTaskFollowerRequestBuilder":
+    def request_body(
+        self, request_body: Follower
+    ) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.request_body = request_body
         self._create_task_follower_request.body = request_body
         return self

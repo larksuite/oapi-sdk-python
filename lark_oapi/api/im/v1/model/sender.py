@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .i18n_names import I18nNames
 
 
 class Sender(object):
@@ -11,6 +12,8 @@ class Sender(object):
         "sender_type": str,
         "tenant_key": str,
         "sender_name": str,
+        "open_bot_id": str,
+        "sender_i18n_names": I18nNames,
     }
 
     def __init__(self, d=None):
@@ -19,6 +22,8 @@ class Sender(object):
         self.sender_type: Optional[str] = None
         self.tenant_key: Optional[str] = None
         self.sender_name: Optional[str] = None
+        self.open_bot_id: Optional[str] = None
+        self.sender_i18n_names: Optional[I18nNames] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +53,14 @@ class SenderBuilder(object):
 
     def sender_name(self, sender_name: str) -> "SenderBuilder":
         self._sender.sender_name = sender_name
+        return self
+
+    def open_bot_id(self, open_bot_id: str) -> "SenderBuilder":
+        self._sender.open_bot_id = open_bot_id
+        return self
+
+    def sender_i18n_names(self, sender_i18n_names: I18nNames) -> "SenderBuilder":
+        self._sender.sender_i18n_names = sender_i18n_names
         return self
 
     def build(self) -> "Sender":

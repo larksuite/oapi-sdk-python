@@ -17,7 +17,6 @@ class GetDraftRequest(BaseRequest):
 
 
 class GetDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         get_draft_request = GetDraftRequest()
         get_draft_request.http_method = HttpMethod.GET

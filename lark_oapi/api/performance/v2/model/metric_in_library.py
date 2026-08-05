@@ -64,7 +64,9 @@ class MetricInLibraryBuilder(object):
         self._metric_in_library.fields = fields
         return self
 
-    def scoring_setting_type(self, scoring_setting_type: str) -> "MetricInLibraryBuilder":
+    def scoring_setting_type(
+        self, scoring_setting_type: str
+    ) -> "MetricInLibraryBuilder":
         self._metric_in_library.scoring_setting_type = scoring_setting_type
         return self
 
@@ -72,11 +74,15 @@ class MetricInLibraryBuilder(object):
         self._metric_in_library.scoring_formula = scoring_formula
         return self
 
-    def data_source_inputters(self, data_source_inputters: List[User]) -> "MetricInLibraryBuilder":
+    def data_source_inputters(
+        self, data_source_inputters: List[User]
+    ) -> "MetricInLibraryBuilder":
         self._metric_in_library.data_source_inputters = data_source_inputters
         return self
 
-    def range_of_availability(self, range_of_availability: str) -> "MetricInLibraryBuilder":
+    def range_of_availability(
+        self, range_of_availability: str
+    ) -> "MetricInLibraryBuilder":
         self._metric_in_library.range_of_availability = range_of_availability
         return self
 

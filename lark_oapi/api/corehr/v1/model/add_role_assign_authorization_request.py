@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .add_role_assign_authorization_request_body import AddRoleAssignAuthorizationRequestBody
+from .add_role_assign_authorization_request_body import (
+    AddRoleAssignAuthorizationRequestBody,
+)
 
 
 class AddRoleAssignAuthorizationRequest(BaseRequest):
@@ -20,22 +22,31 @@ class AddRoleAssignAuthorizationRequest(BaseRequest):
 
 
 class AddRoleAssignAuthorizationRequestBuilder(object):
-
     def __init__(self) -> None:
         add_role_assign_authorization_request = AddRoleAssignAuthorizationRequest()
         add_role_assign_authorization_request.http_method = HttpMethod.POST
-        add_role_assign_authorization_request.uri = "/open-apis/corehr/v1/authorizations/add_role_assign"
+        add_role_assign_authorization_request.uri = (
+            "/open-apis/corehr/v1/authorizations/add_role_assign"
+        )
         add_role_assign_authorization_request.token_types = {AccessTokenType.TENANT}
         self._add_role_assign_authorization_request: AddRoleAssignAuthorizationRequest = add_role_assign_authorization_request
 
-    def employment_id(self, employment_id: str) -> "AddRoleAssignAuthorizationRequestBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "AddRoleAssignAuthorizationRequestBuilder":
         self._add_role_assign_authorization_request.employment_id = employment_id
-        self._add_role_assign_authorization_request.add_query("employment_id", employment_id)
+        self._add_role_assign_authorization_request.add_query(
+            "employment_id", employment_id
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "AddRoleAssignAuthorizationRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "AddRoleAssignAuthorizationRequestBuilder":
         self._add_role_assign_authorization_request.user_id_type = user_id_type
-        self._add_role_assign_authorization_request.add_query("user_id_type", user_id_type)
+        self._add_role_assign_authorization_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def role_id(self, role_id: str) -> "AddRoleAssignAuthorizationRequestBuilder":
@@ -43,8 +54,9 @@ class AddRoleAssignAuthorizationRequestBuilder(object):
         self._add_role_assign_authorization_request.add_query("role_id", role_id)
         return self
 
-    def request_body(self,
-                     request_body: AddRoleAssignAuthorizationRequestBody) -> "AddRoleAssignAuthorizationRequestBuilder":
+    def request_body(
+        self, request_body: AddRoleAssignAuthorizationRequestBody
+    ) -> "AddRoleAssignAuthorizationRequestBuilder":
         self._add_role_assign_authorization_request.request_body = request_body
         self._add_role_assign_authorization_request.body = request_body
         return self

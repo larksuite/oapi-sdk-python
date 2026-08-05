@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_process_query_flow_data_template_response_body import CreateProcessQueryFlowDataTemplateResponseBody
+from .create_process_query_flow_data_template_response_body import (
+    CreateProcessQueryFlowDataTemplateResponseBody,
+)
 
 
 class CreateProcessQueryFlowDataTemplateResponse(BaseResponse):
     _types = {
         "data": CreateProcessQueryFlowDataTemplateResponseBody,
-
     }
 
     def __init__(self, d=None):

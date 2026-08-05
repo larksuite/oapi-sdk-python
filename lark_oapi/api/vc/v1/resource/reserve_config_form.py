@@ -19,8 +19,11 @@ class ReserveConfigForm(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetReserveConfigFormRequest,
-            option: Optional[RequestOption] = None) -> GetReserveConfigFormResponse:
+    def get(
+        self,
+        request: GetReserveConfigFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetReserveConfigFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class ReserveConfigForm(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetReserveConfigFormResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigFormResponse)
+        response: GetReserveConfigFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetReserveConfigFormResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetReserveConfigFormRequest,
-                   option: Optional[RequestOption] = None) -> GetReserveConfigFormResponse:
+    async def aget(
+        self,
+        request: GetReserveConfigFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetReserveConfigFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class ReserveConfigForm(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetReserveConfigFormResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigFormResponse)
+        response: GetReserveConfigFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetReserveConfigFormResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchReserveConfigFormRequest,
-              option: Optional[RequestOption] = None) -> PatchReserveConfigFormResponse:
+    def patch(
+        self,
+        request: PatchReserveConfigFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchReserveConfigFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class ReserveConfigForm(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchReserveConfigFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchReserveConfigFormResponse)
+        response: PatchReserveConfigFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchReserveConfigFormResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchReserveConfigFormRequest,
-                     option: Optional[RequestOption] = None) -> PatchReserveConfigFormResponse:
+    async def apatch(
+        self,
+        request: PatchReserveConfigFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchReserveConfigFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +108,9 @@ class ReserveConfigForm(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchReserveConfigFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  PatchReserveConfigFormResponse)
+        response: PatchReserveConfigFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchReserveConfigFormResponse
+        )
         response.raw = resp
 
         return response

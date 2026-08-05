@@ -190,7 +190,9 @@ class VendorBuilder(object):
         self._vendor.linked_customer = linked_customer
         return self
 
-    def associated_with_legal_entity(self, associated_with_legal_entity: bool) -> "VendorBuilder":
+    def associated_with_legal_entity(
+        self, associated_with_legal_entity: bool
+    ) -> "VendorBuilder":
         self._vendor.associated_with_legal_entity = associated_with_legal_entity
         return self
 
@@ -202,11 +204,15 @@ class VendorBuilder(object):
         self._vendor.vendor_accounts = vendor_accounts
         return self
 
-    def vendor_addresses(self, vendor_addresses: List[VendorAddress]) -> "VendorBuilder":
+    def vendor_addresses(
+        self, vendor_addresses: List[VendorAddress]
+    ) -> "VendorBuilder":
         self._vendor.vendor_addresses = vendor_addresses
         return self
 
-    def vendor_company_views(self, vendor_company_views: List[VendorCompanyView]) -> "VendorBuilder":
+    def vendor_company_views(
+        self, vendor_company_views: List[VendorCompanyView]
+    ) -> "VendorBuilder":
         self._vendor.vendor_company_views = vendor_company_views
         return self
 

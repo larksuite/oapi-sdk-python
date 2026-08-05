@@ -21,7 +21,9 @@ class Offboarding(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def edit(self, request: EditOffboardingRequest, option: Optional[RequestOption] = None) -> EditOffboardingResponse:
+    def edit(
+        self, request: EditOffboardingRequest, option: Optional[RequestOption] = None
+    ) -> EditOffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,13 +38,16 @@ class Offboarding(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EditOffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), EditOffboardingResponse)
+        response: EditOffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditOffboardingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aedit(self, request: EditOffboardingRequest,
-                    option: Optional[RequestOption] = None) -> EditOffboardingResponse:
+    async def aedit(
+        self, request: EditOffboardingRequest, option: Optional[RequestOption] = None
+    ) -> EditOffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,13 +58,16 @@ class Offboarding(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EditOffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), EditOffboardingResponse)
+        response: EditOffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditOffboardingResponse
+        )
         response.raw = resp
 
         return response
 
-    def revoke(self, request: RevokeOffboardingRequest,
-               option: Optional[RequestOption] = None) -> RevokeOffboardingResponse:
+    def revoke(
+        self, request: RevokeOffboardingRequest, option: Optional[RequestOption] = None
+    ) -> RevokeOffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -74,13 +82,16 @@ class Offboarding(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RevokeOffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), RevokeOffboardingResponse)
+        response: RevokeOffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RevokeOffboardingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arevoke(self, request: RevokeOffboardingRequest,
-                      option: Optional[RequestOption] = None) -> RevokeOffboardingResponse:
+    async def arevoke(
+        self, request: RevokeOffboardingRequest, option: Optional[RequestOption] = None
+    ) -> RevokeOffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,13 +102,18 @@ class Offboarding(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RevokeOffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), RevokeOffboardingResponse)
+        response: RevokeOffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RevokeOffboardingResponse
+        )
         response.raw = resp
 
         return response
 
-    def submit_v2(self, request: SubmitV2OffboardingRequest,
-                  option: Optional[RequestOption] = None) -> SubmitV2OffboardingResponse:
+    def submit_v2(
+        self,
+        request: SubmitV2OffboardingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubmitV2OffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,13 +128,18 @@ class Offboarding(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubmitV2OffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitV2OffboardingResponse)
+        response: SubmitV2OffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubmitV2OffboardingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubmit_v2(self, request: SubmitV2OffboardingRequest,
-                         option: Optional[RequestOption] = None) -> SubmitV2OffboardingResponse:
+    async def asubmit_v2(
+        self,
+        request: SubmitV2OffboardingRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubmitV2OffboardingResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,7 +150,9 @@ class Offboarding(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubmitV2OffboardingResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitV2OffboardingResponse)
+        response: SubmitV2OffboardingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubmitV2OffboardingResponse
+        )
         response.raw = resp
 
         return response

@@ -9,7 +9,6 @@ from .query_employees_job_data_response_body import QueryEmployeesJobDataRespons
 class QueryEmployeesJobDataResponse(BaseResponse):
     _types = {
         "data": QueryEmployeesJobDataResponseBody,
-
     }
 
     def __init__(self, d=None):

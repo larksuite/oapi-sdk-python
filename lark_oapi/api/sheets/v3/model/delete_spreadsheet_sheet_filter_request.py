@@ -17,17 +17,25 @@ class DeleteSpreadsheetSheetFilterRequest(BaseRequest):
 
 
 class DeleteSpreadsheetSheetFilterRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_spreadsheet_sheet_filter_request = DeleteSpreadsheetSheetFilterRequest()
         delete_spreadsheet_sheet_filter_request.http_method = HttpMethod.DELETE
         delete_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-        delete_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_spreadsheet_sheet_filter_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._delete_spreadsheet_sheet_filter_request: DeleteSpreadsheetSheetFilterRequest = delete_spreadsheet_sheet_filter_request
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "DeleteSpreadsheetSheetFilterRequestBuilder":
-        self._delete_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
-        self._delete_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "DeleteSpreadsheetSheetFilterRequestBuilder":
+        self._delete_spreadsheet_sheet_filter_request.spreadsheet_token = (
+            spreadsheet_token
+        )
+        self._delete_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "DeleteSpreadsheetSheetFilterRequestBuilder":

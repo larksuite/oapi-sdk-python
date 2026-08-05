@@ -18,20 +18,31 @@ class UpdateOfferCustomFieldRequest(BaseRequest):
 
 
 class UpdateOfferCustomFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         update_offer_custom_field_request = UpdateOfferCustomFieldRequest()
         update_offer_custom_field_request.http_method = HttpMethod.PUT
-        update_offer_custom_field_request.uri = "/open-apis/hire/v1/offer_custom_fields/:offer_custom_field_id"
+        update_offer_custom_field_request.uri = (
+            "/open-apis/hire/v1/offer_custom_fields/:offer_custom_field_id"
+        )
         update_offer_custom_field_request.token_types = {AccessTokenType.TENANT}
-        self._update_offer_custom_field_request: UpdateOfferCustomFieldRequest = update_offer_custom_field_request
+        self._update_offer_custom_field_request: UpdateOfferCustomFieldRequest = (
+            update_offer_custom_field_request
+        )
 
-    def offer_custom_field_id(self, offer_custom_field_id: str) -> "UpdateOfferCustomFieldRequestBuilder":
-        self._update_offer_custom_field_request.offer_custom_field_id = offer_custom_field_id
-        self._update_offer_custom_field_request.paths["offer_custom_field_id"] = str(offer_custom_field_id)
+    def offer_custom_field_id(
+        self, offer_custom_field_id: str
+    ) -> "UpdateOfferCustomFieldRequestBuilder":
+        self._update_offer_custom_field_request.offer_custom_field_id = (
+            offer_custom_field_id
+        )
+        self._update_offer_custom_field_request.paths["offer_custom_field_id"] = str(
+            offer_custom_field_id
+        )
         return self
 
-    def request_body(self, request_body: OfferCustomField) -> "UpdateOfferCustomFieldRequestBuilder":
+    def request_body(
+        self, request_body: OfferCustomField
+    ) -> "UpdateOfferCustomFieldRequestBuilder":
         self._update_offer_custom_field_request.request_body = request_body
         self._update_offer_custom_field_request.body = request_body
         return self

@@ -18,13 +18,16 @@ class ListWorkspaceTableRequest(BaseRequest):
 
 
 class ListWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
         list_workspace_table_request = ListWorkspaceTableRequest()
         list_workspace_table_request.http_method = HttpMethod.GET
-        list_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+        list_workspace_table_request.uri = (
+            "/open-apis/apaas/v1/workspaces/:workspace_id/tables"
+        )
         list_workspace_table_request.token_types = {AccessTokenType.USER}
-        self._list_workspace_table_request: ListWorkspaceTableRequest = list_workspace_table_request
+        self._list_workspace_table_request: ListWorkspaceTableRequest = (
+            list_workspace_table_request
+        )
 
     def page_size(self, page_size: int) -> "ListWorkspaceTableRequestBuilder":
         self._list_workspace_table_request.page_size = page_size

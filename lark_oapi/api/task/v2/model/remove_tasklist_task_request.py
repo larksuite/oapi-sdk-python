@@ -19,13 +19,19 @@ class RemoveTasklistTaskRequest(BaseRequest):
 
 
 class RemoveTasklistTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         remove_tasklist_task_request = RemoveTasklistTaskRequest()
         remove_tasklist_task_request.http_method = HttpMethod.POST
-        remove_tasklist_task_request.uri = "/open-apis/task/v2/tasks/:task_guid/remove_tasklist"
-        remove_tasklist_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._remove_tasklist_task_request: RemoveTasklistTaskRequest = remove_tasklist_task_request
+        remove_tasklist_task_request.uri = (
+            "/open-apis/task/v2/tasks/:task_guid/remove_tasklist"
+        )
+        remove_tasklist_task_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._remove_tasklist_task_request: RemoveTasklistTaskRequest = (
+            remove_tasklist_task_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "RemoveTasklistTaskRequestBuilder":
         self._remove_tasklist_task_request.user_id_type = user_id_type
@@ -37,7 +43,9 @@ class RemoveTasklistTaskRequestBuilder(object):
         self._remove_tasklist_task_request.paths["task_guid"] = str(task_guid)
         return self
 
-    def request_body(self, request_body: RemoveTasklistTaskRequestBody) -> "RemoveTasklistTaskRequestBuilder":
+    def request_body(
+        self, request_body: RemoveTasklistTaskRequestBody
+    ) -> "RemoveTasklistTaskRequestBuilder":
         self._remove_tasklist_task_request.request_body = request_body
         self._remove_tasklist_task_request.body = request_body
         return self

@@ -23,7 +23,9 @@ class InviteMeetingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._invite_meeting_request_body = InviteMeetingRequestBody()
 
-    def invitees(self, invitees: List[MeetingUser]) -> "InviteMeetingRequestBodyBuilder":
+    def invitees(
+        self, invitees: List[MeetingUser]
+    ) -> "InviteMeetingRequestBodyBuilder":
         self._invite_meeting_request_body.invitees = invitees
         return self
 

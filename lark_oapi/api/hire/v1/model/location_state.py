@@ -35,7 +35,9 @@ class LocationStateBuilder(object):
         self._location_state.country_code = country_code
         return self
 
-    def state_name_info(self, state_name_info: LocationNameInfo) -> "LocationStateBuilder":
+    def state_name_info(
+        self, state_name_info: LocationNameInfo
+    ) -> "LocationStateBuilder":
         self._location_state.state_name_info = state_name_info
         return self
 

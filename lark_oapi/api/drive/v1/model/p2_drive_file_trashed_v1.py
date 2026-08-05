@@ -24,9 +24,7 @@ class P2DriveFileTrashedV1Data(object):
 
 
 class P2DriveFileTrashedV1(EventContext):
-    _types = {
-        "event": P2DriveFileTrashedV1Data
-    }
+    _types = {"event": P2DriveFileTrashedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

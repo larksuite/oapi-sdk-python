@@ -45,7 +45,9 @@ class ScoreLevelSettingBuilder(object):
         self._score_level_setting.decimal = decimal
         return self
 
-    def score_interval_type(self, score_interval_type: str) -> "ScoreLevelSettingBuilder":
+    def score_interval_type(
+        self, score_interval_type: str
+    ) -> "ScoreLevelSettingBuilder":
         self._score_level_setting.score_interval_type = score_interval_type
         return self
 
@@ -53,7 +55,9 @@ class ScoreLevelSettingBuilder(object):
         self._score_level_setting.score_type = score_type
         return self
 
-    def score_options(self, score_options: List[ScoreOption]) -> "ScoreLevelSettingBuilder":
+    def score_options(
+        self, score_options: List[ScoreOption]
+    ) -> "ScoreLevelSettingBuilder":
         self._score_level_setting.score_options = score_options
         return self
 

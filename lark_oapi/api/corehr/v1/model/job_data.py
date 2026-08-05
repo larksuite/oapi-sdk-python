@@ -46,6 +46,7 @@ class JobData(object):
         "position_id": str,
         "pathway_id": str,
         "job_data_reason": Enum,
+        "work_calendar_id": str,
     }
 
     def __init__(self, d=None):
@@ -82,6 +83,7 @@ class JobData(object):
         self.position_id: Optional[str] = None
         self.pathway_id: Optional[str] = None
         self.job_data_reason: Optional[Enum] = None
+        self.work_calendar_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -157,11 +159,15 @@ class JobDataBuilder(object):
         self._job_data.job_family_id = job_family_id
         return self
 
-    def assignment_start_reason(self, assignment_start_reason: Enum) -> "JobDataBuilder":
+    def assignment_start_reason(
+        self, assignment_start_reason: Enum
+    ) -> "JobDataBuilder":
         self._job_data.assignment_start_reason = assignment_start_reason
         return self
 
-    def probation_expected_end_date(self, probation_expected_end_date: str) -> "JobDataBuilder":
+    def probation_expected_end_date(
+        self, probation_expected_end_date: str
+    ) -> "JobDataBuilder":
         self._job_data.probation_expected_end_date = probation_expected_end_date
         return self
 
@@ -177,15 +183,21 @@ class JobDataBuilder(object):
         self._job_data.direct_manager_id = direct_manager_id
         return self
 
-    def dotted_line_manager_id_list(self, dotted_line_manager_id_list: List[str]) -> "JobDataBuilder":
+    def dotted_line_manager_id_list(
+        self, dotted_line_manager_id_list: List[str]
+    ) -> "JobDataBuilder":
         self._job_data.dotted_line_manager_id_list = dotted_line_manager_id_list
         return self
 
-    def second_direct_manager_id(self, second_direct_manager_id: str) -> "JobDataBuilder":
+    def second_direct_manager_id(
+        self, second_direct_manager_id: str
+    ) -> "JobDataBuilder":
         self._job_data.second_direct_manager_id = second_direct_manager_id
         return self
 
-    def cost_center_rate(self, cost_center_rate: List[SupportCostCenterItem]) -> "JobDataBuilder":
+    def cost_center_rate(
+        self, cost_center_rate: List[SupportCostCenterItem]
+    ) -> "JobDataBuilder":
         self._job_data.cost_center_rate = cost_center_rate
         return self
 
@@ -193,7 +205,9 @@ class JobDataBuilder(object):
         self._job_data.custom_fields = custom_fields
         return self
 
-    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "JobDataBuilder":
+    def weekly_working_hours_v2(
+        self, weekly_working_hours_v2: float
+    ) -> "JobDataBuilder":
         self._job_data.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 
@@ -223,6 +237,10 @@ class JobDataBuilder(object):
 
     def job_data_reason(self, job_data_reason: Enum) -> "JobDataBuilder":
         self._job_data.job_data_reason = job_data_reason
+        return self
+
+    def work_calendar_id(self, work_calendar_id: str) -> "JobDataBuilder":
+        self._job_data.work_calendar_id = work_calendar_id
         return self
 
     def build(self) -> "JobData":

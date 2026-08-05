@@ -47,8 +47,9 @@ class ThirdPartyMeetingSettingsBuilder(object):
         self._third_party_meeting_settings.password = password
         return self
 
-    def meeting_descriptions(self,
-                             meeting_descriptions: List[I18nMeetingDescription]) -> "ThirdPartyMeetingSettingsBuilder":
+    def meeting_descriptions(
+        self, meeting_descriptions: List[I18nMeetingDescription]
+    ) -> "ThirdPartyMeetingSettingsBuilder":
         self._third_party_meeting_settings.meeting_descriptions = meeting_descriptions
         return self
 

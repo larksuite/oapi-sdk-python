@@ -25,7 +25,9 @@ class ListUserMailboxThreadResponseBody(object):
 
 class ListUserMailboxThreadResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_user_mailbox_thread_response_body = ListUserMailboxThreadResponseBody()
+        self._list_user_mailbox_thread_response_body = (
+            ListUserMailboxThreadResponseBody()
+        )
 
     def items(self, items: List[Thread]) -> "ListUserMailboxThreadResponseBodyBuilder":
         self._list_user_mailbox_thread_response_body.items = items

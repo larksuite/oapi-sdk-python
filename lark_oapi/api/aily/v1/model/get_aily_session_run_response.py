@@ -9,7 +9,6 @@ from .get_aily_session_run_response_body import GetAilySessionRunResponseBody
 class GetAilySessionRunResponse(BaseResponse):
     _types = {
         "data": GetAilySessionRunResponseBody,
-
     }
 
     def __init__(self, d=None):

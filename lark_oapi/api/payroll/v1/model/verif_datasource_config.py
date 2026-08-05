@@ -41,7 +41,9 @@ class VerifDatasourceConfigBuilder(object):
         self._verif_datasource_config.filter_type = filter_type
         return self
 
-    def filter_rule(self, filter_rule: VerifFilterRule) -> "VerifDatasourceConfigBuilder":
+    def filter_rule(
+        self, filter_rule: VerifFilterRule
+    ) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.filter_rule = filter_rule
         return self
 
@@ -61,7 +63,9 @@ class VerifDatasourceConfigBuilder(object):
         self._verif_datasource_config.items = items
         return self
 
-    def data_source_rule(self, data_source_rule: VerifDataSourceRule) -> "VerifDatasourceConfigBuilder":
+    def data_source_rule(
+        self, data_source_rule: VerifDataSourceRule
+    ) -> "VerifDatasourceConfigBuilder":
         self._verif_datasource_config.data_source_rule = data_source_rule
         return self
 

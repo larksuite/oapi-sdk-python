@@ -24,17 +24,22 @@ class ListAdminDeptStatRequest(BaseRequest):
 
 
 class ListAdminDeptStatRequestBuilder(object):
-
     def __init__(self) -> None:
         list_admin_dept_stat_request = ListAdminDeptStatRequest()
         list_admin_dept_stat_request.http_method = HttpMethod.GET
         list_admin_dept_stat_request.uri = "/open-apis/admin/v1/admin_dept_stats"
         list_admin_dept_stat_request.token_types = {AccessTokenType.TENANT}
-        self._list_admin_dept_stat_request: ListAdminDeptStatRequest = list_admin_dept_stat_request
+        self._list_admin_dept_stat_request: ListAdminDeptStatRequest = (
+            list_admin_dept_stat_request
+        )
 
-    def department_id_type(self, department_id_type: str) -> "ListAdminDeptStatRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.department_id_type = department_id_type
-        self._list_admin_dept_stat_request.add_query("department_id_type", department_id_type)
+        self._list_admin_dept_stat_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def start_date(self, start_date: str) -> "ListAdminDeptStatRequestBuilder":
@@ -52,9 +57,13 @@ class ListAdminDeptStatRequestBuilder(object):
         self._list_admin_dept_stat_request.add_query("department_id", department_id)
         return self
 
-    def contains_child_dept(self, contains_child_dept: bool) -> "ListAdminDeptStatRequestBuilder":
+    def contains_child_dept(
+        self, contains_child_dept: bool
+    ) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.contains_child_dept = contains_child_dept
-        self._list_admin_dept_stat_request.add_query("contains_child_dept", contains_child_dept)
+        self._list_admin_dept_stat_request.add_query(
+            "contains_child_dept", contains_child_dept
+        )
         return self
 
     def page_size(self, page_size: int) -> "ListAdminDeptStatRequestBuilder":
@@ -72,9 +81,13 @@ class ListAdminDeptStatRequestBuilder(object):
         self._list_admin_dept_stat_request.add_query("target_geo", target_geo)
         return self
 
-    def with_product_version(self, with_product_version: bool) -> "ListAdminDeptStatRequestBuilder":
+    def with_product_version(
+        self, with_product_version: bool
+    ) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.with_product_version = with_product_version
-        self._list_admin_dept_stat_request.add_query("with_product_version", with_product_version)
+        self._list_admin_dept_stat_request.add_query(
+            "with_product_version", with_product_version
+        )
         return self
 
     def build(self) -> ListAdminDeptStatRequest:

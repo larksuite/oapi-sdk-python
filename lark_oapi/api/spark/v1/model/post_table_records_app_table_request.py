@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .post_table_records_app_table_request_body import PostTableRecordsAppTableRequestBody
+from .post_table_records_app_table_request_body import (
+    PostTableRecordsAppTableRequestBody,
+)
 
 
 class PostTableRecordsAppTableRequest(BaseRequest):
@@ -23,13 +25,16 @@ class PostTableRecordsAppTableRequest(BaseRequest):
 
 
 class PostTableRecordsAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         post_table_records_app_table_request = PostTableRecordsAppTableRequest()
         post_table_records_app_table_request.http_method = HttpMethod.POST
-        post_table_records_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        post_table_records_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        )
         post_table_records_app_table_request.token_types = {AccessTokenType.USER}
-        self._post_table_records_app_table_request: PostTableRecordsAppTableRequest = post_table_records_app_table_request
+        self._post_table_records_app_table_request: PostTableRecordsAppTableRequest = (
+            post_table_records_app_table_request
+        )
 
     def columns(self, columns: str) -> "PostTableRecordsAppTableRequestBuilder":
         self._post_table_records_app_table_request.columns = columns
@@ -46,9 +51,15 @@ class PostTableRecordsAppTableRequestBuilder(object):
         self._post_table_records_app_table_request.add_query("env", env)
         return self
 
-    def user_identifier_type(self, user_identifier_type: str) -> "PostTableRecordsAppTableRequestBuilder":
-        self._post_table_records_app_table_request.user_identifier_type = user_identifier_type
-        self._post_table_records_app_table_request.add_query("user_identifier_type", user_identifier_type)
+    def user_identifier_type(
+        self, user_identifier_type: str
+    ) -> "PostTableRecordsAppTableRequestBuilder":
+        self._post_table_records_app_table_request.user_identifier_type = (
+            user_identifier_type
+        )
+        self._post_table_records_app_table_request.add_query(
+            "user_identifier_type", user_identifier_type
+        )
         return self
 
     def app_id(self, app_id: str) -> "PostTableRecordsAppTableRequestBuilder":
@@ -61,8 +72,9 @@ class PostTableRecordsAppTableRequestBuilder(object):
         self._post_table_records_app_table_request.paths["table_name"] = str(table_name)
         return self
 
-    def request_body(self,
-                     request_body: PostTableRecordsAppTableRequestBody) -> "PostTableRecordsAppTableRequestBuilder":
+    def request_body(
+        self, request_body: PostTableRecordsAppTableRequestBody
+    ) -> "PostTableRecordsAppTableRequestBuilder":
         self._post_table_records_app_table_request.request_body = request_body
         self._post_table_records_app_table_request.body = request_body
         return self

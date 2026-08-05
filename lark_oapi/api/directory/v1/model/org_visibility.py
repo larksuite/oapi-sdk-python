@@ -30,7 +30,9 @@ class OrgVisibilityBuilder(object):
         self._org_visibility.main_rule = main_rule
         return self
 
-    def assist_rules(self, assist_rules: List[VisibleAssistRule]) -> "OrgVisibilityBuilder":
+    def assist_rules(
+        self, assist_rules: List[VisibleAssistRule]
+    ) -> "OrgVisibilityBuilder":
         self._org_visibility.assist_rules = assist_rules
         return self
 

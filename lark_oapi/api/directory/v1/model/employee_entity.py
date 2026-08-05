@@ -4,8 +4,12 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .employee_base_entity import EmployeeBaseEntity
 from .employee_work_entity import EmployeeWorkEntity
-from .employee_personal_and_social_relationship_entity import EmployeePersonalAndSocialRelationshipEntity
-from .employee_education_and_work_experience_entity import EmployeeEducationAndWorkExperienceEntity
+from .employee_personal_and_social_relationship_entity import (
+    EmployeePersonalAndSocialRelationshipEntity,
+)
+from .employee_education_and_work_experience_entity import (
+    EmployeeEducationAndWorkExperienceEntity,
+)
 
 
 class EmployeeEntity(object):
@@ -19,8 +23,12 @@ class EmployeeEntity(object):
     def __init__(self, d=None):
         self.base_info: Optional[EmployeeBaseEntity] = None
         self.work_info: Optional[EmployeeWorkEntity] = None
-        self.personal_and_social_relationship: Optional[EmployeePersonalAndSocialRelationshipEntity] = None
-        self.education_and_work_experience: Optional[EmployeeEducationAndWorkExperienceEntity] = None
+        self.personal_and_social_relationship: Optional[
+            EmployeePersonalAndSocialRelationshipEntity
+        ] = None
+        self.education_and_work_experience: Optional[
+            EmployeeEducationAndWorkExperienceEntity
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,14 +48,21 @@ class EmployeeEntityBuilder(object):
         self._employee_entity.work_info = work_info
         return self
 
-    def personal_and_social_relationship(self,
-                                         personal_and_social_relationship: EmployeePersonalAndSocialRelationshipEntity) -> "EmployeeEntityBuilder":
-        self._employee_entity.personal_and_social_relationship = personal_and_social_relationship
+    def personal_and_social_relationship(
+        self,
+        personal_and_social_relationship: EmployeePersonalAndSocialRelationshipEntity,
+    ) -> "EmployeeEntityBuilder":
+        self._employee_entity.personal_and_social_relationship = (
+            personal_and_social_relationship
+        )
         return self
 
-    def education_and_work_experience(self,
-                                      education_and_work_experience: EmployeeEducationAndWorkExperienceEntity) -> "EmployeeEntityBuilder":
-        self._employee_entity.education_and_work_experience = education_and_work_experience
+    def education_and_work_experience(
+        self, education_and_work_experience: EmployeeEducationAndWorkExperienceEntity
+    ) -> "EmployeeEntityBuilder":
+        self._employee_entity.education_and_work_experience = (
+            education_and_work_experience
+        )
         return self
 
     def build(self) -> "EmployeeEntity":

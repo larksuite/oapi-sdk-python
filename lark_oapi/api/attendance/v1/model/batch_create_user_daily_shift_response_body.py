@@ -21,11 +21,16 @@ class BatchCreateUserDailyShiftResponseBody(object):
 
 class BatchCreateUserDailyShiftResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_create_user_daily_shift_response_body = BatchCreateUserDailyShiftResponseBody()
+        self._batch_create_user_daily_shift_response_body = (
+            BatchCreateUserDailyShiftResponseBody()
+        )
 
-    def user_daily_shifts(self,
-                          user_daily_shifts: List[UserDailyShift]) -> "BatchCreateUserDailyShiftResponseBodyBuilder":
-        self._batch_create_user_daily_shift_response_body.user_daily_shifts = user_daily_shifts
+    def user_daily_shifts(
+        self, user_daily_shifts: List[UserDailyShift]
+    ) -> "BatchCreateUserDailyShiftResponseBodyBuilder":
+        self._batch_create_user_daily_shift_response_body.user_daily_shifts = (
+            user_daily_shifts
+        )
         return self
 
     def build(self) -> "BatchCreateUserDailyShiftResponseBody":

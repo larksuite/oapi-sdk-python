@@ -11,26 +11,33 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_approval_groups_request import GetApprovalGroupsRequest
 from ..model.get_approval_groups_response import GetApprovalGroupsResponse
-from ..model.open_query_department_change_list_by_ids_approval_groups_request import \
-    OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest
-from ..model.open_query_department_change_list_by_ids_approval_groups_response import \
-    OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse
-from ..model.open_query_job_change_list_by_ids_approval_groups_request import \
-    OpenQueryJobChangeListByIdsApprovalGroupsRequest
-from ..model.open_query_job_change_list_by_ids_approval_groups_response import \
-    OpenQueryJobChangeListByIdsApprovalGroupsResponse
-from ..model.open_query_position_change_list_by_ids_approval_groups_request import \
-    OpenQueryPositionChangeListByIdsApprovalGroupsRequest
-from ..model.open_query_position_change_list_by_ids_approval_groups_response import \
-    OpenQueryPositionChangeListByIdsApprovalGroupsResponse
+from ..model.open_query_department_change_list_by_ids_approval_groups_request import (
+    OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest,
+)
+from ..model.open_query_department_change_list_by_ids_approval_groups_response import (
+    OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse,
+)
+from ..model.open_query_job_change_list_by_ids_approval_groups_request import (
+    OpenQueryJobChangeListByIdsApprovalGroupsRequest,
+)
+from ..model.open_query_job_change_list_by_ids_approval_groups_response import (
+    OpenQueryJobChangeListByIdsApprovalGroupsResponse,
+)
+from ..model.open_query_position_change_list_by_ids_approval_groups_request import (
+    OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
+)
+from ..model.open_query_position_change_list_by_ids_approval_groups_response import (
+    OpenQueryPositionChangeListByIdsApprovalGroupsResponse,
+)
 
 
 class ApprovalGroups(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetApprovalGroupsRequest,
-            option: Optional[RequestOption] = None) -> GetApprovalGroupsResponse:
+    def get(
+        self, request: GetApprovalGroupsRequest, option: Optional[RequestOption] = None
+    ) -> GetApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,13 +52,16 @@ class ApprovalGroups(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApprovalGroupsResponse)
+        response: GetApprovalGroupsResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApprovalGroupsResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetApprovalGroupsRequest,
-                   option: Optional[RequestOption] = None) -> GetApprovalGroupsResponse:
+    async def aget(
+        self, request: GetApprovalGroupsRequest, option: Optional[RequestOption] = None
+    ) -> GetApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -62,14 +72,18 @@ class ApprovalGroups(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApprovalGroupsResponse)
+        response: GetApprovalGroupsResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApprovalGroupsResponse
+        )
         response.raw = resp
 
         return response
 
-    def open_query_department_change_list_by_ids(self, request: OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest,
-                                                 option: Optional[
-                                                     RequestOption] = None) -> OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse:
+    def open_query_department_change_list_by_ids(
+        self,
+        request: OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -84,16 +98,21 @@ class ApprovalGroups(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                            OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse,
+            )
+        )
         response.raw = resp
 
         return response
 
-    async def aopen_query_department_change_list_by_ids(self,
-                                                        request: OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest,
-                                                        option: Optional[
-                                                            RequestOption] = None) -> OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse:
+    async def aopen_query_department_change_list_by_ids(
+        self,
+        request: OpenQueryDepartmentChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -104,15 +123,21 @@ class ApprovalGroups(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                            OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                OpenQueryDepartmentChangeListByIdsApprovalGroupsResponse,
+            )
+        )
         response.raw = resp
 
         return response
 
-    def open_query_job_change_list_by_ids(self, request: OpenQueryJobChangeListByIdsApprovalGroupsRequest,
-                                          option: Optional[
-                                              RequestOption] = None) -> OpenQueryJobChangeListByIdsApprovalGroupsResponse:
+    def open_query_job_change_list_by_ids(
+        self,
+        request: OpenQueryJobChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryJobChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -127,15 +152,18 @@ class ApprovalGroups(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryJobChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                     OpenQueryJobChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryJobChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), OpenQueryJobChangeListByIdsApprovalGroupsResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aopen_query_job_change_list_by_ids(self, request: OpenQueryJobChangeListByIdsApprovalGroupsRequest,
-                                                 option: Optional[
-                                                     RequestOption] = None) -> OpenQueryJobChangeListByIdsApprovalGroupsResponse:
+    async def aopen_query_job_change_list_by_ids(
+        self,
+        request: OpenQueryJobChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryJobChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -146,15 +174,18 @@ class ApprovalGroups(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryJobChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                     OpenQueryJobChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryJobChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), OpenQueryJobChangeListByIdsApprovalGroupsResponse
+        )
         response.raw = resp
 
         return response
 
-    def open_query_position_change_list_by_ids(self, request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
-                                               option: Optional[
-                                                   RequestOption] = None) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
+    def open_query_position_change_list_by_ids(
+        self,
+        request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -169,16 +200,21 @@ class ApprovalGroups(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                          OpenQueryPositionChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                OpenQueryPositionChangeListByIdsApprovalGroupsResponse,
+            )
+        )
         response.raw = resp
 
         return response
 
-    async def aopen_query_position_change_list_by_ids(self,
-                                                      request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
-                                                      option: Optional[
-                                                          RequestOption] = None) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
+    async def aopen_query_position_change_list_by_ids(
+        self,
+        request: OpenQueryPositionChangeListByIdsApprovalGroupsRequest,
+        option: Optional[RequestOption] = None,
+    ) -> OpenQueryPositionChangeListByIdsApprovalGroupsResponse:
         if option is None:
             option = RequestOption()
 
@@ -189,8 +225,12 @@ class ApprovalGroups(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                          OpenQueryPositionChangeListByIdsApprovalGroupsResponse)
+        response: OpenQueryPositionChangeListByIdsApprovalGroupsResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                OpenQueryPositionChangeListByIdsApprovalGroupsResponse,
+            )
+        )
         response.raw = resp
 
         return response

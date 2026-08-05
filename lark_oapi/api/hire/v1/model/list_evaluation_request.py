@@ -21,12 +21,14 @@ class ListEvaluationRequest(BaseRequest):
 
 
 class ListEvaluationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_evaluation_request = ListEvaluationRequest()
         list_evaluation_request.http_method = HttpMethod.GET
         list_evaluation_request.uri = "/open-apis/hire/v1/evaluations"
-        list_evaluation_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_evaluation_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_evaluation_request: ListEvaluationRequest = list_evaluation_request
 
     def page_token(self, page_token: str) -> "ListEvaluationRequestBuilder":
@@ -44,7 +46,9 @@ class ListEvaluationRequestBuilder(object):
         self._list_evaluation_request.add_query("application_id", application_id)
         return self
 
-    def update_start_time(self, update_start_time: str) -> "ListEvaluationRequestBuilder":
+    def update_start_time(
+        self, update_start_time: str
+    ) -> "ListEvaluationRequestBuilder":
         self._list_evaluation_request.update_start_time = update_start_time
         self._list_evaluation_request.add_query("update_start_time", update_start_time)
         return self

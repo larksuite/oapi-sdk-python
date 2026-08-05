@@ -47,7 +47,9 @@ class UserTmpDailyShiftBuilder(object):
         self._user_tmp_daily_shift.shift_name = shift_name
         return self
 
-    def punch_time_simple_rules(self, punch_time_simple_rules: List[PunchTimeSimpleRule]) -> "UserTmpDailyShiftBuilder":
+    def punch_time_simple_rules(
+        self, punch_time_simple_rules: List[PunchTimeSimpleRule]
+    ) -> "UserTmpDailyShiftBuilder":
         self._user_tmp_daily_shift.punch_time_simple_rules = punch_time_simple_rules
         return self
 

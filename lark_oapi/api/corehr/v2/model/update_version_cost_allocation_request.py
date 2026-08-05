@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_version_cost_allocation_request_body import UpdateVersionCostAllocationRequestBody
+from .update_version_cost_allocation_request_body import (
+    UpdateVersionCostAllocationRequestBody,
+)
 
 
 class UpdateVersionCostAllocationRequest(BaseRequest):
@@ -19,26 +21,36 @@ class UpdateVersionCostAllocationRequest(BaseRequest):
 
 
 class UpdateVersionCostAllocationRequestBuilder(object):
-
     def __init__(self) -> None:
         update_version_cost_allocation_request = UpdateVersionCostAllocationRequest()
         update_version_cost_allocation_request.http_method = HttpMethod.POST
-        update_version_cost_allocation_request.uri = "/open-apis/corehr/v2/cost_allocations/update_version"
+        update_version_cost_allocation_request.uri = (
+            "/open-apis/corehr/v2/cost_allocations/update_version"
+        )
         update_version_cost_allocation_request.token_types = {AccessTokenType.TENANT}
         self._update_version_cost_allocation_request: UpdateVersionCostAllocationRequest = update_version_cost_allocation_request
 
-    def user_id_type(self, user_id_type: str) -> "UpdateVersionCostAllocationRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "UpdateVersionCostAllocationRequestBuilder":
         self._update_version_cost_allocation_request.user_id_type = user_id_type
-        self._update_version_cost_allocation_request.add_query("user_id_type", user_id_type)
+        self._update_version_cost_allocation_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def client_token(self, client_token: str) -> "UpdateVersionCostAllocationRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "UpdateVersionCostAllocationRequestBuilder":
         self._update_version_cost_allocation_request.client_token = client_token
-        self._update_version_cost_allocation_request.add_query("client_token", client_token)
+        self._update_version_cost_allocation_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def request_body(self,
-                     request_body: UpdateVersionCostAllocationRequestBody) -> "UpdateVersionCostAllocationRequestBuilder":
+    def request_body(
+        self, request_body: UpdateVersionCostAllocationRequestBody
+    ) -> "UpdateVersionCostAllocationRequestBuilder":
         self._update_version_cost_allocation_request.request_body = request_body
         self._update_version_cost_allocation_request.body = request_body
         return self

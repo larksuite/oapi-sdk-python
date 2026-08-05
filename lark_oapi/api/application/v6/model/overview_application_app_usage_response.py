@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .overview_application_app_usage_response_body import OverviewApplicationAppUsageResponseBody
+from .overview_application_app_usage_response_body import (
+    OverviewApplicationAppUsageResponseBody,
+)
 
 
 class OverviewApplicationAppUsageResponse(BaseResponse):
     _types = {
         "data": OverviewApplicationAppUsageResponseBody,
-
     }
 
     def __init__(self, d=None):

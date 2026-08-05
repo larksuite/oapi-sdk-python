@@ -9,7 +9,6 @@ from .get_chat_announcement_response_body import GetChatAnnouncementResponseBody
 class GetChatAnnouncementResponse(BaseResponse):
     _types = {
         "data": GetChatAnnouncementResponseBody,
-
     }
 
     def __init__(self, d=None):

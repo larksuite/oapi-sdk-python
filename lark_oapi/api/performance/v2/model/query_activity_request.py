@@ -18,7 +18,6 @@ class QueryActivityRequest(BaseRequest):
 
 
 class QueryActivityRequestBuilder(object):
-
     def __init__(self) -> None:
         query_activity_request = QueryActivityRequest()
         query_activity_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class QueryActivityRequestBuilder(object):
         self._query_activity_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QueryActivityRequestBody) -> "QueryActivityRequestBuilder":
+    def request_body(
+        self, request_body: QueryActivityRequestBody
+    ) -> "QueryActivityRequestBuilder":
         self._query_activity_request.request_body = request_body
         self._query_activity_request.body = request_body
         return self

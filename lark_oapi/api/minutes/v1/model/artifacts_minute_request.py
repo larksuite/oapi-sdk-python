@@ -16,13 +16,16 @@ class ArtifactsMinuteRequest(BaseRequest):
 
 
 class ArtifactsMinuteRequestBuilder(object):
-
     def __init__(self) -> None:
         artifacts_minute_request = ArtifactsMinuteRequest()
         artifacts_minute_request.http_method = HttpMethod.GET
-        artifacts_minute_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/artifacts"
-        artifacts_minute_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._artifacts_minute_request: ArtifactsMinuteRequest = artifacts_minute_request
+        artifacts_minute_request.uri = (
+            "/open-apis/minutes/v1/minutes/:minute_token/artifacts"
+        )
+        artifacts_minute_request.token_types = {AccessTokenType.USER}
+        self._artifacts_minute_request: ArtifactsMinuteRequest = (
+            artifacts_minute_request
+        )
 
     def minute_token(self, minute_token: str) -> "ArtifactsMinuteRequestBuilder":
         self._artifacts_minute_request.minute_token = minute_token

@@ -18,20 +18,27 @@ class QuerySecurityGroupRequest(BaseRequest):
 
 
 class QuerySecurityGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         query_security_group_request = QuerySecurityGroupRequest()
         query_security_group_request.http_method = HttpMethod.POST
         query_security_group_request.uri = "/open-apis/corehr/v1/security_groups/query"
         query_security_group_request.token_types = {AccessTokenType.TENANT}
-        self._query_security_group_request: QuerySecurityGroupRequest = query_security_group_request
+        self._query_security_group_request: QuerySecurityGroupRequest = (
+            query_security_group_request
+        )
 
-    def department_id_type(self, department_id_type: str) -> "QuerySecurityGroupRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "QuerySecurityGroupRequestBuilder":
         self._query_security_group_request.department_id_type = department_id_type
-        self._query_security_group_request.add_query("department_id_type", department_id_type)
+        self._query_security_group_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: QuerySecurityGroupRequestBody) -> "QuerySecurityGroupRequestBuilder":
+    def request_body(
+        self, request_body: QuerySecurityGroupRequestBody
+    ) -> "QuerySecurityGroupRequestBuilder":
         self._query_security_group_request.request_body = request_body
         self._query_security_group_request.body = request_body
         return self

@@ -19,17 +19,29 @@ class DeleteAppTableRecordRequest(BaseRequest):
 
 
 class DeleteAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_app_table_record_request = DeleteAppTableRecordRequest()
         delete_app_table_record_request.http_method = HttpMethod.DELETE
-        delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
-        delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_app_table_record_request: DeleteAppTableRecordRequest = delete_app_table_record_request
+        delete_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+        )
+        delete_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_app_table_record_request: DeleteAppTableRecordRequest = (
+            delete_app_table_record_request
+        )
 
-    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "DeleteAppTableRecordRequestBuilder":
-        self._delete_app_table_record_request.ignore_consistency_check = ignore_consistency_check
-        self._delete_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+    def ignore_consistency_check(
+        self, ignore_consistency_check: bool
+    ) -> "DeleteAppTableRecordRequestBuilder":
+        self._delete_app_table_record_request.ignore_consistency_check = (
+            ignore_consistency_check
+        )
+        self._delete_app_table_record_request.add_query(
+            "ignore_consistency_check", ignore_consistency_check
+        )
         return self
 
     def app_token(self, app_token: str) -> "DeleteAppTableRecordRequestBuilder":

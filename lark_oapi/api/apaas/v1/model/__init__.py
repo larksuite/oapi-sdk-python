@@ -163,6 +163,8 @@ from .transfer_approval_task_request_body import *
 from .transfer_approval_task_request import *
 from .list_seat_activity_request import *
 from .list_seat_assignment_request import *
+from .query_tenant_app_metrics_request_body import *
+from .query_tenant_app_metrics_request import *
 from .cc_user_task_request_body import *
 from .cc_user_task_request import *
 from .chat_group_user_task_request_body import *
@@ -241,6 +243,8 @@ from .list_seat_activity_response_body import *
 from .list_seat_activity_response import *
 from .list_seat_assignment_response_body import *
 from .list_seat_assignment_response import *
+from .query_tenant_app_metrics_response_body import *
+from .query_tenant_app_metrics_response import *
 from .cc_user_task_response import *
 from .chat_group_user_task_response_body import *
 from .chat_group_user_task_response import *
@@ -271,4 +275,3 @@ from .table_get_workspace_table_response_body import *
 from .table_get_workspace_table_response import *
 from .views_get_workspace_view_response_body import *
 from .views_get_workspace_view_response import *
-from .p2_apaas_workspace_record_change_v1 import *

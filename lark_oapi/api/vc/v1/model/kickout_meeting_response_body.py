@@ -23,7 +23,9 @@ class KickoutMeetingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._kickout_meeting_response_body = KickoutMeetingResponseBody()
 
-    def kickout_results(self, kickout_results: List[MeetingParticipantResult]) -> "KickoutMeetingResponseBodyBuilder":
+    def kickout_results(
+        self, kickout_results: List[MeetingParticipantResult]
+    ) -> "KickoutMeetingResponseBodyBuilder":
         self._kickout_meeting_response_body.kickout_results = kickout_results
         return self
 

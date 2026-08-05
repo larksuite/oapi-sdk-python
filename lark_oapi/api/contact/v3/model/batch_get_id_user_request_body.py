@@ -34,7 +34,9 @@ class BatchGetIdUserRequestBodyBuilder(object):
         self._batch_get_id_user_request_body.mobiles = mobiles
         return self
 
-    def include_resigned(self, include_resigned: bool) -> "BatchGetIdUserRequestBodyBuilder":
+    def include_resigned(
+        self, include_resigned: bool
+    ) -> "BatchGetIdUserRequestBodyBuilder":
         self._batch_get_id_user_request_body.include_resigned = include_resigned
         return self
 

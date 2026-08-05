@@ -17,13 +17,17 @@ class ListPortalApplySchemaRequest(BaseRequest):
 
 
 class ListPortalApplySchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         list_portal_apply_schema_request = ListPortalApplySchemaRequest()
         list_portal_apply_schema_request.http_method = HttpMethod.GET
         list_portal_apply_schema_request.uri = "/open-apis/hire/v1/portal_apply_schemas"
-        list_portal_apply_schema_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_portal_apply_schema_request: ListPortalApplySchemaRequest = list_portal_apply_schema_request
+        list_portal_apply_schema_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_portal_apply_schema_request: ListPortalApplySchemaRequest = (
+            list_portal_apply_schema_request
+        )
 
     def page_size(self, page_size: int) -> "ListPortalApplySchemaRequestBuilder":
         self._list_portal_apply_schema_request.page_size = page_size

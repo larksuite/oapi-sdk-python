@@ -21,9 +21,13 @@ class QuerySpreadsheetSheetFilterViewResponseBody(object):
 
 class QuerySpreadsheetSheetFilterViewResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_spreadsheet_sheet_filter_view_response_body = QuerySpreadsheetSheetFilterViewResponseBody()
+        self._query_spreadsheet_sheet_filter_view_response_body = (
+            QuerySpreadsheetSheetFilterViewResponseBody()
+        )
 
-    def items(self, items: List[FilterView]) -> "QuerySpreadsheetSheetFilterViewResponseBodyBuilder":
+    def items(
+        self, items: List[FilterView]
+    ) -> "QuerySpreadsheetSheetFilterViewResponseBodyBuilder":
         self._query_spreadsheet_sheet_filter_view_response_body.items = items
         return self
 

@@ -9,7 +9,6 @@ from .list_job_process_response_body import ListJobProcessResponseBody
 class ListJobProcessResponse(BaseResponse):
     _types = {
         "data": ListJobProcessResponseBody,
-
     }
 
     def __init__(self, d=None):

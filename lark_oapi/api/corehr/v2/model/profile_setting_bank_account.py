@@ -62,15 +62,21 @@ class ProfileSettingBankAccountBuilder(object):
         self._profile_setting_bank_account.account_holder = account_holder
         return self
 
-    def bank_account_number(self, bank_account_number: str) -> "ProfileSettingBankAccountBuilder":
+    def bank_account_number(
+        self, bank_account_number: str
+    ) -> "ProfileSettingBankAccountBuilder":
         self._profile_setting_bank_account.bank_account_number = bank_account_number
         return self
 
-    def bank_account_usages(self, bank_account_usages: List[str]) -> "ProfileSettingBankAccountBuilder":
+    def bank_account_usages(
+        self, bank_account_usages: List[str]
+    ) -> "ProfileSettingBankAccountBuilder":
         self._profile_setting_bank_account.bank_account_usages = bank_account_usages
         return self
 
-    def bank_account_type(self, bank_account_type: str) -> "ProfileSettingBankAccountBuilder":
+    def bank_account_type(
+        self, bank_account_type: str
+    ) -> "ProfileSettingBankAccountBuilder":
         self._profile_setting_bank_account.bank_account_type = bank_account_type
         return self
 

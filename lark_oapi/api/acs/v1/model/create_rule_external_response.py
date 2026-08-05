@@ -9,7 +9,6 @@ from .create_rule_external_response_body import CreateRuleExternalResponseBody
 class CreateRuleExternalResponse(BaseResponse):
     _types = {
         "data": CreateRuleExternalResponseBody,
-
     }
 
     def __init__(self, d=None):

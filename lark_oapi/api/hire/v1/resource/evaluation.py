@@ -17,7 +17,9 @@ class Evaluation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListEvaluationRequest, option: Optional[RequestOption] = None) -> ListEvaluationResponse:
+    def list(
+        self, request: ListEvaluationRequest, option: Optional[RequestOption] = None
+    ) -> ListEvaluationResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Evaluation(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListEvaluationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEvaluationResponse)
+        response: ListEvaluationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEvaluationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListEvaluationRequest,
-                    option: Optional[RequestOption] = None) -> ListEvaluationResponse:
+    async def alist(
+        self, request: ListEvaluationRequest, option: Optional[RequestOption] = None
+    ) -> ListEvaluationResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Evaluation(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListEvaluationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEvaluationResponse)
+        response: ListEvaluationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEvaluationResponse
+        )
         response.raw = resp
 
         return response

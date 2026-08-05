@@ -23,7 +23,9 @@ class SearchUserResultAiBuilder(object):
     def __init__(self) -> None:
         self._search_user_result_ai = SearchUserResultAi()
 
-    def search_results(self, search_results: List[SearchUserDataAi]) -> "SearchUserResultAiBuilder":
+    def search_results(
+        self, search_results: List[SearchUserDataAi]
+    ) -> "SearchUserResultAiBuilder":
         self._search_user_result_ai.search_results = search_results
         return self
 

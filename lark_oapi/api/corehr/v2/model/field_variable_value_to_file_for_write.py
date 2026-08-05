@@ -24,9 +24,13 @@ class FieldVariableValueToFileForWrite(object):
 
 class FieldVariableValueToFileForWriteBuilder(object):
     def __init__(self) -> None:
-        self._field_variable_value_to_file_for_write = FieldVariableValueToFileForWrite()
+        self._field_variable_value_to_file_for_write = (
+            FieldVariableValueToFileForWrite()
+        )
 
-    def open_file_id(self, open_file_id: str) -> "FieldVariableValueToFileForWriteBuilder":
+    def open_file_id(
+        self, open_file_id: str
+    ) -> "FieldVariableValueToFileForWriteBuilder":
         self._field_variable_value_to_file_for_write.open_file_id = open_file_id
         return self
 

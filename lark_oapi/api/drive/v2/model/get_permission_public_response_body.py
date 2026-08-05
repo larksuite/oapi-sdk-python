@@ -23,7 +23,9 @@ class GetPermissionPublicResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_permission_public_response_body = GetPermissionPublicResponseBody()
 
-    def permission_public(self, permission_public: PermissionPublic) -> "GetPermissionPublicResponseBodyBuilder":
+    def permission_public(
+        self, permission_public: PermissionPublic
+    ) -> "GetPermissionPublicResponseBodyBuilder":
         self._get_permission_public_response_body.permission_public = permission_public
         return self
 

@@ -44,57 +44,87 @@ class InternationalAssignmentV2ForCreate(object):
 
 class InternationalAssignmentV2ForCreateBuilder(object):
     def __init__(self) -> None:
-        self._international_assignment_v2_for_create = InternationalAssignmentV2ForCreate()
+        self._international_assignment_v2_for_create = (
+            InternationalAssignmentV2ForCreate()
+        )
 
-    def employment_id(self, employment_id: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.employment_id = employment_id
         return self
 
-    def effective_time(self, effective_time: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.effective_time = effective_time
         return self
 
-    def international_assignment_expected_end_date(self,
-                                                   international_assignment_expected_end_date: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def international_assignment_expected_end_date(
+        self, international_assignment_expected_end_date: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.international_assignment_expected_end_date = international_assignment_expected_end_date
         return self
 
-    def expiration_time(self, expiration_time: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def expiration_time(
+        self, expiration_time: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.expiration_time = expiration_time
         return self
 
-    def assignment_country(self, assignment_country: str) -> "InternationalAssignmentV2ForCreateBuilder":
-        self._international_assignment_v2_for_create.assignment_country = assignment_country
+    def assignment_country(
+        self, assignment_country: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
+        self._international_assignment_v2_for_create.assignment_country = (
+            assignment_country
+        )
         return self
 
-    def assignment_city(self, assignment_city: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def assignment_city(
+        self, assignment_city: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.assignment_city = assignment_city
         return self
 
-    def assignment_company(self, assignment_company: str) -> "InternationalAssignmentV2ForCreateBuilder":
-        self._international_assignment_v2_for_create.assignment_company = assignment_company
+    def assignment_company(
+        self, assignment_company: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
+        self._international_assignment_v2_for_create.assignment_company = (
+            assignment_company
+        )
         return self
 
-    def international_assignment_status(self,
-                                        international_assignment_status: Enum) -> "InternationalAssignmentV2ForCreateBuilder":
-        self._international_assignment_v2_for_create.international_assignment_status = international_assignment_status
+    def international_assignment_status(
+        self, international_assignment_status: Enum
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
+        self._international_assignment_v2_for_create.international_assignment_status = (
+            international_assignment_status
+        )
         return self
 
-    def international_assignment_type(self,
-                                      international_assignment_type: Enum) -> "InternationalAssignmentV2ForCreateBuilder":
-        self._international_assignment_v2_for_create.international_assignment_type = international_assignment_type
+    def international_assignment_type(
+        self, international_assignment_type: Enum
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
+        self._international_assignment_v2_for_create.international_assignment_type = (
+            international_assignment_type
+        )
         return self
 
-    def international_assignment_allowance(self,
-                                           international_assignment_allowance: bool) -> "InternationalAssignmentV2ForCreateBuilder":
+    def international_assignment_allowance(
+        self, international_assignment_allowance: bool
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.international_assignment_allowance = international_assignment_allowance
         return self
 
-    def accommodation(self, accommodation: bool) -> "InternationalAssignmentV2ForCreateBuilder":
+    def accommodation(
+        self, accommodation: bool
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.accommodation = accommodation
         return self
 
-    def description(self, description: str) -> "InternationalAssignmentV2ForCreateBuilder":
+    def description(
+        self, description: str
+    ) -> "InternationalAssignmentV2ForCreateBuilder":
         self._international_assignment_v2_for_create.description = description
         return self
 

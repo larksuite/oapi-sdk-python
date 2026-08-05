@@ -35,7 +35,9 @@ class QueryLumpSumPaymentResponseBodyBuilder(object):
         self._query_lump_sum_payment_response_body.has_more = has_more
         return self
 
-    def records(self, records: List[LumpSumPayment]) -> "QueryLumpSumPaymentResponseBodyBuilder":
+    def records(
+        self, records: List[LumpSumPayment]
+    ) -> "QueryLumpSumPaymentResponseBodyBuilder":
         self._query_lump_sum_payment_response_body.records = records
         return self
 

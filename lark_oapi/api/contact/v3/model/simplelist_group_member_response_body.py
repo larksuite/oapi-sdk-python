@@ -25,9 +25,13 @@ class SimplelistGroupMemberResponseBody(object):
 
 class SimplelistGroupMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._simplelist_group_member_response_body = SimplelistGroupMemberResponseBody()
+        self._simplelist_group_member_response_body = (
+            SimplelistGroupMemberResponseBody()
+        )
 
-    def memberlist(self, memberlist: List[Memberlist]) -> "SimplelistGroupMemberResponseBodyBuilder":
+    def memberlist(
+        self, memberlist: List[Memberlist]
+    ) -> "SimplelistGroupMemberResponseBodyBuilder":
         self._simplelist_group_member_response_body.memberlist = memberlist
         return self
 

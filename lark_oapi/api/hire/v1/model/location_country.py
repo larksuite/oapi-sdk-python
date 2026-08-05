@@ -29,7 +29,9 @@ class LocationCountryBuilder(object):
         self._location_country.country_code = country_code
         return self
 
-    def country_name_info(self, country_name_info: LocationNameInfo) -> "LocationCountryBuilder":
+    def country_name_info(
+        self, country_name_info: LocationNameInfo
+    ) -> "LocationCountryBuilder":
         self._location_country.country_name_info = country_name_info
         return self
 

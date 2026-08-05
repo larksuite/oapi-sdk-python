@@ -26,7 +26,9 @@ class AppRoleTableRoleRecRuleCondition(object):
 
 class AppRoleTableRoleRecRuleConditionBuilder(object):
     def __init__(self) -> None:
-        self._app_role_table_role_rec_rule_condition = AppRoleTableRoleRecRuleCondition()
+        self._app_role_table_role_rec_rule_condition = (
+            AppRoleTableRoleRecRuleCondition()
+        )
 
     def field_name(self, field_name: str) -> "AppRoleTableRoleRecRuleConditionBuilder":
         self._app_role_table_role_rec_rule_condition.field_name = field_name

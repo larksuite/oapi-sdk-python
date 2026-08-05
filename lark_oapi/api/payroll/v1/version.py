@@ -11,5 +11,7 @@ class V1(object):
         self.datasource_record: DatasourceRecord = DatasourceRecord(config)
         self.paygroup: Paygroup = Paygroup(config)
         self.payment_activity: PaymentActivity = PaymentActivity(config)
-        self.payment_activity_detail: PaymentActivityDetail = PaymentActivityDetail(config)
+        self.payment_activity_detail: PaymentActivityDetail = PaymentActivityDetail(
+            config
+        )
         self.payment_detail: PaymentDetail = PaymentDetail(config)

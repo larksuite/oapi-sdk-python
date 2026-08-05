@@ -28,7 +28,9 @@ class PatchApplicationConfigRequestBody(object):
         self.security: Optional[AppConfigSecurity] = None
         self.visibility: Optional[AppConfigVisibility] = None
         self.contacts: Optional[AppConfigContactsRange] = None
-        self.event_and_callback_encrypt_strategy: Optional[EventAndCallbackEncryptStrategy] = None
+        self.event_and_callback_encrypt_strategy: Optional[
+            EventAndCallbackEncryptStrategy
+        ] = None
         self.callback: Optional[AppConfigCallback] = None
         init(self, d, self._types)
 
@@ -39,34 +41,49 @@ class PatchApplicationConfigRequestBody(object):
 
 class PatchApplicationConfigRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_application_config_request_body = PatchApplicationConfigRequestBody()
+        self._patch_application_config_request_body = (
+            PatchApplicationConfigRequestBody()
+        )
 
-    def scope(self, scope: AppConfigScope) -> "PatchApplicationConfigRequestBodyBuilder":
+    def scope(
+        self, scope: AppConfigScope
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.scope = scope
         return self
 
-    def event(self, event: AppConfigEvent) -> "PatchApplicationConfigRequestBodyBuilder":
+    def event(
+        self, event: AppConfigEvent
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.event = event
         return self
 
-    def security(self, security: AppConfigSecurity) -> "PatchApplicationConfigRequestBodyBuilder":
+    def security(
+        self, security: AppConfigSecurity
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.security = security
         return self
 
-    def visibility(self, visibility: AppConfigVisibility) -> "PatchApplicationConfigRequestBodyBuilder":
+    def visibility(
+        self, visibility: AppConfigVisibility
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.visibility = visibility
         return self
 
-    def contacts(self, contacts: AppConfigContactsRange) -> "PatchApplicationConfigRequestBodyBuilder":
+    def contacts(
+        self, contacts: AppConfigContactsRange
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.contacts = contacts
         return self
 
-    def event_and_callback_encrypt_strategy(self,
-                                            event_and_callback_encrypt_strategy: EventAndCallbackEncryptStrategy) -> "PatchApplicationConfigRequestBodyBuilder":
+    def event_and_callback_encrypt_strategy(
+        self, event_and_callback_encrypt_strategy: EventAndCallbackEncryptStrategy
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.event_and_callback_encrypt_strategy = event_and_callback_encrypt_strategy
         return self
 
-    def callback(self, callback: AppConfigCallback) -> "PatchApplicationConfigRequestBodyBuilder":
+    def callback(
+        self, callback: AppConfigCallback
+    ) -> "PatchApplicationConfigRequestBodyBuilder":
         self._patch_application_config_request_body.callback = callback
         return self
 

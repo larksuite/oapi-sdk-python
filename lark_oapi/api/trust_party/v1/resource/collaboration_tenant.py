@@ -13,16 +13,23 @@ from ..model.get_collaboration_tenant_request import GetCollaborationTenantReque
 from ..model.get_collaboration_tenant_response import GetCollaborationTenantResponse
 from ..model.list_collaboration_tenant_request import ListCollaborationTenantRequest
 from ..model.list_collaboration_tenant_response import ListCollaborationTenantResponse
-from ..model.visible_organization_collaboration_tenant_request import VisibleOrganizationCollaborationTenantRequest
-from ..model.visible_organization_collaboration_tenant_response import VisibleOrganizationCollaborationTenantResponse
+from ..model.visible_organization_collaboration_tenant_request import (
+    VisibleOrganizationCollaborationTenantRequest,
+)
+from ..model.visible_organization_collaboration_tenant_response import (
+    VisibleOrganizationCollaborationTenantResponse,
+)
 
 
 class CollaborationTenant(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetCollaborationTenantRequest,
-            option: Optional[RequestOption] = None) -> GetCollaborationTenantResponse:
+    def get(
+        self,
+        request: GetCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +44,18 @@ class CollaborationTenant(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetCollaborationTenantResponse)
+        response: GetCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetCollaborationTenantRequest,
-                   option: Optional[RequestOption] = None) -> GetCollaborationTenantResponse:
+    async def aget(
+        self,
+        request: GetCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +66,18 @@ class CollaborationTenant(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetCollaborationTenantResponse)
+        response: GetCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListCollaborationTenantRequest,
-             option: Optional[RequestOption] = None) -> ListCollaborationTenantResponse:
+    def list(
+        self,
+        request: ListCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +92,18 @@ class CollaborationTenant(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListCollaborationTenantResponse)
+        response: ListCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCollaborationTenantRequest,
-                    option: Optional[RequestOption] = None) -> ListCollaborationTenantResponse:
+    async def alist(
+        self,
+        request: ListCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +114,18 @@ class CollaborationTenant(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListCollaborationTenantResponse)
+        response: ListCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response
 
-    def visible_organization(self, request: VisibleOrganizationCollaborationTenantRequest,
-                             option: Optional[RequestOption] = None) -> VisibleOrganizationCollaborationTenantResponse:
+    def visible_organization(
+        self,
+        request: VisibleOrganizationCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> VisibleOrganizationCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +140,18 @@ class CollaborationTenant(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: VisibleOrganizationCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                  VisibleOrganizationCollaborationTenantResponse)
+        response: VisibleOrganizationCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), VisibleOrganizationCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response
 
-    async def avisible_organization(self, request: VisibleOrganizationCollaborationTenantRequest, option: Optional[
-        RequestOption] = None) -> VisibleOrganizationCollaborationTenantResponse:
+    async def avisible_organization(
+        self,
+        request: VisibleOrganizationCollaborationTenantRequest,
+        option: Optional[RequestOption] = None,
+    ) -> VisibleOrganizationCollaborationTenantResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +162,9 @@ class CollaborationTenant(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: VisibleOrganizationCollaborationTenantResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                  VisibleOrganizationCollaborationTenantResponse)
+        response: VisibleOrganizationCollaborationTenantResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), VisibleOrganizationCollaborationTenantResponse
+        )
         response.raw = resp
 
         return response

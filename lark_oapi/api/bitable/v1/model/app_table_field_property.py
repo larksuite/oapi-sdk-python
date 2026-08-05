@@ -65,7 +65,9 @@ class AppTableFieldPropertyBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property = AppTableFieldProperty()
 
-    def options(self, options: List[AppTableFieldPropertyOption]) -> "AppTableFieldPropertyBuilder":
+    def options(
+        self, options: List[AppTableFieldPropertyOption]
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.options = options
         return self
 
@@ -97,19 +99,27 @@ class AppTableFieldPropertyBuilder(object):
         self._app_table_field_property.back_field_name = back_field_name
         return self
 
-    def auto_serial(self, auto_serial: AppFieldPropertyAutoSerial) -> "AppTableFieldPropertyBuilder":
+    def auto_serial(
+        self, auto_serial: AppFieldPropertyAutoSerial
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.auto_serial = auto_serial
         return self
 
-    def location(self, location: AppFieldPropertyLocation) -> "AppTableFieldPropertyBuilder":
+    def location(
+        self, location: AppFieldPropertyLocation
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.location = location
         return self
 
-    def formula_expression(self, formula_expression: str) -> "AppTableFieldPropertyBuilder":
+    def formula_expression(
+        self, formula_expression: str
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.formula_expression = formula_expression
         return self
 
-    def allowed_edit_modes(self, allowed_edit_modes: AllowedEditModes) -> "AppTableFieldPropertyBuilder":
+    def allowed_edit_modes(
+        self, allowed_edit_modes: AllowedEditModes
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.allowed_edit_modes = allowed_edit_modes
         return self
 
@@ -137,7 +147,9 @@ class AppTableFieldPropertyBuilder(object):
         self._app_table_field_property.type = type
         return self
 
-    def filter_info(self, filter_info: AppTableFieldPropertyLookupFilter) -> "AppTableFieldPropertyBuilder":
+    def filter_info(
+        self, filter_info: AppTableFieldPropertyLookupFilter
+    ) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.filter_info = filter_info
         return self
 

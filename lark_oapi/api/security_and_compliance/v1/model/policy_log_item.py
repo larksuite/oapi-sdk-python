@@ -85,7 +85,9 @@ class PolicyLogItemBuilder(object):
         self._policy_log_item.hit_contents = hit_contents
         return self
 
-    def proof_details(self, proof_details: List[ProofContentDetail]) -> "PolicyLogItemBuilder":
+    def proof_details(
+        self, proof_details: List[ProofContentDetail]
+    ) -> "PolicyLogItemBuilder":
         self._policy_log_item.proof_details = proof_details
         return self
 
@@ -93,7 +95,9 @@ class PolicyLogItemBuilder(object):
         self._policy_log_item.detect_rules = detect_rules
         return self
 
-    def resource_attributes(self, resource_attributes: List[ResourceAttribute]) -> "PolicyLogItemBuilder":
+    def resource_attributes(
+        self, resource_attributes: List[ResourceAttribute]
+    ) -> "PolicyLogItemBuilder":
         self._policy_log_item.resource_attributes = resource_attributes
         return self
 

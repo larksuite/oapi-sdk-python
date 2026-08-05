@@ -20,7 +20,9 @@ class DeleteFileCommentReplyResponseBody(object):
 
 class DeleteFileCommentReplyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_file_comment_reply_response_body = DeleteFileCommentReplyResponseBody()
+        self._delete_file_comment_reply_response_body = (
+            DeleteFileCommentReplyResponseBody()
+        )
 
     def data(self, data: str) -> "DeleteFileCommentReplyResponseBodyBuilder":
         self._delete_file_comment_reply_response_body.data = data

@@ -9,7 +9,6 @@ from .get_exchange_binding_response_body import GetExchangeBindingResponseBody
 class GetExchangeBindingResponse(BaseResponse):
     _types = {
         "data": GetExchangeBindingResponseBody,
-
     }
 
     def __init__(self, d=None):

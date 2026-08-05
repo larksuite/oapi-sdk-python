@@ -16,13 +16,16 @@ class DeleteEmployeeTypeEnumRequest(BaseRequest):
 
 
 class DeleteEmployeeTypeEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_employee_type_enum_request = DeleteEmployeeTypeEnumRequest()
         delete_employee_type_enum_request.http_method = HttpMethod.DELETE
-        delete_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums/:enum_id"
+        delete_employee_type_enum_request.uri = (
+            "/open-apis/contact/v3/employee_type_enums/:enum_id"
+        )
         delete_employee_type_enum_request.token_types = {AccessTokenType.TENANT}
-        self._delete_employee_type_enum_request: DeleteEmployeeTypeEnumRequest = delete_employee_type_enum_request
+        self._delete_employee_type_enum_request: DeleteEmployeeTypeEnumRequest = (
+            delete_employee_type_enum_request
+        )
 
     def enum_id(self, enum_id: str) -> "DeleteEmployeeTypeEnumRequestBuilder":
         self._delete_employee_type_enum_request.enum_id = enum_id

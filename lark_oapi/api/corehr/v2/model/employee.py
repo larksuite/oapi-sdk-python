@@ -187,7 +187,9 @@ class Employee(object):
         self.work_shift: Optional[Enum] = None
         self.talent_pool_id_list: Optional[List[str]] = None
         self.custom_org: Optional[str] = None
-        self.seniority_adjust_information_list: Optional[List[SeniorityAdjustInformation]] = None
+        self.seniority_adjust_information_list: Optional[
+            List[SeniorityAdjustInformation]
+        ] = None
         self.employment_direct_bps: Optional[EmploymentBp] = None
         self.employment_all_bps: Optional[EmploymentBp] = None
         self.contract_type: Optional[Enum] = None
@@ -340,7 +342,9 @@ class EmployeeBuilder(object):
         self._employee.direct_manager_id_v2 = direct_manager_id_v2
         return self
 
-    def dotted_line_manager_id_v2(self, dotted_line_manager_id_v2: str) -> "EmployeeBuilder":
+    def dotted_line_manager_id_v2(
+        self, dotted_line_manager_id_v2: str
+    ) -> "EmployeeBuilder":
         self._employee.dotted_line_manager_id_v2 = dotted_line_manager_id_v2
         return self
 
@@ -372,7 +376,9 @@ class EmployeeBuilder(object):
         self._employee.work_email_list = work_email_list
         return self
 
-    def cost_center_list(self, cost_center_list: List[JobDataCostCenter]) -> "EmployeeBuilder":
+    def cost_center_list(
+        self, cost_center_list: List[JobDataCostCenter]
+    ) -> "EmployeeBuilder":
         self._employee.cost_center_list = cost_center_list
         return self
 
@@ -400,7 +406,9 @@ class EmployeeBuilder(object):
         self._employee.past_offboarding = past_offboarding
         return self
 
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "EmployeeBuilder":
+    def regular_employee_start_date(
+        self, regular_employee_start_date: str
+    ) -> "EmployeeBuilder":
         self._employee.regular_employee_start_date = regular_employee_start_date
         return self
 
@@ -432,7 +440,9 @@ class EmployeeBuilder(object):
         self._employee.contract_end_date = contract_end_date
         return self
 
-    def contract_expected_end_date(self, contract_expected_end_date: str) -> "EmployeeBuilder":
+    def contract_expected_end_date(
+        self, contract_expected_end_date: str
+    ) -> "EmployeeBuilder":
         self._employee.contract_expected_end_date = contract_expected_end_date
         return self
 
@@ -440,11 +450,15 @@ class EmployeeBuilder(object):
         self._employee.pay_group_id = pay_group_id
         return self
 
-    def assignment_pay_group_id(self, assignment_pay_group_id: str) -> "EmployeeBuilder":
+    def assignment_pay_group_id(
+        self, assignment_pay_group_id: str
+    ) -> "EmployeeBuilder":
         self._employee.assignment_pay_group_id = assignment_pay_group_id
         return self
 
-    def international_assignment(self, international_assignment: bool) -> "EmployeeBuilder":
+    def international_assignment(
+        self, international_assignment: bool
+    ) -> "EmployeeBuilder":
         self._employee.international_assignment = international_assignment
         return self
 
@@ -460,7 +474,9 @@ class EmployeeBuilder(object):
         self._employee.direct_manager = direct_manager
         return self
 
-    def dotted_line_manager(self, dotted_line_manager: BasicEmployee) -> "EmployeeBuilder":
+    def dotted_line_manager(
+        self, dotted_line_manager: BasicEmployee
+    ) -> "EmployeeBuilder":
         self._employee.dotted_line_manager = dotted_line_manager
         return self
 
@@ -468,9 +484,12 @@ class EmployeeBuilder(object):
         self._employee.time_zone = time_zone
         return self
 
-    def primary_international_assignment(self,
-                                         primary_international_assignment: InternationalAssignment) -> "EmployeeBuilder":
-        self._employee.primary_international_assignment = primary_international_assignment
+    def primary_international_assignment(
+        self, primary_international_assignment: InternationalAssignment
+    ) -> "EmployeeBuilder":
+        self._employee.primary_international_assignment = (
+            primary_international_assignment
+        )
         return self
 
     def service_company(self, service_company: str) -> "EmployeeBuilder":
@@ -493,12 +512,17 @@ class EmployeeBuilder(object):
         self._employee.custom_org = custom_org
         return self
 
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
-        SeniorityAdjustInformation]) -> "EmployeeBuilder":
-        self._employee.seniority_adjust_information_list = seniority_adjust_information_list
+    def seniority_adjust_information_list(
+        self, seniority_adjust_information_list: List[SeniorityAdjustInformation]
+    ) -> "EmployeeBuilder":
+        self._employee.seniority_adjust_information_list = (
+            seniority_adjust_information_list
+        )
         return self
 
-    def employment_direct_bps(self, employment_direct_bps: EmploymentBp) -> "EmployeeBuilder":
+    def employment_direct_bps(
+        self, employment_direct_bps: EmploymentBp
+    ) -> "EmployeeBuilder":
         self._employee.employment_direct_bps = employment_direct_bps
         return self
 
@@ -518,8 +542,12 @@ class EmployeeBuilder(object):
         self._employee.attendance_group_id = attendance_group_id
         return self
 
-    def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBuilder":
-        self._employee.individuals_with_headcount_or_not = individuals_with_headcount_or_not
+    def individuals_with_headcount_or_not(
+        self, individuals_with_headcount_or_not: Enum
+    ) -> "EmployeeBuilder":
+        self._employee.individuals_with_headcount_or_not = (
+            individuals_with_headcount_or_not
+        )
         return self
 
     def is_direct_leader(self, is_direct_leader: bool) -> "EmployeeBuilder":
@@ -530,7 +558,9 @@ class EmployeeBuilder(object):
         self._employee.is_dotted_leader = is_dotted_leader
         return self
 
-    def company_talent_pool_ids(self, company_talent_pool_ids: List[str]) -> "EmployeeBuilder":
+    def company_talent_pool_ids(
+        self, company_talent_pool_ids: List[str]
+    ) -> "EmployeeBuilder":
         self._employee.company_talent_pool_ids = company_talent_pool_ids
         return self
 

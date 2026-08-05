@@ -24,11 +24,15 @@ class BatchUpdateUrlPreviewRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_update_url_preview_request_body = BatchUpdateUrlPreviewRequestBody()
 
-    def preview_tokens(self, preview_tokens: List[str]) -> "BatchUpdateUrlPreviewRequestBodyBuilder":
+    def preview_tokens(
+        self, preview_tokens: List[str]
+    ) -> "BatchUpdateUrlPreviewRequestBodyBuilder":
         self._batch_update_url_preview_request_body.preview_tokens = preview_tokens
         return self
 
-    def open_ids(self, open_ids: List[str]) -> "BatchUpdateUrlPreviewRequestBodyBuilder":
+    def open_ids(
+        self, open_ids: List[str]
+    ) -> "BatchUpdateUrlPreviewRequestBodyBuilder":
         self._batch_update_url_preview_request_body.open_ids = open_ids
         return self
 

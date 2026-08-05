@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .perm_type import PermType
 
 
 class PermissionPublic(object):
@@ -14,6 +15,7 @@ class PermissionPublic(object):
         "link_share_entity": str,
         "copy_entity": str,
         "lock_switch": bool,
+        "perm_type": PermType,
     }
 
     def __init__(self, d=None):
@@ -25,6 +27,7 @@ class PermissionPublic(object):
         self.link_share_entity: Optional[str] = None
         self.copy_entity: Optional[str] = None
         self.lock_switch: Optional[bool] = None
+        self.perm_type: Optional[PermType] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,7 +39,9 @@ class PermissionPublicBuilder(object):
     def __init__(self) -> None:
         self._permission_public = PermissionPublic()
 
-    def external_access_entity(self, external_access_entity: str) -> "PermissionPublicBuilder":
+    def external_access_entity(
+        self, external_access_entity: str
+    ) -> "PermissionPublicBuilder":
         self._permission_public.external_access_entity = external_access_entity
         return self
 
@@ -52,7 +57,9 @@ class PermissionPublicBuilder(object):
         self._permission_public.share_entity = share_entity
         return self
 
-    def manage_collaborator_entity(self, manage_collaborator_entity: str) -> "PermissionPublicBuilder":
+    def manage_collaborator_entity(
+        self, manage_collaborator_entity: str
+    ) -> "PermissionPublicBuilder":
         self._permission_public.manage_collaborator_entity = manage_collaborator_entity
         return self
 
@@ -66,6 +73,10 @@ class PermissionPublicBuilder(object):
 
     def lock_switch(self, lock_switch: bool) -> "PermissionPublicBuilder":
         self._permission_public.lock_switch = lock_switch
+        return self
+
+    def perm_type(self, perm_type: PermType) -> "PermissionPublicBuilder":
+        self._permission_public.perm_type = perm_type
         return self
 
     def build(self) -> "PermissionPublic":

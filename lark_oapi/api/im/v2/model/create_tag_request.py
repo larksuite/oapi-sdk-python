@@ -17,7 +17,6 @@ class CreateTagRequest(BaseRequest):
 
 
 class CreateTagRequestBuilder(object):
-
     def __init__(self) -> None:
         create_tag_request = CreateTagRequest()
         create_tag_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateTagRequestBuilder(object):
         create_tag_request.token_types = {AccessTokenType.TENANT}
         self._create_tag_request: CreateTagRequest = create_tag_request
 
-    def request_body(self, request_body: CreateTagRequestBody) -> "CreateTagRequestBuilder":
+    def request_body(
+        self, request_body: CreateTagRequestBody
+    ) -> "CreateTagRequestBuilder":
         self._create_tag_request.request_body = request_body
         self._create_tag_request.body = request_body
         return self

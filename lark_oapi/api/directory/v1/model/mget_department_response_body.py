@@ -26,11 +26,15 @@ class MgetDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._mget_department_response_body = MgetDepartmentResponseBody()
 
-    def departments(self, departments: List[Department]) -> "MgetDepartmentResponseBodyBuilder":
+    def departments(
+        self, departments: List[Department]
+    ) -> "MgetDepartmentResponseBodyBuilder":
         self._mget_department_response_body.departments = departments
         return self
 
-    def abnormals(self, abnormals: List[AbnormalRecord]) -> "MgetDepartmentResponseBodyBuilder":
+    def abnormals(
+        self, abnormals: List[AbnormalRecord]
+    ) -> "MgetDepartmentResponseBodyBuilder":
         self._mget_department_response_body.abnormals = abnormals
         return self
 

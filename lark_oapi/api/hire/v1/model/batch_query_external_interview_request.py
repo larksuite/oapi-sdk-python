@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_query_external_interview_request_body import BatchQueryExternalInterviewRequestBody
+from .batch_query_external_interview_request_body import (
+    BatchQueryExternalInterviewRequestBody,
+)
 
 
 class BatchQueryExternalInterviewRequest(BaseRequest):
@@ -20,17 +22,24 @@ class BatchQueryExternalInterviewRequest(BaseRequest):
 
 
 class BatchQueryExternalInterviewRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_query_external_interview_request = BatchQueryExternalInterviewRequest()
         batch_query_external_interview_request.http_method = HttpMethod.POST
-        batch_query_external_interview_request.uri = "/open-apis/hire/v1/external_interviews/batch_query"
+        batch_query_external_interview_request.uri = (
+            "/open-apis/hire/v1/external_interviews/batch_query"
+        )
         batch_query_external_interview_request.token_types = {AccessTokenType.TENANT}
         self._batch_query_external_interview_request: BatchQueryExternalInterviewRequest = batch_query_external_interview_request
 
-    def external_application_id(self, external_application_id: str) -> "BatchQueryExternalInterviewRequestBuilder":
-        self._batch_query_external_interview_request.external_application_id = external_application_id
-        self._batch_query_external_interview_request.add_query("external_application_id", external_application_id)
+    def external_application_id(
+        self, external_application_id: str
+    ) -> "BatchQueryExternalInterviewRequestBuilder":
+        self._batch_query_external_interview_request.external_application_id = (
+            external_application_id
+        )
+        self._batch_query_external_interview_request.add_query(
+            "external_application_id", external_application_id
+        )
         return self
 
     def page_size(self, page_size: int) -> "BatchQueryExternalInterviewRequestBuilder":
@@ -38,13 +47,16 @@ class BatchQueryExternalInterviewRequestBuilder(object):
         self._batch_query_external_interview_request.add_query("page_size", page_size)
         return self
 
-    def page_token(self, page_token: str) -> "BatchQueryExternalInterviewRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "BatchQueryExternalInterviewRequestBuilder":
         self._batch_query_external_interview_request.page_token = page_token
         self._batch_query_external_interview_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self,
-                     request_body: BatchQueryExternalInterviewRequestBody) -> "BatchQueryExternalInterviewRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryExternalInterviewRequestBody
+    ) -> "BatchQueryExternalInterviewRequestBuilder":
         self._batch_query_external_interview_request.request_body = request_body
         self._batch_query_external_interview_request.body = request_body
         return self

@@ -34,7 +34,9 @@ class EmploymentColumnValueForAgentBuilder(object):
         self._employment_column_value_for_agent.column_value = column_value
         return self
 
-    def has_permission(self, has_permission: bool) -> "EmploymentColumnValueForAgentBuilder":
+    def has_permission(
+        self, has_permission: bool
+    ) -> "EmploymentColumnValueForAgentBuilder":
         self._employment_column_value_for_agent.has_permission = has_permission
         return self
 

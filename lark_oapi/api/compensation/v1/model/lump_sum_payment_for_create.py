@@ -65,7 +65,9 @@ class LumpSumPaymentForCreateBuilder(object):
         self._lump_sum_payment_for_create.currency_id = currency_id
         return self
 
-    def issuance_frequency(self, issuance_frequency: int) -> "LumpSumPaymentForCreateBuilder":
+    def issuance_frequency(
+        self, issuance_frequency: int
+    ) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.issuance_frequency = issuance_frequency
         return self
 
@@ -73,15 +75,25 @@ class LumpSumPaymentForCreateBuilder(object):
         self._lump_sum_payment_for_create.item_id = item_id
         return self
 
-    def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentForCreateBuilder":
-        self._lump_sum_payment_for_create.reference_period_start_date = reference_period_start_date
+    def reference_period_start_date(
+        self, reference_period_start_date: str
+    ) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.reference_period_start_date = (
+            reference_period_start_date
+        )
         return self
 
-    def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentForCreateBuilder":
-        self._lump_sum_payment_for_create.reference_period_end_date = reference_period_end_date
+    def reference_period_end_date(
+        self, reference_period_end_date: str
+    ) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.reference_period_end_date = (
+            reference_period_end_date
+        )
         return self
 
-    def details(self, details: List[LumpSumPaymentDetailForCreate]) -> "LumpSumPaymentForCreateBuilder":
+    def details(
+        self, details: List[LumpSumPaymentDetailForCreate]
+    ) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.details = details
         return self
 
@@ -89,8 +101,12 @@ class LumpSumPaymentForCreateBuilder(object):
         self._lump_sum_payment_for_create.remark = remark
         return self
 
-    def binding_period_decimal(self, binding_period_decimal: str) -> "LumpSumPaymentForCreateBuilder":
-        self._lump_sum_payment_for_create.binding_period_decimal = binding_period_decimal
+    def binding_period_decimal(
+        self, binding_period_decimal: str
+    ) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.binding_period_decimal = (
+            binding_period_decimal
+        )
         return self
 
     def build(self) -> "LumpSumPaymentForCreate":

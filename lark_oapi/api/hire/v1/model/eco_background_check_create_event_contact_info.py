@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .eco_background_check_create_event_mobile import EcoBackgroundCheckCreateEventMobile
+from .eco_background_check_create_event_mobile import (
+    EcoBackgroundCheckCreateEventMobile,
+)
 
 
 class EcoBackgroundCheckCreateEventContactInfo(object):
@@ -25,13 +27,17 @@ class EcoBackgroundCheckCreateEventContactInfo(object):
 
 class EcoBackgroundCheckCreateEventContactInfoBuilder(object):
     def __init__(self) -> None:
-        self._eco_background_check_create_event_contact_info = EcoBackgroundCheckCreateEventContactInfo()
+        self._eco_background_check_create_event_contact_info = (
+            EcoBackgroundCheckCreateEventContactInfo()
+        )
 
     def name(self, name: str) -> "EcoBackgroundCheckCreateEventContactInfoBuilder":
         self._eco_background_check_create_event_contact_info.name = name
         return self
 
-    def mobile(self, mobile: EcoBackgroundCheckCreateEventMobile) -> "EcoBackgroundCheckCreateEventContactInfoBuilder":
+    def mobile(
+        self, mobile: EcoBackgroundCheckCreateEventMobile
+    ) -> "EcoBackgroundCheckCreateEventContactInfoBuilder":
         self._eco_background_check_create_event_contact_info.mobile = mobile
         return self
 

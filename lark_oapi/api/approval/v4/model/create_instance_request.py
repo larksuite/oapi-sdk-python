@@ -17,7 +17,6 @@ class CreateInstanceRequest(BaseRequest):
 
 
 class CreateInstanceRequestBuilder(object):
-
     def __init__(self) -> None:
         create_instance_request = CreateInstanceRequest()
         create_instance_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateInstanceRequestBuilder(object):
         create_instance_request.token_types = {AccessTokenType.TENANT}
         self._create_instance_request: CreateInstanceRequest = create_instance_request
 
-    def request_body(self, request_body: InstanceCreate) -> "CreateInstanceRequestBuilder":
+    def request_body(
+        self, request_body: InstanceCreate
+    ) -> "CreateInstanceRequestBuilder":
         self._create_instance_request.request_body = request_body
         self._create_instance_request.body = request_body
         return self

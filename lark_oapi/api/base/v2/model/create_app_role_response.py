@@ -9,7 +9,6 @@ from .create_app_role_response_body import CreateAppRoleResponseBody
 class CreateAppRoleResponse(BaseResponse):
     _types = {
         "data": CreateAppRoleResponseBody,
-
     }
 
     def __init__(self, d=None):

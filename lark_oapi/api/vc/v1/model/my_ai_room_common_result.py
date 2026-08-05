@@ -29,7 +29,9 @@ class MyAiRoomCommonResultBuilder(object):
         self._my_ai_room_common_result.room_reply = room_reply
         return self
 
-    def openapi_response(self, openapi_response: MyAiRoomOpenapiResponse) -> "MyAiRoomCommonResultBuilder":
+    def openapi_response(
+        self, openapi_response: MyAiRoomOpenapiResponse
+    ) -> "MyAiRoomCommonResultBuilder":
         self._my_ai_room_common_result.openapi_response = openapi_response
         return self
 

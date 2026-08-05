@@ -20,13 +20,14 @@ class ListNationalIdTypeRequest(BaseRequest):
 
 
 class ListNationalIdTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_national_id_type_request = ListNationalIdTypeRequest()
         list_national_id_type_request.http_method = HttpMethod.GET
         list_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types"
         list_national_id_type_request.token_types = {AccessTokenType.TENANT}
-        self._list_national_id_type_request: ListNationalIdTypeRequest = list_national_id_type_request
+        self._list_national_id_type_request: ListNationalIdTypeRequest = (
+            list_national_id_type_request
+        )
 
     def page_token(self, page_token: str) -> "ListNationalIdTypeRequestBuilder":
         self._list_national_id_type_request.page_token = page_token
@@ -38,9 +39,13 @@ class ListNationalIdTypeRequestBuilder(object):
         self._list_national_id_type_request.add_query("page_size", page_size)
         return self
 
-    def identification_type(self, identification_type: str) -> "ListNationalIdTypeRequestBuilder":
+    def identification_type(
+        self, identification_type: str
+    ) -> "ListNationalIdTypeRequestBuilder":
         self._list_national_id_type_request.identification_type = identification_type
-        self._list_national_id_type_request.add_query("identification_type", identification_type)
+        self._list_national_id_type_request.add_query(
+            "identification_type", identification_type
+        )
         return self
 
     def code(self, code: str) -> "ListNationalIdTypeRequestBuilder":
@@ -48,9 +53,13 @@ class ListNationalIdTypeRequestBuilder(object):
         self._list_national_id_type_request.add_query("code", code)
         return self
 
-    def country_region_id(self, country_region_id: str) -> "ListNationalIdTypeRequestBuilder":
+    def country_region_id(
+        self, country_region_id: str
+    ) -> "ListNationalIdTypeRequestBuilder":
         self._list_national_id_type_request.country_region_id = country_region_id
-        self._list_national_id_type_request.add_query("country_region_id", country_region_id)
+        self._list_national_id_type_request.add_query(
+            "country_region_id", country_region_id
+        )
         return self
 
     def build(self) -> ListNationalIdTypeRequest:

@@ -9,7 +9,6 @@ from .query_metric_template_response_body import QueryMetricTemplateResponseBody
 class QueryMetricTemplateResponse(BaseResponse):
     _types = {
         "data": QueryMetricTemplateResponseBody,
-
     }
 
     def __init__(self, d=None):

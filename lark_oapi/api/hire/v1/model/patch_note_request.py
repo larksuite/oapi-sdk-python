@@ -19,7 +19,6 @@ class PatchNoteRequest(BaseRequest):
 
 
 class PatchNoteRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_note_request = PatchNoteRequest()
         patch_note_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class PatchNoteRequestBuilder(object):
         self._patch_note_request.paths["note_id"] = str(note_id)
         return self
 
-    def request_body(self, request_body: PatchNoteRequestBody) -> "PatchNoteRequestBuilder":
+    def request_body(
+        self, request_body: PatchNoteRequestBody
+    ) -> "PatchNoteRequestBuilder":
         self._patch_note_request.request_body = request_body
         self._patch_note_request.body = request_body
         return self

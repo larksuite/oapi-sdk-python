@@ -39,7 +39,9 @@ class RecommendApplicationResponseBodyBuilder(object):
         self._recommend_application_response_body.page_size = page_size
         return self
 
-    def total_count(self, total_count: int) -> "RecommendApplicationResponseBodyBuilder":
+    def total_count(
+        self, total_count: int
+    ) -> "RecommendApplicationResponseBodyBuilder":
         self._recommend_application_response_body.total_count = total_count
         return self
 
@@ -47,7 +49,9 @@ class RecommendApplicationResponseBodyBuilder(object):
         self._recommend_application_response_body.has_more = has_more
         return self
 
-    def app_list(self, app_list: List[Application]) -> "RecommendApplicationResponseBodyBuilder":
+    def app_list(
+        self, app_list: List[Application]
+    ) -> "RecommendApplicationResponseBodyBuilder":
         self._recommend_application_response_body.app_list = app_list
         return self
 

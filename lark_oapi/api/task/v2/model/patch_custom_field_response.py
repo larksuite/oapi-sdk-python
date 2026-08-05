@@ -9,7 +9,6 @@ from .patch_custom_field_response_body import PatchCustomFieldResponseBody
 class PatchCustomFieldResponse(BaseResponse):
     _types = {
         "data": PatchCustomFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

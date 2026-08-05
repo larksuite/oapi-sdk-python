@@ -32,16 +32,26 @@ class WorkforcePlanMultiPeriodValueBuilder(object):
         self._workforce_plan_multi_period_value.period_date = period_date
         return self
 
-    def workforce_plan(self, workforce_plan: str) -> "WorkforcePlanMultiPeriodValueBuilder":
+    def workforce_plan(
+        self, workforce_plan: str
+    ) -> "WorkforcePlanMultiPeriodValueBuilder":
         self._workforce_plan_multi_period_value.workforce_plan = workforce_plan
         return self
 
-    def individuals_to_be_added(self, individuals_to_be_added: str) -> "WorkforcePlanMultiPeriodValueBuilder":
-        self._workforce_plan_multi_period_value.individuals_to_be_added = individuals_to_be_added
+    def individuals_to_be_added(
+        self, individuals_to_be_added: str
+    ) -> "WorkforcePlanMultiPeriodValueBuilder":
+        self._workforce_plan_multi_period_value.individuals_to_be_added = (
+            individuals_to_be_added
+        )
         return self
 
-    def individuals_to_be_removed(self, individuals_to_be_removed: str) -> "WorkforcePlanMultiPeriodValueBuilder":
-        self._workforce_plan_multi_period_value.individuals_to_be_removed = individuals_to_be_removed
+    def individuals_to_be_removed(
+        self, individuals_to_be_removed: str
+    ) -> "WorkforcePlanMultiPeriodValueBuilder":
+        self._workforce_plan_multi_period_value.individuals_to_be_removed = (
+            individuals_to_be_removed
+        )
         return self
 
     def build(self) -> "WorkforcePlanMultiPeriodValue":

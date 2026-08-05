@@ -61,7 +61,9 @@ class InterviewFeedbackFormModuleBuilder(object):
         self._interview_feedback_form_module.weight = weight
         return self
 
-    def dimensions(self, dimensions: List[InterviewFeedbackFormDimension]) -> "InterviewFeedbackFormModuleBuilder":
+    def dimensions(
+        self, dimensions: List[InterviewFeedbackFormDimension]
+    ) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.dimensions = dimensions
         return self
 

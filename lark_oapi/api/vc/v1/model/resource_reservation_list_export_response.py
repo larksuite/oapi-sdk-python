@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .resource_reservation_list_export_response_body import ResourceReservationListExportResponseBody
+from .resource_reservation_list_export_response_body import (
+    ResourceReservationListExportResponseBody,
+)
 
 
 class ResourceReservationListExportResponse(BaseResponse):
     _types = {
         "data": ResourceReservationListExportResponseBody,
-
     }
 
     def __init__(self, d=None):

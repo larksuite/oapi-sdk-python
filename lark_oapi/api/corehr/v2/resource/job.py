@@ -25,7 +25,9 @@ class Job(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobRequest, option: Optional[RequestOption] = None) -> BatchGetJobResponse:
+    def batch_get(
+        self, request: BatchGetJobRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +42,16 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobResponse)
+        response: BatchGetJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetJobRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetJobResponse:
+    async def abatch_get(
+        self, request: BatchGetJobRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,12 +62,16 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobResponse)
+        response: BatchGetJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+    def get(
+        self, request: GetJobRequest, option: Optional[RequestOption] = None
+    ) -> GetJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,12 +86,16 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response: GetJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetJobResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+    async def aget(
+        self, request: GetJobRequest, option: Optional[RequestOption] = None
+    ) -> GetJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,12 +106,16 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response: GetJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetJobResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+    def list(
+        self, request: ListJobRequest, option: Optional[RequestOption] = None
+    ) -> ListJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,12 +130,16 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response: ListJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+    async def alist(
+        self, request: ListJobRequest, option: Optional[RequestOption] = None
+    ) -> ListJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,13 +150,18 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response: ListJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineJobRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineJobResponse:
+    def query_multi_timeline(
+        self,
+        request: QueryMultiTimelineJobRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -150,14 +176,18 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryMultiTimelineJobResponse)
+        response: QueryMultiTimelineJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineJobResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineJobRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineJobResponse:
+    async def aquery_multi_timeline(
+        self,
+        request: QueryMultiTimelineJobRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -168,14 +198,18 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryMultiTimelineJobResponse)
+        response: QueryMultiTimelineJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineJobResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeJobRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeJobRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,13 +224,18 @@ class Job(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
+        response: QueryRecentChangeJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeJobRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -207,7 +246,9 @@ class Job(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
+        response: QueryRecentChangeJobResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobResponse
+        )
         response.raw = resp
 
         return response

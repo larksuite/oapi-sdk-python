@@ -11,8 +11,12 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_by_param_custom_field_request import GetByParamCustomFieldRequest
 from ..model.get_by_param_custom_field_response import GetByParamCustomFieldResponse
-from ..model.list_object_api_name_custom_field_request import ListObjectApiNameCustomFieldRequest
-from ..model.list_object_api_name_custom_field_response import ListObjectApiNameCustomFieldResponse
+from ..model.list_object_api_name_custom_field_request import (
+    ListObjectApiNameCustomFieldRequest,
+)
+from ..model.list_object_api_name_custom_field_response import (
+    ListObjectApiNameCustomFieldResponse,
+)
 from ..model.query_custom_field_request import QueryCustomFieldRequest
 from ..model.query_custom_field_response import QueryCustomFieldResponse
 
@@ -21,8 +25,11 @@ class CustomField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_by_param(self, request: GetByParamCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> GetByParamCustomFieldResponse:
+    def get_by_param(
+        self,
+        request: GetByParamCustomFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByParamCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +44,18 @@ class CustomField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetByParamCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetByParamCustomFieldResponse)
+        response: GetByParamCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByParamCustomFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_by_param(self, request: GetByParamCustomFieldRequest,
-                            option: Optional[RequestOption] = None) -> GetByParamCustomFieldResponse:
+    async def aget_by_param(
+        self,
+        request: GetByParamCustomFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetByParamCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +66,18 @@ class CustomField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetByParamCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetByParamCustomFieldResponse)
+        response: GetByParamCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetByParamCustomFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def list_object_api_name(self, request: ListObjectApiNameCustomFieldRequest,
-                             option: Optional[RequestOption] = None) -> ListObjectApiNameCustomFieldResponse:
+    def list_object_api_name(
+        self,
+        request: ListObjectApiNameCustomFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListObjectApiNameCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +92,18 @@ class CustomField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListObjectApiNameCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        ListObjectApiNameCustomFieldResponse)
+        response: ListObjectApiNameCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListObjectApiNameCustomFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_object_api_name(self, request: ListObjectApiNameCustomFieldRequest,
-                                    option: Optional[RequestOption] = None) -> ListObjectApiNameCustomFieldResponse:
+    async def alist_object_api_name(
+        self,
+        request: ListObjectApiNameCustomFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListObjectApiNameCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +114,16 @@ class CustomField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListObjectApiNameCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        ListObjectApiNameCustomFieldResponse)
+        response: ListObjectApiNameCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListObjectApiNameCustomFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryCustomFieldRequest,
-              option: Optional[RequestOption] = None) -> QueryCustomFieldResponse:
+    def query(
+        self, request: QueryCustomFieldRequest, option: Optional[RequestOption] = None
+    ) -> QueryCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +138,16 @@ class CustomField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomFieldResponse)
+        response: QueryCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryCustomFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> QueryCustomFieldResponse:
+    async def aquery(
+        self, request: QueryCustomFieldRequest, option: Optional[RequestOption] = None
+    ) -> QueryCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +158,9 @@ class CustomField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomFieldResponse)
+        response: QueryCustomFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryCustomFieldResponse
+        )
         response.raw = resp
 
         return response

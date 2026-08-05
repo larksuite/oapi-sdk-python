@@ -9,7 +9,6 @@ from .submit_offboarding_response_body import SubmitOffboardingResponseBody
 class SubmitOffboardingResponse(BaseResponse):
     _types = {
         "data": SubmitOffboardingResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -28,7 +28,9 @@ class QueryMetricDetailRequestBodyBuilder(object):
         self._query_metric_detail_request_body.semester_id = semester_id
         return self
 
-    def reviewee_user_ids(self, reviewee_user_ids: List[str]) -> "QueryMetricDetailRequestBodyBuilder":
+    def reviewee_user_ids(
+        self, reviewee_user_ids: List[str]
+    ) -> "QueryMetricDetailRequestBodyBuilder":
         self._query_metric_detail_request_body.reviewee_user_ids = reviewee_user_ids
         return self
 

@@ -9,7 +9,6 @@ from .batch_freebusy_response_body import BatchFreebusyResponseBody
 class BatchFreebusyResponse(BaseResponse):
     _types = {
         "data": BatchFreebusyResponseBody,
-
     }
 
     def __init__(self, d=None):

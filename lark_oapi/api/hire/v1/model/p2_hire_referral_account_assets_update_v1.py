@@ -21,9 +21,7 @@ class P2HireReferralAccountAssetsUpdateV1Data(object):
 
 
 class P2HireReferralAccountAssetsUpdateV1(EventContext):
-    _types = {
-        "event": P2HireReferralAccountAssetsUpdateV1Data
-    }
+    _types = {"event": P2HireReferralAccountAssetsUpdateV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -29,7 +29,9 @@ class Faq(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateFaqRequest, option: Optional[RequestOption] = None) -> CreateFaqResponse:
+    def create(
+        self, request: CreateFaqRequest, option: Optional[RequestOption] = None
+    ) -> CreateFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -44,12 +46,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFaqResponse)
+        response: CreateFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateFaqRequest, option: Optional[RequestOption] = None) -> CreateFaqResponse:
+    async def acreate(
+        self, request: CreateFaqRequest, option: Optional[RequestOption] = None
+    ) -> CreateFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -60,12 +66,16 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFaqResponse)
+        response: CreateFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteFaqRequest, option: Optional[RequestOption] = None) -> DeleteFaqResponse:
+    def delete(
+        self, request: DeleteFaqRequest, option: Optional[RequestOption] = None
+    ) -> DeleteFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -80,12 +90,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFaqResponse)
+        response: DeleteFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteFaqRequest, option: Optional[RequestOption] = None) -> DeleteFaqResponse:
+    async def adelete(
+        self, request: DeleteFaqRequest, option: Optional[RequestOption] = None
+    ) -> DeleteFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,12 +110,16 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFaqResponse)
+        response: DeleteFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    def faq_image(self, request: FaqImageFaqRequest, option: Optional[RequestOption] = None) -> FaqImageFaqResponse:
+    def faq_image(
+        self, request: FaqImageFaqRequest, option: Optional[RequestOption] = None
+    ) -> FaqImageFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -128,8 +146,9 @@ class Faq(object):
         response.raw = resp
         return response
 
-    async def afaq_image(self, request: FaqImageFaqRequest,
-                         option: Optional[RequestOption] = None) -> FaqImageFaqResponse:
+    async def afaq_image(
+        self, request: FaqImageFaqRequest, option: Optional[RequestOption] = None
+    ) -> FaqImageFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -152,7 +171,9 @@ class Faq(object):
         response.raw = resp
         return response
 
-    def get(self, request: GetFaqRequest, option: Optional[RequestOption] = None) -> GetFaqResponse:
+    def get(
+        self, request: GetFaqRequest, option: Optional[RequestOption] = None
+    ) -> GetFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -167,12 +188,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFaqResponse)
+        response: GetFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetFaqRequest, option: Optional[RequestOption] = None) -> GetFaqResponse:
+    async def aget(
+        self, request: GetFaqRequest, option: Optional[RequestOption] = None
+    ) -> GetFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -183,12 +208,16 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFaqResponse)
+        response: GetFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListFaqRequest, option: Optional[RequestOption] = None) -> ListFaqResponse:
+    def list(
+        self, request: ListFaqRequest, option: Optional[RequestOption] = None
+    ) -> ListFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -203,12 +232,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFaqResponse)
+        response: ListFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListFaqRequest, option: Optional[RequestOption] = None) -> ListFaqResponse:
+    async def alist(
+        self, request: ListFaqRequest, option: Optional[RequestOption] = None
+    ) -> ListFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -219,12 +252,16 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFaqResponse)
+        response: ListFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchFaqRequest, option: Optional[RequestOption] = None) -> PatchFaqResponse:
+    def patch(
+        self, request: PatchFaqRequest, option: Optional[RequestOption] = None
+    ) -> PatchFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -239,12 +276,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFaqResponse)
+        response: PatchFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchFaqRequest, option: Optional[RequestOption] = None) -> PatchFaqResponse:
+    async def apatch(
+        self, request: PatchFaqRequest, option: Optional[RequestOption] = None
+    ) -> PatchFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -255,12 +296,16 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFaqResponse)
+        response: PatchFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchFaqRequest, option: Optional[RequestOption] = None) -> SearchFaqResponse:
+    def search(
+        self, request: SearchFaqRequest, option: Optional[RequestOption] = None
+    ) -> SearchFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -275,12 +320,16 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchFaqResponse)
+        response: SearchFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchFaqResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchFaqRequest, option: Optional[RequestOption] = None) -> SearchFaqResponse:
+    async def asearch(
+        self, request: SearchFaqRequest, option: Optional[RequestOption] = None
+    ) -> SearchFaqResponse:
         if option is None:
             option = RequestOption()
 
@@ -291,7 +340,9 @@ class Faq(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchFaqResponse)
+        response: SearchFaqResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchFaqResponse
+        )
         response.raw = resp
 
         return response

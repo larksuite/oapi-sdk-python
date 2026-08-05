@@ -57,11 +57,15 @@ class DataArchivingMessageStructBuilder(object):
         self._data_archiving_message_struct.message_type = message_type
         return self
 
-    def sender_info(self, sender_info: DataArchivingUserStruct) -> "DataArchivingMessageStructBuilder":
+    def sender_info(
+        self, sender_info: DataArchivingUserStruct
+    ) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.sender_info = sender_info
         return self
 
-    def receiver_ids(self, receiver_ids: List[str]) -> "DataArchivingMessageStructBuilder":
+    def receiver_ids(
+        self, receiver_ids: List[str]
+    ) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.receiver_ids = receiver_ids
         return self
 
@@ -81,7 +85,9 @@ class DataArchivingMessageStructBuilder(object):
         self._data_archiving_message_struct.is_super_chat = is_super_chat
         return self
 
-    def is_cross_tenant_chat(self, is_cross_tenant_chat: bool) -> "DataArchivingMessageStructBuilder":
+    def is_cross_tenant_chat(
+        self, is_cross_tenant_chat: bool
+    ) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.is_cross_tenant_chat = is_cross_tenant_chat
         return self
 

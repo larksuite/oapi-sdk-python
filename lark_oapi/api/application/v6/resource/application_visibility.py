@@ -9,20 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.check_white_black_list_application_visibility_request import \
-    CheckWhiteBlackListApplicationVisibilityRequest
-from ..model.check_white_black_list_application_visibility_response import \
-    CheckWhiteBlackListApplicationVisibilityResponse
-from ..model.patch_application_visibility_request import PatchApplicationVisibilityRequest
-from ..model.patch_application_visibility_response import PatchApplicationVisibilityResponse
+from ..model.check_white_black_list_application_visibility_request import (
+    CheckWhiteBlackListApplicationVisibilityRequest,
+)
+from ..model.check_white_black_list_application_visibility_response import (
+    CheckWhiteBlackListApplicationVisibilityResponse,
+)
+from ..model.patch_application_visibility_request import (
+    PatchApplicationVisibilityRequest,
+)
+from ..model.patch_application_visibility_response import (
+    PatchApplicationVisibilityResponse,
+)
 
 
 class ApplicationVisibility(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def check_white_black_list(self, request: CheckWhiteBlackListApplicationVisibilityRequest, option: Optional[
-        RequestOption] = None) -> CheckWhiteBlackListApplicationVisibilityResponse:
+    def check_white_black_list(
+        self,
+        request: CheckWhiteBlackListApplicationVisibilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CheckWhiteBlackListApplicationVisibilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +46,18 @@ class ApplicationVisibility(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    CheckWhiteBlackListApplicationVisibilityResponse)
+        response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CheckWhiteBlackListApplicationVisibilityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acheck_white_black_list(self, request: CheckWhiteBlackListApplicationVisibilityRequest, option: Optional[
-        RequestOption] = None) -> CheckWhiteBlackListApplicationVisibilityResponse:
+    async def acheck_white_black_list(
+        self,
+        request: CheckWhiteBlackListApplicationVisibilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CheckWhiteBlackListApplicationVisibilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +68,18 @@ class ApplicationVisibility(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    CheckWhiteBlackListApplicationVisibilityResponse)
+        response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CheckWhiteBlackListApplicationVisibilityResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchApplicationVisibilityRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationVisibilityResponse:
+    def patch(
+        self,
+        request: PatchApplicationVisibilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationVisibilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +94,18 @@ class ApplicationVisibility(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchApplicationVisibilityResponse)
+        response: PatchApplicationVisibilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationVisibilityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationVisibilityRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationVisibilityResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationVisibilityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationVisibilityResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,8 +116,9 @@ class ApplicationVisibility(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchApplicationVisibilityResponse)
+        response: PatchApplicationVisibilityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationVisibilityResponse
+        )
         response.raw = resp
 
         return response

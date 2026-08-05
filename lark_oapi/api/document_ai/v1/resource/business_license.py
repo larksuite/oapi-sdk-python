@@ -17,8 +17,11 @@ class BusinessLicense(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeBusinessLicenseRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeBusinessLicenseResponse:
+    def recognize(
+        self,
+        request: RecognizeBusinessLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeBusinessLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class BusinessLicense(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeBusinessLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecognizeBusinessLicenseResponse)
+        response: RecognizeBusinessLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeBusinessLicenseResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeBusinessLicenseRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeBusinessLicenseResponse:
+    async def arecognize(
+        self,
+        request: RecognizeBusinessLicenseRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeBusinessLicenseResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class BusinessLicense(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeBusinessLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecognizeBusinessLicenseResponse)
+        response: RecognizeBusinessLicenseResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeBusinessLicenseResponse
+        )
         response.raw = resp
 
         return response

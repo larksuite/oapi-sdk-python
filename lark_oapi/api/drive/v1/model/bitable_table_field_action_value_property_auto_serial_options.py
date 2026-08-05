@@ -22,14 +22,22 @@ class BitableTableFieldActionValuePropertyAutoSerialOptions(object):
 
 class BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_field_action_value_property_auto_serial_options = BitableTableFieldActionValuePropertyAutoSerialOptions()
+        self._bitable_table_field_action_value_property_auto_serial_options = (
+            BitableTableFieldActionValuePropertyAutoSerialOptions()
+        )
 
-    def type(self, type: str) -> "BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder":
+    def type(
+        self, type: str
+    ) -> "BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder":
         self._bitable_table_field_action_value_property_auto_serial_options.type = type
         return self
 
-    def value(self, value: str) -> "BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder":
-        self._bitable_table_field_action_value_property_auto_serial_options.value = value
+    def value(
+        self, value: str
+    ) -> "BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder":
+        self._bitable_table_field_action_value_property_auto_serial_options.value = (
+            value
+        )
         return self
 
     def build(self) -> "BitableTableFieldActionValuePropertyAutoSerialOptions":

@@ -45,7 +45,9 @@ class BankAccountForUpdateBuilder(object):
         self._bank_account_for_update.branch_name = branch_name
         return self
 
-    def bank_account_number(self, bank_account_number: str) -> "BankAccountForUpdateBuilder":
+    def bank_account_number(
+        self, bank_account_number: str
+    ) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.bank_account_number = bank_account_number
         return self
 
@@ -53,19 +55,27 @@ class BankAccountForUpdateBuilder(object):
         self._bank_account_for_update.account_holder = account_holder
         return self
 
-    def country_region_id(self, country_region_id: str) -> "BankAccountForUpdateBuilder":
+    def country_region_id(
+        self, country_region_id: str
+    ) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.country_region_id = country_region_id
         return self
 
-    def bank_account_usages(self, bank_account_usages: List[str]) -> "BankAccountForUpdateBuilder":
+    def bank_account_usages(
+        self, bank_account_usages: List[str]
+    ) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.bank_account_usages = bank_account_usages
         return self
 
-    def bank_account_type(self, bank_account_type: str) -> "BankAccountForUpdateBuilder":
+    def bank_account_type(
+        self, bank_account_type: str
+    ) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.bank_account_type = bank_account_type
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BankAccountForUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.custom_fields = custom_fields
         return self
 

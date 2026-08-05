@@ -52,7 +52,9 @@ class UserSearchMetaBuilder(object):
         self._user_search_meta.chat_id = chat_id
         return self
 
-    def enterprise_mail_address(self, enterprise_mail_address: str) -> "UserSearchMetaBuilder":
+    def enterprise_mail_address(
+        self, enterprise_mail_address: str
+    ) -> "UserSearchMetaBuilder":
         self._user_search_meta.enterprise_mail_address = enterprise_mail_address
         return self
 

@@ -58,15 +58,21 @@ class UserMailboxSignatureBuilder(object):
         self._user_mailbox_signature.signature_device = signature_device
         return self
 
-    def template_json_keys(self, template_json_keys: List[str]) -> "UserMailboxSignatureBuilder":
+    def template_json_keys(
+        self, template_json_keys: List[str]
+    ) -> "UserMailboxSignatureBuilder":
         self._user_mailbox_signature.template_json_keys = template_json_keys
         return self
 
-    def images(self, images: List[UserMailboxSiganatureImage]) -> "UserMailboxSignatureBuilder":
+    def images(
+        self, images: List[UserMailboxSiganatureImage]
+    ) -> "UserMailboxSignatureBuilder":
         self._user_mailbox_signature.images = images
         return self
 
-    def user_fields(self, user_fields: Dict[str, UserMailboxSignatureI18nVal]) -> "UserMailboxSignatureBuilder":
+    def user_fields(
+        self, user_fields: Dict[str, UserMailboxSignatureI18nVal]
+    ) -> "UserMailboxSignatureBuilder":
         self._user_mailbox_signature.user_fields = user_fields
         return self
 

@@ -17,7 +17,9 @@ class OfferSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
+    def get(
+        self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None
+    ) -> GetOfferSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class OfferSchema(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetOfferSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferSchemaResponse)
+        response: GetOfferSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetOfferSchemaResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetOfferSchemaRequest,
-                   option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
+    async def aget(
+        self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None
+    ) -> GetOfferSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class OfferSchema(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetOfferSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferSchemaResponse)
+        response: GetOfferSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetOfferSchemaResponse
+        )
         response.raw = resp
 
         return response

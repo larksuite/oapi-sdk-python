@@ -18,7 +18,6 @@ class CreateLocationRequest(BaseRequest):
 
 
 class CreateLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         create_location_request = CreateLocationRequest()
         create_location_request.http_method = HttpMethod.POST

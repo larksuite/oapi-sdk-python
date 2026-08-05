@@ -26,17 +26,23 @@ class OverviewApplicationAppUsageRequestBody(object):
 
 class OverviewApplicationAppUsageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._overview_application_app_usage_request_body = OverviewApplicationAppUsageRequestBody()
+        self._overview_application_app_usage_request_body = (
+            OverviewApplicationAppUsageRequestBody()
+        )
 
     def date(self, date: str) -> "OverviewApplicationAppUsageRequestBodyBuilder":
         self._overview_application_app_usage_request_body.date = date
         return self
 
-    def cycle_type(self, cycle_type: int) -> "OverviewApplicationAppUsageRequestBodyBuilder":
+    def cycle_type(
+        self, cycle_type: int
+    ) -> "OverviewApplicationAppUsageRequestBodyBuilder":
         self._overview_application_app_usage_request_body.cycle_type = cycle_type
         return self
 
-    def department_id(self, department_id: str) -> "OverviewApplicationAppUsageRequestBodyBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "OverviewApplicationAppUsageRequestBodyBuilder":
         self._overview_application_app_usage_request_body.department_id = department_id
         return self
 

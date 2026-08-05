@@ -19,11 +19,12 @@ class DeleteTableRecordsAppTableRequest(BaseRequest):
 
 
 class DeleteTableRecordsAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_table_records_app_table_request = DeleteTableRecordsAppTableRequest()
         delete_table_records_app_table_request.http_method = HttpMethod.DELETE
-        delete_table_records_app_table_request.uri = "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        delete_table_records_app_table_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/tables/:table_name/records"
+        )
         delete_table_records_app_table_request.token_types = {AccessTokenType.USER}
         self._delete_table_records_app_table_request: DeleteTableRecordsAppTableRequest = delete_table_records_app_table_request
 
@@ -44,7 +45,9 @@ class DeleteTableRecordsAppTableRequestBuilder(object):
 
     def table_name(self, table_name: str) -> "DeleteTableRecordsAppTableRequestBuilder":
         self._delete_table_records_app_table_request.table_name = table_name
-        self._delete_table_records_app_table_request.paths["table_name"] = str(table_name)
+        self._delete_table_records_app_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
     def build(self) -> DeleteTableRecordsAppTableRequest:

@@ -61,7 +61,9 @@ class ApplicationJobBuilder(object):
         self._application_job.department = department
         return self
 
-    def recruitment_type(self, recruitment_type: RecruitmentType) -> "ApplicationJobBuilder":
+    def recruitment_type(
+        self, recruitment_type: RecruitmentType
+    ) -> "ApplicationJobBuilder":
         self._application_job.recruitment_type = recruitment_type
         return self
 

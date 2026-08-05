@@ -22,14 +22,21 @@ class SearchBasicInfoCountryRegionRequestBody(object):
 
 class SearchBasicInfoCountryRegionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_basic_info_country_region_request_body = SearchBasicInfoCountryRegionRequestBody()
+        self._search_basic_info_country_region_request_body = (
+            SearchBasicInfoCountryRegionRequestBody()
+        )
 
-    def country_region_id_list(self,
-                               country_region_id_list: List[str]) -> "SearchBasicInfoCountryRegionRequestBodyBuilder":
-        self._search_basic_info_country_region_request_body.country_region_id_list = country_region_id_list
+    def country_region_id_list(
+        self, country_region_id_list: List[str]
+    ) -> "SearchBasicInfoCountryRegionRequestBodyBuilder":
+        self._search_basic_info_country_region_request_body.country_region_id_list = (
+            country_region_id_list
+        )
         return self
 
-    def status_list(self, status_list: List[int]) -> "SearchBasicInfoCountryRegionRequestBodyBuilder":
+    def status_list(
+        self, status_list: List[int]
+    ) -> "SearchBasicInfoCountryRegionRequestBodyBuilder":
         self._search_basic_info_country_region_request_body.status_list = status_list
         return self
 

@@ -20,12 +20,16 @@ class GetFileCommentRequest(BaseRequest):
 
 
 class GetFileCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_file_comment_request = GetFileCommentRequest()
         get_file_comment_request.http_method = HttpMethod.GET
-        get_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-        get_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        get_file_comment_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+        )
+        get_file_comment_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._get_file_comment_request: GetFileCommentRequest = get_file_comment_request
 
     def file_type(self, file_type: str) -> "GetFileCommentRequestBuilder":

@@ -68,8 +68,12 @@ class StandardBuilder(object):
         self._standard.created_at = created_at
         return self
 
-    def automatic_backfill_standard_value(self, automatic_backfill_standard_value: bool) -> "StandardBuilder":
-        self._standard.automatic_backfill_standard_value = automatic_backfill_standard_value
+    def automatic_backfill_standard_value(
+        self, automatic_backfill_standard_value: bool
+    ) -> "StandardBuilder":
+        self._standard.automatic_backfill_standard_value = (
+            automatic_backfill_standard_value
+        )
         return self
 
     def scope(self, scope: StandardScope) -> "StandardBuilder":
@@ -80,7 +84,9 @@ class StandardBuilder(object):
         self._standard.dimensions = dimensions
         return self
 
-    def reference_objects(self, reference_objects: List[StandardReferenceObject]) -> "StandardBuilder":
+    def reference_objects(
+        self, reference_objects: List[StandardReferenceObject]
+    ) -> "StandardBuilder":
         self._standard.reference_objects = reference_objects
         return self
 

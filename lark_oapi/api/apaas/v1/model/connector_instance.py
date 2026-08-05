@@ -59,7 +59,9 @@ class ConnectorInstanceBuilder(object):
         self._connector_instance.out_biz_id = out_biz_id
         return self
 
-    def definition(self, definition: ConnectorInstanceDefinition) -> "ConnectorInstanceBuilder":
+    def definition(
+        self, definition: ConnectorInstanceDefinition
+    ) -> "ConnectorInstanceBuilder":
         self._connector_instance.definition = definition
         return self
 

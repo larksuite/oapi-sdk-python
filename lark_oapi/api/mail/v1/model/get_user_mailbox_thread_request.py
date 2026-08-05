@@ -19,27 +19,41 @@ class GetUserMailboxThreadRequest(BaseRequest):
 
 
 class GetUserMailboxThreadRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_mailbox_thread_request = GetUserMailboxThreadRequest()
         get_user_mailbox_thread_request.http_method = HttpMethod.GET
-        get_user_mailbox_thread_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id"
-        get_user_mailbox_thread_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_user_mailbox_thread_request: GetUserMailboxThreadRequest = get_user_mailbox_thread_request
+        get_user_mailbox_thread_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/threads/:thread_id"
+        )
+        get_user_mailbox_thread_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_user_mailbox_thread_request: GetUserMailboxThreadRequest = (
+            get_user_mailbox_thread_request
+        )
 
     def format(self, format: str) -> "GetUserMailboxThreadRequestBuilder":
         self._get_user_mailbox_thread_request.format = format
         self._get_user_mailbox_thread_request.add_query("format", format)
         return self
 
-    def include_spam_trash(self, include_spam_trash: bool) -> "GetUserMailboxThreadRequestBuilder":
+    def include_spam_trash(
+        self, include_spam_trash: bool
+    ) -> "GetUserMailboxThreadRequestBuilder":
         self._get_user_mailbox_thread_request.include_spam_trash = include_spam_trash
-        self._get_user_mailbox_thread_request.add_query("include_spam_trash", include_spam_trash)
+        self._get_user_mailbox_thread_request.add_query(
+            "include_spam_trash", include_spam_trash
+        )
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxThreadRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "GetUserMailboxThreadRequestBuilder":
         self._get_user_mailbox_thread_request.user_mailbox_id = user_mailbox_id
-        self._get_user_mailbox_thread_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._get_user_mailbox_thread_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def thread_id(self, thread_id: str) -> "GetUserMailboxThreadRequestBuilder":

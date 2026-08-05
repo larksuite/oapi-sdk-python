@@ -9,12 +9,14 @@ class MatchRule(object):
         "left_value": str,
         "operator": str,
         "right_values": List[str],
+        "ref_key": str,
     }
 
     def __init__(self, d=None):
         self.left_value: Optional[str] = None
         self.operator: Optional[str] = None
         self.right_values: Optional[List[str]] = None
+        self.ref_key: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class MatchRuleBuilder(object):
 
     def right_values(self, right_values: List[str]) -> "MatchRuleBuilder":
         self._match_rule.right_values = right_values
+        return self
+
+    def ref_key(self, ref_key: str) -> "MatchRuleBuilder":
+        self._match_rule.ref_key = ref_key
         return self
 
     def build(self) -> "MatchRule":

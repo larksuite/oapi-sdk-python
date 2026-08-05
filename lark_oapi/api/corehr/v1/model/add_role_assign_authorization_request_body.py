@@ -21,11 +21,16 @@ class AddRoleAssignAuthorizationRequestBody(object):
 
 class AddRoleAssignAuthorizationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._add_role_assign_authorization_request_body = AddRoleAssignAuthorizationRequestBody()
+        self._add_role_assign_authorization_request_body = (
+            AddRoleAssignAuthorizationRequestBody()
+        )
 
-    def assigned_organization_items(self, assigned_organization_items: List[
-        list]) -> "AddRoleAssignAuthorizationRequestBodyBuilder":
-        self._add_role_assign_authorization_request_body.assigned_organization_items = assigned_organization_items
+    def assigned_organization_items(
+        self, assigned_organization_items: List[list]
+    ) -> "AddRoleAssignAuthorizationRequestBodyBuilder":
+        self._add_role_assign_authorization_request_body.assigned_organization_items = (
+            assigned_organization_items
+        )
         return self
 
     def build(self) -> "AddRoleAssignAuthorizationRequestBody":

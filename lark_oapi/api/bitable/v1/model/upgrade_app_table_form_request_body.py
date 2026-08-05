@@ -28,7 +28,9 @@ class UpgradeAppTableFormRequestBodyBuilder(object):
         self._upgrade_app_table_form_request_body.form_name = form_name
         return self
 
-    def display_mode(self, display_mode: str) -> "UpgradeAppTableFormRequestBodyBuilder":
+    def display_mode(
+        self, display_mode: str
+    ) -> "UpgradeAppTableFormRequestBodyBuilder":
         self._upgrade_app_table_form_request_body.display_mode = display_mode
         return self
 

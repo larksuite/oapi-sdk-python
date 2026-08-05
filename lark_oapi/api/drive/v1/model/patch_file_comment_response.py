@@ -9,7 +9,6 @@ from .patch_file_comment_response_body import PatchFileCommentResponseBody
 class PatchFileCommentResponse(BaseResponse):
     _types = {
         "data": PatchFileCommentResponseBody,
-
     }
 
     def __init__(self, d=None):

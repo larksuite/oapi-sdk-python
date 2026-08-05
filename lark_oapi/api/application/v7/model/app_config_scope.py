@@ -26,11 +26,15 @@ class AppConfigScopeBuilder(object):
     def __init__(self) -> None:
         self._app_config_scope = AppConfigScope()
 
-    def add_scopes(self, add_scopes: List[AppConfigScopeItem]) -> "AppConfigScopeBuilder":
+    def add_scopes(
+        self, add_scopes: List[AppConfigScopeItem]
+    ) -> "AppConfigScopeBuilder":
         self._app_config_scope.add_scopes = add_scopes
         return self
 
-    def remove_scopes(self, remove_scopes: List[AppConfigScopeItem]) -> "AppConfigScopeBuilder":
+    def remove_scopes(
+        self, remove_scopes: List[AppConfigScopeItem]
+    ) -> "AppConfigScopeBuilder":
         self._app_config_scope.remove_scopes = remove_scopes
         return self
 

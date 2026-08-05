@@ -18,7 +18,6 @@ class CcUserTaskRequest(BaseRequest):
 
 
 class CcUserTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         cc_user_task_request = CcUserTaskRequest()
         cc_user_task_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class CcUserTaskRequestBuilder(object):
         self._cc_user_task_request.paths["task_id"] = str(task_id)
         return self
 
-    def request_body(self, request_body: CcUserTaskRequestBody) -> "CcUserTaskRequestBuilder":
+    def request_body(
+        self, request_body: CcUserTaskRequestBody
+    ) -> "CcUserTaskRequestBuilder":
         self._cc_user_task_request.request_body = request_body
         self._cc_user_task_request.body = request_body
         return self

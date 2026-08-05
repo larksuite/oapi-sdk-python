@@ -16,9 +16,7 @@ class P2CorehrJobLevelCreatedV2Data(object):
 
 
 class P2CorehrJobLevelCreatedV2(EventContext):
-    _types = {
-        "event": P2CorehrJobLevelCreatedV2Data
-    }
+    _types = {"event": P2CorehrJobLevelCreatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

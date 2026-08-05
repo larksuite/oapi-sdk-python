@@ -9,7 +9,6 @@ from .list_bp_response_body import ListBpResponseBody
 class ListBpResponse(BaseResponse):
     _types = {
         "data": ListBpResponseBody,
-
     }
 
     def __init__(self, d=None):

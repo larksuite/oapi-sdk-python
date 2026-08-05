@@ -56,7 +56,9 @@ class FieldSettingBuilder(object):
         self._field_setting.multiple = multiple
         return self
 
-    def lookup_object_api_name(self, lookup_object_api_name: str) -> "FieldSettingBuilder":
+    def lookup_object_api_name(
+        self, lookup_object_api_name: str
+    ) -> "FieldSettingBuilder":
         self._field_setting.lookup_object_api_name = lookup_object_api_name
         return self
 

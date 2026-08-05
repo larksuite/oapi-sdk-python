@@ -19,7 +19,9 @@ class TerminateSignatureFileResponseBody(object):
         self.success_count: Optional[int] = None
         self.fail_count: Optional[int] = None
         self.success_file_id_list: Optional[List[str]] = None
-        self.fail_file_id_and_reasons: Optional[List[TerminateSignatureFailIdAndReason]] = None
+        self.fail_file_id_and_reasons: Optional[
+            List[TerminateSignatureFailIdAndReason]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,27 +31,42 @@ class TerminateSignatureFileResponseBody(object):
 
 class TerminateSignatureFileResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._terminate_signature_file_response_body = TerminateSignatureFileResponseBody()
+        self._terminate_signature_file_response_body = (
+            TerminateSignatureFileResponseBody()
+        )
 
-    def total_count(self, total_count: int) -> "TerminateSignatureFileResponseBodyBuilder":
+    def total_count(
+        self, total_count: int
+    ) -> "TerminateSignatureFileResponseBodyBuilder":
         self._terminate_signature_file_response_body.total_count = total_count
         return self
 
-    def success_count(self, success_count: int) -> "TerminateSignatureFileResponseBodyBuilder":
+    def success_count(
+        self, success_count: int
+    ) -> "TerminateSignatureFileResponseBodyBuilder":
         self._terminate_signature_file_response_body.success_count = success_count
         return self
 
-    def fail_count(self, fail_count: int) -> "TerminateSignatureFileResponseBodyBuilder":
+    def fail_count(
+        self, fail_count: int
+    ) -> "TerminateSignatureFileResponseBodyBuilder":
         self._terminate_signature_file_response_body.fail_count = fail_count
         return self
 
-    def success_file_id_list(self, success_file_id_list: List[str]) -> "TerminateSignatureFileResponseBodyBuilder":
-        self._terminate_signature_file_response_body.success_file_id_list = success_file_id_list
+    def success_file_id_list(
+        self, success_file_id_list: List[str]
+    ) -> "TerminateSignatureFileResponseBodyBuilder":
+        self._terminate_signature_file_response_body.success_file_id_list = (
+            success_file_id_list
+        )
         return self
 
-    def fail_file_id_and_reasons(self, fail_file_id_and_reasons: List[
-        TerminateSignatureFailIdAndReason]) -> "TerminateSignatureFileResponseBodyBuilder":
-        self._terminate_signature_file_response_body.fail_file_id_and_reasons = fail_file_id_and_reasons
+    def fail_file_id_and_reasons(
+        self, fail_file_id_and_reasons: List[TerminateSignatureFailIdAndReason]
+    ) -> "TerminateSignatureFileResponseBodyBuilder":
+        self._terminate_signature_file_response_body.fail_file_id_and_reasons = (
+            fail_file_id_and_reasons
+        )
         return self
 
     def build(self) -> "TerminateSignatureFileResponseBody":

@@ -53,7 +53,9 @@ class InterviewBuilder(object):
         self._interview.stage_id = stage_id
         return self
 
-    def interview_record_list(self, interview_record_list: List[InterviewRecord]) -> "InterviewBuilder":
+    def interview_record_list(
+        self, interview_record_list: List[InterviewRecord]
+    ) -> "InterviewBuilder":
         self._interview.interview_record_list = interview_record_list
         return self
 

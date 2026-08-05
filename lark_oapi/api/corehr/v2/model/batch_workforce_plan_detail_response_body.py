@@ -29,22 +29,33 @@ class BatchWorkforcePlanDetailResponseBody(object):
 
 class BatchWorkforcePlanDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_workforce_plan_detail_response_body = BatchWorkforcePlanDetailResponseBody()
+        self._batch_workforce_plan_detail_response_body = (
+            BatchWorkforcePlanDetailResponseBody()
+        )
 
-    def workforce_plan_id(self, workforce_plan_id: str) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
-        self._batch_workforce_plan_detail_response_body.workforce_plan_id = workforce_plan_id
+    def workforce_plan_id(
+        self, workforce_plan_id: str
+    ) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
+        self._batch_workforce_plan_detail_response_body.workforce_plan_id = (
+            workforce_plan_id
+        )
         return self
 
-    def centralized_reporting_project_id(self,
-                                         centralized_reporting_project_id: str) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
+    def centralized_reporting_project_id(
+        self, centralized_reporting_project_id: str
+    ) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
         self._batch_workforce_plan_detail_response_body.centralized_reporting_project_id = centralized_reporting_project_id
         return self
 
-    def items(self, items: List[WorkforcePlanDetail]) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
+    def items(
+        self, items: List[WorkforcePlanDetail]
+    ) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
         self._batch_workforce_plan_detail_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "BatchWorkforcePlanDetailResponseBodyBuilder":
         self._batch_workforce_plan_detail_response_body.page_token = page_token
         return self
 

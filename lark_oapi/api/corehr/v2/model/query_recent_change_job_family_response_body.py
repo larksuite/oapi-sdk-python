@@ -26,23 +26,36 @@ class QueryRecentChangeJobFamilyResponseBody(object):
 
 class QueryRecentChangeJobFamilyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_recent_change_job_family_response_body = QueryRecentChangeJobFamilyResponseBody()
+        self._query_recent_change_job_family_response_body = (
+            QueryRecentChangeJobFamilyResponseBody()
+        )
 
-    def job_family_ids(self, job_family_ids: List[str]) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
-        self._query_recent_change_job_family_response_body.job_family_ids = job_family_ids
+    def job_family_ids(
+        self, job_family_ids: List[str]
+    ) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
+        self._query_recent_change_job_family_response_body.job_family_ids = (
+            job_family_ids
+        )
         return self
 
-    def page_token(self, page_token: str) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
         self._query_recent_change_job_family_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
         self._query_recent_change_job_family_response_body.has_more = has_more
         return self
 
-    def deleted_job_family_ids(self,
-                               deleted_job_family_ids: List[str]) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
-        self._query_recent_change_job_family_response_body.deleted_job_family_ids = deleted_job_family_ids
+    def deleted_job_family_ids(
+        self, deleted_job_family_ids: List[str]
+    ) -> "QueryRecentChangeJobFamilyResponseBodyBuilder":
+        self._query_recent_change_job_family_response_body.deleted_job_family_ids = (
+            deleted_job_family_ids
+        )
         return self
 
     def build(self) -> "QueryRecentChangeJobFamilyResponseBody":

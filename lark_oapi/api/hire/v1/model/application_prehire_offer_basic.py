@@ -49,7 +49,9 @@ class ApplicationPrehireOfferBasicBuilder(object):
         self._application_prehire_offer_basic.offer_id = offer_id
         return self
 
-    def application_id(self, application_id: str) -> "ApplicationPrehireOfferBasicBuilder":
+    def application_id(
+        self, application_id: str
+    ) -> "ApplicationPrehireOfferBasicBuilder":
         self._application_prehire_offer_basic.application_id = application_id
         return self
 
@@ -85,11 +87,15 @@ class ApplicationPrehireOfferBasicBuilder(object):
         self._application_prehire_offer_basic.offer_status = offer_status
         return self
 
-    def owner(self, owner: AppliOfferBasicInfoUser) -> "ApplicationPrehireOfferBasicBuilder":
+    def owner(
+        self, owner: AppliOfferBasicInfoUser
+    ) -> "ApplicationPrehireOfferBasicBuilder":
         self._application_prehire_offer_basic.owner = owner
         return self
 
-    def offer_job_title(self, offer_job_title: str) -> "ApplicationPrehireOfferBasicBuilder":
+    def offer_job_title(
+        self, offer_job_title: str
+    ) -> "ApplicationPrehireOfferBasicBuilder":
         self._application_prehire_offer_basic.offer_job_title = offer_job_title
         return self
 

@@ -22,7 +22,9 @@ class CreateSandboxTenantBuilder(object):
     def __init__(self) -> None:
         self._create_sandbox_tenant = CreateSandboxTenant()
 
-    def creator_home_user_id(self, creator_home_user_id: str) -> "CreateSandboxTenantBuilder":
+    def creator_home_user_id(
+        self, creator_home_user_id: str
+    ) -> "CreateSandboxTenantBuilder":
         self._create_sandbox_tenant.creator_home_user_id = creator_home_user_id
         return self
 

@@ -36,11 +36,15 @@ class MergeTableCellsRequestBuilder(object):
         self._merge_table_cells_request.row_end_index = row_end_index
         return self
 
-    def column_start_index(self, column_start_index: int) -> "MergeTableCellsRequestBuilder":
+    def column_start_index(
+        self, column_start_index: int
+    ) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.column_start_index = column_start_index
         return self
 
-    def column_end_index(self, column_end_index: int) -> "MergeTableCellsRequestBuilder":
+    def column_end_index(
+        self, column_end_index: int
+    ) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.column_end_index = column_end_index
         return self
 

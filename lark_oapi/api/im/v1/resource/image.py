@@ -19,7 +19,9 @@ class Image(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateImageRequest, option: Optional[RequestOption] = None) -> CreateImageResponse:
+    def create(
+        self, request: CreateImageRequest, option: Optional[RequestOption] = None
+    ) -> CreateImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,12 +38,16 @@ class Image(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImageResponse)
+        response: CreateImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateImageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateImageRequest, option: Optional[RequestOption] = None) -> CreateImageResponse:
+    async def acreate(
+        self, request: CreateImageRequest, option: Optional[RequestOption] = None
+    ) -> CreateImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,12 +61,16 @@ class Image(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImageResponse)
+        response: CreateImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateImageResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetImageRequest, option: Optional[RequestOption] = None) -> GetImageResponse:
+    def get(
+        self, request: GetImageRequest, option: Optional[RequestOption] = None
+    ) -> GetImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +97,9 @@ class Image(object):
         response.raw = resp
         return response
 
-    async def aget(self, request: GetImageRequest, option: Optional[RequestOption] = None) -> GetImageResponse:
+    async def aget(
+        self, request: GetImageRequest, option: Optional[RequestOption] = None
+    ) -> GetImageResponse:
         if option is None:
             option = RequestOption()
 

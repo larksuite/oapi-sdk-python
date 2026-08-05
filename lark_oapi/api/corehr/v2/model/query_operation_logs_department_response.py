@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .query_operation_logs_department_response_body import QueryOperationLogsDepartmentResponseBody
+from .query_operation_logs_department_response_body import (
+    QueryOperationLogsDepartmentResponseBody,
+)
 
 
 class QueryOperationLogsDepartmentResponse(BaseResponse):
     _types = {
         "data": QueryOperationLogsDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

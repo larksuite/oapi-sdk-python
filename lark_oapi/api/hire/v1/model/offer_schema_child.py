@@ -41,7 +41,9 @@ class OfferSchemaChildBuilder(object):
         self._offer_schema_child.version = version
         return self
 
-    def object_list(self, object_list: List[OfferSchemaDetail]) -> "OfferSchemaChildBuilder":
+    def object_list(
+        self, object_list: List[OfferSchemaDetail]
+    ) -> "OfferSchemaChildBuilder":
         self._offer_schema_child.object_list = object_list
         return self
 

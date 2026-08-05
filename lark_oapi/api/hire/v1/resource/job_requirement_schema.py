@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.list_job_requirement_schema_request import ListJobRequirementSchemaRequest
-from ..model.list_job_requirement_schema_response import ListJobRequirementSchemaResponse
+from ..model.list_job_requirement_schema_response import (
+    ListJobRequirementSchemaResponse,
+)
 
 
 class JobRequirementSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListJobRequirementSchemaRequest,
-             option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
+    def list(
+        self,
+        request: ListJobRequirementSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListJobRequirementSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class JobRequirementSchema(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListJobRequirementSchemaResponse)
+        response: ListJobRequirementSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobRequirementSchemaResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListJobRequirementSchemaRequest,
-                    option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
+    async def alist(
+        self,
+        request: ListJobRequirementSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListJobRequirementSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class JobRequirementSchema(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListJobRequirementSchemaResponse)
+        response: ListJobRequirementSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobRequirementSchemaResponse
+        )
         response.raw = resp
 
         return response

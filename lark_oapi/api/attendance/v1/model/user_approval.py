@@ -54,7 +54,9 @@ class UserApprovalBuilder(object):
         self._user_approval.leaves = leaves
         return self
 
-    def overtime_works(self, overtime_works: List[UserOvertimeWork]) -> "UserApprovalBuilder":
+    def overtime_works(
+        self, overtime_works: List[UserOvertimeWork]
+    ) -> "UserApprovalBuilder":
         self._user_approval.overtime_works = overtime_works
         return self
 

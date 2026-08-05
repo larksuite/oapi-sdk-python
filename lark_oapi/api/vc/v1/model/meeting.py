@@ -103,7 +103,9 @@ class MeetingBuilder(object):
         self._meeting.participant_count = participant_count
         return self
 
-    def participant_count_accumulated(self, participant_count_accumulated: int) -> "MeetingBuilder":
+    def participant_count_accumulated(
+        self, participant_count_accumulated: int
+    ) -> "MeetingBuilder":
         self._meeting.participant_count_accumulated = participant_count_accumulated
         return self
 

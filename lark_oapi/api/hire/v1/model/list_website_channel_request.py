@@ -18,13 +18,16 @@ class ListWebsiteChannelRequest(BaseRequest):
 
 
 class ListWebsiteChannelRequestBuilder(object):
-
     def __init__(self) -> None:
         list_website_channel_request = ListWebsiteChannelRequest()
         list_website_channel_request.http_method = HttpMethod.GET
-        list_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels"
+        list_website_channel_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/channels"
+        )
         list_website_channel_request.token_types = {AccessTokenType.TENANT}
-        self._list_website_channel_request: ListWebsiteChannelRequest = list_website_channel_request
+        self._list_website_channel_request: ListWebsiteChannelRequest = (
+            list_website_channel_request
+        )
 
     def page_size(self, page_size: str) -> "ListWebsiteChannelRequestBuilder":
         self._list_website_channel_request.page_size = page_size

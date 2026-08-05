@@ -17,7 +17,6 @@ class GetChatRequest(BaseRequest):
 
 
 class GetChatRequestBuilder(object):
-
     def __init__(self) -> None:
         get_chat_request = GetChatRequest()
         get_chat_request.http_method = HttpMethod.GET

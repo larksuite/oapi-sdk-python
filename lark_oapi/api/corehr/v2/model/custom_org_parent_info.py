@@ -33,11 +33,15 @@ class CustomOrgParentInfoBuilder(object):
         self._custom_org_parent_info.custom_org_id = custom_org_id
         return self
 
-    def custom_org_name(self, custom_org_name: List[I18n]) -> "CustomOrgParentInfoBuilder":
+    def custom_org_name(
+        self, custom_org_name: List[I18n]
+    ) -> "CustomOrgParentInfoBuilder":
         self._custom_org_parent_info.custom_org_name = custom_org_name
         return self
 
-    def parent_custom_org_id(self, parent_custom_org_id: str) -> "CustomOrgParentInfoBuilder":
+    def parent_custom_org_id(
+        self, parent_custom_org_id: str
+    ) -> "CustomOrgParentInfoBuilder":
         self._custom_org_parent_info.parent_custom_org_id = parent_custom_org_id
         return self
 

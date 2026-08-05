@@ -17,15 +17,20 @@ class UnsubscriptionMinuteRequest(BaseRequest):
 
 
 class UnsubscriptionMinuteRequestBuilder(object):
-
     def __init__(self) -> None:
         unsubscription_minute_request = UnsubscriptionMinuteRequest()
         unsubscription_minute_request.http_method = HttpMethod.POST
-        unsubscription_minute_request.uri = "/open-apis/minutes/v1/minutes/unsubscription"
+        unsubscription_minute_request.uri = (
+            "/open-apis/minutes/v1/minutes/unsubscription"
+        )
         unsubscription_minute_request.token_types = {AccessTokenType.USER}
-        self._unsubscription_minute_request: UnsubscriptionMinuteRequest = unsubscription_minute_request
+        self._unsubscription_minute_request: UnsubscriptionMinuteRequest = (
+            unsubscription_minute_request
+        )
 
-    def request_body(self, request_body: UnsubscriptionMinuteRequestBody) -> "UnsubscriptionMinuteRequestBuilder":
+    def request_body(
+        self, request_body: UnsubscriptionMinuteRequestBody
+    ) -> "UnsubscriptionMinuteRequestBuilder":
         self._unsubscription_minute_request.request_body = request_body
         self._unsubscription_minute_request.body = request_body
         return self

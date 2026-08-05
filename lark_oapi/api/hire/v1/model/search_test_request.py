@@ -20,12 +20,11 @@ class SearchTestRequest(BaseRequest):
 
 
 class SearchTestRequestBuilder(object):
-
     def __init__(self) -> None:
         search_test_request = SearchTestRequest()
         search_test_request.http_method = HttpMethod.POST
         search_test_request.uri = "/open-apis/hire/v1/tests/search"
-        search_test_request.token_types = {AccessTokenType.TENANT}
+        search_test_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._search_test_request: SearchTestRequest = search_test_request
 
     def page_token(self, page_token: str) -> "SearchTestRequestBuilder":
@@ -43,7 +42,9 @@ class SearchTestRequestBuilder(object):
         self._search_test_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchTestRequestBody) -> "SearchTestRequestBuilder":
+    def request_body(
+        self, request_body: SearchTestRequestBody
+    ) -> "SearchTestRequestBuilder":
         self._search_test_request.request_body = request_body
         self._search_test_request.body = request_body
         return self

@@ -76,11 +76,15 @@ class CustomOrgUpdateBuilder(object):
         self._custom_org_update.org_roles = org_roles
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.custom_fields = custom_fields
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CustomOrgUpdateBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

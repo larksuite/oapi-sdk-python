@@ -33,7 +33,9 @@ class SearchEntityRequestBodyBuilder(object):
         self._search_entity_request_body.query = query
         return self
 
-    def classification_filter(self, classification_filter: ClassificationFilter) -> "SearchEntityRequestBodyBuilder":
+    def classification_filter(
+        self, classification_filter: ClassificationFilter
+    ) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.classification_filter = classification_filter
         return self
 

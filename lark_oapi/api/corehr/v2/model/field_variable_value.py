@@ -35,15 +35,21 @@ class FieldVariableValueBuilder(object):
         self._field_variable_value.variable_api_name = variable_api_name
         return self
 
-    def variable_name(self, variable_name: FieldVariableValueI18n) -> "FieldVariableValueBuilder":
+    def variable_name(
+        self, variable_name: FieldVariableValueI18n
+    ) -> "FieldVariableValueBuilder":
         self._field_variable_value.variable_name = variable_name
         return self
 
-    def variable_value(self, variable_value: FieldVariableValueTo) -> "FieldVariableValueBuilder":
+    def variable_value(
+        self, variable_value: FieldVariableValueTo
+    ) -> "FieldVariableValueBuilder":
         self._field_variable_value.variable_value = variable_value
         return self
 
-    def sub_values(self, sub_values: List[FieldVariableSubVlaue]) -> "FieldVariableValueBuilder":
+    def sub_values(
+        self, sub_values: List[FieldVariableSubVlaue]
+    ) -> "FieldVariableValueBuilder":
         self._field_variable_value.sub_values = sub_values
         return self
 

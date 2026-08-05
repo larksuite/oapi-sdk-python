@@ -35,7 +35,9 @@ class LoginInfoEcoExamRequestBodyBuilder(object):
         self._login_info_eco_exam_request_body.msg = msg
         return self
 
-    def exam_login_info(self, exam_login_info: EcoExamLoginInfo) -> "LoginInfoEcoExamRequestBodyBuilder":
+    def exam_login_info(
+        self, exam_login_info: EcoExamLoginInfo
+    ) -> "LoginInfoEcoExamRequestBodyBuilder":
         self._login_info_eco_exam_request_body.exam_login_info = exam_login_info
         return self
 

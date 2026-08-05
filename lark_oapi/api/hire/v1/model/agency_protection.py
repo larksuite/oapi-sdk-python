@@ -58,15 +58,21 @@ class AgencyProtectionBuilder(object):
         self._agency_protection.agency_supplier_id = agency_supplier_id
         return self
 
-    def agency_supplier_name(self, agency_supplier_name: I18n) -> "AgencyProtectionBuilder":
+    def agency_supplier_name(
+        self, agency_supplier_name: I18n
+    ) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_name = agency_supplier_name
         return self
 
-    def agency_supplier_user_id(self, agency_supplier_user_id: str) -> "AgencyProtectionBuilder":
+    def agency_supplier_user_id(
+        self, agency_supplier_user_id: str
+    ) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_user_id = agency_supplier_user_id
         return self
 
-    def agency_supplier_user_name(self, agency_supplier_user_name: I18n) -> "AgencyProtectionBuilder":
+    def agency_supplier_user_name(
+        self, agency_supplier_user_name: I18n
+    ) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_user_name = agency_supplier_user_name
         return self
 

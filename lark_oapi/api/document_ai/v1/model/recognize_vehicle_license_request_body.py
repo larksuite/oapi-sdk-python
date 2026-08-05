@@ -20,7 +20,9 @@ class RecognizeVehicleLicenseRequestBody(object):
 
 class RecognizeVehicleLicenseRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_vehicle_license_request_body = RecognizeVehicleLicenseRequestBody()
+        self._recognize_vehicle_license_request_body = (
+            RecognizeVehicleLicenseRequestBody()
+        )
 
     def file(self, file: IO[Any]) -> "RecognizeVehicleLicenseRequestBodyBuilder":
         self._recognize_vehicle_license_request_body.file = file

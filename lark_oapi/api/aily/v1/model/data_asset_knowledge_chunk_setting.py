@@ -32,7 +32,9 @@ class DataAssetKnowledgeChunkSettingBuilder(object):
         self._data_asset_knowledge_chunk_setting.rule_type = rule_type
         return self
 
-    def separate_type(self, separate_type: str) -> "DataAssetKnowledgeChunkSettingBuilder":
+    def separate_type(
+        self, separate_type: str
+    ) -> "DataAssetKnowledgeChunkSettingBuilder":
         self._data_asset_knowledge_chunk_setting.separate_type = separate_type
         return self
 

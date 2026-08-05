@@ -24,7 +24,9 @@ class EmployeeOverboardInfoBuilder(object):
     def __init__(self) -> None:
         self._employee_overboard_info = EmployeeOverboardInfo()
 
-    def actual_overboard_time(self, actual_overboard_time: int) -> "EmployeeOverboardInfoBuilder":
+    def actual_overboard_time(
+        self, actual_overboard_time: int
+    ) -> "EmployeeOverboardInfoBuilder":
         self._employee_overboard_info.actual_overboard_time = actual_overboard_time
         return self
 

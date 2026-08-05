@@ -2,21 +2,30 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .user_out import UserOut
 
 
 class UserOutApproval(object):
     _types = {
-        "user_id": str,
-        "date": str,
-        "outs": List[UserOut],
+        "approval_id": str,
+        "interval": int,
+        "start_time": str,
+        "end_time": str,
+        "reason": str,
+        "approve_pass_time": str,
+        "approve_apply_time": str,
+        "status": int,
         "time_zone": str,
     }
 
     def __init__(self, d=None):
-        self.user_id: Optional[str] = None
-        self.date: Optional[str] = None
-        self.outs: Optional[List[UserOut]] = None
+        self.approval_id: Optional[str] = None
+        self.interval: Optional[int] = None
+        self.start_time: Optional[str] = None
+        self.end_time: Optional[str] = None
+        self.reason: Optional[str] = None
+        self.approve_pass_time: Optional[str] = None
+        self.approve_apply_time: Optional[str] = None
+        self.status: Optional[int] = None
         self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
@@ -29,16 +38,36 @@ class UserOutApprovalBuilder(object):
     def __init__(self) -> None:
         self._user_out_approval = UserOutApproval()
 
-    def user_id(self, user_id: str) -> "UserOutApprovalBuilder":
-        self._user_out_approval.user_id = user_id
+    def approval_id(self, approval_id: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.approval_id = approval_id
         return self
 
-    def date(self, date: str) -> "UserOutApprovalBuilder":
-        self._user_out_approval.date = date
+    def interval(self, interval: int) -> "UserOutApprovalBuilder":
+        self._user_out_approval.interval = interval
         return self
 
-    def outs(self, outs: List[UserOut]) -> "UserOutApprovalBuilder":
-        self._user_out_approval.outs = outs
+    def start_time(self, start_time: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.start_time = start_time
+        return self
+
+    def end_time(self, end_time: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.end_time = end_time
+        return self
+
+    def reason(self, reason: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.reason = reason
+        return self
+
+    def approve_pass_time(self, approve_pass_time: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.approve_pass_time = approve_pass_time
+        return self
+
+    def approve_apply_time(self, approve_apply_time: str) -> "UserOutApprovalBuilder":
+        self._user_out_approval.approve_apply_time = approve_apply_time
+        return self
+
+    def status(self, status: int) -> "UserOutApprovalBuilder":
+        self._user_out_approval.status = status
         return self
 
     def time_zone(self, time_zone: str) -> "UserOutApprovalBuilder":

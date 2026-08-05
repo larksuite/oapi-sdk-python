@@ -55,11 +55,15 @@ class FieldBuilder(object):
         self._field.tag_based_question_id = tag_based_question_id
         return self
 
-    def objective_text_qustion_title(self, objective_text_qustion_title: I18n) -> "FieldBuilder":
+    def objective_text_qustion_title(
+        self, objective_text_qustion_title: I18n
+    ) -> "FieldBuilder":
         self._field.objective_text_qustion_title = objective_text_qustion_title
         return self
 
-    def keyresult_text_qustion_title(self, keyresult_text_qustion_title: I18n) -> "FieldBuilder":
+    def keyresult_text_qustion_title(
+        self, keyresult_text_qustion_title: I18n
+    ) -> "FieldBuilder":
         self._field.keyresult_text_qustion_title = keyresult_text_qustion_title
         return self
 

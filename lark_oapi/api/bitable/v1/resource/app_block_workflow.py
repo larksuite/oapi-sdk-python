@@ -17,8 +17,11 @@ class AppBlockWorkflow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAppBlockWorkflowRequest,
-             option: Optional[RequestOption] = None) -> ListAppBlockWorkflowResponse:
+    def list(
+        self,
+        request: ListAppBlockWorkflowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListAppBlockWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class AppBlockWorkflow(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppBlockWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppBlockWorkflowResponse)
+        response: ListAppBlockWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppBlockWorkflowResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppBlockWorkflowRequest,
-                    option: Optional[RequestOption] = None) -> ListAppBlockWorkflowResponse:
+    async def alist(
+        self,
+        request: ListAppBlockWorkflowRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListAppBlockWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class AppBlockWorkflow(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppBlockWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppBlockWorkflowResponse)
+        response: ListAppBlockWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppBlockWorkflowResponse
+        )
         response.raw = resp
 
         return response

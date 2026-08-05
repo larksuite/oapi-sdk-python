@@ -17,8 +17,11 @@ class AppAvatarUpload(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppAvatarUploadRequest,
-               option: Optional[RequestOption] = None) -> CreateAppAvatarUploadResponse:
+    def create(
+        self,
+        request: CreateAppAvatarUploadRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppAvatarUploadResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class AppAvatarUpload(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppAvatarUploadResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateAppAvatarUploadResponse)
+        response: CreateAppAvatarUploadResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppAvatarUploadResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppAvatarUploadRequest,
-                      option: Optional[RequestOption] = None) -> CreateAppAvatarUploadResponse:
+    async def acreate(
+        self,
+        request: CreateAppAvatarUploadRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppAvatarUploadResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class AppAvatarUpload(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppAvatarUploadResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateAppAvatarUploadResponse)
+        response: CreateAppAvatarUploadResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppAvatarUploadResponse
+        )
         response.raw = resp
 
         return response

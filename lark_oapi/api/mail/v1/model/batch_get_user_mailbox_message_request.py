@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_get_user_mailbox_message_request_body import BatchGetUserMailboxMessageRequestBody
+from .batch_get_user_mailbox_message_request_body import (
+    BatchGetUserMailboxMessageRequestBody,
+)
 
 
 class BatchGetUserMailboxMessageRequest(BaseRequest):
@@ -18,21 +20,30 @@ class BatchGetUserMailboxMessageRequest(BaseRequest):
 
 
 class BatchGetUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_user_mailbox_message_request = BatchGetUserMailboxMessageRequest()
         batch_get_user_mailbox_message_request.http_method = HttpMethod.POST
-        batch_get_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
-        batch_get_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_get_user_mailbox_message_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_get"
+        )
+        batch_get_user_mailbox_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_get_user_mailbox_message_request: BatchGetUserMailboxMessageRequest = batch_get_user_mailbox_message_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "BatchGetUserMailboxMessageRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "BatchGetUserMailboxMessageRequestBuilder":
         self._batch_get_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._batch_get_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._batch_get_user_mailbox_message_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchGetUserMailboxMessageRequestBody) -> "BatchGetUserMailboxMessageRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetUserMailboxMessageRequestBody
+    ) -> "BatchGetUserMailboxMessageRequestBuilder":
         self._batch_get_user_mailbox_message_request.request_body = request_body
         self._batch_get_user_mailbox_message_request.body = request_body
         return self

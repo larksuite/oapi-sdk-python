@@ -30,6 +30,8 @@ class ApplicationDetailBasicInfo(object):
         "terminator_id": str,
         "create_time": str,
         "modify_time": str,
+        "lock_status": int,
+        "termination_reason_note": str,
     }
 
     def __init__(self, d=None):
@@ -51,6 +53,8 @@ class ApplicationDetailBasicInfo(object):
         self.terminator_id: Optional[str] = None
         self.create_time: Optional[str] = None
         self.modify_time: Optional[str] = None
+        self.lock_status: Optional[int] = None
+        self.termination_reason_note: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,33 +90,51 @@ class ApplicationDetailBasicInfoBuilder(object):
         self._application_detail_basic_info.delivery_type = delivery_type
         return self
 
-    def resume_source_info(self, resume_source_info: ApplicationResumeSource) -> "ApplicationDetailBasicInfoBuilder":
+    def resume_source_info(
+        self, resume_source_info: ApplicationResumeSource
+    ) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.resume_source_info = resume_source_info
         return self
 
-    def website_resume_source(self,
-                              website_resume_source: ApplicationWebsiteResumeSource) -> "ApplicationDetailBasicInfoBuilder":
-        self._application_detail_basic_info.website_resume_source = website_resume_source
+    def website_resume_source(
+        self, website_resume_source: ApplicationWebsiteResumeSource
+    ) -> "ApplicationDetailBasicInfoBuilder":
+        self._application_detail_basic_info.website_resume_source = (
+            website_resume_source
+        )
         return self
 
-    def talent_attachment_resume_id(self, talent_attachment_resume_id: str) -> "ApplicationDetailBasicInfoBuilder":
-        self._application_detail_basic_info.talent_attachment_resume_id = talent_attachment_resume_id
+    def talent_attachment_resume_id(
+        self, talent_attachment_resume_id: str
+    ) -> "ApplicationDetailBasicInfoBuilder":
+        self._application_detail_basic_info.talent_attachment_resume_id = (
+            talent_attachment_resume_id
+        )
         return self
 
-    def stage_time_list(self, stage_time_list: List[ApplicationStageTime]) -> "ApplicationDetailBasicInfoBuilder":
+    def stage_time_list(
+        self, stage_time_list: List[ApplicationStageTime]
+    ) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.stage_time_list = stage_time_list
         return self
 
-    def onboard_status(self, onboard_status: int) -> "ApplicationDetailBasicInfoBuilder":
+    def onboard_status(
+        self, onboard_status: int
+    ) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.onboard_status = onboard_status
         return self
 
-    def application_preferred_city_list(self, application_preferred_city_list: List[
-        CodeNameObject]) -> "ApplicationDetailBasicInfoBuilder":
-        self._application_detail_basic_info.application_preferred_city_list = application_preferred_city_list
+    def application_preferred_city_list(
+        self, application_preferred_city_list: List[CodeNameObject]
+    ) -> "ApplicationDetailBasicInfoBuilder":
+        self._application_detail_basic_info.application_preferred_city_list = (
+            application_preferred_city_list
+        )
         return self
 
-    def termination_reason(self, termination_reason: TerminationReasonInfo) -> "ApplicationDetailBasicInfoBuilder":
+    def termination_reason(
+        self, termination_reason: TerminationReasonInfo
+    ) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.termination_reason = termination_reason
         return self
 
@@ -134,6 +156,18 @@ class ApplicationDetailBasicInfoBuilder(object):
 
     def modify_time(self, modify_time: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.modify_time = modify_time
+        return self
+
+    def lock_status(self, lock_status: int) -> "ApplicationDetailBasicInfoBuilder":
+        self._application_detail_basic_info.lock_status = lock_status
+        return self
+
+    def termination_reason_note(
+        self, termination_reason_note: str
+    ) -> "ApplicationDetailBasicInfoBuilder":
+        self._application_detail_basic_info.termination_reason_note = (
+            termination_reason_note
+        )
         return self
 
     def build(self) -> "ApplicationDetailBasicInfo":

@@ -78,7 +78,9 @@ class SignatureTemplateBriefInfoBuilder(object):
         self._signature_template_brief_info.usage = usage
         return self
 
-    def signatory_labels(self, signatory_labels: List[SignatureSignatoryLabel]) -> "SignatureTemplateBriefInfoBuilder":
+    def signatory_labels(
+        self, signatory_labels: List[SignatureSignatoryLabel]
+    ) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.signatory_labels = signatory_labels
         return self
 
@@ -98,7 +100,9 @@ class SignatureTemplateBriefInfoBuilder(object):
         self._signature_template_brief_info.applicability = applicability
         return self
 
-    def creation_method(self, creation_method: str) -> "SignatureTemplateBriefInfoBuilder":
+    def creation_method(
+        self, creation_method: str
+    ) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.creation_method = creation_method
         return self
 
@@ -114,12 +118,15 @@ class SignatureTemplateBriefInfoBuilder(object):
         self._signature_template_brief_info.create_time = create_time
         return self
 
-    def template_setting(self, template_setting: SignatureTemplateSetting) -> "SignatureTemplateBriefInfoBuilder":
+    def template_setting(
+        self, template_setting: SignatureTemplateSetting
+    ) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_setting = template_setting
         return self
 
-    def template_region_info(self,
-                             template_region_info: SignatureTemplateRegionInfo) -> "SignatureTemplateBriefInfoBuilder":
+    def template_region_info(
+        self, template_region_info: SignatureTemplateRegionInfo
+    ) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_region_info = template_region_info
         return self
 
@@ -127,7 +134,9 @@ class SignatureTemplateBriefInfoBuilder(object):
         self._signature_template_brief_info.template_code = template_code
         return self
 
-    def template_desc(self, template_desc: List[I18n]) -> "SignatureTemplateBriefInfoBuilder":
+    def template_desc(
+        self, template_desc: List[I18n]
+    ) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_desc = template_desc
         return self
 

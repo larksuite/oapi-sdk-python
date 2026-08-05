@@ -19,13 +19,16 @@ class PatchChatMenuItemRequest(BaseRequest):
 
 
 class PatchChatMenuItemRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_chat_menu_item_request = PatchChatMenuItemRequest()
         patch_chat_menu_item_request.http_method = HttpMethod.PATCH
-        patch_chat_menu_item_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_items/:menu_item_id"
+        patch_chat_menu_item_request.uri = (
+            "/open-apis/im/v1/chats/:chat_id/menu_items/:menu_item_id"
+        )
         patch_chat_menu_item_request.token_types = {AccessTokenType.TENANT}
-        self._patch_chat_menu_item_request: PatchChatMenuItemRequest = patch_chat_menu_item_request
+        self._patch_chat_menu_item_request: PatchChatMenuItemRequest = (
+            patch_chat_menu_item_request
+        )
 
     def chat_id(self, chat_id: str) -> "PatchChatMenuItemRequestBuilder":
         self._patch_chat_menu_item_request.chat_id = chat_id
@@ -37,7 +40,9 @@ class PatchChatMenuItemRequestBuilder(object):
         self._patch_chat_menu_item_request.paths["menu_item_id"] = str(menu_item_id)
         return self
 
-    def request_body(self, request_body: PatchChatMenuItemRequestBody) -> "PatchChatMenuItemRequestBuilder":
+    def request_body(
+        self, request_body: PatchChatMenuItemRequestBody
+    ) -> "PatchChatMenuItemRequestBuilder":
         self._patch_chat_menu_item_request.request_body = request_body
         self._patch_chat_menu_item_request.body = request_body
         return self

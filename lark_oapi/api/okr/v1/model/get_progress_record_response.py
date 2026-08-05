@@ -9,7 +9,6 @@ from .get_progress_record_response_body import GetProgressRecordResponseBody
 class GetProgressRecordResponse(BaseResponse):
     _types = {
         "data": GetProgressRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -36,11 +36,15 @@ class QueryArchiveRequestBodyBuilder(object):
         self._query_archive_request_body.tid_list = tid_list
         return self
 
-    def effective_start_date(self, effective_start_date: str) -> "QueryArchiveRequestBodyBuilder":
+    def effective_start_date(
+        self, effective_start_date: str
+    ) -> "QueryArchiveRequestBodyBuilder":
         self._query_archive_request_body.effective_start_date = effective_start_date
         return self
 
-    def effective_end_date(self, effective_end_date: str) -> "QueryArchiveRequestBodyBuilder":
+    def effective_end_date(
+        self, effective_end_date: str
+    ) -> "QueryArchiveRequestBodyBuilder":
         self._query_archive_request_body.effective_end_date = effective_end_date
         return self
 

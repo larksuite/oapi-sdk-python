@@ -17,7 +17,9 @@ class MetricTag(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListMetricTagRequest, option: Optional[RequestOption] = None) -> ListMetricTagResponse:
+    def list(
+        self, request: ListMetricTagRequest, option: Optional[RequestOption] = None
+    ) -> ListMetricTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class MetricTag(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListMetricTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMetricTagResponse)
+        response: ListMetricTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMetricTagResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListMetricTagRequest,
-                    option: Optional[RequestOption] = None) -> ListMetricTagResponse:
+    async def alist(
+        self, request: ListMetricTagRequest, option: Optional[RequestOption] = None
+    ) -> ListMetricTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class MetricTag(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListMetricTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMetricTagResponse)
+        response: ListMetricTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMetricTagResponse
+        )
         response.raw = resp
 
         return response

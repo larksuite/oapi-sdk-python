@@ -111,7 +111,9 @@ class CourseBuilder(object):
         self._course.channel_list = channel_list
         return self
 
-    def visible_scope_info(self, visible_scope_info: VisibleScopeInfo) -> "CourseBuilder":
+    def visible_scope_info(
+        self, visible_scope_info: VisibleScopeInfo
+    ) -> "CourseBuilder":
         self._course.visible_scope_info = visible_scope_info
         return self
 
@@ -139,7 +141,9 @@ class CourseBuilder(object):
         self._course.unstart_learner_num = unstart_learner_num
         return self
 
-    def vague_unstart_learner_num(self, vague_unstart_learner_num: int) -> "CourseBuilder":
+    def vague_unstart_learner_num(
+        self, vague_unstart_learner_num: int
+    ) -> "CourseBuilder":
         self._course.vague_unstart_learner_num = vague_unstart_learner_num
         return self
 
@@ -147,7 +151,9 @@ class CourseBuilder(object):
         self._course.processing_learner_num = processing_learner_num
         return self
 
-    def vague_processing_learner_num(self, vague_processing_learner_num: int) -> "CourseBuilder":
+    def vague_processing_learner_num(
+        self, vague_processing_learner_num: int
+    ) -> "CourseBuilder":
         self._course.vague_processing_learner_num = vague_processing_learner_num
         return self
 
@@ -155,11 +161,15 @@ class CourseBuilder(object):
         self._course.completed_learner_num = completed_learner_num
         return self
 
-    def vague_completed_learner_num(self, vague_completed_learner_num: int) -> "CourseBuilder":
+    def vague_completed_learner_num(
+        self, vague_completed_learner_num: int
+    ) -> "CourseBuilder":
         self._course.vague_completed_learner_num = vague_completed_learner_num
         return self
 
-    def average_learner_duration(self, average_learner_duration: float) -> "CourseBuilder":
+    def average_learner_duration(
+        self, average_learner_duration: float
+    ) -> "CourseBuilder":
         self._course.average_learner_duration = average_learner_duration
         return self
 

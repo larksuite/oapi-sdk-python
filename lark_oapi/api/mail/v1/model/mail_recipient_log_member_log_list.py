@@ -27,7 +27,9 @@ class MailRecipientLogMemberLogListBuilder(object):
     def __init__(self) -> None:
         self._mail_recipient_log_member_log_list = MailRecipientLogMemberLogList()
 
-    def group_total_member(self, group_total_member: int) -> "MailRecipientLogMemberLogListBuilder":
+    def group_total_member(
+        self, group_total_member: int
+    ) -> "MailRecipientLogMemberLogListBuilder":
         self._mail_recipient_log_member_log_list.group_total_member = group_total_member
         return self
 
@@ -35,7 +37,9 @@ class MailRecipientLogMemberLogListBuilder(object):
         self._mail_recipient_log_member_log_list.send_success = send_success
         return self
 
-    def member_logs(self, member_logs: List[MailRecipientLogItem]) -> "MailRecipientLogMemberLogListBuilder":
+    def member_logs(
+        self, member_logs: List[MailRecipientLogItem]
+    ) -> "MailRecipientLogMemberLogListBuilder":
         self._mail_recipient_log_member_log_list.member_logs = member_logs
         return self
 

@@ -13,7 +13,9 @@ class DlpPolicyHitProof(object):
 
     def __init__(self, d=None):
         self.policy_id: Optional[int] = None
-        self.detect_mode_proof_contexts: Optional[List[DlpDetectModeProofContext]] = None
+        self.detect_mode_proof_contexts: Optional[List[DlpDetectModeProofContext]] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -29,9 +31,12 @@ class DlpPolicyHitProofBuilder(object):
         self._dlp_policy_hit_proof.policy_id = policy_id
         return self
 
-    def detect_mode_proof_contexts(self, detect_mode_proof_contexts: List[
-        DlpDetectModeProofContext]) -> "DlpPolicyHitProofBuilder":
-        self._dlp_policy_hit_proof.detect_mode_proof_contexts = detect_mode_proof_contexts
+    def detect_mode_proof_contexts(
+        self, detect_mode_proof_contexts: List[DlpDetectModeProofContext]
+    ) -> "DlpPolicyHitProofBuilder":
+        self._dlp_policy_hit_proof.detect_mode_proof_contexts = (
+            detect_mode_proof_contexts
+        )
         return self
 
     def build(self) -> "DlpPolicyHitProof":

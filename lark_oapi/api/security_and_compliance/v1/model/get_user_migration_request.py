@@ -17,13 +17,19 @@ class GetUserMigrationRequest(BaseRequest):
 
 
 class GetUserMigrationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_migration_request = GetUserMigrationRequest()
         get_user_migration_request.http_method = HttpMethod.GET
-        get_user_migration_request.uri = "/open-apis/security_and_compliance/v1/user_migrations/:user_id"
-        get_user_migration_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_user_migration_request: GetUserMigrationRequest = get_user_migration_request
+        get_user_migration_request.uri = (
+            "/open-apis/security_and_compliance/v1/user_migrations/:user_id"
+        )
+        get_user_migration_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_user_migration_request: GetUserMigrationRequest = (
+            get_user_migration_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetUserMigrationRequestBuilder":
         self._get_user_migration_request.user_id_type = user_id_type

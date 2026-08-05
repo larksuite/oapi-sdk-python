@@ -17,8 +17,9 @@ class BotMessage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateBotMessageRequest,
-               option: Optional[RequestOption] = None) -> CreateBotMessageResponse:
+    def create(
+        self, request: CreateBotMessageRequest, option: Optional[RequestOption] = None
+    ) -> CreateBotMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class BotMessage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateBotMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBotMessageResponse)
+        response: CreateBotMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateBotMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateBotMessageRequest,
-                      option: Optional[RequestOption] = None) -> CreateBotMessageResponse:
+    async def acreate(
+        self, request: CreateBotMessageRequest, option: Optional[RequestOption] = None
+    ) -> CreateBotMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class BotMessage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateBotMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBotMessageResponse)
+        response: CreateBotMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateBotMessageResponse
+        )
         response.raw = resp
 
         return response

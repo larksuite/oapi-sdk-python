@@ -36,7 +36,9 @@ class PatchCostCenterVersionRequestBody(object):
 
 class PatchCostCenterVersionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_cost_center_version_request_body = PatchCostCenterVersionRequestBody()
+        self._patch_cost_center_version_request_body = (
+            PatchCostCenterVersionRequestBody()
+        )
 
     def name(self, name: List[I18n]) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.name = name
@@ -46,28 +48,44 @@ class PatchCostCenterVersionRequestBodyBuilder(object):
         self._patch_cost_center_version_request_body.code = code
         return self
 
-    def parent_cost_center_id(self, parent_cost_center_id: str) -> "PatchCostCenterVersionRequestBodyBuilder":
-        self._patch_cost_center_version_request_body.parent_cost_center_id = parent_cost_center_id
+    def parent_cost_center_id(
+        self, parent_cost_center_id: str
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
+        self._patch_cost_center_version_request_body.parent_cost_center_id = (
+            parent_cost_center_id
+        )
         return self
 
-    def managers(self, managers: List[str]) -> "PatchCostCenterVersionRequestBodyBuilder":
+    def managers(
+        self, managers: List[str]
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.managers = managers
         return self
 
-    def description(self, description: List[I18n]) -> "PatchCostCenterVersionRequestBodyBuilder":
+    def description(
+        self, description: List[I18n]
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.description = description
         return self
 
-    def effective_time(self, effective_time: str) -> "PatchCostCenterVersionRequestBodyBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.effective_time = effective_time
         return self
 
-    def operation_reason(self, operation_reason: str) -> "PatchCostCenterVersionRequestBodyBuilder":
+    def operation_reason(
+        self, operation_reason: str
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.operation_reason = operation_reason
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "PatchCostCenterVersionRequestBodyBuilder":
-        self._patch_cost_center_version_request_body.is_prefer_manual_encoding = is_prefer_manual_encoding
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "PatchCostCenterVersionRequestBodyBuilder":
+        self._patch_cost_center_version_request_body.is_prefer_manual_encoding = (
+            is_prefer_manual_encoding
+        )
         return self
 
     def build(self) -> "PatchCostCenterVersionRequestBody":

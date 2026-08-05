@@ -22,7 +22,9 @@ class InternalAppAccessTokenRequestBody(object):
 
 class InternalAppAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._internal_app_access_token_request_body = InternalAppAccessTokenRequestBody()
+        self._internal_app_access_token_request_body = (
+            InternalAppAccessTokenRequestBody()
+        )
 
     def app_id(self, app_id: str) -> "InternalAppAccessTokenRequestBodyBuilder":
         self._internal_app_access_token_request_body.app_id = app_id

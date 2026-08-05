@@ -47,8 +47,9 @@ class PagePermissionV2Builder(object):
         self._page_permission_v2.page_name = page_name
         return self
 
-    def sub_tab_page_display_infos(self,
-                                   sub_tab_page_display_infos: List[SubPageSimpleInfoV2]) -> "PagePermissionV2Builder":
+    def sub_tab_page_display_infos(
+        self, sub_tab_page_display_infos: List[SubPageSimpleInfoV2]
+    ) -> "PagePermissionV2Builder":
         self._page_permission_v2.sub_tab_page_display_infos = sub_tab_page_display_infos
         return self
 

@@ -9,7 +9,6 @@ from .list_job_schema_response_body import ListJobSchemaResponseBody
 class ListJobSchemaResponse(BaseResponse):
     _types = {
         "data": ListJobSchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -6,9 +6,13 @@ from lark_oapi.core.construct import init
 
 class InternalTenantAccessTokenResponseBody(object):
     _types = {
+        "tenant_access_token": str,
+        "expire": int,
     }
 
     def __init__(self, d=None):
+        self.tenant_access_token: Optional[str] = None
+        self.expire: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -18,7 +22,21 @@ class InternalTenantAccessTokenResponseBody(object):
 
 class InternalTenantAccessTokenResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._internal_tenant_access_token_response_body = InternalTenantAccessTokenResponseBody()
+        self._internal_tenant_access_token_response_body = (
+            InternalTenantAccessTokenResponseBody()
+        )
+
+    def tenant_access_token(
+        self, tenant_access_token: str
+    ) -> "InternalTenantAccessTokenResponseBodyBuilder":
+        self._internal_tenant_access_token_response_body.tenant_access_token = (
+            tenant_access_token
+        )
+        return self
+
+    def expire(self, expire: int) -> "InternalTenantAccessTokenResponseBodyBuilder":
+        self._internal_tenant_access_token_response_body.expire = expire
+        return self
 
     def build(self) -> "InternalTenantAccessTokenResponseBody":
         return self._internal_tenant_access_token_response_body

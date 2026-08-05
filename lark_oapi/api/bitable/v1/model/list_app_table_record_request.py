@@ -27,13 +27,19 @@ class ListAppTableRecordRequest(BaseRequest):
 
 
 class ListAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_table_record_request = ListAppTableRecordRequest()
         list_app_table_record_request.http_method = HttpMethod.GET
-        list_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
-        list_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_app_table_record_request: ListAppTableRecordRequest = list_app_table_record_request
+        list_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
+        )
+        list_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_app_table_record_request: ListAppTableRecordRequest = (
+            list_app_table_record_request
+        )
 
     def view_id(self, view_id: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.view_id = view_id
@@ -55,9 +61,13 @@ class ListAppTableRecordRequestBuilder(object):
         self._list_app_table_record_request.add_query("field_names", field_names)
         return self
 
-    def text_field_as_array(self, text_field_as_array: bool) -> "ListAppTableRecordRequestBuilder":
+    def text_field_as_array(
+        self, text_field_as_array: bool
+    ) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.text_field_as_array = text_field_as_array
-        self._list_app_table_record_request.add_query("text_field_as_array", text_field_as_array)
+        self._list_app_table_record_request.add_query(
+            "text_field_as_array", text_field_as_array
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListAppTableRecordRequestBuilder":
@@ -65,14 +75,22 @@ class ListAppTableRecordRequestBuilder(object):
         self._list_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
-    def display_formula_ref(self, display_formula_ref: bool) -> "ListAppTableRecordRequestBuilder":
+    def display_formula_ref(
+        self, display_formula_ref: bool
+    ) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.display_formula_ref = display_formula_ref
-        self._list_app_table_record_request.add_query("display_formula_ref", display_formula_ref)
+        self._list_app_table_record_request.add_query(
+            "display_formula_ref", display_formula_ref
+        )
         return self
 
-    def automatic_fields(self, automatic_fields: bool) -> "ListAppTableRecordRequestBuilder":
+    def automatic_fields(
+        self, automatic_fields: bool
+    ) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.automatic_fields = automatic_fields
-        self._list_app_table_record_request.add_query("automatic_fields", automatic_fields)
+        self._list_app_table_record_request.add_query(
+            "automatic_fields", automatic_fields
+        )
         return self
 
     def page_token(self, page_token: str) -> "ListAppTableRecordRequestBuilder":

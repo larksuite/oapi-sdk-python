@@ -23,7 +23,9 @@ class ListTabsChatTabResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_tabs_chat_tab_response_body = ListTabsChatTabResponseBody()
 
-    def chat_tabs(self, chat_tabs: List[ChatTab]) -> "ListTabsChatTabResponseBodyBuilder":
+    def chat_tabs(
+        self, chat_tabs: List[ChatTab]
+    ) -> "ListTabsChatTabResponseBodyBuilder":
         self._list_tabs_chat_tab_response_body.chat_tabs = chat_tabs
         return self
 

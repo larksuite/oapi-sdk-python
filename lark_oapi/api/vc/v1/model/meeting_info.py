@@ -121,7 +121,9 @@ class MeetingInfoBuilder(object):
         self._meeting_info.meeting_duration = meeting_duration
         return self
 
-    def number_of_participants(self, number_of_participants: str) -> "MeetingInfoBuilder":
+    def number_of_participants(
+        self, number_of_participants: str
+    ) -> "MeetingInfoBuilder":
         self._meeting_info.number_of_participants = number_of_participants
         return self
 
@@ -149,7 +151,9 @@ class MeetingInfoBuilder(object):
         self._meeting_info.telephone = telephone
         return self
 
-    def reserved_rooms(self, reserved_rooms: List[ReservedRoom]) -> "MeetingInfoBuilder":
+    def reserved_rooms(
+        self, reserved_rooms: List[ReservedRoom]
+    ) -> "MeetingInfoBuilder":
         self._meeting_info.reserved_rooms = reserved_rooms
         return self
 
@@ -173,7 +177,9 @@ class MeetingInfoBuilder(object):
         self._meeting_info.meeting_instance_id = meeting_instance_id
         return self
 
-    def number_of_webinar_viewers(self, number_of_webinar_viewers: str) -> "MeetingInfoBuilder":
+    def number_of_webinar_viewers(
+        self, number_of_webinar_viewers: str
+    ) -> "MeetingInfoBuilder":
         self._meeting_info.number_of_webinar_viewers = number_of_webinar_viewers
         return self
 

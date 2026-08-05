@@ -9,7 +9,6 @@ from .patch_department_response_body import PatchDepartmentResponseBody
 class PatchDepartmentResponse(BaseResponse):
     _types = {
         "data": PatchDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -9,24 +9,45 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_ticket_customized_field_request import CreateTicketCustomizedFieldRequest
-from ..model.create_ticket_customized_field_response import CreateTicketCustomizedFieldResponse
-from ..model.delete_ticket_customized_field_request import DeleteTicketCustomizedFieldRequest
-from ..model.delete_ticket_customized_field_response import DeleteTicketCustomizedFieldResponse
+from ..model.create_ticket_customized_field_request import (
+    CreateTicketCustomizedFieldRequest,
+)
+from ..model.create_ticket_customized_field_response import (
+    CreateTicketCustomizedFieldResponse,
+)
+from ..model.delete_ticket_customized_field_request import (
+    DeleteTicketCustomizedFieldRequest,
+)
+from ..model.delete_ticket_customized_field_response import (
+    DeleteTicketCustomizedFieldResponse,
+)
 from ..model.get_ticket_customized_field_request import GetTicketCustomizedFieldRequest
-from ..model.get_ticket_customized_field_response import GetTicketCustomizedFieldResponse
-from ..model.list_ticket_customized_field_request import ListTicketCustomizedFieldRequest
-from ..model.list_ticket_customized_field_response import ListTicketCustomizedFieldResponse
-from ..model.patch_ticket_customized_field_request import PatchTicketCustomizedFieldRequest
-from ..model.patch_ticket_customized_field_response import PatchTicketCustomizedFieldResponse
+from ..model.get_ticket_customized_field_response import (
+    GetTicketCustomizedFieldResponse,
+)
+from ..model.list_ticket_customized_field_request import (
+    ListTicketCustomizedFieldRequest,
+)
+from ..model.list_ticket_customized_field_response import (
+    ListTicketCustomizedFieldResponse,
+)
+from ..model.patch_ticket_customized_field_request import (
+    PatchTicketCustomizedFieldRequest,
+)
+from ..model.patch_ticket_customized_field_response import (
+    PatchTicketCustomizedFieldResponse,
+)
 
 
 class TicketCustomizedField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTicketCustomizedFieldRequest,
-               option: Optional[RequestOption] = None) -> CreateTicketCustomizedFieldResponse:
+    def create(
+        self,
+        request: CreateTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +62,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateTicketCustomizedFieldResponse)
+        response: CreateTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTicketCustomizedFieldRequest,
-                      option: Optional[RequestOption] = None) -> CreateTicketCustomizedFieldResponse:
+    async def acreate(
+        self,
+        request: CreateTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +84,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateTicketCustomizedFieldResponse)
+        response: CreateTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteTicketCustomizedFieldRequest,
-               option: Optional[RequestOption] = None) -> DeleteTicketCustomizedFieldResponse:
+    def delete(
+        self,
+        request: DeleteTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +110,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       DeleteTicketCustomizedFieldResponse)
+        response: DeleteTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteTicketCustomizedFieldRequest,
-                      option: Optional[RequestOption] = None) -> DeleteTicketCustomizedFieldResponse:
+    async def adelete(
+        self,
+        request: DeleteTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +132,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       DeleteTicketCustomizedFieldResponse)
+        response: DeleteTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetTicketCustomizedFieldRequest,
-            option: Optional[RequestOption] = None) -> GetTicketCustomizedFieldResponse:
+    def get(
+        self,
+        request: GetTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +158,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetTicketCustomizedFieldResponse)
+        response: GetTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTicketCustomizedFieldRequest,
-                   option: Optional[RequestOption] = None) -> GetTicketCustomizedFieldResponse:
+    async def aget(
+        self,
+        request: GetTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +180,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetTicketCustomizedFieldResponse)
+        response: GetTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTicketCustomizedFieldRequest,
-             option: Optional[RequestOption] = None) -> ListTicketCustomizedFieldResponse:
+    def list(
+        self,
+        request: ListTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,14 +206,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListTicketCustomizedFieldResponse)
+        response: ListTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTicketCustomizedFieldRequest,
-                    option: Optional[RequestOption] = None) -> ListTicketCustomizedFieldResponse:
+    async def alist(
+        self,
+        request: ListTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -179,14 +228,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListTicketCustomizedFieldResponse)
+        response: ListTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchTicketCustomizedFieldRequest,
-              option: Optional[RequestOption] = None) -> PatchTicketCustomizedFieldResponse:
+    def patch(
+        self,
+        request: PatchTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -201,14 +254,18 @@ class TicketCustomizedField(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchTicketCustomizedFieldResponse)
+        response: PatchTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchTicketCustomizedFieldRequest,
-                     option: Optional[RequestOption] = None) -> PatchTicketCustomizedFieldResponse:
+    async def apatch(
+        self,
+        request: PatchTicketCustomizedFieldRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchTicketCustomizedFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -219,8 +276,9 @@ class TicketCustomizedField(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchTicketCustomizedFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchTicketCustomizedFieldResponse)
+        response: PatchTicketCustomizedFieldResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTicketCustomizedFieldResponse
+        )
         response.raw = resp
 
         return response

@@ -18,7 +18,6 @@ class PatchTicketCustomizedFieldRequest(BaseRequest):
 
 
 class PatchTicketCustomizedFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_ticket_customized_field_request = PatchTicketCustomizedFieldRequest()
         patch_ticket_customized_field_request.http_method = HttpMethod.PATCH
@@ -26,13 +25,20 @@ class PatchTicketCustomizedFieldRequestBuilder(object):
         patch_ticket_customized_field_request.token_types = {AccessTokenType.USER}
         self._patch_ticket_customized_field_request: PatchTicketCustomizedFieldRequest = patch_ticket_customized_field_request
 
-    def ticket_customized_field_id(self, ticket_customized_field_id: str) -> "PatchTicketCustomizedFieldRequestBuilder":
-        self._patch_ticket_customized_field_request.ticket_customized_field_id = ticket_customized_field_id
-        self._patch_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(
-            ticket_customized_field_id)
+    def ticket_customized_field_id(
+        self, ticket_customized_field_id: str
+    ) -> "PatchTicketCustomizedFieldRequestBuilder":
+        self._patch_ticket_customized_field_request.ticket_customized_field_id = (
+            ticket_customized_field_id
+        )
+        self._patch_ticket_customized_field_request.paths[
+            "ticket_customized_field_id"
+        ] = str(ticket_customized_field_id)
         return self
 
-    def request_body(self, request_body: TicketCustomizedField) -> "PatchTicketCustomizedFieldRequestBuilder":
+    def request_body(
+        self, request_body: TicketCustomizedField
+    ) -> "PatchTicketCustomizedFieldRequestBuilder":
         self._patch_ticket_customized_field_request.request_body = request_body
         self._patch_ticket_customized_field_request.body = request_body
         return self

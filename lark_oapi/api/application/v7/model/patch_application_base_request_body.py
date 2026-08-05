@@ -27,7 +27,9 @@ class PatchApplicationBaseRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_application_base_request_body = PatchApplicationBaseRequestBody()
 
-    def i18ns(self, i18ns: List[AppI18nInfo]) -> "PatchApplicationBaseRequestBodyBuilder":
+    def i18ns(
+        self, i18ns: List[AppI18nInfo]
+    ) -> "PatchApplicationBaseRequestBodyBuilder":
         self._patch_application_base_request_body.i18ns = i18ns
         return self
 
@@ -35,7 +37,9 @@ class PatchApplicationBaseRequestBodyBuilder(object):
         self._patch_application_base_request_body.avatar_url = avatar_url
         return self
 
-    def homepage_url(self, homepage_url: str) -> "PatchApplicationBaseRequestBodyBuilder":
+    def homepage_url(
+        self, homepage_url: str
+    ) -> "PatchApplicationBaseRequestBodyBuilder":
         self._patch_application_base_request_body.homepage_url = homepage_url
         return self
 

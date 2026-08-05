@@ -8,9 +8,12 @@ class V2(object):
         self.basic_info_bank: BasicInfoBank = BasicInfoBank(config)
         self.basic_info_bank_branch: BasicInfoBankBranch = BasicInfoBankBranch(config)
         self.basic_info_city: BasicInfoCity = BasicInfoCity(config)
-        self.basic_info_country_region: BasicInfoCountryRegion = BasicInfoCountryRegion(config)
+        self.basic_info_country_region: BasicInfoCountryRegion = BasicInfoCountryRegion(
+            config
+        )
         self.basic_info_country_region_subdivision: BasicInfoCountryRegionSubdivision = BasicInfoCountryRegionSubdivision(
-            config)
+            config
+        )
         self.basic_info_currency: BasicInfoCurrency = BasicInfoCurrency(config)
         self.basic_info_district: BasicInfoDistrict = BasicInfoDistrict(config)
         self.basic_info_language: BasicInfoLanguage = BasicInfoLanguage(config)
@@ -28,10 +31,13 @@ class V2(object):
         self.draft: Draft = Draft(config)
         self.employee: Employee = Employee(config)
         self.employee_custom_org: EmployeeCustomOrg = EmployeeCustomOrg(config)
-        self.employees_additional_job: EmployeesAdditionalJob = EmployeesAdditionalJob(config)
+        self.employees_additional_job: EmployeesAdditionalJob = EmployeesAdditionalJob(
+            config
+        )
         self.employees_bp: EmployeesBp = EmployeesBp(config)
-        self.employees_international_assignment: EmployeesInternationalAssignment = EmployeesInternationalAssignment(
-            config)
+        self.employees_international_assignment: EmployeesInternationalAssignment = (
+            EmployeesInternationalAssignment(config)
+        )
         self.employees_job_data: EmployeesJobData = EmployeesJobData(config)
         self.enum: Enum = Enum(config)
         self.job: Job = Job(config)
@@ -52,9 +58,13 @@ class V2(object):
         self.process_approver: ProcessApprover = ProcessApprover(config)
         self.process_cc: ProcessCc = ProcessCc(config)
         self.process_extra: ProcessExtra = ProcessExtra(config)
-        self.process_form_variable_data: ProcessFormVariableData = ProcessFormVariableData(config)
+        self.process_form_variable_data: ProcessFormVariableData = (
+            ProcessFormVariableData(config)
+        )
         self.process_node: ProcessNode = ProcessNode(config)
-        self.process_query_flow_data_template: ProcessQueryFlowDataTemplate = ProcessQueryFlowDataTemplate(config)
+        self.process_query_flow_data_template: ProcessQueryFlowDataTemplate = (
+            ProcessQueryFlowDataTemplate(config)
+        )
         self.process_status: ProcessStatus = ProcessStatus(config)
         self.process_transfer: ProcessTransfer = ProcessTransfer(config)
         self.process_comment_info: ProcessCommentInfo = ProcessCommentInfo(config)
@@ -66,7 +76,10 @@ class V2(object):
         self.signature_node: SignatureNode = SignatureNode(config)
         self.signature_template: SignatureTemplate = SignatureTemplate(config)
         self.signature_template_info_with_thumbnail: SignatureTemplateInfoWithThumbnail = SignatureTemplateInfoWithThumbnail(
-            config)
+            config
+        )
         self.workforce_plan: WorkforcePlan = WorkforcePlan(config)
         self.workforce_plan_detail: WorkforcePlanDetail = WorkforcePlanDetail(config)
-        self.workforce_plan_detail_row: WorkforcePlanDetailRow = WorkforcePlanDetailRow(config)
+        self.workforce_plan_detail_row: WorkforcePlanDetailRow = WorkforcePlanDetailRow(
+            config
+        )

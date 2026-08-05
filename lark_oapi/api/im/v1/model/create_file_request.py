@@ -17,7 +17,6 @@ class CreateFileRequest(BaseRequest):
 
 
 class CreateFileRequestBuilder(object):
-
     def __init__(self) -> None:
         create_file_request = CreateFileRequest()
         create_file_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateFileRequestBuilder(object):
         create_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_file_request: CreateFileRequest = create_file_request
 
-    def request_body(self, request_body: CreateFileRequestBody) -> "CreateFileRequestBuilder":
+    def request_body(
+        self, request_body: CreateFileRequestBody
+    ) -> "CreateFileRequestBuilder":
         self._create_file_request.request_body = request_body
         self._create_file_request.body = request_body
         return self

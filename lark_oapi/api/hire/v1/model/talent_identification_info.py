@@ -24,11 +24,15 @@ class TalentIdentificationInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_identification_info = TalentIdentificationInfo()
 
-    def identification_type(self, identification_type: int) -> "TalentIdentificationInfoBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "TalentIdentificationInfoBuilder":
         self._talent_identification_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "TalentIdentificationInfoBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "TalentIdentificationInfoBuilder":
         self._talent_identification_info.identification_number = identification_number
         return self
 

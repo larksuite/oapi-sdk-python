@@ -2,8 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .bitable_table_field_action_value_property_auto_serial_options import \
-    BitableTableFieldActionValuePropertyAutoSerialOptions
+from .bitable_table_field_action_value_property_auto_serial_options import (
+    BitableTableFieldActionValuePropertyAutoSerialOptions,
+)
 
 
 class BitableTableFieldActionValuePropertyAutoSerial(object):
@@ -14,7 +15,9 @@ class BitableTableFieldActionValuePropertyAutoSerial(object):
 
     def __init__(self, d=None):
         self.type: Optional[str] = None
-        self.options: Optional[List[BitableTableFieldActionValuePropertyAutoSerialOptions]] = None
+        self.options: Optional[
+            List[BitableTableFieldActionValuePropertyAutoSerialOptions]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,14 +27,19 @@ class BitableTableFieldActionValuePropertyAutoSerial(object):
 
 class BitableTableFieldActionValuePropertyAutoSerialBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_field_action_value_property_auto_serial = BitableTableFieldActionValuePropertyAutoSerial()
+        self._bitable_table_field_action_value_property_auto_serial = (
+            BitableTableFieldActionValuePropertyAutoSerial()
+        )
 
-    def type(self, type: str) -> "BitableTableFieldActionValuePropertyAutoSerialBuilder":
+    def type(
+        self, type: str
+    ) -> "BitableTableFieldActionValuePropertyAutoSerialBuilder":
         self._bitable_table_field_action_value_property_auto_serial.type = type
         return self
 
-    def options(self, options: List[
-        BitableTableFieldActionValuePropertyAutoSerialOptions]) -> "BitableTableFieldActionValuePropertyAutoSerialBuilder":
+    def options(
+        self, options: List[BitableTableFieldActionValuePropertyAutoSerialOptions]
+    ) -> "BitableTableFieldActionValuePropertyAutoSerialBuilder":
         self._bitable_table_field_action_value_property_auto_serial.options = options
         return self
 

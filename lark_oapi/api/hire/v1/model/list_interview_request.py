@@ -23,12 +23,14 @@ class ListInterviewRequest(BaseRequest):
 
 
 class ListInterviewRequestBuilder(object):
-
     def __init__(self) -> None:
         list_interview_request = ListInterviewRequest()
         list_interview_request.http_method = HttpMethod.GET
         list_interview_request.uri = "/open-apis/hire/v1/interviews"
-        list_interview_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_interview_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_interview_request: ListInterviewRequest = list_interview_request
 
     def page_size(self, page_size: int) -> "ListInterviewRequestBuilder":
@@ -61,7 +63,9 @@ class ListInterviewRequestBuilder(object):
         self._list_interview_request.add_query("end_time", end_time)
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "ListInterviewRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "ListInterviewRequestBuilder":
         self._list_interview_request.job_level_id_type = job_level_id_type
         self._list_interview_request.add_query("job_level_id_type", job_level_id_type)
         return self

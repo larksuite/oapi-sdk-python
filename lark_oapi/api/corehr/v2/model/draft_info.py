@@ -50,15 +50,21 @@ class DraftInfoBuilder(object):
         self._draft_info.effective_date = effective_date
         return self
 
-    def department_adjust_record_ids(self, department_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
+    def department_adjust_record_ids(
+        self, department_adjust_record_ids: List[str]
+    ) -> "DraftInfoBuilder":
         self._draft_info.department_adjust_record_ids = department_adjust_record_ids
         return self
 
-    def job_change_adjust_record_ids(self, job_change_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
+    def job_change_adjust_record_ids(
+        self, job_change_adjust_record_ids: List[str]
+    ) -> "DraftInfoBuilder":
         self._draft_info.job_change_adjust_record_ids = job_change_adjust_record_ids
         return self
 
-    def position_adjust_record_ids(self, position_adjust_record_ids: List[str]) -> "DraftInfoBuilder":
+    def position_adjust_record_ids(
+        self, position_adjust_record_ids: List[str]
+    ) -> "DraftInfoBuilder":
         self._draft_info.position_adjust_record_ids = position_adjust_record_ids
         return self
 

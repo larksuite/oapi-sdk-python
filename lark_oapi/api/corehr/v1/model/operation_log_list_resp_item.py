@@ -35,7 +35,9 @@ class OperationLogListRespItemBuilder(object):
         self._operation_log_list_resp_item.opt_time = opt_time
         return self
 
-    def entities(self, entities: List[OperationLogEntity]) -> "OperationLogListRespItemBuilder":
+    def entities(
+        self, entities: List[OperationLogEntity]
+    ) -> "OperationLogListRespItemBuilder":
         self._operation_log_list_resp_item.entities = entities
         return self
 

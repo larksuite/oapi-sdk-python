@@ -23,7 +23,9 @@ class FileCommentV2CreateReplyElementsBuilder(object):
     def __init__(self) -> None:
         self._file_comment_v2_create_reply_elements = FileCommentV2CreateReplyElements()
 
-    def elements(self, elements: List[FileCommentV2CreateReplyElement]) -> "FileCommentV2CreateReplyElementsBuilder":
+    def elements(
+        self, elements: List[FileCommentV2CreateReplyElement]
+    ) -> "FileCommentV2CreateReplyElementsBuilder":
         self._file_comment_v2_create_reply_elements.elements = elements
         return self
 

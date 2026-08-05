@@ -9,7 +9,6 @@ from .import_metric_detail_response_body import ImportMetricDetailResponseBody
 class ImportMetricDetailResponse(BaseResponse):
     _types = {
         "data": ImportMetricDetailResponseBody,
-
     }
 
     def __init__(self, d=None):

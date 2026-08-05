@@ -80,11 +80,15 @@ class TrainProgramBuilder(object):
         self._train_program.owner = owner
         return self
 
-    def category_list(self, category_list: List[CourseCategory]) -> "TrainProgramBuilder":
+    def category_list(
+        self, category_list: List[CourseCategory]
+    ) -> "TrainProgramBuilder":
         self._train_program.category_list = category_list
         return self
 
-    def visible_scope_info(self, visible_scope_info: VisibleScopeInfo) -> "TrainProgramBuilder":
+    def visible_scope_info(
+        self, visible_scope_info: VisibleScopeInfo
+    ) -> "TrainProgramBuilder":
         self._train_program.visible_scope_info = visible_scope_info
         return self
 
@@ -104,7 +108,9 @@ class TrainProgramBuilder(object):
         self._train_program.total_learner_num = total_learner_num
         return self
 
-    def vague_total_learner_num(self, vague_total_learner_num: int) -> "TrainProgramBuilder":
+    def vague_total_learner_num(
+        self, vague_total_learner_num: int
+    ) -> "TrainProgramBuilder":
         self._train_program.vague_total_learner_num = vague_total_learner_num
         return self
 
@@ -112,15 +118,21 @@ class TrainProgramBuilder(object):
         self._train_program.learning_learner_num = learning_learner_num
         return self
 
-    def vague_learning_learner_num(self, vague_learning_learner_num: int) -> "TrainProgramBuilder":
+    def vague_learning_learner_num(
+        self, vague_learning_learner_num: int
+    ) -> "TrainProgramBuilder":
         self._train_program.vague_learning_learner_num = vague_learning_learner_num
         return self
 
-    def completed_learner_num(self, completed_learner_num: int) -> "TrainProgramBuilder":
+    def completed_learner_num(
+        self, completed_learner_num: int
+    ) -> "TrainProgramBuilder":
         self._train_program.completed_learner_num = completed_learner_num
         return self
 
-    def vague_completed_learner_num(self, vague_completed_learner_num: int) -> "TrainProgramBuilder":
+    def vague_completed_learner_num(
+        self, vague_completed_learner_num: int
+    ) -> "TrainProgramBuilder":
         self._train_program.vague_completed_learner_num = vague_completed_learner_num
         return self
 

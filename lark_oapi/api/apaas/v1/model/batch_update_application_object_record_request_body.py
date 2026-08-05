@@ -20,9 +20,13 @@ class BatchUpdateApplicationObjectRecordRequestBody(object):
 
 class BatchUpdateApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_application_object_record_request_body = BatchUpdateApplicationObjectRecordRequestBody()
+        self._batch_update_application_object_record_request_body = (
+            BatchUpdateApplicationObjectRecordRequestBody()
+        )
 
-    def records(self, records: str) -> "BatchUpdateApplicationObjectRecordRequestBodyBuilder":
+    def records(
+        self, records: str
+    ) -> "BatchUpdateApplicationObjectRecordRequestBodyBuilder":
         self._batch_update_application_object_record_request_body.records = records
         return self
 

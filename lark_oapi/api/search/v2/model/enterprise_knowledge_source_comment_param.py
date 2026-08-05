@@ -22,14 +22,24 @@ class EnterpriseKnowledgeSourceCommentParam(object):
 
 class EnterpriseKnowledgeSourceCommentParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_comment_param = EnterpriseKnowledgeSourceCommentParam()
+        self._enterprise_knowledge_source_comment_param = (
+            EnterpriseKnowledgeSourceCommentParam()
+        )
 
-    def wiki_searchable(self, wiki_searchable: bool) -> "EnterpriseKnowledgeSourceCommentParamBuilder":
-        self._enterprise_knowledge_source_comment_param.wiki_searchable = wiki_searchable
+    def wiki_searchable(
+        self, wiki_searchable: bool
+    ) -> "EnterpriseKnowledgeSourceCommentParamBuilder":
+        self._enterprise_knowledge_source_comment_param.wiki_searchable = (
+            wiki_searchable
+        )
         return self
 
-    def space_searchable(self, space_searchable: bool) -> "EnterpriseKnowledgeSourceCommentParamBuilder":
-        self._enterprise_knowledge_source_comment_param.space_searchable = space_searchable
+    def space_searchable(
+        self, space_searchable: bool
+    ) -> "EnterpriseKnowledgeSourceCommentParamBuilder":
+        self._enterprise_knowledge_source_comment_param.space_searchable = (
+            space_searchable
+        )
         return self
 
     def build(self) -> "EnterpriseKnowledgeSourceCommentParam":

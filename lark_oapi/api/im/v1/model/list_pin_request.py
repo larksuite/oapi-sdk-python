@@ -20,7 +20,6 @@ class ListPinRequest(BaseRequest):
 
 
 class ListPinRequestBuilder(object):
-
     def __init__(self) -> None:
         list_pin_request = ListPinRequest()
         list_pin_request.http_method = HttpMethod.GET

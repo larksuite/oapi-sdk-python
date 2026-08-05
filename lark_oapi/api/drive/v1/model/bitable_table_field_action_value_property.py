@@ -2,8 +2,12 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .bitable_table_field_action_value_property_auto_serial import BitableTableFieldActionValuePropertyAutoSerial
-from .bitable_table_field_action_value_property_option import BitableTableFieldActionValuePropertyOption
+from .bitable_table_field_action_value_property_auto_serial import (
+    BitableTableFieldActionValuePropertyAutoSerial,
+)
+from .bitable_table_field_action_value_property_option import (
+    BitableTableFieldActionValuePropertyOption,
+)
 
 
 class BitableTableFieldActionValueProperty(object):
@@ -32,7 +36,9 @@ class BitableTableFieldActionValueProperty(object):
         self.back_field_name: Optional[str] = None
         self.input_type: Optional[str] = None
         self.back_field_id: Optional[str] = None
-        self.auto_serial: Optional[BitableTableFieldActionValuePropertyAutoSerial] = None
+        self.auto_serial: Optional[BitableTableFieldActionValuePropertyAutoSerial] = (
+            None
+        )
         self.options: Optional[List[BitableTableFieldActionValuePropertyOption]] = None
         self.formula_expression: Optional[str] = None
         init(self, d, self._types)
@@ -44,17 +50,25 @@ class BitableTableFieldActionValueProperty(object):
 
 class BitableTableFieldActionValuePropertyBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_field_action_value_property = BitableTableFieldActionValueProperty()
+        self._bitable_table_field_action_value_property = (
+            BitableTableFieldActionValueProperty()
+        )
 
-    def formatter(self, formatter: str) -> "BitableTableFieldActionValuePropertyBuilder":
+    def formatter(
+        self, formatter: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.formatter = formatter
         return self
 
-    def date_formatter(self, date_formatter: str) -> "BitableTableFieldActionValuePropertyBuilder":
+    def date_formatter(
+        self, date_formatter: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.date_formatter = date_formatter
         return self
 
-    def auto_fill(self, auto_fill: bool) -> "BitableTableFieldActionValuePropertyBuilder":
+    def auto_fill(
+        self, auto_fill: bool
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.auto_fill = auto_fill
         return self
 
@@ -66,34 +80,50 @@ class BitableTableFieldActionValuePropertyBuilder(object):
         self._bitable_table_field_action_value_property.table_id = table_id
         return self
 
-    def table_name(self, table_name: str) -> "BitableTableFieldActionValuePropertyBuilder":
+    def table_name(
+        self, table_name: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.table_name = table_name
         return self
 
-    def back_field_name(self, back_field_name: str) -> "BitableTableFieldActionValuePropertyBuilder":
-        self._bitable_table_field_action_value_property.back_field_name = back_field_name
+    def back_field_name(
+        self, back_field_name: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
+        self._bitable_table_field_action_value_property.back_field_name = (
+            back_field_name
+        )
         return self
 
-    def input_type(self, input_type: str) -> "BitableTableFieldActionValuePropertyBuilder":
+    def input_type(
+        self, input_type: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.input_type = input_type
         return self
 
-    def back_field_id(self, back_field_id: str) -> "BitableTableFieldActionValuePropertyBuilder":
+    def back_field_id(
+        self, back_field_id: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.back_field_id = back_field_id
         return self
 
-    def auto_serial(self,
-                    auto_serial: BitableTableFieldActionValuePropertyAutoSerial) -> "BitableTableFieldActionValuePropertyBuilder":
+    def auto_serial(
+        self, auto_serial: BitableTableFieldActionValuePropertyAutoSerial
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.auto_serial = auto_serial
         return self
 
-    def options(self, options: List[
-        BitableTableFieldActionValuePropertyOption]) -> "BitableTableFieldActionValuePropertyBuilder":
+    def options(
+        self, options: List[BitableTableFieldActionValuePropertyOption]
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.options = options
         return self
 
-    def formula_expression(self, formula_expression: str) -> "BitableTableFieldActionValuePropertyBuilder":
-        self._bitable_table_field_action_value_property.formula_expression = formula_expression
+    def formula_expression(
+        self, formula_expression: str
+    ) -> "BitableTableFieldActionValuePropertyBuilder":
+        self._bitable_table_field_action_value_property.formula_expression = (
+            formula_expression
+        )
         return self
 
     def build(self) -> "BitableTableFieldActionValueProperty":

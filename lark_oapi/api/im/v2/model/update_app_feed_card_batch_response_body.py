@@ -21,10 +21,13 @@ class UpdateAppFeedCardBatchResponseBody(object):
 
 class UpdateAppFeedCardBatchResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_app_feed_card_batch_response_body = UpdateAppFeedCardBatchResponseBody()
+        self._update_app_feed_card_batch_response_body = (
+            UpdateAppFeedCardBatchResponseBody()
+        )
 
-    def failed_cards(self,
-                     failed_cards: List[OpenFailedUserAppFeedCardItem]) -> "UpdateAppFeedCardBatchResponseBodyBuilder":
+    def failed_cards(
+        self, failed_cards: List[OpenFailedUserAppFeedCardItem]
+    ) -> "UpdateAppFeedCardBatchResponseBodyBuilder":
         self._update_app_feed_card_batch_response_body.failed_cards = failed_cards
         return self
 

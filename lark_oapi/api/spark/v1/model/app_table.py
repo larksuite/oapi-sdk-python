@@ -3,6 +3,8 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .app_table_column import AppTableColumn
+from .app_table_index import AppTableIndex
+from .app_table_constraint import AppTableConstraint
 
 
 class AppTable(object):
@@ -10,12 +12,20 @@ class AppTable(object):
         "name": str,
         "description": str,
         "columns": List[AppTableColumn],
+        "indexes": List[AppTableIndex],
+        "constraints": List[AppTableConstraint],
+        "estimated_row_count": int,
+        "size_bytes": int,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.columns: Optional[List[AppTableColumn]] = None
+        self.indexes: Optional[List[AppTableIndex]] = None
+        self.constraints: Optional[List[AppTableConstraint]] = None
+        self.estimated_row_count: Optional[int] = None
+        self.size_bytes: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +47,22 @@ class AppTableBuilder(object):
 
     def columns(self, columns: List[AppTableColumn]) -> "AppTableBuilder":
         self._app_table.columns = columns
+        return self
+
+    def indexes(self, indexes: List[AppTableIndex]) -> "AppTableBuilder":
+        self._app_table.indexes = indexes
+        return self
+
+    def constraints(self, constraints: List[AppTableConstraint]) -> "AppTableBuilder":
+        self._app_table.constraints = constraints
+        return self
+
+    def estimated_row_count(self, estimated_row_count: int) -> "AppTableBuilder":
+        self._app_table.estimated_row_count = estimated_row_count
+        return self
+
+    def size_bytes(self, size_bytes: int) -> "AppTableBuilder":
+        self._app_table.size_bytes = size_bytes
         return self
 
     def build(self) -> "AppTable":

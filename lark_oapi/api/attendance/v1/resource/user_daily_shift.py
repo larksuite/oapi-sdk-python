@@ -9,10 +9,18 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_user_daily_shift_request import BatchCreateUserDailyShiftRequest
-from ..model.batch_create_user_daily_shift_response import BatchCreateUserDailyShiftResponse
-from ..model.batch_create_temp_user_daily_shift_request import BatchCreateTempUserDailyShiftRequest
-from ..model.batch_create_temp_user_daily_shift_response import BatchCreateTempUserDailyShiftResponse
+from ..model.batch_create_user_daily_shift_request import (
+    BatchCreateUserDailyShiftRequest,
+)
+from ..model.batch_create_user_daily_shift_response import (
+    BatchCreateUserDailyShiftResponse,
+)
+from ..model.batch_create_temp_user_daily_shift_request import (
+    BatchCreateTempUserDailyShiftRequest,
+)
+from ..model.batch_create_temp_user_daily_shift_response import (
+    BatchCreateTempUserDailyShiftResponse,
+)
 from ..model.query_user_daily_shift_request import QueryUserDailyShiftRequest
 from ..model.query_user_daily_shift_response import QueryUserDailyShiftResponse
 
@@ -21,8 +29,11 @@ class UserDailyShift(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateUserDailyShiftRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreateUserDailyShiftResponse:
+    def batch_create(
+        self,
+        request: BatchCreateUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +48,18 @@ class UserDailyShift(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchCreateUserDailyShiftResponse)
+        response: BatchCreateUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create(self, request: BatchCreateUserDailyShiftRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreateUserDailyShiftResponse:
+    async def abatch_create(
+        self,
+        request: BatchCreateUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +70,18 @@ class UserDailyShift(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchCreateUserDailyShiftResponse)
+        response: BatchCreateUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_create_temp(self, request: BatchCreateTempUserDailyShiftRequest,
-                          option: Optional[RequestOption] = None) -> BatchCreateTempUserDailyShiftResponse:
+    def batch_create_temp(
+        self,
+        request: BatchCreateTempUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateTempUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +96,18 @@ class UserDailyShift(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateTempUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         BatchCreateTempUserDailyShiftResponse)
+        response: BatchCreateTempUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateTempUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create_temp(self, request: BatchCreateTempUserDailyShiftRequest,
-                                 option: Optional[RequestOption] = None) -> BatchCreateTempUserDailyShiftResponse:
+    async def abatch_create_temp(
+        self,
+        request: BatchCreateTempUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateTempUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +118,18 @@ class UserDailyShift(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateTempUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         BatchCreateTempUserDailyShiftResponse)
+        response: BatchCreateTempUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateTempUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryUserDailyShiftRequest,
-              option: Optional[RequestOption] = None) -> QueryUserDailyShiftResponse:
+    def query(
+        self,
+        request: QueryUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +144,18 @@ class UserDailyShift(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserDailyShiftResponse)
+        response: QueryUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryUserDailyShiftRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserDailyShiftResponse:
+    async def aquery(
+        self,
+        request: QueryUserDailyShiftRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryUserDailyShiftResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +166,9 @@ class UserDailyShift(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserDailyShiftResponse)
+        response: QueryUserDailyShiftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserDailyShiftResponse
+        )
         response.raw = resp
 
         return response

@@ -48,7 +48,9 @@ class AuditEventExtendBuilder(object):
         self._audit_event_extend.app_detail = app_detail
         return self
 
-    def two_step_validation(self, two_step_validation: bool) -> "AuditEventExtendBuilder":
+    def two_step_validation(
+        self, two_step_validation: bool
+    ) -> "AuditEventExtendBuilder":
         self._audit_event_extend.two_step_validation = two_step_validation
         return self
 
@@ -56,16 +58,26 @@ class AuditEventExtendBuilder(object):
         self._audit_event_extend.login_method = login_method
         return self
 
-    def new_people_num_in_video(self, new_people_num_in_video: int) -> "AuditEventExtendBuilder":
+    def new_people_num_in_video(
+        self, new_people_num_in_video: int
+    ) -> "AuditEventExtendBuilder":
         self._audit_event_extend.new_people_num_in_video = new_people_num_in_video
         return self
 
-    def external_people_num_in_video(self, external_people_num_in_video: int) -> "AuditEventExtendBuilder":
-        self._audit_event_extend.external_people_num_in_video = external_people_num_in_video
+    def external_people_num_in_video(
+        self, external_people_num_in_video: int
+    ) -> "AuditEventExtendBuilder":
+        self._audit_event_extend.external_people_num_in_video = (
+            external_people_num_in_video
+        )
         return self
 
-    def external_people_num_in_chat(self, external_people_num_in_chat: int) -> "AuditEventExtendBuilder":
-        self._audit_event_extend.external_people_num_in_chat = external_people_num_in_chat
+    def external_people_num_in_chat(
+        self, external_people_num_in_chat: int
+    ) -> "AuditEventExtendBuilder":
+        self._audit_event_extend.external_people_num_in_chat = (
+            external_people_num_in_chat
+        )
         return self
 
     def join_group(self, join_group: int) -> "AuditEventExtendBuilder":
@@ -76,8 +88,12 @@ class AuditEventExtendBuilder(object):
         self._audit_event_extend.quit_group = quit_group
         return self
 
-    def external_people_num_in_doc_share(self, external_people_num_in_doc_share: int) -> "AuditEventExtendBuilder":
-        self._audit_event_extend.external_people_num_in_doc_share = external_people_num_in_doc_share
+    def external_people_num_in_doc_share(
+        self, external_people_num_in_doc_share: int
+    ) -> "AuditEventExtendBuilder":
+        self._audit_event_extend.external_people_num_in_doc_share = (
+            external_people_num_in_doc_share
+        )
         return self
 
     def build(self) -> "AuditEventExtend":

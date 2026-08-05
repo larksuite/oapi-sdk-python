@@ -26,11 +26,15 @@ class KnowledgeQaReferenceBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_reference = KnowledgeQaReference()
 
-    def enterprise_refs(self, enterprise_refs: List[KnowledgeQaEnterpriseReference]) -> "KnowledgeQaReferenceBuilder":
+    def enterprise_refs(
+        self, enterprise_refs: List[KnowledgeQaEnterpriseReference]
+    ) -> "KnowledgeQaReferenceBuilder":
         self._knowledge_qa_reference.enterprise_refs = enterprise_refs
         return self
 
-    def internet_refs(self, internet_refs: List[KnowledgeQaInternetReference]) -> "KnowledgeQaReferenceBuilder":
+    def internet_refs(
+        self, internet_refs: List[KnowledgeQaInternetReference]
+    ) -> "KnowledgeQaReferenceBuilder":
         self._knowledge_qa_reference.internet_refs = internet_refs
         return self
 

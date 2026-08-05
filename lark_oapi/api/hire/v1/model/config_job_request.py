@@ -17,7 +17,6 @@ class ConfigJobRequest(BaseRequest):
 
 
 class ConfigJobRequestBuilder(object):
-
     def __init__(self) -> None:
         config_job_request = ConfigJobRequest()
         config_job_request.http_method = HttpMethod.GET

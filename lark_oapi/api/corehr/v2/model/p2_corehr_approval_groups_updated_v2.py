@@ -34,9 +34,7 @@ class P2CorehrApprovalGroupsUpdatedV2Data(object):
 
 
 class P2CorehrApprovalGroupsUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrApprovalGroupsUpdatedV2Data
-    }
+    _types = {"event": P2CorehrApprovalGroupsUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

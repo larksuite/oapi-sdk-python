@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.recognize_hkm_mainland_travel_permit_request import RecognizeHkmMainlandTravelPermitRequest
-from ..model.recognize_hkm_mainland_travel_permit_response import RecognizeHkmMainlandTravelPermitResponse
+from ..model.recognize_hkm_mainland_travel_permit_request import (
+    RecognizeHkmMainlandTravelPermitRequest,
+)
+from ..model.recognize_hkm_mainland_travel_permit_response import (
+    RecognizeHkmMainlandTravelPermitResponse,
+)
 
 
 class HkmMainlandTravelPermit(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeHkmMainlandTravelPermitRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeHkmMainlandTravelPermitResponse:
+    def recognize(
+        self,
+        request: RecognizeHkmMainlandTravelPermitRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeHkmMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class HkmMainlandTravelPermit(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeHkmMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            RecognizeHkmMainlandTravelPermitResponse)
+        response: RecognizeHkmMainlandTravelPermitResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeHkmMainlandTravelPermitResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeHkmMainlandTravelPermitRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeHkmMainlandTravelPermitResponse:
+    async def arecognize(
+        self,
+        request: RecognizeHkmMainlandTravelPermitRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeHkmMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +67,9 @@ class HkmMainlandTravelPermit(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeHkmMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            RecognizeHkmMainlandTravelPermitResponse)
+        response: RecognizeHkmMainlandTravelPermitResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeHkmMainlandTravelPermitResponse
+        )
         response.raw = resp
 
         return response

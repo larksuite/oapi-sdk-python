@@ -55,7 +55,9 @@ class ScenarioContextBuilder(object):
         self._scenario_context.work_mode = work_mode
         return self
 
-    def tool_raw_instruction(self, tool_raw_instruction: str) -> "ScenarioContextBuilder":
+    def tool_raw_instruction(
+        self, tool_raw_instruction: str
+    ) -> "ScenarioContextBuilder":
         self._scenario_context.tool_raw_instruction = tool_raw_instruction
         return self
 

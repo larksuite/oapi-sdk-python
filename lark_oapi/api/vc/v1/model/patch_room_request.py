@@ -19,7 +19,6 @@ class PatchRoomRequest(BaseRequest):
 
 
 class PatchRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_room_request = PatchRoomRequest()
         patch_room_request.http_method = HttpMethod.PATCH

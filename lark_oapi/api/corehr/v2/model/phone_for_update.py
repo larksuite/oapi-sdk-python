@@ -32,7 +32,9 @@ class PhoneForUpdateBuilder(object):
     def __init__(self) -> None:
         self._phone_for_update = PhoneForUpdate()
 
-    def international_area_code(self, international_area_code: str) -> "PhoneForUpdateBuilder":
+    def international_area_code(
+        self, international_area_code: str
+    ) -> "PhoneForUpdateBuilder":
         self._phone_for_update.international_area_code = international_area_code
         return self
 

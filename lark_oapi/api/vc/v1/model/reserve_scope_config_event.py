@@ -32,11 +32,15 @@ class ReserveScopeConfigEventBuilder(object):
         self._reserve_scope_config_event.allow_all_users = allow_all_users
         return self
 
-    def allow_users(self, allow_users: List[SubscribeUserEvent]) -> "ReserveScopeConfigEventBuilder":
+    def allow_users(
+        self, allow_users: List[SubscribeUserEvent]
+    ) -> "ReserveScopeConfigEventBuilder":
         self._reserve_scope_config_event.allow_users = allow_users
         return self
 
-    def allow_depts(self, allow_depts: List[SubscribeDepartment]) -> "ReserveScopeConfigEventBuilder":
+    def allow_depts(
+        self, allow_depts: List[SubscribeDepartment]
+    ) -> "ReserveScopeConfigEventBuilder":
         self._reserve_scope_config_event.allow_depts = allow_depts
         return self
 

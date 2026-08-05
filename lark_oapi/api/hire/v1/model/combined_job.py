@@ -104,7 +104,9 @@ class CombinedJobBuilder(object):
         self._combined_job.expiry_time = expiry_time
         return self
 
-    def customized_data_list(self, customized_data_list: List[CombinedJobObjectValueMap]) -> "CombinedJobBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[CombinedJobObjectValueMap]
+    ) -> "CombinedJobBuilder":
         self._combined_job.customized_data_list = customized_data_list
         return self
 
@@ -204,20 +206,34 @@ class CombinedJobBuilder(object):
         self._combined_job.expiry_timestamp = expiry_timestamp
         return self
 
-    def interview_registration_schema_id(self, interview_registration_schema_id: str) -> "CombinedJobBuilder":
-        self._combined_job.interview_registration_schema_id = interview_registration_schema_id
+    def interview_registration_schema_id(
+        self, interview_registration_schema_id: str
+    ) -> "CombinedJobBuilder":
+        self._combined_job.interview_registration_schema_id = (
+            interview_registration_schema_id
+        )
         return self
 
-    def onboard_registration_schema_id(self, onboard_registration_schema_id: str) -> "CombinedJobBuilder":
-        self._combined_job.onboard_registration_schema_id = onboard_registration_schema_id
+    def onboard_registration_schema_id(
+        self, onboard_registration_schema_id: str
+    ) -> "CombinedJobBuilder":
+        self._combined_job.onboard_registration_schema_id = (
+            onboard_registration_schema_id
+        )
         return self
 
-    def target_major_id_list(self, target_major_id_list: List[str]) -> "CombinedJobBuilder":
+    def target_major_id_list(
+        self, target_major_id_list: List[str]
+    ) -> "CombinedJobBuilder":
         self._combined_job.target_major_id_list = target_major_id_list
         return self
 
-    def portal_website_apply_form_schema_id(self, portal_website_apply_form_schema_id: str) -> "CombinedJobBuilder":
-        self._combined_job.portal_website_apply_form_schema_id = portal_website_apply_form_schema_id
+    def portal_website_apply_form_schema_id(
+        self, portal_website_apply_form_schema_id: str
+    ) -> "CombinedJobBuilder":
+        self._combined_job.portal_website_apply_form_schema_id = (
+            portal_website_apply_form_schema_id
+        )
         return self
 
     def build(self) -> "CombinedJob":

@@ -50,7 +50,9 @@ class OpenapiOptionsBuilder(object):
         self._openapi_options.work_place_id_type = work_place_id_type
         return self
 
-    def org_dimension_id_type(self, org_dimension_id_type: str) -> "OpenapiOptionsBuilder":
+    def org_dimension_id_type(
+        self, org_dimension_id_type: str
+    ) -> "OpenapiOptionsBuilder":
         self._openapi_options.org_dimension_id_type = org_dimension_id_type
         return self
 

@@ -19,13 +19,19 @@ class ListCalendarAclRequest(BaseRequest):
 
 
 class ListCalendarAclRequestBuilder(object):
-
     def __init__(self) -> None:
         list_calendar_acl_request = ListCalendarAclRequest()
         list_calendar_acl_request.http_method = HttpMethod.GET
-        list_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-        list_calendar_acl_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_calendar_acl_request: ListCalendarAclRequest = list_calendar_acl_request
+        list_calendar_acl_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+        )
+        list_calendar_acl_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_calendar_acl_request: ListCalendarAclRequest = (
+            list_calendar_acl_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "ListCalendarAclRequestBuilder":
         self._list_calendar_acl_request.user_id_type = user_id_type

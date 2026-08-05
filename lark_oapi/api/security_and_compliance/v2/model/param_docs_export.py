@@ -24,7 +24,9 @@ class ParamDocsExportBuilder(object):
     def __init__(self) -> None:
         self._param_docs_export = ParamDocsExport()
 
-    def with_doc_permission(self, with_doc_permission: bool) -> "ParamDocsExportBuilder":
+    def with_doc_permission(
+        self, with_doc_permission: bool
+    ) -> "ParamDocsExportBuilder":
         self._param_docs_export.with_doc_permission = with_doc_permission
         return self
 

@@ -17,7 +17,6 @@ class GetAgencyRequest(BaseRequest):
 
 
 class GetAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         get_agency_request = GetAgencyRequest()
         get_agency_request.http_method = HttpMethod.GET

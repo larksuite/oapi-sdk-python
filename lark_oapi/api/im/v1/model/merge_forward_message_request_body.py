@@ -28,7 +28,9 @@ class MergeForwardMessageRequestBodyBuilder(object):
         self._merge_forward_message_request_body.receive_id = receive_id
         return self
 
-    def message_id_list(self, message_id_list: List[str]) -> "MergeForwardMessageRequestBodyBuilder":
+    def message_id_list(
+        self, message_id_list: List[str]
+    ) -> "MergeForwardMessageRequestBodyBuilder":
         self._merge_forward_message_request_body.message_id_list = message_id_list
         return self
 

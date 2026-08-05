@@ -52,7 +52,9 @@ class IndicatorRuleBuilder(object):
         self._indicator_rule.level_setting = level_setting
         return self
 
-    def score_level_setting(self, score_level_setting: ScoreLevelSetting) -> "IndicatorRuleBuilder":
+    def score_level_setting(
+        self, score_level_setting: ScoreLevelSetting
+    ) -> "IndicatorRuleBuilder":
         self._indicator_rule.score_level_setting = score_level_setting
         return self
 

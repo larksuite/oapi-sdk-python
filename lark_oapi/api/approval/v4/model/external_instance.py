@@ -145,7 +145,9 @@ class ExternalInstanceBuilder(object):
         self._external_instance.update_mode = update_mode
         return self
 
-    def task_list(self, task_list: List[ExternalInstanceTaskNode]) -> "ExternalInstanceBuilder":
+    def task_list(
+        self, task_list: List[ExternalInstanceTaskNode]
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.task_list = task_list
         return self
 
@@ -153,24 +155,33 @@ class ExternalInstanceBuilder(object):
         self._external_instance.cc_list = cc_list
         return self
 
-    def i18n_resources(self, i18n_resources: List[I18nResource]) -> "ExternalInstanceBuilder":
+    def i18n_resources(
+        self, i18n_resources: List[I18nResource]
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.i18n_resources = i18n_resources
         return self
 
-    def trusteeship_url_token(self, trusteeship_url_token: str) -> "ExternalInstanceBuilder":
+    def trusteeship_url_token(
+        self, trusteeship_url_token: str
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.trusteeship_url_token = trusteeship_url_token
         return self
 
-    def trusteeship_user_id_type(self, trusteeship_user_id_type: str) -> "ExternalInstanceBuilder":
+    def trusteeship_user_id_type(
+        self, trusteeship_user_id_type: str
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.trusteeship_user_id_type = trusteeship_user_id_type
         return self
 
-    def trusteeship_urls(self, trusteeship_urls: TrusteeshipUrls) -> "ExternalInstanceBuilder":
+    def trusteeship_urls(
+        self, trusteeship_urls: TrusteeshipUrls
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.trusteeship_urls = trusteeship_urls
         return self
 
-    def trusteeship_cache_config(self,
-                                 trusteeship_cache_config: TrusteeshipInstanceCacheConfig) -> "ExternalInstanceBuilder":
+    def trusteeship_cache_config(
+        self, trusteeship_cache_config: TrusteeshipInstanceCacheConfig
+    ) -> "ExternalInstanceBuilder":
         self._external_instance.trusteeship_cache_config = trusteeship_cache_config
         return self
 

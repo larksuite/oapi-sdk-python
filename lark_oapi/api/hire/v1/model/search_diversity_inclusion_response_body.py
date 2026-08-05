@@ -21,9 +21,13 @@ class SearchDiversityInclusionResponseBody(object):
 
 class SearchDiversityInclusionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_diversity_inclusion_response_body = SearchDiversityInclusionResponseBody()
+        self._search_diversity_inclusion_response_body = (
+            SearchDiversityInclusionResponseBody()
+        )
 
-    def items(self, items: List[DiInfo]) -> "SearchDiversityInclusionResponseBodyBuilder":
+    def items(
+        self, items: List[DiInfo]
+    ) -> "SearchDiversityInclusionResponseBodyBuilder":
         self._search_diversity_inclusion_response_body.items = items
         return self
 

@@ -9,7 +9,6 @@ from .list_portal_apply_schema_response_body import ListPortalApplySchemaRespons
 class ListPortalApplySchemaResponse(BaseResponse):
     _types = {
         "data": ListPortalApplySchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

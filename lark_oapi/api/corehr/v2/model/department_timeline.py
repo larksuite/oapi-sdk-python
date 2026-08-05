@@ -77,7 +77,9 @@ class DepartmentTimelineBuilder(object):
         self._department_timeline.sub_type = sub_type
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "DepartmentTimelineBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "DepartmentTimelineBuilder":
         self._department_timeline.parent_department_id = parent_department_id
         return self
 
@@ -101,7 +103,9 @@ class DepartmentTimelineBuilder(object):
         self._department_timeline.descriptions = descriptions
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DepartmentTimelineBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "DepartmentTimelineBuilder":
         self._department_timeline.custom_fields = custom_fields
         return self
 

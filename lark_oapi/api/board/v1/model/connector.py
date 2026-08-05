@@ -76,7 +76,9 @@ class ConnectorBuilder(object):
         self._connector.turning_points = turning_points
         return self
 
-    def caption_auto_direction(self, caption_auto_direction: bool) -> "ConnectorBuilder":
+    def caption_auto_direction(
+        self, caption_auto_direction: bool
+    ) -> "ConnectorBuilder":
         self._connector.caption_auto_direction = caption_auto_direction
         return self
 

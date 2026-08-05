@@ -17,7 +17,9 @@ class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+    def get(
+        self, request: GetTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
+        response: GetTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+    async def aget(
+        self, request: GetTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
+        response: GetTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskResponse
+        )
         response.raw = resp
 
         return response

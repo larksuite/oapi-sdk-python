@@ -23,7 +23,9 @@ class GetCustomFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_custom_field_response_body = GetCustomFieldResponseBody()
 
-    def custom_field(self, custom_field: CustomField) -> "GetCustomFieldResponseBodyBuilder":
+    def custom_field(
+        self, custom_field: CustomField
+    ) -> "GetCustomFieldResponseBodyBuilder":
         self._get_custom_field_response_body.custom_field = custom_field
         return self
 

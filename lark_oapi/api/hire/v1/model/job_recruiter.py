@@ -36,7 +36,9 @@ class JobRecruiterBuilder(object):
         self._job_recruiter.recruiter_id = recruiter_id
         return self
 
-    def hiring_manager_id_list(self, hiring_manager_id_list: List[str]) -> "JobRecruiterBuilder":
+    def hiring_manager_id_list(
+        self, hiring_manager_id_list: List[str]
+    ) -> "JobRecruiterBuilder":
         self._job_recruiter.hiring_manager_id_list = hiring_manager_id_list
         return self
 

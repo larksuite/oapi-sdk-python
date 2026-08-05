@@ -9,7 +9,6 @@ from .sql_commands_workspace_response_body import SqlCommandsWorkspaceResponseBo
 class SqlCommandsWorkspaceResponse(BaseResponse):
     _types = {
         "data": SqlCommandsWorkspaceResponseBody,
-
     }
 
     def __init__(self, d=None):

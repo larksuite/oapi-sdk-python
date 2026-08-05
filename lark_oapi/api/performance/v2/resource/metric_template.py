@@ -17,8 +17,11 @@ class MetricTemplate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryMetricTemplateRequest,
-              option: Optional[RequestOption] = None) -> QueryMetricTemplateResponse:
+    def query(
+        self,
+        request: QueryMetricTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMetricTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class MetricTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricTemplateResponse)
+        response: QueryMetricTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryMetricTemplateRequest,
-                     option: Optional[RequestOption] = None) -> QueryMetricTemplateResponse:
+    async def aquery(
+        self,
+        request: QueryMetricTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMetricTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class MetricTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMetricTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryMetricTemplateResponse)
+        response: QueryMetricTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMetricTemplateResponse
+        )
         response.raw = resp
 
         return response

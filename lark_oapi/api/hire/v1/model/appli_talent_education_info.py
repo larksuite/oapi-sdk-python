@@ -66,7 +66,9 @@ class AppliTalentEducationInfoBuilder(object):
         self._appli_talent_education_info.education_type = education_type
         return self
 
-    def academic_ranking(self, academic_ranking: int) -> "AppliTalentEducationInfoBuilder":
+    def academic_ranking(
+        self, academic_ranking: int
+    ) -> "AppliTalentEducationInfoBuilder":
         self._appli_talent_education_info.academic_ranking = academic_ranking
         return self
 

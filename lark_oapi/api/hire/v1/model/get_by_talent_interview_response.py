@@ -9,7 +9,6 @@ from .get_by_talent_interview_response_body import GetByTalentInterviewResponseB
 class GetByTalentInterviewResponse(BaseResponse):
     _types = {
         "data": GetByTalentInterviewResponseBody,
-
     }
 
     def __init__(self, d=None):

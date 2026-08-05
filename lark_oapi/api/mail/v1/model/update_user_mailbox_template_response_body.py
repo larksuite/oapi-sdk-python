@@ -21,9 +21,13 @@ class UpdateUserMailboxTemplateResponseBody(object):
 
 class UpdateUserMailboxTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_user_mailbox_template_response_body = UpdateUserMailboxTemplateResponseBody()
+        self._update_user_mailbox_template_response_body = (
+            UpdateUserMailboxTemplateResponseBody()
+        )
 
-    def template(self, template: Template) -> "UpdateUserMailboxTemplateResponseBodyBuilder":
+    def template(
+        self, template: Template
+    ) -> "UpdateUserMailboxTemplateResponseBodyBuilder":
         self._update_user_mailbox_template_response_body.template = template
         return self
 

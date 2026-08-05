@@ -47,32 +47,47 @@ class ApplicationOfferSalaryPlanBuilder(object):
         self._application_offer_salary_plan.basic_salary = basic_salary
         return self
 
-    def probation_salary_percentage(self, probation_salary_percentage: str) -> "ApplicationOfferSalaryPlanBuilder":
-        self._application_offer_salary_plan.probation_salary_percentage = probation_salary_percentage
+    def probation_salary_percentage(
+        self, probation_salary_percentage: str
+    ) -> "ApplicationOfferSalaryPlanBuilder":
+        self._application_offer_salary_plan.probation_salary_percentage = (
+            probation_salary_percentage
+        )
         return self
 
-    def award_salary_multiple(self, award_salary_multiple: str) -> "ApplicationOfferSalaryPlanBuilder":
-        self._application_offer_salary_plan.award_salary_multiple = award_salary_multiple
+    def award_salary_multiple(
+        self, award_salary_multiple: str
+    ) -> "ApplicationOfferSalaryPlanBuilder":
+        self._application_offer_salary_plan.award_salary_multiple = (
+            award_salary_multiple
+        )
         return self
 
     def option_shares(self, option_shares: str) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.option_shares = option_shares
         return self
 
-    def quarterly_bonus(self, quarterly_bonus: str) -> "ApplicationOfferSalaryPlanBuilder":
+    def quarterly_bonus(
+        self, quarterly_bonus: str
+    ) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.quarterly_bonus = quarterly_bonus
         return self
 
-    def half_year_bonus(self, half_year_bonus: str) -> "ApplicationOfferSalaryPlanBuilder":
+    def half_year_bonus(
+        self, half_year_bonus: str
+    ) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.half_year_bonus = half_year_bonus
         return self
 
-    def total_annual_cash(self, total_annual_cash: str) -> "ApplicationOfferSalaryPlanBuilder":
+    def total_annual_cash(
+        self, total_annual_cash: str
+    ) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.total_annual_cash = total_annual_cash
         return self
 
-    def customize_info_list(self, customize_info_list: List[
-        ApplicationOfferCustomValue]) -> "ApplicationOfferSalaryPlanBuilder":
+    def customize_info_list(
+        self, customize_info_list: List[ApplicationOfferCustomValue]
+    ) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.customize_info_list = customize_info_list
         return self
 

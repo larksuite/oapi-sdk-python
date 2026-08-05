@@ -9,7 +9,6 @@ from .search_referral_response_body import SearchReferralResponseBody
 class SearchReferralResponse(BaseResponse):
     _types = {
         "data": SearchReferralResponseBody,
-
     }
 
     def __init__(self, d=None):

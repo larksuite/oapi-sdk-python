@@ -35,16 +35,24 @@ class PatchReserveConfigRequestBodyBuilder(object):
         self._patch_reserve_config_request_body.scope_type = scope_type
         return self
 
-    def approval_config(self, approval_config: ApprovalConfig) -> "PatchReserveConfigRequestBodyBuilder":
+    def approval_config(
+        self, approval_config: ApprovalConfig
+    ) -> "PatchReserveConfigRequestBodyBuilder":
         self._patch_reserve_config_request_body.approval_config = approval_config
         return self
 
-    def time_config(self, time_config: TimeConfig) -> "PatchReserveConfigRequestBodyBuilder":
+    def time_config(
+        self, time_config: TimeConfig
+    ) -> "PatchReserveConfigRequestBodyBuilder":
         self._patch_reserve_config_request_body.time_config = time_config
         return self
 
-    def reserve_scope_config(self, reserve_scope_config: ReserveScopeConfig) -> "PatchReserveConfigRequestBodyBuilder":
-        self._patch_reserve_config_request_body.reserve_scope_config = reserve_scope_config
+    def reserve_scope_config(
+        self, reserve_scope_config: ReserveScopeConfig
+    ) -> "PatchReserveConfigRequestBodyBuilder":
+        self._patch_reserve_config_request_body.reserve_scope_config = (
+            reserve_scope_config
+        )
         return self
 
     def build(self) -> "PatchReserveConfigRequestBody":

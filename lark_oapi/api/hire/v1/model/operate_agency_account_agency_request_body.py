@@ -24,7 +24,9 @@ class OperateAgencyAccountAgencyRequestBody(object):
 
 class OperateAgencyAccountAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._operate_agency_account_agency_request_body = OperateAgencyAccountAgencyRequestBody()
+        self._operate_agency_account_agency_request_body = (
+            OperateAgencyAccountAgencyRequestBody()
+        )
 
     def option(self, option: int) -> "OperateAgencyAccountAgencyRequestBodyBuilder":
         self._operate_agency_account_agency_request_body.option = option

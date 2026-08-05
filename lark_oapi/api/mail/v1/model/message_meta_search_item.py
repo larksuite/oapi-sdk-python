@@ -42,7 +42,9 @@ class MessageMetaSearchItemBuilder(object):
     def __init__(self) -> None:
         self._message_meta_search_item = MessageMetaSearchItem()
 
-    def created_timestamp(self, created_timestamp: str) -> "MessageMetaSearchItemBuilder":
+    def created_timestamp(
+        self, created_timestamp: str
+    ) -> "MessageMetaSearchItemBuilder":
         self._message_meta_search_item.created_timestamp = created_timestamp
         return self
 

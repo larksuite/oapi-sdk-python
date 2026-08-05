@@ -35,7 +35,9 @@ class PaymentDetailBuilder(object):
         self._payment_detail.activity_id = activity_id
         return self
 
-    def payment_accounting_items(self, payment_accounting_items: List[PaymentAccountingItem]) -> "PaymentDetailBuilder":
+    def payment_accounting_items(
+        self, payment_accounting_items: List[PaymentAccountingItem]
+    ) -> "PaymentDetailBuilder":
         self._payment_detail.payment_accounting_items = payment_accounting_items
         return self
 

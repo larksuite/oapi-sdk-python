@@ -54,7 +54,9 @@ class RecordPermissionV2Builder(object):
         self._record_permission_v2.name = name
         return self
 
-    def access_permissions(self, access_permissions: List[int]) -> "RecordPermissionV2Builder":
+    def access_permissions(
+        self, access_permissions: List[int]
+    ) -> "RecordPermissionV2Builder":
         self._record_permission_v2.access_permissions = access_permissions
         return self
 
@@ -66,7 +68,9 @@ class RecordPermissionV2Builder(object):
         self._record_permission_v2.user_scope = user_scope
         return self
 
-    def data_model_api_name(self, data_model_api_name: str) -> "RecordPermissionV2Builder":
+    def data_model_api_name(
+        self, data_model_api_name: str
+    ) -> "RecordPermissionV2Builder":
         self._record_permission_v2.data_model_api_name = data_model_api_name
         return self
 

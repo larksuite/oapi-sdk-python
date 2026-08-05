@@ -4,17 +4,20 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n_text import I18nText
 from .href import Href
+from .origin_refer_resource import OriginReferResource
 
 
 class Origin(object):
     _types = {
         "platform_i18n_name": I18nText,
         "href": Href,
+        "refer_resources": List[OriginReferResource],
     }
 
     def __init__(self, d=None):
         self.platform_i18n_name: Optional[I18nText] = None
         self.href: Optional[Href] = None
+        self.refer_resources: Optional[List[OriginReferResource]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,6 +35,12 @@ class OriginBuilder(object):
 
     def href(self, href: Href) -> "OriginBuilder":
         self._origin.href = href
+        return self
+
+    def refer_resources(
+        self, refer_resources: List[OriginReferResource]
+    ) -> "OriginBuilder":
+        self._origin.refer_resources = refer_resources
         return self
 
     def build(self) -> "Origin":

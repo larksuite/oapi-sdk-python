@@ -17,24 +17,33 @@ class GetApplicationEnvironmentVariableRequest(BaseRequest):
 
 
 class GetApplicationEnvironmentVariableRequestBuilder(object):
-
     def __init__(self) -> None:
-        get_application_environment_variable_request = GetApplicationEnvironmentVariableRequest()
+        get_application_environment_variable_request = (
+            GetApplicationEnvironmentVariableRequest()
+        )
         get_application_environment_variable_request.http_method = HttpMethod.GET
         get_application_environment_variable_request.uri = "/open-apis/apaas/v1/applications/:namespace/environment_variables/:environment_variable_api_name"
-        get_application_environment_variable_request.token_types = {AccessTokenType.TENANT}
+        get_application_environment_variable_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._get_application_environment_variable_request: GetApplicationEnvironmentVariableRequest = get_application_environment_variable_request
 
-    def namespace(self, namespace: str) -> "GetApplicationEnvironmentVariableRequestBuilder":
+    def namespace(
+        self, namespace: str
+    ) -> "GetApplicationEnvironmentVariableRequestBuilder":
         self._get_application_environment_variable_request.namespace = namespace
-        self._get_application_environment_variable_request.paths["namespace"] = str(namespace)
+        self._get_application_environment_variable_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def environment_variable_api_name(self,
-                                      environment_variable_api_name: str) -> "GetApplicationEnvironmentVariableRequestBuilder":
+    def environment_variable_api_name(
+        self, environment_variable_api_name: str
+    ) -> "GetApplicationEnvironmentVariableRequestBuilder":
         self._get_application_environment_variable_request.environment_variable_api_name = environment_variable_api_name
-        self._get_application_environment_variable_request.paths["environment_variable_api_name"] = str(
-            environment_variable_api_name)
+        self._get_application_environment_variable_request.paths[
+            "environment_variable_api_name"
+        ] = str(environment_variable_api_name)
         return self
 
     def build(self) -> GetApplicationEnvironmentVariableRequest:

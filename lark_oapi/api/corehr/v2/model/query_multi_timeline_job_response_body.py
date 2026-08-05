@@ -21,9 +21,13 @@ class QueryMultiTimelineJobResponseBody(object):
 
 class QueryMultiTimelineJobResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_job_response_body = QueryMultiTimelineJobResponseBody()
+        self._query_multi_timeline_job_response_body = (
+            QueryMultiTimelineJobResponseBody()
+        )
 
-    def items(self, items: List[JobTimeline]) -> "QueryMultiTimelineJobResponseBodyBuilder":
+    def items(
+        self, items: List[JobTimeline]
+    ) -> "QueryMultiTimelineJobResponseBodyBuilder":
         self._query_multi_timeline_job_response_body.items = items
         return self
 

@@ -9,7 +9,6 @@ from .create_import_task_response_body import CreateImportTaskResponseBody
 class CreateImportTaskResponse(BaseResponse):
     _types = {
         "data": CreateImportTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

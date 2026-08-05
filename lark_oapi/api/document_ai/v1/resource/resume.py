@@ -17,7 +17,9 @@ class Resume(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def parse(self, request: ParseResumeRequest, option: Optional[RequestOption] = None) -> ParseResumeResponse:
+    def parse(
+        self, request: ParseResumeRequest, option: Optional[RequestOption] = None
+    ) -> ParseResumeResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Resume(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ParseResumeResponse = JSON.unmarshal(str(resp.content, UTF_8), ParseResumeResponse)
+        response: ParseResumeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ParseResumeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aparse(self, request: ParseResumeRequest, option: Optional[RequestOption] = None) -> ParseResumeResponse:
+    async def aparse(
+        self, request: ParseResumeRequest, option: Optional[RequestOption] = None
+    ) -> ParseResumeResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,7 +59,9 @@ class Resume(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ParseResumeResponse = JSON.unmarshal(str(resp.content, UTF_8), ParseResumeResponse)
+        response: ParseResumeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ParseResumeResponse
+        )
         response.raw = resp
 
         return response

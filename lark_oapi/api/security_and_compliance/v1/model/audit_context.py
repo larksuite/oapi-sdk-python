@@ -50,7 +50,9 @@ class AuditContextBuilder(object):
         self._audit_context.web_context = web_context
         return self
 
-    def android_context(self, android_context: AuditAndroidContext) -> "AuditContextBuilder":
+    def android_context(
+        self, android_context: AuditAndroidContext
+    ) -> "AuditContextBuilder":
         self._audit_context.android_context = android_context
         return self
 

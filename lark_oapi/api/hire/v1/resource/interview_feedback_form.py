@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_interview_feedback_form_request import ListInterviewFeedbackFormRequest
-from ..model.list_interview_feedback_form_response import ListInterviewFeedbackFormResponse
+from ..model.list_interview_feedback_form_request import (
+    ListInterviewFeedbackFormRequest,
+)
+from ..model.list_interview_feedback_form_response import (
+    ListInterviewFeedbackFormResponse,
+)
 
 
 class InterviewFeedbackForm(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListInterviewFeedbackFormRequest,
-             option: Optional[RequestOption] = None) -> ListInterviewFeedbackFormResponse:
+    def list(
+        self,
+        request: ListInterviewFeedbackFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListInterviewFeedbackFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class InterviewFeedbackForm(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListInterviewFeedbackFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListInterviewFeedbackFormResponse)
+        response: ListInterviewFeedbackFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInterviewFeedbackFormResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListInterviewFeedbackFormRequest,
-                    option: Optional[RequestOption] = None) -> ListInterviewFeedbackFormResponse:
+    async def alist(
+        self,
+        request: ListInterviewFeedbackFormRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListInterviewFeedbackFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class InterviewFeedbackForm(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListInterviewFeedbackFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListInterviewFeedbackFormResponse)
+        response: ListInterviewFeedbackFormResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInterviewFeedbackFormResponse
+        )
         response.raw = resp
 
         return response

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_trash_user_mailbox_message_request_body import BatchTrashUserMailboxMessageRequestBody
+from .batch_trash_user_mailbox_message_request_body import (
+    BatchTrashUserMailboxMessageRequestBody,
+)
 
 
 class BatchTrashUserMailboxMessageRequest(BaseRequest):
@@ -18,21 +20,30 @@ class BatchTrashUserMailboxMessageRequest(BaseRequest):
 
 
 class BatchTrashUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_trash_user_mailbox_message_request = BatchTrashUserMailboxMessageRequest()
         batch_trash_user_mailbox_message_request.http_method = HttpMethod.POST
-        batch_trash_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
-        batch_trash_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_trash_user_mailbox_message_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/batch_trash"
+        )
+        batch_trash_user_mailbox_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_trash_user_mailbox_message_request: BatchTrashUserMailboxMessageRequest = batch_trash_user_mailbox_message_request
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "BatchTrashUserMailboxMessageRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "BatchTrashUserMailboxMessageRequestBuilder":
         self._batch_trash_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._batch_trash_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._batch_trash_user_mailbox_message_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchTrashUserMailboxMessageRequestBody) -> "BatchTrashUserMailboxMessageRequestBuilder":
+    def request_body(
+        self, request_body: BatchTrashUserMailboxMessageRequestBody
+    ) -> "BatchTrashUserMailboxMessageRequestBuilder":
         self._batch_trash_user_mailbox_message_request.request_body = request_body
         self._batch_trash_user_mailbox_message_request.body = request_body
         return self

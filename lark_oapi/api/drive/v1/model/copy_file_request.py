@@ -19,7 +19,6 @@ class CopyFileRequest(BaseRequest):
 
 
 class CopyFileRequestBuilder(object):
-
     def __init__(self) -> None:
         copy_file_request = CopyFileRequest()
         copy_file_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class CopyFileRequestBuilder(object):
         self._copy_file_request.paths["file_token"] = str(file_token)
         return self
 
-    def request_body(self, request_body: CopyFileRequestBody) -> "CopyFileRequestBuilder":
+    def request_body(
+        self, request_body: CopyFileRequestBody
+    ) -> "CopyFileRequestBuilder":
         self._copy_file_request.request_body = request_body
         self._copy_file_request.body = request_body
         return self

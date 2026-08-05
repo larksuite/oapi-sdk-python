@@ -40,17 +40,24 @@ class OffboardingDataBuilder(object):
         self._offboarding_data.employment_id = employment_id
         return self
 
-    def offboarding_reason_unique_identifier(self,
-                                             offboarding_reason_unique_identifier: str) -> "OffboardingDataBuilder":
-        self._offboarding_data.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
+    def offboarding_reason_unique_identifier(
+        self, offboarding_reason_unique_identifier: str
+    ) -> "OffboardingDataBuilder":
+        self._offboarding_data.offboarding_reason_unique_identifier = (
+            offboarding_reason_unique_identifier
+        )
         return self
 
     def offboarding_date(self, offboarding_date: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_date = offboarding_date
         return self
 
-    def offboarding_reason_explanation(self, offboarding_reason_explanation: str) -> "OffboardingDataBuilder":
-        self._offboarding_data.offboarding_reason_explanation = offboarding_reason_explanation
+    def offboarding_reason_explanation(
+        self, offboarding_reason_explanation: str
+    ) -> "OffboardingDataBuilder":
+        self._offboarding_data.offboarding_reason_explanation = (
+            offboarding_reason_explanation
+        )
         return self
 
     def created_time(self, created_time: str) -> "OffboardingDataBuilder":

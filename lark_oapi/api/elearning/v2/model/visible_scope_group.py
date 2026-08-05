@@ -28,7 +28,9 @@ class VisibleScopeGroupBuilder(object):
     def __init__(self) -> None:
         self._visible_scope_group = VisibleScopeGroup()
 
-    def scope_list(self, scope_list: List[VisibleScopeUnit]) -> "VisibleScopeGroupBuilder":
+    def scope_list(
+        self, scope_list: List[VisibleScopeUnit]
+    ) -> "VisibleScopeGroupBuilder":
         self._visible_scope_group.scope_list = scope_list
         return self
 

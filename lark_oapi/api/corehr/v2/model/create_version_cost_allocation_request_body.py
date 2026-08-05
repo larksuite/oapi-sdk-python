@@ -23,15 +23,22 @@ class CreateVersionCostAllocationRequestBody(object):
 
 class CreateVersionCostAllocationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_version_cost_allocation_request_body = CreateVersionCostAllocationRequestBody()
+        self._create_version_cost_allocation_request_body = (
+            CreateVersionCostAllocationRequestBody()
+        )
 
-    def employment_id(self, employment_id: str) -> "CreateVersionCostAllocationRequestBodyBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "CreateVersionCostAllocationRequestBodyBuilder":
         self._create_version_cost_allocation_request_body.employment_id = employment_id
         return self
 
-    def cost_allocation(self,
-                        cost_allocation: EmploymentCostAllocation) -> "CreateVersionCostAllocationRequestBodyBuilder":
-        self._create_version_cost_allocation_request_body.cost_allocation = cost_allocation
+    def cost_allocation(
+        self, cost_allocation: EmploymentCostAllocation
+    ) -> "CreateVersionCostAllocationRequestBodyBuilder":
+        self._create_version_cost_allocation_request_body.cost_allocation = (
+            cost_allocation
+        )
         return self
 
     def build(self) -> "CreateVersionCostAllocationRequestBody":

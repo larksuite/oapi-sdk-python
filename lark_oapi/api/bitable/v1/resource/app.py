@@ -23,7 +23,9 @@ class App(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def copy(self, request: CopyAppRequest, option: Optional[RequestOption] = None) -> CopyAppResponse:
+    def copy(
+        self, request: CopyAppRequest, option: Optional[RequestOption] = None
+    ) -> CopyAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,12 +40,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CopyAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyAppResponse)
+        response: CopyAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CopyAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acopy(self, request: CopyAppRequest, option: Optional[RequestOption] = None) -> CopyAppResponse:
+    async def acopy(
+        self, request: CopyAppRequest, option: Optional[RequestOption] = None
+    ) -> CopyAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,12 +60,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CopyAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyAppResponse)
+        response: CopyAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CopyAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    def create(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -74,12 +84,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    async def acreate(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,12 +104,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetAppRequest, option: Optional[RequestOption] = None) -> GetAppResponse:
+    def get(
+        self, request: GetAppRequest, option: Optional[RequestOption] = None
+    ) -> GetAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -110,12 +128,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAppResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppResponse)
+        response: GetAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAppRequest, option: Optional[RequestOption] = None) -> GetAppResponse:
+    async def aget(
+        self, request: GetAppRequest, option: Optional[RequestOption] = None
+    ) -> GetAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -126,12 +148,16 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAppResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppResponse)
+        response: GetAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAppResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateAppRequest, option: Optional[RequestOption] = None) -> UpdateAppResponse:
+    def update(
+        self, request: UpdateAppRequest, option: Optional[RequestOption] = None
+    ) -> UpdateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -146,12 +172,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppResponse)
+        response: UpdateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateAppRequest, option: Optional[RequestOption] = None) -> UpdateAppResponse:
+    async def aupdate(
+        self, request: UpdateAppRequest, option: Optional[RequestOption] = None
+    ) -> UpdateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -162,7 +192,9 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppResponse)
+        response: UpdateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppResponse
+        )
         response.raw = resp
 
         return response

@@ -23,7 +23,9 @@ class QueryOffboardingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_offboarding_response_body = QueryOffboardingResponseBody()
 
-    def items(self, items: List[OffboardingReason]) -> "QueryOffboardingResponseBodyBuilder":
+    def items(
+        self, items: List[OffboardingReason]
+    ) -> "QueryOffboardingResponseBodyBuilder":
         self._query_offboarding_response_body.items = items
         return self
 

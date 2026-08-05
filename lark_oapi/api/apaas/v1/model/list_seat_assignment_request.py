@@ -18,13 +18,14 @@ class ListSeatAssignmentRequest(BaseRequest):
 
 
 class ListSeatAssignmentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_seat_assignment_request = ListSeatAssignmentRequest()
         list_seat_assignment_request.http_method = HttpMethod.GET
         list_seat_assignment_request.uri = "/open-apis/apaas/v1/seat_assignments"
         list_seat_assignment_request.token_types = {AccessTokenType.USER}
-        self._list_seat_assignment_request: ListSeatAssignmentRequest = list_seat_assignment_request
+        self._list_seat_assignment_request: ListSeatAssignmentRequest = (
+            list_seat_assignment_request
+        )
 
     def seat_type(self, seat_type: str) -> "ListSeatAssignmentRequestBuilder":
         self._list_seat_assignment_request.seat_type = seat_type

@@ -19,13 +19,14 @@ class ListInterviewRecordRequest(BaseRequest):
 
 
 class ListInterviewRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         list_interview_record_request = ListInterviewRecordRequest()
         list_interview_record_request.http_method = HttpMethod.GET
         list_interview_record_request.uri = "/open-apis/hire/v1/interview_records"
         list_interview_record_request.token_types = {AccessTokenType.TENANT}
-        self._list_interview_record_request: ListInterviewRecordRequest = list_interview_record_request
+        self._list_interview_record_request: ListInterviewRecordRequest = (
+            list_interview_record_request
+        )
 
     def page_size(self, page_size: int) -> "ListInterviewRecordRequestBuilder":
         self._list_interview_record_request.page_size = page_size

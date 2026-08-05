@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .talent_customized_data_object_value_child import TalentCustomizedDataObjectValueChild
+from .talent_customized_data_object_value_child import (
+    TalentCustomizedDataObjectValueChild,
+)
 
 
 class TalentCustomizedDataObjectValue(object):
@@ -35,8 +37,9 @@ class TalentCustomizedDataObjectValueBuilder(object):
         self._talent_customized_data_object_value.value = value
         return self
 
-    def children(self,
-                 children: List[TalentCustomizedDataObjectValueChild]) -> "TalentCustomizedDataObjectValueBuilder":
+    def children(
+        self, children: List[TalentCustomizedDataObjectValueChild]
+    ) -> "TalentCustomizedDataObjectValueBuilder":
         self._talent_customized_data_object_value.children = children
         return self
 

@@ -50,7 +50,9 @@ class ApplicationDetailInfoBuilder(object):
     def __init__(self) -> None:
         self._application_detail_info = ApplicationDetailInfo()
 
-    def basic_info(self, basic_info: ApplicationDetailBasicInfo) -> "ApplicationDetailInfoBuilder":
+    def basic_info(
+        self, basic_info: ApplicationDetailBasicInfo
+    ) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.basic_info = basic_info
         return self
 
@@ -62,11 +64,15 @@ class ApplicationDetailInfoBuilder(object):
         self._application_detail_info.talent = talent
         return self
 
-    def evaluations(self, evaluations: List[Evaluation]) -> "ApplicationDetailInfoBuilder":
+    def evaluations(
+        self, evaluations: List[Evaluation]
+    ) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.evaluations = evaluations
         return self
 
-    def interview_aggregation(self, interview_aggregation: InterviewAggregation) -> "ApplicationDetailInfoBuilder":
+    def interview_aggregation(
+        self, interview_aggregation: InterviewAggregation
+    ) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.interview_aggregation = interview_aggregation
         return self
 
@@ -82,7 +88,9 @@ class ApplicationDetailInfoBuilder(object):
         self._application_detail_info.agency = agency
         return self
 
-    def portal(self, portal: ApplicationDetailPortalInfo) -> "ApplicationDetailInfoBuilder":
+    def portal(
+        self, portal: ApplicationDetailPortalInfo
+    ) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.portal = portal
         return self
 

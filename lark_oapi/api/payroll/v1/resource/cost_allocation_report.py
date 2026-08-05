@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.list_cost_allocation_report_request import ListCostAllocationReportRequest
-from ..model.list_cost_allocation_report_response import ListCostAllocationReportResponse
+from ..model.list_cost_allocation_report_response import (
+    ListCostAllocationReportResponse,
+)
 
 
 class CostAllocationReport(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListCostAllocationReportRequest,
-             option: Optional[RequestOption] = None) -> ListCostAllocationReportResponse:
+    def list(
+        self,
+        request: ListCostAllocationReportRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCostAllocationReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class CostAllocationReport(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCostAllocationReportResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListCostAllocationReportResponse)
+        response: ListCostAllocationReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCostAllocationReportResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCostAllocationReportRequest,
-                    option: Optional[RequestOption] = None) -> ListCostAllocationReportResponse:
+    async def alist(
+        self,
+        request: ListCostAllocationReportRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCostAllocationReportResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class CostAllocationReport(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCostAllocationReportResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListCostAllocationReportResponse)
+        response: ListCostAllocationReportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCostAllocationReportResponse
+        )
         response.raw = resp
 
         return response

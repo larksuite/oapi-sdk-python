@@ -9,7 +9,6 @@ from .upload_file_response_body import UploadFileResponseBody
 class UploadFileResponse(BaseResponse):
     _types = {
         "data": UploadFileResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -17,7 +17,6 @@ class GetAttachmentRequest(BaseRequest):
 
 
 class GetAttachmentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_attachment_request = GetAttachmentRequest()
         get_attachment_request.http_method = HttpMethod.GET

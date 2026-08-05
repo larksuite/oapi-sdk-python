@@ -18,7 +18,6 @@ class SettingsCardRequest(BaseRequest):
 
 
 class SettingsCardRequestBuilder(object):
-
     def __init__(self) -> None:
         settings_card_request = SettingsCardRequest()
         settings_card_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class SettingsCardRequestBuilder(object):
         self._settings_card_request.paths["card_id"] = str(card_id)
         return self
 
-    def request_body(self, request_body: SettingsCardRequestBody) -> "SettingsCardRequestBuilder":
+    def request_body(
+        self, request_body: SettingsCardRequestBody
+    ) -> "SettingsCardRequestBuilder":
         self._settings_card_request.request_body = request_body
         self._settings_card_request.body = request_body
         return self

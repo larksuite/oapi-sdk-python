@@ -27,7 +27,9 @@ class QuerySignatureFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_signature_file_response_body = QuerySignatureFileResponseBody()
 
-    def items(self, items: List[SignatureFile]) -> "QuerySignatureFileResponseBodyBuilder":
+    def items(
+        self, items: List[SignatureFile]
+    ) -> "QuerySignatureFileResponseBodyBuilder":
         self._query_signature_file_response_body.items = items
         return self
 

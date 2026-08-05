@@ -57,11 +57,15 @@ class ApprovalNodeInfoBuilder(object):
         self._approval_node_info.node_type = node_type
         return self
 
-    def approver_chosen_multi(self, approver_chosen_multi: bool) -> "ApprovalNodeInfoBuilder":
+    def approver_chosen_multi(
+        self, approver_chosen_multi: bool
+    ) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.approver_chosen_multi = approver_chosen_multi
         return self
 
-    def approver_chosen_range(self, approver_chosen_range: List[ApproverChosenRange]) -> "ApprovalNodeInfoBuilder":
+    def approver_chosen_range(
+        self, approver_chosen_range: List[ApproverChosenRange]
+    ) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.approver_chosen_range = approver_chosen_range
         return self
 

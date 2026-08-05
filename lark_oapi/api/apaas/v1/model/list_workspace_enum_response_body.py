@@ -35,7 +35,9 @@ class ListWorkspaceEnumResponseBodyBuilder(object):
         self._list_workspace_enum_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[WorkspaceEnum]) -> "ListWorkspaceEnumResponseBodyBuilder":
+    def items(
+        self, items: List[WorkspaceEnum]
+    ) -> "ListWorkspaceEnumResponseBodyBuilder":
         self._list_workspace_enum_response_body.items = items
         return self
 

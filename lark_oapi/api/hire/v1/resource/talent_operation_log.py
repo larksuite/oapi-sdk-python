@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.search_talent_operation_log_request import SearchTalentOperationLogRequest
-from ..model.search_talent_operation_log_response import SearchTalentOperationLogResponse
+from ..model.search_talent_operation_log_response import (
+    SearchTalentOperationLogResponse,
+)
 
 
 class TalentOperationLog(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchTalentOperationLogRequest,
-               option: Optional[RequestOption] = None) -> SearchTalentOperationLogResponse:
+    def search(
+        self,
+        request: SearchTalentOperationLogRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchTalentOperationLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class TalentOperationLog(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchTalentOperationLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    SearchTalentOperationLogResponse)
+        response: SearchTalentOperationLogResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTalentOperationLogResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchTalentOperationLogRequest,
-                      option: Optional[RequestOption] = None) -> SearchTalentOperationLogResponse:
+    async def asearch(
+        self,
+        request: SearchTalentOperationLogRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchTalentOperationLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class TalentOperationLog(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchTalentOperationLogResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    SearchTalentOperationLogResponse)
+        response: SearchTalentOperationLogResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTalentOperationLogResponse
+        )
         response.raw = resp
 
         return response

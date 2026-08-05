@@ -25,9 +25,13 @@ class QueryEmployeesJobDataResponseBody(object):
 
 class QueryEmployeesJobDataResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_employees_job_data_response_body = QueryEmployeesJobDataResponseBody()
+        self._query_employees_job_data_response_body = (
+            QueryEmployeesJobDataResponseBody()
+        )
 
-    def items(self, items: List[EmployeeJobData]) -> "QueryEmployeesJobDataResponseBodyBuilder":
+    def items(
+        self, items: List[EmployeeJobData]
+    ) -> "QueryEmployeesJobDataResponseBodyBuilder":
         self._query_employees_job_data_response_body.items = items
         return self
 

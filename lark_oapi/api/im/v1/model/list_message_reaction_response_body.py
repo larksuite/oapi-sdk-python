@@ -27,7 +27,9 @@ class ListMessageReactionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_message_reaction_response_body = ListMessageReactionResponseBody()
 
-    def items(self, items: List[MessageReaction]) -> "ListMessageReactionResponseBodyBuilder":
+    def items(
+        self, items: List[MessageReaction]
+    ) -> "ListMessageReactionResponseBodyBuilder":
         self._list_message_reaction_response_body.items = items
         return self
 

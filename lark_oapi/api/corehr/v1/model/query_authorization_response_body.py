@@ -27,7 +27,9 @@ class QueryAuthorizationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_authorization_response_body = QueryAuthorizationResponseBody()
 
-    def items(self, items: List[RoleAuthorization]) -> "QueryAuthorizationResponseBodyBuilder":
+    def items(
+        self, items: List[RoleAuthorization]
+    ) -> "QueryAuthorizationResponseBodyBuilder":
         self._query_authorization_response_body.items = items
         return self
 

@@ -17,7 +17,9 @@ class App(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    def create(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class App(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+    async def acreate(
+        self, request: CreateAppRequest, option: Optional[RequestOption] = None
+    ) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class App(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response: CreateAppResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppResponse
+        )
         response.raw = resp
 
         return response

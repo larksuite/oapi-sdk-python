@@ -9,7 +9,6 @@ from .add_reminders_task_response_body import AddRemindersTaskResponseBody
 class AddRemindersTaskResponse(BaseResponse):
     _types = {
         "data": AddRemindersTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

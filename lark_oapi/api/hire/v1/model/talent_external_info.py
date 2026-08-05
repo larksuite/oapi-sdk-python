@@ -28,7 +28,9 @@ class TalentExternalInfoBuilder(object):
         self._talent_external_info.talent_id = talent_id
         return self
 
-    def external_create_time(self, external_create_time: str) -> "TalentExternalInfoBuilder":
+    def external_create_time(
+        self, external_create_time: str
+    ) -> "TalentExternalInfoBuilder":
         self._talent_external_info.external_create_time = external_create_time
         return self
 

@@ -49,7 +49,9 @@ class CreateDepartmentBuilder(object):
     def __init__(self) -> None:
         self._create_department = CreateDepartment()
 
-    def custom_department_id(self, custom_department_id: str) -> "CreateDepartmentBuilder":
+    def custom_department_id(
+        self, custom_department_id: str
+    ) -> "CreateDepartmentBuilder":
         self._create_department.custom_department_id = custom_department_id
         return self
 
@@ -57,7 +59,9 @@ class CreateDepartmentBuilder(object):
         self._create_department.name = name
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "CreateDepartmentBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "CreateDepartmentBuilder":
         self._create_department.parent_department_id = parent_department_id
         return self
 
@@ -85,11 +89,15 @@ class CreateDepartmentBuilder(object):
         self._create_department.enabled_status = enabled_status
         return self
 
-    def custom_field_value_map(self, custom_field_value_map: Dict[str, CustomFieldValue]) -> "CreateDepartmentBuilder":
+    def custom_field_value_map(
+        self, custom_field_value_map: Dict[str, CustomFieldValue]
+    ) -> "CreateDepartmentBuilder":
         self._create_department.custom_field_value_map = custom_field_value_map
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "CreateDepartmentBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "CreateDepartmentBuilder":
         self._create_department.custom_field_values = custom_field_values
         return self
 

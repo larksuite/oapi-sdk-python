@@ -9,7 +9,6 @@ from .list_tenant_app_stat_response_body import ListTenantAppStatResponseBody
 class ListTenantAppStatResponse(BaseResponse):
     _types = {
         "data": ListTenantAppStatResponseBody,
-
     }
 
     def __init__(self, d=None):

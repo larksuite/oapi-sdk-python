@@ -9,7 +9,6 @@ from .delete_subscribe_file_response_body import DeleteSubscribeFileResponseBody
 class DeleteSubscribeFileResponse(BaseResponse):
     _types = {
         "data": DeleteSubscribeFileResponseBody,
-
     }
 
     def __init__(self, d=None):

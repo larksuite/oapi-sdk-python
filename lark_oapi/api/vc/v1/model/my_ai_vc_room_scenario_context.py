@@ -26,7 +26,9 @@ class MyAiVcRoomScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_room_scenario_context = MyAiVcRoomScenarioContext()
 
-    def plugins(self, plugins: List[MyAiPluginContext]) -> "MyAiVcRoomScenarioContextBuilder":
+    def plugins(
+        self, plugins: List[MyAiPluginContext]
+    ) -> "MyAiVcRoomScenarioContextBuilder":
         self._my_ai_vc_room_scenario_context.plugins = plugins
         return self
 

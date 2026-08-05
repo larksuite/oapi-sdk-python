@@ -20,9 +20,13 @@ class CreateCalendarEventMeetingMinuteResponseBody(object):
 
 class CreateCalendarEventMeetingMinuteResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_calendar_event_meeting_minute_response_body = CreateCalendarEventMeetingMinuteResponseBody()
+        self._create_calendar_event_meeting_minute_response_body = (
+            CreateCalendarEventMeetingMinuteResponseBody()
+        )
 
-    def doc_url(self, doc_url: str) -> "CreateCalendarEventMeetingMinuteResponseBodyBuilder":
+    def doc_url(
+        self, doc_url: str
+    ) -> "CreateCalendarEventMeetingMinuteResponseBodyBuilder":
         self._create_calendar_event_meeting_minute_response_body.doc_url = doc_url
         return self
 

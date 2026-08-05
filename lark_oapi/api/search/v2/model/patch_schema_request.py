@@ -18,7 +18,6 @@ class PatchSchemaRequest(BaseRequest):
 
 
 class PatchSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_schema_request = PatchSchemaRequest()
         patch_schema_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class PatchSchemaRequestBuilder(object):
         self._patch_schema_request.paths["schema_id"] = str(schema_id)
         return self
 
-    def request_body(self, request_body: PatchSchemaRequestBody) -> "PatchSchemaRequestBuilder":
+    def request_body(
+        self, request_body: PatchSchemaRequestBody
+    ) -> "PatchSchemaRequestBuilder":
         self._patch_schema_request.request_body = request_body
         self._patch_schema_request.body = request_body
         return self

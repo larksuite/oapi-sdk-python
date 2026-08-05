@@ -9,17 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_basic_info_country_region_subdivision_request import SearchBasicInfoCountryRegionSubdivisionRequest
-from ..model.search_basic_info_country_region_subdivision_response import \
-    SearchBasicInfoCountryRegionSubdivisionResponse
+from ..model.search_basic_info_country_region_subdivision_request import (
+    SearchBasicInfoCountryRegionSubdivisionRequest,
+)
+from ..model.search_basic_info_country_region_subdivision_response import (
+    SearchBasicInfoCountryRegionSubdivisionResponse,
+)
 
 
 class BasicInfoCountryRegionSubdivision(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoCountryRegionSubdivisionRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoCountryRegionSubdivisionResponse:
+    def search(
+        self,
+        request: SearchBasicInfoCountryRegionSubdivisionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCountryRegionSubdivisionResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,14 +40,18 @@ class BasicInfoCountryRegionSubdivision(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCountryRegionSubdivisionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                   SearchBasicInfoCountryRegionSubdivisionResponse)
+        response: SearchBasicInfoCountryRegionSubdivisionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCountryRegionSubdivisionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchBasicInfoCountryRegionSubdivisionRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoCountryRegionSubdivisionResponse:
+    async def asearch(
+        self,
+        request: SearchBasicInfoCountryRegionSubdivisionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCountryRegionSubdivisionResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,8 +62,9 @@ class BasicInfoCountryRegionSubdivision(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCountryRegionSubdivisionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                   SearchBasicInfoCountryRegionSubdivisionResponse)
+        response: SearchBasicInfoCountryRegionSubdivisionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCountryRegionSubdivisionResponse
+        )
         response.raw = resp
 
         return response

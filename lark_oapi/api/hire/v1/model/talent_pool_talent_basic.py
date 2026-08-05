@@ -80,7 +80,9 @@ class TalentPoolTalentBasicBuilder(object):
         self._talent_pool_talent_basic.mobile_code = mobile_code
         return self
 
-    def mobile_country_code(self, mobile_country_code: str) -> "TalentPoolTalentBasicBuilder":
+    def mobile_country_code(
+        self, mobile_country_code: str
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.mobile_country_code = mobile_country_code
         return self
 
@@ -96,7 +98,9 @@ class TalentPoolTalentBasicBuilder(object):
         self._talent_pool_talent_basic.age = age
         return self
 
-    def nationality(self, nationality: TalentDetailTalentNationality) -> "TalentPoolTalentBasicBuilder":
+    def nationality(
+        self, nationality: TalentDetailTalentNationality
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.nationality = nationality
         return self
 
@@ -104,23 +108,33 @@ class TalentPoolTalentBasicBuilder(object):
         self._talent_pool_talent_basic.gender = gender
         return self
 
-    def current_city(self, current_city: CommonCityInfo) -> "TalentPoolTalentBasicBuilder":
+    def current_city(
+        self, current_city: CommonCityInfo
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.current_city = current_city
         return self
 
-    def hometown_city(self, hometown_city: CommonCityInfo) -> "TalentPoolTalentBasicBuilder":
+    def hometown_city(
+        self, hometown_city: CommonCityInfo
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.hometown_city = hometown_city
         return self
 
-    def preferred_city_list(self, preferred_city_list: List[CommonCityInfo]) -> "TalentPoolTalentBasicBuilder":
+    def preferred_city_list(
+        self, preferred_city_list: List[CommonCityInfo]
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.preferred_city_list = preferred_city_list
         return self
 
-    def identification_type(self, identification_type: int) -> "TalentPoolTalentBasicBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "TalentPoolTalentBasicBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.identification_number = identification_number
         return self
 

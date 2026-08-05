@@ -30,11 +30,15 @@ class RelatedDimensionSettingBuilder(object):
         self._related_dimension_setting.dimension_id = dimension_id
         return self
 
-    def related_operator_type(self, related_operator_type: int) -> "RelatedDimensionSettingBuilder":
+    def related_operator_type(
+        self, related_operator_type: int
+    ) -> "RelatedDimensionSettingBuilder":
         self._related_dimension_setting.related_operator_type = related_operator_type
         return self
 
-    def dimension_option_ids(self, dimension_option_ids: List[str]) -> "RelatedDimensionSettingBuilder":
+    def dimension_option_ids(
+        self, dimension_option_ids: List[str]
+    ) -> "RelatedDimensionSettingBuilder":
         self._related_dimension_setting.dimension_option_ids = dimension_option_ids
         return self
 

@@ -71,11 +71,15 @@ class CreateArchiveRequestBodyBuilder(object):
         self._create_archive_request_body.plan_tid = plan_tid
         return self
 
-    def change_reason_id(self, change_reason_id: str) -> "CreateArchiveRequestBodyBuilder":
+    def change_reason_id(
+        self, change_reason_id: str
+    ) -> "CreateArchiveRequestBodyBuilder":
         self._create_archive_request_body.change_reason_id = change_reason_id
         return self
 
-    def item_value_lists(self, item_value_lists: List[ArchiveItemValue]) -> "CreateArchiveRequestBodyBuilder":
+    def item_value_lists(
+        self, item_value_lists: List[ArchiveItemValue]
+    ) -> "CreateArchiveRequestBodyBuilder":
         self._create_archive_request_body.item_value_lists = item_value_lists
         return self
 

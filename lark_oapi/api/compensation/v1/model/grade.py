@@ -62,7 +62,9 @@ class GradeBuilder(object):
         self._grade.serial_number = serial_number
         return self
 
-    def grade_standard_values(self, grade_standard_values: List[GradeStandardValue]) -> "GradeBuilder":
+    def grade_standard_values(
+        self, grade_standard_values: List[GradeStandardValue]
+    ) -> "GradeBuilder":
         self._grade.grade_standard_values = grade_standard_values
         return self
 

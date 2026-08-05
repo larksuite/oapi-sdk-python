@@ -24,7 +24,6 @@ class ListEmployeeRequest(BaseRequest):
 
 
 class ListEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_employee_request = ListEmployeeRequest()
         list_employee_request.http_method = HttpMethod.GET

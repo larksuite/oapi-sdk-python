@@ -32,7 +32,9 @@ class OperationPermissionV2Builder(object):
         self._operation_permission_v2.role_api_name = role_api_name
         return self
 
-    def operation_api_name(self, operation_api_name: str) -> "OperationPermissionV2Builder":
+    def operation_api_name(
+        self, operation_api_name: str
+    ) -> "OperationPermissionV2Builder":
         self._operation_permission_v2.operation_api_name = operation_api_name
         return self
 
@@ -40,7 +42,9 @@ class OperationPermissionV2Builder(object):
         self._operation_permission_v2.operation_type = operation_type
         return self
 
-    def operation_name(self, operation_name: Dict[str, str]) -> "OperationPermissionV2Builder":
+    def operation_name(
+        self, operation_name: Dict[str, str]
+    ) -> "OperationPermissionV2Builder":
         self._operation_permission_v2.operation_name = operation_name
         return self
 

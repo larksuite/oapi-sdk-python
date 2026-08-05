@@ -16,12 +16,14 @@ class TaskCheckFileRequest(BaseRequest):
 
 
 class TaskCheckFileRequestBuilder(object):
-
     def __init__(self) -> None:
         task_check_file_request = TaskCheckFileRequest()
         task_check_file_request.http_method = HttpMethod.GET
         task_check_file_request.uri = "/open-apis/drive/v1/files/task_check"
-        task_check_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        task_check_file_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._task_check_file_request: TaskCheckFileRequest = task_check_file_request
 
     def task_id(self, task_id: str) -> "TaskCheckFileRequestBuilder":

@@ -36,7 +36,9 @@ class PropertyBuilder(object):
         self._property.version = version
         return self
 
-    def current_device_face_count(self, current_device_face_count: int) -> "PropertyBuilder":
+    def current_device_face_count(
+        self, current_device_face_count: int
+    ) -> "PropertyBuilder":
         self._property.current_device_face_count = current_device_face_count
         return self
 

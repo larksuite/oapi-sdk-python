@@ -17,7 +17,9 @@ class Datasource(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListDatasourceRequest, option: Optional[RequestOption] = None) -> ListDatasourceResponse:
+    def list(
+        self, request: ListDatasourceRequest, option: Optional[RequestOption] = None
+    ) -> ListDatasourceResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Datasource(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListDatasourceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDatasourceResponse)
+        response: ListDatasourceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDatasourceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListDatasourceRequest,
-                    option: Optional[RequestOption] = None) -> ListDatasourceResponse:
+    async def alist(
+        self, request: ListDatasourceRequest, option: Optional[RequestOption] = None
+    ) -> ListDatasourceResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Datasource(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListDatasourceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDatasourceResponse)
+        response: ListDatasourceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDatasourceResponse
+        )
         response.raw = resp
 
         return response

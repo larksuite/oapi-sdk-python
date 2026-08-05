@@ -16,7 +16,6 @@ class GetSubregionRequest(BaseRequest):
 
 
 class GetSubregionRequestBuilder(object):
-
     def __init__(self) -> None:
         get_subregion_request = GetSubregionRequest()
         get_subregion_request.http_method = HttpMethod.GET

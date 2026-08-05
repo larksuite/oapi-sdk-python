@@ -29,7 +29,9 @@ class RichTextElementTextBuilder(object):
         self._rich_text_element_text.text = text
         return self
 
-    def text_style(self, text_style: RichTextElementTextStyle) -> "RichTextElementTextBuilder":
+    def text_style(
+        self, text_style: RichTextElementTextStyle
+    ) -> "RichTextElementTextBuilder":
         self._rich_text_element_text.text_style = text_style
         return self
 

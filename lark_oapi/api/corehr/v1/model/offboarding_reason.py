@@ -33,9 +33,12 @@ class OffboardingReasonBuilder(object):
     def __init__(self) -> None:
         self._offboarding_reason = OffboardingReason()
 
-    def offboarding_reason_unique_identifier(self,
-                                             offboarding_reason_unique_identifier: str) -> "OffboardingReasonBuilder":
-        self._offboarding_reason.offboarding_reason_unique_identifier = offboarding_reason_unique_identifier
+    def offboarding_reason_unique_identifier(
+        self, offboarding_reason_unique_identifier: str
+    ) -> "OffboardingReasonBuilder":
+        self._offboarding_reason.offboarding_reason_unique_identifier = (
+            offboarding_reason_unique_identifier
+        )
         return self
 
     def name(self, name: List[I18n]) -> "OffboardingReasonBuilder":
@@ -46,9 +49,12 @@ class OffboardingReasonBuilder(object):
         self._offboarding_reason.active = active
         return self
 
-    def parent_offboarding_reason_unique_identifier(self,
-                                                    parent_offboarding_reason_unique_identifier: str) -> "OffboardingReasonBuilder":
-        self._offboarding_reason.parent_offboarding_reason_unique_identifier = parent_offboarding_reason_unique_identifier
+    def parent_offboarding_reason_unique_identifier(
+        self, parent_offboarding_reason_unique_identifier: str
+    ) -> "OffboardingReasonBuilder":
+        self._offboarding_reason.parent_offboarding_reason_unique_identifier = (
+            parent_offboarding_reason_unique_identifier
+        )
         return self
 
     def created_time(self, created_time: str) -> "OffboardingReasonBuilder":

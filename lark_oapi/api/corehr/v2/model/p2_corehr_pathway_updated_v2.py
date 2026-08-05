@@ -18,9 +18,7 @@ class P2CorehrPathwayUpdatedV2Data(object):
 
 
 class P2CorehrPathwayUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrPathwayUpdatedV2Data
-    }
+    _types = {"event": P2CorehrPathwayUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

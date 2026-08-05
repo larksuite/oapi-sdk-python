@@ -5,6 +5,7 @@ from .attachment_download_url_item import *
 from .automation_send_disable import *
 from .blocked_sender import *
 from .department_id import *
+from .domain import *
 from .draft import *
 from .email_alias import *
 from .email_info import *
@@ -21,6 +22,7 @@ from .mail_flow_rule_info import *
 from .mail_group_as_sender_permission_member import *
 from .mail_log import *
 from .mail_log_mail_info import *
+from .mail_log_search_item import *
 from .mail_recipient_log import *
 from .mail_recipient_log_detail import *
 from .mail_recipient_log_i18n_text_param import *
@@ -92,6 +94,8 @@ from .create_mailgroup_permission_member_request import *
 from .delete_mailgroup_permission_member_request import *
 from .get_mailgroup_permission_member_request import *
 from .list_mailgroup_permission_member_request import *
+from .search_multi_entity_request_body import *
+from .search_multi_entity_request import *
 from .create_public_mailbox_request import *
 from .delete_public_mailbox_request import *
 from .get_public_mailbox_request import *
@@ -116,9 +120,13 @@ from .query_user_request_body import *
 from .query_user_request import *
 from .accessible_mailboxes_user_mailbox_request import *
 from .delete_user_mailbox_request import *
+from .profile_user_mailbox_request import *
+from .search_user_mailbox_request_body import *
+from .search_user_mailbox_request import *
 from .create_user_mailbox_alias_request import *
 from .delete_user_mailbox_alias_request import *
 from .list_user_mailbox_alias_request import *
+from .cancel_scheduled_send_user_mailbox_draft_request import *
 from .create_user_mailbox_draft_request_body import *
 from .create_user_mailbox_draft_request import *
 from .delete_user_mailbox_draft_request import *
@@ -163,6 +171,7 @@ from .modify_user_mailbox_message_request_body import *
 from .modify_user_mailbox_message_request import *
 from .send_user_mailbox_message_request_body import *
 from .send_user_mailbox_message_request import *
+from .send_status_user_mailbox_message_request import *
 from .trash_user_mailbox_message_request import *
 from .download_url_user_mailbox_message_attachment_request import *
 from .create_user_mailbox_rule_request import *
@@ -171,6 +180,9 @@ from .list_user_mailbox_rule_request import *
 from .reorder_user_mailbox_rule_request_body import *
 from .reorder_user_mailbox_rule_request import *
 from .update_user_mailbox_rule_request import *
+from .get_recall_detail_user_mailbox_sent_message_request import *
+from .recall_user_mailbox_sent_message_request import *
+from .get_signatures_user_mailbox_setting_request import *
 from .send_as_user_mailbox_setting_request import *
 from .create_user_mailbox_template_request_body import *
 from .create_user_mailbox_template_request import *
@@ -229,6 +241,8 @@ from .get_mailgroup_permission_member_response_body import *
 from .get_mailgroup_permission_member_response import *
 from .list_mailgroup_permission_member_response_body import *
 from .list_mailgroup_permission_member_response import *
+from .search_multi_entity_response_body import *
+from .search_multi_entity_response import *
 from .create_public_mailbox_response_body import *
 from .create_public_mailbox_response import *
 from .delete_public_mailbox_response import *
@@ -262,11 +276,16 @@ from .query_user_response import *
 from .accessible_mailboxes_user_mailbox_response_body import *
 from .accessible_mailboxes_user_mailbox_response import *
 from .delete_user_mailbox_response import *
+from .profile_user_mailbox_response_body import *
+from .profile_user_mailbox_response import *
+from .search_user_mailbox_response_body import *
+from .search_user_mailbox_response import *
 from .create_user_mailbox_alias_response_body import *
 from .create_user_mailbox_alias_response import *
 from .delete_user_mailbox_alias_response import *
 from .list_user_mailbox_alias_response_body import *
 from .list_user_mailbox_alias_response import *
+from .cancel_scheduled_send_user_mailbox_draft_response import *
 from .create_user_mailbox_draft_response_body import *
 from .create_user_mailbox_draft_response import *
 from .delete_user_mailbox_draft_response import *
@@ -320,6 +339,8 @@ from .list_thread_message_user_mailbox_message_response import *
 from .modify_user_mailbox_message_response import *
 from .send_user_mailbox_message_response_body import *
 from .send_user_mailbox_message_response import *
+from .send_status_user_mailbox_message_response_body import *
+from .send_status_user_mailbox_message_response import *
 from .trash_user_mailbox_message_response import *
 from .download_url_user_mailbox_message_attachment_response_body import *
 from .download_url_user_mailbox_message_attachment_response import *
@@ -330,6 +351,12 @@ from .list_user_mailbox_rule_response_body import *
 from .list_user_mailbox_rule_response import *
 from .reorder_user_mailbox_rule_response import *
 from .update_user_mailbox_rule_response import *
+from .get_recall_detail_user_mailbox_sent_message_response_body import *
+from .get_recall_detail_user_mailbox_sent_message_response import *
+from .recall_user_mailbox_sent_message_response_body import *
+from .recall_user_mailbox_sent_message_response import *
+from .get_signatures_user_mailbox_setting_response_body import *
+from .get_signatures_user_mailbox_setting_response import *
 from .send_as_user_mailbox_setting_response_body import *
 from .send_as_user_mailbox_setting_response import *
 from .create_user_mailbox_template_response_body import *

@@ -22,13 +22,17 @@ class CreateVersionDefaultCostCenterResponseBody(object):
 
 class CreateVersionDefaultCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_version_default_cost_center_response_body = CreateVersionDefaultCostCenterResponseBody()
+        self._create_version_default_cost_center_response_body = (
+            CreateVersionDefaultCostCenterResponseBody()
+        )
 
     def wk_id(self, wk_id: str) -> "CreateVersionDefaultCostCenterResponseBodyBuilder":
         self._create_version_default_cost_center_response_body.wk_id = wk_id
         return self
 
-    def wk_tid(self, wk_tid: str) -> "CreateVersionDefaultCostCenterResponseBodyBuilder":
+    def wk_tid(
+        self, wk_tid: str
+    ) -> "CreateVersionDefaultCostCenterResponseBodyBuilder":
         self._create_version_default_cost_center_response_body.wk_tid = wk_tid
         return self
 

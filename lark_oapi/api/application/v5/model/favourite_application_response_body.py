@@ -33,7 +33,9 @@ class FavouriteApplicationResponseBodyBuilder(object):
         self._favourite_application_response_body.page_token = page_token
         return self
 
-    def total_count(self, total_count: int) -> "FavouriteApplicationResponseBodyBuilder":
+    def total_count(
+        self, total_count: int
+    ) -> "FavouriteApplicationResponseBodyBuilder":
         self._favourite_application_response_body.total_count = total_count
         return self
 
@@ -41,7 +43,9 @@ class FavouriteApplicationResponseBodyBuilder(object):
         self._favourite_application_response_body.has_more = has_more
         return self
 
-    def app_list(self, app_list: List[Application]) -> "FavouriteApplicationResponseBodyBuilder":
+    def app_list(
+        self, app_list: List[Application]
+    ) -> "FavouriteApplicationResponseBodyBuilder":
         self._favourite_application_response_body.app_list = app_list
         return self
 

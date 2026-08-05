@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
-from .signature_template_combination_sub_field_info import SignatureTemplateCombinationSubFieldInfo
+from .signature_template_combination_sub_field_info import (
+    SignatureTemplateCombinationSubFieldInfo,
+)
 from .enum import Enum
 
 
@@ -31,9 +33,13 @@ class SignatureTemplateCombinationFieldInfo(object):
 
 class SignatureTemplateCombinationFieldInfoBuilder(object):
     def __init__(self) -> None:
-        self._signature_template_combination_field_info = SignatureTemplateCombinationFieldInfo()
+        self._signature_template_combination_field_info = (
+            SignatureTemplateCombinationFieldInfo()
+        )
 
-    def total_apiname(self, total_apiname: str) -> "SignatureTemplateCombinationFieldInfoBuilder":
+    def total_apiname(
+        self, total_apiname: str
+    ) -> "SignatureTemplateCombinationFieldInfoBuilder":
         self._signature_template_combination_field_info.total_apiname = total_apiname
         return self
 
@@ -41,11 +47,15 @@ class SignatureTemplateCombinationFieldInfoBuilder(object):
         self._signature_template_combination_field_info.apiname = apiname
         return self
 
-    def title(self, title: List[I18n]) -> "SignatureTemplateCombinationFieldInfoBuilder":
+    def title(
+        self, title: List[I18n]
+    ) -> "SignatureTemplateCombinationFieldInfoBuilder":
         self._signature_template_combination_field_info.title = title
         return self
 
-    def contents(self, contents: List[list]) -> "SignatureTemplateCombinationFieldInfoBuilder":
+    def contents(
+        self, contents: List[list]
+    ) -> "SignatureTemplateCombinationFieldInfoBuilder":
         self._signature_template_combination_field_info.contents = contents
         return self
 

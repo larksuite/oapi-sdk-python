@@ -23,7 +23,9 @@ class CreateMessageReactionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_message_reaction_request_body = CreateMessageReactionRequestBody()
 
-    def reaction_type(self, reaction_type: Emoji) -> "CreateMessageReactionRequestBodyBuilder":
+    def reaction_type(
+        self, reaction_type: Emoji
+    ) -> "CreateMessageReactionRequestBodyBuilder":
         self._create_message_reaction_request_body.reaction_type = reaction_type
         return self
 

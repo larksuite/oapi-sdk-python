@@ -26,15 +26,21 @@ class CustomMetricConfigBuilder(object):
     def __init__(self) -> None:
         self._custom_metric_config = CustomMetricConfig()
 
-    def default_formula_id(self, default_formula_id: int) -> "CustomMetricConfigBuilder":
+    def default_formula_id(
+        self, default_formula_id: int
+    ) -> "CustomMetricConfigBuilder":
         self._custom_metric_config.default_formula_id = default_formula_id
         return self
 
-    def least_metrics_size(self, least_metrics_size: int) -> "CustomMetricConfigBuilder":
+    def least_metrics_size(
+        self, least_metrics_size: int
+    ) -> "CustomMetricConfigBuilder":
         self._custom_metric_config.least_metrics_size = least_metrics_size
         return self
 
-    def add_metric_options(self, add_metric_options: List[int]) -> "CustomMetricConfigBuilder":
+    def add_metric_options(
+        self, add_metric_options: List[int]
+    ) -> "CustomMetricConfigBuilder":
         self._custom_metric_config.add_metric_options = add_metric_options
         return self
 

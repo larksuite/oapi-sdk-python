@@ -36,7 +36,9 @@ class CollaborationRuleBuilder(object):
         self._collaboration_rule.rule_id = rule_id
         return self
 
-    def subjects(self, subjects: CollaborationRuleEntities) -> "CollaborationRuleBuilder":
+    def subjects(
+        self, subjects: CollaborationRuleEntities
+    ) -> "CollaborationRuleBuilder":
         self._collaboration_rule.subjects = subjects
         return self
 

@@ -18,7 +18,6 @@ class CreateExamRequest(BaseRequest):
 
 
 class CreateExamRequestBuilder(object):
-
     def __init__(self) -> None:
         create_exam_request = CreateExamRequest()
         create_exam_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class CreateExamRequestBuilder(object):
         self._create_exam_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateExamRequestBody) -> "CreateExamRequestBuilder":
+    def request_body(
+        self, request_body: CreateExamRequestBody
+    ) -> "CreateExamRequestBuilder":
         self._create_exam_request.request_body = request_body
         self._create_exam_request.body = request_body
         return self

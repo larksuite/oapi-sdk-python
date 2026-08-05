@@ -16,13 +16,19 @@ class DeleteAttachmentRequest(BaseRequest):
 
 
 class DeleteAttachmentRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_attachment_request = DeleteAttachmentRequest()
         delete_attachment_request.http_method = HttpMethod.DELETE
-        delete_attachment_request.uri = "/open-apis/task/v2/attachments/:attachment_guid"
-        delete_attachment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_attachment_request: DeleteAttachmentRequest = delete_attachment_request
+        delete_attachment_request.uri = (
+            "/open-apis/task/v2/attachments/:attachment_guid"
+        )
+        delete_attachment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_attachment_request: DeleteAttachmentRequest = (
+            delete_attachment_request
+        )
 
     def attachment_guid(self, attachment_guid: str) -> "DeleteAttachmentRequestBuilder":
         self._delete_attachment_request.attachment_guid = attachment_guid

@@ -37,11 +37,15 @@ class PagePermissionAccessBuilder(object):
         self._page_permission_access.api_name = api_name
         return self
 
-    def sub_pages(self, sub_pages: List[SubPageSimpleInfo]) -> "PagePermissionAccessBuilder":
+    def sub_pages(
+        self, sub_pages: List[SubPageSimpleInfo]
+    ) -> "PagePermissionAccessBuilder":
         self._page_permission_access.sub_pages = sub_pages
         return self
 
-    def display_name(self, display_name: Dict[str, str]) -> "PagePermissionAccessBuilder":
+    def display_name(
+        self, display_name: Dict[str, str]
+    ) -> "PagePermissionAccessBuilder":
         self._page_permission_access.display_name = display_name
         return self
 

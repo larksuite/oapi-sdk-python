@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_multi_timeline_location_request_body import QueryMultiTimelineLocationRequestBody
+from .query_multi_timeline_location_request_body import (
+    QueryMultiTimelineLocationRequestBody,
+)
 
 
 class QueryMultiTimelineLocationRequest(BaseRequest):
@@ -17,16 +19,18 @@ class QueryMultiTimelineLocationRequest(BaseRequest):
 
 
 class QueryMultiTimelineLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         query_multi_timeline_location_request = QueryMultiTimelineLocationRequest()
         query_multi_timeline_location_request.http_method = HttpMethod.POST
-        query_multi_timeline_location_request.uri = "/open-apis/corehr/v2/locations/query_multi_timeline"
+        query_multi_timeline_location_request.uri = (
+            "/open-apis/corehr/v2/locations/query_multi_timeline"
+        )
         query_multi_timeline_location_request.token_types = {AccessTokenType.TENANT}
         self._query_multi_timeline_location_request: QueryMultiTimelineLocationRequest = query_multi_timeline_location_request
 
-    def request_body(self,
-                     request_body: QueryMultiTimelineLocationRequestBody) -> "QueryMultiTimelineLocationRequestBuilder":
+    def request_body(
+        self, request_body: QueryMultiTimelineLocationRequestBody
+    ) -> "QueryMultiTimelineLocationRequestBuilder":
         self._query_multi_timeline_location_request.request_body = request_body
         self._query_multi_timeline_location_request.body = request_body
         return self

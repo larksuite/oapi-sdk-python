@@ -59,11 +59,15 @@ class PatchDataSourceRequestBodyBuilder(object):
         self._patch_data_source_request_body.i18n_name = i18n_name
         return self
 
-    def i18n_description(self, i18n_description: I18nMeta) -> "PatchDataSourceRequestBodyBuilder":
+    def i18n_description(
+        self, i18n_description: I18nMeta
+    ) -> "PatchDataSourceRequestBodyBuilder":
         self._patch_data_source_request_body.i18n_description = i18n_description
         return self
 
-    def connector_param(self, connector_param: ConnectorParam) -> "PatchDataSourceRequestBodyBuilder":
+    def connector_param(
+        self, connector_param: ConnectorParam
+    ) -> "PatchDataSourceRequestBodyBuilder":
         self._patch_data_source_request_body.connector_param = connector_param
         return self
 

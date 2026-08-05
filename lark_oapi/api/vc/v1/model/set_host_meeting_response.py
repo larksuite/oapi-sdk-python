@@ -9,7 +9,6 @@ from .set_host_meeting_response_body import SetHostMeetingResponseBody
 class SetHostMeetingResponse(BaseResponse):
     _types = {
         "data": SetHostMeetingResponseBody,
-
     }
 
     def __init__(self, d=None):

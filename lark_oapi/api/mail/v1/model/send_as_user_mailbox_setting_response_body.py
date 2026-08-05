@@ -21,10 +21,16 @@ class SendAsUserMailboxSettingResponseBody(object):
 
 class SendAsUserMailboxSettingResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._send_as_user_mailbox_setting_response_body = SendAsUserMailboxSettingResponseBody()
+        self._send_as_user_mailbox_setting_response_body = (
+            SendAsUserMailboxSettingResponseBody()
+        )
 
-    def sendable_addresses(self, sendable_addresses: List[EmailInfo]) -> "SendAsUserMailboxSettingResponseBodyBuilder":
-        self._send_as_user_mailbox_setting_response_body.sendable_addresses = sendable_addresses
+    def sendable_addresses(
+        self, sendable_addresses: List[EmailInfo]
+    ) -> "SendAsUserMailboxSettingResponseBodyBuilder":
+        self._send_as_user_mailbox_setting_response_body.sendable_addresses = (
+            sendable_addresses
+        )
         return self
 
     def build(self) -> "SendAsUserMailboxSettingResponseBody":

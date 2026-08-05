@@ -18,13 +18,16 @@ class ListUserMailboxAliasRequest(BaseRequest):
 
 
 class ListUserMailboxAliasRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_mailbox_alias_request = ListUserMailboxAliasRequest()
         list_user_mailbox_alias_request.http_method = HttpMethod.GET
-        list_user_mailbox_alias_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases"
+        list_user_mailbox_alias_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases"
+        )
         list_user_mailbox_alias_request.token_types = {AccessTokenType.TENANT}
-        self._list_user_mailbox_alias_request: ListUserMailboxAliasRequest = list_user_mailbox_alias_request
+        self._list_user_mailbox_alias_request: ListUserMailboxAliasRequest = (
+            list_user_mailbox_alias_request
+        )
 
     def page_token(self, page_token: str) -> "ListUserMailboxAliasRequestBuilder":
         self._list_user_mailbox_alias_request.page_token = page_token
@@ -36,9 +39,13 @@ class ListUserMailboxAliasRequestBuilder(object):
         self._list_user_mailbox_alias_request.add_query("page_size", page_size)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxAliasRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListUserMailboxAliasRequestBuilder":
         self._list_user_mailbox_alias_request.user_mailbox_id = user_mailbox_id
-        self._list_user_mailbox_alias_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._list_user_mailbox_alias_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> ListUserMailboxAliasRequest:

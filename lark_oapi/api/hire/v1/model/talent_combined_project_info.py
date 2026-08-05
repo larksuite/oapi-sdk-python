@@ -65,8 +65,9 @@ class TalentCombinedProjectInfoBuilder(object):
         self._talent_combined_project_info.end_time = end_time
         return self
 
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedProjectInfoBuilder":
+    def customized_data(
+        self, customized_data: List[TalentCustomizedDataObjectValue]
+    ) -> "TalentCombinedProjectInfoBuilder":
         self._talent_combined_project_info.customized_data = customized_data
         return self
 

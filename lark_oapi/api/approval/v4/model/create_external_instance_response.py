@@ -9,7 +9,6 @@ from .create_external_instance_response_body import CreateExternalInstanceRespon
 class CreateExternalInstanceResponse(BaseResponse):
     _types = {
         "data": CreateExternalInstanceResponseBody,
-
     }
 
     def __init__(self, d=None):

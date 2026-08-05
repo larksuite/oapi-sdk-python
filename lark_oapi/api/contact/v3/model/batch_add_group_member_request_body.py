@@ -23,7 +23,9 @@ class BatchAddGroupMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_add_group_member_request_body = BatchAddGroupMemberRequestBody()
 
-    def members(self, members: List[Memberlist]) -> "BatchAddGroupMemberRequestBodyBuilder":
+    def members(
+        self, members: List[Memberlist]
+    ) -> "BatchAddGroupMemberRequestBodyBuilder":
         self._batch_add_group_member_request_body.members = members
         return self
 

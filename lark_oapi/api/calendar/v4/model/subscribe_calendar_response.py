@@ -9,7 +9,6 @@ from .subscribe_calendar_response_body import SubscribeCalendarResponseBody
 class SubscribeCalendarResponse(BaseResponse):
     _types = {
         "data": SubscribeCalendarResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -25,7 +25,9 @@ class Pathway(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def active(self, request: ActivePathwayRequest, option: Optional[RequestOption] = None) -> ActivePathwayResponse:
+    def active(
+        self, request: ActivePathwayRequest, option: Optional[RequestOption] = None
+    ) -> ActivePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +42,16 @@ class Pathway(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ActivePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), ActivePathwayResponse)
+        response: ActivePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActivePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aactive(self, request: ActivePathwayRequest,
-                      option: Optional[RequestOption] = None) -> ActivePathwayResponse:
+    async def aactive(
+        self, request: ActivePathwayRequest, option: Optional[RequestOption] = None
+    ) -> ActivePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,13 +62,16 @@ class Pathway(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ActivePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), ActivePathwayResponse)
+        response: ActivePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActivePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_get(self, request: BatchGetPathwayRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetPathwayResponse:
+    def batch_get(
+        self, request: BatchGetPathwayRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetPathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,13 +86,16 @@ class Pathway(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetPathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetPathwayResponse)
+        response: BatchGetPathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetPathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetPathwayRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetPathwayResponse:
+    async def abatch_get(
+        self, request: BatchGetPathwayRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetPathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,12 +106,16 @@ class Pathway(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetPathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetPathwayResponse)
+        response: BatchGetPathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetPathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreatePathwayRequest, option: Optional[RequestOption] = None) -> CreatePathwayResponse:
+    def create(
+        self, request: CreatePathwayRequest, option: Optional[RequestOption] = None
+    ) -> CreatePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,13 +130,16 @@ class Pathway(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePathwayResponse)
+        response: CreatePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePathwayRequest,
-                      option: Optional[RequestOption] = None) -> CreatePathwayResponse:
+    async def acreate(
+        self, request: CreatePathwayRequest, option: Optional[RequestOption] = None
+    ) -> CreatePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,12 +150,16 @@ class Pathway(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePathwayResponse)
+        response: CreatePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeletePathwayRequest, option: Optional[RequestOption] = None) -> DeletePathwayResponse:
+    def delete(
+        self, request: DeletePathwayRequest, option: Optional[RequestOption] = None
+    ) -> DeletePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -152,13 +174,16 @@ class Pathway(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeletePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePathwayResponse)
+        response: DeletePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeletePathwayRequest,
-                      option: Optional[RequestOption] = None) -> DeletePathwayResponse:
+    async def adelete(
+        self, request: DeletePathwayRequest, option: Optional[RequestOption] = None
+    ) -> DeletePathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -169,12 +194,16 @@ class Pathway(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeletePathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePathwayResponse)
+        response: DeletePathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchPathwayRequest, option: Optional[RequestOption] = None) -> PatchPathwayResponse:
+    def patch(
+        self, request: PatchPathwayRequest, option: Optional[RequestOption] = None
+    ) -> PatchPathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -189,13 +218,16 @@ class Pathway(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchPathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPathwayResponse)
+        response: PatchPathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPathwayResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchPathwayRequest,
-                     option: Optional[RequestOption] = None) -> PatchPathwayResponse:
+    async def apatch(
+        self, request: PatchPathwayRequest, option: Optional[RequestOption] = None
+    ) -> PatchPathwayResponse:
         if option is None:
             option = RequestOption()
 
@@ -206,7 +238,9 @@ class Pathway(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchPathwayResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPathwayResponse)
+        response: PatchPathwayResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchPathwayResponse
+        )
         response.raw = resp
 
         return response

@@ -29,7 +29,9 @@ class OfferSelectionObjectBuilder(object):
         self._offer_selection_object.schema_version = schema_version
         return self
 
-    def option_list(self, option_list: List[OfferSchemaDetailOption]) -> "OfferSelectionObjectBuilder":
+    def option_list(
+        self, option_list: List[OfferSchemaDetailOption]
+    ) -> "OfferSelectionObjectBuilder":
         self._offer_selection_object.option_list = option_list
         return self
 

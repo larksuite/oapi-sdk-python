@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_offer_approval_template_request import ListOfferApprovalTemplateRequest
-from ..model.list_offer_approval_template_response import ListOfferApprovalTemplateResponse
+from ..model.list_offer_approval_template_request import (
+    ListOfferApprovalTemplateRequest,
+)
+from ..model.list_offer_approval_template_response import (
+    ListOfferApprovalTemplateResponse,
+)
 
 
 class OfferApprovalTemplate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListOfferApprovalTemplateRequest,
-             option: Optional[RequestOption] = None) -> ListOfferApprovalTemplateResponse:
+    def list(
+        self,
+        request: ListOfferApprovalTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListOfferApprovalTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class OfferApprovalTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListOfferApprovalTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListOfferApprovalTemplateResponse)
+        response: ListOfferApprovalTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListOfferApprovalTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListOfferApprovalTemplateRequest,
-                    option: Optional[RequestOption] = None) -> ListOfferApprovalTemplateResponse:
+    async def alist(
+        self,
+        request: ListOfferApprovalTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListOfferApprovalTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class OfferApprovalTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListOfferApprovalTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListOfferApprovalTemplateResponse)
+        response: ListOfferApprovalTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListOfferApprovalTemplateResponse
+        )
         response.raw = resp
 
         return response

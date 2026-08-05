@@ -17,7 +17,6 @@ class ListCustomAttrRequest(BaseRequest):
 
 
 class ListCustomAttrRequestBuilder(object):
-
     def __init__(self) -> None:
         list_custom_attr_request = ListCustomAttrRequest()
         list_custom_attr_request.http_method = HttpMethod.GET

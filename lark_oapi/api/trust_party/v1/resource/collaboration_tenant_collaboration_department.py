@@ -9,18 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_collaboration_tenant_collaboration_department_request import \
-    GetCollaborationTenantCollaborationDepartmentRequest
-from ..model.get_collaboration_tenant_collaboration_department_response import \
-    GetCollaborationTenantCollaborationDepartmentResponse
+from ..model.get_collaboration_tenant_collaboration_department_request import (
+    GetCollaborationTenantCollaborationDepartmentRequest,
+)
+from ..model.get_collaboration_tenant_collaboration_department_response import (
+    GetCollaborationTenantCollaborationDepartmentResponse,
+)
 
 
 class CollaborationTenantCollaborationDepartment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetCollaborationTenantCollaborationDepartmentRequest,
-            option: Optional[RequestOption] = None) -> GetCollaborationTenantCollaborationDepartmentResponse:
+    def get(
+        self,
+        request: GetCollaborationTenantCollaborationDepartmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetCollaborationTenantCollaborationDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +40,21 @@ class CollaborationTenantCollaborationDepartment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetCollaborationTenantCollaborationDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         GetCollaborationTenantCollaborationDepartmentResponse)
+        response: GetCollaborationTenantCollaborationDepartmentResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                GetCollaborationTenantCollaborationDepartmentResponse,
+            )
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetCollaborationTenantCollaborationDepartmentRequest,
-                   option: Optional[RequestOption] = None) -> GetCollaborationTenantCollaborationDepartmentResponse:
+    async def aget(
+        self,
+        request: GetCollaborationTenantCollaborationDepartmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetCollaborationTenantCollaborationDepartmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,8 +65,12 @@ class CollaborationTenantCollaborationDepartment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetCollaborationTenantCollaborationDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         GetCollaborationTenantCollaborationDepartmentResponse)
+        response: GetCollaborationTenantCollaborationDepartmentResponse = (
+            JSON.unmarshal(
+                str(resp.content, UTF_8),
+                GetCollaborationTenantCollaborationDepartmentResponse,
+            )
+        )
         response.raw = resp
 
         return response

@@ -19,7 +19,9 @@ class Role(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetRoleRequest, option: Optional[RequestOption] = None) -> GetRoleResponse:
+    def get(
+        self, request: GetRoleRequest, option: Optional[RequestOption] = None
+    ) -> GetRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Role(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoleResponse)
+        response: GetRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetRoleRequest, option: Optional[RequestOption] = None) -> GetRoleResponse:
+    async def aget(
+        self, request: GetRoleRequest, option: Optional[RequestOption] = None
+    ) -> GetRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Role(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoleResponse)
+        response: GetRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
+    def list(
+        self, request: ListRoleRequest, option: Optional[RequestOption] = None
+    ) -> ListRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class Role(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
+        response: ListRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRoleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
+    async def alist(
+        self, request: ListRoleRequest, option: Optional[RequestOption] = None
+    ) -> ListRoleResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class Role(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
+        response: ListRoleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRoleResponse
+        )
         response.raw = resp
 
         return response

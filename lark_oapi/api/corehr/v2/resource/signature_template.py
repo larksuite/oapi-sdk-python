@@ -17,8 +17,11 @@ class SignatureTemplate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchSignatureTemplateRequest,
-               option: Optional[RequestOption] = None) -> SearchSignatureTemplateResponse:
+    def search(
+        self,
+        request: SearchSignatureTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchSignatureTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class SignatureTemplate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchSignatureTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   SearchSignatureTemplateResponse)
+        response: SearchSignatureTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchSignatureTemplateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchSignatureTemplateRequest,
-                      option: Optional[RequestOption] = None) -> SearchSignatureTemplateResponse:
+    async def asearch(
+        self,
+        request: SearchSignatureTemplateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchSignatureTemplateResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class SignatureTemplate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchSignatureTemplateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   SearchSignatureTemplateResponse)
+        response: SearchSignatureTemplateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchSignatureTemplateResponse
+        )
         response.raw = resp
 
         return response

@@ -18,13 +18,14 @@ class CreateJobFamilyRequest(BaseRequest):
 
 
 class CreateJobFamilyRequestBuilder(object):
-
     def __init__(self) -> None:
         create_job_family_request = CreateJobFamilyRequest()
         create_job_family_request.http_method = HttpMethod.POST
         create_job_family_request.uri = "/open-apis/corehr/v1/job_families"
         create_job_family_request.token_types = {AccessTokenType.TENANT}
-        self._create_job_family_request: CreateJobFamilyRequest = create_job_family_request
+        self._create_job_family_request: CreateJobFamilyRequest = (
+            create_job_family_request
+        )
 
     def client_token(self, client_token: str) -> "CreateJobFamilyRequestBuilder":
         self._create_job_family_request.client_token = client_token

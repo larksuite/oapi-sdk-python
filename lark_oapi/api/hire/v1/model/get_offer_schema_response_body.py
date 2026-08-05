@@ -41,7 +41,9 @@ class GetOfferSchemaResponseBodyBuilder(object):
         self._get_offer_schema_response_body.version = version
         return self
 
-    def object_list(self, object_list: List[OfferSchemaDetail]) -> "GetOfferSchemaResponseBodyBuilder":
+    def object_list(
+        self, object_list: List[OfferSchemaDetail]
+    ) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.object_list = object_list
         return self
 

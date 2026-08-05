@@ -70,7 +70,9 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.department_path = department_path
         return self
 
-    def avg_imp_msg_read_rate_12h(self, avg_imp_msg_read_rate_12h: float) -> "MsgProcessDataBuilder":
+    def avg_imp_msg_read_rate_12h(
+        self, avg_imp_msg_read_rate_12h: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.avg_imp_msg_read_rate_12h = avg_imp_msg_read_rate_12h
         return self
 
@@ -78,7 +80,9 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.msg_read_rate_12h = msg_read_rate_12h
         return self
 
-    def avg_receive_msg_cnt(self, avg_receive_msg_cnt: float) -> "MsgProcessDataBuilder":
+    def avg_receive_msg_cnt(
+        self, avg_receive_msg_cnt: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.avg_receive_msg_cnt = avg_receive_msg_cnt
         return self
 
@@ -86,11 +90,15 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.avg_read_msg_cnt = avg_read_msg_cnt
         return self
 
-    def avg_imp_read_msg_cnt(self, avg_imp_read_msg_cnt: float) -> "MsgProcessDataBuilder":
+    def avg_imp_read_msg_cnt(
+        self, avg_imp_read_msg_cnt: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.avg_imp_read_msg_cnt = avg_imp_read_msg_cnt
         return self
 
-    def avg_imp_receive_msg_cnt(self, avg_imp_receive_msg_cnt: float) -> "MsgProcessDataBuilder":
+    def avg_imp_receive_msg_cnt(
+        self, avg_imp_receive_msg_cnt: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.avg_imp_receive_msg_cnt = avg_imp_receive_msg_cnt
         return self
 
@@ -102,19 +110,29 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.big_group_msg_rate = big_group_msg_rate
         return self
 
-    def big_group_topic_msg_rate(self, big_group_topic_msg_rate: float) -> "MsgProcessDataBuilder":
+    def big_group_topic_msg_rate(
+        self, big_group_topic_msg_rate: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.big_group_topic_msg_rate = big_group_topic_msg_rate
         return self
 
-    def avg_receive_bot_msg_cnt(self, avg_receive_bot_msg_cnt: float) -> "MsgProcessDataBuilder":
+    def avg_receive_bot_msg_cnt(
+        self, avg_receive_bot_msg_cnt: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.avg_receive_bot_msg_cnt = avg_receive_bot_msg_cnt
         return self
 
-    def avg_bot_imp_msg_read_rate_12h(self, avg_bot_imp_msg_read_rate_12h: float) -> "MsgProcessDataBuilder":
-        self._msg_process_data.avg_bot_imp_msg_read_rate_12h = avg_bot_imp_msg_read_rate_12h
+    def avg_bot_imp_msg_read_rate_12h(
+        self, avg_bot_imp_msg_read_rate_12h: float
+    ) -> "MsgProcessDataBuilder":
+        self._msg_process_data.avg_bot_imp_msg_read_rate_12h = (
+            avg_bot_imp_msg_read_rate_12h
+        )
         return self
 
-    def receive_bot_msg_rate(self, receive_bot_msg_rate: float) -> "MsgProcessDataBuilder":
+    def receive_bot_msg_rate(
+        self, receive_bot_msg_rate: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.receive_bot_msg_rate = receive_bot_msg_rate
         return self
 
@@ -122,7 +140,9 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.use_chat_box_rate = use_chat_box_rate
         return self
 
-    def receive_mute_msg_rate(self, receive_mute_msg_rate: float) -> "MsgProcessDataBuilder":
+    def receive_mute_msg_rate(
+        self, receive_mute_msg_rate: float
+    ) -> "MsgProcessDataBuilder":
         self._msg_process_data.receive_mute_msg_rate = receive_mute_msg_rate
         return self
 
@@ -130,8 +150,12 @@ class MsgProcessDataBuilder(object):
         self._msg_process_data.read_mute_msg_rate = read_mute_msg_rate
         return self
 
-    def avg_receive_imp_msg_chat_cnt(self, avg_receive_imp_msg_chat_cnt: float) -> "MsgProcessDataBuilder":
-        self._msg_process_data.avg_receive_imp_msg_chat_cnt = avg_receive_imp_msg_chat_cnt
+    def avg_receive_imp_msg_chat_cnt(
+        self, avg_receive_imp_msg_chat_cnt: float
+    ) -> "MsgProcessDataBuilder":
+        self._msg_process_data.avg_receive_imp_msg_chat_cnt = (
+            avg_receive_imp_msg_chat_cnt
+        )
         return self
 
     def build(self) -> "MsgProcessData":

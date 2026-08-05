@@ -57,7 +57,9 @@ class CollectionTemplateBuilder(object):
         self._collection_template.items = items
         return self
 
-    def country_regions(self, country_regions: List[CountryRegion]) -> "CollectionTemplateBuilder":
+    def country_regions(
+        self, country_regions: List[CountryRegion]
+    ) -> "CollectionTemplateBuilder":
         self._collection_template.country_regions = country_regions
         return self
 

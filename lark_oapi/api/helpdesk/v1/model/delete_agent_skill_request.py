@@ -16,13 +16,16 @@ class DeleteAgentSkillRequest(BaseRequest):
 
 
 class DeleteAgentSkillRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_agent_skill_request = DeleteAgentSkillRequest()
         delete_agent_skill_request.http_method = HttpMethod.DELETE
-        delete_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+        delete_agent_skill_request.uri = (
+            "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+        )
         delete_agent_skill_request.token_types = {AccessTokenType.USER}
-        self._delete_agent_skill_request: DeleteAgentSkillRequest = delete_agent_skill_request
+        self._delete_agent_skill_request: DeleteAgentSkillRequest = (
+            delete_agent_skill_request
+        )
 
     def agent_skill_id(self, agent_skill_id: str) -> "DeleteAgentSkillRequestBuilder":
         self._delete_agent_skill_request.agent_skill_id = agent_skill_id

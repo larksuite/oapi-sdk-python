@@ -19,12 +19,14 @@ class ListSpaceNodeRequest(BaseRequest):
 
 
 class ListSpaceNodeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_space_node_request = ListSpaceNodeRequest()
         list_space_node_request.http_method = HttpMethod.GET
         list_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes"
-        list_space_node_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_space_node_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_space_node_request: ListSpaceNodeRequest = list_space_node_request
 
     def page_size(self, page_size: int) -> "ListSpaceNodeRequestBuilder":
@@ -37,7 +39,9 @@ class ListSpaceNodeRequestBuilder(object):
         self._list_space_node_request.add_query("page_token", page_token)
         return self
 
-    def parent_node_token(self, parent_node_token: str) -> "ListSpaceNodeRequestBuilder":
+    def parent_node_token(
+        self, parent_node_token: str
+    ) -> "ListSpaceNodeRequestBuilder":
         self._list_space_node_request.parent_node_token = parent_node_token
         self._list_space_node_request.add_query("parent_node_token", parent_node_token)
         return self

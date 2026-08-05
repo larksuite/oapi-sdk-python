@@ -21,10 +21,13 @@ class BatchCreateFunctionalRoleMemberResponseBody(object):
 
 class BatchCreateFunctionalRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_create_functional_role_member_response_body = BatchCreateFunctionalRoleMemberResponseBody()
+        self._batch_create_functional_role_member_response_body = (
+            BatchCreateFunctionalRoleMemberResponseBody()
+        )
 
-    def results(self,
-                results: List[FunctionalRoleMemberResult]) -> "BatchCreateFunctionalRoleMemberResponseBodyBuilder":
+    def results(
+        self, results: List[FunctionalRoleMemberResult]
+    ) -> "BatchCreateFunctionalRoleMemberResponseBodyBuilder":
         self._batch_create_functional_role_member_response_body.results = results
         return self
 

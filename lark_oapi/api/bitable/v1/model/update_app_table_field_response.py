@@ -9,7 +9,6 @@ from .update_app_table_field_response_body import UpdateAppTableFieldResponseBod
 class UpdateAppTableFieldResponse(BaseResponse):
     _types = {
         "data": UpdateAppTableFieldResponseBody,
-
     }
 
     def __init__(self, d=None):

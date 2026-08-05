@@ -27,7 +27,9 @@ class LeaveTypesLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._leave_types_leave_response_body = LeaveTypesLeaveResponseBody()
 
-    def leave_type_list(self, leave_type_list: List[LeaveType]) -> "LeaveTypesLeaveResponseBodyBuilder":
+    def leave_type_list(
+        self, leave_type_list: List[LeaveType]
+    ) -> "LeaveTypesLeaveResponseBodyBuilder":
         self._leave_types_leave_response_body.leave_type_list = leave_type_list
         return self
 

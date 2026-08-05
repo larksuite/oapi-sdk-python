@@ -32,11 +32,15 @@ class ChangeEmployeeStageBuilder(object):
         self._change_employee_stage.operation = operation
         return self
 
-    def conversion_info(self, conversion_info: EmployeeConversionInfo) -> "ChangeEmployeeStageBuilder":
+    def conversion_info(
+        self, conversion_info: EmployeeConversionInfo
+    ) -> "ChangeEmployeeStageBuilder":
         self._change_employee_stage.conversion_info = conversion_info
         return self
 
-    def overboard_info(self, overboard_info: EmployeeOverboardInfo) -> "ChangeEmployeeStageBuilder":
+    def overboard_info(
+        self, overboard_info: EmployeeOverboardInfo
+    ) -> "ChangeEmployeeStageBuilder":
         self._change_employee_stage.overboard_info = overboard_info
         return self
 

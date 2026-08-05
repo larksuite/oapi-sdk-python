@@ -29,7 +29,9 @@ class QueryUserInfoResponseBodyBuilder(object):
         self._query_user_info_response_body.semester_id = semester_id
         return self
 
-    def user_infos(self, user_infos: List[UserInfo]) -> "QueryUserInfoResponseBodyBuilder":
+    def user_infos(
+        self, user_infos: List[UserInfo]
+    ) -> "QueryUserInfoResponseBodyBuilder":
         self._query_user_info_response_body.user_infos = user_infos
         return self
 

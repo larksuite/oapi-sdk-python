@@ -36,7 +36,9 @@ class DataValidationRuleBuilder(object):
         self._data_validation_rule.single_option = single_option
         return self
 
-    def multiple_option(self, multiple_option: MultipleOption) -> "DataValidationRuleBuilder":
+    def multiple_option(
+        self, multiple_option: MultipleOption
+    ) -> "DataValidationRuleBuilder":
         self._data_validation_rule.multiple_option = multiple_option
         return self
 

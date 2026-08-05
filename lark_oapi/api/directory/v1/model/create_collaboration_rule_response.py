@@ -9,7 +9,6 @@ from .create_collaboration_rule_response_body import CreateCollaborationRuleResp
 class CreateCollaborationRuleResponse(BaseResponse):
     _types = {
         "data": CreateCollaborationRuleResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,15 +20,23 @@ class CreateAppRoleMemberRequest(BaseRequest):
 
 
 class CreateAppRoleMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         create_app_role_member_request = CreateAppRoleMemberRequest()
         create_app_role_member_request.http_method = HttpMethod.POST
-        create_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
-        create_app_role_member_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_app_role_member_request: CreateAppRoleMemberRequest = create_app_role_member_request
+        create_app_role_member_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
+        )
+        create_app_role_member_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_app_role_member_request: CreateAppRoleMemberRequest = (
+            create_app_role_member_request
+        )
 
-    def member_id_type(self, member_id_type: str) -> "CreateAppRoleMemberRequestBuilder":
+    def member_id_type(
+        self, member_id_type: str
+    ) -> "CreateAppRoleMemberRequestBuilder":
         self._create_app_role_member_request.member_id_type = member_id_type
         self._create_app_role_member_request.add_query("member_id_type", member_id_type)
         return self
@@ -43,7 +51,9 @@ class CreateAppRoleMemberRequestBuilder(object):
         self._create_app_role_member_request.paths["role_id"] = str(role_id)
         return self
 
-    def request_body(self, request_body: AppRoleMember) -> "CreateAppRoleMemberRequestBuilder":
+    def request_body(
+        self, request_body: AppRoleMember
+    ) -> "CreateAppRoleMemberRequestBuilder":
         self._create_app_role_member_request.request_body = request_body
         self._create_app_role_member_request.body = request_body
         return self

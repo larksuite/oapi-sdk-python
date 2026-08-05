@@ -17,15 +17,20 @@ class UnbindDepartmentUnitRequest(BaseRequest):
 
 
 class UnbindDepartmentUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         unbind_department_unit_request = UnbindDepartmentUnitRequest()
         unbind_department_unit_request.http_method = HttpMethod.POST
-        unbind_department_unit_request.uri = "/open-apis/contact/v3/unit/unbind_department"
+        unbind_department_unit_request.uri = (
+            "/open-apis/contact/v3/unit/unbind_department"
+        )
         unbind_department_unit_request.token_types = {AccessTokenType.TENANT}
-        self._unbind_department_unit_request: UnbindDepartmentUnitRequest = unbind_department_unit_request
+        self._unbind_department_unit_request: UnbindDepartmentUnitRequest = (
+            unbind_department_unit_request
+        )
 
-    def request_body(self, request_body: UnbindDepartmentUnitRequestBody) -> "UnbindDepartmentUnitRequestBuilder":
+    def request_body(
+        self, request_body: UnbindDepartmentUnitRequestBody
+    ) -> "UnbindDepartmentUnitRequestBuilder":
         self._unbind_department_unit_request.request_body = request_body
         self._unbind_department_unit_request.body = request_body
         return self

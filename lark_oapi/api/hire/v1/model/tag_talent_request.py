@@ -18,7 +18,6 @@ class TagTalentRequest(BaseRequest):
 
 
 class TagTalentRequestBuilder(object):
-
     def __init__(self) -> None:
         tag_talent_request = TagTalentRequest()
         tag_talent_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class TagTalentRequestBuilder(object):
         self._tag_talent_request.paths["talent_id"] = str(talent_id)
         return self
 
-    def request_body(self, request_body: TagTalentRequestBody) -> "TagTalentRequestBuilder":
+    def request_body(
+        self, request_body: TagTalentRequestBody
+    ) -> "TagTalentRequestBuilder":
         self._tag_talent_request.request_body = request_body
         self._tag_talent_request.body = request_body
         return self

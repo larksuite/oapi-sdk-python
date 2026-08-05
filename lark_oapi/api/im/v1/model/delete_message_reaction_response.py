@@ -9,7 +9,6 @@ from .delete_message_reaction_response_body import DeleteMessageReactionResponse
 class DeleteMessageReactionResponse(BaseResponse):
     _types = {
         "data": DeleteMessageReactionResponseBody,
-
     }
 
     def __init__(self, d=None):

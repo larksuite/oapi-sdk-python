@@ -31,7 +31,9 @@ class SearchTasklistResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_tasklist_response_body = SearchTasklistResponseBody()
 
-    def items(self, items: List[TasklistSearchItem]) -> "SearchTasklistResponseBodyBuilder":
+    def items(
+        self, items: List[TasklistSearchItem]
+    ) -> "SearchTasklistResponseBodyBuilder":
         self._search_tasklist_response_body.items = items
         return self
 

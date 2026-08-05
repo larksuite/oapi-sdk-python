@@ -3,14 +3,18 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_application_environment_variable_request_body import QueryApplicationEnvironmentVariableRequestBody
+from .query_application_environment_variable_request_body import (
+    QueryApplicationEnvironmentVariableRequestBody,
+)
 
 
 class QueryApplicationEnvironmentVariableRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.namespace: Optional[str] = None
-        self.request_body: Optional[QueryApplicationEnvironmentVariableRequestBody] = None
+        self.request_body: Optional[QueryApplicationEnvironmentVariableRequestBody] = (
+            None
+        )
 
     @staticmethod
     def builder() -> "QueryApplicationEnvironmentVariableRequestBuilder":
@@ -18,21 +22,31 @@ class QueryApplicationEnvironmentVariableRequest(BaseRequest):
 
 
 class QueryApplicationEnvironmentVariableRequestBuilder(object):
-
     def __init__(self) -> None:
-        query_application_environment_variable_request = QueryApplicationEnvironmentVariableRequest()
+        query_application_environment_variable_request = (
+            QueryApplicationEnvironmentVariableRequest()
+        )
         query_application_environment_variable_request.http_method = HttpMethod.POST
-        query_application_environment_variable_request.uri = "/open-apis/apaas/v1/applications/:namespace/environment_variables/query"
-        query_application_environment_variable_request.token_types = {AccessTokenType.TENANT}
+        query_application_environment_variable_request.uri = (
+            "/open-apis/apaas/v1/applications/:namespace/environment_variables/query"
+        )
+        query_application_environment_variable_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._query_application_environment_variable_request: QueryApplicationEnvironmentVariableRequest = query_application_environment_variable_request
 
-    def namespace(self, namespace: str) -> "QueryApplicationEnvironmentVariableRequestBuilder":
+    def namespace(
+        self, namespace: str
+    ) -> "QueryApplicationEnvironmentVariableRequestBuilder":
         self._query_application_environment_variable_request.namespace = namespace
-        self._query_application_environment_variable_request.paths["namespace"] = str(namespace)
+        self._query_application_environment_variable_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def request_body(self,
-                     request_body: QueryApplicationEnvironmentVariableRequestBody) -> "QueryApplicationEnvironmentVariableRequestBuilder":
+    def request_body(
+        self, request_body: QueryApplicationEnvironmentVariableRequestBody
+    ) -> "QueryApplicationEnvironmentVariableRequestBuilder":
         self._query_application_environment_variable_request.request_body = request_body
         self._query_application_environment_variable_request.body = request_body
         return self

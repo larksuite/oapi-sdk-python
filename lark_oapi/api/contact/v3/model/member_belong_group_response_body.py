@@ -26,7 +26,9 @@ class MemberBelongGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._member_belong_group_response_body = MemberBelongGroupResponseBody()
 
-    def group_list(self, group_list: List[str]) -> "MemberBelongGroupResponseBodyBuilder":
+    def group_list(
+        self, group_list: List[str]
+    ) -> "MemberBelongGroupResponseBodyBuilder":
         self._member_belong_group_response_body.group_list = group_list
         return self
 

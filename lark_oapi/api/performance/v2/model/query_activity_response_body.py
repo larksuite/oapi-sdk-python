@@ -23,7 +23,9 @@ class QueryActivityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_activity_response_body = QueryActivityResponseBody()
 
-    def activities(self, activities: List[Activity]) -> "QueryActivityResponseBodyBuilder":
+    def activities(
+        self, activities: List[Activity]
+    ) -> "QueryActivityResponseBodyBuilder":
         self._query_activity_response_body.activities = activities
         return self
 

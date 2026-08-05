@@ -109,20 +109,30 @@ class ForwardMessageResponseBodyBuilder(object):
         self._forward_message_response_body.mentions = mentions
         return self
 
-    def upper_message_id(self, upper_message_id: str) -> "ForwardMessageResponseBodyBuilder":
+    def upper_message_id(
+        self, upper_message_id: str
+    ) -> "ForwardMessageResponseBodyBuilder":
         self._forward_message_response_body.upper_message_id = upper_message_id
         return self
 
-    def message_app_link(self, message_app_link: str) -> "ForwardMessageResponseBodyBuilder":
+    def message_app_link(
+        self, message_app_link: str
+    ) -> "ForwardMessageResponseBodyBuilder":
         self._forward_message_response_body.message_app_link = message_app_link
         return self
 
-    def message_position(self, message_position: int) -> "ForwardMessageResponseBodyBuilder":
+    def message_position(
+        self, message_position: int
+    ) -> "ForwardMessageResponseBodyBuilder":
         self._forward_message_response_body.message_position = message_position
         return self
 
-    def thread_message_position(self, thread_message_position: int) -> "ForwardMessageResponseBodyBuilder":
-        self._forward_message_response_body.thread_message_position = thread_message_position
+    def thread_message_position(
+        self, thread_message_position: int
+    ) -> "ForwardMessageResponseBodyBuilder":
+        self._forward_message_response_body.thread_message_position = (
+            thread_message_position
+        )
         return self
 
     def build(self) -> "ForwardMessageResponseBody":

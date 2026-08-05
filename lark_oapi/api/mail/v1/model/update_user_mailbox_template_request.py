@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_user_mailbox_template_request_body import UpdateUserMailboxTemplateRequestBody
+from .update_user_mailbox_template_request_body import (
+    UpdateUserMailboxTemplateRequestBody,
+)
 
 
 class UpdateUserMailboxTemplateRequest(BaseRequest):
@@ -19,26 +21,41 @@ class UpdateUserMailboxTemplateRequest(BaseRequest):
 
 
 class UpdateUserMailboxTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_mailbox_template_request = UpdateUserMailboxTemplateRequest()
         update_user_mailbox_template_request.http_method = HttpMethod.PUT
-        update_user_mailbox_template_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/templates/:template_id"
-        update_user_mailbox_template_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_user_mailbox_template_request: UpdateUserMailboxTemplateRequest = update_user_mailbox_template_request
+        update_user_mailbox_template_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/templates/:template_id"
+        )
+        update_user_mailbox_template_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_user_mailbox_template_request: UpdateUserMailboxTemplateRequest = (
+            update_user_mailbox_template_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "UpdateUserMailboxTemplateRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "UpdateUserMailboxTemplateRequestBuilder":
         self._update_user_mailbox_template_request.user_mailbox_id = user_mailbox_id
-        self._update_user_mailbox_template_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._update_user_mailbox_template_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
-    def template_id(self, template_id: str) -> "UpdateUserMailboxTemplateRequestBuilder":
+    def template_id(
+        self, template_id: str
+    ) -> "UpdateUserMailboxTemplateRequestBuilder":
         self._update_user_mailbox_template_request.template_id = template_id
-        self._update_user_mailbox_template_request.paths["template_id"] = str(template_id)
+        self._update_user_mailbox_template_request.paths["template_id"] = str(
+            template_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: UpdateUserMailboxTemplateRequestBody) -> "UpdateUserMailboxTemplateRequestBuilder":
+    def request_body(
+        self, request_body: UpdateUserMailboxTemplateRequestBody
+    ) -> "UpdateUserMailboxTemplateRequestBuilder":
         self._update_user_mailbox_template_request.request_body = request_body
         self._update_user_mailbox_template_request.body = request_body
         return self

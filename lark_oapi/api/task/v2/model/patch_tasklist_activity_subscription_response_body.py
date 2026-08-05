@@ -21,10 +21,13 @@ class PatchTasklistActivitySubscriptionResponseBody(object):
 
 class PatchTasklistActivitySubscriptionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_tasklist_activity_subscription_response_body = PatchTasklistActivitySubscriptionResponseBody()
+        self._patch_tasklist_activity_subscription_response_body = (
+            PatchTasklistActivitySubscriptionResponseBody()
+        )
 
-    def activity_subscription(self,
-                              activity_subscription: TasklistActivitySubscription) -> "PatchTasklistActivitySubscriptionResponseBodyBuilder":
+    def activity_subscription(
+        self, activity_subscription: TasklistActivitySubscription
+    ) -> "PatchTasklistActivitySubscriptionResponseBodyBuilder":
         self._patch_tasklist_activity_subscription_response_body.activity_subscription = activity_subscription
         return self
 

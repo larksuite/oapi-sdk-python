@@ -17,9 +17,7 @@ class P2ContactUserCreatedV3Data(object):
 
 
 class P2ContactUserCreatedV3(EventContext):
-    _types = {
-        "event": P2ContactUserCreatedV3Data
-    }
+    _types = {"event": P2ContactUserCreatedV3Data}
 
     def __init__(self, d=None):
         super().__init__(d)

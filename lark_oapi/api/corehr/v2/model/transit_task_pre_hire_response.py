@@ -9,7 +9,6 @@ from .transit_task_pre_hire_response_body import TransitTaskPreHireResponseBody
 class TransitTaskPreHireResponse(BaseResponse):
     _types = {
         "data": TransitTaskPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

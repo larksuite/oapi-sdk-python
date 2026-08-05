@@ -20,22 +20,27 @@ class CreateBadgeGrantRequest(BaseRequest):
 
 
 class CreateBadgeGrantRequestBuilder(object):
-
     def __init__(self) -> None:
         create_badge_grant_request = CreateBadgeGrantRequest()
         create_badge_grant_request.http_method = HttpMethod.POST
         create_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants"
         create_badge_grant_request.token_types = {AccessTokenType.TENANT}
-        self._create_badge_grant_request: CreateBadgeGrantRequest = create_badge_grant_request
+        self._create_badge_grant_request: CreateBadgeGrantRequest = (
+            create_badge_grant_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateBadgeGrantRequestBuilder":
         self._create_badge_grant_request.user_id_type = user_id_type
         self._create_badge_grant_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "CreateBadgeGrantRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "CreateBadgeGrantRequestBuilder":
         self._create_badge_grant_request.department_id_type = department_id_type
-        self._create_badge_grant_request.add_query("department_id_type", department_id_type)
+        self._create_badge_grant_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def badge_id(self, badge_id: str) -> "CreateBadgeGrantRequestBuilder":

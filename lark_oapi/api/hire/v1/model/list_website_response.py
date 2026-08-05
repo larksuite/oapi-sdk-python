@@ -9,7 +9,6 @@ from .list_website_response_body import ListWebsiteResponseBody
 class ListWebsiteResponse(BaseResponse):
     _types = {
         "data": ListWebsiteResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -48,7 +48,9 @@ class CardTemplateBuilder(object):
         self._card_template.template_owner = template_owner
         return self
 
-    def template_version_name(self, template_version_name: str) -> "CardTemplateBuilder":
+    def template_version_name(
+        self, template_version_name: str
+    ) -> "CardTemplateBuilder":
         self._card_template.template_version_name = template_version_name
         return self
 

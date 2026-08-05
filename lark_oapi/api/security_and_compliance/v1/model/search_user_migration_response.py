@@ -9,7 +9,6 @@ from .search_user_migration_response_body import SearchUserMigrationResponseBody
 class SearchUserMigrationResponse(BaseResponse):
     _types = {
         "data": SearchUserMigrationResponseBody,
-
     }
 
     def __init__(self, d=None):

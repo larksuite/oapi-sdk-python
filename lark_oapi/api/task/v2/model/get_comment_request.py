@@ -17,7 +17,6 @@ class GetCommentRequest(BaseRequest):
 
 
 class GetCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_comment_request = GetCommentRequest()
         get_comment_request.http_method = HttpMethod.GET

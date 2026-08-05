@@ -17,7 +17,6 @@ class ListGroupRequest(BaseRequest):
 
 
 class ListGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         list_group_request = ListGroupRequest()
         list_group_request.http_method = HttpMethod.GET

@@ -17,15 +17,21 @@ class QueryOffboardingRequest(BaseRequest):
 
 
 class QueryOffboardingRequestBuilder(object):
-
     def __init__(self) -> None:
         query_offboarding_request = QueryOffboardingRequest()
         query_offboarding_request.http_method = HttpMethod.POST
         query_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/query"
-        query_offboarding_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._query_offboarding_request: QueryOffboardingRequest = query_offboarding_request
+        query_offboarding_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._query_offboarding_request: QueryOffboardingRequest = (
+            query_offboarding_request
+        )
 
-    def request_body(self, request_body: QueryOffboardingRequestBody) -> "QueryOffboardingRequestBuilder":
+    def request_body(
+        self, request_body: QueryOffboardingRequestBody
+    ) -> "QueryOffboardingRequestBuilder":
         self._query_offboarding_request.request_body = request_body
         self._query_offboarding_request.body = request_body
         return self

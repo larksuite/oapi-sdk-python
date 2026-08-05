@@ -71,15 +71,21 @@ class CustomFieldBuilder(object):
         self._custom_field.member_setting = member_setting
         return self
 
-    def datetime_setting(self, datetime_setting: DatetimeSetting) -> "CustomFieldBuilder":
+    def datetime_setting(
+        self, datetime_setting: DatetimeSetting
+    ) -> "CustomFieldBuilder":
         self._custom_field.datetime_setting = datetime_setting
         return self
 
-    def single_select_setting(self, single_select_setting: SelectSetting) -> "CustomFieldBuilder":
+    def single_select_setting(
+        self, single_select_setting: SelectSetting
+    ) -> "CustomFieldBuilder":
         self._custom_field.single_select_setting = single_select_setting
         return self
 
-    def multi_select_setting(self, multi_select_setting: SelectSetting) -> "CustomFieldBuilder":
+    def multi_select_setting(
+        self, multi_select_setting: SelectSetting
+    ) -> "CustomFieldBuilder":
         self._custom_field.multi_select_setting = multi_select_setting
         return self
 

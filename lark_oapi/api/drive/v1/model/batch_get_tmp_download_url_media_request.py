@@ -17,17 +17,25 @@ class BatchGetTmpDownloadUrlMediaRequest(BaseRequest):
 
 
 class BatchGetTmpDownloadUrlMediaRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_tmp_download_url_media_request = BatchGetTmpDownloadUrlMediaRequest()
         batch_get_tmp_download_url_media_request.http_method = HttpMethod.GET
-        batch_get_tmp_download_url_media_request.uri = "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
-        batch_get_tmp_download_url_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_get_tmp_download_url_media_request.uri = (
+            "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
+        )
+        batch_get_tmp_download_url_media_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_get_tmp_download_url_media_request: BatchGetTmpDownloadUrlMediaRequest = batch_get_tmp_download_url_media_request
 
-    def file_tokens(self, file_tokens: List[str]) -> "BatchGetTmpDownloadUrlMediaRequestBuilder":
+    def file_tokens(
+        self, file_tokens: List[str]
+    ) -> "BatchGetTmpDownloadUrlMediaRequestBuilder":
         self._batch_get_tmp_download_url_media_request.file_tokens = file_tokens
-        self._batch_get_tmp_download_url_media_request.add_query("file_tokens", file_tokens)
+        self._batch_get_tmp_download_url_media_request.add_query(
+            "file_tokens", file_tokens
+        )
         return self
 
     def extra(self, extra: str) -> "BatchGetTmpDownloadUrlMediaRequestBuilder":

@@ -4,7 +4,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
 from .i18n import I18n
-from .eco_background_check_custom_field_data_option import EcoBackgroundCheckCustomFieldDataOption
+from .eco_background_check_custom_field_data_option import (
+    EcoBackgroundCheckCustomFieldDataOption,
+)
 
 
 class EcoBackgroundCheckCustomFieldData(object):
@@ -33,7 +35,9 @@ class EcoBackgroundCheckCustomFieldData(object):
 
 class EcoBackgroundCheckCustomFieldDataBuilder(object):
     def __init__(self) -> None:
-        self._eco_background_check_custom_field_data = EcoBackgroundCheckCustomFieldData()
+        self._eco_background_check_custom_field_data = (
+            EcoBackgroundCheckCustomFieldData()
+        )
 
     def type(self, type: str) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.type = type
@@ -47,16 +51,21 @@ class EcoBackgroundCheckCustomFieldDataBuilder(object):
         self._eco_background_check_custom_field_data.name = name
         return self
 
-    def is_required(self, is_required: bool) -> "EcoBackgroundCheckCustomFieldDataBuilder":
+    def is_required(
+        self, is_required: bool
+    ) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.is_required = is_required
         return self
 
-    def description(self, description: I18n) -> "EcoBackgroundCheckCustomFieldDataBuilder":
+    def description(
+        self, description: I18n
+    ) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.description = description
         return self
 
-    def options(self,
-                options: List[EcoBackgroundCheckCustomFieldDataOption]) -> "EcoBackgroundCheckCustomFieldDataBuilder":
+    def options(
+        self, options: List[EcoBackgroundCheckCustomFieldDataOption]
+    ) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.options = options
         return self
 

@@ -8,11 +8,17 @@ class MinuteTodo(object):
     _types = {
         "content": str,
         "assignees": List[str],
+        "is_done": bool,
+        "todo_id": str,
+        "operation": str,
     }
 
     def __init__(self, d=None):
         self.content: Optional[str] = None
         self.assignees: Optional[List[str]] = None
+        self.is_done: Optional[bool] = None
+        self.todo_id: Optional[str] = None
+        self.operation: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +36,18 @@ class MinuteTodoBuilder(object):
 
     def assignees(self, assignees: List[str]) -> "MinuteTodoBuilder":
         self._minute_todo.assignees = assignees
+        return self
+
+    def is_done(self, is_done: bool) -> "MinuteTodoBuilder":
+        self._minute_todo.is_done = is_done
+        return self
+
+    def todo_id(self, todo_id: str) -> "MinuteTodoBuilder":
+        self._minute_todo.todo_id = todo_id
+        return self
+
+    def operation(self, operation: str) -> "MinuteTodoBuilder":
+        self._minute_todo.operation = operation
         return self
 
     def build(self) -> "MinuteTodo":

@@ -25,12 +25,17 @@ class CompensationCostItemBuilder(object):
     def __init__(self) -> None:
         self._compensation_cost_item = CompensationCostItem()
 
-    def number_of_individuals_for_payment(self,
-                                          number_of_individuals_for_payment: int) -> "CompensationCostItemBuilder":
-        self._compensation_cost_item.number_of_individuals_for_payment = number_of_individuals_for_payment
+    def number_of_individuals_for_payment(
+        self, number_of_individuals_for_payment: int
+    ) -> "CompensationCostItemBuilder":
+        self._compensation_cost_item.number_of_individuals_for_payment = (
+            number_of_individuals_for_payment
+        )
         return self
 
-    def compensation_costs(self, compensation_costs: List[CompensationCost]) -> "CompensationCostItemBuilder":
+    def compensation_costs(
+        self, compensation_costs: List[CompensationCost]
+    ) -> "CompensationCostItemBuilder":
         self._compensation_cost_item.compensation_costs = compensation_costs
         return self
 

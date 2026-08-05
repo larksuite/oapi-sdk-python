@@ -19,7 +19,9 @@ class Archive(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateArchiveRequest, option: Optional[RequestOption] = None) -> CreateArchiveResponse:
+    def create(
+        self, request: CreateArchiveRequest, option: Optional[RequestOption] = None
+    ) -> CreateArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class Archive(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateArchiveResponse)
+        response: CreateArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateArchiveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateArchiveRequest,
-                      option: Optional[RequestOption] = None) -> CreateArchiveResponse:
+    async def acreate(
+        self, request: CreateArchiveRequest, option: Optional[RequestOption] = None
+    ) -> CreateArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class Archive(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateArchiveResponse)
+        response: CreateArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateArchiveResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryArchiveRequest, option: Optional[RequestOption] = None) -> QueryArchiveResponse:
+    def query(
+        self, request: QueryArchiveRequest, option: Optional[RequestOption] = None
+    ) -> QueryArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,13 +80,16 @@ class Archive(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryArchiveResponse)
+        response: QueryArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryArchiveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryArchiveRequest,
-                     option: Optional[RequestOption] = None) -> QueryArchiveResponse:
+    async def aquery(
+        self, request: QueryArchiveRequest, option: Optional[RequestOption] = None
+    ) -> QueryArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,7 +100,9 @@ class Archive(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryArchiveResponse)
+        response: QueryArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryArchiveResponse
+        )
         response.raw = resp
 
         return response

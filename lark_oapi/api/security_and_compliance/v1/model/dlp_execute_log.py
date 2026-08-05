@@ -180,7 +180,9 @@ class DlpExecuteLogBuilder(object):
         self._dlp_execute_log.document_link = document_link
         return self
 
-    def evidence_detail(self, evidence_detail: DlpEvidenceDetail) -> "DlpExecuteLogBuilder":
+    def evidence_detail(
+        self, evidence_detail: DlpEvidenceDetail
+    ) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.evidence_detail = evidence_detail
         return self
 

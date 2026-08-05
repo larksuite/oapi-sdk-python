@@ -43,11 +43,15 @@ class JobCustomizedValueBuilder(object):
         self._job_customized_value.option = option
         return self
 
-    def option_list(self, option_list: List[JobCustomizedOption]) -> "JobCustomizedValueBuilder":
+    def option_list(
+        self, option_list: List[JobCustomizedOption]
+    ) -> "JobCustomizedValueBuilder":
         self._job_customized_value.option_list = option_list
         return self
 
-    def time_range(self, time_range: JobCustomizedTimeRange) -> "JobCustomizedValueBuilder":
+    def time_range(
+        self, time_range: JobCustomizedTimeRange
+    ) -> "JobCustomizedValueBuilder":
         self._job_customized_value.time_range = time_range
         return self
 

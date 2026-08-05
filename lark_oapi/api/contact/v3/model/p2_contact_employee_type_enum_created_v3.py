@@ -17,9 +17,7 @@ class P2ContactEmployeeTypeEnumCreatedV3Data(object):
 
 
 class P2ContactEmployeeTypeEnumCreatedV3(EventContext):
-    _types = {
-        "event": P2ContactEmployeeTypeEnumCreatedV3Data
-    }
+    _types = {"event": P2ContactEmployeeTypeEnumCreatedV3Data}
 
     def __init__(self, d=None):
         super().__init__(d)

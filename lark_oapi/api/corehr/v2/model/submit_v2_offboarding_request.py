@@ -18,20 +18,25 @@ class SubmitV2OffboardingRequest(BaseRequest):
 
 
 class SubmitV2OffboardingRequestBuilder(object):
-
     def __init__(self) -> None:
         submit_v2_offboarding_request = SubmitV2OffboardingRequest()
         submit_v2_offboarding_request.http_method = HttpMethod.POST
-        submit_v2_offboarding_request.uri = "/open-apis/corehr/v2/offboardings/submit_v2"
+        submit_v2_offboarding_request.uri = (
+            "/open-apis/corehr/v2/offboardings/submit_v2"
+        )
         submit_v2_offboarding_request.token_types = {AccessTokenType.TENANT}
-        self._submit_v2_offboarding_request: SubmitV2OffboardingRequest = submit_v2_offboarding_request
+        self._submit_v2_offboarding_request: SubmitV2OffboardingRequest = (
+            submit_v2_offboarding_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "SubmitV2OffboardingRequestBuilder":
         self._submit_v2_offboarding_request.user_id_type = user_id_type
         self._submit_v2_offboarding_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SubmitV2OffboardingRequestBody) -> "SubmitV2OffboardingRequestBuilder":
+    def request_body(
+        self, request_body: SubmitV2OffboardingRequestBody
+    ) -> "SubmitV2OffboardingRequestBuilder":
         self._submit_v2_offboarding_request.request_body = request_body
         self._submit_v2_offboarding_request.body = request_body
         return self

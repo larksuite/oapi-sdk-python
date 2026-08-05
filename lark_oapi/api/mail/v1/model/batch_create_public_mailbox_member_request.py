@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_create_public_mailbox_member_request_body import BatchCreatePublicMailboxMemberRequestBody
+from .batch_create_public_mailbox_member_request_body import (
+    BatchCreatePublicMailboxMemberRequestBody,
+)
 
 
 class BatchCreatePublicMailboxMemberRequest(BaseRequest):
@@ -19,26 +21,40 @@ class BatchCreatePublicMailboxMemberRequest(BaseRequest):
 
 
 class BatchCreatePublicMailboxMemberRequestBuilder(object):
-
     def __init__(self) -> None:
-        batch_create_public_mailbox_member_request = BatchCreatePublicMailboxMemberRequest()
+        batch_create_public_mailbox_member_request = (
+            BatchCreatePublicMailboxMemberRequest()
+        )
         batch_create_public_mailbox_member_request.http_method = HttpMethod.POST
         batch_create_public_mailbox_member_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/batch_create"
-        batch_create_public_mailbox_member_request.token_types = {AccessTokenType.TENANT}
+        batch_create_public_mailbox_member_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._batch_create_public_mailbox_member_request: BatchCreatePublicMailboxMemberRequest = batch_create_public_mailbox_member_request
 
-    def user_id_type(self, user_id_type: str) -> "BatchCreatePublicMailboxMemberRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchCreatePublicMailboxMemberRequestBuilder":
         self._batch_create_public_mailbox_member_request.user_id_type = user_id_type
-        self._batch_create_public_mailbox_member_request.add_query("user_id_type", user_id_type)
+        self._batch_create_public_mailbox_member_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def public_mailbox_id(self, public_mailbox_id: str) -> "BatchCreatePublicMailboxMemberRequestBuilder":
-        self._batch_create_public_mailbox_member_request.public_mailbox_id = public_mailbox_id
-        self._batch_create_public_mailbox_member_request.paths["public_mailbox_id"] = str(public_mailbox_id)
+    def public_mailbox_id(
+        self, public_mailbox_id: str
+    ) -> "BatchCreatePublicMailboxMemberRequestBuilder":
+        self._batch_create_public_mailbox_member_request.public_mailbox_id = (
+            public_mailbox_id
+        )
+        self._batch_create_public_mailbox_member_request.paths["public_mailbox_id"] = (
+            str(public_mailbox_id)
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchCreatePublicMailboxMemberRequestBody) -> "BatchCreatePublicMailboxMemberRequestBuilder":
+    def request_body(
+        self, request_body: BatchCreatePublicMailboxMemberRequestBody
+    ) -> "BatchCreatePublicMailboxMemberRequestBuilder":
         self._batch_create_public_mailbox_member_request.request_body = request_body
         self._batch_create_public_mailbox_member_request.body = request_body
         return self

@@ -17,7 +17,6 @@ class SubscribeEventRequest(BaseRequest):
 
 
 class SubscribeEventRequestBuilder(object):
-
     def __init__(self) -> None:
         subscribe_event_request = SubscribeEventRequest()
         subscribe_event_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class SubscribeEventRequestBuilder(object):
         subscribe_event_request.token_types = {AccessTokenType.TENANT}
         self._subscribe_event_request: SubscribeEventRequest = subscribe_event_request
 
-    def request_body(self, request_body: SubscribeEventRequestBody) -> "SubscribeEventRequestBuilder":
+    def request_body(
+        self, request_body: SubscribeEventRequestBody
+    ) -> "SubscribeEventRequestBuilder":
         self._subscribe_event_request.request_body = request_body
         self._subscribe_event_request.body = request_body
         return self

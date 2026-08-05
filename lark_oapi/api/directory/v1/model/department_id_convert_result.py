@@ -34,7 +34,9 @@ class DepartmentIdConvertResultBuilder(object):
         self._department_id_convert_result.department_id = department_id
         return self
 
-    def open_department_id(self, open_department_id: str) -> "DepartmentIdConvertResultBuilder":
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "DepartmentIdConvertResultBuilder":
         self._department_id_convert_result.open_department_id = open_department_id
         return self
 

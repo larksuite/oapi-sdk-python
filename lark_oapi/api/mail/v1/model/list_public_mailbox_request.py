@@ -17,13 +17,17 @@ class ListPublicMailboxRequest(BaseRequest):
 
 
 class ListPublicMailboxRequestBuilder(object):
-
     def __init__(self) -> None:
         list_public_mailbox_request = ListPublicMailboxRequest()
         list_public_mailbox_request.http_method = HttpMethod.GET
         list_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes"
-        list_public_mailbox_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_public_mailbox_request: ListPublicMailboxRequest = list_public_mailbox_request
+        list_public_mailbox_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_public_mailbox_request: ListPublicMailboxRequest = (
+            list_public_mailbox_request
+        )
 
     def page_token(self, page_token: str) -> "ListPublicMailboxRequestBuilder":
         self._list_public_mailbox_request.page_token = page_token

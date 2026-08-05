@@ -10,17 +10,24 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_talent_external_info_request import CreateTalentExternalInfoRequest
-from ..model.create_talent_external_info_response import CreateTalentExternalInfoResponse
+from ..model.create_talent_external_info_response import (
+    CreateTalentExternalInfoResponse,
+)
 from ..model.update_talent_external_info_request import UpdateTalentExternalInfoRequest
-from ..model.update_talent_external_info_response import UpdateTalentExternalInfoResponse
+from ..model.update_talent_external_info_response import (
+    UpdateTalentExternalInfoResponse,
+)
 
 
 class TalentExternalInfo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTalentExternalInfoRequest,
-               option: Optional[RequestOption] = None) -> CreateTalentExternalInfoResponse:
+    def create(
+        self,
+        request: CreateTalentExternalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTalentExternalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class TalentExternalInfo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTalentExternalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateTalentExternalInfoResponse)
+        response: CreateTalentExternalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTalentExternalInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTalentExternalInfoRequest,
-                      option: Optional[RequestOption] = None) -> CreateTalentExternalInfoResponse:
+    async def acreate(
+        self,
+        request: CreateTalentExternalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTalentExternalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +64,18 @@ class TalentExternalInfo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTalentExternalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateTalentExternalInfoResponse)
+        response: CreateTalentExternalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTalentExternalInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateTalentExternalInfoRequest,
-               option: Optional[RequestOption] = None) -> UpdateTalentExternalInfoResponse:
+    def update(
+        self,
+        request: UpdateTalentExternalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateTalentExternalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +90,18 @@ class TalentExternalInfo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTalentExternalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    UpdateTalentExternalInfoResponse)
+        response: UpdateTalentExternalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTalentExternalInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateTalentExternalInfoRequest,
-                      option: Optional[RequestOption] = None) -> UpdateTalentExternalInfoResponse:
+    async def aupdate(
+        self,
+        request: UpdateTalentExternalInfoRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateTalentExternalInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +112,9 @@ class TalentExternalInfo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTalentExternalInfoResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    UpdateTalentExternalInfoResponse)
+        response: UpdateTalentExternalInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTalentExternalInfoResponse
+        )
         response.raw = resp
 
         return response

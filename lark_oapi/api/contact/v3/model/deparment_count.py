@@ -34,7 +34,9 @@ class DeparmentCountBuilder(object):
         self._deparment_count.department_id = department_id
         return self
 
-    def direct_department_count(self, direct_department_count: int) -> "DeparmentCountBuilder":
+    def direct_department_count(
+        self, direct_department_count: int
+    ) -> "DeparmentCountBuilder":
         self._deparment_count.direct_department_count = direct_department_count
         return self
 

@@ -29,7 +29,9 @@ class EmployeeNationalIdBuilder(object):
         self._employee_national_id.employment_id = employment_id
         return self
 
-    def national_ids(self, national_ids: List[NationalId]) -> "EmployeeNationalIdBuilder":
+    def national_ids(
+        self, national_ids: List[NationalId]
+    ) -> "EmployeeNationalIdBuilder":
         self._employee_national_id.national_ids = national_ids
         return self
 

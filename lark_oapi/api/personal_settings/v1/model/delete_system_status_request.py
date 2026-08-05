@@ -16,17 +16,24 @@ class DeleteSystemStatusRequest(BaseRequest):
 
 
 class DeleteSystemStatusRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_system_status_request = DeleteSystemStatusRequest()
         delete_system_status_request.http_method = HttpMethod.DELETE
-        delete_system_status_request.uri = "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
+        delete_system_status_request.uri = (
+            "/open-apis/personal_settings/v1/system_statuses/:system_status_id"
+        )
         delete_system_status_request.token_types = {AccessTokenType.TENANT}
-        self._delete_system_status_request: DeleteSystemStatusRequest = delete_system_status_request
+        self._delete_system_status_request: DeleteSystemStatusRequest = (
+            delete_system_status_request
+        )
 
-    def system_status_id(self, system_status_id: int) -> "DeleteSystemStatusRequestBuilder":
+    def system_status_id(
+        self, system_status_id: int
+    ) -> "DeleteSystemStatusRequestBuilder":
         self._delete_system_status_request.system_status_id = system_status_id
-        self._delete_system_status_request.paths["system_status_id"] = str(system_status_id)
+        self._delete_system_status_request.paths["system_status_id"] = str(
+            system_status_id
+        )
         return self
 
     def build(self) -> DeleteSystemStatusRequest:

@@ -58,6 +58,10 @@ from .ai_template import AiTemplate
 from .reference_base import ReferenceBase
 from .project import Project
 from .meeting_notes_qa import MeetingNotesQa
+from .vc_tabs import VcTabs
+from .vc_summary_tab import VcSummaryTab
+from .vc_transcript_tab import VcTranscriptTab
+from .minutes import Minutes
 
 
 class Block(object):
@@ -123,6 +127,10 @@ class Block(object):
         "reference_base": ReferenceBase,
         "project": Project,
         "meeting_notes_qa": MeetingNotesQa,
+        "vc_tabs": VcTabs,
+        "vc_summary_tab": VcSummaryTab,
+        "vc_transcript_tab": VcTranscriptTab,
+        "minutes": Minutes,
     }
 
     def __init__(self, d=None):
@@ -187,6 +195,10 @@ class Block(object):
         self.reference_base: Optional[ReferenceBase] = None
         self.project: Optional[Project] = None
         self.meeting_notes_qa: Optional[MeetingNotesQa] = None
+        self.vc_tabs: Optional[VcTabs] = None
+        self.vc_summary_tab: Optional[VcSummaryTab] = None
+        self.vc_transcript_tab: Optional[VcTranscriptTab] = None
+        self.minutes: Optional[Minutes] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -406,7 +418,9 @@ class BlockBuilder(object):
         self._block.agenda_item_title = agenda_item_title
         return self
 
-    def agenda_item_content(self, agenda_item_content: AgendaItemContent) -> "BlockBuilder":
+    def agenda_item_content(
+        self, agenda_item_content: AgendaItemContent
+    ) -> "BlockBuilder":
         self._block.agenda_item_content = agenda_item_content
         return self
 
@@ -440,6 +454,22 @@ class BlockBuilder(object):
 
     def meeting_notes_qa(self, meeting_notes_qa: MeetingNotesQa) -> "BlockBuilder":
         self._block.meeting_notes_qa = meeting_notes_qa
+        return self
+
+    def vc_tabs(self, vc_tabs: VcTabs) -> "BlockBuilder":
+        self._block.vc_tabs = vc_tabs
+        return self
+
+    def vc_summary_tab(self, vc_summary_tab: VcSummaryTab) -> "BlockBuilder":
+        self._block.vc_summary_tab = vc_summary_tab
+        return self
+
+    def vc_transcript_tab(self, vc_transcript_tab: VcTranscriptTab) -> "BlockBuilder":
+        self._block.vc_transcript_tab = vc_transcript_tab
+        return self
+
+    def minutes(self, minutes: Minutes) -> "BlockBuilder":
+        self._block.minutes = minutes
         return self
 
     def build(self) -> "Block":

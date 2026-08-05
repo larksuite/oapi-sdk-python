@@ -18,20 +18,32 @@ class GetActiveMeetingReserveRequest(BaseRequest):
 
 
 class GetActiveMeetingReserveRequestBuilder(object):
-
     def __init__(self) -> None:
         get_active_meeting_reserve_request = GetActiveMeetingReserveRequest()
         get_active_meeting_reserve_request.http_method = HttpMethod.GET
-        get_active_meeting_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting"
-        get_active_meeting_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_active_meeting_reserve_request: GetActiveMeetingReserveRequest = get_active_meeting_reserve_request
+        get_active_meeting_reserve_request.uri = (
+            "/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting"
+        )
+        get_active_meeting_reserve_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_active_meeting_reserve_request: GetActiveMeetingReserveRequest = (
+            get_active_meeting_reserve_request
+        )
 
-    def with_participants(self, with_participants: bool) -> "GetActiveMeetingReserveRequestBuilder":
+    def with_participants(
+        self, with_participants: bool
+    ) -> "GetActiveMeetingReserveRequestBuilder":
         self._get_active_meeting_reserve_request.with_participants = with_participants
-        self._get_active_meeting_reserve_request.add_query("with_participants", with_participants)
+        self._get_active_meeting_reserve_request.add_query(
+            "with_participants", with_participants
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "GetActiveMeetingReserveRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetActiveMeetingReserveRequestBuilder":
         self._get_active_meeting_reserve_request.user_id_type = user_id_type
         self._get_active_meeting_reserve_request.add_query("user_id_type", user_id_type)
         return self

@@ -42,7 +42,9 @@ class MeetingListExportRequestBodyBuilder(object):
         self._meeting_list_export_request_body.end_time = end_time
         return self
 
-    def meeting_status(self, meeting_status: int) -> "MeetingListExportRequestBodyBuilder":
+    def meeting_status(
+        self, meeting_status: int
+    ) -> "MeetingListExportRequestBodyBuilder":
         self._meeting_list_export_request_body.meeting_status = meeting_status
         return self
 

@@ -20,9 +20,7 @@ class P2CorehrCustomOrgUpdatedV2Data(object):
 
 
 class P2CorehrCustomOrgUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrCustomOrgUpdatedV2Data
-    }
+    _types = {"event": P2CorehrCustomOrgUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

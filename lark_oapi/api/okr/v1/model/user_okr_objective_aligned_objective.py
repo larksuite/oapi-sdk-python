@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .user_okr_objective_aligned_objective_owner import UserOkrObjectiveAlignedObjectiveOwner
+from .user_okr_objective_aligned_objective_owner import (
+    UserOkrObjectiveAlignedObjectiveOwner,
+)
 
 
 class UserOkrObjectiveAlignedObjective(object):
@@ -35,7 +37,9 @@ class UserOkrObjectiveAlignedObjectiveBuilder(object):
         self._user_okr_objective_aligned_objective.okr_id = okr_id
         return self
 
-    def owner(self, owner: UserOkrObjectiveAlignedObjectiveOwner) -> "UserOkrObjectiveAlignedObjectiveBuilder":
+    def owner(
+        self, owner: UserOkrObjectiveAlignedObjectiveOwner
+    ) -> "UserOkrObjectiveAlignedObjectiveBuilder":
         self._user_okr_objective_aligned_objective.owner = owner
         return self
 

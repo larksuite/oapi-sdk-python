@@ -22,13 +22,21 @@ class TerminateSignatureFailIdAndReason(object):
 
 class TerminateSignatureFailIdAndReasonBuilder(object):
     def __init__(self) -> None:
-        self._terminate_signature_fail_id_and_reason = TerminateSignatureFailIdAndReason()
+        self._terminate_signature_fail_id_and_reason = (
+            TerminateSignatureFailIdAndReason()
+        )
 
-    def signature_file_id(self, signature_file_id: str) -> "TerminateSignatureFailIdAndReasonBuilder":
-        self._terminate_signature_fail_id_and_reason.signature_file_id = signature_file_id
+    def signature_file_id(
+        self, signature_file_id: str
+    ) -> "TerminateSignatureFailIdAndReasonBuilder":
+        self._terminate_signature_fail_id_and_reason.signature_file_id = (
+            signature_file_id
+        )
         return self
 
-    def fail_reason(self, fail_reason: str) -> "TerminateSignatureFailIdAndReasonBuilder":
+    def fail_reason(
+        self, fail_reason: str
+    ) -> "TerminateSignatureFailIdAndReasonBuilder":
         self._terminate_signature_fail_id_and_reason.fail_reason = fail_reason
         return self
 

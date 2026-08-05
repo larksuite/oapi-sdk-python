@@ -9,7 +9,6 @@ from .update_department_response_body import UpdateDepartmentResponseBody
 class UpdateDepartmentResponse(BaseResponse):
     _types = {
         "data": UpdateDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

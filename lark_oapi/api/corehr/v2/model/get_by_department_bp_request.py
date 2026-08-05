@@ -19,25 +19,32 @@ class GetByDepartmentBpRequest(BaseRequest):
 
 
 class GetByDepartmentBpRequestBuilder(object):
-
     def __init__(self) -> None:
         get_by_department_bp_request = GetByDepartmentBpRequest()
         get_by_department_bp_request.http_method = HttpMethod.POST
         get_by_department_bp_request.uri = "/open-apis/corehr/v2/bps/get_by_department"
         get_by_department_bp_request.token_types = {AccessTokenType.TENANT}
-        self._get_by_department_bp_request: GetByDepartmentBpRequest = get_by_department_bp_request
+        self._get_by_department_bp_request: GetByDepartmentBpRequest = (
+            get_by_department_bp_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetByDepartmentBpRequestBuilder":
         self._get_by_department_bp_request.user_id_type = user_id_type
         self._get_by_department_bp_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetByDepartmentBpRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetByDepartmentBpRequestBuilder":
         self._get_by_department_bp_request.department_id_type = department_id_type
-        self._get_by_department_bp_request.add_query("department_id_type", department_id_type)
+        self._get_by_department_bp_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: GetByDepartmentBpRequestBody) -> "GetByDepartmentBpRequestBuilder":
+    def request_body(
+        self, request_body: GetByDepartmentBpRequestBody
+    ) -> "GetByDepartmentBpRequestBuilder":
         self._get_by_department_bp_request.request_body = request_body
         self._get_by_department_bp_request.body = request_body
         return self

@@ -18,7 +18,6 @@ class GetGroupRequest(BaseRequest):
 
 
 class GetGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         get_group_request = GetGroupRequest()
         get_group_request.http_method = HttpMethod.GET

@@ -23,13 +23,19 @@ class ListInterviewRoundTypeResponseBody(object):
 
 class ListInterviewRoundTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_interview_round_type_response_body = ListInterviewRoundTypeResponseBody()
+        self._list_interview_round_type_response_body = (
+            ListInterviewRoundTypeResponseBody()
+        )
 
-    def active_status(self, active_status: int) -> "ListInterviewRoundTypeResponseBodyBuilder":
+    def active_status(
+        self, active_status: int
+    ) -> "ListInterviewRoundTypeResponseBodyBuilder":
         self._list_interview_round_type_response_body.active_status = active_status
         return self
 
-    def items(self, items: List[InterviewRoundType]) -> "ListInterviewRoundTypeResponseBodyBuilder":
+    def items(
+        self, items: List[InterviewRoundType]
+    ) -> "ListInterviewRoundTypeResponseBodyBuilder":
         self._list_interview_round_type_response_body.items = items
         return self
 

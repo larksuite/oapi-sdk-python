@@ -28,20 +28,31 @@ class UpsertUserDepartmentSortInfoBuilder(object):
     def __init__(self) -> None:
         self._upsert_user_department_sort_info = UpsertUserDepartmentSortInfo()
 
-    def department_id(self, department_id: str) -> "UpsertUserDepartmentSortInfoBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "UpsertUserDepartmentSortInfoBuilder":
         self._upsert_user_department_sort_info.department_id = department_id
         return self
 
-    def order_weight_in_deparment(self, order_weight_in_deparment: str) -> "UpsertUserDepartmentSortInfoBuilder":
-        self._upsert_user_department_sort_info.order_weight_in_deparment = order_weight_in_deparment
+    def order_weight_in_deparment(
+        self, order_weight_in_deparment: str
+    ) -> "UpsertUserDepartmentSortInfoBuilder":
+        self._upsert_user_department_sort_info.order_weight_in_deparment = (
+            order_weight_in_deparment
+        )
         return self
 
-    def order_weight_among_deparments(self,
-                                      order_weight_among_deparments: str) -> "UpsertUserDepartmentSortInfoBuilder":
-        self._upsert_user_department_sort_info.order_weight_among_deparments = order_weight_among_deparments
+    def order_weight_among_deparments(
+        self, order_weight_among_deparments: str
+    ) -> "UpsertUserDepartmentSortInfoBuilder":
+        self._upsert_user_department_sort_info.order_weight_among_deparments = (
+            order_weight_among_deparments
+        )
         return self
 
-    def is_main_department(self, is_main_department: bool) -> "UpsertUserDepartmentSortInfoBuilder":
+    def is_main_department(
+        self, is_main_department: bool
+    ) -> "UpsertUserDepartmentSortInfoBuilder":
         self._upsert_user_department_sort_info.is_main_department = is_main_department
         return self
 

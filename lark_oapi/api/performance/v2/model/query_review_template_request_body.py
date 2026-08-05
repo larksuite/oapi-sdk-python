@@ -22,8 +22,12 @@ class QueryReviewTemplateRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_template_request_body = QueryReviewTemplateRequestBody()
 
-    def review_template_ids(self, review_template_ids: List[int]) -> "QueryReviewTemplateRequestBodyBuilder":
-        self._query_review_template_request_body.review_template_ids = review_template_ids
+    def review_template_ids(
+        self, review_template_ids: List[int]
+    ) -> "QueryReviewTemplateRequestBodyBuilder":
+        self._query_review_template_request_body.review_template_ids = (
+            review_template_ids
+        )
         return self
 
     def build(self) -> "QueryReviewTemplateRequestBody":

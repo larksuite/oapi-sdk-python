@@ -17,7 +17,6 @@ class CreateFaqRequest(BaseRequest):
 
 
 class CreateFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         create_faq_request = CreateFaqRequest()
         create_faq_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateFaqRequestBuilder(object):
         create_faq_request.token_types = {AccessTokenType.USER}
         self._create_faq_request: CreateFaqRequest = create_faq_request
 
-    def request_body(self, request_body: CreateFaqRequestBody) -> "CreateFaqRequestBuilder":
+    def request_body(
+        self, request_body: CreateFaqRequestBody
+    ) -> "CreateFaqRequestBuilder":
         self._create_faq_request.request_body = request_body
         self._create_faq_request.body = request_body
         return self

@@ -9,7 +9,6 @@ from .recommend_application_response_body import RecommendApplicationResponseBod
 class RecommendApplicationResponse(BaseResponse):
     _types = {
         "data": RecommendApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

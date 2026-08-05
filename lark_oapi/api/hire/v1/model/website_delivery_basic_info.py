@@ -62,23 +62,33 @@ class WebsiteDeliveryBasicInfoBuilder(object):
         self._website_delivery_basic_info.nationality_id = nationality_id
         return self
 
-    def start_work_time(self, start_work_time: int) -> "WebsiteDeliveryBasicInfoBuilder":
+    def start_work_time(
+        self, start_work_time: int
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.start_work_time = start_work_time
         return self
 
-    def current_home_address(self, current_home_address: str) -> "WebsiteDeliveryBasicInfoBuilder":
+    def current_home_address(
+        self, current_home_address: str
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.current_home_address = current_home_address
         return self
 
-    def hometown_city_code(self, hometown_city_code: str) -> "WebsiteDeliveryBasicInfoBuilder":
+    def hometown_city_code(
+        self, hometown_city_code: str
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.hometown_city_code = hometown_city_code
         return self
 
-    def mobile_country_code(self, mobile_country_code: str) -> "WebsiteDeliveryBasicInfoBuilder":
+    def mobile_country_code(
+        self, mobile_country_code: str
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.mobile_country_code = mobile_country_code
         return self
 
-    def identification(self, identification: WebsiteDeliveryIdentification) -> "WebsiteDeliveryBasicInfoBuilder":
+    def identification(
+        self, identification: WebsiteDeliveryIdentification
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.identification = identification
         return self
 
@@ -90,11 +100,15 @@ class WebsiteDeliveryBasicInfoBuilder(object):
         self._website_delivery_basic_info.mobile = mobile
         return self
 
-    def current_city_code(self, current_city_code: str) -> "WebsiteDeliveryBasicInfoBuilder":
+    def current_city_code(
+        self, current_city_code: str
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.current_city_code = current_city_code
         return self
 
-    def experience_years(self, experience_years: int) -> "WebsiteDeliveryBasicInfoBuilder":
+    def experience_years(
+        self, experience_years: int
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.experience_years = experience_years
         return self
 
@@ -110,11 +124,17 @@ class WebsiteDeliveryBasicInfoBuilder(object):
         self._website_delivery_basic_info.name = name
         return self
 
-    def preferred_city_code_list(self, preferred_city_code_list: List[str]) -> "WebsiteDeliveryBasicInfoBuilder":
-        self._website_delivery_basic_info.preferred_city_code_list = preferred_city_code_list
+    def preferred_city_code_list(
+        self, preferred_city_code_list: List[str]
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
+        self._website_delivery_basic_info.preferred_city_code_list = (
+            preferred_city_code_list
+        )
         return self
 
-    def resume_source_id(self, resume_source_id: str) -> "WebsiteDeliveryBasicInfoBuilder":
+    def resume_source_id(
+        self, resume_source_id: str
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.resume_source_id = resume_source_id
         return self
 
@@ -122,8 +142,9 @@ class WebsiteDeliveryBasicInfoBuilder(object):
         self._website_delivery_basic_info.age = age
         return self
 
-    def customized_data(self,
-                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryBasicInfoBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.customized_data = customized_data
         return self
 

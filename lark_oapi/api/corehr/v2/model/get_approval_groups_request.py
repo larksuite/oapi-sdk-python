@@ -17,13 +17,16 @@ class GetApprovalGroupsRequest(BaseRequest):
 
 
 class GetApprovalGroupsRequestBuilder(object):
-
     def __init__(self) -> None:
         get_approval_groups_request = GetApprovalGroupsRequest()
         get_approval_groups_request.http_method = HttpMethod.GET
-        get_approval_groups_request.uri = "/open-apis/corehr/v2/approval_groups/:process_id"
+        get_approval_groups_request.uri = (
+            "/open-apis/corehr/v2/approval_groups/:process_id"
+        )
         get_approval_groups_request.token_types = {AccessTokenType.TENANT}
-        self._get_approval_groups_request: GetApprovalGroupsRequest = get_approval_groups_request
+        self._get_approval_groups_request: GetApprovalGroupsRequest = (
+            get_approval_groups_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetApprovalGroupsRequestBuilder":
         self._get_approval_groups_request.user_id_type = user_id_type

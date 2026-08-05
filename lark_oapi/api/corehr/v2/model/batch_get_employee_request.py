@@ -19,25 +19,32 @@ class BatchGetEmployeeRequest(BaseRequest):
 
 
 class BatchGetEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_employee_request = BatchGetEmployeeRequest()
         batch_get_employee_request.http_method = HttpMethod.POST
         batch_get_employee_request.uri = "/open-apis/corehr/v2/employees/batch_get"
         batch_get_employee_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_employee_request: BatchGetEmployeeRequest = batch_get_employee_request
+        self._batch_get_employee_request: BatchGetEmployeeRequest = (
+            batch_get_employee_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "BatchGetEmployeeRequestBuilder":
         self._batch_get_employee_request.user_id_type = user_id_type
         self._batch_get_employee_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "BatchGetEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "BatchGetEmployeeRequestBuilder":
         self._batch_get_employee_request.department_id_type = department_id_type
-        self._batch_get_employee_request.add_query("department_id_type", department_id_type)
+        self._batch_get_employee_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: BatchGetEmployeeRequestBody) -> "BatchGetEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetEmployeeRequestBody
+    ) -> "BatchGetEmployeeRequestBuilder":
         self._batch_get_employee_request.request_body = request_body
         self._batch_get_employee_request.body = request_body
         return self

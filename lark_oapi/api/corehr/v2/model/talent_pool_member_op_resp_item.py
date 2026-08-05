@@ -33,7 +33,9 @@ class TalentPoolMemberOpRespItemBuilder(object):
         self._talent_pool_member_op_resp_item.employment_id = employment_id
         return self
 
-    def talent_pool_ref(self, talent_pool_ref: str) -> "TalentPoolMemberOpRespItemBuilder":
+    def talent_pool_ref(
+        self, talent_pool_ref: str
+    ) -> "TalentPoolMemberOpRespItemBuilder":
         self._talent_pool_member_op_resp_item.talent_pool_ref = talent_pool_ref
         return self
 

@@ -25,8 +25,9 @@ class TaskComment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTaskCommentRequest,
-               option: Optional[RequestOption] = None) -> CreateTaskCommentResponse:
+    def create(
+        self, request: CreateTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +42,16 @@ class TaskComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskCommentResponse)
+        response: CreateTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTaskCommentRequest,
-                      option: Optional[RequestOption] = None) -> CreateTaskCommentResponse:
+    async def acreate(
+        self, request: CreateTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +62,16 @@ class TaskComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskCommentResponse)
+        response: CreateTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteTaskCommentRequest,
-               option: Optional[RequestOption] = None) -> DeleteTaskCommentResponse:
+    def delete(
+        self, request: DeleteTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +86,16 @@ class TaskComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskCommentResponse)
+        response: DeleteTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteTaskCommentRequest,
-                      option: Optional[RequestOption] = None) -> DeleteTaskCommentResponse:
+    async def adelete(
+        self, request: DeleteTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,12 +106,16 @@ class TaskComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskCommentResponse)
+        response: DeleteTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetTaskCommentRequest, option: Optional[RequestOption] = None) -> GetTaskCommentResponse:
+    def get(
+        self, request: GetTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,13 +130,16 @@ class TaskComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskCommentResponse)
+        response: GetTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTaskCommentRequest,
-                   option: Optional[RequestOption] = None) -> GetTaskCommentResponse:
+    async def aget(
+        self, request: GetTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,12 +150,16 @@ class TaskComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskCommentResponse)
+        response: GetTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTaskCommentRequest, option: Optional[RequestOption] = None) -> ListTaskCommentResponse:
+    def list(
+        self, request: ListTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,13 +174,16 @@ class TaskComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCommentResponse)
+        response: ListTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTaskCommentRequest,
-                    option: Optional[RequestOption] = None) -> ListTaskCommentResponse:
+    async def alist(
+        self, request: ListTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -170,13 +194,16 @@ class TaskComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCommentResponse)
+        response: ListTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateTaskCommentRequest,
-               option: Optional[RequestOption] = None) -> UpdateTaskCommentResponse:
+    def update(
+        self, request: UpdateTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> UpdateTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -191,13 +218,16 @@ class TaskComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTaskCommentResponse)
+        response: UpdateTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTaskCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateTaskCommentRequest,
-                      option: Optional[RequestOption] = None) -> UpdateTaskCommentResponse:
+    async def aupdate(
+        self, request: UpdateTaskCommentRequest, option: Optional[RequestOption] = None
+    ) -> UpdateTaskCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -208,7 +238,9 @@ class TaskComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTaskCommentResponse)
+        response: UpdateTaskCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTaskCommentResponse
+        )
         response.raw = resp
 
         return response

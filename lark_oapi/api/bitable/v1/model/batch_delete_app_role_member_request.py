@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_delete_app_role_member_request_body import BatchDeleteAppRoleMemberRequestBody
+from .batch_delete_app_role_member_request_body import (
+    BatchDeleteAppRoleMemberRequestBody,
+)
 
 
 class BatchDeleteAppRoleMemberRequest(BaseRequest):
@@ -19,13 +21,19 @@ class BatchDeleteAppRoleMemberRequest(BaseRequest):
 
 
 class BatchDeleteAppRoleMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_delete_app_role_member_request = BatchDeleteAppRoleMemberRequest()
         batch_delete_app_role_member_request.http_method = HttpMethod.POST
-        batch_delete_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete"
-        batch_delete_app_role_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._batch_delete_app_role_member_request: BatchDeleteAppRoleMemberRequest = batch_delete_app_role_member_request
+        batch_delete_app_role_member_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete"
+        )
+        batch_delete_app_role_member_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._batch_delete_app_role_member_request: BatchDeleteAppRoleMemberRequest = (
+            batch_delete_app_role_member_request
+        )
 
     def app_token(self, app_token: str) -> "BatchDeleteAppRoleMemberRequestBuilder":
         self._batch_delete_app_role_member_request.app_token = app_token
@@ -37,8 +45,9 @@ class BatchDeleteAppRoleMemberRequestBuilder(object):
         self._batch_delete_app_role_member_request.paths["role_id"] = str(role_id)
         return self
 
-    def request_body(self,
-                     request_body: BatchDeleteAppRoleMemberRequestBody) -> "BatchDeleteAppRoleMemberRequestBuilder":
+    def request_body(
+        self, request_body: BatchDeleteAppRoleMemberRequestBody
+    ) -> "BatchDeleteAppRoleMemberRequestBuilder":
         self._batch_delete_app_role_member_request.request_body = request_body
         self._batch_delete_app_role_member_request.body = request_body
         return self

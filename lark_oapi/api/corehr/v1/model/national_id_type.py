@@ -62,7 +62,9 @@ class NationalIdTypeBuilder(object):
         self._national_id_type.validation_rule = validation_rule
         return self
 
-    def validation_rule_description(self, validation_rule_description: List[I18n]) -> "NationalIdTypeBuilder":
+    def validation_rule_description(
+        self, validation_rule_description: List[I18n]
+    ) -> "NationalIdTypeBuilder":
         self._national_id_type.validation_rule_description = validation_rule_description
         return self
 
@@ -74,7 +76,9 @@ class NationalIdTypeBuilder(object):
         self._national_id_type.identification_type = identification_type
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdTypeBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "NationalIdTypeBuilder":
         self._national_id_type.custom_fields = custom_fields
         return self
 

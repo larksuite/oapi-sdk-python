@@ -22,7 +22,9 @@ class AppFieldPropertyAutoSerialOptions(object):
 
 class AppFieldPropertyAutoSerialOptionsBuilder(object):
     def __init__(self) -> None:
-        self._app_field_property_auto_serial_options = AppFieldPropertyAutoSerialOptions()
+        self._app_field_property_auto_serial_options = (
+            AppFieldPropertyAutoSerialOptions()
+        )
 
     def type(self, type: str) -> "AppFieldPropertyAutoSerialOptionsBuilder":
         self._app_field_property_auto_serial_options.type = type

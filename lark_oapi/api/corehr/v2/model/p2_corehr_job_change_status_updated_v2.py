@@ -39,9 +39,7 @@ class P2CorehrJobChangeStatusUpdatedV2Data(object):
 
 
 class P2CorehrJobChangeStatusUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrJobChangeStatusUpdatedV2Data
-    }
+    _types = {"event": P2CorehrJobChangeStatusUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

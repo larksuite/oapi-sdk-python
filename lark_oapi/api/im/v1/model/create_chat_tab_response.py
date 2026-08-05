@@ -9,7 +9,6 @@ from .create_chat_tab_response_body import CreateChatTabResponseBody
 class CreateChatTabResponse(BaseResponse):
     _types = {
         "data": CreateChatTabResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -19,7 +19,6 @@ class KickoutMeetingRequest(BaseRequest):
 
 
 class KickoutMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         kickout_meeting_request = KickoutMeetingRequest()
         kickout_meeting_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class KickoutMeetingRequestBuilder(object):
         self._kickout_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
-    def request_body(self, request_body: KickoutMeetingRequestBody) -> "KickoutMeetingRequestBuilder":
+    def request_body(
+        self, request_body: KickoutMeetingRequestBody
+    ) -> "KickoutMeetingRequestBuilder":
         self._kickout_meeting_request.request_body = request_body
         self._kickout_meeting_request.body = request_body
         return self

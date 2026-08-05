@@ -47,7 +47,9 @@ class FreePunchCfgBuilder(object):
         self._free_punch_cfg.punch_day = punch_day
         return self
 
-    def work_day_no_punch_as_lack(self, work_day_no_punch_as_lack: bool) -> "FreePunchCfgBuilder":
+    def work_day_no_punch_as_lack(
+        self, work_day_no_punch_as_lack: bool
+    ) -> "FreePunchCfgBuilder":
         self._free_punch_cfg.work_day_no_punch_as_lack = work_day_no_punch_as_lack
         return self
 
@@ -59,7 +61,9 @@ class FreePunchCfgBuilder(object):
         self._free_punch_cfg.work_hours = work_hours
         return self
 
-    def free_clock_setting(self, free_clock_setting: FreeClockSetting) -> "FreePunchCfgBuilder":
+    def free_clock_setting(
+        self, free_clock_setting: FreeClockSetting
+    ) -> "FreePunchCfgBuilder":
         self._free_punch_cfg.free_clock_setting = free_clock_setting
         return self
 

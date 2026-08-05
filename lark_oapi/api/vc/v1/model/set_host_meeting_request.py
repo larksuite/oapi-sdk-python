@@ -19,12 +19,14 @@ class SetHostMeetingRequest(BaseRequest):
 
 
 class SetHostMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         set_host_meeting_request = SetHostMeetingRequest()
         set_host_meeting_request.http_method = HttpMethod.PATCH
         set_host_meeting_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/set_host"
-        set_host_meeting_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        set_host_meeting_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._set_host_meeting_request: SetHostMeetingRequest = set_host_meeting_request
 
     def user_id_type(self, user_id_type: str) -> "SetHostMeetingRequestBuilder":
@@ -37,7 +39,9 @@ class SetHostMeetingRequestBuilder(object):
         self._set_host_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
-    def request_body(self, request_body: SetHostMeetingRequestBody) -> "SetHostMeetingRequestBuilder":
+    def request_body(
+        self, request_body: SetHostMeetingRequestBody
+    ) -> "SetHostMeetingRequestBuilder":
         self._set_host_meeting_request.request_body = request_body
         self._set_host_meeting_request.body = request_body
         return self

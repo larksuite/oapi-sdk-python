@@ -23,13 +23,14 @@ class ListCountryRegionRequest(BaseRequest):
 
 
 class ListCountryRegionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_country_region_request = ListCountryRegionRequest()
         list_country_region_request.http_method = HttpMethod.GET
         list_country_region_request.uri = "/open-apis/mdm/v3/country_regions"
         list_country_region_request.token_types = {AccessTokenType.TENANT}
-        self._list_country_region_request: ListCountryRegionRequest = list_country_region_request
+        self._list_country_region_request: ListCountryRegionRequest = (
+            list_country_region_request
+        )
 
     def languages(self, languages: List[str]) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.languages = languages
@@ -61,7 +62,9 @@ class ListCountryRegionRequestBuilder(object):
         self._list_country_region_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: ListCountryRegionRequestBody) -> "ListCountryRegionRequestBuilder":
+    def request_body(
+        self, request_body: ListCountryRegionRequestBody
+    ) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.request_body = request_body
         self._list_country_region_request.body = request_body
         return self

@@ -15,6 +15,7 @@ class ListFileCommentRequest(BaseRequest):
         self.page_size: Optional[int] = None
         self.user_id_type: Optional[str] = None
         self.need_reaction: Optional[bool] = None
+        self.need_relation: Optional[bool] = None
         self.file_token: Optional[str] = None
 
     @staticmethod
@@ -23,13 +24,17 @@ class ListFileCommentRequest(BaseRequest):
 
 
 class ListFileCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_file_comment_request = ListFileCommentRequest()
         list_file_comment_request.http_method = HttpMethod.GET
         list_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments"
-        list_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_file_comment_request: ListFileCommentRequest = list_file_comment_request
+        list_file_comment_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_file_comment_request: ListFileCommentRequest = (
+            list_file_comment_request
+        )
 
     def file_type(self, file_type: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.file_type = file_type
@@ -64,6 +69,11 @@ class ListFileCommentRequestBuilder(object):
     def need_reaction(self, need_reaction: bool) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.need_reaction = need_reaction
         self._list_file_comment_request.add_query("need_reaction", need_reaction)
+        return self
+
+    def need_relation(self, need_relation: bool) -> "ListFileCommentRequestBuilder":
+        self._list_file_comment_request.need_relation = need_relation
+        self._list_file_comment_request.add_query("need_relation", need_relation)
         return self
 
     def file_token(self, file_token: str) -> "ListFileCommentRequestBuilder":

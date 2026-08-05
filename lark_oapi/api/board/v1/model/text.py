@@ -101,7 +101,9 @@ class TextBuilder(object):
         self._text.theme_text_color_code = theme_text_color_code
         return self
 
-    def theme_text_background_color_code(self, theme_text_background_color_code: int) -> "TextBuilder":
+    def theme_text_background_color_code(
+        self, theme_text_background_color_code: int
+    ) -> "TextBuilder":
         self._text.theme_text_background_color_code = theme_text_background_color_code
         return self
 
@@ -113,7 +115,9 @@ class TextBuilder(object):
         self._text.text_color_type = text_color_type
         return self
 
-    def text_background_color_type(self, text_background_color_type: int) -> "TextBuilder":
+    def text_background_color_type(
+        self, text_background_color_type: int
+    ) -> "TextBuilder":
         self._text.text_background_color_type = text_background_color_type
         return self
 

@@ -10,19 +10,32 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.cancel_eco_background_check_request import CancelEcoBackgroundCheckRequest
-from ..model.cancel_eco_background_check_response import CancelEcoBackgroundCheckResponse
-from ..model.update_progress_eco_background_check_request import UpdateProgressEcoBackgroundCheckRequest
-from ..model.update_progress_eco_background_check_response import UpdateProgressEcoBackgroundCheckResponse
-from ..model.update_result_eco_background_check_request import UpdateResultEcoBackgroundCheckRequest
-from ..model.update_result_eco_background_check_response import UpdateResultEcoBackgroundCheckResponse
+from ..model.cancel_eco_background_check_response import (
+    CancelEcoBackgroundCheckResponse,
+)
+from ..model.update_progress_eco_background_check_request import (
+    UpdateProgressEcoBackgroundCheckRequest,
+)
+from ..model.update_progress_eco_background_check_response import (
+    UpdateProgressEcoBackgroundCheckResponse,
+)
+from ..model.update_result_eco_background_check_request import (
+    UpdateResultEcoBackgroundCheckRequest,
+)
+from ..model.update_result_eco_background_check_response import (
+    UpdateResultEcoBackgroundCheckResponse,
+)
 
 
 class EcoBackgroundCheck(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def cancel(self, request: CancelEcoBackgroundCheckRequest,
-               option: Optional[RequestOption] = None) -> CancelEcoBackgroundCheckResponse:
+    def cancel(
+        self,
+        request: CancelEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +50,18 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CancelEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CancelEcoBackgroundCheckResponse)
+        response: CancelEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acancel(self, request: CancelEcoBackgroundCheckRequest,
-                      option: Optional[RequestOption] = None) -> CancelEcoBackgroundCheckResponse:
+    async def acancel(
+        self,
+        request: CancelEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +72,18 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CancelEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CancelEcoBackgroundCheckResponse)
+        response: CancelEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_progress(self, request: UpdateProgressEcoBackgroundCheckRequest,
-                        option: Optional[RequestOption] = None) -> UpdateProgressEcoBackgroundCheckResponse:
+    def update_progress(
+        self,
+        request: UpdateProgressEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProgressEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +98,18 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProgressEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            UpdateProgressEcoBackgroundCheckResponse)
+        response: UpdateProgressEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProgressEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_progress(self, request: UpdateProgressEcoBackgroundCheckRequest,
-                               option: Optional[RequestOption] = None) -> UpdateProgressEcoBackgroundCheckResponse:
+    async def aupdate_progress(
+        self,
+        request: UpdateProgressEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProgressEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +120,18 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProgressEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            UpdateProgressEcoBackgroundCheckResponse)
+        response: UpdateProgressEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProgressEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_result(self, request: UpdateResultEcoBackgroundCheckRequest,
-                      option: Optional[RequestOption] = None) -> UpdateResultEcoBackgroundCheckResponse:
+    def update_result(
+        self,
+        request: UpdateResultEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateResultEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +146,18 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateResultEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateResultEcoBackgroundCheckResponse)
+        response: UpdateResultEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateResultEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_result(self, request: UpdateResultEcoBackgroundCheckRequest,
-                             option: Optional[RequestOption] = None) -> UpdateResultEcoBackgroundCheckResponse:
+    async def aupdate_result(
+        self,
+        request: UpdateResultEcoBackgroundCheckRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateResultEcoBackgroundCheckResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +168,9 @@ class EcoBackgroundCheck(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateResultEcoBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateResultEcoBackgroundCheckResponse)
+        response: UpdateResultEcoBackgroundCheckResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateResultEcoBackgroundCheckResponse
+        )
         response.raw = resp
 
         return response

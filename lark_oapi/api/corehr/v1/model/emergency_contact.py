@@ -46,7 +46,9 @@ class EmergencyContactBuilder(object):
         self._emergency_contact.phone_ist = phone_ist
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmergencyContactBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EmergencyContactBuilder":
         self._emergency_contact.custom_fields = custom_fields
         return self
 

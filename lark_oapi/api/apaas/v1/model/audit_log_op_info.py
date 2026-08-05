@@ -61,7 +61,9 @@ class AuditLogOpInfoBuilder(object):
         self._audit_log_op_info.failed_reason = failed_reason
         return self
 
-    def failed_reason_i18n(self, failed_reason_i18n: Dict[str, str]) -> "AuditLogOpInfoBuilder":
+    def failed_reason_i18n(
+        self, failed_reason_i18n: Dict[str, str]
+    ) -> "AuditLogOpInfoBuilder":
         self._audit_log_op_info.failed_reason_i18n = failed_reason_i18n
         return self
 

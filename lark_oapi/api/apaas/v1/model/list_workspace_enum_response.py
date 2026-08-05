@@ -9,7 +9,6 @@ from .list_workspace_enum_response_body import ListWorkspaceEnumResponseBody
 class ListWorkspaceEnumResponse(BaseResponse):
     _types = {
         "data": ListWorkspaceEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

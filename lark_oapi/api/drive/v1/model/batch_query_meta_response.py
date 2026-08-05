@@ -9,7 +9,6 @@ from .batch_query_meta_response_body import BatchQueryMetaResponseBody
 class BatchQueryMetaResponse(BaseResponse):
     _types = {
         "data": BatchQueryMetaResponseBody,
-
     }
 
     def __init__(self, d=None):

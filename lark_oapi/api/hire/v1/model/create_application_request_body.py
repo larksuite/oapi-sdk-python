@@ -44,16 +44,23 @@ class CreateApplicationRequestBodyBuilder(object):
         self._create_application_request_body.user_id = user_id
         return self
 
-    def resume_source_id(self, resume_source_id: str) -> "CreateApplicationRequestBodyBuilder":
+    def resume_source_id(
+        self, resume_source_id: str
+    ) -> "CreateApplicationRequestBodyBuilder":
         self._create_application_request_body.resume_source_id = resume_source_id
         return self
 
-    def application_preferred_city_code_list(self, application_preferred_city_code_list: List[
-        str]) -> "CreateApplicationRequestBodyBuilder":
-        self._create_application_request_body.application_preferred_city_code_list = application_preferred_city_code_list
+    def application_preferred_city_code_list(
+        self, application_preferred_city_code_list: List[str]
+    ) -> "CreateApplicationRequestBodyBuilder":
+        self._create_application_request_body.application_preferred_city_code_list = (
+            application_preferred_city_code_list
+        )
         return self
 
-    def delivery_type(self, delivery_type: int) -> "CreateApplicationRequestBodyBuilder":
+    def delivery_type(
+        self, delivery_type: int
+    ) -> "CreateApplicationRequestBodyBuilder":
         self._create_application_request_body.delivery_type = delivery_type
         return self
 

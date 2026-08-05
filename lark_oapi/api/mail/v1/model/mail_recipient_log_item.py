@@ -29,7 +29,9 @@ class MailRecipientLogItemBuilder(object):
         self._mail_recipient_log_item.recipient = recipient
         return self
 
-    def mail_log_texts(self, mail_log_texts: List[MailRecipientLogText]) -> "MailRecipientLogItemBuilder":
+    def mail_log_texts(
+        self, mail_log_texts: List[MailRecipientLogText]
+    ) -> "MailRecipientLogItemBuilder":
         self._mail_recipient_log_item.mail_log_texts = mail_log_texts
         return self
 

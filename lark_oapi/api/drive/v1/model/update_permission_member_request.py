@@ -21,17 +21,27 @@ class UpdatePermissionMemberRequest(BaseRequest):
 
 
 class UpdatePermissionMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         update_permission_member_request = UpdatePermissionMemberRequest()
         update_permission_member_request.http_method = HttpMethod.PUT
-        update_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/:member_id"
-        update_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._update_permission_member_request: UpdatePermissionMemberRequest = update_permission_member_request
+        update_permission_member_request.uri = (
+            "/open-apis/drive/v1/permissions/:token/members/:member_id"
+        )
+        update_permission_member_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._update_permission_member_request: UpdatePermissionMemberRequest = (
+            update_permission_member_request
+        )
 
-    def need_notification(self, need_notification: bool) -> "UpdatePermissionMemberRequestBuilder":
+    def need_notification(
+        self, need_notification: bool
+    ) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.need_notification = need_notification
-        self._update_permission_member_request.add_query("need_notification", need_notification)
+        self._update_permission_member_request.add_query(
+            "need_notification", need_notification
+        )
         return self
 
     def type(self, type: str) -> "UpdatePermissionMemberRequestBuilder":
@@ -49,7 +59,9 @@ class UpdatePermissionMemberRequestBuilder(object):
         self._update_permission_member_request.paths["member_id"] = str(member_id)
         return self
 
-    def request_body(self, request_body: BaseMember) -> "UpdatePermissionMemberRequestBuilder":
+    def request_body(
+        self, request_body: BaseMember
+    ) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.request_body = request_body
         self._update_permission_member_request.body = request_body
         return self

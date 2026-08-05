@@ -9,7 +9,6 @@ from .raw_content_document_response_body import RawContentDocumentResponseBody
 class RawContentDocumentResponse(BaseResponse):
     _types = {
         "data": RawContentDocumentResponseBody,
-
     }
 
     def __init__(self, d=None):

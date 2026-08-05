@@ -17,15 +17,19 @@ class UploadImageRequest(BaseRequest):
 
 
 class UploadImageRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_image_request = UploadImageRequest()
         upload_image_request.http_method = HttpMethod.POST
         upload_image_request.uri = "/open-apis/okr/v1/images/upload"
-        upload_image_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        upload_image_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._upload_image_request: UploadImageRequest = upload_image_request
 
-    def request_body(self, request_body: UploadImageRequestBody) -> "UploadImageRequestBuilder":
+    def request_body(
+        self, request_body: UploadImageRequestBody
+    ) -> "UploadImageRequestBuilder":
         self._upload_image_request.request_body = request_body
         self._upload_image_request.body = request_body
         return self

@@ -17,7 +17,6 @@ class GetProcessRequest(BaseRequest):
 
 
 class GetProcessRequestBuilder(object):
-
     def __init__(self) -> None:
         get_process_request = GetProcessRequest()
         get_process_request.http_method = HttpMethod.GET

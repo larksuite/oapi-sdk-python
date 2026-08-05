@@ -29,7 +29,9 @@ class AnswerUserQueryTicketRequestBodyBuilder(object):
         self._answer_user_query_ticket_request_body.event_id = event_id
         return self
 
-    def faqs(self, faqs: List[UserQueryFaqInfo]) -> "AnswerUserQueryTicketRequestBodyBuilder":
+    def faqs(
+        self, faqs: List[UserQueryFaqInfo]
+    ) -> "AnswerUserQueryTicketRequestBodyBuilder":
         self._answer_user_query_ticket_request_body.faqs = faqs
         return self
 

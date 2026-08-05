@@ -69,7 +69,9 @@ class GetFileCommentResponseBodyBuilder(object):
         self._get_file_comment_response_body.solved_time = solved_time
         return self
 
-    def solver_user_id(self, solver_user_id: str) -> "GetFileCommentResponseBodyBuilder":
+    def solver_user_id(
+        self, solver_user_id: str
+    ) -> "GetFileCommentResponseBodyBuilder":
         self._get_file_comment_response_body.solver_user_id = solver_user_id
         return self
 

@@ -19,7 +19,6 @@ class PatchPersonRequest(BaseRequest):
 
 
 class PatchPersonRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_person_request = PatchPersonRequest()
         patch_person_request.http_method = HttpMethod.PATCH

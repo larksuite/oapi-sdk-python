@@ -18,20 +18,29 @@ class UpdateDeviceApplyRecordRequest(BaseRequest):
 
 
 class UpdateDeviceApplyRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         update_device_apply_record_request = UpdateDeviceApplyRecordRequest()
         update_device_apply_record_request.http_method = HttpMethod.PUT
         update_device_apply_record_request.uri = "/open-apis/security_and_compliance/v2/device_apply_records/:device_apply_record_id"
         update_device_apply_record_request.token_types = {AccessTokenType.TENANT}
-        self._update_device_apply_record_request: UpdateDeviceApplyRecordRequest = update_device_apply_record_request
+        self._update_device_apply_record_request: UpdateDeviceApplyRecordRequest = (
+            update_device_apply_record_request
+        )
 
-    def device_apply_record_id(self, device_apply_record_id: int) -> "UpdateDeviceApplyRecordRequestBuilder":
-        self._update_device_apply_record_request.device_apply_record_id = device_apply_record_id
-        self._update_device_apply_record_request.paths["device_apply_record_id"] = str(device_apply_record_id)
+    def device_apply_record_id(
+        self, device_apply_record_id: int
+    ) -> "UpdateDeviceApplyRecordRequestBuilder":
+        self._update_device_apply_record_request.device_apply_record_id = (
+            device_apply_record_id
+        )
+        self._update_device_apply_record_request.paths["device_apply_record_id"] = str(
+            device_apply_record_id
+        )
         return self
 
-    def request_body(self, request_body: UpdateDeviceApplyRecordRequestBody) -> "UpdateDeviceApplyRecordRequestBuilder":
+    def request_body(
+        self, request_body: UpdateDeviceApplyRecordRequestBody
+    ) -> "UpdateDeviceApplyRecordRequestBuilder":
         self._update_device_apply_record_request.request_body = request_body
         self._update_device_apply_record_request.body = request_body
         return self

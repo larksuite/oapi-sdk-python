@@ -18,20 +18,29 @@ class CreatePublicMailboxAliasRequest(BaseRequest):
 
 
 class CreatePublicMailboxAliasRequestBuilder(object):
-
     def __init__(self) -> None:
         create_public_mailbox_alias_request = CreatePublicMailboxAliasRequest()
         create_public_mailbox_alias_request.http_method = HttpMethod.POST
-        create_public_mailbox_alias_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases"
+        create_public_mailbox_alias_request.uri = (
+            "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases"
+        )
         create_public_mailbox_alias_request.token_types = {AccessTokenType.TENANT}
-        self._create_public_mailbox_alias_request: CreatePublicMailboxAliasRequest = create_public_mailbox_alias_request
+        self._create_public_mailbox_alias_request: CreatePublicMailboxAliasRequest = (
+            create_public_mailbox_alias_request
+        )
 
-    def public_mailbox_id(self, public_mailbox_id: str) -> "CreatePublicMailboxAliasRequestBuilder":
+    def public_mailbox_id(
+        self, public_mailbox_id: str
+    ) -> "CreatePublicMailboxAliasRequestBuilder":
         self._create_public_mailbox_alias_request.public_mailbox_id = public_mailbox_id
-        self._create_public_mailbox_alias_request.paths["public_mailbox_id"] = str(public_mailbox_id)
+        self._create_public_mailbox_alias_request.paths["public_mailbox_id"] = str(
+            public_mailbox_id
+        )
         return self
 
-    def request_body(self, request_body: EmailAlias) -> "CreatePublicMailboxAliasRequestBuilder":
+    def request_body(
+        self, request_body: EmailAlias
+    ) -> "CreatePublicMailboxAliasRequestBuilder":
         self._create_public_mailbox_alias_request.request_body = request_body
         self._create_public_mailbox_alias_request.body = request_body
         return self

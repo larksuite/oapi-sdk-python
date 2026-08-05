@@ -18,17 +18,27 @@ class DeleteCalendarEventRequest(BaseRequest):
 
 
 class DeleteCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_calendar_event_request = DeleteCalendarEventRequest()
         delete_calendar_event_request.http_method = HttpMethod.DELETE
-        delete_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-        delete_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_calendar_event_request: DeleteCalendarEventRequest = delete_calendar_event_request
+        delete_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+        )
+        delete_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_calendar_event_request: DeleteCalendarEventRequest = (
+            delete_calendar_event_request
+        )
 
-    def need_notification(self, need_notification: str) -> "DeleteCalendarEventRequestBuilder":
+    def need_notification(
+        self, need_notification: str
+    ) -> "DeleteCalendarEventRequestBuilder":
         self._delete_calendar_event_request.need_notification = need_notification
-        self._delete_calendar_event_request.add_query("need_notification", need_notification)
+        self._delete_calendar_event_request.add_query(
+            "need_notification", need_notification
+        )
         return self
 
     def calendar_id(self, calendar_id: str) -> "DeleteCalendarEventRequestBuilder":

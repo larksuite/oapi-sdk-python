@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_interview_registration_schema_request import ListInterviewRegistrationSchemaRequest
-from ..model.list_interview_registration_schema_response import ListInterviewRegistrationSchemaResponse
+from ..model.list_interview_registration_schema_request import (
+    ListInterviewRegistrationSchemaRequest,
+)
+from ..model.list_interview_registration_schema_response import (
+    ListInterviewRegistrationSchemaResponse,
+)
 
 
 class InterviewRegistrationSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListInterviewRegistrationSchemaRequest,
-             option: Optional[RequestOption] = None) -> ListInterviewRegistrationSchemaResponse:
+    def list(
+        self,
+        request: ListInterviewRegistrationSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListInterviewRegistrationSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class InterviewRegistrationSchema(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListInterviewRegistrationSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           ListInterviewRegistrationSchemaResponse)
+        response: ListInterviewRegistrationSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInterviewRegistrationSchemaResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListInterviewRegistrationSchemaRequest,
-                    option: Optional[RequestOption] = None) -> ListInterviewRegistrationSchemaResponse:
+    async def alist(
+        self,
+        request: ListInterviewRegistrationSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListInterviewRegistrationSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class InterviewRegistrationSchema(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListInterviewRegistrationSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           ListInterviewRegistrationSchemaResponse)
+        response: ListInterviewRegistrationSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListInterviewRegistrationSchemaResponse
+        )
         response.raw = resp
 
         return response

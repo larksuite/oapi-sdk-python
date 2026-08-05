@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .add_managers_chat_managers_response_body import AddManagersChatManagersResponseBody
+from .add_managers_chat_managers_response_body import (
+    AddManagersChatManagersResponseBody,
+)
 
 
 class AddManagersChatManagersResponse(BaseResponse):
     _types = {
         "data": AddManagersChatManagersResponseBody,
-
     }
 
     def __init__(self, d=None):

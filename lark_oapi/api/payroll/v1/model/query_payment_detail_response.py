@@ -9,7 +9,6 @@ from .query_payment_detail_response_body import QueryPaymentDetailResponseBody
 class QueryPaymentDetailResponse(BaseResponse):
     _types = {
         "data": QueryPaymentDetailResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -28,7 +28,9 @@ class FreeClockSettingBuilder(object):
         self._free_clock_setting.clock_mode = clock_mode
         return self
 
-    def clock_internal_hhmm(self, clock_internal_hhmm: int) -> "FreeClockSettingBuilder":
+    def clock_internal_hhmm(
+        self, clock_internal_hhmm: int
+    ) -> "FreeClockSettingBuilder":
         self._free_clock_setting.clock_internal_hhmm = clock_internal_hhmm
         return self
 

@@ -44,14 +44,20 @@ class SocialArchiveEventDetailBuilder(object):
         self._social_archive_event_detail.source_type = source_type
         return self
 
-    def after_social_archive_detail(self,
-                                    after_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
-        self._social_archive_event_detail.after_social_archive_detail = after_social_archive_detail
+    def after_social_archive_detail(
+        self, after_social_archive_detail: SocialArchiveDetail
+    ) -> "SocialArchiveEventDetailBuilder":
+        self._social_archive_event_detail.after_social_archive_detail = (
+            after_social_archive_detail
+        )
         return self
 
-    def before_social_archive_detail(self,
-                                     before_social_archive_detail: SocialArchiveDetail) -> "SocialArchiveEventDetailBuilder":
-        self._social_archive_event_detail.before_social_archive_detail = before_social_archive_detail
+    def before_social_archive_detail(
+        self, before_social_archive_detail: SocialArchiveDetail
+    ) -> "SocialArchiveEventDetailBuilder":
+        self._social_archive_event_detail.before_social_archive_detail = (
+            before_social_archive_detail
+        )
         return self
 
     def build(self) -> "SocialArchiveEventDetail":

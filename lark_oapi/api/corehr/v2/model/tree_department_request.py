@@ -20,12 +20,14 @@ class TreeDepartmentRequest(BaseRequest):
 
 
 class TreeDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         tree_department_request = TreeDepartmentRequest()
         tree_department_request.http_method = HttpMethod.POST
         tree_department_request.uri = "/open-apis/corehr/v2/departments/tree"
-        tree_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        tree_department_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._tree_department_request: TreeDepartmentRequest = tree_department_request
 
     def page_size(self, page_size: int) -> "TreeDepartmentRequestBuilder":
@@ -38,12 +40,18 @@ class TreeDepartmentRequestBuilder(object):
         self._tree_department_request.add_query("page_token", page_token)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "TreeDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "TreeDepartmentRequestBuilder":
         self._tree_department_request.department_id_type = department_id_type
-        self._tree_department_request.add_query("department_id_type", department_id_type)
+        self._tree_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: TreeDepartmentRequestBody) -> "TreeDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: TreeDepartmentRequestBody
+    ) -> "TreeDepartmentRequestBuilder":
         self._tree_department_request.request_body = request_body
         self._tree_department_request.body = request_body
         return self

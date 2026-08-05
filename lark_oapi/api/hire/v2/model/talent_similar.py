@@ -28,7 +28,9 @@ class TalentSimilarBuilder(object):
         self._talent_similar.is_similar_talent = is_similar_talent
         return self
 
-    def similar_talent_id_list(self, similar_talent_id_list: List[str]) -> "TalentSimilarBuilder":
+    def similar_talent_id_list(
+        self, similar_talent_id_list: List[str]
+    ) -> "TalentSimilarBuilder":
         self._talent_similar.similar_talent_id_list = similar_talent_id_list
         return self
 

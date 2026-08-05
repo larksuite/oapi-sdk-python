@@ -22,14 +22,22 @@ class WithdrawOnboardingPreHireRequestBody(object):
 
 class WithdrawOnboardingPreHireRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._withdraw_onboarding_pre_hire_request_body = WithdrawOnboardingPreHireRequestBody()
+        self._withdraw_onboarding_pre_hire_request_body = (
+            WithdrawOnboardingPreHireRequestBody()
+        )
 
-    def pre_hire_id(self, pre_hire_id: str) -> "WithdrawOnboardingPreHireRequestBodyBuilder":
+    def pre_hire_id(
+        self, pre_hire_id: str
+    ) -> "WithdrawOnboardingPreHireRequestBodyBuilder":
         self._withdraw_onboarding_pre_hire_request_body.pre_hire_id = pre_hire_id
         return self
 
-    def withdraw_reason(self, withdraw_reason: str) -> "WithdrawOnboardingPreHireRequestBodyBuilder":
-        self._withdraw_onboarding_pre_hire_request_body.withdraw_reason = withdraw_reason
+    def withdraw_reason(
+        self, withdraw_reason: str
+    ) -> "WithdrawOnboardingPreHireRequestBodyBuilder":
+        self._withdraw_onboarding_pre_hire_request_body.withdraw_reason = (
+            withdraw_reason
+        )
         return self
 
     def build(self) -> "WithdrawOnboardingPreHireRequestBody":

@@ -22,7 +22,9 @@ class UpdateProcessApproverResponseBody(object):
 
 class UpdateProcessApproverResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_process_approver_response_body = UpdateProcessApproverResponseBody()
+        self._update_process_approver_response_body = (
+            UpdateProcessApproverResponseBody()
+        )
 
     def code(self, code: int) -> "UpdateProcessApproverResponseBodyBuilder":
         self._update_process_approver_response_body.code = code

@@ -16,7 +16,6 @@ class DeleteCategoryRequest(BaseRequest):
 
 
 class DeleteCategoryRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_category_request = DeleteCategoryRequest()
         delete_category_request.http_method = HttpMethod.DELETE

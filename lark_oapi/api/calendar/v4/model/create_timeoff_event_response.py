@@ -9,7 +9,6 @@ from .create_timeoff_event_response_body import CreateTimeoffEventResponseBody
 class CreateTimeoffEventResponse(BaseResponse):
     _types = {
         "data": CreateTimeoffEventResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -32,7 +32,9 @@ class QueryUserTaskRequestBodyBuilder(object):
         self._query_user_task_request_body.user_ids = user_ids
         return self
 
-    def check_date_from(self, check_date_from: int) -> "QueryUserTaskRequestBodyBuilder":
+    def check_date_from(
+        self, check_date_from: int
+    ) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.check_date_from = check_date_from
         return self
 
@@ -40,7 +42,9 @@ class QueryUserTaskRequestBodyBuilder(object):
         self._query_user_task_request_body.check_date_to = check_date_to
         return self
 
-    def need_overtime_result(self, need_overtime_result: bool) -> "QueryUserTaskRequestBodyBuilder":
+    def need_overtime_result(
+        self, need_overtime_result: bool
+    ) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.need_overtime_result = need_overtime_result
         return self
 

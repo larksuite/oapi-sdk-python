@@ -17,15 +17,21 @@ class CreateAilySessionRequest(BaseRequest):
 
 
 class CreateAilySessionRequestBuilder(object):
-
     def __init__(self) -> None:
         create_aily_session_request = CreateAilySessionRequest()
         create_aily_session_request.http_method = HttpMethod.POST
         create_aily_session_request.uri = "/open-apis/aily/v1/sessions"
-        create_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_aily_session_request: CreateAilySessionRequest = create_aily_session_request
+        create_aily_session_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_aily_session_request: CreateAilySessionRequest = (
+            create_aily_session_request
+        )
 
-    def request_body(self, request_body: CreateAilySessionRequestBody) -> "CreateAilySessionRequestBuilder":
+    def request_body(
+        self, request_body: CreateAilySessionRequestBody
+    ) -> "CreateAilySessionRequestBuilder":
         self._create_aily_session_request.request_body = request_body
         self._create_aily_session_request.body = request_body
         return self

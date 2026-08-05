@@ -23,7 +23,9 @@ class UpdateAgendaTitleElementsRequestBuilder(object):
     def __init__(self) -> None:
         self._update_agenda_title_elements_request = UpdateAgendaTitleElementsRequest()
 
-    def elements(self, elements: List[AgendaTitleElement]) -> "UpdateAgendaTitleElementsRequestBuilder":
+    def elements(
+        self, elements: List[AgendaTitleElement]
+    ) -> "UpdateAgendaTitleElementsRequestBuilder":
         self._update_agenda_title_elements_request.elements = elements
         return self
 

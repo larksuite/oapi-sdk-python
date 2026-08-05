@@ -9,7 +9,6 @@ from .create_job_grade_response_body import CreateJobGradeResponseBody
 class CreateJobGradeResponse(BaseResponse):
     _types = {
         "data": CreateJobGradeResponseBody,
-
     }
 
     def __init__(self, d=None):

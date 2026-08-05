@@ -18,7 +18,6 @@ class GetDailyReportRequest(BaseRequest):
 
 
 class GetDailyReportRequestBuilder(object):
-
     def __init__(self) -> None:
         get_daily_report_request = GetDailyReportRequest()
         get_daily_report_request.http_method = HttpMethod.GET

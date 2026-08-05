@@ -25,18 +25,25 @@ class LeaveRequestHistoryLeaveResponseBody(object):
 
 class LeaveRequestHistoryLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._leave_request_history_leave_response_body = LeaveRequestHistoryLeaveResponseBody()
+        self._leave_request_history_leave_response_body = (
+            LeaveRequestHistoryLeaveResponseBody()
+        )
 
-    def leave_request_list(self,
-                           leave_request_list: List[LeaveRequest]) -> "LeaveRequestHistoryLeaveResponseBodyBuilder":
-        self._leave_request_history_leave_response_body.leave_request_list = leave_request_list
+    def leave_request_list(
+        self, leave_request_list: List[LeaveRequest]
+    ) -> "LeaveRequestHistoryLeaveResponseBodyBuilder":
+        self._leave_request_history_leave_response_body.leave_request_list = (
+            leave_request_list
+        )
         return self
 
     def has_more(self, has_more: bool) -> "LeaveRequestHistoryLeaveResponseBodyBuilder":
         self._leave_request_history_leave_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "LeaveRequestHistoryLeaveResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "LeaveRequestHistoryLeaveResponseBodyBuilder":
         self._leave_request_history_leave_response_body.page_token = page_token
         return self
 

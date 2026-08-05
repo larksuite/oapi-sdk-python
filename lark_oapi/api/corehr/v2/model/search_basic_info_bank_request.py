@@ -19,13 +19,16 @@ class SearchBasicInfoBankRequest(BaseRequest):
 
 
 class SearchBasicInfoBankRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_bank_request = SearchBasicInfoBankRequest()
         search_basic_info_bank_request.http_method = HttpMethod.POST
-        search_basic_info_bank_request.uri = "/open-apis/corehr/v2/basic_info/banks/search"
+        search_basic_info_bank_request.uri = (
+            "/open-apis/corehr/v2/basic_info/banks/search"
+        )
         search_basic_info_bank_request.token_types = {AccessTokenType.TENANT}
-        self._search_basic_info_bank_request: SearchBasicInfoBankRequest = search_basic_info_bank_request
+        self._search_basic_info_bank_request: SearchBasicInfoBankRequest = (
+            search_basic_info_bank_request
+        )
 
     def page_size(self, page_size: int) -> "SearchBasicInfoBankRequestBuilder":
         self._search_basic_info_bank_request.page_size = page_size
@@ -37,7 +40,9 @@ class SearchBasicInfoBankRequestBuilder(object):
         self._search_basic_info_bank_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: SearchBasicInfoBankRequestBody) -> "SearchBasicInfoBankRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoBankRequestBody
+    ) -> "SearchBasicInfoBankRequestBuilder":
         self._search_basic_info_bank_request.request_body = request_body
         self._search_basic_info_bank_request.body = request_body
         return self

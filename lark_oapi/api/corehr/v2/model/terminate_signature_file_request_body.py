@@ -24,7 +24,9 @@ class TerminateSignatureFileRequestBody(object):
 
 class TerminateSignatureFileRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._terminate_signature_file_request_body = TerminateSignatureFileRequestBody()
+        self._terminate_signature_file_request_body = (
+            TerminateSignatureFileRequestBody()
+        )
 
     def ids(self, ids: List[str]) -> "TerminateSignatureFileRequestBodyBuilder":
         self._terminate_signature_file_request_body.ids = ids
@@ -34,7 +36,9 @@ class TerminateSignatureFileRequestBodyBuilder(object):
         self._terminate_signature_file_request_body.operator = operator
         return self
 
-    def terminate_reason(self, terminate_reason: str) -> "TerminateSignatureFileRequestBodyBuilder":
+    def terminate_reason(
+        self, terminate_reason: str
+    ) -> "TerminateSignatureFileRequestBodyBuilder":
         self._terminate_signature_file_request_body.terminate_reason = terminate_reason
         return self
 

@@ -23,8 +23,9 @@ class KeyPointMatchDetailsBuilder(object):
     def __init__(self) -> None:
         self._key_point_match_details = KeyPointMatchDetails()
 
-    def key_point_match_details(self,
-                                key_point_match_details: List[KeyPointMatchDetail]) -> "KeyPointMatchDetailsBuilder":
+    def key_point_match_details(
+        self, key_point_match_details: List[KeyPointMatchDetail]
+    ) -> "KeyPointMatchDetailsBuilder":
         self._key_point_match_details.key_point_match_details = key_point_match_details
         return self
 

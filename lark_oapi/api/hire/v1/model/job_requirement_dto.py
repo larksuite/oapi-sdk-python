@@ -80,7 +80,9 @@ class JobRequirementDto(object):
         self.min_salary: Optional[str] = None
         self.address: Optional[IdNameObject] = None
         self.description: Optional[str] = None
-        self.customized_data_list: Optional[List[JobRequirementCustomizedDataDto]] = None
+        self.customized_data_list: Optional[List[JobRequirementCustomizedDataDto]] = (
+            None
+        )
         self.job_id_list: Optional[List[str]] = None
         self.process_type: Optional[int] = None
         self.job_type: Optional[JobTypeInfo] = None
@@ -123,7 +125,9 @@ class JobRequirementDtoBuilder(object):
         self._job_requirement_dto.head_count = head_count
         return self
 
-    def recruitment_type(self, recruitment_type: IdNameObject) -> "JobRequirementDtoBuilder":
+    def recruitment_type(
+        self, recruitment_type: IdNameObject
+    ) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.recruitment_type = recruitment_type
         return self
 
@@ -151,15 +155,21 @@ class JobRequirementDtoBuilder(object):
         self._job_requirement_dto.department = department
         return self
 
-    def recruiter_list(self, recruiter_list: List[IdNameObject]) -> "JobRequirementDtoBuilder":
+    def recruiter_list(
+        self, recruiter_list: List[IdNameObject]
+    ) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.recruiter_list = recruiter_list
         return self
 
-    def jr_hiring_managers(self, jr_hiring_managers: List[IdNameObject]) -> "JobRequirementDtoBuilder":
+    def jr_hiring_managers(
+        self, jr_hiring_managers: List[IdNameObject]
+    ) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.jr_hiring_managers = jr_hiring_managers
         return self
 
-    def direct_leader_list(self, direct_leader_list: List[IdNameObject]) -> "JobRequirementDtoBuilder":
+    def direct_leader_list(
+        self, direct_leader_list: List[IdNameObject]
+    ) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.direct_leader_list = direct_leader_list
         return self
 
@@ -195,8 +205,9 @@ class JobRequirementDtoBuilder(object):
         self._job_requirement_dto.description = description
         return self
 
-    def customized_data_list(self,
-                             customized_data_list: List[JobRequirementCustomizedDataDto]) -> "JobRequirementDtoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[JobRequirementCustomizedDataDto]
+    ) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.customized_data_list = customized_data_list
         return self
 

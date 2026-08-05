@@ -9,7 +9,6 @@ from .urgent_sms_message_response_body import UrgentSmsMessageResponseBody
 class UrgentSmsMessageResponse(BaseResponse):
     _types = {
         "data": UrgentSmsMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

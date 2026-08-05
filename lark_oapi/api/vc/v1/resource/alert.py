@@ -17,7 +17,9 @@ class Alert(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAlertRequest, option: Optional[RequestOption] = None) -> ListAlertResponse:
+    def list(
+        self, request: ListAlertRequest, option: Optional[RequestOption] = None
+    ) -> ListAlertResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Alert(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAlertResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAlertResponse)
+        response: ListAlertResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAlertResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAlertRequest, option: Optional[RequestOption] = None) -> ListAlertResponse:
+    async def alist(
+        self, request: ListAlertRequest, option: Optional[RequestOption] = None
+    ) -> ListAlertResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Alert(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAlertResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAlertResponse)
+        response: ListAlertResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAlertResponse
+        )
         response.raw = resp
 
         return response

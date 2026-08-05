@@ -20,7 +20,6 @@ class ListApproverRequest(BaseRequest):
 
 
 class ListApproverRequestBuilder(object):
-
     def __init__(self) -> None:
         list_approver_request = ListApproverRequest()
         list_approver_request.http_method = HttpMethod.GET

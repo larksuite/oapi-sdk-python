@@ -23,9 +23,7 @@ class P2DriveNoticeCommentAddV1Data(object):
 
 
 class P2DriveNoticeCommentAddV1(EventContext):
-    _types = {
-        "event": P2DriveNoticeCommentAddV1Data
-    }
+    _types = {"event": P2DriveNoticeCommentAddV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

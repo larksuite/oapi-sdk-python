@@ -17,8 +17,11 @@ class ChinesePassport(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeChinesePassportRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeChinesePassportResponse:
+    def recognize(
+        self,
+        request: RecognizeChinesePassportRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeChinesePassportResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class ChinesePassport(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeChinesePassportResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecognizeChinesePassportResponse)
+        response: RecognizeChinesePassportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeChinesePassportResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeChinesePassportRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeChinesePassportResponse:
+    async def arecognize(
+        self,
+        request: RecognizeChinesePassportRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeChinesePassportResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +63,9 @@ class ChinesePassport(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeChinesePassportResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    RecognizeChinesePassportResponse)
+        response: RecognizeChinesePassportResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeChinesePassportResponse
+        )
         response.raw = resp
 
         return response

@@ -21,13 +21,17 @@ class SearchJobChangeRequest(BaseRequest):
 
 
 class SearchJobChangeRequestBuilder(object):
-
     def __init__(self) -> None:
         search_job_change_request = SearchJobChangeRequest()
         search_job_change_request.http_method = HttpMethod.POST
         search_job_change_request.uri = "/open-apis/corehr/v2/job_changes/search"
-        search_job_change_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._search_job_change_request: SearchJobChangeRequest = search_job_change_request
+        search_job_change_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._search_job_change_request: SearchJobChangeRequest = (
+            search_job_change_request
+        )
 
     def page_size(self, page_size: int) -> "SearchJobChangeRequestBuilder":
         self._search_job_change_request.page_size = page_size
@@ -44,12 +48,18 @@ class SearchJobChangeRequestBuilder(object):
         self._search_job_change_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchJobChangeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchJobChangeRequestBuilder":
         self._search_job_change_request.department_id_type = department_id_type
-        self._search_job_change_request.add_query("department_id_type", department_id_type)
+        self._search_job_change_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: SearchJobChangeRequestBody) -> "SearchJobChangeRequestBuilder":
+    def request_body(
+        self, request_body: SearchJobChangeRequestBody
+    ) -> "SearchJobChangeRequestBuilder":
         self._search_job_change_request.request_body = request_body
         self._search_job_change_request.body = request_body
         return self

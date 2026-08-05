@@ -65,7 +65,9 @@ class NationalIdBuilder(object):
         self._national_id.issued_by = issued_by
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "NationalIdBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "NationalIdBuilder":
         self._national_id.custom_fields = custom_fields
         return self
 
@@ -77,7 +79,9 @@ class NationalIdBuilder(object):
         self._national_id.series = series
         return self
 
-    def effective_for_a_long_time(self, effective_for_a_long_time: bool) -> "NationalIdBuilder":
+    def effective_for_a_long_time(
+        self, effective_for_a_long_time: bool
+    ) -> "NationalIdBuilder":
         self._national_id.effective_for_a_long_time = effective_for_a_long_time
         return self
 

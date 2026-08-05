@@ -44,55 +44,96 @@ class ResignedUserResouceReceiverBuilder(object):
     def __init__(self) -> None:
         self._resigned_user_resouce_receiver = ResignedUserResouceReceiver()
 
-    def department_chat_acceptor_employee_id(self,
-                                             department_chat_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.department_chat_acceptor_employee_id = department_chat_acceptor_employee_id
+    def department_chat_acceptor_employee_id(
+        self, department_chat_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.department_chat_acceptor_employee_id = (
+            department_chat_acceptor_employee_id
+        )
         return self
 
-    def external_chat_acceptor_employee_id(self,
-                                           external_chat_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.external_chat_acceptor_employee_id = external_chat_acceptor_employee_id
+    def external_chat_acceptor_employee_id(
+        self, external_chat_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.external_chat_acceptor_employee_id = (
+            external_chat_acceptor_employee_id
+        )
         return self
 
-    def docs_acceptor_employee_id(self, docs_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.docs_acceptor_employee_id = docs_acceptor_employee_id
+    def docs_acceptor_employee_id(
+        self, docs_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.docs_acceptor_employee_id = (
+            docs_acceptor_employee_id
+        )
         return self
 
-    def calendar_acceptor_employee_id(self, calendar_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.calendar_acceptor_employee_id = calendar_acceptor_employee_id
+    def calendar_acceptor_employee_id(
+        self, calendar_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.calendar_acceptor_employee_id = (
+            calendar_acceptor_employee_id
+        )
         return self
 
-    def application_acceptor_employee_id(self,
-                                         application_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.application_acceptor_employee_id = application_acceptor_employee_id
+    def application_acceptor_employee_id(
+        self, application_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.application_acceptor_employee_id = (
+            application_acceptor_employee_id
+        )
         return self
 
-    def helpdesk_acceptor_employee_id(self, helpdesk_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.helpdesk_acceptor_employee_id = helpdesk_acceptor_employee_id
+    def helpdesk_acceptor_employee_id(
+        self, helpdesk_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.helpdesk_acceptor_employee_id = (
+            helpdesk_acceptor_employee_id
+        )
         return self
 
-    def approval_acceptor_employee_id(self, approval_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.approval_acceptor_employee_id = approval_acceptor_employee_id
+    def approval_acceptor_employee_id(
+        self, approval_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.approval_acceptor_employee_id = (
+            approval_acceptor_employee_id
+        )
         return self
 
-    def email_acceptor_employee_id(self, email_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.email_acceptor_employee_id = email_acceptor_employee_id
+    def email_acceptor_employee_id(
+        self, email_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.email_acceptor_employee_id = (
+            email_acceptor_employee_id
+        )
         return self
 
     def aweme_owner(self, aweme_owner: str) -> "ResignedUserResouceReceiverBuilder":
         self._resigned_user_resouce_receiver.aweme_owner = aweme_owner
         return self
 
-    def minutes_acceptor_employee_id(self, minutes_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.minutes_acceptor_employee_id = minutes_acceptor_employee_id
+    def minutes_acceptor_employee_id(
+        self, minutes_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.minutes_acceptor_employee_id = (
+            minutes_acceptor_employee_id
+        )
         return self
 
-    def survey_acceptor_employee_id(self, survey_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.survey_acceptor_employee_id = survey_acceptor_employee_id
+    def survey_acceptor_employee_id(
+        self, survey_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.survey_acceptor_employee_id = (
+            survey_acceptor_employee_id
+        )
         return self
 
-    def anycross_acceptor_employee_id(self, anycross_acceptor_employee_id: str) -> "ResignedUserResouceReceiverBuilder":
-        self._resigned_user_resouce_receiver.anycross_acceptor_employee_id = anycross_acceptor_employee_id
+    def anycross_acceptor_employee_id(
+        self, anycross_acceptor_employee_id: str
+    ) -> "ResignedUserResouceReceiverBuilder":
+        self._resigned_user_resouce_receiver.anycross_acceptor_employee_id = (
+            anycross_acceptor_employee_id
+        )
         return self
 
     def build(self) -> "ResignedUserResouceReceiver":

@@ -29,15 +29,21 @@ class FilterEmployeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._filter_employee_response_body = FilterEmployeeResponseBody()
 
-    def employees(self, employees: List[EmployeeEntity]) -> "FilterEmployeeResponseBodyBuilder":
+    def employees(
+        self, employees: List[EmployeeEntity]
+    ) -> "FilterEmployeeResponseBodyBuilder":
         self._filter_employee_response_body.employees = employees
         return self
 
-    def page_response(self, page_response: PageResponse) -> "FilterEmployeeResponseBodyBuilder":
+    def page_response(
+        self, page_response: PageResponse
+    ) -> "FilterEmployeeResponseBodyBuilder":
         self._filter_employee_response_body.page_response = page_response
         return self
 
-    def abnormals(self, abnormals: List[AbnormalRecord]) -> "FilterEmployeeResponseBodyBuilder":
+    def abnormals(
+        self, abnormals: List[AbnormalRecord]
+    ) -> "FilterEmployeeResponseBodyBuilder":
         self._filter_employee_response_body.abnormals = abnormals
         return self
 

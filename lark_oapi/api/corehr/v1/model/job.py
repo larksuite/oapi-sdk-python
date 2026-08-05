@@ -104,7 +104,9 @@ class JobBuilder(object):
         self._job.custom_fields = custom_fields
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "JobBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "JobBuilder":
         self._job.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

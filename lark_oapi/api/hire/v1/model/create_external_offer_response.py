@@ -9,7 +9,6 @@ from .create_external_offer_response_body import CreateExternalOfferResponseBody
 class CreateExternalOfferResponse(BaseResponse):
     _types = {
         "data": CreateExternalOfferResponseBody,
-
     }
 
     def __init__(self, d=None):

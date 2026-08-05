@@ -18,12 +18,14 @@ class SubscribeFileRequest(BaseRequest):
 
 
 class SubscribeFileRequestBuilder(object):
-
     def __init__(self) -> None:
         subscribe_file_request = SubscribeFileRequest()
         subscribe_file_request.http_method = HttpMethod.POST
         subscribe_file_request.uri = "/open-apis/drive/v1/files/:file_token/subscribe"
-        subscribe_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        subscribe_file_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._subscribe_file_request: SubscribeFileRequest = subscribe_file_request
 
     def file_type(self, file_type: str) -> "SubscribeFileRequestBuilder":

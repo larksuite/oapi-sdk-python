@@ -19,13 +19,16 @@ class QueryRecentChangeLocationRequest(BaseRequest):
 
 
 class QueryRecentChangeLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         query_recent_change_location_request = QueryRecentChangeLocationRequest()
         query_recent_change_location_request.http_method = HttpMethod.GET
-        query_recent_change_location_request.uri = "/open-apis/corehr/v2/locations/query_recent_change"
+        query_recent_change_location_request.uri = (
+            "/open-apis/corehr/v2/locations/query_recent_change"
+        )
         query_recent_change_location_request.token_types = {AccessTokenType.TENANT}
-        self._query_recent_change_location_request: QueryRecentChangeLocationRequest = query_recent_change_location_request
+        self._query_recent_change_location_request: QueryRecentChangeLocationRequest = (
+            query_recent_change_location_request
+        )
 
     def page_size(self, page_size: int) -> "QueryRecentChangeLocationRequestBuilder":
         self._query_recent_change_location_request.page_size = page_size

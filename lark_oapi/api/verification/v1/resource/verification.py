@@ -17,7 +17,9 @@ class Verification(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetVerificationRequest, option: Optional[RequestOption] = None) -> GetVerificationResponse:
+    def get(
+        self, request: GetVerificationRequest, option: Optional[RequestOption] = None
+    ) -> GetVerificationResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Verification(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetVerificationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetVerificationResponse)
+        response: GetVerificationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetVerificationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetVerificationRequest,
-                   option: Optional[RequestOption] = None) -> GetVerificationResponse:
+    async def aget(
+        self, request: GetVerificationRequest, option: Optional[RequestOption] = None
+    ) -> GetVerificationResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Verification(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetVerificationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetVerificationResponse)
+        response: GetVerificationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetVerificationResponse
+        )
         response.raw = resp
 
         return response

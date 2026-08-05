@@ -38,11 +38,15 @@ class BitableTableRecordActionBuilder(object):
         self._bitable_table_record_action.action = action
         return self
 
-    def before_value(self, before_value: List[BitableTableRecordActionField]) -> "BitableTableRecordActionBuilder":
+    def before_value(
+        self, before_value: List[BitableTableRecordActionField]
+    ) -> "BitableTableRecordActionBuilder":
         self._bitable_table_record_action.before_value = before_value
         return self
 
-    def after_value(self, after_value: List[BitableTableRecordActionField]) -> "BitableTableRecordActionBuilder":
+    def after_value(
+        self, after_value: List[BitableTableRecordActionField]
+    ) -> "BitableTableRecordActionBuilder":
         self._bitable_table_record_action.after_value = after_value
         return self
 

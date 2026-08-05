@@ -9,7 +9,6 @@ from .patch_file_subscription_response_body import PatchFileSubscriptionResponse
 class PatchFileSubscriptionResponse(BaseResponse):
     _types = {
         "data": PatchFileSubscriptionResponseBody,
-
     }
 
     def __init__(self, d=None):

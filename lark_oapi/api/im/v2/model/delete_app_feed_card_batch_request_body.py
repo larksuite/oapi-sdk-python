@@ -21,9 +21,13 @@ class DeleteAppFeedCardBatchRequestBody(object):
 
 class DeleteAppFeedCardBatchRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_app_feed_card_batch_request_body = DeleteAppFeedCardBatchRequestBody()
+        self._delete_app_feed_card_batch_request_body = (
+            DeleteAppFeedCardBatchRequestBody()
+        )
 
-    def feed_cards(self, feed_cards: List[UserOpenAppFeedCardDeleter]) -> "DeleteAppFeedCardBatchRequestBodyBuilder":
+    def feed_cards(
+        self, feed_cards: List[UserOpenAppFeedCardDeleter]
+    ) -> "DeleteAppFeedCardBatchRequestBodyBuilder":
         self._delete_app_feed_card_batch_request_body.feed_cards = feed_cards
         return self
 

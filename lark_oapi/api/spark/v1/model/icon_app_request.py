@@ -17,7 +17,6 @@ class IconAppRequest(BaseRequest):
 
 
 class IconAppRequestBuilder(object):
-
     def __init__(self) -> None:
         icon_app_request = IconAppRequest()
         icon_app_request.http_method = HttpMethod.POST

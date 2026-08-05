@@ -39,7 +39,9 @@ class OkrObjectiveKr(object):
         self.progress_report_last_updated_time: Optional[int] = None
         self.score_last_updated_time: Optional[int] = None
         self.deadline: Optional[int] = None
-        self.mentioned_user_list: Optional[List[OkrObjectiveAlignedObjectiveOwner]] = None
+        self.mentioned_user_list: Optional[List[OkrObjectiveAlignedObjectiveOwner]] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -71,33 +73,53 @@ class OkrObjectiveKrBuilder(object):
         self._okr_objective_kr.kr_weight = kr_weight
         return self
 
-    def progress_rate(self, progress_rate: OkrObjectiveProgressRate) -> "OkrObjectiveKrBuilder":
+    def progress_rate(
+        self, progress_rate: OkrObjectiveProgressRate
+    ) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.progress_rate = progress_rate
         return self
 
-    def progress_record_list(self, progress_record_list: List[ProgressRecordSimplify]) -> "OkrObjectiveKrBuilder":
+    def progress_record_list(
+        self, progress_record_list: List[ProgressRecordSimplify]
+    ) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.progress_record_list = progress_record_list
         return self
 
-    def progress_rate_percent_last_updated_time(self,
-                                                progress_rate_percent_last_updated_time: int) -> "OkrObjectiveKrBuilder":
-        self._okr_objective_kr.progress_rate_percent_last_updated_time = progress_rate_percent_last_updated_time
+    def progress_rate_percent_last_updated_time(
+        self, progress_rate_percent_last_updated_time: int
+    ) -> "OkrObjectiveKrBuilder":
+        self._okr_objective_kr.progress_rate_percent_last_updated_time = (
+            progress_rate_percent_last_updated_time
+        )
         return self
 
-    def progress_rate_status_last_updated_time(self,
-                                               progress_rate_status_last_updated_time: int) -> "OkrObjectiveKrBuilder":
-        self._okr_objective_kr.progress_rate_status_last_updated_time = progress_rate_status_last_updated_time
+    def progress_rate_status_last_updated_time(
+        self, progress_rate_status_last_updated_time: int
+    ) -> "OkrObjectiveKrBuilder":
+        self._okr_objective_kr.progress_rate_status_last_updated_time = (
+            progress_rate_status_last_updated_time
+        )
         return self
 
-    def progress_record_last_updated_time(self, progress_record_last_updated_time: int) -> "OkrObjectiveKrBuilder":
-        self._okr_objective_kr.progress_record_last_updated_time = progress_record_last_updated_time
+    def progress_record_last_updated_time(
+        self, progress_record_last_updated_time: int
+    ) -> "OkrObjectiveKrBuilder":
+        self._okr_objective_kr.progress_record_last_updated_time = (
+            progress_record_last_updated_time
+        )
         return self
 
-    def progress_report_last_updated_time(self, progress_report_last_updated_time: int) -> "OkrObjectiveKrBuilder":
-        self._okr_objective_kr.progress_report_last_updated_time = progress_report_last_updated_time
+    def progress_report_last_updated_time(
+        self, progress_report_last_updated_time: int
+    ) -> "OkrObjectiveKrBuilder":
+        self._okr_objective_kr.progress_report_last_updated_time = (
+            progress_report_last_updated_time
+        )
         return self
 
-    def score_last_updated_time(self, score_last_updated_time: int) -> "OkrObjectiveKrBuilder":
+    def score_last_updated_time(
+        self, score_last_updated_time: int
+    ) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.score_last_updated_time = score_last_updated_time
         return self
 
@@ -105,8 +127,9 @@ class OkrObjectiveKrBuilder(object):
         self._okr_objective_kr.deadline = deadline
         return self
 
-    def mentioned_user_list(self,
-                            mentioned_user_list: List[OkrObjectiveAlignedObjectiveOwner]) -> "OkrObjectiveKrBuilder":
+    def mentioned_user_list(
+        self, mentioned_user_list: List[OkrObjectiveAlignedObjectiveOwner]
+    ) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.mentioned_user_list = mentioned_user_list
         return self
 

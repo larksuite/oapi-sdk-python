@@ -17,7 +17,6 @@ class DelRoomLevelRequest(BaseRequest):
 
 
 class DelRoomLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         del_room_level_request = DelRoomLevelRequest()
         del_room_level_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class DelRoomLevelRequestBuilder(object):
         del_room_level_request.token_types = {AccessTokenType.TENANT}
         self._del_room_level_request: DelRoomLevelRequest = del_room_level_request
 
-    def request_body(self, request_body: DelRoomLevelRequestBody) -> "DelRoomLevelRequestBuilder":
+    def request_body(
+        self, request_body: DelRoomLevelRequestBody
+    ) -> "DelRoomLevelRequestBuilder":
         self._del_room_level_request.request_body = request_body
         self._del_room_level_request.body = request_body
         return self

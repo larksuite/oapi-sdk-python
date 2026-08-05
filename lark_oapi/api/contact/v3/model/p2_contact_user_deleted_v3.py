@@ -20,9 +20,7 @@ class P2ContactUserDeletedV3Data(object):
 
 
 class P2ContactUserDeletedV3(EventContext):
-    _types = {
-        "event": P2ContactUserDeletedV3Data
-    }
+    _types = {"event": P2ContactUserDeletedV3Data}
 
     def __init__(self, d=None):
         super().__init__(d)

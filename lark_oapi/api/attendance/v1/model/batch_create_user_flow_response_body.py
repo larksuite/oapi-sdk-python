@@ -23,7 +23,9 @@ class BatchCreateUserFlowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_user_flow_response_body = BatchCreateUserFlowResponseBody()
 
-    def flow_records(self, flow_records: List[UserFlow]) -> "BatchCreateUserFlowResponseBodyBuilder":
+    def flow_records(
+        self, flow_records: List[UserFlow]
+    ) -> "BatchCreateUserFlowResponseBodyBuilder":
         self._batch_create_user_flow_response_body.flow_records = flow_records
         return self
 

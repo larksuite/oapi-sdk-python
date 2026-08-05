@@ -43,11 +43,15 @@ class ReserveMeetingSettingBuilder(object):
         self._reserve_meeting_setting.topic = topic
         return self
 
-    def action_permissions(self, action_permissions: List[ReserveActionPermission]) -> "ReserveMeetingSettingBuilder":
+    def action_permissions(
+        self, action_permissions: List[ReserveActionPermission]
+    ) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.action_permissions = action_permissions
         return self
 
-    def meeting_initial_type(self, meeting_initial_type: int) -> "ReserveMeetingSettingBuilder":
+    def meeting_initial_type(
+        self, meeting_initial_type: int
+    ) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.meeting_initial_type = meeting_initial_type
         return self
 
@@ -55,7 +59,9 @@ class ReserveMeetingSettingBuilder(object):
         self._reserve_meeting_setting.meeting_connect = meeting_connect
         return self
 
-    def call_setting(self, call_setting: ReserveCallSetting) -> "ReserveMeetingSettingBuilder":
+    def call_setting(
+        self, call_setting: ReserveCallSetting
+    ) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.call_setting = call_setting
         return self
 
@@ -63,7 +69,9 @@ class ReserveMeetingSettingBuilder(object):
         self._reserve_meeting_setting.auto_record = auto_record
         return self
 
-    def assign_host_list(self, assign_host_list: List[ReserveAssignHost]) -> "ReserveMeetingSettingBuilder":
+    def assign_host_list(
+        self, assign_host_list: List[ReserveAssignHost]
+    ) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.assign_host_list = assign_host_list
         return self
 

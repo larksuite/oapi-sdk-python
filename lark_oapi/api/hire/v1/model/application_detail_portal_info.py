@@ -23,9 +23,12 @@ class ApplicationDetailPortalInfoBuilder(object):
     def __init__(self) -> None:
         self._application_detail_portal_info = ApplicationDetailPortalInfo()
 
-    def campus_volunteer_info(self,
-                              campus_volunteer_info: CampusVolumnteerInfo) -> "ApplicationDetailPortalInfoBuilder":
-        self._application_detail_portal_info.campus_volunteer_info = campus_volunteer_info
+    def campus_volunteer_info(
+        self, campus_volunteer_info: CampusVolumnteerInfo
+    ) -> "ApplicationDetailPortalInfoBuilder":
+        self._application_detail_portal_info.campus_volunteer_info = (
+            campus_volunteer_info
+        )
         return self
 
     def build(self) -> "ApplicationDetailPortalInfo":

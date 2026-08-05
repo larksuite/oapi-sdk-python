@@ -17,13 +17,16 @@ class GetAppVisibilityAppRequest(BaseRequest):
 
 
 class GetAppVisibilityAppRequestBuilder(object):
-
     def __init__(self) -> None:
         get_app_visibility_app_request = GetAppVisibilityAppRequest()
         get_app_visibility_app_request.http_method = HttpMethod.GET
-        get_app_visibility_app_request.uri = "/open-apis/spark/v1/apps/:app_id/access-scope"
+        get_app_visibility_app_request.uri = (
+            "/open-apis/spark/v1/apps/:app_id/access-scope"
+        )
         get_app_visibility_app_request.token_types = {AccessTokenType.USER}
-        self._get_app_visibility_app_request: GetAppVisibilityAppRequest = get_app_visibility_app_request
+        self._get_app_visibility_app_request: GetAppVisibilityAppRequest = (
+            get_app_visibility_app_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetAppVisibilityAppRequestBuilder":
         self._get_app_visibility_app_request.user_id_type = user_id_type

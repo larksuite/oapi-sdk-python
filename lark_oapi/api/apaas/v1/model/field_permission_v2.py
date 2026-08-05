@@ -36,19 +36,27 @@ class FieldPermissionV2Builder(object):
         self._field_permission_v2.field_api_name = field_api_name
         return self
 
-    def field_permissions(self, field_permissions: List[int]) -> "FieldPermissionV2Builder":
+    def field_permissions(
+        self, field_permissions: List[int]
+    ) -> "FieldPermissionV2Builder":
         self._field_permission_v2.field_permissions = field_permissions
         return self
 
-    def is_sub_object_field(self, is_sub_object_field: bool) -> "FieldPermissionV2Builder":
+    def is_sub_object_field(
+        self, is_sub_object_field: bool
+    ) -> "FieldPermissionV2Builder":
         self._field_permission_v2.is_sub_object_field = is_sub_object_field
         return self
 
-    def sub_object_api_name(self, sub_object_api_name: str) -> "FieldPermissionV2Builder":
+    def sub_object_api_name(
+        self, sub_object_api_name: str
+    ) -> "FieldPermissionV2Builder":
         self._field_permission_v2.sub_object_api_name = sub_object_api_name
         return self
 
-    def sub_object_name(self, sub_object_name: Dict[str, str]) -> "FieldPermissionV2Builder":
+    def sub_object_name(
+        self, sub_object_name: Dict[str, str]
+    ) -> "FieldPermissionV2Builder":
         self._field_permission_v2.sub_object_name = sub_object_name
         return self
 

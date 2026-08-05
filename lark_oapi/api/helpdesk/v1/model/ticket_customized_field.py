@@ -52,8 +52,12 @@ class TicketCustomizedFieldBuilder(object):
     def __init__(self) -> None:
         self._ticket_customized_field = TicketCustomizedField()
 
-    def ticket_customized_field_id(self, ticket_customized_field_id: str) -> "TicketCustomizedFieldBuilder":
-        self._ticket_customized_field.ticket_customized_field_id = ticket_customized_field_id
+    def ticket_customized_field_id(
+        self, ticket_customized_field_id: str
+    ) -> "TicketCustomizedFieldBuilder":
+        self._ticket_customized_field.ticket_customized_field_id = (
+            ticket_customized_field_id
+        )
         return self
 
     def helpdesk_id(self, helpdesk_id: str) -> "TicketCustomizedFieldBuilder":
@@ -108,7 +112,9 @@ class TicketCustomizedFieldBuilder(object):
         self._ticket_customized_field.updated_by = updated_by
         return self
 
-    def dropdown_allow_multiple(self, dropdown_allow_multiple: bool) -> "TicketCustomizedFieldBuilder":
+    def dropdown_allow_multiple(
+        self, dropdown_allow_multiple: bool
+    ) -> "TicketCustomizedFieldBuilder":
         self._ticket_customized_field.dropdown_allow_multiple = dropdown_allow_multiple
         return self
 

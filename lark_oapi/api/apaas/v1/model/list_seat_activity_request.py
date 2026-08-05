@@ -18,13 +18,14 @@ class ListSeatActivityRequest(BaseRequest):
 
 
 class ListSeatActivityRequestBuilder(object):
-
     def __init__(self) -> None:
         list_seat_activity_request = ListSeatActivityRequest()
         list_seat_activity_request.http_method = HttpMethod.GET
         list_seat_activity_request.uri = "/open-apis/apaas/v1/seat_activities"
         list_seat_activity_request.token_types = {AccessTokenType.USER}
-        self._list_seat_activity_request: ListSeatActivityRequest = list_seat_activity_request
+        self._list_seat_activity_request: ListSeatActivityRequest = (
+            list_seat_activity_request
+        )
 
     def seat_type(self, seat_type: str) -> "ListSeatActivityRequestBuilder":
         self._list_seat_activity_request.seat_type = seat_type

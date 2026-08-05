@@ -79,15 +79,21 @@ class CustomOrgCreateBuilder(object):
         self._custom_org_create.org_roles = org_roles
         return self
 
-    def match_rule_groups(self, match_rule_groups: List[MatchRules]) -> "CustomOrgCreateBuilder":
+    def match_rule_groups(
+        self, match_rule_groups: List[MatchRules]
+    ) -> "CustomOrgCreateBuilder":
         self._custom_org_create.match_rule_groups = match_rule_groups
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgCreateBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "CustomOrgCreateBuilder":
         self._custom_org_create.custom_fields = custom_fields
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "CustomOrgCreateBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "CustomOrgCreateBuilder":
         self._custom_org_create.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

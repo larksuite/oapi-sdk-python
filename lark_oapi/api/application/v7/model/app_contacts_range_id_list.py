@@ -30,7 +30,9 @@ class AppContactsRangeIdListBuilder(object):
         self._app_contacts_range_id_list.user_ids = user_ids
         return self
 
-    def department_ids(self, department_ids: List[str]) -> "AppContactsRangeIdListBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "AppContactsRangeIdListBuilder":
         self._app_contacts_range_id_list.department_ids = department_ids
         return self
 

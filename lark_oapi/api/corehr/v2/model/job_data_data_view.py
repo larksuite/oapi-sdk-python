@@ -29,7 +29,9 @@ class JobDataDataViewBuilder(object):
         self._job_data_data_view.type = type
         return self
 
-    def job_data_data_views(self, job_data_data_views: List[JobDataFieldView]) -> "JobDataDataViewBuilder":
+    def job_data_data_views(
+        self, job_data_data_views: List[JobDataFieldView]
+    ) -> "JobDataDataViewBuilder":
         self._job_data_data_view.job_data_data_views = job_data_data_views
         return self
 

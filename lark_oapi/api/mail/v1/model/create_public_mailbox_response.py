@@ -9,7 +9,6 @@ from .create_public_mailbox_response_body import CreatePublicMailboxResponseBody
 class CreatePublicMailboxResponse(BaseResponse):
     _types = {
         "data": CreatePublicMailboxResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -22,7 +22,9 @@ class MessageMergeForwardContentBuilder(object):
     def __init__(self) -> None:
         self._message_merge_forward_content = MessageMergeForwardContent()
 
-    def message_id_list(self, message_id_list: List[str]) -> "MessageMergeForwardContentBuilder":
+    def message_id_list(
+        self, message_id_list: List[str]
+    ) -> "MessageMergeForwardContentBuilder":
         self._message_merge_forward_content.message_id_list = message_id_list
         return self
 

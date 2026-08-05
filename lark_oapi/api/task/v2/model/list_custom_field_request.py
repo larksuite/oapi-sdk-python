@@ -21,13 +21,17 @@ class ListCustomFieldRequest(BaseRequest):
 
 
 class ListCustomFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         list_custom_field_request = ListCustomFieldRequest()
         list_custom_field_request.http_method = HttpMethod.GET
         list_custom_field_request.uri = "/open-apis/task/v2/custom_fields"
-        list_custom_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_custom_field_request: ListCustomFieldRequest = list_custom_field_request
+        list_custom_field_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_custom_field_request: ListCustomFieldRequest = (
+            list_custom_field_request
+        )
 
     def page_size(self, page_size: int) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.page_size = page_size

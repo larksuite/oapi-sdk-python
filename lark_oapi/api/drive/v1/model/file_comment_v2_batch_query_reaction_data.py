@@ -24,9 +24,13 @@ class FileCommentV2BatchQueryReactionData(object):
 
 class FileCommentV2BatchQueryReactionDataBuilder(object):
     def __init__(self) -> None:
-        self._file_comment_v2_batch_query_reaction_data = FileCommentV2BatchQueryReactionData()
+        self._file_comment_v2_batch_query_reaction_data = (
+            FileCommentV2BatchQueryReactionData()
+        )
 
-    def reaction_key(self, reaction_key: str) -> "FileCommentV2BatchQueryReactionDataBuilder":
+    def reaction_key(
+        self, reaction_key: str
+    ) -> "FileCommentV2BatchQueryReactionDataBuilder":
         self._file_comment_v2_batch_query_reaction_data.reaction_key = reaction_key
         return self
 
@@ -34,7 +38,9 @@ class FileCommentV2BatchQueryReactionDataBuilder(object):
         self._file_comment_v2_batch_query_reaction_data.count = count
         return self
 
-    def ahead_users(self, ahead_users: List[str]) -> "FileCommentV2BatchQueryReactionDataBuilder":
+    def ahead_users(
+        self, ahead_users: List[str]
+    ) -> "FileCommentV2BatchQueryReactionDataBuilder":
         self._file_comment_v2_batch_query_reaction_data.ahead_users = ahead_users
         return self
 

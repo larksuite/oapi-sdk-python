@@ -32,7 +32,9 @@ class QueryPositionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_position_request_body = QueryPositionRequestBody()
 
-    def department_ids(self, department_ids: List[str]) -> "QueryPositionRequestBodyBuilder":
+    def department_ids(
+        self, department_ids: List[str]
+    ) -> "QueryPositionRequestBodyBuilder":
         self._query_position_request_body.department_ids = department_ids
         return self
 
@@ -48,11 +50,15 @@ class QueryPositionRequestBodyBuilder(object):
         self._query_position_request_body.fields = fields
         return self
 
-    def position_ids(self, position_ids: List[str]) -> "QueryPositionRequestBodyBuilder":
+    def position_ids(
+        self, position_ids: List[str]
+    ) -> "QueryPositionRequestBodyBuilder":
         self._query_position_request_body.position_ids = position_ids
         return self
 
-    def position_codes(self, position_codes: List[str]) -> "QueryPositionRequestBodyBuilder":
+    def position_codes(
+        self, position_codes: List[str]
+    ) -> "QueryPositionRequestBodyBuilder":
         self._query_position_request_body.position_codes = position_codes
         return self
 

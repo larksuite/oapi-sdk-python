@@ -9,7 +9,6 @@ from .get_ticket_response_body import GetTicketResponseBody
 class GetTicketResponse(BaseResponse):
     _types = {
         "data": GetTicketResponseBody,
-
     }
 
     def __init__(self, d=None):

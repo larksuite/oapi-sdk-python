@@ -50,7 +50,9 @@ class CitizenshipStatusBuilder(object):
         self._citizenship_status.name = name
         return self
 
-    def citizenship_status(self, citizenship_status: List[I18n]) -> "CitizenshipStatusBuilder":
+    def citizenship_status(
+        self, citizenship_status: List[I18n]
+    ) -> "CitizenshipStatusBuilder":
         self._citizenship_status.citizenship_status = citizenship_status
         return self
 

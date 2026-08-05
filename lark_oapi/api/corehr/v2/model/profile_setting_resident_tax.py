@@ -29,19 +29,27 @@ class ProfileSettingResidentTaxBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_resident_tax = ProfileSettingResidentTax()
 
-    def year_resident_tax(self, year_resident_tax: str) -> "ProfileSettingResidentTaxBuilder":
+    def year_resident_tax(
+        self, year_resident_tax: str
+    ) -> "ProfileSettingResidentTaxBuilder":
         self._profile_setting_resident_tax.year_resident_tax = year_resident_tax
         return self
 
-    def tax_country_region(self, tax_country_region: str) -> "ProfileSettingResidentTaxBuilder":
+    def tax_country_region(
+        self, tax_country_region: str
+    ) -> "ProfileSettingResidentTaxBuilder":
         self._profile_setting_resident_tax.tax_country_region = tax_country_region
         return self
 
-    def resident_status(self, resident_status: str) -> "ProfileSettingResidentTaxBuilder":
+    def resident_status(
+        self, resident_status: str
+    ) -> "ProfileSettingResidentTaxBuilder":
         self._profile_setting_resident_tax.resident_status = resident_status
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingResidentTaxBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingResidentTaxBuilder":
         self._profile_setting_resident_tax.custom_fields = custom_fields
         return self
 

@@ -18,20 +18,25 @@ class FindByPageStageTaskRequest(BaseRequest):
 
 
 class FindByPageStageTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         find_by_page_stage_task_request = FindByPageStageTaskRequest()
         find_by_page_stage_task_request.http_method = HttpMethod.POST
-        find_by_page_stage_task_request.uri = "/open-apis/performance/v1/stage_tasks/find_by_page"
+        find_by_page_stage_task_request.uri = (
+            "/open-apis/performance/v1/stage_tasks/find_by_page"
+        )
         find_by_page_stage_task_request.token_types = {AccessTokenType.TENANT}
-        self._find_by_page_stage_task_request: FindByPageStageTaskRequest = find_by_page_stage_task_request
+        self._find_by_page_stage_task_request: FindByPageStageTaskRequest = (
+            find_by_page_stage_task_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "FindByPageStageTaskRequestBuilder":
         self._find_by_page_stage_task_request.user_id_type = user_id_type
         self._find_by_page_stage_task_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: FindByPageStageTaskRequestBody) -> "FindByPageStageTaskRequestBuilder":
+    def request_body(
+        self, request_body: FindByPageStageTaskRequestBody
+    ) -> "FindByPageStageTaskRequestBuilder":
         self._find_by_page_stage_task_request.request_body = request_body
         self._find_by_page_stage_task_request.body = request_body
         return self

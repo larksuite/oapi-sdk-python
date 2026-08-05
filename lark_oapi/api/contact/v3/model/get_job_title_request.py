@@ -16,12 +16,14 @@ class GetJobTitleRequest(BaseRequest):
 
 
 class GetJobTitleRequestBuilder(object):
-
     def __init__(self) -> None:
         get_job_title_request = GetJobTitleRequest()
         get_job_title_request.http_method = HttpMethod.GET
         get_job_title_request.uri = "/open-apis/contact/v3/job_titles/:job_title_id"
-        get_job_title_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_job_title_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_job_title_request: GetJobTitleRequest = get_job_title_request
 
     def job_title_id(self, job_title_id: str) -> "GetJobTitleRequestBuilder":

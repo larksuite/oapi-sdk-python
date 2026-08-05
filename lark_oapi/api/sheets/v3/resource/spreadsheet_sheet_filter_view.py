@@ -9,24 +9,47 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_spreadsheet_sheet_filter_view_request import CreateSpreadsheetSheetFilterViewRequest
-from ..model.create_spreadsheet_sheet_filter_view_response import CreateSpreadsheetSheetFilterViewResponse
-from ..model.delete_spreadsheet_sheet_filter_view_request import DeleteSpreadsheetSheetFilterViewRequest
-from ..model.delete_spreadsheet_sheet_filter_view_response import DeleteSpreadsheetSheetFilterViewResponse
-from ..model.get_spreadsheet_sheet_filter_view_request import GetSpreadsheetSheetFilterViewRequest
-from ..model.get_spreadsheet_sheet_filter_view_response import GetSpreadsheetSheetFilterViewResponse
-from ..model.patch_spreadsheet_sheet_filter_view_request import PatchSpreadsheetSheetFilterViewRequest
-from ..model.patch_spreadsheet_sheet_filter_view_response import PatchSpreadsheetSheetFilterViewResponse
-from ..model.query_spreadsheet_sheet_filter_view_request import QuerySpreadsheetSheetFilterViewRequest
-from ..model.query_spreadsheet_sheet_filter_view_response import QuerySpreadsheetSheetFilterViewResponse
+from ..model.create_spreadsheet_sheet_filter_view_request import (
+    CreateSpreadsheetSheetFilterViewRequest,
+)
+from ..model.create_spreadsheet_sheet_filter_view_response import (
+    CreateSpreadsheetSheetFilterViewResponse,
+)
+from ..model.delete_spreadsheet_sheet_filter_view_request import (
+    DeleteSpreadsheetSheetFilterViewRequest,
+)
+from ..model.delete_spreadsheet_sheet_filter_view_response import (
+    DeleteSpreadsheetSheetFilterViewResponse,
+)
+from ..model.get_spreadsheet_sheet_filter_view_request import (
+    GetSpreadsheetSheetFilterViewRequest,
+)
+from ..model.get_spreadsheet_sheet_filter_view_response import (
+    GetSpreadsheetSheetFilterViewResponse,
+)
+from ..model.patch_spreadsheet_sheet_filter_view_request import (
+    PatchSpreadsheetSheetFilterViewRequest,
+)
+from ..model.patch_spreadsheet_sheet_filter_view_response import (
+    PatchSpreadsheetSheetFilterViewResponse,
+)
+from ..model.query_spreadsheet_sheet_filter_view_request import (
+    QuerySpreadsheetSheetFilterViewRequest,
+)
+from ..model.query_spreadsheet_sheet_filter_view_response import (
+    QuerySpreadsheetSheetFilterViewResponse,
+)
 
 
 class SpreadsheetSheetFilterView(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateSpreadsheetSheetFilterViewRequest,
-               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterViewResponse:
+    def create(
+        self,
+        request: CreateSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +64,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateSpreadsheetSheetFilterViewResponse)
+        response: CreateSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateSpreadsheetSheetFilterViewRequest,
-                      option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterViewResponse:
+    async def acreate(
+        self,
+        request: CreateSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +86,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateSpreadsheetSheetFilterViewResponse)
+        response: CreateSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteSpreadsheetSheetFilterViewRequest,
-               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterViewResponse:
+    def delete(
+        self,
+        request: DeleteSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +112,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            DeleteSpreadsheetSheetFilterViewResponse)
+        response: DeleteSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteSpreadsheetSheetFilterViewRequest,
-                      option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterViewResponse:
+    async def adelete(
+        self,
+        request: DeleteSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +134,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            DeleteSpreadsheetSheetFilterViewResponse)
+        response: DeleteSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetSpreadsheetSheetFilterViewRequest,
-            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterViewResponse:
+    def get(
+        self,
+        request: GetSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +160,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         GetSpreadsheetSheetFilterViewResponse)
+        response: GetSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetSpreadsheetSheetFilterViewRequest,
-                   option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterViewResponse:
+    async def aget(
+        self,
+        request: GetSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +182,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         GetSpreadsheetSheetFilterViewResponse)
+        response: GetSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchSpreadsheetSheetFilterViewRequest,
-              option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFilterViewResponse:
+    def patch(
+        self,
+        request: PatchSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,14 +208,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           PatchSpreadsheetSheetFilterViewResponse)
+        response: PatchSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchSpreadsheetSheetFilterViewRequest,
-                     option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFilterViewResponse:
+    async def apatch(
+        self,
+        request: PatchSpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchSpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -179,14 +230,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchSpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           PatchSpreadsheetSheetFilterViewResponse)
+        response: PatchSpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchSpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QuerySpreadsheetSheetFilterViewRequest,
-              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFilterViewResponse:
+    def query(
+        self,
+        request: QuerySpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerySpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -201,14 +256,18 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           QuerySpreadsheetSheetFilterViewResponse)
+        response: QuerySpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySpreadsheetSheetFilterViewRequest,
-                     option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFilterViewResponse:
+    async def aquery(
+        self,
+        request: QuerySpreadsheetSheetFilterViewRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerySpreadsheetSheetFilterViewResponse:
         if option is None:
             option = RequestOption()
 
@@ -219,8 +278,9 @@ class SpreadsheetSheetFilterView(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySpreadsheetSheetFilterViewResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           QuerySpreadsheetSheetFilterViewResponse)
+        response: QuerySpreadsheetSheetFilterViewResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySpreadsheetSheetFilterViewResponse
+        )
         response.raw = resp
 
         return response

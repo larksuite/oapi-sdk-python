@@ -27,17 +27,25 @@ class SignatureTemplateCombinationSubFieldInfo(object):
 
 class SignatureTemplateCombinationSubFieldInfoBuilder(object):
     def __init__(self) -> None:
-        self._signature_template_combination_sub_field_info = SignatureTemplateCombinationSubFieldInfo()
+        self._signature_template_combination_sub_field_info = (
+            SignatureTemplateCombinationSubFieldInfo()
+        )
 
-    def field_type(self, field_type: Enum) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
+    def field_type(
+        self, field_type: Enum
+    ) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
         self._signature_template_combination_sub_field_info.field_type = field_type
         return self
 
-    def info(self, info: SignatureTemplateCommonFieldInfo) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
+    def info(
+        self, info: SignatureTemplateCommonFieldInfo
+    ) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
         self._signature_template_combination_sub_field_info.info = info
         return self
 
-    def label(self, label: List[I18n]) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
+    def label(
+        self, label: List[I18n]
+    ) -> "SignatureTemplateCombinationSubFieldInfoBuilder":
         self._signature_template_combination_sub_field_info.label = label
         return self
 

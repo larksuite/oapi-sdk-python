@@ -19,8 +19,9 @@ class UserApproval(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserApprovalRequest,
-               option: Optional[RequestOption] = None) -> CreateUserApprovalResponse:
+    def create(
+        self, request: CreateUserApprovalRequest, option: Optional[RequestOption] = None
+    ) -> CreateUserApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class UserApproval(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserApprovalResponse)
+        response: CreateUserApprovalResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserApprovalResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserApprovalRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserApprovalResponse:
+    async def acreate(
+        self, request: CreateUserApprovalRequest, option: Optional[RequestOption] = None
+    ) -> CreateUserApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,16 @@ class UserApproval(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserApprovalResponse)
+        response: CreateUserApprovalResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserApprovalResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryUserApprovalRequest,
-              option: Optional[RequestOption] = None) -> QueryUserApprovalResponse:
+    def query(
+        self, request: QueryUserApprovalRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +80,16 @@ class UserApproval(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserApprovalResponse)
+        response: QueryUserApprovalResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserApprovalResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryUserApprovalRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserApprovalResponse:
+    async def aquery(
+        self, request: QueryUserApprovalRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +100,9 @@ class UserApproval(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserApprovalResponse)
+        response: QueryUserApprovalResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserApprovalResponse
+        )
         response.raw = resp
 
         return response

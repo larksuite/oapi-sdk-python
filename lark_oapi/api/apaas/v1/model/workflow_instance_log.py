@@ -39,7 +39,9 @@ class WorkflowInstanceLogBuilder(object):
         self._workflow_instance_log.logs = logs
         return self
 
-    def next_keyword_offset(self, next_keyword_offset: str) -> "WorkflowInstanceLogBuilder":
+    def next_keyword_offset(
+        self, next_keyword_offset: str
+    ) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.next_keyword_offset = next_keyword_offset
         return self
 

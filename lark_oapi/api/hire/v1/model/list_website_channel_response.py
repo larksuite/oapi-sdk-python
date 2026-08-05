@@ -9,7 +9,6 @@ from .list_website_channel_response_body import ListWebsiteChannelResponseBody
 class ListWebsiteChannelResponse(BaseResponse):
     _types = {
         "data": ListWebsiteChannelResponseBody,
-
     }
 
     def __init__(self, d=None):

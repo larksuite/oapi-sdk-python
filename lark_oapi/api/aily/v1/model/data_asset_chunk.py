@@ -49,23 +49,33 @@ class DataAssetChunkBuilder(object):
         self._data_asset_chunk.score = score
         return self
 
-    def data_asset_label(self, data_asset_label: Dict[str, str]) -> "DataAssetChunkBuilder":
+    def data_asset_label(
+        self, data_asset_label: Dict[str, str]
+    ) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_label = data_asset_label
         return self
 
-    def data_asset_source_url(self, data_asset_source_url: str) -> "DataAssetChunkBuilder":
+    def data_asset_source_url(
+        self, data_asset_source_url: str
+    ) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_source_url = data_asset_source_url
         return self
 
-    def data_asset_data_source_type(self, data_asset_data_source_type: str) -> "DataAssetChunkBuilder":
+    def data_asset_data_source_type(
+        self, data_asset_data_source_type: str
+    ) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_data_source_type = data_asset_data_source_type
         return self
 
-    def data_asset_connect_type(self, data_asset_connect_type: str) -> "DataAssetChunkBuilder":
+    def data_asset_connect_type(
+        self, data_asset_connect_type: str
+    ) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_connect_type = data_asset_connect_type
         return self
 
-    def source_info(self, source_info: DataAssetChunkSourceInfo) -> "DataAssetChunkBuilder":
+    def source_info(
+        self, source_info: DataAssetChunkSourceInfo
+    ) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.source_info = source_info
         return self
 

@@ -25,17 +25,25 @@ class BatchQueryBackgroundCheckOrderResponseBody(object):
 
 class BatchQueryBackgroundCheckOrderResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_query_background_check_order_response_body = BatchQueryBackgroundCheckOrderResponseBody()
+        self._batch_query_background_check_order_response_body = (
+            BatchQueryBackgroundCheckOrderResponseBody()
+        )
 
-    def has_more(self, has_more: bool) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
         self._batch_query_background_check_order_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
         self._batch_query_background_check_order_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[BackgroundCheckOrder]) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
+    def items(
+        self, items: List[BackgroundCheckOrder]
+    ) -> "BatchQueryBackgroundCheckOrderResponseBodyBuilder":
         self._batch_query_background_check_order_response_body.items = items
         return self
 

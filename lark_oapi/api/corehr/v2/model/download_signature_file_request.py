@@ -16,17 +16,24 @@ class DownloadSignatureFileRequest(BaseRequest):
 
 
 class DownloadSignatureFileRequestBuilder(object):
-
     def __init__(self) -> None:
         download_signature_file_request = DownloadSignatureFileRequest()
         download_signature_file_request.http_method = HttpMethod.POST
-        download_signature_file_request.uri = "/open-apis/corehr/v2/signature_files/:signature_file_id/download"
+        download_signature_file_request.uri = (
+            "/open-apis/corehr/v2/signature_files/:signature_file_id/download"
+        )
         download_signature_file_request.token_types = {AccessTokenType.TENANT}
-        self._download_signature_file_request: DownloadSignatureFileRequest = download_signature_file_request
+        self._download_signature_file_request: DownloadSignatureFileRequest = (
+            download_signature_file_request
+        )
 
-    def signature_file_id(self, signature_file_id: str) -> "DownloadSignatureFileRequestBuilder":
+    def signature_file_id(
+        self, signature_file_id: str
+    ) -> "DownloadSignatureFileRequestBuilder":
         self._download_signature_file_request.signature_file_id = signature_file_id
-        self._download_signature_file_request.paths["signature_file_id"] = str(signature_file_id)
+        self._download_signature_file_request.paths["signature_file_id"] = str(
+            signature_file_id
+        )
         return self
 
     def build(self) -> DownloadSignatureFileRequest:

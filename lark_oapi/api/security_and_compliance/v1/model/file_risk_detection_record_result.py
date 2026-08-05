@@ -34,7 +34,9 @@ class FileRiskDetectionRecordResultBuilder(object):
         self._file_risk_detection_record_result.risk_tag = risk_tag
         return self
 
-    def need_bot_notify(self, need_bot_notify: bool) -> "FileRiskDetectionRecordResultBuilder":
+    def need_bot_notify(
+        self, need_bot_notify: bool
+    ) -> "FileRiskDetectionRecordResultBuilder":
         self._file_risk_detection_record_result.need_bot_notify = need_bot_notify
         return self
 

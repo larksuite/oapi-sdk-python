@@ -18,7 +18,6 @@ class CreateJobLevelRequest(BaseRequest):
 
 
 class CreateJobLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         create_job_level_request = CreateJobLevelRequest()
         create_job_level_request.http_method = HttpMethod.POST

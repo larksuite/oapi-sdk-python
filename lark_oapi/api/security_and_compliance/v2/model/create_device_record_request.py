@@ -17,15 +17,20 @@ class CreateDeviceRecordRequest(BaseRequest):
 
 
 class CreateDeviceRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         create_device_record_request = CreateDeviceRecordRequest()
         create_device_record_request.http_method = HttpMethod.POST
-        create_device_record_request.uri = "/open-apis/security_and_compliance/v2/device_records"
+        create_device_record_request.uri = (
+            "/open-apis/security_and_compliance/v2/device_records"
+        )
         create_device_record_request.token_types = {AccessTokenType.TENANT}
-        self._create_device_record_request: CreateDeviceRecordRequest = create_device_record_request
+        self._create_device_record_request: CreateDeviceRecordRequest = (
+            create_device_record_request
+        )
 
-    def request_body(self, request_body: CreateDeviceRecordRequestBody) -> "CreateDeviceRecordRequestBuilder":
+    def request_body(
+        self, request_body: CreateDeviceRecordRequestBody
+    ) -> "CreateDeviceRecordRequestBuilder":
         self._create_device_record_request.request_body = request_body
         self._create_device_record_request.body = request_body
         return self

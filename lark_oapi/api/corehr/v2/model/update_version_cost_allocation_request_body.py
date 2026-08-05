@@ -23,15 +23,22 @@ class UpdateVersionCostAllocationRequestBody(object):
 
 class UpdateVersionCostAllocationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_version_cost_allocation_request_body = UpdateVersionCostAllocationRequestBody()
+        self._update_version_cost_allocation_request_body = (
+            UpdateVersionCostAllocationRequestBody()
+        )
 
-    def employment_id(self, employment_id: str) -> "UpdateVersionCostAllocationRequestBodyBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "UpdateVersionCostAllocationRequestBodyBuilder":
         self._update_version_cost_allocation_request_body.employment_id = employment_id
         return self
 
-    def cost_allocation(self,
-                        cost_allocation: EmploymentCostAllocation) -> "UpdateVersionCostAllocationRequestBodyBuilder":
-        self._update_version_cost_allocation_request_body.cost_allocation = cost_allocation
+    def cost_allocation(
+        self, cost_allocation: EmploymentCostAllocation
+    ) -> "UpdateVersionCostAllocationRequestBodyBuilder":
+        self._update_version_cost_allocation_request_body.cost_allocation = (
+            cost_allocation
+        )
         return self
 
     def build(self) -> "UpdateVersionCostAllocationRequestBody":

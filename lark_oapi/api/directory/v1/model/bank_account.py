@@ -119,7 +119,9 @@ class BankAccountBuilder(object):
         self._bank_account.bank_name = bank_name
         return self
 
-    def custom_field_value(self, custom_field_value: Dict[str, CustomFieldValue]) -> "BankAccountBuilder":
+    def custom_field_value(
+        self, custom_field_value: Dict[str, CustomFieldValue]
+    ) -> "BankAccountBuilder":
         self._bank_account.custom_field_value = custom_field_value
         return self
 

@@ -21,7 +21,9 @@ class PatchUserMailboxLabelResponseBody(object):
 
 class PatchUserMailboxLabelResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_user_mailbox_label_response_body = PatchUserMailboxLabelResponseBody()
+        self._patch_user_mailbox_label_response_body = (
+            PatchUserMailboxLabelResponseBody()
+        )
 
     def label(self, label: Label) -> "PatchUserMailboxLabelResponseBodyBuilder":
         self._patch_user_mailbox_label_response_body.label = label

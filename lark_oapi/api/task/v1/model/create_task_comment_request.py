@@ -19,13 +19,17 @@ class CreateTaskCommentRequest(BaseRequest):
 
 
 class CreateTaskCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         create_task_comment_request = CreateTaskCommentRequest()
         create_task_comment_request.http_method = HttpMethod.POST
         create_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments"
-        create_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_task_comment_request: CreateTaskCommentRequest = create_task_comment_request
+        create_task_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_task_comment_request: CreateTaskCommentRequest = (
+            create_task_comment_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateTaskCommentRequestBuilder":
         self._create_task_comment_request.user_id_type = user_id_type

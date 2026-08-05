@@ -36,7 +36,9 @@ class VerifFilterConditionBuilder(object):
         self._verif_filter_condition.operator_type = operator_type
         return self
 
-    def right_values(self, right_values: List[VerifFilterValue]) -> "VerifFilterConditionBuilder":
+    def right_values(
+        self, right_values: List[VerifFilterValue]
+    ) -> "VerifFilterConditionBuilder":
         self._verif_filter_condition.right_values = right_values
         return self
 

@@ -18,20 +18,25 @@ class CreateWebsiteChannelRequest(BaseRequest):
 
 
 class CreateWebsiteChannelRequestBuilder(object):
-
     def __init__(self) -> None:
         create_website_channel_request = CreateWebsiteChannelRequest()
         create_website_channel_request.http_method = HttpMethod.POST
-        create_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels"
+        create_website_channel_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/channels"
+        )
         create_website_channel_request.token_types = {AccessTokenType.TENANT}
-        self._create_website_channel_request: CreateWebsiteChannelRequest = create_website_channel_request
+        self._create_website_channel_request: CreateWebsiteChannelRequest = (
+            create_website_channel_request
+        )
 
     def website_id(self, website_id: str) -> "CreateWebsiteChannelRequestBuilder":
         self._create_website_channel_request.website_id = website_id
         self._create_website_channel_request.paths["website_id"] = str(website_id)
         return self
 
-    def request_body(self, request_body: CreateWebsiteChannelRequestBody) -> "CreateWebsiteChannelRequestBuilder":
+    def request_body(
+        self, request_body: CreateWebsiteChannelRequestBody
+    ) -> "CreateWebsiteChannelRequestBuilder":
         self._create_website_channel_request.request_body = request_body
         self._create_website_channel_request.body = request_body
         return self

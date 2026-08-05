@@ -34,7 +34,9 @@ class ArchiveIndicatorBuilder(object):
         self._archive_indicator.indicator_result = indicator_result
         return self
 
-    def indicator_result_regular(self, indicator_result_regular: str) -> "ArchiveIndicatorBuilder":
+    def indicator_result_regular(
+        self, indicator_result_regular: str
+    ) -> "ArchiveIndicatorBuilder":
         self._archive_indicator.indicator_result_regular = indicator_result_regular
         return self
 

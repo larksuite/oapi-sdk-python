@@ -19,17 +19,27 @@ class GetDocumentBlockRequest(BaseRequest):
 
 
 class GetDocumentBlockRequestBuilder(object):
-
     def __init__(self) -> None:
         get_document_block_request = GetDocumentBlockRequest()
         get_document_block_request.http_method = HttpMethod.GET
-        get_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
-        get_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_document_block_request: GetDocumentBlockRequest = get_document_block_request
+        get_document_block_request.uri = (
+            "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
+        )
+        get_document_block_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_document_block_request: GetDocumentBlockRequest = (
+            get_document_block_request
+        )
 
-    def document_revision_id(self, document_revision_id: int) -> "GetDocumentBlockRequestBuilder":
+    def document_revision_id(
+        self, document_revision_id: int
+    ) -> "GetDocumentBlockRequestBuilder":
         self._get_document_block_request.document_revision_id = document_revision_id
-        self._get_document_block_request.add_query("document_revision_id", document_revision_id)
+        self._get_document_block_request.add_query(
+            "document_revision_id", document_revision_id
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetDocumentBlockRequestBuilder":

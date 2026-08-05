@@ -55,7 +55,9 @@ class EducationInfoBuilder(object):
         self._education_info.field_of_study = field_of_study
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EducationInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EducationInfoBuilder":
         self._education_info.custom_fields = custom_fields
         return self
 

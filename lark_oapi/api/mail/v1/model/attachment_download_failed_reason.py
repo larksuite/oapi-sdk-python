@@ -24,7 +24,9 @@ class AttachmentDownloadFailedReasonBuilder(object):
     def __init__(self) -> None:
         self._attachment_download_failed_reason = AttachmentDownloadFailedReason()
 
-    def attachment_id(self, attachment_id: str) -> "AttachmentDownloadFailedReasonBuilder":
+    def attachment_id(
+        self, attachment_id: str
+    ) -> "AttachmentDownloadFailedReasonBuilder":
         self._attachment_download_failed_reason.attachment_id = attachment_id
         return self
 

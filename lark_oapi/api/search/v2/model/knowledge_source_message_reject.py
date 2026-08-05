@@ -24,7 +24,9 @@ class KnowledgeSourceMessageRejectBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_message_reject = KnowledgeSourceMessageReject()
 
-    def message_ids(self, message_ids: List[str]) -> "KnowledgeSourceMessageRejectBuilder":
+    def message_ids(
+        self, message_ids: List[str]
+    ) -> "KnowledgeSourceMessageRejectBuilder":
         self._knowledge_source_message_reject.message_ids = message_ids
         return self
 

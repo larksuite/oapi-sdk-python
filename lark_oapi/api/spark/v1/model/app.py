@@ -13,6 +13,9 @@ class App(object):
         "icon_url": str,
         "created_at": str,
         "updated_at": str,
+        "is_published": bool,
+        "online_url": str,
+        "meta_token": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +26,9 @@ class App(object):
         self.icon_url: Optional[str] = None
         self.created_at: Optional[str] = None
         self.updated_at: Optional[str] = None
+        self.is_published: Optional[bool] = None
+        self.online_url: Optional[str] = None
+        self.meta_token: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +66,18 @@ class AppBuilder(object):
 
     def updated_at(self, updated_at: str) -> "AppBuilder":
         self._app.updated_at = updated_at
+        return self
+
+    def is_published(self, is_published: bool) -> "AppBuilder":
+        self._app.is_published = is_published
+        return self
+
+    def online_url(self, online_url: str) -> "AppBuilder":
+        self._app.online_url = online_url
+        return self
+
+    def meta_token(self, meta_token: str) -> "AppBuilder":
+        self._app.meta_token = meta_token
         return self
 
     def build(self) -> "App":

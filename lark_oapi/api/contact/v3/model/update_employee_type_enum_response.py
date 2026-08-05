@@ -9,7 +9,6 @@ from .update_employee_type_enum_response_body import UpdateEmployeeTypeEnumRespo
 class UpdateEmployeeTypeEnumResponse(BaseResponse):
     _types = {
         "data": UpdateEmployeeTypeEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

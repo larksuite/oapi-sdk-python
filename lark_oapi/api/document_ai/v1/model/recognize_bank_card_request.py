@@ -17,15 +17,20 @@ class RecognizeBankCardRequest(BaseRequest):
 
 
 class RecognizeBankCardRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_bank_card_request = RecognizeBankCardRequest()
         recognize_bank_card_request.http_method = HttpMethod.POST
-        recognize_bank_card_request.uri = "/open-apis/document_ai/v1/bank_card/recognize"
+        recognize_bank_card_request.uri = (
+            "/open-apis/document_ai/v1/bank_card/recognize"
+        )
         recognize_bank_card_request.token_types = {AccessTokenType.TENANT}
-        self._recognize_bank_card_request: RecognizeBankCardRequest = recognize_bank_card_request
+        self._recognize_bank_card_request: RecognizeBankCardRequest = (
+            recognize_bank_card_request
+        )
 
-    def request_body(self, request_body: RecognizeBankCardRequestBody) -> "RecognizeBankCardRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeBankCardRequestBody
+    ) -> "RecognizeBankCardRequestBuilder":
         self._recognize_bank_card_request.request_body = request_body
         self._recognize_bank_card_request.body = request_body
         return self

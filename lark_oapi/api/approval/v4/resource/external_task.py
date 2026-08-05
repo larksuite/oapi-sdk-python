@@ -17,8 +17,9 @@ class ExternalTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListExternalTaskRequest,
-             option: Optional[RequestOption] = None) -> ListExternalTaskResponse:
+    def list(
+        self, request: ListExternalTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListExternalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class ExternalTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListExternalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListExternalTaskResponse)
+        response: ListExternalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExternalTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListExternalTaskRequest,
-                    option: Optional[RequestOption] = None) -> ListExternalTaskResponse:
+    async def alist(
+        self, request: ListExternalTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListExternalTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class ExternalTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListExternalTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListExternalTaskResponse)
+        response: ListExternalTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListExternalTaskResponse
+        )
         response.raw = resp
 
         return response

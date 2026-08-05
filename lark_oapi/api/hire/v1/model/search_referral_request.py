@@ -18,7 +18,6 @@ class SearchReferralRequest(BaseRequest):
 
 
 class SearchReferralRequestBuilder(object):
-
     def __init__(self) -> None:
         search_referral_request = SearchReferralRequest()
         search_referral_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class SearchReferralRequestBuilder(object):
         self._search_referral_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchReferralRequestBody) -> "SearchReferralRequestBuilder":
+    def request_body(
+        self, request_body: SearchReferralRequestBody
+    ) -> "SearchReferralRequestBuilder":
         self._search_referral_request.request_body = request_body
         self._search_referral_request.body = request_body
         return self

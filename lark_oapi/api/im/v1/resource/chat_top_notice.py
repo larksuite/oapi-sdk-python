@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.delete_top_notice_chat_top_notice_request import DeleteTopNoticeChatTopNoticeRequest
-from ..model.delete_top_notice_chat_top_notice_response import DeleteTopNoticeChatTopNoticeResponse
-from ..model.put_top_notice_chat_top_notice_request import PutTopNoticeChatTopNoticeRequest
-from ..model.put_top_notice_chat_top_notice_response import PutTopNoticeChatTopNoticeResponse
+from ..model.delete_top_notice_chat_top_notice_request import (
+    DeleteTopNoticeChatTopNoticeRequest,
+)
+from ..model.delete_top_notice_chat_top_notice_response import (
+    DeleteTopNoticeChatTopNoticeResponse,
+)
+from ..model.put_top_notice_chat_top_notice_request import (
+    PutTopNoticeChatTopNoticeRequest,
+)
+from ..model.put_top_notice_chat_top_notice_response import (
+    PutTopNoticeChatTopNoticeResponse,
+)
 
 
 class ChatTopNotice(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
-                          option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
+    def delete_top_notice(
+        self,
+        request: DeleteTopNoticeChatTopNoticeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class ChatTopNotice(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteTopNoticeChatTopNoticeResponse)
+        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTopNoticeChatTopNoticeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
-                                 option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
+    async def adelete_top_notice(
+        self,
+        request: DeleteTopNoticeChatTopNoticeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class ChatTopNotice(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteTopNoticeChatTopNoticeResponse)
+        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTopNoticeChatTopNoticeResponse
+        )
         response.raw = resp
 
         return response
 
-    def put_top_notice(self, request: PutTopNoticeChatTopNoticeRequest,
-                       option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
+    def put_top_notice(
+        self,
+        request: PutTopNoticeChatTopNoticeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PutTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class ChatTopNotice(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PutTopNoticeChatTopNoticeResponse)
+        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PutTopNoticeChatTopNoticeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aput_top_notice(self, request: PutTopNoticeChatTopNoticeRequest,
-                              option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
+    async def aput_top_notice(
+        self,
+        request: PutTopNoticeChatTopNoticeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PutTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class ChatTopNotice(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PutTopNoticeChatTopNoticeResponse)
+        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PutTopNoticeChatTopNoticeResponse
+        )
         response.raw = resp
 
         return response

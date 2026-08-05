@@ -124,7 +124,9 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.job_process_type = job_process_type
         return self
 
-    def job_recruitment_type(self, job_recruitment_type: IdNameObject) -> "WebsiteJobPostBuilder":
+    def job_recruitment_type(
+        self, job_recruitment_type: IdNameObject
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.job_recruitment_type = job_recruitment_type
         return self
 
@@ -168,7 +170,9 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.headcount = headcount
         return self
 
-    def high_light_list(self, high_light_list: List[IdNameObject]) -> "WebsiteJobPostBuilder":
+    def high_light_list(
+        self, high_light_list: List[IdNameObject]
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.high_light_list = high_light_list
         return self
 
@@ -192,7 +196,9 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.modify_time = modify_time
         return self
 
-    def customized_data_list(self, customized_data_list: List[WebsiteJobPostCustomizedData]) -> "WebsiteJobPostBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[WebsiteJobPostCustomizedData]
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.customized_data_list = customized_data_list
         return self
 
@@ -204,11 +210,15 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.subject = subject
         return self
 
-    def address_list(self, address_list: List[CommonAddress]) -> "WebsiteJobPostBuilder":
+    def address_list(
+        self, address_list: List[CommonAddress]
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.address_list = address_list
         return self
 
-    def job_sequence_info(self, job_sequence_info: IdNameObject) -> "WebsiteJobPostBuilder":
+    def job_sequence_info(
+        self, job_sequence_info: IdNameObject
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.job_sequence_info = job_sequence_info
         return self
 
@@ -216,7 +226,9 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.currency = currency
         return self
 
-    def target_major_list(self, target_major_list: List[IdNameObject]) -> "WebsiteJobPostBuilder":
+    def target_major_list(
+        self, target_major_list: List[IdNameObject]
+    ) -> "WebsiteJobPostBuilder":
         self._website_job_post.target_major_list = target_major_list
         return self
 

@@ -9,7 +9,6 @@ from .delete_app_data_asset_response_body import DeleteAppDataAssetResponseBody
 class DeleteAppDataAssetResponse(BaseResponse):
     _types = {
         "data": DeleteAppDataAssetResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,7 +20,6 @@ class QueryMetricLibRequest(BaseRequest):
 
 
 class QueryMetricLibRequestBuilder(object):
-
     def __init__(self) -> None:
         query_metric_lib_request = QueryMetricLibRequest()
         query_metric_lib_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class QueryMetricLibRequestBuilder(object):
         self._query_metric_lib_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryMetricLibRequestBody) -> "QueryMetricLibRequestBuilder":
+    def request_body(
+        self, request_body: QueryMetricLibRequestBody
+    ) -> "QueryMetricLibRequestBuilder":
         self._query_metric_lib_request.request_body = request_body
         self._query_metric_lib_request.body = request_body
         return self

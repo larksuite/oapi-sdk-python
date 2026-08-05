@@ -21,12 +21,16 @@ class ListUserGroupRequest(BaseRequest):
 
 
 class ListUserGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_group_request = ListUserGroupRequest()
         list_user_group_request.http_method = HttpMethod.GET
-        list_user_group_request.uri = "/open-apis/attendance/v1/groups/:group_id/list_user"
-        list_user_group_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_user_group_request.uri = (
+            "/open-apis/attendance/v1/groups/:group_id/list_user"
+        )
+        list_user_group_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_user_group_request: ListUserGroupRequest = list_user_group_request
 
     def employee_type(self, employee_type: str) -> "ListUserGroupRequestBuilder":
@@ -49,7 +53,9 @@ class ListUserGroupRequestBuilder(object):
         self._list_user_group_request.add_query("page_token", page_token)
         return self
 
-    def member_clock_type(self, member_clock_type: int) -> "ListUserGroupRequestBuilder":
+    def member_clock_type(
+        self, member_clock_type: int
+    ) -> "ListUserGroupRequestBuilder":
         self._list_user_group_request.member_clock_type = member_clock_type
         self._list_user_group_request.add_query("member_clock_type", member_clock_type)
         return self

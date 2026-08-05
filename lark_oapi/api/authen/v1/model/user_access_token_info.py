@@ -122,7 +122,9 @@ class UserAccessTokenInfoBuilder(object):
         self._user_access_token_info.tenant_key = tenant_key
         return self
 
-    def refresh_expires_in(self, refresh_expires_in: int) -> "UserAccessTokenInfoBuilder":
+    def refresh_expires_in(
+        self, refresh_expires_in: int
+    ) -> "UserAccessTokenInfoBuilder":
         self._user_access_token_info.refresh_expires_in = refresh_expires_in
         return self
 

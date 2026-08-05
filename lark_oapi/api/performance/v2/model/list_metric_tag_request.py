@@ -18,7 +18,6 @@ class ListMetricTagRequest(BaseRequest):
 
 
 class ListMetricTagRequestBuilder(object):
-
     def __init__(self) -> None:
         list_metric_tag_request = ListMetricTagRequest()
         list_metric_tag_request.http_method = HttpMethod.GET

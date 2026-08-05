@@ -56,7 +56,9 @@ class OfferListInfoBuilder(object):
         self._offer_list_info.offer_type = offer_type
         return self
 
-    def employee_type(self, employee_type: BaseBilingualWithId) -> "OfferListInfoBuilder":
+    def employee_type(
+        self, employee_type: BaseBilingualWithId
+    ) -> "OfferListInfoBuilder":
         self._offer_list_info.employee_type = employee_type
         return self
 

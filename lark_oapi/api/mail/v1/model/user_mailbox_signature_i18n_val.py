@@ -28,7 +28,9 @@ class UserMailboxSignatureI18nValBuilder(object):
         self._user_mailbox_signature_i18n_val.default_val = default_val
         return self
 
-    def i18n_vals(self, i18n_vals: Dict[str, str]) -> "UserMailboxSignatureI18nValBuilder":
+    def i18n_vals(
+        self, i18n_vals: Dict[str, str]
+    ) -> "UserMailboxSignatureI18nValBuilder":
         self._user_mailbox_signature_i18n_val.i18n_vals = i18n_vals
         return self
 

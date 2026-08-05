@@ -22,7 +22,9 @@ class TenantBuilder(object):
     def __init__(self) -> None:
         self._tenant = Tenant()
 
-    def available_geo_locations(self, available_geo_locations: List[str]) -> "TenantBuilder":
+    def available_geo_locations(
+        self, available_geo_locations: List[str]
+    ) -> "TenantBuilder":
         self._tenant.available_geo_locations = available_geo_locations
         return self
 

@@ -20,7 +20,9 @@ class PatchApplicationObjectRecordRequestBody(object):
 
 class PatchApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_application_object_record_request_body = PatchApplicationObjectRecordRequestBody()
+        self._patch_application_object_record_request_body = (
+            PatchApplicationObjectRecordRequestBody()
+        )
 
     def record(self, record: str) -> "PatchApplicationObjectRecordRequestBodyBuilder":
         self._patch_application_object_record_request_body.record = record

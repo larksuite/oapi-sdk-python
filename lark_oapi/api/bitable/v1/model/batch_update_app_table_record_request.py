@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_update_app_table_record_request_body import BatchUpdateAppTableRecordRequestBody
+from .batch_update_app_table_record_request_body import (
+    BatchUpdateAppTableRecordRequestBody,
+)
 
 
 class BatchUpdateAppTableRecordRequest(BaseRequest):
@@ -22,27 +24,43 @@ class BatchUpdateAppTableRecordRequest(BaseRequest):
 
 
 class BatchUpdateAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_update_app_table_record_request = BatchUpdateAppTableRecordRequest()
         batch_update_app_table_record_request.http_method = HttpMethod.POST
         batch_update_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
-        batch_update_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        batch_update_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._batch_update_app_table_record_request: BatchUpdateAppTableRecordRequest = batch_update_app_table_record_request
 
-    def user_id_type(self, user_id_type: str) -> "BatchUpdateAppTableRecordRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.user_id_type = user_id_type
-        self._batch_update_app_table_record_request.add_query("user_id_type", user_id_type)
+        self._batch_update_app_table_record_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def ignore_consistency_check(self, ignore_consistency_check: bool) -> "BatchUpdateAppTableRecordRequestBuilder":
-        self._batch_update_app_table_record_request.ignore_consistency_check = ignore_consistency_check
-        self._batch_update_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
+    def ignore_consistency_check(
+        self, ignore_consistency_check: bool
+    ) -> "BatchUpdateAppTableRecordRequestBuilder":
+        self._batch_update_app_table_record_request.ignore_consistency_check = (
+            ignore_consistency_check
+        )
+        self._batch_update_app_table_record_request.add_query(
+            "ignore_consistency_check", ignore_consistency_check
+        )
         return self
 
-    def client_token(self, client_token: str) -> "BatchUpdateAppTableRecordRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.client_token = client_token
-        self._batch_update_app_table_record_request.add_query("client_token", client_token)
+        self._batch_update_app_table_record_request.add_query(
+            "client_token", client_token
+        )
         return self
 
     def app_token(self, app_token: str) -> "BatchUpdateAppTableRecordRequestBuilder":
@@ -55,8 +73,9 @@ class BatchUpdateAppTableRecordRequestBuilder(object):
         self._batch_update_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
-    def request_body(self,
-                     request_body: BatchUpdateAppTableRecordRequestBody) -> "BatchUpdateAppTableRecordRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateAppTableRecordRequestBody
+    ) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.request_body = request_body
         self._batch_update_app_table_record_request.body = request_body
         return self

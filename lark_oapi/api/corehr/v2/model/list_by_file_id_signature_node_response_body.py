@@ -21,10 +21,16 @@ class ListByFileIdSignatureNodeResponseBody(object):
 
 class ListByFileIdSignatureNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_by_file_id_signature_node_response_body = ListByFileIdSignatureNodeResponseBody()
+        self._list_by_file_id_signature_node_response_body = (
+            ListByFileIdSignatureNodeResponseBody()
+        )
 
-    def signature_nodes(self, signature_nodes: List[SignatureNode]) -> "ListByFileIdSignatureNodeResponseBodyBuilder":
-        self._list_by_file_id_signature_node_response_body.signature_nodes = signature_nodes
+    def signature_nodes(
+        self, signature_nodes: List[SignatureNode]
+    ) -> "ListByFileIdSignatureNodeResponseBodyBuilder":
+        self._list_by_file_id_signature_node_response_body.signature_nodes = (
+            signature_nodes
+        )
         return self
 
     def build(self) -> "ListByFileIdSignatureNodeResponseBody":

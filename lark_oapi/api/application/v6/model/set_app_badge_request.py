@@ -18,7 +18,6 @@ class SetAppBadgeRequest(BaseRequest):
 
 
 class SetAppBadgeRequestBuilder(object):
-
     def __init__(self) -> None:
         set_app_badge_request = SetAppBadgeRequest()
         set_app_badge_request.http_method = HttpMethod.POST

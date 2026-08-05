@@ -17,8 +17,9 @@ class SeatActivity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSeatActivityRequest,
-             option: Optional[RequestOption] = None) -> ListSeatActivityResponse:
+    def list(
+        self, request: ListSeatActivityRequest, option: Optional[RequestOption] = None
+    ) -> ListSeatActivityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class SeatActivity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSeatActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSeatActivityResponse)
+        response: ListSeatActivityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSeatActivityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSeatActivityRequest,
-                    option: Optional[RequestOption] = None) -> ListSeatActivityResponse:
+    async def alist(
+        self, request: ListSeatActivityRequest, option: Optional[RequestOption] = None
+    ) -> ListSeatActivityResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class SeatActivity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSeatActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSeatActivityResponse)
+        response: ListSeatActivityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSeatActivityResponse
+        )
         response.raw = resp
 
         return response

@@ -27,7 +27,9 @@ class ListWorkingHoursTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_working_hours_type_response_body = ListWorkingHoursTypeResponseBody()
 
-    def items(self, items: List[WorkingHoursType]) -> "ListWorkingHoursTypeResponseBodyBuilder":
+    def items(
+        self, items: List[WorkingHoursType]
+    ) -> "ListWorkingHoursTypeResponseBodyBuilder":
         self._list_working_hours_type_response_body.items = items
         return self
 

@@ -25,8 +25,11 @@ class UserMailboxLabel(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxLabelRequest,
-               option: Optional[RequestOption] = None) -> CreateUserMailboxLabelResponse:
+    def create(
+        self,
+        request: CreateUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +44,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateUserMailboxLabelResponse)
+        response: CreateUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserMailboxLabelRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserMailboxLabelResponse:
+    async def acreate(
+        self,
+        request: CreateUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +66,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateUserMailboxLabelResponse)
+        response: CreateUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteUserMailboxLabelRequest,
-               option: Optional[RequestOption] = None) -> DeleteUserMailboxLabelResponse:
+    def delete(
+        self,
+        request: DeleteUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +92,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteUserMailboxLabelResponse)
+        response: DeleteUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteUserMailboxLabelRequest,
-                      option: Optional[RequestOption] = None) -> DeleteUserMailboxLabelResponse:
+    async def adelete(
+        self,
+        request: DeleteUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +114,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteUserMailboxLabelResponse)
+        response: DeleteUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetUserMailboxLabelRequest,
-            option: Optional[RequestOption] = None) -> GetUserMailboxLabelResponse:
+    def get(
+        self,
+        request: GetUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,13 +140,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxLabelResponse)
+        response: GetUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetUserMailboxLabelRequest,
-                   option: Optional[RequestOption] = None) -> GetUserMailboxLabelResponse:
+    async def aget(
+        self,
+        request: GetUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -138,13 +162,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxLabelResponse)
+        response: GetUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserMailboxLabelRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxLabelResponse:
+    def list(
+        self,
+        request: ListUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,13 +188,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxLabelResponse)
+        response: ListUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserMailboxLabelRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxLabelResponse:
+    async def alist(
+        self,
+        request: ListUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -176,13 +210,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxLabelResponse)
+        response: ListUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchUserMailboxLabelRequest,
-              option: Optional[RequestOption] = None) -> PatchUserMailboxLabelResponse:
+    def patch(
+        self,
+        request: PatchUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -197,14 +236,18 @@ class UserMailboxLabel(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchUserMailboxLabelResponse)
+        response: PatchUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchUserMailboxLabelRequest,
-                     option: Optional[RequestOption] = None) -> PatchUserMailboxLabelResponse:
+    async def apatch(
+        self,
+        request: PatchUserMailboxLabelRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchUserMailboxLabelResponse:
         if option is None:
             option = RequestOption()
 
@@ -215,8 +258,9 @@ class UserMailboxLabel(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserMailboxLabelResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 PatchUserMailboxLabelResponse)
+        response: PatchUserMailboxLabelResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserMailboxLabelResponse
+        )
         response.raw = resp
 
         return response

@@ -41,7 +41,9 @@ class ListCalendarEventResponseBodyBuilder(object):
         self._list_calendar_event_response_body.sync_token = sync_token
         return self
 
-    def items(self, items: List[CalendarEvent]) -> "ListCalendarEventResponseBodyBuilder":
+    def items(
+        self, items: List[CalendarEvent]
+    ) -> "ListCalendarEventResponseBodyBuilder":
         self._list_calendar_event_response_body.items = items
         return self
 

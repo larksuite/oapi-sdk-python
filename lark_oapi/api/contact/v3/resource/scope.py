@@ -17,7 +17,9 @@ class Scope(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListScopeRequest, option: Optional[RequestOption] = None) -> ListScopeResponse:
+    def list(
+        self, request: ListScopeRequest, option: Optional[RequestOption] = None
+    ) -> ListScopeResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Scope(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListScopeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListScopeResponse)
+        response: ListScopeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListScopeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListScopeRequest, option: Optional[RequestOption] = None) -> ListScopeResponse:
+    async def alist(
+        self, request: ListScopeRequest, option: Optional[RequestOption] = None
+    ) -> ListScopeResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Scope(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListScopeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListScopeResponse)
+        response: ListScopeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListScopeResponse
+        )
         response.raw = resp
 
         return response

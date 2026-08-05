@@ -19,8 +19,9 @@ class TaskSubtask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTaskSubtaskRequest,
-               option: Optional[RequestOption] = None) -> CreateTaskSubtaskResponse:
+    def create(
+        self, request: CreateTaskSubtaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskSubtaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class TaskSubtask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskSubtaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskSubtaskResponse)
+        response: CreateTaskSubtaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskSubtaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTaskSubtaskRequest,
-                      option: Optional[RequestOption] = None) -> CreateTaskSubtaskResponse:
+    async def acreate(
+        self, request: CreateTaskSubtaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskSubtaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,12 +56,16 @@ class TaskSubtask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskSubtaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskSubtaskResponse)
+        response: CreateTaskSubtaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskSubtaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTaskSubtaskRequest, option: Optional[RequestOption] = None) -> ListTaskSubtaskResponse:
+    def list(
+        self, request: ListTaskSubtaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskSubtaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,13 +80,16 @@ class TaskSubtask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskSubtaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskSubtaskResponse)
+        response: ListTaskSubtaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskSubtaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTaskSubtaskRequest,
-                    option: Optional[RequestOption] = None) -> ListTaskSubtaskResponse:
+    async def alist(
+        self, request: ListTaskSubtaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskSubtaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -89,7 +100,9 @@ class TaskSubtask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskSubtaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskSubtaskResponse)
+        response: ListTaskSubtaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskSubtaskResponse
+        )
         response.raw = resp
 
         return response

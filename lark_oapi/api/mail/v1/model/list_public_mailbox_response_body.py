@@ -35,7 +35,9 @@ class ListPublicMailboxResponseBodyBuilder(object):
         self._list_public_mailbox_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[PublicMailbox]) -> "ListPublicMailboxResponseBodyBuilder":
+    def items(
+        self, items: List[PublicMailbox]
+    ) -> "ListPublicMailboxResponseBodyBuilder":
         self._list_public_mailbox_response_body.items = items
         return self
 

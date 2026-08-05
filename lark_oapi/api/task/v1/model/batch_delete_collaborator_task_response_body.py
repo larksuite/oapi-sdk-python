@@ -20,9 +20,13 @@ class BatchDeleteCollaboratorTaskResponseBody(object):
 
 class BatchDeleteCollaboratorTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_collaborator_task_response_body = BatchDeleteCollaboratorTaskResponseBody()
+        self._batch_delete_collaborator_task_response_body = (
+            BatchDeleteCollaboratorTaskResponseBody()
+        )
 
-    def collaborators(self, collaborators: List[str]) -> "BatchDeleteCollaboratorTaskResponseBodyBuilder":
+    def collaborators(
+        self, collaborators: List[str]
+    ) -> "BatchDeleteCollaboratorTaskResponseBodyBuilder":
         self._batch_delete_collaborator_task_response_body.collaborators = collaborators
         return self
 

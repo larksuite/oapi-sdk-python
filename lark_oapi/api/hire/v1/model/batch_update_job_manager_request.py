@@ -19,13 +19,16 @@ class BatchUpdateJobManagerRequest(BaseRequest):
 
 
 class BatchUpdateJobManagerRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_update_job_manager_request = BatchUpdateJobManagerRequest()
         batch_update_job_manager_request.http_method = HttpMethod.POST
-        batch_update_job_manager_request.uri = "/open-apis/hire/v1/jobs/:job_id/managers/batch_update"
+        batch_update_job_manager_request.uri = (
+            "/open-apis/hire/v1/jobs/:job_id/managers/batch_update"
+        )
         batch_update_job_manager_request.token_types = {AccessTokenType.TENANT}
-        self._batch_update_job_manager_request: BatchUpdateJobManagerRequest = batch_update_job_manager_request
+        self._batch_update_job_manager_request: BatchUpdateJobManagerRequest = (
+            batch_update_job_manager_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "BatchUpdateJobManagerRequestBuilder":
         self._batch_update_job_manager_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class BatchUpdateJobManagerRequestBuilder(object):
         self._batch_update_job_manager_request.paths["job_id"] = str(job_id)
         return self
 
-    def request_body(self, request_body: BatchUpdateJobManagerRequestBody) -> "BatchUpdateJobManagerRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateJobManagerRequestBody
+    ) -> "BatchUpdateJobManagerRequestBuilder":
         self._batch_update_job_manager_request.request_body = request_body
         self._batch_update_job_manager_request.body = request_body
         return self

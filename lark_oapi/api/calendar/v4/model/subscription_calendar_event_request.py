@@ -17,22 +17,36 @@ class SubscriptionCalendarEventRequest(BaseRequest):
 
 
 class SubscriptionCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_calendar_event_request = SubscriptionCalendarEventRequest()
         subscription_calendar_event_request.http_method = HttpMethod.POST
-        subscription_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-        subscription_calendar_event_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._subscription_calendar_event_request: SubscriptionCalendarEventRequest = subscription_calendar_event_request
+        subscription_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
+        )
+        subscription_calendar_event_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._subscription_calendar_event_request: SubscriptionCalendarEventRequest = (
+            subscription_calendar_event_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "SubscriptionCalendarEventRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "SubscriptionCalendarEventRequestBuilder":
         self._subscription_calendar_event_request.user_id_type = user_id_type
-        self._subscription_calendar_event_request.add_query("user_id_type", user_id_type)
+        self._subscription_calendar_event_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def calendar_id(self, calendar_id: str) -> "SubscriptionCalendarEventRequestBuilder":
+    def calendar_id(
+        self, calendar_id: str
+    ) -> "SubscriptionCalendarEventRequestBuilder":
         self._subscription_calendar_event_request.calendar_id = calendar_id
-        self._subscription_calendar_event_request.paths["calendar_id"] = str(calendar_id)
+        self._subscription_calendar_event_request.paths["calendar_id"] = str(
+            calendar_id
+        )
         return self
 
     def build(self) -> SubscriptionCalendarEventRequest:

@@ -16,7 +16,6 @@ class DeleteUnitRequest(BaseRequest):
 
 
 class DeleteUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_unit_request = DeleteUnitRequest()
         delete_unit_request.http_method = HttpMethod.DELETE

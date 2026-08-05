@@ -17,7 +17,6 @@ class ListPaygroupRequest(BaseRequest):
 
 
 class ListPaygroupRequestBuilder(object):
-
     def __init__(self) -> None:
         list_paygroup_request = ListPaygroupRequest()
         list_paygroup_request.http_method = HttpMethod.GET

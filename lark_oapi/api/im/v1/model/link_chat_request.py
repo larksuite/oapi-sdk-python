@@ -18,7 +18,6 @@ class LinkChatRequest(BaseRequest):
 
 
 class LinkChatRequestBuilder(object):
-
     def __init__(self) -> None:
         link_chat_request = LinkChatRequest()
         link_chat_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class LinkChatRequestBuilder(object):
         self._link_chat_request.paths["chat_id"] = str(chat_id)
         return self
 
-    def request_body(self, request_body: LinkChatRequestBody) -> "LinkChatRequestBuilder":
+    def request_body(
+        self, request_body: LinkChatRequestBody
+    ) -> "LinkChatRequestBuilder":
         self._link_chat_request.request_body = request_body
         self._link_chat_request.body = request_body
         return self

@@ -58,7 +58,9 @@ class SourceSettingBuilder(object):
         self._source_setting.auth_name = auth_name
         return self
 
-    def data_source_integration_type(self, data_source_integration_type: str) -> "SourceSettingBuilder":
+    def data_source_integration_type(
+        self, data_source_integration_type: str
+    ) -> "SourceSettingBuilder":
         self._source_setting.data_source_integration_type = data_source_integration_type
         return self
 

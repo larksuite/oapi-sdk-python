@@ -22,9 +22,13 @@ class BatchRemoveLumpSumPaymentRequestBody(object):
 
 class BatchRemoveLumpSumPaymentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_remove_lump_sum_payment_request_body = BatchRemoveLumpSumPaymentRequestBody()
+        self._batch_remove_lump_sum_payment_request_body = (
+            BatchRemoveLumpSumPaymentRequestBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "BatchRemoveLumpSumPaymentRequestBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "BatchRemoveLumpSumPaymentRequestBodyBuilder":
         self._batch_remove_lump_sum_payment_request_body.record_ids = record_ids
         return self
 

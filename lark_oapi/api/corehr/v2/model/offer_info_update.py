@@ -5,7 +5,9 @@ from lark_oapi.core.construct import init
 from .email_for_update import EmailForUpdate
 from .job_data_cost_center import JobDataCostCenter
 from .object_field_data import ObjectFieldData
-from .prehire_seniority_adjust_information_update import PrehireSeniorityAdjustInformationUpdate
+from .prehire_seniority_adjust_information_update import (
+    PrehireSeniorityAdjustInformationUpdate,
+)
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
@@ -59,7 +61,9 @@ class OfferInfoUpdate(object):
         "working_calendar": str,
         "working_hours_type": str,
         "seniority_date": str,
-        "seniority_adjust_information_list": List[PrehireSeniorityAdjustInformationUpdate],
+        "seniority_adjust_information_list": List[
+            PrehireSeniorityAdjustInformationUpdate
+        ],
         "notice_period_probation_voluntary": NoticePeriodDetail,
         "notice_period_probation_involuntary": NoticePeriodDetail,
         "notice_period_positive_voluntary": NoticePeriodDetail,
@@ -122,7 +126,9 @@ class OfferInfoUpdate(object):
         self.working_calendar: Optional[str] = None
         self.working_hours_type: Optional[str] = None
         self.seniority_date: Optional[str] = None
-        self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformationUpdate]] = None
+        self.seniority_adjust_information_list: Optional[
+            List[PrehireSeniorityAdjustInformationUpdate]
+        ] = None
         self.notice_period_probation_voluntary: Optional[NoticePeriodDetail] = None
         self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
         self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
@@ -158,11 +164,15 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.ats_application_id = ats_application_id
         return self
 
-    def onboarding_location_id(self, onboarding_location_id: str) -> "OfferInfoUpdateBuilder":
+    def onboarding_location_id(
+        self, onboarding_location_id: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.onboarding_location_id = onboarding_location_id
         return self
 
-    def onboarding_address_id(self, onboarding_address_id: str) -> "OfferInfoUpdateBuilder":
+    def onboarding_address_id(
+        self, onboarding_address_id: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.onboarding_address_id = onboarding_address_id
         return self
 
@@ -182,15 +192,21 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.onboarding_method = onboarding_method
         return self
 
-    def work_emails(self, work_emails: List[EmailForUpdate]) -> "OfferInfoUpdateBuilder":
+    def work_emails(
+        self, work_emails: List[EmailForUpdate]
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.work_emails = work_emails
         return self
 
-    def cost_center_rates(self, cost_center_rates: List[JobDataCostCenter]) -> "OfferInfoUpdateBuilder":
+    def cost_center_rates(
+        self, cost_center_rates: List[JobDataCostCenter]
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.cost_center_rates = cost_center_rates
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "OfferInfoUpdateBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.custom_fields = custom_fields
         return self
 
@@ -202,7 +218,9 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.probation_period = probation_period
         return self
 
-    def probation_start_date(self, probation_start_date: str) -> "OfferInfoUpdateBuilder":
+    def probation_start_date(
+        self, probation_start_date: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.probation_start_date = probation_start_date
         return self
 
@@ -294,7 +312,9 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.direct_leader_id = direct_leader_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "OfferInfoUpdateBuilder":
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.dotted_line_manager_id = dotted_line_manager_id
         return self
 
@@ -302,7 +322,9 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.department_id = department_id
         return self
 
-    def social_security_city(self, social_security_city: str) -> "OfferInfoUpdateBuilder":
+    def social_security_city(
+        self, social_security_city: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.social_security_city = social_security_city
         return self
 
@@ -322,40 +344,62 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.seniority_date = seniority_date
         return self
 
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
-        PrehireSeniorityAdjustInformationUpdate]) -> "OfferInfoUpdateBuilder":
-        self._offer_info_update.seniority_adjust_information_list = seniority_adjust_information_list
+    def seniority_adjust_information_list(
+        self,
+        seniority_adjust_information_list: List[
+            PrehireSeniorityAdjustInformationUpdate
+        ],
+    ) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.seniority_adjust_information_list = (
+            seniority_adjust_information_list
+        )
         return self
 
-    def notice_period_probation_voluntary(self,
-                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
-        self._offer_info_update.notice_period_probation_voluntary = notice_period_probation_voluntary
+    def notice_period_probation_voluntary(
+        self, notice_period_probation_voluntary: NoticePeriodDetail
+    ) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_probation_voluntary = (
+            notice_period_probation_voluntary
+        )
         return self
 
-    def notice_period_probation_involuntary(self,
-                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
-        self._offer_info_update.notice_period_probation_involuntary = notice_period_probation_involuntary
+    def notice_period_probation_involuntary(
+        self, notice_period_probation_involuntary: NoticePeriodDetail
+    ) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_probation_involuntary = (
+            notice_period_probation_involuntary
+        )
         return self
 
-    def notice_period_positive_voluntary(self,
-                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
-        self._offer_info_update.notice_period_positive_voluntary = notice_period_positive_voluntary
+    def notice_period_positive_voluntary(
+        self, notice_period_positive_voluntary: NoticePeriodDetail
+    ) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_positive_voluntary = (
+            notice_period_positive_voluntary
+        )
         return self
 
-    def notice_period_positive_involuntary(self,
-                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
-        self._offer_info_update.notice_period_positive_involuntary = notice_period_positive_involuntary
+    def notice_period_positive_involuntary(
+        self, notice_period_positive_involuntary: NoticePeriodDetail
+    ) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_positive_involuntary = (
+            notice_period_positive_involuntary
+        )
         return self
 
     def condition_worker(self, condition_worker: bool) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.condition_worker = condition_worker
         return self
 
-    def company_sponsored_visa(self, company_sponsored_visa: bool) -> "OfferInfoUpdateBuilder":
+    def company_sponsored_visa(
+        self, company_sponsored_visa: bool
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.company_sponsored_visa = company_sponsored_visa
         return self
 
-    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "OfferInfoUpdateBuilder":
+    def weekly_working_hours_v2(
+        self, weekly_working_hours_v2: float
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 
@@ -371,7 +415,9 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.service_company = service_company
         return self
 
-    def non_compete_covenant(self, non_compete_covenant: bool) -> "OfferInfoUpdateBuilder":
+    def non_compete_covenant(
+        self, non_compete_covenant: bool
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.non_compete_covenant = non_compete_covenant
         return self
 
@@ -379,19 +425,27 @@ class OfferInfoUpdateBuilder(object):
         self._offer_info_update.pathway = pathway
         return self
 
-    def default_cost_center(self, default_cost_center: PrehireDefaultCostCenterUpdate) -> "OfferInfoUpdateBuilder":
+    def default_cost_center(
+        self, default_cost_center: PrehireDefaultCostCenterUpdate
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.default_cost_center = default_cost_center
         return self
 
-    def cost_allocation(self, cost_allocation: CostAllocation) -> "OfferInfoUpdateBuilder":
+    def cost_allocation(
+        self, cost_allocation: CostAllocation
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.cost_allocation = cost_allocation
         return self
 
-    def reuse_feishu_account(self, reuse_feishu_account: str) -> "OfferInfoUpdateBuilder":
+    def reuse_feishu_account(
+        self, reuse_feishu_account: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.reuse_feishu_account = reuse_feishu_account
         return self
 
-    def reused_feishu_account_id(self, reused_feishu_account_id: str) -> "OfferInfoUpdateBuilder":
+    def reused_feishu_account_id(
+        self, reused_feishu_account_id: str
+    ) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.reused_feishu_account_id = reused_feishu_account_id
         return self
 

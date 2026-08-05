@@ -11,7 +11,6 @@ class DownloadAppStorageResponse(BaseResponse):
         "data": DownloadAppStorageResponseBody,
         "file": IO[Any],
         "file_name": str,
-
     }
 
     def __init__(self, d=None):

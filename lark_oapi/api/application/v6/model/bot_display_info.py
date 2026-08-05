@@ -52,7 +52,9 @@ class BotDisplayInfoBuilder(object):
         self._bot_display_info.i18n_names = i18n_names
         return self
 
-    def i18n_descriptions(self, i18n_descriptions: Dict[str, str]) -> "BotDisplayInfoBuilder":
+    def i18n_descriptions(
+        self, i18n_descriptions: Dict[str, str]
+    ) -> "BotDisplayInfoBuilder":
         self._bot_display_info.i18n_descriptions = i18n_descriptions
         return self
 

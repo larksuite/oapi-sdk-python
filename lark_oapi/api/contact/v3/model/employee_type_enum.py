@@ -53,7 +53,9 @@ class EmployeeTypeEnumBuilder(object):
         self._employee_type_enum.enum_status = enum_status
         return self
 
-    def i18n_content(self, i18n_content: List[I18nContent]) -> "EmployeeTypeEnumBuilder":
+    def i18n_content(
+        self, i18n_content: List[I18nContent]
+    ) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.i18n_content = i18n_content
         return self
 

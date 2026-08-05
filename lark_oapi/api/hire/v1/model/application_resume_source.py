@@ -35,7 +35,9 @@ class ApplicationResumeSourceBuilder(object):
         self._application_resume_source.name = name
         return self
 
-    def resume_source_type(self, resume_source_type: int) -> "ApplicationResumeSourceBuilder":
+    def resume_source_type(
+        self, resume_source_type: int
+    ) -> "ApplicationResumeSourceBuilder":
         self._application_resume_source.resume_source_type = resume_source_type
         return self
 

@@ -13,7 +13,9 @@ class KnowledgeQaSearchRequest(object):
 
     def __init__(self, d=None):
         self.query: Optional[str] = None
-        self.enterprise_knowledge_source: Optional[EnterpriseKnowledgeSourceParam] = None
+        self.enterprise_knowledge_source: Optional[EnterpriseKnowledgeSourceParam] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -29,9 +31,12 @@ class KnowledgeQaSearchRequestBuilder(object):
         self._knowledge_qa_search_request.query = query
         return self
 
-    def enterprise_knowledge_source(self,
-                                    enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaSearchRequestBuilder":
-        self._knowledge_qa_search_request.enterprise_knowledge_source = enterprise_knowledge_source
+    def enterprise_knowledge_source(
+        self, enterprise_knowledge_source: EnterpriseKnowledgeSourceParam
+    ) -> "KnowledgeQaSearchRequestBuilder":
+        self._knowledge_qa_search_request.enterprise_knowledge_source = (
+            enterprise_knowledge_source
+        )
         return self
 
     def build(self) -> "KnowledgeQaSearchRequest":

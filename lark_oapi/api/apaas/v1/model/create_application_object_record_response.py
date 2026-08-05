@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_application_object_record_response_body import CreateApplicationObjectRecordResponseBody
+from .create_application_object_record_response_body import (
+    CreateApplicationObjectRecordResponseBody,
+)
 
 
 class CreateApplicationObjectRecordResponse(BaseResponse):
     _types = {
         "data": CreateApplicationObjectRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

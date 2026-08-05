@@ -71,7 +71,9 @@ class AppRecommendRuleItemInfoBuilder(object):
         self._app_recommend_rule_item_info.default_locale = default_locale
         return self
 
-    def i18n_name(self, i18n_name: AppRecommendRuleItemInfoI18nName) -> "AppRecommendRuleItemInfoBuilder":
+    def i18n_name(
+        self, i18n_name: AppRecommendRuleItemInfoI18nName
+    ) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.i18n_name = i18n_name
         return self
 

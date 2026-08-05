@@ -18,17 +18,24 @@ class CreateDataSourceItemRequest(BaseRequest):
 
 
 class CreateDataSourceItemRequestBuilder(object):
-
     def __init__(self) -> None:
         create_data_source_item_request = CreateDataSourceItemRequest()
         create_data_source_item_request.http_method = HttpMethod.POST
-        create_data_source_item_request.uri = "/open-apis/search/v2/data_sources/:data_source_id/items"
+        create_data_source_item_request.uri = (
+            "/open-apis/search/v2/data_sources/:data_source_id/items"
+        )
         create_data_source_item_request.token_types = {AccessTokenType.TENANT}
-        self._create_data_source_item_request: CreateDataSourceItemRequest = create_data_source_item_request
+        self._create_data_source_item_request: CreateDataSourceItemRequest = (
+            create_data_source_item_request
+        )
 
-    def data_source_id(self, data_source_id: str) -> "CreateDataSourceItemRequestBuilder":
+    def data_source_id(
+        self, data_source_id: str
+    ) -> "CreateDataSourceItemRequestBuilder":
         self._create_data_source_item_request.data_source_id = data_source_id
-        self._create_data_source_item_request.paths["data_source_id"] = str(data_source_id)
+        self._create_data_source_item_request.paths["data_source_id"] = str(
+            data_source_id
+        )
         return self
 
     def request_body(self, request_body: Item) -> "CreateDataSourceItemRequestBuilder":

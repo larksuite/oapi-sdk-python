@@ -21,10 +21,16 @@ class UpdateEmployeeTypeEnumResponseBody(object):
 
 class UpdateEmployeeTypeEnumResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_employee_type_enum_response_body = UpdateEmployeeTypeEnumResponseBody()
+        self._update_employee_type_enum_response_body = (
+            UpdateEmployeeTypeEnumResponseBody()
+        )
 
-    def employee_type_enum(self, employee_type_enum: EmployeeTypeEnum) -> "UpdateEmployeeTypeEnumResponseBodyBuilder":
-        self._update_employee_type_enum_response_body.employee_type_enum = employee_type_enum
+    def employee_type_enum(
+        self, employee_type_enum: EmployeeTypeEnum
+    ) -> "UpdateEmployeeTypeEnumResponseBodyBuilder":
+        self._update_employee_type_enum_response_body.employee_type_enum = (
+            employee_type_enum
+        )
         return self
 
     def build(self) -> "UpdateEmployeeTypeEnumResponseBody":

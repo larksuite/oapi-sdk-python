@@ -23,7 +23,9 @@ class GetApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_application_response_body = GetApplicationResponseBody()
 
-    def application(self, application: Application) -> "GetApplicationResponseBodyBuilder":
+    def application(
+        self, application: Application
+    ) -> "GetApplicationResponseBodyBuilder":
         self._get_application_response_body.application = application
         return self
 

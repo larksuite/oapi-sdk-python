@@ -21,8 +21,11 @@ class TaskCollaborator(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTaskCollaboratorRequest,
-               option: Optional[RequestOption] = None) -> CreateTaskCollaboratorResponse:
+    def create(
+        self,
+        request: CreateTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +40,18 @@ class TaskCollaborator(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateTaskCollaboratorResponse)
+        response: CreateTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTaskCollaboratorRequest,
-                      option: Optional[RequestOption] = None) -> CreateTaskCollaboratorResponse:
+    async def acreate(
+        self,
+        request: CreateTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +62,18 @@ class TaskCollaborator(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CreateTaskCollaboratorResponse)
+        response: CreateTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteTaskCollaboratorRequest,
-               option: Optional[RequestOption] = None) -> DeleteTaskCollaboratorResponse:
+    def delete(
+        self,
+        request: DeleteTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +88,18 @@ class TaskCollaborator(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteTaskCollaboratorResponse)
+        response: DeleteTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteTaskCollaboratorRequest,
-                      option: Optional[RequestOption] = None) -> DeleteTaskCollaboratorResponse:
+    async def adelete(
+        self,
+        request: DeleteTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +110,18 @@ class TaskCollaborator(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteTaskCollaboratorResponse)
+        response: DeleteTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTaskCollaboratorRequest,
-             option: Optional[RequestOption] = None) -> ListTaskCollaboratorResponse:
+    def list(
+        self,
+        request: ListTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +136,18 @@ class TaskCollaborator(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCollaboratorResponse)
+        response: ListTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTaskCollaboratorRequest,
-                    option: Optional[RequestOption] = None) -> ListTaskCollaboratorResponse:
+    async def alist(
+        self,
+        request: ListTaskCollaboratorRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListTaskCollaboratorResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +158,9 @@ class TaskCollaborator(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskCollaboratorResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCollaboratorResponse)
+        response: ListTaskCollaboratorResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskCollaboratorResponse
+        )
         response.raw = resp
 
         return response

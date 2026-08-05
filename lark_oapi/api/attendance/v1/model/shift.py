@@ -106,7 +106,9 @@ class ShiftBuilder(object):
         self._shift.punch_time_rule = punch_time_rule
         return self
 
-    def late_off_late_on_rule(self, late_off_late_on_rule: List[LateOffLateOnRule]) -> "ShiftBuilder":
+    def late_off_late_on_rule(
+        self, late_off_late_on_rule: List[LateOffLateOnRule]
+    ) -> "ShiftBuilder":
         self._shift.late_off_late_on_rule = late_off_late_on_rule
         return self
 
@@ -122,23 +124,33 @@ class ShiftBuilder(object):
         self._shift.day_type = day_type
         return self
 
-    def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "ShiftBuilder":
+    def overtime_rest_time_rule(
+        self, overtime_rest_time_rule: List[RestRule]
+    ) -> "ShiftBuilder":
         self._shift.overtime_rest_time_rule = overtime_rest_time_rule
         return self
 
-    def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "ShiftBuilder":
+    def late_minutes_as_serious_late(
+        self, late_minutes_as_serious_late: int
+    ) -> "ShiftBuilder":
         self._shift.late_minutes_as_serious_late = late_minutes_as_serious_late
         return self
 
-    def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "ShiftBuilder":
+    def shift_middle_time_rule(
+        self, shift_middle_time_rule: ShiftMiddleTimeRule
+    ) -> "ShiftBuilder":
         self._shift.shift_middle_time_rule = shift_middle_time_rule
         return self
 
-    def shift_attendance_time_config(self, shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "ShiftBuilder":
+    def shift_attendance_time_config(
+        self, shift_attendance_time_config: ShiftAttendanceTimeConfig
+    ) -> "ShiftBuilder":
         self._shift.shift_attendance_time_config = shift_attendance_time_config
         return self
 
-    def late_off_late_on_setting(self, late_off_late_on_setting: LateOffLateOnSetting) -> "ShiftBuilder":
+    def late_off_late_on_setting(
+        self, late_off_late_on_setting: LateOffLateOnSetting
+    ) -> "ShiftBuilder":
         self._shift.late_off_late_on_setting = late_off_late_on_setting
         return self
 
@@ -146,7 +158,9 @@ class ShiftBuilder(object):
         self._shift.id = id
         return self
 
-    def rest_time_flexible_configs(self, rest_time_flexible_configs: List[RestTimeFlexibleConfig]) -> "ShiftBuilder":
+    def rest_time_flexible_configs(
+        self, rest_time_flexible_configs: List[RestTimeFlexibleConfig]
+    ) -> "ShiftBuilder":
         self._shift.rest_time_flexible_configs = rest_time_flexible_configs
         return self
 

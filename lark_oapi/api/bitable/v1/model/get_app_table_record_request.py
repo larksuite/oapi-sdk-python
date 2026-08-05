@@ -23,17 +23,27 @@ class GetAppTableRecordRequest(BaseRequest):
 
 
 class GetAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         get_app_table_record_request = GetAppTableRecordRequest()
         get_app_table_record_request.http_method = HttpMethod.GET
-        get_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
-        get_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_app_table_record_request: GetAppTableRecordRequest = get_app_table_record_request
+        get_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+        )
+        get_app_table_record_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_app_table_record_request: GetAppTableRecordRequest = (
+            get_app_table_record_request
+        )
 
-    def text_field_as_array(self, text_field_as_array: bool) -> "GetAppTableRecordRequestBuilder":
+    def text_field_as_array(
+        self, text_field_as_array: bool
+    ) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.text_field_as_array = text_field_as_array
-        self._get_app_table_record_request.add_query("text_field_as_array", text_field_as_array)
+        self._get_app_table_record_request.add_query(
+            "text_field_as_array", text_field_as_array
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetAppTableRecordRequestBuilder":
@@ -41,19 +51,29 @@ class GetAppTableRecordRequestBuilder(object):
         self._get_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
-    def display_formula_ref(self, display_formula_ref: bool) -> "GetAppTableRecordRequestBuilder":
+    def display_formula_ref(
+        self, display_formula_ref: bool
+    ) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.display_formula_ref = display_formula_ref
-        self._get_app_table_record_request.add_query("display_formula_ref", display_formula_ref)
+        self._get_app_table_record_request.add_query(
+            "display_formula_ref", display_formula_ref
+        )
         return self
 
-    def with_shared_url(self, with_shared_url: bool) -> "GetAppTableRecordRequestBuilder":
+    def with_shared_url(
+        self, with_shared_url: bool
+    ) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.with_shared_url = with_shared_url
         self._get_app_table_record_request.add_query("with_shared_url", with_shared_url)
         return self
 
-    def automatic_fields(self, automatic_fields: bool) -> "GetAppTableRecordRequestBuilder":
+    def automatic_fields(
+        self, automatic_fields: bool
+    ) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.automatic_fields = automatic_fields
-        self._get_app_table_record_request.add_query("automatic_fields", automatic_fields)
+        self._get_app_table_record_request.add_query(
+            "automatic_fields", automatic_fields
+        )
         return self
 
     def app_token(self, app_token: str) -> "GetAppTableRecordRequestBuilder":

@@ -54,7 +54,9 @@ class TalentBatchInfoBuilder(object):
         self._talent_batch_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "TalentBatchInfoBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.identification_number = identification_number
         return self
 

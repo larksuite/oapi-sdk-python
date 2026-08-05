@@ -22,9 +22,13 @@ class BatchRemoveRecurringPaymentRequestBody(object):
 
 class BatchRemoveRecurringPaymentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_remove_recurring_payment_request_body = BatchRemoveRecurringPaymentRequestBody()
+        self._batch_remove_recurring_payment_request_body = (
+            BatchRemoveRecurringPaymentRequestBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "BatchRemoveRecurringPaymentRequestBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "BatchRemoveRecurringPaymentRequestBodyBuilder":
         self._batch_remove_recurring_payment_request_body.record_ids = record_ids
         return self
 

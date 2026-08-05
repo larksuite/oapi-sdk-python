@@ -43,15 +43,21 @@ class OffboardingBuilder(object):
         self._offboarding.status = status
         return self
 
-    def application_info(self, application_info: ApplicationInfo) -> "OffboardingBuilder":
+    def application_info(
+        self, application_info: ApplicationInfo
+    ) -> "OffboardingBuilder":
         self._offboarding.application_info = application_info
         return self
 
-    def offboarding_info(self, offboarding_info: OffboardingInfo) -> "OffboardingBuilder":
+    def offboarding_info(
+        self, offboarding_info: OffboardingInfo
+    ) -> "OffboardingBuilder":
         self._offboarding.offboarding_info = offboarding_info
         return self
 
-    def offboarding_checklist(self, offboarding_checklist: OffboardingChecklist) -> "OffboardingBuilder":
+    def offboarding_checklist(
+        self, offboarding_checklist: OffboardingChecklist
+    ) -> "OffboardingBuilder":
         self._offboarding.offboarding_checklist = offboarding_checklist
         return self
 

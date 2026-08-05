@@ -12,6 +12,8 @@ class V1(object):
         self.plan: Plan = Plan(config)
         self.recurring_payment: RecurringPayment = RecurringPayment(config)
         self.social_archive: SocialArchive = SocialArchive(config)
-        self.social_archive_adjust_record: SocialArchiveAdjustRecord = SocialArchiveAdjustRecord(config)
+        self.social_archive_adjust_record: SocialArchiveAdjustRecord = (
+            SocialArchiveAdjustRecord(config)
+        )
         self.social_insurance: SocialInsurance = SocialInsurance(config)
         self.social_plan: SocialPlan = SocialPlan(config)

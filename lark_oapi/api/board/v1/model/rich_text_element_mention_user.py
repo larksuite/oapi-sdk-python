@@ -29,7 +29,9 @@ class RichTextElementMentionUserBuilder(object):
         self._rich_text_element_mention_user.user_id = user_id
         return self
 
-    def text_style(self, text_style: RichTextElementTextStyle) -> "RichTextElementMentionUserBuilder":
+    def text_style(
+        self, text_style: RichTextElementTextStyle
+    ) -> "RichTextElementMentionUserBuilder":
         self._rich_text_element_mention_user.text_style = text_style
         return self
 

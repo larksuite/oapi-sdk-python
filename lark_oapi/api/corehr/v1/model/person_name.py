@@ -153,19 +153,29 @@ class PersonNameBuilder(object):
         self._person_name.local_secondary = local_secondary
         return self
 
-    def display_name_local_and_western_script(self, display_name_local_and_western_script: str) -> "PersonNameBuilder":
-        self._person_name.display_name_local_and_western_script = display_name_local_and_western_script
+    def display_name_local_and_western_script(
+        self, display_name_local_and_western_script: str
+    ) -> "PersonNameBuilder":
+        self._person_name.display_name_local_and_western_script = (
+            display_name_local_and_western_script
+        )
         return self
 
-    def display_name_local_script(self, display_name_local_script: str) -> "PersonNameBuilder":
+    def display_name_local_script(
+        self, display_name_local_script: str
+    ) -> "PersonNameBuilder":
         self._person_name.display_name_local_script = display_name_local_script
         return self
 
-    def display_name_western_script(self, display_name_western_script: str) -> "PersonNameBuilder":
+    def display_name_western_script(
+        self, display_name_western_script: str
+    ) -> "PersonNameBuilder":
         self._person_name.display_name_western_script = display_name_western_script
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PersonNameBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "PersonNameBuilder":
         self._person_name.custom_fields = custom_fields
         return self
 

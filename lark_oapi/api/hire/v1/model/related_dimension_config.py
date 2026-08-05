@@ -29,9 +29,12 @@ class RelatedDimensionConfigBuilder(object):
         self._related_dimension_config.type = type
         return self
 
-    def related_dimension_settings(self, related_dimension_settings: List[
-        RelatedDimensionSetting]) -> "RelatedDimensionConfigBuilder":
-        self._related_dimension_config.related_dimension_settings = related_dimension_settings
+    def related_dimension_settings(
+        self, related_dimension_settings: List[RelatedDimensionSetting]
+    ) -> "RelatedDimensionConfigBuilder":
+        self._related_dimension_config.related_dimension_settings = (
+            related_dimension_settings
+        )
         return self
 
     def build(self) -> "RelatedDimensionConfig":

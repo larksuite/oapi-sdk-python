@@ -41,19 +41,27 @@ class DataModelPermissionAccessBuilder(object):
         self._data_model_permission_access.api_name = api_name
         return self
 
-    def allowed_access(self, allowed_access: List[int]) -> "DataModelPermissionAccessBuilder":
+    def allowed_access(
+        self, allowed_access: List[int]
+    ) -> "DataModelPermissionAccessBuilder":
         self._data_model_permission_access.allowed_access = allowed_access
         return self
 
-    def fields(self, fields: List[FieldPermissionAccess]) -> "DataModelPermissionAccessBuilder":
+    def fields(
+        self, fields: List[FieldPermissionAccess]
+    ) -> "DataModelPermissionAccessBuilder":
         self._data_model_permission_access.fields = fields
         return self
 
-    def data_model_type(self, data_model_type: str) -> "DataModelPermissionAccessBuilder":
+    def data_model_type(
+        self, data_model_type: str
+    ) -> "DataModelPermissionAccessBuilder":
         self._data_model_permission_access.data_model_type = data_model_type
         return self
 
-    def display_name(self, display_name: Dict[str, str]) -> "DataModelPermissionAccessBuilder":
+    def display_name(
+        self, display_name: Dict[str, str]
+    ) -> "DataModelPermissionAccessBuilder":
         self._data_model_permission_access.display_name = display_name
         return self
 

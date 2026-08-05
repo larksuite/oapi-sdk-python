@@ -44,11 +44,15 @@ class ReviewDataPermissionBuilder(object):
         self._review_data_permission.activity_id = activity_id
         return self
 
-    def review_template_id(self, review_template_id: str) -> "ReviewDataPermissionBuilder":
+    def review_template_id(
+        self, review_template_id: str
+    ) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.review_template_id = review_template_id
         return self
 
-    def stages(self, stages: List[ReviewDataPermissionStage]) -> "ReviewDataPermissionBuilder":
+    def stages(
+        self, stages: List[ReviewDataPermissionStage]
+    ) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.stages = stages
         return self
 

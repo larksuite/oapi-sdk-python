@@ -32,11 +32,15 @@ class LeaveRequestCreatedErrorMessageBuilder(object):
     def __init__(self) -> None:
         self._leave_request_created_error_message = LeaveRequestCreatedErrorMessage()
 
-    def employment_id(self, employment_id: str) -> "LeaveRequestCreatedErrorMessageBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "LeaveRequestCreatedErrorMessageBuilder":
         self._leave_request_created_error_message.employment_id = employment_id
         return self
 
-    def leave_type_id(self, leave_type_id: str) -> "LeaveRequestCreatedErrorMessageBuilder":
+    def leave_type_id(
+        self, leave_type_id: str
+    ) -> "LeaveRequestCreatedErrorMessageBuilder":
         self._leave_request_created_error_message.leave_type_id = leave_type_id
         return self
 

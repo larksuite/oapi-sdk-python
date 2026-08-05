@@ -19,7 +19,6 @@ class UpdateUserFaceRequest(BaseRequest):
 
 
 class UpdateUserFaceRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_face_request = UpdateUserFaceRequest()
         update_user_face_request.http_method = HttpMethod.PUT

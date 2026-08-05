@@ -38,7 +38,9 @@ class CustomHttpHeaderBuilder(object):
         self._custom_http_header.query_params = query_params
         return self
 
-    def request_cookies(self, request_cookies: Dict[str, str]) -> "CustomHttpHeaderBuilder":
+    def request_cookies(
+        self, request_cookies: Dict[str, str]
+    ) -> "CustomHttpHeaderBuilder":
         self._custom_http_header.request_cookies = request_cookies
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .find_by_user_list_stage_task_request_body import FindByUserListStageTaskRequestBody
+from .find_by_user_list_stage_task_request_body import (
+    FindByUserListStageTaskRequestBody,
+)
 
 
 class FindByUserListStageTaskRequest(BaseRequest):
@@ -18,20 +20,32 @@ class FindByUserListStageTaskRequest(BaseRequest):
 
 
 class FindByUserListStageTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         find_by_user_list_stage_task_request = FindByUserListStageTaskRequest()
         find_by_user_list_stage_task_request.http_method = HttpMethod.POST
-        find_by_user_list_stage_task_request.uri = "/open-apis/performance/v1/stage_tasks/find_by_user_list"
-        find_by_user_list_stage_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._find_by_user_list_stage_task_request: FindByUserListStageTaskRequest = find_by_user_list_stage_task_request
+        find_by_user_list_stage_task_request.uri = (
+            "/open-apis/performance/v1/stage_tasks/find_by_user_list"
+        )
+        find_by_user_list_stage_task_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._find_by_user_list_stage_task_request: FindByUserListStageTaskRequest = (
+            find_by_user_list_stage_task_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "FindByUserListStageTaskRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "FindByUserListStageTaskRequestBuilder":
         self._find_by_user_list_stage_task_request.user_id_type = user_id_type
-        self._find_by_user_list_stage_task_request.add_query("user_id_type", user_id_type)
+        self._find_by_user_list_stage_task_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self, request_body: FindByUserListStageTaskRequestBody) -> "FindByUserListStageTaskRequestBuilder":
+    def request_body(
+        self, request_body: FindByUserListStageTaskRequestBody
+    ) -> "FindByUserListStageTaskRequestBuilder":
         self._find_by_user_list_stage_task_request.request_body = request_body
         self._find_by_user_list_stage_task_request.body = request_body
         return self

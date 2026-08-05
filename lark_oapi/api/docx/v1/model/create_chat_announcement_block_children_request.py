@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .create_chat_announcement_block_children_request_body import CreateChatAnnouncementBlockChildrenRequestBody
+from .create_chat_announcement_block_children_request_body import (
+    CreateChatAnnouncementBlockChildrenRequestBody,
+)
 
 
 class CreateChatAnnouncementBlockChildrenRequest(BaseRequest):
@@ -14,7 +16,9 @@ class CreateChatAnnouncementBlockChildrenRequest(BaseRequest):
         self.user_id_type: Optional[str] = None
         self.chat_id: Optional[str] = None
         self.block_id: Optional[str] = None
-        self.request_body: Optional[CreateChatAnnouncementBlockChildrenRequestBody] = None
+        self.request_body: Optional[CreateChatAnnouncementBlockChildrenRequestBody] = (
+            None
+        )
 
     @staticmethod
     def builder() -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
@@ -22,42 +26,75 @@ class CreateChatAnnouncementBlockChildrenRequest(BaseRequest):
 
 
 class CreateChatAnnouncementBlockChildrenRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_chat_announcement_block_children_request = CreateChatAnnouncementBlockChildrenRequest()
+        create_chat_announcement_block_children_request = (
+            CreateChatAnnouncementBlockChildrenRequest()
+        )
         create_chat_announcement_block_children_request.http_method = HttpMethod.POST
-        create_chat_announcement_block_children_request.uri = "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-        create_chat_announcement_block_children_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_chat_announcement_block_children_request.uri = (
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
+        )
+        create_chat_announcement_block_children_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._create_chat_announcement_block_children_request: CreateChatAnnouncementBlockChildrenRequest = create_chat_announcement_block_children_request
 
-    def revision_id(self, revision_id: int) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+    def revision_id(
+        self, revision_id: int
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
         self._create_chat_announcement_block_children_request.revision_id = revision_id
-        self._create_chat_announcement_block_children_request.add_query("revision_id", revision_id)
+        self._create_chat_announcement_block_children_request.add_query(
+            "revision_id", revision_id
+        )
         return self
 
-    def client_token(self, client_token: str) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
-        self._create_chat_announcement_block_children_request.client_token = client_token
-        self._create_chat_announcement_block_children_request.add_query("client_token", client_token)
+    def client_token(
+        self, client_token: str
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+        self._create_chat_announcement_block_children_request.client_token = (
+            client_token
+        )
+        self._create_chat_announcement_block_children_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
-        self._create_chat_announcement_block_children_request.user_id_type = user_id_type
-        self._create_chat_announcement_block_children_request.add_query("user_id_type", user_id_type)
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+        self._create_chat_announcement_block_children_request.user_id_type = (
+            user_id_type
+        )
+        self._create_chat_announcement_block_children_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def chat_id(self, chat_id: str) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+    def chat_id(
+        self, chat_id: str
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
         self._create_chat_announcement_block_children_request.chat_id = chat_id
-        self._create_chat_announcement_block_children_request.paths["chat_id"] = str(chat_id)
+        self._create_chat_announcement_block_children_request.paths["chat_id"] = str(
+            chat_id
+        )
         return self
 
-    def block_id(self, block_id: str) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+    def block_id(
+        self, block_id: str
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
         self._create_chat_announcement_block_children_request.block_id = block_id
-        self._create_chat_announcement_block_children_request.paths["block_id"] = str(block_id)
+        self._create_chat_announcement_block_children_request.paths["block_id"] = str(
+            block_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: CreateChatAnnouncementBlockChildrenRequestBody) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
-        self._create_chat_announcement_block_children_request.request_body = request_body
+    def request_body(
+        self, request_body: CreateChatAnnouncementBlockChildrenRequestBody
+    ) -> "CreateChatAnnouncementBlockChildrenRequestBuilder":
+        self._create_chat_announcement_block_children_request.request_body = (
+            request_body
+        )
         self._create_chat_announcement_block_children_request.body = request_body
         return self
 

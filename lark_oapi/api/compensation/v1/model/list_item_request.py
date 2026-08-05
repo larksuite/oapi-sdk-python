@@ -18,7 +18,6 @@ class ListItemRequest(BaseRequest):
 
 
 class ListItemRequestBuilder(object):
-
     def __init__(self) -> None:
         list_item_request = ListItemRequest()
         list_item_request.http_method = HttpMethod.GET

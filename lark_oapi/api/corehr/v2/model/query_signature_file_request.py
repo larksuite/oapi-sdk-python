@@ -24,17 +24,22 @@ class QuerySignatureFileRequest(BaseRequest):
 
 
 class QuerySignatureFileRequestBuilder(object):
-
     def __init__(self) -> None:
         query_signature_file_request = QuerySignatureFileRequest()
         query_signature_file_request.http_method = HttpMethod.POST
         query_signature_file_request.uri = "/open-apis/corehr/v2/signature_files/query"
         query_signature_file_request.token_types = {AccessTokenType.TENANT}
-        self._query_signature_file_request: QuerySignatureFileRequest = query_signature_file_request
+        self._query_signature_file_request: QuerySignatureFileRequest = (
+            query_signature_file_request
+        )
 
-    def signature_file_id(self, signature_file_id: str) -> "QuerySignatureFileRequestBuilder":
+    def signature_file_id(
+        self, signature_file_id: str
+    ) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.signature_file_id = signature_file_id
-        self._query_signature_file_request.add_query("signature_file_id", signature_file_id)
+        self._query_signature_file_request.add_query(
+            "signature_file_id", signature_file_id
+        )
         return self
 
     def page_size(self, page_size: int) -> "QuerySignatureFileRequestBuilder":
@@ -47,12 +52,18 @@ class QuerySignatureFileRequestBuilder(object):
         self._query_signature_file_request.add_query("page_token", page_token)
         return self
 
-    def update_time_start(self, update_time_start: str) -> "QuerySignatureFileRequestBuilder":
+    def update_time_start(
+        self, update_time_start: str
+    ) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.update_time_start = update_time_start
-        self._query_signature_file_request.add_query("update_time_start", update_time_start)
+        self._query_signature_file_request.add_query(
+            "update_time_start", update_time_start
+        )
         return self
 
-    def update_time_end(self, update_time_end: str) -> "QuerySignatureFileRequestBuilder":
+    def update_time_end(
+        self, update_time_end: str
+    ) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.update_time_end = update_time_end
         self._query_signature_file_request.add_query("update_time_end", update_time_end)
         return self
@@ -62,12 +73,16 @@ class QuerySignatureFileRequestBuilder(object):
         self._query_signature_file_request.add_query("user_id_type", user_id_type)
         return self
 
-    def select_sign_url(self, select_sign_url: bool) -> "QuerySignatureFileRequestBuilder":
+    def select_sign_url(
+        self, select_sign_url: bool
+    ) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.select_sign_url = select_sign_url
         self._query_signature_file_request.add_query("select_sign_url", select_sign_url)
         return self
 
-    def request_body(self, request_body: QuerySignatureFileRequestBody) -> "QuerySignatureFileRequestBuilder":
+    def request_body(
+        self, request_body: QuerySignatureFileRequestBody
+    ) -> "QuerySignatureFileRequestBuilder":
         self._query_signature_file_request.request_body = request_body
         self._query_signature_file_request.body = request_body
         return self

@@ -38,19 +38,27 @@ class RichTextElementBuilder(object):
         self._rich_text_element.element_type = element_type
         return self
 
-    def text_element(self, text_element: RichTextElementText) -> "RichTextElementBuilder":
+    def text_element(
+        self, text_element: RichTextElementText
+    ) -> "RichTextElementBuilder":
         self._rich_text_element.text_element = text_element
         return self
 
-    def link_element(self, link_element: RichTextElementLink) -> "RichTextElementBuilder":
+    def link_element(
+        self, link_element: RichTextElementLink
+    ) -> "RichTextElementBuilder":
         self._rich_text_element.link_element = link_element
         return self
 
-    def mention_user_element(self, mention_user_element: RichTextElementMentionUser) -> "RichTextElementBuilder":
+    def mention_user_element(
+        self, mention_user_element: RichTextElementMentionUser
+    ) -> "RichTextElementBuilder":
         self._rich_text_element.mention_user_element = mention_user_element
         return self
 
-    def mention_doc_element(self, mention_doc_element: RichTextElementMentionDoc) -> "RichTextElementBuilder":
+    def mention_doc_element(
+        self, mention_doc_element: RichTextElementMentionDoc
+    ) -> "RichTextElementBuilder":
         self._rich_text_element.mention_doc_element = mention_doc_element
         return self
 

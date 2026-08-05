@@ -19,13 +19,16 @@ class PatchInterviewerRequest(BaseRequest):
 
 
 class PatchInterviewerRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_interviewer_request = PatchInterviewerRequest()
         patch_interviewer_request.http_method = HttpMethod.PATCH
-        patch_interviewer_request.uri = "/open-apis/hire/v1/interviewers/:interviewer_id"
+        patch_interviewer_request.uri = (
+            "/open-apis/hire/v1/interviewers/:interviewer_id"
+        )
         patch_interviewer_request.token_types = {AccessTokenType.TENANT}
-        self._patch_interviewer_request: PatchInterviewerRequest = patch_interviewer_request
+        self._patch_interviewer_request: PatchInterviewerRequest = (
+            patch_interviewer_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "PatchInterviewerRequestBuilder":
         self._patch_interviewer_request.user_id_type = user_id_type
@@ -37,7 +40,9 @@ class PatchInterviewerRequestBuilder(object):
         self._patch_interviewer_request.paths["interviewer_id"] = str(interviewer_id)
         return self
 
-    def request_body(self, request_body: PatchInterviewerRequestBody) -> "PatchInterviewerRequestBuilder":
+    def request_body(
+        self, request_body: PatchInterviewerRequestBody
+    ) -> "PatchInterviewerRequestBuilder":
         self._patch_interviewer_request.request_body = request_body
         self._patch_interviewer_request.body = request_body
         return self

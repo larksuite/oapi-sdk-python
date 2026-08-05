@@ -22,13 +22,19 @@ class ListFileCommentReplyRequest(BaseRequest):
 
 
 class ListFileCommentReplyRequestBuilder(object):
-
     def __init__(self) -> None:
         list_file_comment_reply_request = ListFileCommentReplyRequest()
         list_file_comment_reply_request.http_method = HttpMethod.GET
-        list_file_comment_reply_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
-        list_file_comment_reply_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_file_comment_reply_request: ListFileCommentReplyRequest = list_file_comment_reply_request
+        list_file_comment_reply_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
+        )
+        list_file_comment_reply_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_file_comment_reply_request: ListFileCommentReplyRequest = (
+            list_file_comment_reply_request
+        )
 
     def page_size(self, page_size: int) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.page_size = page_size
@@ -45,7 +51,9 @@ class ListFileCommentReplyRequestBuilder(object):
         self._list_file_comment_reply_request.add_query("file_type", file_type)
         return self
 
-    def need_reaction(self, need_reaction: bool) -> "ListFileCommentReplyRequestBuilder":
+    def need_reaction(
+        self, need_reaction: bool
+    ) -> "ListFileCommentReplyRequestBuilder":
         self._list_file_comment_reply_request.need_reaction = need_reaction
         self._list_file_comment_reply_request.add_query("need_reaction", need_reaction)
         return self

@@ -21,9 +21,13 @@ class GetByApplicationEmployeeResponseBody(object):
 
 class GetByApplicationEmployeeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_by_application_employee_response_body = GetByApplicationEmployeeResponseBody()
+        self._get_by_application_employee_response_body = (
+            GetByApplicationEmployeeResponseBody()
+        )
 
-    def employee(self, employee: Employee) -> "GetByApplicationEmployeeResponseBodyBuilder":
+    def employee(
+        self, employee: Employee
+    ) -> "GetByApplicationEmployeeResponseBodyBuilder":
         self._get_by_application_employee_response_body.employee = employee
         return self
 

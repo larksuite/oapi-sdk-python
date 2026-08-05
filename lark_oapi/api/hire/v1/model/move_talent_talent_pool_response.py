@@ -9,7 +9,6 @@ from .move_talent_talent_pool_response_body import MoveTalentTalentPoolResponseB
 class MoveTalentTalentPoolResponse(BaseResponse):
     _types = {
         "data": MoveTalentTalentPoolResponseBody,
-
     }
 
     def __init__(self, d=None):

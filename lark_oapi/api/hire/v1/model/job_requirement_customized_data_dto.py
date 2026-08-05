@@ -42,7 +42,9 @@ class JobRequirementCustomizedDataDtoBuilder(object):
         self._job_requirement_customized_data_dto.object_type = object_type
         return self
 
-    def value(self, value: JobRequirementCustomizedValue) -> "JobRequirementCustomizedDataDtoBuilder":
+    def value(
+        self, value: JobRequirementCustomizedValue
+    ) -> "JobRequirementCustomizedDataDtoBuilder":
         self._job_requirement_customized_data_dto.value = value
         return self
 

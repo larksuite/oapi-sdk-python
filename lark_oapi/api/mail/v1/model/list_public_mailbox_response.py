@@ -9,7 +9,6 @@ from .list_public_mailbox_response_body import ListPublicMailboxResponseBody
 class ListPublicMailboxResponse(BaseResponse):
     _types = {
         "data": ListPublicMailboxResponseBody,
-
     }
 
     def __init__(self, d=None):

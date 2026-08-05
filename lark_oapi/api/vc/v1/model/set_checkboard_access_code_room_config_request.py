@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .set_checkboard_access_code_room_config_request_body import SetCheckboardAccessCodeRoomConfigRequestBody
+from .set_checkboard_access_code_room_config_request_body import (
+    SetCheckboardAccessCodeRoomConfigRequestBody,
+)
 
 
 class SetCheckboardAccessCodeRoomConfigRequest(BaseRequest):
@@ -17,16 +19,22 @@ class SetCheckboardAccessCodeRoomConfigRequest(BaseRequest):
 
 
 class SetCheckboardAccessCodeRoomConfigRequestBuilder(object):
-
     def __init__(self) -> None:
-        set_checkboard_access_code_room_config_request = SetCheckboardAccessCodeRoomConfigRequest()
+        set_checkboard_access_code_room_config_request = (
+            SetCheckboardAccessCodeRoomConfigRequest()
+        )
         set_checkboard_access_code_room_config_request.http_method = HttpMethod.POST
-        set_checkboard_access_code_room_config_request.uri = "/open-apis/vc/v1/room_configs/set_checkboard_access_code"
-        set_checkboard_access_code_room_config_request.token_types = {AccessTokenType.TENANT}
+        set_checkboard_access_code_room_config_request.uri = (
+            "/open-apis/vc/v1/room_configs/set_checkboard_access_code"
+        )
+        set_checkboard_access_code_room_config_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._set_checkboard_access_code_room_config_request: SetCheckboardAccessCodeRoomConfigRequest = set_checkboard_access_code_room_config_request
 
-    def request_body(self,
-                     request_body: SetCheckboardAccessCodeRoomConfigRequestBody) -> "SetCheckboardAccessCodeRoomConfigRequestBuilder":
+    def request_body(
+        self, request_body: SetCheckboardAccessCodeRoomConfigRequestBody
+    ) -> "SetCheckboardAccessCodeRoomConfigRequestBuilder":
         self._set_checkboard_access_code_room_config_request.request_body = request_body
         self._set_checkboard_access_code_room_config_request.body = request_body
         return self

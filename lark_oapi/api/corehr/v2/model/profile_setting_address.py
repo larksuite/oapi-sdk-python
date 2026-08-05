@@ -92,11 +92,15 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.region = region
         return self
 
-    def region_subdivision_1(self, region_subdivision_1: str) -> "ProfileSettingAddressBuilder":
+    def region_subdivision_1(
+        self, region_subdivision_1: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.region_subdivision_1 = region_subdivision_1
         return self
 
-    def region_subdivision_2(self, region_subdivision_2: str) -> "ProfileSettingAddressBuilder":
+    def region_subdivision_2(
+        self, region_subdivision_2: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.region_subdivision_2 = region_subdivision_2
         return self
 
@@ -112,11 +116,15 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.local_city_text = local_city_text
         return self
 
-    def city_subdivision_1(self, city_subdivision_1: str) -> "ProfileSettingAddressBuilder":
+    def city_subdivision_1(
+        self, city_subdivision_1: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.city_subdivision_1 = city_subdivision_1
         return self
 
-    def city_subdivision_2(self, city_subdivision_2: str) -> "ProfileSettingAddressBuilder":
+    def city_subdivision_2(
+        self, city_subdivision_2: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.city_subdivision_2 = city_subdivision_2
         return self
 
@@ -132,7 +140,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_1 = address_line_1
         return self
 
-    def local_address_line_1(self, local_address_line_1: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_1(
+        self, local_address_line_1: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_1 = local_address_line_1
         return self
 
@@ -140,7 +150,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_2 = address_line_2
         return self
 
-    def local_address_line_2(self, local_address_line_2: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_2(
+        self, local_address_line_2: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_2 = local_address_line_2
         return self
 
@@ -148,7 +160,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_3 = address_line_3
         return self
 
-    def local_address_line_3(self, local_address_line_3: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_3(
+        self, local_address_line_3: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_3 = local_address_line_3
         return self
 
@@ -156,7 +170,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_4 = address_line_4
         return self
 
-    def local_address_line_5(self, local_address_line_5: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_5(
+        self, local_address_line_5: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_5 = local_address_line_5
         return self
 
@@ -164,7 +180,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_6 = address_line_6
         return self
 
-    def local_address_line_6(self, local_address_line_6: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_6(
+        self, local_address_line_6: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_6 = local_address_line_6
         return self
 
@@ -172,7 +190,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_7 = address_line_7
         return self
 
-    def local_address_line_7(self, local_address_line_7: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_7(
+        self, local_address_line_7: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_7 = local_address_line_7
         return self
 
@@ -180,7 +200,9 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_8 = address_line_8
         return self
 
-    def local_address_line_8(self, local_address_line_8: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_8(
+        self, local_address_line_8: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_8 = local_address_line_8
         return self
 
@@ -188,11 +210,15 @@ class ProfileSettingAddressBuilder(object):
         self._profile_setting_address.address_line_9 = address_line_9
         return self
 
-    def local_address_line_9(self, local_address_line_9: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_9(
+        self, local_address_line_9: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_9 = local_address_line_9
         return self
 
-    def local_address_line_4(self, local_address_line_4: str) -> "ProfileSettingAddressBuilder":
+    def local_address_line_4(
+        self, local_address_line_4: str
+    ) -> "ProfileSettingAddressBuilder":
         self._profile_setting_address.local_address_line_4 = local_address_line_4
         return self
 

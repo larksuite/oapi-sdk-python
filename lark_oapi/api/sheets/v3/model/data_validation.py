@@ -33,7 +33,9 @@ class DataValidationBuilder(object):
         self._data_validation.data_validation_id = data_validation_id
         return self
 
-    def data_validation_rule(self, data_validation_rule: DataValidationRule) -> "DataValidationBuilder":
+    def data_validation_rule(
+        self, data_validation_rule: DataValidationRule
+    ) -> "DataValidationBuilder":
         self._data_validation.data_validation_rule = data_validation_rule
         return self
 

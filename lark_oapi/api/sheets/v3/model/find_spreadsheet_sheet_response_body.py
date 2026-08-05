@@ -23,7 +23,9 @@ class FindSpreadsheetSheetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._find_spreadsheet_sheet_response_body = FindSpreadsheetSheetResponseBody()
 
-    def find_result(self, find_result: FindReplaceResult) -> "FindSpreadsheetSheetResponseBodyBuilder":
+    def find_result(
+        self, find_result: FindReplaceResult
+    ) -> "FindSpreadsheetSheetResponseBodyBuilder":
         self._find_spreadsheet_sheet_response_body.find_result = find_result
         return self
 

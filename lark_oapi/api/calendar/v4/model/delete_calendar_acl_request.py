@@ -17,13 +17,19 @@ class DeleteCalendarAclRequest(BaseRequest):
 
 
 class DeleteCalendarAclRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_calendar_acl_request = DeleteCalendarAclRequest()
         delete_calendar_acl_request.http_method = HttpMethod.DELETE
-        delete_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
-        delete_calendar_acl_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_calendar_acl_request: DeleteCalendarAclRequest = delete_calendar_acl_request
+        delete_calendar_acl_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
+        )
+        delete_calendar_acl_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_calendar_acl_request: DeleteCalendarAclRequest = (
+            delete_calendar_acl_request
+        )
 
     def calendar_id(self, calendar_id: str) -> "DeleteCalendarAclRequestBuilder":
         self._delete_calendar_acl_request.calendar_id = calendar_id

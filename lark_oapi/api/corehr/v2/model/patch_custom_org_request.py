@@ -20,7 +20,6 @@ class PatchCustomOrgRequest(BaseRequest):
 
 
 class PatchCustomOrgRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_custom_org_request = PatchCustomOrgRequest()
         patch_custom_org_request.http_method = HttpMethod.PATCH
@@ -43,7 +42,9 @@ class PatchCustomOrgRequestBuilder(object):
         self._patch_custom_org_request.paths["org_id"] = str(org_id)
         return self
 
-    def request_body(self, request_body: CustomOrgUpdate) -> "PatchCustomOrgRequestBuilder":
+    def request_body(
+        self, request_body: CustomOrgUpdate
+    ) -> "PatchCustomOrgRequestBuilder":
         self._patch_custom_org_request.request_body = request_body
         self._patch_custom_org_request.body = request_body
         return self

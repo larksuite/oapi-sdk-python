@@ -25,13 +25,19 @@ class InstancesCalendarEventResponseBody(object):
 
 class InstancesCalendarEventResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._instances_calendar_event_response_body = InstancesCalendarEventResponseBody()
+        self._instances_calendar_event_response_body = (
+            InstancesCalendarEventResponseBody()
+        )
 
-    def items(self, items: List[Instance]) -> "InstancesCalendarEventResponseBodyBuilder":
+    def items(
+        self, items: List[Instance]
+    ) -> "InstancesCalendarEventResponseBodyBuilder":
         self._instances_calendar_event_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "InstancesCalendarEventResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "InstancesCalendarEventResponseBodyBuilder":
         self._instances_calendar_event_response_body.page_token = page_token
         return self
 

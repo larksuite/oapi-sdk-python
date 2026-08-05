@@ -46,7 +46,9 @@ class SpecifiedRollbackBuilder(object):
         self._specified_rollback.extra = extra
         return self
 
-    def task_def_key_list(self, task_def_key_list: List[str]) -> "SpecifiedRollbackBuilder":
+    def task_def_key_list(
+        self, task_def_key_list: List[str]
+    ) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.task_def_key_list = task_def_key_list
         return self
 

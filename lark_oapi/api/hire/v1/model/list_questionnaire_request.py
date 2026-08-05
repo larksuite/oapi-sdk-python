@@ -21,13 +21,14 @@ class ListQuestionnaireRequest(BaseRequest):
 
 
 class ListQuestionnaireRequestBuilder(object):
-
     def __init__(self) -> None:
         list_questionnaire_request = ListQuestionnaireRequest()
         list_questionnaire_request.http_method = HttpMethod.GET
         list_questionnaire_request.uri = "/open-apis/hire/v1/questionnaires"
         list_questionnaire_request.token_types = {AccessTokenType.TENANT}
-        self._list_questionnaire_request: ListQuestionnaireRequest = list_questionnaire_request
+        self._list_questionnaire_request: ListQuestionnaireRequest = (
+            list_questionnaire_request
+        )
 
     def page_token(self, page_token: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.page_token = page_token
@@ -49,12 +50,18 @@ class ListQuestionnaireRequestBuilder(object):
         self._list_questionnaire_request.add_query("interview_id", interview_id)
         return self
 
-    def update_start_time(self, update_start_time: str) -> "ListQuestionnaireRequestBuilder":
+    def update_start_time(
+        self, update_start_time: str
+    ) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.update_start_time = update_start_time
-        self._list_questionnaire_request.add_query("update_start_time", update_start_time)
+        self._list_questionnaire_request.add_query(
+            "update_start_time", update_start_time
+        )
         return self
 
-    def update_end_time(self, update_end_time: str) -> "ListQuestionnaireRequestBuilder":
+    def update_end_time(
+        self, update_end_time: str
+    ) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.update_end_time = update_end_time
         self._list_questionnaire_request.add_query("update_end_time", update_end_time)
         return self

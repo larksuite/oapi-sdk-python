@@ -25,9 +25,13 @@ class ListPortalApplySchemaResponseBody(object):
 
 class ListPortalApplySchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_portal_apply_schema_response_body = ListPortalApplySchemaResponseBody()
+        self._list_portal_apply_schema_response_body = (
+            ListPortalApplySchemaResponseBody()
+        )
 
-    def items(self, items: List[RegistrationSchema]) -> "ListPortalApplySchemaResponseBodyBuilder":
+    def items(
+        self, items: List[RegistrationSchema]
+    ) -> "ListPortalApplySchemaResponseBodyBuilder":
         self._list_portal_apply_schema_response_body.items = items
         return self
 

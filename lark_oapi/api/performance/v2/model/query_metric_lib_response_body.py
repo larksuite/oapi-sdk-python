@@ -27,7 +27,9 @@ class QueryMetricLibResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_lib_response_body = QueryMetricLibResponseBody()
 
-    def items(self, items: List[MetricInLibrary]) -> "QueryMetricLibResponseBodyBuilder":
+    def items(
+        self, items: List[MetricInLibrary]
+    ) -> "QueryMetricLibResponseBodyBuilder":
         self._query_metric_lib_response_body.items = items
         return self
 

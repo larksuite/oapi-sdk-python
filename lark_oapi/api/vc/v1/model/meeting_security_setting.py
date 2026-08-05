@@ -47,9 +47,12 @@ class MeetingSecuritySettingBuilder(object):
         self._meeting_security_setting.room_ids = room_ids
         return self
 
-    def has_set_security_contacts_and_group(self,
-                                            has_set_security_contacts_and_group: bool) -> "MeetingSecuritySettingBuilder":
-        self._meeting_security_setting.has_set_security_contacts_and_group = has_set_security_contacts_and_group
+    def has_set_security_contacts_and_group(
+        self, has_set_security_contacts_and_group: bool
+    ) -> "MeetingSecuritySettingBuilder":
+        self._meeting_security_setting.has_set_security_contacts_and_group = (
+            has_set_security_contacts_and_group
+        )
         return self
 
     def build(self) -> "MeetingSecuritySetting":

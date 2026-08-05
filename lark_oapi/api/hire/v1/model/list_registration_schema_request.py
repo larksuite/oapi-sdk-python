@@ -18,13 +18,14 @@ class ListRegistrationSchemaRequest(BaseRequest):
 
 
 class ListRegistrationSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         list_registration_schema_request = ListRegistrationSchemaRequest()
         list_registration_schema_request.http_method = HttpMethod.GET
         list_registration_schema_request.uri = "/open-apis/hire/v1/registration_schemas"
         list_registration_schema_request.token_types = {AccessTokenType.TENANT}
-        self._list_registration_schema_request: ListRegistrationSchemaRequest = list_registration_schema_request
+        self._list_registration_schema_request: ListRegistrationSchemaRequest = (
+            list_registration_schema_request
+        )
 
     def page_size(self, page_size: int) -> "ListRegistrationSchemaRequestBuilder":
         self._list_registration_schema_request.page_size = page_size

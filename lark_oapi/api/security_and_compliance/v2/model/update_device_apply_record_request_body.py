@@ -20,9 +20,13 @@ class UpdateDeviceApplyRecordRequestBody(object):
 
 class UpdateDeviceApplyRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_device_apply_record_request_body = UpdateDeviceApplyRecordRequestBody()
+        self._update_device_apply_record_request_body = (
+            UpdateDeviceApplyRecordRequestBody()
+        )
 
-    def is_approved(self, is_approved: bool) -> "UpdateDeviceApplyRecordRequestBodyBuilder":
+    def is_approved(
+        self, is_approved: bool
+    ) -> "UpdateDeviceApplyRecordRequestBodyBuilder":
         self._update_device_apply_record_request_body.is_approved = is_approved
         return self
 

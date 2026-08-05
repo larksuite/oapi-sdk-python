@@ -42,15 +42,21 @@ class CreateDeviceRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_device_record_request_body = CreateDeviceRecordRequestBody()
 
-    def device_system(self, device_system: int) -> "CreateDeviceRecordRequestBodyBuilder":
+    def device_system(
+        self, device_system: int
+    ) -> "CreateDeviceRecordRequestBodyBuilder":
         self._create_device_record_request_body.device_system = device_system
         return self
 
-    def device_ownership(self, device_ownership: int) -> "CreateDeviceRecordRequestBodyBuilder":
+    def device_ownership(
+        self, device_ownership: int
+    ) -> "CreateDeviceRecordRequestBodyBuilder":
         self._create_device_record_request_body.device_ownership = device_ownership
         return self
 
-    def device_status(self, device_status: int) -> "CreateDeviceRecordRequestBodyBuilder":
+    def device_status(
+        self, device_status: int
+    ) -> "CreateDeviceRecordRequestBodyBuilder":
         self._create_device_record_request_body.device_status = device_status
         return self
 
@@ -58,11 +64,15 @@ class CreateDeviceRecordRequestBodyBuilder(object):
         self._create_device_record_request_body.is_public = is_public
         return self
 
-    def serial_number(self, serial_number: str) -> "CreateDeviceRecordRequestBodyBuilder":
+    def serial_number(
+        self, serial_number: str
+    ) -> "CreateDeviceRecordRequestBodyBuilder":
         self._create_device_record_request_body.serial_number = serial_number
         return self
 
-    def disk_serial_number(self, disk_serial_number: str) -> "CreateDeviceRecordRequestBodyBuilder":
+    def disk_serial_number(
+        self, disk_serial_number: str
+    ) -> "CreateDeviceRecordRequestBodyBuilder":
         self._create_device_record_request_body.disk_serial_number = disk_serial_number
         return self
 

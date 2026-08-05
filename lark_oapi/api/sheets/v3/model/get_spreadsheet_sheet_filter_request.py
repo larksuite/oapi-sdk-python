@@ -17,17 +17,25 @@ class GetSpreadsheetSheetFilterRequest(BaseRequest):
 
 
 class GetSpreadsheetSheetFilterRequestBuilder(object):
-
     def __init__(self) -> None:
         get_spreadsheet_sheet_filter_request = GetSpreadsheetSheetFilterRequest()
         get_spreadsheet_sheet_filter_request.http_method = HttpMethod.GET
         get_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-        get_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_spreadsheet_sheet_filter_request: GetSpreadsheetSheetFilterRequest = get_spreadsheet_sheet_filter_request
+        get_spreadsheet_sheet_filter_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_spreadsheet_sheet_filter_request: GetSpreadsheetSheetFilterRequest = (
+            get_spreadsheet_sheet_filter_request
+        )
 
-    def spreadsheet_token(self, spreadsheet_token: str) -> "GetSpreadsheetSheetFilterRequestBuilder":
+    def spreadsheet_token(
+        self, spreadsheet_token: str
+    ) -> "GetSpreadsheetSheetFilterRequestBuilder":
         self._get_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
-        self._get_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
+        self._get_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(
+            spreadsheet_token
+        )
         return self
 
     def sheet_id(self, sheet_id: str) -> "GetSpreadsheetSheetFilterRequestBuilder":

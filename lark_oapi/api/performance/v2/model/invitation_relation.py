@@ -28,7 +28,9 @@ class InvitationRelationBuilder(object):
         self._invitation_relation.reviewee_user_id = reviewee_user_id
         return self
 
-    def reviewer_user_ids(self, reviewer_user_ids: List[str]) -> "InvitationRelationBuilder":
+    def reviewer_user_ids(
+        self, reviewer_user_ids: List[str]
+    ) -> "InvitationRelationBuilder":
         self._invitation_relation.reviewer_user_ids = reviewer_user_ids
         return self
 

@@ -15,7 +15,6 @@ class ListScopeRequest(BaseRequest):
 
 
 class ListScopeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_scope_request = ListScopeRequest()
         list_scope_request.http_method = HttpMethod.GET

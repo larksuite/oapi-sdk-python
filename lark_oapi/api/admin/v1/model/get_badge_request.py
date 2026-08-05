@@ -16,7 +16,6 @@ class GetBadgeRequest(BaseRequest):
 
 
 class GetBadgeRequestBuilder(object):
-
     def __init__(self) -> None:
         get_badge_request = GetBadgeRequest()
         get_badge_request.http_method = HttpMethod.GET

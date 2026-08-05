@@ -96,7 +96,9 @@ class DocChunkResultBuilder(object):
         self._doc_chunk_result.block_id = block_id
         return self
 
-    def table_detail(self, table_detail: DocChunkTableDetail) -> "DocChunkResultBuilder":
+    def table_detail(
+        self, table_detail: DocChunkTableDetail
+    ) -> "DocChunkResultBuilder":
         self._doc_chunk_result.table_detail = table_detail
         return self
 

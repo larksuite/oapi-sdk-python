@@ -54,23 +54,33 @@ class AppliOfferOnboardProfileAddBuilder(object):
         self._appli_offer_onboard_profile_add.en_name = en_name
         return self
 
-    def district(self, district: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
+    def district(
+        self, district: AppliOfferOnboardProfileCity
+    ) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.district = district
         return self
 
-    def city(self, city: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
+    def city(
+        self, city: AppliOfferOnboardProfileCity
+    ) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.city = city
         return self
 
-    def state(self, state: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
+    def state(
+        self, state: AppliOfferOnboardProfileCity
+    ) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.state = state
         return self
 
-    def country(self, country: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
+    def country(
+        self, country: AppliOfferOnboardProfileCity
+    ) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.country = country
         return self
 
-    def usage_id_list(self, usage_id_list: List[str]) -> "AppliOfferOnboardProfileAddBuilder":
+    def usage_id_list(
+        self, usage_id_list: List[str]
+    ) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.usage_id_list = usage_id_list
         return self
 

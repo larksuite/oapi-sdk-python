@@ -18,20 +18,30 @@ class UpdateAilySessionRequest(BaseRequest):
 
 
 class UpdateAilySessionRequestBuilder(object):
-
     def __init__(self) -> None:
         update_aily_session_request = UpdateAilySessionRequest()
         update_aily_session_request.http_method = HttpMethod.PUT
         update_aily_session_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id"
-        update_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_aily_session_request: UpdateAilySessionRequest = update_aily_session_request
+        update_aily_session_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_aily_session_request: UpdateAilySessionRequest = (
+            update_aily_session_request
+        )
 
-    def aily_session_id(self, aily_session_id: str) -> "UpdateAilySessionRequestBuilder":
+    def aily_session_id(
+        self, aily_session_id: str
+    ) -> "UpdateAilySessionRequestBuilder":
         self._update_aily_session_request.aily_session_id = aily_session_id
-        self._update_aily_session_request.paths["aily_session_id"] = str(aily_session_id)
+        self._update_aily_session_request.paths["aily_session_id"] = str(
+            aily_session_id
+        )
         return self
 
-    def request_body(self, request_body: UpdateAilySessionRequestBody) -> "UpdateAilySessionRequestBuilder":
+    def request_body(
+        self, request_body: UpdateAilySessionRequestBody
+    ) -> "UpdateAilySessionRequestBuilder":
         self._update_aily_session_request.request_body = request_body
         self._update_aily_session_request.body = request_body
         return self

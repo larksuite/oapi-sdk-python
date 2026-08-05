@@ -13,7 +13,9 @@ class ResurrectEmployeeRequestBody(object):
     }
 
     def __init__(self, d=None):
-        self.employee_order_in_departments: Optional[List[UpsertUserDepartmentSortInfo]] = None
+        self.employee_order_in_departments: Optional[
+            List[UpsertUserDepartmentSortInfo]
+        ] = None
         self.options: Optional[ResurrectEmployeeOptions] = None
         init(self, d, self._types)
 
@@ -26,12 +28,17 @@ class ResurrectEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._resurrect_employee_request_body = ResurrectEmployeeRequestBody()
 
-    def employee_order_in_departments(self, employee_order_in_departments: List[
-        UpsertUserDepartmentSortInfo]) -> "ResurrectEmployeeRequestBodyBuilder":
-        self._resurrect_employee_request_body.employee_order_in_departments = employee_order_in_departments
+    def employee_order_in_departments(
+        self, employee_order_in_departments: List[UpsertUserDepartmentSortInfo]
+    ) -> "ResurrectEmployeeRequestBodyBuilder":
+        self._resurrect_employee_request_body.employee_order_in_departments = (
+            employee_order_in_departments
+        )
         return self
 
-    def options(self, options: ResurrectEmployeeOptions) -> "ResurrectEmployeeRequestBodyBuilder":
+    def options(
+        self, options: ResurrectEmployeeOptions
+    ) -> "ResurrectEmployeeRequestBodyBuilder":
         self._resurrect_employee_request_body.options = options
         return self
 

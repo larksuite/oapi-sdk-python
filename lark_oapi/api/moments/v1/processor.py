@@ -7,7 +7,9 @@ from .model.p2_moments_comment_created_v1 import P2MomentsCommentCreatedV1
 from .model.p2_moments_comment_deleted_v1 import P2MomentsCommentDeletedV1
 from .model.p2_moments_post_created_v1 import P2MomentsPostCreatedV1
 from .model.p2_moments_post_deleted_v1 import P2MomentsPostDeletedV1
-from .model.p2_moments_post_statistics_updated_v1 import P2MomentsPostStatisticsUpdatedV1
+from .model.p2_moments_post_statistics_updated_v1 import (
+    P2MomentsPostStatisticsUpdatedV1,
+)
 from .model.p2_moments_reaction_created_v1 import P2MomentsReactionCreatedV1
 from .model.p2_moments_reaction_deleted_v1 import P2MomentsReactionDeletedV1
 
@@ -56,7 +58,9 @@ class P2MomentsPostDeletedV1Processor(IEventProcessor[P2MomentsPostDeletedV1]):
         self.f(data)
 
 
-class P2MomentsPostStatisticsUpdatedV1Processor(IEventProcessor[P2MomentsPostStatisticsUpdatedV1]):
+class P2MomentsPostStatisticsUpdatedV1Processor(
+    IEventProcessor[P2MomentsPostStatisticsUpdatedV1]
+):
     def __init__(self, f: Callable[[P2MomentsPostStatisticsUpdatedV1], None]):
         self.f = f
 

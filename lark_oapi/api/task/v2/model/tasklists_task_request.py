@@ -16,12 +16,14 @@ class TasklistsTaskRequest(BaseRequest):
 
 
 class TasklistsTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         tasklists_task_request = TasklistsTaskRequest()
         tasklists_task_request.http_method = HttpMethod.GET
         tasklists_task_request.uri = "/open-apis/task/v2/tasks/:task_guid/tasklists"
-        tasklists_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        tasklists_task_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._tasklists_task_request: TasklistsTaskRequest = tasklists_task_request
 
     def task_guid(self, task_guid: str) -> "TasklistsTaskRequestBuilder":

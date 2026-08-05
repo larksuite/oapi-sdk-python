@@ -17,8 +17,9 @@ class SocialArchive(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QuerySocialArchiveRequest,
-              option: Optional[RequestOption] = None) -> QuerySocialArchiveResponse:
+    def query(
+        self, request: QuerySocialArchiveRequest, option: Optional[RequestOption] = None
+    ) -> QuerySocialArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class SocialArchive(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySocialArchiveResponse)
+        response: QuerySocialArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialArchiveResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySocialArchiveRequest,
-                     option: Optional[RequestOption] = None) -> QuerySocialArchiveResponse:
+    async def aquery(
+        self, request: QuerySocialArchiveRequest, option: Optional[RequestOption] = None
+    ) -> QuerySocialArchiveResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class SocialArchive(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySocialArchiveResponse)
+        response: QuerySocialArchiveResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialArchiveResponse
+        )
         response.raw = resp
 
         return response

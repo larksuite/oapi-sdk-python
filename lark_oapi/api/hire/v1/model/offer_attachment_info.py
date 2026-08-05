@@ -40,7 +40,9 @@ class OfferAttachmentInfoBuilder(object):
         self._offer_attachment_info.size = size
         return self
 
-    def common_attachment_id(self, common_attachment_id: str) -> "OfferAttachmentInfoBuilder":
+    def common_attachment_id(
+        self, common_attachment_id: str
+    ) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.common_attachment_id = common_attachment_id
         return self
 

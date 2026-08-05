@@ -16,12 +16,14 @@ class DeleteCommentRequest(BaseRequest):
 
 
 class DeleteCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_comment_request = DeleteCommentRequest()
         delete_comment_request.http_method = HttpMethod.DELETE
         delete_comment_request.uri = "/open-apis/task/v2/comments/:comment_id"
-        delete_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._delete_comment_request: DeleteCommentRequest = delete_comment_request
 
     def comment_id(self, comment_id: str) -> "DeleteCommentRequestBuilder":

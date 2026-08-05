@@ -17,13 +17,16 @@ class DeleteMailgroupAliasRequest(BaseRequest):
 
 
 class DeleteMailgroupAliasRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_mailgroup_alias_request = DeleteMailgroupAliasRequest()
         delete_mailgroup_alias_request.http_method = HttpMethod.DELETE
-        delete_mailgroup_alias_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id"
+        delete_mailgroup_alias_request.uri = (
+            "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id"
+        )
         delete_mailgroup_alias_request.token_types = {AccessTokenType.TENANT}
-        self._delete_mailgroup_alias_request: DeleteMailgroupAliasRequest = delete_mailgroup_alias_request
+        self._delete_mailgroup_alias_request: DeleteMailgroupAliasRequest = (
+            delete_mailgroup_alias_request
+        )
 
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupAliasRequestBuilder":
         self._delete_mailgroup_alias_request.mailgroup_id = mailgroup_id

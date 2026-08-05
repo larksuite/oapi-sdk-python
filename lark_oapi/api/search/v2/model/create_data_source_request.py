@@ -17,15 +17,18 @@ class CreateDataSourceRequest(BaseRequest):
 
 
 class CreateDataSourceRequestBuilder(object):
-
     def __init__(self) -> None:
         create_data_source_request = CreateDataSourceRequest()
         create_data_source_request.http_method = HttpMethod.POST
         create_data_source_request.uri = "/open-apis/search/v2/data_sources"
         create_data_source_request.token_types = {AccessTokenType.TENANT}
-        self._create_data_source_request: CreateDataSourceRequest = create_data_source_request
+        self._create_data_source_request: CreateDataSourceRequest = (
+            create_data_source_request
+        )
 
-    def request_body(self, request_body: DataSource) -> "CreateDataSourceRequestBuilder":
+    def request_body(
+        self, request_body: DataSource
+    ) -> "CreateDataSourceRequestBuilder":
         self._create_data_source_request.request_body = request_body
         self._create_data_source_request.body = request_body
         return self

@@ -29,7 +29,9 @@ class MessageProgressBuilder(object):
         self._message_progress.progress_type = progress_type
         return self
 
-    def progress_items(self, progress_items: List[ProgressItem]) -> "MessageProgressBuilder":
+    def progress_items(
+        self, progress_items: List[ProgressItem]
+    ) -> "MessageProgressBuilder":
         self._message_progress.progress_items = progress_items
         return self
 

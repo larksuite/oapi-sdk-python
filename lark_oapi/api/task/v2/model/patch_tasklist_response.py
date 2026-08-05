@@ -9,7 +9,6 @@ from .patch_tasklist_response_body import PatchTasklistResponseBody
 class PatchTasklistResponse(BaseResponse):
     _types = {
         "data": PatchTasklistResponseBody,
-
     }
 
     def __init__(self, d=None):

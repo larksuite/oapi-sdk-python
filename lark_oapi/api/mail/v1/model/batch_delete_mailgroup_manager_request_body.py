@@ -21,11 +21,16 @@ class BatchDeleteMailgroupManagerRequestBody(object):
 
 class BatchDeleteMailgroupManagerRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_delete_mailgroup_manager_request_body = BatchDeleteMailgroupManagerRequestBody()
+        self._batch_delete_mailgroup_manager_request_body = (
+            BatchDeleteMailgroupManagerRequestBody()
+        )
 
-    def mailgroup_manager_list(self, mailgroup_manager_list: List[
-        MailgroupManager]) -> "BatchDeleteMailgroupManagerRequestBodyBuilder":
-        self._batch_delete_mailgroup_manager_request_body.mailgroup_manager_list = mailgroup_manager_list
+    def mailgroup_manager_list(
+        self, mailgroup_manager_list: List[MailgroupManager]
+    ) -> "BatchDeleteMailgroupManagerRequestBodyBuilder":
+        self._batch_delete_mailgroup_manager_request_body.mailgroup_manager_list = (
+            mailgroup_manager_list
+        )
         return self
 
     def build(self) -> "BatchDeleteMailgroupManagerRequestBody":

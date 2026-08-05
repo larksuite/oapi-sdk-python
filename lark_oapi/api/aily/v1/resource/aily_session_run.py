@@ -23,8 +23,11 @@ class AilySessionRun(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def cancel(self, request: CancelAilySessionRunRequest,
-               option: Optional[RequestOption] = None) -> CancelAilySessionRunResponse:
+    def cancel(
+        self,
+        request: CancelAilySessionRunRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,13 +42,18 @@ class AilySessionRun(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CancelAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelAilySessionRunResponse)
+        response: CancelAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acancel(self, request: CancelAilySessionRunRequest,
-                      option: Optional[RequestOption] = None) -> CancelAilySessionRunResponse:
+    async def acancel(
+        self,
+        request: CancelAilySessionRunRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,13 +64,18 @@ class AilySessionRun(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CancelAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelAilySessionRunResponse)
+        response: CancelAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateAilySessionRunRequest,
-               option: Optional[RequestOption] = None) -> CreateAilySessionRunResponse:
+    def create(
+        self,
+        request: CreateAilySessionRunRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +90,18 @@ class AilySessionRun(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAilySessionRunResponse)
+        response: CreateAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAilySessionRunRequest,
-                      option: Optional[RequestOption] = None) -> CreateAilySessionRunResponse:
+    async def acreate(
+        self,
+        request: CreateAilySessionRunRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,13 +112,16 @@ class AilySessionRun(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAilySessionRunResponse)
+        response: CreateAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetAilySessionRunRequest,
-            option: Optional[RequestOption] = None) -> GetAilySessionRunResponse:
+    def get(
+        self, request: GetAilySessionRunRequest, option: Optional[RequestOption] = None
+    ) -> GetAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,13 +136,16 @@ class AilySessionRun(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAilySessionRunResponse)
+        response: GetAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAilySessionRunRequest,
-                   option: Optional[RequestOption] = None) -> GetAilySessionRunResponse:
+    async def aget(
+        self, request: GetAilySessionRunRequest, option: Optional[RequestOption] = None
+    ) -> GetAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,13 +156,16 @@ class AilySessionRun(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAilySessionRunResponse)
+        response: GetAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAilySessionRunRequest,
-             option: Optional[RequestOption] = None) -> ListAilySessionRunResponse:
+    def list(
+        self, request: ListAilySessionRunRequest, option: Optional[RequestOption] = None
+    ) -> ListAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,13 +180,16 @@ class AilySessionRun(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAilySessionRunResponse)
+        response: ListAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAilySessionRunResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAilySessionRunRequest,
-                    option: Optional[RequestOption] = None) -> ListAilySessionRunResponse:
+    async def alist(
+        self, request: ListAilySessionRunRequest, option: Optional[RequestOption] = None
+    ) -> ListAilySessionRunResponse:
         if option is None:
             option = RequestOption()
 
@@ -170,7 +200,9 @@ class AilySessionRun(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAilySessionRunResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAilySessionRunResponse)
+        response: ListAilySessionRunResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAilySessionRunResponse
+        )
         response.raw = resp
 
         return response

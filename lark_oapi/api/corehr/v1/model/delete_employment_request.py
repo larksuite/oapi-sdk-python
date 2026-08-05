@@ -17,13 +17,16 @@ class DeleteEmploymentRequest(BaseRequest):
 
 
 class DeleteEmploymentRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_employment_request = DeleteEmploymentRequest()
         delete_employment_request.http_method = HttpMethod.DELETE
-        delete_employment_request.uri = "/open-apis/corehr/v1/employments/:employment_id"
+        delete_employment_request.uri = (
+            "/open-apis/corehr/v1/employments/:employment_id"
+        )
         delete_employment_request.token_types = {AccessTokenType.TENANT}
-        self._delete_employment_request: DeleteEmploymentRequest = delete_employment_request
+        self._delete_employment_request: DeleteEmploymentRequest = (
+            delete_employment_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "DeleteEmploymentRequestBuilder":
         self._delete_employment_request.user_id_type = user_id_type

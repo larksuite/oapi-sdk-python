@@ -26,16 +26,24 @@ class AnnualVcOrgCntBuilder(object):
     def __init__(self) -> None:
         self._annual_vc_org_cnt = AnnualVcOrgCnt()
 
-    def organized_meeting_cnt(self, organized_meeting_cnt: int) -> "AnnualVcOrgCntBuilder":
+    def organized_meeting_cnt(
+        self, organized_meeting_cnt: int
+    ) -> "AnnualVcOrgCntBuilder":
         self._annual_vc_org_cnt.organized_meeting_cnt = organized_meeting_cnt
         return self
 
-    def organized_cal_meeting_cnt(self, organized_cal_meeting_cnt: int) -> "AnnualVcOrgCntBuilder":
+    def organized_cal_meeting_cnt(
+        self, organized_cal_meeting_cnt: int
+    ) -> "AnnualVcOrgCntBuilder":
         self._annual_vc_org_cnt.organized_cal_meeting_cnt = organized_cal_meeting_cnt
         return self
 
-    def organized_instant_meeting_cnt(self, organized_instant_meeting_cnt: int) -> "AnnualVcOrgCntBuilder":
-        self._annual_vc_org_cnt.organized_instant_meeting_cnt = organized_instant_meeting_cnt
+    def organized_instant_meeting_cnt(
+        self, organized_instant_meeting_cnt: int
+    ) -> "AnnualVcOrgCntBuilder":
+        self._annual_vc_org_cnt.organized_instant_meeting_cnt = (
+            organized_instant_meeting_cnt
+        )
         return self
 
     def build(self) -> "AnnualVcOrgCnt":

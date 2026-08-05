@@ -47,7 +47,9 @@ class TemplateBuilder(object):
         self._template.review_stage_role = review_stage_role
         return self
 
-    def review_stage_data_write_mode(self, review_stage_data_write_mode: str) -> "TemplateBuilder":
+    def review_stage_data_write_mode(
+        self, review_stage_data_write_mode: str
+    ) -> "TemplateBuilder":
         self._template.review_stage_data_write_mode = review_stage_data_write_mode
         return self
 

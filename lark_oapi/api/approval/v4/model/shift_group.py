@@ -65,7 +65,9 @@ class ShiftGroupBuilder(object):
         self._shift_group.shift_reason = shift_reason
         return self
 
-    def swap_shift_details(self, swap_shift_details: List[SwapShiftDetail]) -> "ShiftGroupBuilder":
+    def swap_shift_details(
+        self, swap_shift_details: List[SwapShiftDetail]
+    ) -> "ShiftGroupBuilder":
         self._shift_group.swap_shift_details = swap_shift_details
         return self
 

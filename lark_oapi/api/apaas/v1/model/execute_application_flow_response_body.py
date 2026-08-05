@@ -28,17 +28,23 @@ class ExecuteApplicationFlowResponseBody(object):
 
 class ExecuteApplicationFlowResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._execute_application_flow_response_body = ExecuteApplicationFlowResponseBody()
+        self._execute_application_flow_response_body = (
+            ExecuteApplicationFlowResponseBody()
+        )
 
     def status(self, status: str) -> "ExecuteApplicationFlowResponseBodyBuilder":
         self._execute_application_flow_response_body.status = status
         return self
 
-    def out_params(self, out_params: str) -> "ExecuteApplicationFlowResponseBodyBuilder":
+    def out_params(
+        self, out_params: str
+    ) -> "ExecuteApplicationFlowResponseBodyBuilder":
         self._execute_application_flow_response_body.out_params = out_params
         return self
 
-    def execution_id(self, execution_id: str) -> "ExecuteApplicationFlowResponseBodyBuilder":
+    def execution_id(
+        self, execution_id: str
+    ) -> "ExecuteApplicationFlowResponseBodyBuilder":
         self._execute_application_flow_response_body.execution_id = execution_id
         return self
 

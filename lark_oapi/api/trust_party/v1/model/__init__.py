@@ -27,7 +27,6 @@ from .message_body import *
 from .sender import *
 from .share_department import *
 from .share_user import *
-from .trust_party_app_to_tenants import *
 from .user_custom_attr import *
 from .user_custom_attr_value import *
 from .user_id import *

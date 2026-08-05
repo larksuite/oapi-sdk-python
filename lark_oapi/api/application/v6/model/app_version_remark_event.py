@@ -35,7 +35,9 @@ class AppVersionRemarkEventBuilder(object):
         self._app_version_remark_event.update_remark = update_remark
         return self
 
-    def visibility(self, visibility: AppVisibilityEvent) -> "AppVersionRemarkEventBuilder":
+    def visibility(
+        self, visibility: AppVisibilityEvent
+    ) -> "AppVersionRemarkEventBuilder":
         self._app_version_remark_event.visibility = visibility
         return self
 

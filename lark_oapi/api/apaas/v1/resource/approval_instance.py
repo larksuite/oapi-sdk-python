@@ -17,8 +17,11 @@ class ApprovalInstance(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def cancel(self, request: CancelApprovalInstanceRequest,
-               option: Optional[RequestOption] = None) -> CancelApprovalInstanceResponse:
+    def cancel(
+        self,
+        request: CancelApprovalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelApprovalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ApprovalInstance(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CancelApprovalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CancelApprovalInstanceResponse)
+        response: CancelApprovalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelApprovalInstanceResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acancel(self, request: CancelApprovalInstanceRequest,
-                      option: Optional[RequestOption] = None) -> CancelApprovalInstanceResponse:
+    async def acancel(
+        self,
+        request: CancelApprovalInstanceRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CancelApprovalInstanceResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ApprovalInstance(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CancelApprovalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  CancelApprovalInstanceResponse)
+        response: CancelApprovalInstanceResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CancelApprovalInstanceResponse
+        )
         response.raw = resp
 
         return response

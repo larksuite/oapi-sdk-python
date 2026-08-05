@@ -43,11 +43,15 @@ class PlanItemBuilder(object):
         self._plan_item.plan_item_logic = plan_item_logic
         return self
 
-    def probation_discount_type(self, probation_discount_type: str) -> "PlanItemBuilder":
+    def probation_discount_type(
+        self, probation_discount_type: str
+    ) -> "PlanItemBuilder":
         self._plan_item.probation_discount_type = probation_discount_type
         return self
 
-    def probation_discount_percentum(self, probation_discount_percentum: str) -> "PlanItemBuilder":
+    def probation_discount_percentum(
+        self, probation_discount_percentum: str
+    ) -> "PlanItemBuilder":
         self._plan_item.probation_discount_percentum = probation_discount_percentum
         return self
 

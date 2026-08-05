@@ -35,7 +35,9 @@ class ReviewDataPermissionStageBuilder(object):
         self._review_data_permission_stage.stage_type = stage_type
         return self
 
-    def units(self, units: List[ReviewDataPermissionUnit]) -> "ReviewDataPermissionStageBuilder":
+    def units(
+        self, units: List[ReviewDataPermissionUnit]
+    ) -> "ReviewDataPermissionStageBuilder":
         self._review_data_permission_stage.units = units
         return self
 

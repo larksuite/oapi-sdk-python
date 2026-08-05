@@ -56,7 +56,9 @@ class AddSignInstanceRequestBodyBuilder(object):
         self._add_sign_instance_request_body.comment = comment
         return self
 
-    def add_sign_user_ids(self, add_sign_user_ids: List[str]) -> "AddSignInstanceRequestBodyBuilder":
+    def add_sign_user_ids(
+        self, add_sign_user_ids: List[str]
+    ) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.add_sign_user_ids = add_sign_user_ids
         return self
 
@@ -64,7 +66,9 @@ class AddSignInstanceRequestBodyBuilder(object):
         self._add_sign_instance_request_body.add_sign_type = add_sign_type
         return self
 
-    def approval_method(self, approval_method: int) -> "AddSignInstanceRequestBodyBuilder":
+    def approval_method(
+        self, approval_method: int
+    ) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.approval_method = approval_method
         return self
 

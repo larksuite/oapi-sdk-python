@@ -31,9 +31,7 @@ class P2ImChatMemberUserDeletedV1Data(object):
 
 
 class P2ImChatMemberUserDeletedV1(EventContext):
-    _types = {
-        "event": P2ImChatMemberUserDeletedV1Data
-    }
+    _types = {"event": P2ImChatMemberUserDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

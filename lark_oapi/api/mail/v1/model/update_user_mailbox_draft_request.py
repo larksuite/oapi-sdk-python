@@ -19,17 +19,24 @@ class UpdateUserMailboxDraftRequest(BaseRequest):
 
 
 class UpdateUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         update_user_mailbox_draft_request = UpdateUserMailboxDraftRequest()
         update_user_mailbox_draft_request.http_method = HttpMethod.PUT
-        update_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        update_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        )
         update_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._update_user_mailbox_draft_request: UpdateUserMailboxDraftRequest = update_user_mailbox_draft_request
+        self._update_user_mailbox_draft_request: UpdateUserMailboxDraftRequest = (
+            update_user_mailbox_draft_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "UpdateUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "UpdateUserMailboxDraftRequestBuilder":
         self._update_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._update_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._update_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def draft_id(self, draft_id: str) -> "UpdateUserMailboxDraftRequestBuilder":
@@ -37,7 +44,9 @@ class UpdateUserMailboxDraftRequestBuilder(object):
         self._update_user_mailbox_draft_request.paths["draft_id"] = str(draft_id)
         return self
 
-    def request_body(self, request_body: UpdateUserMailboxDraftRequestBody) -> "UpdateUserMailboxDraftRequestBuilder":
+    def request_body(
+        self, request_body: UpdateUserMailboxDraftRequestBody
+    ) -> "UpdateUserMailboxDraftRequestBuilder":
         self._update_user_mailbox_draft_request.request_body = request_body
         self._update_user_mailbox_draft_request.body = request_body
         return self

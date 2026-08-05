@@ -1,4 +1,5 @@
 from .alert import *
+from .bot import *
 from .export import *
 from .meeting import *
 from .meeting_recording import *

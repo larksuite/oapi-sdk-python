@@ -18,12 +18,14 @@ class ListAppTableRequest(BaseRequest):
 
 
 class ListAppTableRequestBuilder(object):
-
     def __init__(self) -> None:
         list_app_table_request = ListAppTableRequest()
         list_app_table_request.http_method = HttpMethod.GET
         list_app_table_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables"
-        list_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        list_app_table_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._list_app_table_request: ListAppTableRequest = list_app_table_request
 
     def page_size(self, page_size: int) -> "ListAppTableRequestBuilder":

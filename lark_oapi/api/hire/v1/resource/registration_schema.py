@@ -17,8 +17,11 @@ class RegistrationSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListRegistrationSchemaRequest,
-             option: Optional[RequestOption] = None) -> ListRegistrationSchemaResponse:
+    def list(
+        self,
+        request: ListRegistrationSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListRegistrationSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class RegistrationSchema(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListRegistrationSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListRegistrationSchemaResponse)
+        response: ListRegistrationSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRegistrationSchemaResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListRegistrationSchemaRequest,
-                    option: Optional[RequestOption] = None) -> ListRegistrationSchemaResponse:
+    async def alist(
+        self,
+        request: ListRegistrationSchemaRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListRegistrationSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class RegistrationSchema(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListRegistrationSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListRegistrationSchemaResponse)
+        response: ListRegistrationSchemaResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRegistrationSchemaResponse
+        )
         response.raw = resp
 
         return response

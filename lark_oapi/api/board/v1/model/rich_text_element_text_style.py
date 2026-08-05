@@ -46,7 +46,9 @@ class RichTextElementTextStyleBuilder(object):
         self._rich_text_element_text_style.text_color = text_color
         return self
 
-    def text_background_color(self, text_background_color: str) -> "RichTextElementTextStyleBuilder":
+    def text_background_color(
+        self, text_background_color: str
+    ) -> "RichTextElementTextStyleBuilder":
         self._rich_text_element_text_style.text_background_color = text_background_color
         return self
 

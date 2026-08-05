@@ -25,11 +25,15 @@ class EmploymentListForAgentRecordBuilder(object):
     def __init__(self) -> None:
         self._employment_list_for_agent_record = EmploymentListForAgentRecord()
 
-    def employment_id(self, employment_id: str) -> "EmploymentListForAgentRecordBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "EmploymentListForAgentRecordBuilder":
         self._employment_list_for_agent_record.employment_id = employment_id
         return self
 
-    def data(self, data: List[EmploymentColumnValueForAgent]) -> "EmploymentListForAgentRecordBuilder":
+    def data(
+        self, data: List[EmploymentColumnValueForAgent]
+    ) -> "EmploymentListForAgentRecordBuilder":
         self._employment_list_for_agent_record.data = data
         return self
 

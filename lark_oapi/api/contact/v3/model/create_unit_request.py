@@ -17,7 +17,6 @@ class CreateUnitRequest(BaseRequest):
 
 
 class CreateUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         create_unit_request = CreateUnitRequest()
         create_unit_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class CreateUnitRequestBuilder(object):
         create_unit_request.token_types = {AccessTokenType.TENANT}
         self._create_unit_request: CreateUnitRequest = create_unit_request
 
-    def request_body(self, request_body: CreateUnitRequestBody) -> "CreateUnitRequestBuilder":
+    def request_body(
+        self, request_body: CreateUnitRequestBody
+    ) -> "CreateUnitRequestBuilder":
         self._create_unit_request.request_body = request_body
         self._create_unit_request.body = request_body
         return self

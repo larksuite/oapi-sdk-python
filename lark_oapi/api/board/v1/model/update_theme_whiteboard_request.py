@@ -18,20 +18,32 @@ class UpdateThemeWhiteboardRequest(BaseRequest):
 
 
 class UpdateThemeWhiteboardRequestBuilder(object):
-
     def __init__(self) -> None:
         update_theme_whiteboard_request = UpdateThemeWhiteboardRequest()
         update_theme_whiteboard_request.http_method = HttpMethod.POST
-        update_theme_whiteboard_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/update_theme"
-        update_theme_whiteboard_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_theme_whiteboard_request: UpdateThemeWhiteboardRequest = update_theme_whiteboard_request
+        update_theme_whiteboard_request.uri = (
+            "/open-apis/board/v1/whiteboards/:whiteboard_id/update_theme"
+        )
+        update_theme_whiteboard_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_theme_whiteboard_request: UpdateThemeWhiteboardRequest = (
+            update_theme_whiteboard_request
+        )
 
-    def whiteboard_id(self, whiteboard_id: str) -> "UpdateThemeWhiteboardRequestBuilder":
+    def whiteboard_id(
+        self, whiteboard_id: str
+    ) -> "UpdateThemeWhiteboardRequestBuilder":
         self._update_theme_whiteboard_request.whiteboard_id = whiteboard_id
-        self._update_theme_whiteboard_request.paths["whiteboard_id"] = str(whiteboard_id)
+        self._update_theme_whiteboard_request.paths["whiteboard_id"] = str(
+            whiteboard_id
+        )
         return self
 
-    def request_body(self, request_body: UpdateThemeWhiteboardRequestBody) -> "UpdateThemeWhiteboardRequestBuilder":
+    def request_body(
+        self, request_body: UpdateThemeWhiteboardRequestBody
+    ) -> "UpdateThemeWhiteboardRequestBuilder":
         self._update_theme_whiteboard_request.request_body = request_body
         self._update_theme_whiteboard_request.body = request_body
         return self

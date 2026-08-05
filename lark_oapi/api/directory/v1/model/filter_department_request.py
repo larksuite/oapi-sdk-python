@@ -19,25 +19,37 @@ class FilterDepartmentRequest(BaseRequest):
 
 
 class FilterDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         filter_department_request = FilterDepartmentRequest()
         filter_department_request.http_method = HttpMethod.POST
         filter_department_request.uri = "/open-apis/directory/v1/departments/filter"
-        filter_department_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._filter_department_request: FilterDepartmentRequest = filter_department_request
+        filter_department_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._filter_department_request: FilterDepartmentRequest = (
+            filter_department_request
+        )
 
-    def employee_id_type(self, employee_id_type: str) -> "FilterDepartmentRequestBuilder":
+    def employee_id_type(
+        self, employee_id_type: str
+    ) -> "FilterDepartmentRequestBuilder":
         self._filter_department_request.employee_id_type = employee_id_type
         self._filter_department_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "FilterDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "FilterDepartmentRequestBuilder":
         self._filter_department_request.department_id_type = department_id_type
-        self._filter_department_request.add_query("department_id_type", department_id_type)
+        self._filter_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: FilterDepartmentRequestBody) -> "FilterDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: FilterDepartmentRequestBody
+    ) -> "FilterDepartmentRequestBuilder":
         self._filter_department_request.request_body = request_body
         self._filter_department_request.body = request_body
         return self

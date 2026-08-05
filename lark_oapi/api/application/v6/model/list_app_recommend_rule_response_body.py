@@ -27,7 +27,9 @@ class ListAppRecommendRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_recommend_rule_response_body = ListAppRecommendRuleResponseBody()
 
-    def rules(self, rules: List[AppRecommendRule]) -> "ListAppRecommendRuleResponseBodyBuilder":
+    def rules(
+        self, rules: List[AppRecommendRule]
+    ) -> "ListAppRecommendRuleResponseBodyBuilder":
         self._list_app_recommend_rule_response_body.rules = rules
         return self
 

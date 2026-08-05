@@ -9,7 +9,6 @@ from .create_device_record_response_body import CreateDeviceRecordResponseBody
 class CreateDeviceRecordResponse(BaseResponse):
     _types = {
         "data": CreateDeviceRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

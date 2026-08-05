@@ -23,7 +23,9 @@ class PatchDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_department_request_body = PatchDepartmentRequestBody()
 
-    def department(self, department: UpdateDepartment) -> "PatchDepartmentRequestBodyBuilder":
+    def department(
+        self, department: UpdateDepartment
+    ) -> "PatchDepartmentRequestBodyBuilder":
         self._patch_department_request_body.department = department
         return self
 

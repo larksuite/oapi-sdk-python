@@ -9,7 +9,6 @@ from .create_category_response_body import CreateCategoryResponseBody
 class CreateCategoryResponse(BaseResponse):
     _types = {
         "data": CreateCategoryResponseBody,
-
     }
 
     def __init__(self, d=None):

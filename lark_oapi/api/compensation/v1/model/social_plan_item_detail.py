@@ -43,19 +43,27 @@ class SocialPlanItemDetailBuilder(object):
         self._social_plan_item_detail.item_name = item_name
         return self
 
-    def item_setting_of_person(self, item_setting_of_person: SocialPlanItemSetting) -> "SocialPlanItemDetailBuilder":
+    def item_setting_of_person(
+        self, item_setting_of_person: SocialPlanItemSetting
+    ) -> "SocialPlanItemDetailBuilder":
         self._social_plan_item_detail.item_setting_of_person = item_setting_of_person
         return self
 
-    def item_setting_of_company(self, item_setting_of_company: SocialPlanItemSetting) -> "SocialPlanItemDetailBuilder":
+    def item_setting_of_company(
+        self, item_setting_of_company: SocialPlanItemSetting
+    ) -> "SocialPlanItemDetailBuilder":
         self._social_plan_item_detail.item_setting_of_company = item_setting_of_company
         return self
 
-    def payment_frequency(self, payment_frequency: str) -> "SocialPlanItemDetailBuilder":
+    def payment_frequency(
+        self, payment_frequency: str
+    ) -> "SocialPlanItemDetailBuilder":
         self._social_plan_item_detail.payment_frequency = payment_frequency
         return self
 
-    def payment_months(self, payment_months: List[int]) -> "SocialPlanItemDetailBuilder":
+    def payment_months(
+        self, payment_months: List[int]
+    ) -> "SocialPlanItemDetailBuilder":
         self._social_plan_item_detail.payment_months = payment_months
         return self
 

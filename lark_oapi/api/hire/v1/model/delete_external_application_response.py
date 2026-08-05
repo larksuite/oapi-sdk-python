@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .delete_external_application_response_body import DeleteExternalApplicationResponseBody
+from .delete_external_application_response_body import (
+    DeleteExternalApplicationResponseBody,
+)
 
 
 class DeleteExternalApplicationResponse(BaseResponse):
     _types = {
         "data": DeleteExternalApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

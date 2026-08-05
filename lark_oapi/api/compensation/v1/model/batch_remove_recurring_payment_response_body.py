@@ -21,11 +21,16 @@ class BatchRemoveRecurringPaymentResponseBody(object):
 
 class BatchRemoveRecurringPaymentResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_remove_recurring_payment_response_body = BatchRemoveRecurringPaymentResponseBody()
+        self._batch_remove_recurring_payment_response_body = (
+            BatchRemoveRecurringPaymentResponseBody()
+        )
 
-    def operate_results(self, operate_results: List[
-        RecurringPaymentOperateResult]) -> "BatchRemoveRecurringPaymentResponseBodyBuilder":
-        self._batch_remove_recurring_payment_response_body.operate_results = operate_results
+    def operate_results(
+        self, operate_results: List[RecurringPaymentOperateResult]
+    ) -> "BatchRemoveRecurringPaymentResponseBodyBuilder":
+        self._batch_remove_recurring_payment_response_body.operate_results = (
+            operate_results
+        )
         return self
 
     def build(self) -> "BatchRemoveRecurringPaymentResponseBody":

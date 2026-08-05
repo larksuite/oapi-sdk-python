@@ -28,7 +28,9 @@ class EmployeeUnionCityInfoBuilder(object):
         self._employee_union_city_info.employment_id = employment_id
         return self
 
-    def is_in_union_city(self, is_in_union_city: bool) -> "EmployeeUnionCityInfoBuilder":
+    def is_in_union_city(
+        self, is_in_union_city: bool
+    ) -> "EmployeeUnionCityInfoBuilder":
         self._employee_union_city_info.is_in_union_city = is_in_union_city
         return self
 

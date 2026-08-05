@@ -29,8 +29,12 @@ class TranferEmploymentInfoBuilder(object):
     def __init__(self) -> None:
         self._tranfer_employment_info = TranferEmploymentInfo()
 
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "TranferEmploymentInfoBuilder":
-        self._tranfer_employment_info.regular_employee_start_date = regular_employee_start_date
+    def regular_employee_start_date(
+        self, regular_employee_start_date: str
+    ) -> "TranferEmploymentInfoBuilder":
+        self._tranfer_employment_info.regular_employee_start_date = (
+            regular_employee_start_date
+        )
         return self
 
     def seniority_date(self, seniority_date: str) -> "TranferEmploymentInfoBuilder":
@@ -41,7 +45,9 @@ class TranferEmploymentInfoBuilder(object):
         self._tranfer_employment_info.employee_number = employee_number
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "TranferEmploymentInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "TranferEmploymentInfoBuilder":
         self._tranfer_employment_info.custom_fields = custom_fields
         return self
 

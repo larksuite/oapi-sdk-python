@@ -34,7 +34,9 @@ class SubscribedEventBuilder(object):
         self._subscribed_event.request_url = request_url
         return self
 
-    def subscribed_events(self, subscribed_events: List[str]) -> "SubscribedEventBuilder":
+    def subscribed_events(
+        self, subscribed_events: List[str]
+    ) -> "SubscribedEventBuilder":
         self._subscribed_event.subscribed_events = subscribed_events
         return self
 

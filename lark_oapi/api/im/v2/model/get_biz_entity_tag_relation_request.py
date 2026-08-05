@@ -17,22 +17,33 @@ class GetBizEntityTagRelationRequest(BaseRequest):
 
 
 class GetBizEntityTagRelationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_biz_entity_tag_relation_request = GetBizEntityTagRelationRequest()
         get_biz_entity_tag_relation_request.http_method = HttpMethod.GET
-        get_biz_entity_tag_relation_request.uri = "/open-apis/im/v2/biz_entity_tag_relation"
+        get_biz_entity_tag_relation_request.uri = (
+            "/open-apis/im/v2/biz_entity_tag_relation"
+        )
         get_biz_entity_tag_relation_request.token_types = {AccessTokenType.TENANT}
-        self._get_biz_entity_tag_relation_request: GetBizEntityTagRelationRequest = get_biz_entity_tag_relation_request
+        self._get_biz_entity_tag_relation_request: GetBizEntityTagRelationRequest = (
+            get_biz_entity_tag_relation_request
+        )
 
-    def tag_biz_type(self, tag_biz_type: str) -> "GetBizEntityTagRelationRequestBuilder":
+    def tag_biz_type(
+        self, tag_biz_type: str
+    ) -> "GetBizEntityTagRelationRequestBuilder":
         self._get_biz_entity_tag_relation_request.tag_biz_type = tag_biz_type
-        self._get_biz_entity_tag_relation_request.add_query("tag_biz_type", tag_biz_type)
+        self._get_biz_entity_tag_relation_request.add_query(
+            "tag_biz_type", tag_biz_type
+        )
         return self
 
-    def biz_entity_id(self, biz_entity_id: str) -> "GetBizEntityTagRelationRequestBuilder":
+    def biz_entity_id(
+        self, biz_entity_id: str
+    ) -> "GetBizEntityTagRelationRequestBuilder":
         self._get_biz_entity_tag_relation_request.biz_entity_id = biz_entity_id
-        self._get_biz_entity_tag_relation_request.add_query("biz_entity_id", biz_entity_id)
+        self._get_biz_entity_tag_relation_request.add_query(
+            "biz_entity_id", biz_entity_id
+        )
         return self
 
     def build(self) -> GetBizEntityTagRelationRequest:

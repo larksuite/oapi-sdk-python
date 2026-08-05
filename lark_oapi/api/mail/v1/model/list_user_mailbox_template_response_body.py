@@ -20,9 +20,13 @@ class ListUserMailboxTemplateResponseBody(object):
 
 class ListUserMailboxTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_user_mailbox_template_response_body = ListUserMailboxTemplateResponseBody()
+        self._list_user_mailbox_template_response_body = (
+            ListUserMailboxTemplateResponseBody()
+        )
 
-    def items(self, items: List[object]) -> "ListUserMailboxTemplateResponseBodyBuilder":
+    def items(
+        self, items: List[object]
+    ) -> "ListUserMailboxTemplateResponseBodyBuilder":
         self._list_user_mailbox_template_response_body.items = items
         return self
 

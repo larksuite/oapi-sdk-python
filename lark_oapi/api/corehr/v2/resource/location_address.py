@@ -21,8 +21,11 @@ class LocationAddress(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateLocationAddressRequest,
-               option: Optional[RequestOption] = None) -> CreateLocationAddressResponse:
+    def create(
+        self,
+        request: CreateLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +40,18 @@ class LocationAddress(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateLocationAddressResponse)
+        response: CreateLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateLocationAddressResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateLocationAddressRequest,
-                      option: Optional[RequestOption] = None) -> CreateLocationAddressResponse:
+    async def acreate(
+        self,
+        request: CreateLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +62,18 @@ class LocationAddress(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateLocationAddressResponse)
+        response: CreateLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateLocationAddressResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteLocationAddressRequest,
-               option: Optional[RequestOption] = None) -> DeleteLocationAddressResponse:
+    def delete(
+        self,
+        request: DeleteLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +88,18 @@ class LocationAddress(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 DeleteLocationAddressResponse)
+        response: DeleteLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteLocationAddressResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteLocationAddressRequest,
-                      option: Optional[RequestOption] = None) -> DeleteLocationAddressResponse:
+    async def adelete(
+        self,
+        request: DeleteLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +110,18 @@ class LocationAddress(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 DeleteLocationAddressResponse)
+        response: DeleteLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteLocationAddressResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchLocationAddressRequest,
-              option: Optional[RequestOption] = None) -> PatchLocationAddressResponse:
+    def patch(
+        self,
+        request: PatchLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +136,18 @@ class LocationAddress(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchLocationAddressResponse)
+        response: PatchLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchLocationAddressResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchLocationAddressRequest,
-                     option: Optional[RequestOption] = None) -> PatchLocationAddressResponse:
+    async def apatch(
+        self,
+        request: PatchLocationAddressRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchLocationAddressResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +158,9 @@ class LocationAddress(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchLocationAddressResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchLocationAddressResponse)
+        response: PatchLocationAddressResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchLocationAddressResponse
+        )
         response.raw = resp
 
         return response

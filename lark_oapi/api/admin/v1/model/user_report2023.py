@@ -160,7 +160,9 @@ class UserReport2023Builder(object):
         self._user_report2023.active_day_cnt = active_day_cnt
         return self
 
-    def duration_cnt_2(self, duration_cnt_2: List[AnnualReportMapFloat]) -> "UserReport2023Builder":
+    def duration_cnt_2(
+        self, duration_cnt_2: List[AnnualReportMapFloat]
+    ) -> "UserReport2023Builder":
         self._user_report2023.duration_cnt_2 = duration_cnt_2
         return self
 
@@ -172,31 +174,49 @@ class UserReport2023Builder(object):
         self._user_report2023.busy_month = busy_month
         return self
 
-    def busy_month_sum_duration(self, busy_month_sum_duration: float) -> "UserReport2023Builder":
+    def busy_month_sum_duration(
+        self, busy_month_sum_duration: float
+    ) -> "UserReport2023Builder":
         self._user_report2023.busy_month_sum_duration = busy_month_sum_duration
         return self
 
-    def busy_month_send_msg_cnt(self, busy_month_send_msg_cnt: int) -> "UserReport2023Builder":
+    def busy_month_send_msg_cnt(
+        self, busy_month_send_msg_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.busy_month_send_msg_cnt = busy_month_send_msg_cnt
         return self
 
-    def busy_month_meeting_cnt(self, busy_month_meeting_cnt: int) -> "UserReport2023Builder":
+    def busy_month_meeting_cnt(
+        self, busy_month_meeting_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.busy_month_meeting_cnt = busy_month_meeting_cnt
         return self
 
-    def busy_month_last_meeting_time(self, busy_month_last_meeting_time: str) -> "UserReport2023Builder":
-        self._user_report2023.busy_month_last_meeting_time = busy_month_last_meeting_time
+    def busy_month_last_meeting_time(
+        self, busy_month_last_meeting_time: str
+    ) -> "UserReport2023Builder":
+        self._user_report2023.busy_month_last_meeting_time = (
+            busy_month_last_meeting_time
+        )
         return self
 
-    def busy_month_create_edit_file_cnt(self, busy_month_create_edit_file_cnt: int) -> "UserReport2023Builder":
-        self._user_report2023.busy_month_create_edit_file_cnt = busy_month_create_edit_file_cnt
+    def busy_month_create_edit_file_cnt(
+        self, busy_month_create_edit_file_cnt: int
+    ) -> "UserReport2023Builder":
+        self._user_report2023.busy_month_create_edit_file_cnt = (
+            busy_month_create_edit_file_cnt
+        )
         return self
 
-    def im_send_msg_cnt_2(self, im_send_msg_cnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def im_send_msg_cnt_2(
+        self, im_send_msg_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.im_send_msg_cnt_2 = im_send_msg_cnt_2
         return self
 
-    def im_send_msg_cnt_rank(self, im_send_msg_cnt_rank: int) -> "UserReport2023Builder":
+    def im_send_msg_cnt_rank(
+        self, im_send_msg_cnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.im_send_msg_cnt_rank = im_send_msg_cnt_rank
         return self
 
@@ -204,11 +224,15 @@ class UserReport2023Builder(object):
         self._user_report2023.im_busy_date = im_busy_date
         return self
 
-    def im_busy_date_send_msg_cnt(self, im_busy_date_send_msg_cnt: int) -> "UserReport2023Builder":
+    def im_busy_date_send_msg_cnt(
+        self, im_busy_date_send_msg_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.im_busy_date_send_msg_cnt = im_busy_date_send_msg_cnt
         return self
 
-    def im_last_send_msg_time(self, im_last_send_msg_time: str) -> "UserReport2023Builder":
+    def im_last_send_msg_time(
+        self, im_last_send_msg_time: str
+    ) -> "UserReport2023Builder":
         self._user_report2023.im_last_send_msg_time = im_last_send_msg_time
         return self
 
@@ -244,16 +268,23 @@ class UserReport2023Builder(object):
         self._user_report2023.im_emoji_top3_cnt = im_emoji_top3_cnt
         return self
 
-    def im_positive_reaction_cnt_2(self,
-                                   im_positive_reaction_cnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def im_positive_reaction_cnt_2(
+        self, im_positive_reaction_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.im_positive_reaction_cnt_2 = im_positive_reaction_cnt_2
         return self
 
-    def im_positive_reaction_cnt_rank(self, im_positive_reaction_cnt_rank: int) -> "UserReport2023Builder":
-        self._user_report2023.im_positive_reaction_cnt_rank = im_positive_reaction_cnt_rank
+    def im_positive_reaction_cnt_rank(
+        self, im_positive_reaction_cnt_rank: int
+    ) -> "UserReport2023Builder":
+        self._user_report2023.im_positive_reaction_cnt_rank = (
+            im_positive_reaction_cnt_rank
+        )
         return self
 
-    def ccm_create_cnt_2(self, ccm_create_cnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def ccm_create_cnt_2(
+        self, ccm_create_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_cnt_2 = ccm_create_cnt_2
         return self
 
@@ -261,31 +292,45 @@ class UserReport2023Builder(object):
         self._user_report2023.ccm_create_cnt_rank = ccm_create_cnt_rank
         return self
 
-    def ccm_create_busy_month(self, ccm_create_busy_month: str) -> "UserReport2023Builder":
+    def ccm_create_busy_month(
+        self, ccm_create_busy_month: str
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_busy_month = ccm_create_busy_month
         return self
 
-    def ccm_create_busy_month_cnt(self, ccm_create_busy_month_cnt: int) -> "UserReport2023Builder":
+    def ccm_create_busy_month_cnt(
+        self, ccm_create_busy_month_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_busy_month_cnt = ccm_create_busy_month_cnt
         return self
 
-    def ccm_create_viewed_ucnt(self, ccm_create_viewed_ucnt: int) -> "UserReport2023Builder":
+    def ccm_create_viewed_ucnt(
+        self, ccm_create_viewed_ucnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_viewed_ucnt = ccm_create_viewed_ucnt
         return self
 
-    def ccm_create_liked_cnt(self, ccm_create_liked_cnt: int) -> "UserReport2023Builder":
+    def ccm_create_liked_cnt(
+        self, ccm_create_liked_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_liked_cnt = ccm_create_liked_cnt
         return self
 
-    def ccm_create_liked_cnt_rank(self, ccm_create_liked_cnt_rank: int) -> "UserReport2023Builder":
+    def ccm_create_liked_cnt_rank(
+        self, ccm_create_liked_cnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_create_liked_cnt_rank = ccm_create_liked_cnt_rank
         return self
 
-    def ccm_edit_comment_fcnt_2(self, ccm_edit_comment_fcnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def ccm_edit_comment_fcnt_2(
+        self, ccm_edit_comment_fcnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_edit_comment_fcnt_2 = ccm_edit_comment_fcnt_2
         return self
 
-    def ccm_edit_comment_fcnt_rank(self, ccm_edit_comment_fcnt_rank: int) -> "UserReport2023Builder":
+    def ccm_edit_comment_fcnt_rank(
+        self, ccm_edit_comment_fcnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_edit_comment_fcnt_rank = ccm_edit_comment_fcnt_rank
         return self
 
@@ -293,27 +338,39 @@ class UserReport2023Builder(object):
         self._user_report2023.ccm_view_other_fcnt = ccm_view_other_fcnt
         return self
 
-    def ccm_view_other_fcnt_rank(self, ccm_view_other_fcnt_rank: int) -> "UserReport2023Builder":
+    def ccm_view_other_fcnt_rank(
+        self, ccm_view_other_fcnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.ccm_view_other_fcnt_rank = ccm_view_other_fcnt_rank
         return self
 
-    def vc_sent_meeting_cnt_2(self, vc_sent_meeting_cnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def vc_sent_meeting_cnt_2(
+        self, vc_sent_meeting_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_sent_meeting_cnt_2 = vc_sent_meeting_cnt_2
         return self
 
-    def vc_sent_meeting_cnt_rank(self, vc_sent_meeting_cnt_rank: int) -> "UserReport2023Builder":
+    def vc_sent_meeting_cnt_rank(
+        self, vc_sent_meeting_cnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_sent_meeting_cnt_rank = vc_sent_meeting_cnt_rank
         return self
 
-    def vc_sent_meeting_ucnt(self, vc_sent_meeting_ucnt: int) -> "UserReport2023Builder":
+    def vc_sent_meeting_ucnt(
+        self, vc_sent_meeting_ucnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_sent_meeting_ucnt = vc_sent_meeting_ucnt
         return self
 
-    def vc_join_meeting_cnt_2(self, vc_join_meeting_cnt_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def vc_join_meeting_cnt_2(
+        self, vc_join_meeting_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_join_meeting_cnt_2 = vc_join_meeting_cnt_2
         return self
 
-    def vc_join_meeting_cnt_rank(self, vc_join_meeting_cnt_rank: int) -> "UserReport2023Builder":
+    def vc_join_meeting_cnt_rank(
+        self, vc_join_meeting_cnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_join_meeting_cnt_rank = vc_join_meeting_cnt_rank
         return self
 
@@ -321,45 +378,67 @@ class UserReport2023Builder(object):
         self._user_report2023.vc_all_meeting_cnt = vc_all_meeting_cnt
         return self
 
-    def vc_all_meeting_cnt_rank(self, vc_all_meeting_cnt_rank: int) -> "UserReport2023Builder":
+    def vc_all_meeting_cnt_rank(
+        self, vc_all_meeting_cnt_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_all_meeting_cnt_rank = vc_all_meeting_cnt_rank
         return self
 
-    def vc_all_meeting_duration_2(self,
-                                  vc_all_meeting_duration_2: List[AnnualReportMapFloat]) -> "UserReport2023Builder":
+    def vc_all_meeting_duration_2(
+        self, vc_all_meeting_duration_2: List[AnnualReportMapFloat]
+    ) -> "UserReport2023Builder":
         self._user_report2023.vc_all_meeting_duration_2 = vc_all_meeting_duration_2
         return self
 
-    def cal_comment_cal_time(self, cal_comment_cal_time: str) -> "UserReport2023Builder":
+    def cal_comment_cal_time(
+        self, cal_comment_cal_time: str
+    ) -> "UserReport2023Builder":
         self._user_report2023.cal_comment_cal_time = cal_comment_cal_time
         return self
 
-    def people_profile_view_cnt(self, people_profile_view_cnt: int) -> "UserReport2023Builder":
+    def people_profile_view_cnt(
+        self, people_profile_view_cnt: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.people_profile_view_cnt = people_profile_view_cnt
         return self
 
-    def people_interview_num_2(self, people_interview_num_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
+    def people_interview_num_2(
+        self, people_interview_num_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
         self._user_report2023.people_interview_num_2 = people_interview_num_2
         return self
 
-    def people_interview_num_rank(self, people_interview_num_rank: int) -> "UserReport2023Builder":
+    def people_interview_num_rank(
+        self, people_interview_num_rank: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.people_interview_num_rank = people_interview_num_rank
         return self
 
-    def people_interview_offer_num_2(self,
-                                     people_interview_offer_num_2: List[AnnualReportMapInt]) -> "UserReport2023Builder":
-        self._user_report2023.people_interview_offer_num_2 = people_interview_offer_num_2
+    def people_interview_offer_num_2(
+        self, people_interview_offer_num_2: List[AnnualReportMapInt]
+    ) -> "UserReport2023Builder":
+        self._user_report2023.people_interview_offer_num_2 = (
+            people_interview_offer_num_2
+        )
         return self
 
-    def people_interview_offer_num_rank(self, people_interview_offer_num_rank: int) -> "UserReport2023Builder":
-        self._user_report2023.people_interview_offer_num_rank = people_interview_offer_num_rank
+    def people_interview_offer_num_rank(
+        self, people_interview_offer_num_rank: int
+    ) -> "UserReport2023Builder":
+        self._user_report2023.people_interview_offer_num_rank = (
+            people_interview_offer_num_rank
+        )
         return self
 
-    def email_send_email_count(self, email_send_email_count: int) -> "UserReport2023Builder":
+    def email_send_email_count(
+        self, email_send_email_count: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.email_send_email_count = email_send_email_count
         return self
 
-    def email_receive_email_count(self, email_receive_email_count: int) -> "UserReport2023Builder":
+    def email_receive_email_count(
+        self, email_receive_email_count: int
+    ) -> "UserReport2023Builder":
         self._user_report2023.email_receive_email_count = email_receive_email_count
         return self
 

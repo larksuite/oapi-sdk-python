@@ -19,12 +19,14 @@ class PatchTasklistRequest(BaseRequest):
 
 
 class PatchTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_tasklist_request = PatchTasklistRequest()
         patch_tasklist_request.http_method = HttpMethod.PATCH
         patch_tasklist_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid"
-        patch_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._patch_tasklist_request: PatchTasklistRequest = patch_tasklist_request
 
     def user_id_type(self, user_id_type: str) -> "PatchTasklistRequestBuilder":
@@ -37,7 +39,9 @@ class PatchTasklistRequestBuilder(object):
         self._patch_tasklist_request.paths["tasklist_guid"] = str(tasklist_guid)
         return self
 
-    def request_body(self, request_body: PatchTasklistRequestBody) -> "PatchTasklistRequestBuilder":
+    def request_body(
+        self, request_body: PatchTasklistRequestBody
+    ) -> "PatchTasklistRequestBuilder":
         self._patch_tasklist_request.request_body = request_body
         self._patch_tasklist_request.body = request_body
         return self

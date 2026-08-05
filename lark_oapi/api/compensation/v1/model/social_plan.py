@@ -70,7 +70,9 @@ class SocialPlanBuilder(object):
         self._social_plan.scope = scope
         return self
 
-    def item_detail(self, item_detail: List[SocialPlanItemDetail]) -> "SocialPlanBuilder":
+    def item_detail(
+        self, item_detail: List[SocialPlanItemDetail]
+    ) -> "SocialPlanBuilder":
         self._social_plan.item_detail = item_detail
         return self
 

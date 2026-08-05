@@ -20,7 +20,6 @@ class SearchMinuteRequest(BaseRequest):
 
 
 class SearchMinuteRequestBuilder(object):
-
     def __init__(self) -> None:
         search_minute_request = SearchMinuteRequest()
         search_minute_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class SearchMinuteRequestBuilder(object):
         self._search_minute_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchMinuteRequestBody) -> "SearchMinuteRequestBuilder":
+    def request_body(
+        self, request_body: SearchMinuteRequestBody
+    ) -> "SearchMinuteRequestBuilder":
         self._search_minute_request.request_body = request_body
         self._search_minute_request.body = request_body
         return self

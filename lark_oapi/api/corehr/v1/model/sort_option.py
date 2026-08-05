@@ -52,7 +52,9 @@ class SortOptionBuilder(object):
         self._sort_option.sort_by_pinyin = sort_by_pinyin
         return self
 
-    def sort_by_enum_value_order(self, sort_by_enum_value_order: bool) -> "SortOptionBuilder":
+    def sort_by_enum_value_order(
+        self, sort_by_enum_value_order: bool
+    ) -> "SortOptionBuilder":
         self._sort_option.sort_by_enum_value_order = sort_by_enum_value_order
         return self
 

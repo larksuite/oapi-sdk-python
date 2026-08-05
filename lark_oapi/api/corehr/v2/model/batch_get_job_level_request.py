@@ -17,15 +17,18 @@ class BatchGetJobLevelRequest(BaseRequest):
 
 
 class BatchGetJobLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_job_level_request = BatchGetJobLevelRequest()
         batch_get_job_level_request.http_method = HttpMethod.POST
         batch_get_job_level_request.uri = "/open-apis/corehr/v2/job_levels/batch_get"
         batch_get_job_level_request.token_types = {AccessTokenType.TENANT}
-        self._batch_get_job_level_request: BatchGetJobLevelRequest = batch_get_job_level_request
+        self._batch_get_job_level_request: BatchGetJobLevelRequest = (
+            batch_get_job_level_request
+        )
 
-    def request_body(self, request_body: BatchGetJobLevelRequestBody) -> "BatchGetJobLevelRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetJobLevelRequestBody
+    ) -> "BatchGetJobLevelRequestBuilder":
         self._batch_get_job_level_request.request_body = request_body
         self._batch_get_job_level_request.body = request_body
         return self

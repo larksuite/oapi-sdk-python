@@ -31,11 +31,15 @@ class ObjectSettingsBuilder(object):
         self._object_settings.display_name = display_name
         return self
 
-    def allow_search_fields(self, allow_search_fields: List[str]) -> "ObjectSettingsBuilder":
+    def allow_search_fields(
+        self, allow_search_fields: List[str]
+    ) -> "ObjectSettingsBuilder":
         self._object_settings.allow_search_fields = allow_search_fields
         return self
 
-    def search_layout(self, search_layout: ObjectSearchLayout) -> "ObjectSettingsBuilder":
+    def search_layout(
+        self, search_layout: ObjectSearchLayout
+    ) -> "ObjectSettingsBuilder":
         self._object_settings.search_layout = search_layout
         return self
 

@@ -37,7 +37,9 @@ class DlpDetectModeProofContextBuilder(object):
         self._dlp_detect_mode_proof_context.detect_name = detect_name
         return self
 
-    def proof_contexts(self, proof_contexts: List[DlpProofContext]) -> "DlpDetectModeProofContextBuilder":
+    def proof_contexts(
+        self, proof_contexts: List[DlpProofContext]
+    ) -> "DlpDetectModeProofContextBuilder":
         self._dlp_detect_mode_proof_context.proof_contexts = proof_contexts
         return self
 

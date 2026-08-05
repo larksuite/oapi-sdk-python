@@ -34,7 +34,9 @@ class BatchGetIdTalentRequestBodyBuilder(object):
         self._batch_get_id_talent_request_body.mobile_code = mobile_code
         return self
 
-    def mobile_number_list(self, mobile_number_list: List[str]) -> "BatchGetIdTalentRequestBodyBuilder":
+    def mobile_number_list(
+        self, mobile_number_list: List[str]
+    ) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.mobile_number_list = mobile_number_list
         return self
 
@@ -42,12 +44,18 @@ class BatchGetIdTalentRequestBodyBuilder(object):
         self._batch_get_id_talent_request_body.email_list = email_list
         return self
 
-    def identification_type(self, identification_type: int) -> "BatchGetIdTalentRequestBodyBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.identification_type = identification_type
         return self
 
-    def identification_number_list(self, identification_number_list: List[str]) -> "BatchGetIdTalentRequestBodyBuilder":
-        self._batch_get_id_talent_request_body.identification_number_list = identification_number_list
+    def identification_number_list(
+        self, identification_number_list: List[str]
+    ) -> "BatchGetIdTalentRequestBodyBuilder":
+        self._batch_get_id_talent_request_body.identification_number_list = (
+            identification_number_list
+        )
         return self
 
     def build(self) -> "BatchGetIdTalentRequestBody":

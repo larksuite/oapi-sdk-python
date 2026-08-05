@@ -24,13 +24,19 @@ class CreateExternalInstanceResponseBody(object):
 
 class CreateExternalInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_external_instance_response_body = CreateExternalInstanceResponseBody()
+        self._create_external_instance_response_body = (
+            CreateExternalInstanceResponseBody()
+        )
 
-    def data(self, data: ExternalInstance) -> "CreateExternalInstanceResponseBodyBuilder":
+    def data(
+        self, data: ExternalInstance
+    ) -> "CreateExternalInstanceResponseBodyBuilder":
         self._create_external_instance_response_body.data = data
         return self
 
-    def process_record(self, process_record: ProcessRecord) -> "CreateExternalInstanceResponseBodyBuilder":
+    def process_record(
+        self, process_record: ProcessRecord
+    ) -> "CreateExternalInstanceResponseBodyBuilder":
         self._create_external_instance_response_body.process_record = process_record
         return self
 

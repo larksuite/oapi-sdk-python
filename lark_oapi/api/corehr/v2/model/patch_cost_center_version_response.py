@@ -9,7 +9,6 @@ from .patch_cost_center_version_response_body import PatchCostCenterVersionRespo
 class PatchCostCenterVersionResponse(BaseResponse):
     _types = {
         "data": PatchCostCenterVersionResponseBody,
-
     }
 
     def __init__(self, d=None):

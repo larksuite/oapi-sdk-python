@@ -15,4 +15,6 @@ class V1(object):
         self.notification: Notification = Notification(config)
         self.ticket: Ticket = Ticket(config)
         self.ticket_message: TicketMessage = TicketMessage(config)
-        self.ticket_customized_field: TicketCustomizedField = TicketCustomizedField(config)
+        self.ticket_customized_field: TicketCustomizedField = TicketCustomizedField(
+            config
+        )

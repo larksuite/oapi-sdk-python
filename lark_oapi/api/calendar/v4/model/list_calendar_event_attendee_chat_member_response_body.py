@@ -25,19 +25,28 @@ class ListCalendarEventAttendeeChatMemberResponseBody(object):
 
 class ListCalendarEventAttendeeChatMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_calendar_event_attendee_chat_member_response_body = ListCalendarEventAttendeeChatMemberResponseBody()
+        self._list_calendar_event_attendee_chat_member_response_body = (
+            ListCalendarEventAttendeeChatMemberResponseBody()
+        )
 
-    def items(self,
-              items: List[CalendarEventAttendeeChatMember]) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
+    def items(
+        self, items: List[CalendarEventAttendeeChatMember]
+    ) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
         self._list_calendar_event_attendee_chat_member_response_body.items = items
         return self
 
-    def has_more(self, has_more: bool) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
         self._list_calendar_event_attendee_chat_member_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
-        self._list_calendar_event_attendee_chat_member_response_body.page_token = page_token
+    def page_token(
+        self, page_token: str
+    ) -> "ListCalendarEventAttendeeChatMemberResponseBodyBuilder":
+        self._list_calendar_event_attendee_chat_member_response_body.page_token = (
+            page_token
+        )
         return self
 
     def build(self) -> "ListCalendarEventAttendeeChatMemberResponseBody":

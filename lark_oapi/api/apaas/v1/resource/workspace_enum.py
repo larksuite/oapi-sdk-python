@@ -19,8 +19,11 @@ class WorkspaceEnum(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def enum_get(self, request: EnumGetWorkspaceEnumRequest,
-                 option: Optional[RequestOption] = None) -> EnumGetWorkspaceEnumResponse:
+    def enum_get(
+        self,
+        request: EnumGetWorkspaceEnumRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnumGetWorkspaceEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class WorkspaceEnum(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EnumGetWorkspaceEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), EnumGetWorkspaceEnumResponse)
+        response: EnumGetWorkspaceEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnumGetWorkspaceEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aenum_get(self, request: EnumGetWorkspaceEnumRequest,
-                        option: Optional[RequestOption] = None) -> EnumGetWorkspaceEnumResponse:
+    async def aenum_get(
+        self,
+        request: EnumGetWorkspaceEnumRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnumGetWorkspaceEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,16 @@ class WorkspaceEnum(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EnumGetWorkspaceEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), EnumGetWorkspaceEnumResponse)
+        response: EnumGetWorkspaceEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnumGetWorkspaceEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListWorkspaceEnumRequest,
-             option: Optional[RequestOption] = None) -> ListWorkspaceEnumResponse:
+    def list(
+        self, request: ListWorkspaceEnumRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkspaceEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +84,16 @@ class WorkspaceEnum(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkspaceEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceEnumResponse)
+        response: ListWorkspaceEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkspaceEnumResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListWorkspaceEnumRequest,
-                    option: Optional[RequestOption] = None) -> ListWorkspaceEnumResponse:
+    async def alist(
+        self, request: ListWorkspaceEnumRequest, option: Optional[RequestOption] = None
+    ) -> ListWorkspaceEnumResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +104,9 @@ class WorkspaceEnum(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListWorkspaceEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkspaceEnumResponse)
+        response: ListWorkspaceEnumResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListWorkspaceEnumResponse
+        )
         response.raw = resp
 
         return response

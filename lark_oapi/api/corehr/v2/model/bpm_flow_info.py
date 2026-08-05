@@ -55,7 +55,9 @@ class BpmFlowInfoBuilder(object):
         self._bpm_flow_info.flow_definition_id = flow_definition_id
         return self
 
-    def flow_definition_name(self, flow_definition_name: DataengineI18n) -> "BpmFlowInfoBuilder":
+    def flow_definition_name(
+        self, flow_definition_name: DataengineI18n
+    ) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.flow_definition_name = flow_definition_name
         return self
 
@@ -91,7 +93,9 @@ class BpmFlowInfoBuilder(object):
         self._bpm_flow_info.last_editor_id = last_editor_id
         return self
 
-    def last_editor_name(self, last_editor_name: DataengineI18n) -> "BpmFlowInfoBuilder":
+    def last_editor_name(
+        self, last_editor_name: DataengineI18n
+    ) -> "BpmFlowInfoBuilder":
         self._bpm_flow_info.last_editor_name = last_editor_name
         return self
 

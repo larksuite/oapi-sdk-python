@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .transform_onboarding_task_pre_hire_request_body import TransformOnboardingTaskPreHireRequestBody
+from .transform_onboarding_task_pre_hire_request_body import (
+    TransformOnboardingTaskPreHireRequestBody,
+)
 
 
 class TransformOnboardingTaskPreHireRequest(BaseRequest):
@@ -17,16 +19,22 @@ class TransformOnboardingTaskPreHireRequest(BaseRequest):
 
 
 class TransformOnboardingTaskPreHireRequestBuilder(object):
-
     def __init__(self) -> None:
-        transform_onboarding_task_pre_hire_request = TransformOnboardingTaskPreHireRequest()
+        transform_onboarding_task_pre_hire_request = (
+            TransformOnboardingTaskPreHireRequest()
+        )
         transform_onboarding_task_pre_hire_request.http_method = HttpMethod.POST
-        transform_onboarding_task_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires/transform_onboarding_task"
-        transform_onboarding_task_pre_hire_request.token_types = {AccessTokenType.TENANT}
+        transform_onboarding_task_pre_hire_request.uri = (
+            "/open-apis/corehr/v2/pre_hires/transform_onboarding_task"
+        )
+        transform_onboarding_task_pre_hire_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._transform_onboarding_task_pre_hire_request: TransformOnboardingTaskPreHireRequest = transform_onboarding_task_pre_hire_request
 
-    def request_body(self,
-                     request_body: TransformOnboardingTaskPreHireRequestBody) -> "TransformOnboardingTaskPreHireRequestBuilder":
+    def request_body(
+        self, request_body: TransformOnboardingTaskPreHireRequestBody
+    ) -> "TransformOnboardingTaskPreHireRequestBuilder":
         self._transform_onboarding_task_pre_hire_request.request_body = request_body
         self._transform_onboarding_task_pre_hire_request.body = request_body
         return self

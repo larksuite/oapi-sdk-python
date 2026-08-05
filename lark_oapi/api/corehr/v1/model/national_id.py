@@ -59,7 +59,9 @@ class NationalIdBuilder(object):
         self._national_id.issued_by = issued_by
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "NationalIdBuilder":
         self._national_id.custom_fields = custom_fields
         return self
 

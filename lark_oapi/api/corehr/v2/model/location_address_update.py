@@ -73,7 +73,9 @@ class LocationAddressUpdateBuilder(object):
     def __init__(self) -> None:
         self._location_address_update = LocationAddressUpdate()
 
-    def country_region_id(self, country_region_id: str) -> "LocationAddressUpdateBuilder":
+    def country_region_id(
+        self, country_region_id: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.country_region_id = country_region_id
         return self
 
@@ -125,39 +127,57 @@ class LocationAddressUpdateBuilder(object):
         self._location_address_update.address_line9 = address_line9
         return self
 
-    def local_address_line1(self, local_address_line1: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line1(
+        self, local_address_line1: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line1 = local_address_line1
         return self
 
-    def local_address_line2(self, local_address_line2: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line2(
+        self, local_address_line2: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line2 = local_address_line2
         return self
 
-    def local_address_line3(self, local_address_line3: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line3(
+        self, local_address_line3: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line3 = local_address_line3
         return self
 
-    def local_address_line4(self, local_address_line4: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line4(
+        self, local_address_line4: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line4 = local_address_line4
         return self
 
-    def local_address_line5(self, local_address_line5: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line5(
+        self, local_address_line5: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line5 = local_address_line5
         return self
 
-    def local_address_line6(self, local_address_line6: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line6(
+        self, local_address_line6: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line6 = local_address_line6
         return self
 
-    def local_address_line7(self, local_address_line7: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line7(
+        self, local_address_line7: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line7 = local_address_line7
         return self
 
-    def local_address_line8(self, local_address_line8: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line8(
+        self, local_address_line8: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line8 = local_address_line8
         return self
 
-    def local_address_line9(self, local_address_line9: str) -> "LocationAddressUpdateBuilder":
+    def local_address_line9(
+        self, local_address_line9: str
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.local_address_line9 = local_address_line9
         return self
 
@@ -165,7 +185,9 @@ class LocationAddressUpdateBuilder(object):
         self._location_address_update.postal_code = postal_code
         return self
 
-    def address_types(self, address_types: List[Enum]) -> "LocationAddressUpdateBuilder":
+    def address_types(
+        self, address_types: List[Enum]
+    ) -> "LocationAddressUpdateBuilder":
         self._location_address_update.address_types = address_types
         return self
 

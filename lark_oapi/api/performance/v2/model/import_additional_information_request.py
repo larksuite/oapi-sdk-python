@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .import_additional_information_request_body import ImportAdditionalInformationRequestBody
+from .import_additional_information_request_body import (
+    ImportAdditionalInformationRequestBody,
+)
 
 
 class ImportAdditionalInformationRequest(BaseRequest):
@@ -19,26 +21,36 @@ class ImportAdditionalInformationRequest(BaseRequest):
 
 
 class ImportAdditionalInformationRequestBuilder(object):
-
     def __init__(self) -> None:
         import_additional_information_request = ImportAdditionalInformationRequest()
         import_additional_information_request.http_method = HttpMethod.POST
-        import_additional_information_request.uri = "/open-apis/performance/v2/additional_informations/import"
+        import_additional_information_request.uri = (
+            "/open-apis/performance/v2/additional_informations/import"
+        )
         import_additional_information_request.token_types = {AccessTokenType.TENANT}
         self._import_additional_information_request: ImportAdditionalInformationRequest = import_additional_information_request
 
-    def client_token(self, client_token: str) -> "ImportAdditionalInformationRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "ImportAdditionalInformationRequestBuilder":
         self._import_additional_information_request.client_token = client_token
-        self._import_additional_information_request.add_query("client_token", client_token)
+        self._import_additional_information_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ImportAdditionalInformationRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ImportAdditionalInformationRequestBuilder":
         self._import_additional_information_request.user_id_type = user_id_type
-        self._import_additional_information_request.add_query("user_id_type", user_id_type)
+        self._import_additional_information_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: ImportAdditionalInformationRequestBody) -> "ImportAdditionalInformationRequestBuilder":
+    def request_body(
+        self, request_body: ImportAdditionalInformationRequestBody
+    ) -> "ImportAdditionalInformationRequestBuilder":
         self._import_additional_information_request.request_body = request_body
         self._import_additional_information_request.body = request_body
         return self

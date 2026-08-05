@@ -9,7 +9,6 @@ from .delete_space_member_response_body import DeleteSpaceMemberResponseBody
 class DeleteSpaceMemberResponse(BaseResponse):
     _types = {
         "data": DeleteSpaceMemberResponseBody,
-
     }
 
     def __init__(self, d=None):

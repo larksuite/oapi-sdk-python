@@ -32,6 +32,11 @@ class MatchCompensationStandardRequest(BaseRequest):
         self.custom_org_3_ids: Optional[str] = None
         self.custom_org_4_ids: Optional[str] = None
         self.custom_org_5_ids: Optional[str] = None
+        self.custom_org_6_ids: Optional[str] = None
+        self.custom_org_7_ids: Optional[str] = None
+        self.custom_org_8_ids: Optional[str] = None
+        self.custom_org_9_ids: Optional[str] = None
+        self.custom_org_10_ids: Optional[str] = None
 
     @staticmethod
     def builder() -> "MatchCompensationStandardRequestBuilder":
@@ -39,47 +44,87 @@ class MatchCompensationStandardRequest(BaseRequest):
 
 
 class MatchCompensationStandardRequestBuilder(object):
-
     def __init__(self) -> None:
         match_compensation_standard_request = MatchCompensationStandardRequest()
         match_compensation_standard_request.http_method = HttpMethod.GET
-        match_compensation_standard_request.uri = "/open-apis/corehr/v1/compensation_standards/match"
-        match_compensation_standard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._match_compensation_standard_request: MatchCompensationStandardRequest = match_compensation_standard_request
+        match_compensation_standard_request.uri = (
+            "/open-apis/corehr/v1/compensation_standards/match"
+        )
+        match_compensation_standard_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._match_compensation_standard_request: MatchCompensationStandardRequest = (
+            match_compensation_standard_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "MatchCompensationStandardRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.user_id_type = user_id_type
-        self._match_compensation_standard_request.add_query("user_id_type", user_id_type)
+        self._match_compensation_standard_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.department_id_type = department_id_type
-        self._match_compensation_standard_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.department_id_type = (
+            department_id_type
+        )
+        self._match_compensation_standard_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def employment_id(self, employment_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.employment_id = employment_id
-        self._match_compensation_standard_request.add_query("employment_id", employment_id)
+        self._match_compensation_standard_request.add_query(
+            "employment_id", employment_id
+        )
         return self
 
-    def reference_object_api(self, reference_object_api: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.reference_object_api = reference_object_api
-        self._match_compensation_standard_request.add_query("reference_object_api", reference_object_api)
+    def reference_object_api(
+        self, reference_object_api: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.reference_object_api = (
+            reference_object_api
+        )
+        self._match_compensation_standard_request.add_query(
+            "reference_object_api", reference_object_api
+        )
         return self
 
-    def reference_object_id(self, reference_object_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.reference_object_id = reference_object_id
-        self._match_compensation_standard_request.add_query("reference_object_id", reference_object_id)
+    def reference_object_id(
+        self, reference_object_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.reference_object_id = (
+            reference_object_id
+        )
+        self._match_compensation_standard_request.add_query(
+            "reference_object_id", reference_object_id
+        )
         return self
 
-    def department_id(self, department_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def department_id(
+        self, department_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.department_id = department_id
-        self._match_compensation_standard_request.add_query("department_id", department_id)
+        self._match_compensation_standard_request.add_query(
+            "department_id", department_id
+        )
         return self
 
-    def work_location_id(self, work_location_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def work_location_id(
+        self, work_location_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.work_location_id = work_location_id
-        self._match_compensation_standard_request.add_query("work_location_id", work_location_id)
+        self._match_compensation_standard_request.add_query(
+            "work_location_id", work_location_id
+        )
         return self
 
     def company_id(self, company_id: str) -> "MatchCompensationStandardRequestBuilder":
@@ -87,9 +132,13 @@ class MatchCompensationStandardRequestBuilder(object):
         self._match_compensation_standard_request.add_query("company_id", company_id)
         return self
 
-    def job_family_id(self, job_family_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def job_family_id(
+        self, job_family_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.job_family_id = job_family_id
-        self._match_compensation_standard_request.add_query("job_family_id", job_family_id)
+        self._match_compensation_standard_request.add_query(
+            "job_family_id", job_family_id
+        )
         return self
 
     def job_id(self, job_id: str) -> "MatchCompensationStandardRequestBuilder":
@@ -97,74 +146,183 @@ class MatchCompensationStandardRequestBuilder(object):
         self._match_compensation_standard_request.add_query("job_id", job_id)
         return self
 
-    def job_level_id(self, job_level_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def job_level_id(
+        self, job_level_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.job_level_id = job_level_id
-        self._match_compensation_standard_request.add_query("job_level_id", job_level_id)
+        self._match_compensation_standard_request.add_query(
+            "job_level_id", job_level_id
+        )
         return self
 
-    def employee_type_id(self, employee_type_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.employee_type_id = employee_type_id
-        self._match_compensation_standard_request.add_query("employee_type_id", employee_type_id)
+        self._match_compensation_standard_request.add_query(
+            "employee_type_id", employee_type_id
+        )
         return self
 
-    def recruitment_type(self, recruitment_type: str) -> "MatchCompensationStandardRequestBuilder":
+    def recruitment_type(
+        self, recruitment_type: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.recruitment_type = recruitment_type
-        self._match_compensation_standard_request.add_query("recruitment_type", recruitment_type)
+        self._match_compensation_standard_request.add_query(
+            "recruitment_type", recruitment_type
+        )
         return self
 
-    def cpst_change_reason_id(self, cpst_change_reason_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.cpst_change_reason_id = cpst_change_reason_id
-        self._match_compensation_standard_request.add_query("cpst_change_reason_id", cpst_change_reason_id)
+    def cpst_change_reason_id(
+        self, cpst_change_reason_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.cpst_change_reason_id = (
+            cpst_change_reason_id
+        )
+        self._match_compensation_standard_request.add_query(
+            "cpst_change_reason_id", cpst_change_reason_id
+        )
         return self
 
-    def cpst_plan_id(self, cpst_plan_id: str) -> "MatchCompensationStandardRequestBuilder":
+    def cpst_plan_id(
+        self, cpst_plan_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.cpst_plan_id = cpst_plan_id
-        self._match_compensation_standard_request.add_query("cpst_plan_id", cpst_plan_id)
+        self._match_compensation_standard_request.add_query(
+            "cpst_plan_id", cpst_plan_id
+        )
         return self
 
-    def cpst_salary_level_id(self, cpst_salary_level_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.cpst_salary_level_id = cpst_salary_level_id
-        self._match_compensation_standard_request.add_query("cpst_salary_level_id", cpst_salary_level_id)
+    def cpst_salary_level_id(
+        self, cpst_salary_level_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.cpst_salary_level_id = (
+            cpst_salary_level_id
+        )
+        self._match_compensation_standard_request.add_query(
+            "cpst_salary_level_id", cpst_salary_level_id
+        )
         return self
 
-    def effective_time(self, effective_time: str) -> "MatchCompensationStandardRequestBuilder":
+    def effective_time(
+        self, effective_time: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.effective_time = effective_time
-        self._match_compensation_standard_request.add_query("effective_time", effective_time)
+        self._match_compensation_standard_request.add_query(
+            "effective_time", effective_time
+        )
         return self
 
-    def performance_indicator_id(self, performance_indicator_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.performance_indicator_id = performance_indicator_id
-        self._match_compensation_standard_request.add_query("performance_indicator_id", performance_indicator_id)
+    def performance_indicator_id(
+        self, performance_indicator_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.performance_indicator_id = (
+            performance_indicator_id
+        )
+        self._match_compensation_standard_request.add_query(
+            "performance_indicator_id", performance_indicator_id
+        )
         return self
 
-    def performance_score_grade_id(self, performance_score_grade_id: str) -> "MatchCompensationStandardRequestBuilder":
-        self._match_compensation_standard_request.performance_score_grade_id = performance_score_grade_id
-        self._match_compensation_standard_request.add_query("performance_score_grade_id", performance_score_grade_id)
+    def performance_score_grade_id(
+        self, performance_score_grade_id: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.performance_score_grade_id = (
+            performance_score_grade_id
+        )
+        self._match_compensation_standard_request.add_query(
+            "performance_score_grade_id", performance_score_grade_id
+        )
         return self
 
-    def custom_org_1_ids(self, custom_org_1_ids: str) -> "MatchCompensationStandardRequestBuilder":
+    def custom_org_1_ids(
+        self, custom_org_1_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.custom_org_1_ids = custom_org_1_ids
-        self._match_compensation_standard_request.add_query("custom_org_1_ids", custom_org_1_ids)
+        self._match_compensation_standard_request.add_query(
+            "custom_org_1_ids", custom_org_1_ids
+        )
         return self
 
-    def custom_org_2_ids(self, custom_org_2_ids: str) -> "MatchCompensationStandardRequestBuilder":
+    def custom_org_2_ids(
+        self, custom_org_2_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.custom_org_2_ids = custom_org_2_ids
-        self._match_compensation_standard_request.add_query("custom_org_2_ids", custom_org_2_ids)
+        self._match_compensation_standard_request.add_query(
+            "custom_org_2_ids", custom_org_2_ids
+        )
         return self
 
-    def custom_org_3_ids(self, custom_org_3_ids: str) -> "MatchCompensationStandardRequestBuilder":
+    def custom_org_3_ids(
+        self, custom_org_3_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.custom_org_3_ids = custom_org_3_ids
-        self._match_compensation_standard_request.add_query("custom_org_3_ids", custom_org_3_ids)
+        self._match_compensation_standard_request.add_query(
+            "custom_org_3_ids", custom_org_3_ids
+        )
         return self
 
-    def custom_org_4_ids(self, custom_org_4_ids: str) -> "MatchCompensationStandardRequestBuilder":
+    def custom_org_4_ids(
+        self, custom_org_4_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.custom_org_4_ids = custom_org_4_ids
-        self._match_compensation_standard_request.add_query("custom_org_4_ids", custom_org_4_ids)
+        self._match_compensation_standard_request.add_query(
+            "custom_org_4_ids", custom_org_4_ids
+        )
         return self
 
-    def custom_org_5_ids(self, custom_org_5_ids: str) -> "MatchCompensationStandardRequestBuilder":
+    def custom_org_5_ids(
+        self, custom_org_5_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.custom_org_5_ids = custom_org_5_ids
-        self._match_compensation_standard_request.add_query("custom_org_5_ids", custom_org_5_ids)
+        self._match_compensation_standard_request.add_query(
+            "custom_org_5_ids", custom_org_5_ids
+        )
+        return self
+
+    def custom_org_6_ids(
+        self, custom_org_6_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_6_ids = custom_org_6_ids
+        self._match_compensation_standard_request.add_query(
+            "custom_org_6_ids", custom_org_6_ids
+        )
+        return self
+
+    def custom_org_7_ids(
+        self, custom_org_7_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_7_ids = custom_org_7_ids
+        self._match_compensation_standard_request.add_query(
+            "custom_org_7_ids", custom_org_7_ids
+        )
+        return self
+
+    def custom_org_8_ids(
+        self, custom_org_8_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_8_ids = custom_org_8_ids
+        self._match_compensation_standard_request.add_query(
+            "custom_org_8_ids", custom_org_8_ids
+        )
+        return self
+
+    def custom_org_9_ids(
+        self, custom_org_9_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_9_ids = custom_org_9_ids
+        self._match_compensation_standard_request.add_query(
+            "custom_org_9_ids", custom_org_9_ids
+        )
+        return self
+
+    def custom_org_10_ids(
+        self, custom_org_10_ids: str
+    ) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.custom_org_10_ids = custom_org_10_ids
+        self._match_compensation_standard_request.add_query(
+            "custom_org_10_ids", custom_org_10_ids
+        )
         return self
 
     def build(self) -> MatchCompensationStandardRequest:

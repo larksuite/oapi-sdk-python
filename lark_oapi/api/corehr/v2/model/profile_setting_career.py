@@ -29,15 +29,21 @@ class ProfileSettingCareerBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_career = ProfileSettingCareer()
 
-    def educations(self, educations: List[ProfileSettingEducation]) -> "ProfileSettingCareerBuilder":
+    def educations(
+        self, educations: List[ProfileSettingEducation]
+    ) -> "ProfileSettingCareerBuilder":
         self._profile_setting_career.educations = educations
         return self
 
-    def work_experiences(self, work_experiences: List[ProfileSettingWorkExperience]) -> "ProfileSettingCareerBuilder":
+    def work_experiences(
+        self, work_experiences: List[ProfileSettingWorkExperience]
+    ) -> "ProfileSettingCareerBuilder":
         self._profile_setting_career.work_experiences = work_experiences
         return self
 
-    def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingCareerBuilder":
+    def custom_groups(
+        self, custom_groups: List[ProfileSettingCustomGroup]
+    ) -> "ProfileSettingCareerBuilder":
         self._profile_setting_career.custom_groups = custom_groups
         return self
 

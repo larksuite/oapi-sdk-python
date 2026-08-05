@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_active_meeting_reserve_response_body import GetActiveMeetingReserveResponseBody
+from .get_active_meeting_reserve_response_body import (
+    GetActiveMeetingReserveResponseBody,
+)
 
 
 class GetActiveMeetingReserveResponse(BaseResponse):
     _types = {
         "data": GetActiveMeetingReserveResponseBody,
-
     }
 
     def __init__(self, d=None):

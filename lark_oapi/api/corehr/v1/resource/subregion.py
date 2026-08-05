@@ -19,7 +19,9 @@ class Subregion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetSubregionRequest, option: Optional[RequestOption] = None) -> GetSubregionResponse:
+    def get(
+        self, request: GetSubregionRequest, option: Optional[RequestOption] = None
+    ) -> GetSubregionResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Subregion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubregionResponse)
+        response: GetSubregionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSubregionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetSubregionRequest, option: Optional[RequestOption] = None) -> GetSubregionResponse:
+    async def aget(
+        self, request: GetSubregionRequest, option: Optional[RequestOption] = None
+    ) -> GetSubregionResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Subregion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubregionResponse)
+        response: GetSubregionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetSubregionResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListSubregionRequest, option: Optional[RequestOption] = None) -> ListSubregionResponse:
+    def list(
+        self, request: ListSubregionRequest, option: Optional[RequestOption] = None
+    ) -> ListSubregionResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,13 +80,16 @@ class Subregion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubregionResponse)
+        response: ListSubregionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSubregionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSubregionRequest,
-                    option: Optional[RequestOption] = None) -> ListSubregionResponse:
+    async def alist(
+        self, request: ListSubregionRequest, option: Optional[RequestOption] = None
+    ) -> ListSubregionResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +100,9 @@ class Subregion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubregionResponse)
+        response: ListSubregionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSubregionResponse
+        )
         response.raw = resp
 
         return response

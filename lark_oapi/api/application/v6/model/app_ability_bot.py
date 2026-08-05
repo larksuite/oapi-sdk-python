@@ -31,7 +31,9 @@ class AppAbilityBotBuilder(object):
         self._app_ability_bot.enable = enable
         return self
 
-    def message_card_callback_url(self, message_card_callback_url: str) -> "AppAbilityBotBuilder":
+    def message_card_callback_url(
+        self, message_card_callback_url: str
+    ) -> "AppAbilityBotBuilder":
         self._app_ability_bot.message_card_callback_url = message_card_callback_url
         return self
 

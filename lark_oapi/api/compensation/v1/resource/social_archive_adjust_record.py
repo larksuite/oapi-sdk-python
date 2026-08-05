@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.query_social_archive_adjust_record_request import QuerySocialArchiveAdjustRecordRequest
-from ..model.query_social_archive_adjust_record_response import QuerySocialArchiveAdjustRecordResponse
+from ..model.query_social_archive_adjust_record_request import (
+    QuerySocialArchiveAdjustRecordRequest,
+)
+from ..model.query_social_archive_adjust_record_response import (
+    QuerySocialArchiveAdjustRecordResponse,
+)
 
 
 class SocialArchiveAdjustRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QuerySocialArchiveAdjustRecordRequest,
-              option: Optional[RequestOption] = None) -> QuerySocialArchiveAdjustRecordResponse:
+    def query(
+        self,
+        request: QuerySocialArchiveAdjustRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerySocialArchiveAdjustRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class SocialArchiveAdjustRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialArchiveAdjustRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          QuerySocialArchiveAdjustRecordResponse)
+        response: QuerySocialArchiveAdjustRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialArchiveAdjustRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySocialArchiveAdjustRecordRequest,
-                     option: Optional[RequestOption] = None) -> QuerySocialArchiveAdjustRecordResponse:
+    async def aquery(
+        self,
+        request: QuerySocialArchiveAdjustRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerySocialArchiveAdjustRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class SocialArchiveAdjustRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySocialArchiveAdjustRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          QuerySocialArchiveAdjustRecordResponse)
+        response: QuerySocialArchiveAdjustRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySocialArchiveAdjustRecordResponse
+        )
         response.raw = resp
 
         return response

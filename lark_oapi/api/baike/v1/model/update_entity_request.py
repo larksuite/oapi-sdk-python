@@ -19,12 +19,14 @@ class UpdateEntityRequest(BaseRequest):
 
 
 class UpdateEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         update_entity_request = UpdateEntityRequest()
         update_entity_request.http_method = HttpMethod.PUT
         update_entity_request.uri = "/open-apis/baike/v1/entities/:entity_id"
-        update_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        update_entity_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._update_entity_request: UpdateEntityRequest = update_entity_request
 
     def user_id_type(self, user_id_type: str) -> "UpdateEntityRequestBuilder":

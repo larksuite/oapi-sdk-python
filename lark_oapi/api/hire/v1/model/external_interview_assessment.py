@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .external_interview_assessment_dimension import ExternalInterviewAssessmentDimension
+from .external_interview_assessment_dimension import (
+    ExternalInterviewAssessmentDimension,
+)
 
 
 class ExternalInterviewAssessment(object):
@@ -21,7 +23,9 @@ class ExternalInterviewAssessment(object):
         self.external_id: Optional[str] = None
         self.username: Optional[str] = None
         self.conclusion: Optional[int] = None
-        self.assessment_dimension_list: Optional[List[ExternalInterviewAssessmentDimension]] = None
+        self.assessment_dimension_list: Optional[
+            List[ExternalInterviewAssessmentDimension]
+        ] = None
         self.content: Optional[str] = None
         self.external_interview_id: Optional[str] = None
         init(self, d, self._types)
@@ -51,17 +55,24 @@ class ExternalInterviewAssessmentBuilder(object):
         self._external_interview_assessment.conclusion = conclusion
         return self
 
-    def assessment_dimension_list(self, assessment_dimension_list: List[
-        ExternalInterviewAssessmentDimension]) -> "ExternalInterviewAssessmentBuilder":
-        self._external_interview_assessment.assessment_dimension_list = assessment_dimension_list
+    def assessment_dimension_list(
+        self, assessment_dimension_list: List[ExternalInterviewAssessmentDimension]
+    ) -> "ExternalInterviewAssessmentBuilder":
+        self._external_interview_assessment.assessment_dimension_list = (
+            assessment_dimension_list
+        )
         return self
 
     def content(self, content: str) -> "ExternalInterviewAssessmentBuilder":
         self._external_interview_assessment.content = content
         return self
 
-    def external_interview_id(self, external_interview_id: str) -> "ExternalInterviewAssessmentBuilder":
-        self._external_interview_assessment.external_interview_id = external_interview_id
+    def external_interview_id(
+        self, external_interview_id: str
+    ) -> "ExternalInterviewAssessmentBuilder":
+        self._external_interview_assessment.external_interview_id = (
+            external_interview_id
+        )
         return self
 
     def build(self) -> "ExternalInterviewAssessment":

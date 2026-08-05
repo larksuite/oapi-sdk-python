@@ -21,17 +21,27 @@ class GetCalendarEventRequest(BaseRequest):
 
 
 class GetCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         get_calendar_event_request = GetCalendarEventRequest()
         get_calendar_event_request.http_method = HttpMethod.GET
-        get_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-        get_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_calendar_event_request: GetCalendarEventRequest = get_calendar_event_request
+        get_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+        )
+        get_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_calendar_event_request: GetCalendarEventRequest = (
+            get_calendar_event_request
+        )
 
-    def need_meeting_settings(self, need_meeting_settings: bool) -> "GetCalendarEventRequestBuilder":
+    def need_meeting_settings(
+        self, need_meeting_settings: bool
+    ) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.need_meeting_settings = need_meeting_settings
-        self._get_calendar_event_request.add_query("need_meeting_settings", need_meeting_settings)
+        self._get_calendar_event_request.add_query(
+            "need_meeting_settings", need_meeting_settings
+        )
         return self
 
     def need_attendee(self, need_attendee: bool) -> "GetCalendarEventRequestBuilder":
@@ -39,7 +49,9 @@ class GetCalendarEventRequestBuilder(object):
         self._get_calendar_event_request.add_query("need_attendee", need_attendee)
         return self
 
-    def max_attendee_num(self, max_attendee_num: int) -> "GetCalendarEventRequestBuilder":
+    def max_attendee_num(
+        self, max_attendee_num: int
+    ) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.max_attendee_num = max_attendee_num
         self._get_calendar_event_request.add_query("max_attendee_num", max_attendee_num)
         return self

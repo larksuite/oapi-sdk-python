@@ -24,7 +24,9 @@ class SendNotificationBuilder(object):
     def __init__(self) -> None:
         self._send_notification = SendNotification()
 
-    def need_send_notification(self, need_send_notification: bool) -> "SendNotificationBuilder":
+    def need_send_notification(
+        self, need_send_notification: bool
+    ) -> "SendNotificationBuilder":
         self._send_notification.need_send_notification = need_send_notification
         return self
 

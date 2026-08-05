@@ -22,8 +22,12 @@ class InternOfferOnboardingInfoBuilder(object):
     def __init__(self) -> None:
         self._intern_offer_onboarding_info = InternOfferOnboardingInfo()
 
-    def actual_onboarding_date(self, actual_onboarding_date: str) -> "InternOfferOnboardingInfoBuilder":
-        self._intern_offer_onboarding_info.actual_onboarding_date = actual_onboarding_date
+    def actual_onboarding_date(
+        self, actual_onboarding_date: str
+    ) -> "InternOfferOnboardingInfoBuilder":
+        self._intern_offer_onboarding_info.actual_onboarding_date = (
+            actual_onboarding_date
+        )
         return self
 
     def build(self) -> "InternOfferOnboardingInfo":

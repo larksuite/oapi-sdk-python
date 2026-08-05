@@ -24,13 +24,19 @@ class UpdateCollaborationRuleRequestBody(object):
 
 class UpdateCollaborationRuleRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_collaboration_rule_request_body = UpdateCollaborationRuleRequestBody()
+        self._update_collaboration_rule_request_body = (
+            UpdateCollaborationRuleRequestBody()
+        )
 
-    def subjects(self, subjects: CollaborationRuleEntities) -> "UpdateCollaborationRuleRequestBodyBuilder":
+    def subjects(
+        self, subjects: CollaborationRuleEntities
+    ) -> "UpdateCollaborationRuleRequestBodyBuilder":
         self._update_collaboration_rule_request_body.subjects = subjects
         return self
 
-    def objects(self, objects: CollaborationRuleEntities) -> "UpdateCollaborationRuleRequestBodyBuilder":
+    def objects(
+        self, objects: CollaborationRuleEntities
+    ) -> "UpdateCollaborationRuleRequestBodyBuilder":
         self._update_collaboration_rule_request_body.objects = objects
         return self
 

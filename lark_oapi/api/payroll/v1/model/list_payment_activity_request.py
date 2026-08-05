@@ -20,22 +20,36 @@ class ListPaymentActivityRequest(BaseRequest):
 
 
 class ListPaymentActivityRequestBuilder(object):
-
     def __init__(self) -> None:
         list_payment_activity_request = ListPaymentActivityRequest()
         list_payment_activity_request.http_method = HttpMethod.GET
         list_payment_activity_request.uri = "/open-apis/payroll/v1/payment_activitys"
-        list_payment_activity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_payment_activity_request: ListPaymentActivityRequest = list_payment_activity_request
+        list_payment_activity_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_payment_activity_request: ListPaymentActivityRequest = (
+            list_payment_activity_request
+        )
 
-    def pay_period_start_date(self, pay_period_start_date: str) -> "ListPaymentActivityRequestBuilder":
-        self._list_payment_activity_request.pay_period_start_date = pay_period_start_date
-        self._list_payment_activity_request.add_query("pay_period_start_date", pay_period_start_date)
+    def pay_period_start_date(
+        self, pay_period_start_date: str
+    ) -> "ListPaymentActivityRequestBuilder":
+        self._list_payment_activity_request.pay_period_start_date = (
+            pay_period_start_date
+        )
+        self._list_payment_activity_request.add_query(
+            "pay_period_start_date", pay_period_start_date
+        )
         return self
 
-    def pay_period_end_date(self, pay_period_end_date: str) -> "ListPaymentActivityRequestBuilder":
+    def pay_period_end_date(
+        self, pay_period_end_date: str
+    ) -> "ListPaymentActivityRequestBuilder":
         self._list_payment_activity_request.pay_period_end_date = pay_period_end_date
-        self._list_payment_activity_request.add_query("pay_period_end_date", pay_period_end_date)
+        self._list_payment_activity_request.add_query(
+            "pay_period_end_date", pay_period_end_date
+        )
         return self
 
     def page_size(self, page_size: int) -> "ListPaymentActivityRequestBuilder":

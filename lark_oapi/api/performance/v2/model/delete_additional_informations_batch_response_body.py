@@ -20,10 +20,13 @@ class DeleteAdditionalInformationsBatchResponseBody(object):
 
 class DeleteAdditionalInformationsBatchResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._delete_additional_informations_batch_response_body = DeleteAdditionalInformationsBatchResponseBody()
+        self._delete_additional_informations_batch_response_body = (
+            DeleteAdditionalInformationsBatchResponseBody()
+        )
 
-    def additional_informations(self, additional_informations: List[
-        str]) -> "DeleteAdditionalInformationsBatchResponseBodyBuilder":
+    def additional_informations(
+        self, additional_informations: List[str]
+    ) -> "DeleteAdditionalInformationsBatchResponseBodyBuilder":
         self._delete_additional_informations_batch_response_body.additional_informations = additional_informations
         return self
 

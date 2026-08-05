@@ -27,6 +27,8 @@ from .member_setting import *
 from .number_setting import *
 from .option import *
 from .origin import *
+from .origin_refer_resource import *
+from .origin_source_message import *
 from .reminder import *
 from .resource import *
 from .section import *
@@ -34,7 +36,6 @@ from .section_summary import *
 from .select_setting import *
 from .start import *
 from .task import *
-from .task_subtask import *
 from .task_assignee import *
 from .task_dependency import *
 from .task_in_tasklist_info import *

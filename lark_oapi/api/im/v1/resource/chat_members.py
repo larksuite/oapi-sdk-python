@@ -25,8 +25,9 @@ class ChatMembers(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateChatMembersRequest,
-               option: Optional[RequestOption] = None) -> CreateChatMembersResponse:
+    def create(
+        self, request: CreateChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> CreateChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +42,16 @@ class ChatMembers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatMembersResponse)
+        response: CreateChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateChatMembersRequest,
-                      option: Optional[RequestOption] = None) -> CreateChatMembersResponse:
+    async def acreate(
+        self, request: CreateChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> CreateChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +62,16 @@ class ChatMembers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatMembersResponse)
+        response: CreateChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteChatMembersRequest,
-               option: Optional[RequestOption] = None) -> DeleteChatMembersResponse:
+    def delete(
+        self, request: DeleteChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> DeleteChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +86,16 @@ class ChatMembers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatMembersResponse)
+        response: DeleteChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteChatMembersRequest,
-                      option: Optional[RequestOption] = None) -> DeleteChatMembersResponse:
+    async def adelete(
+        self, request: DeleteChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> DeleteChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,12 +106,16 @@ class ChatMembers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatMembersResponse)
+        response: DeleteChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetChatMembersRequest, option: Optional[RequestOption] = None) -> GetChatMembersResponse:
+    def get(
+        self, request: GetChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> GetChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,13 +130,16 @@ class ChatMembers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatMembersResponse)
+        response: GetChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetChatMembersRequest,
-                   option: Optional[RequestOption] = None) -> GetChatMembersResponse:
+    async def aget(
+        self, request: GetChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> GetChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,13 +150,18 @@ class ChatMembers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatMembersResponse)
+        response: GetChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    def is_in_chat(self, request: IsInChatChatMembersRequest,
-                   option: Optional[RequestOption] = None) -> IsInChatChatMembersResponse:
+    def is_in_chat(
+        self,
+        request: IsInChatChatMembersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> IsInChatChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,13 +176,18 @@ class ChatMembers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: IsInChatChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), IsInChatChatMembersResponse)
+        response: IsInChatChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IsInChatChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ais_in_chat(self, request: IsInChatChatMembersRequest,
-                          option: Optional[RequestOption] = None) -> IsInChatChatMembersResponse:
+    async def ais_in_chat(
+        self,
+        request: IsInChatChatMembersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> IsInChatChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,13 +198,16 @@ class ChatMembers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: IsInChatChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), IsInChatChatMembersResponse)
+        response: IsInChatChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), IsInChatChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    def me_join(self, request: MeJoinChatMembersRequest,
-                option: Optional[RequestOption] = None) -> MeJoinChatMembersResponse:
+    def me_join(
+        self, request: MeJoinChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> MeJoinChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -192,13 +222,16 @@ class ChatMembers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MeJoinChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), MeJoinChatMembersResponse)
+        response: MeJoinChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MeJoinChatMembersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ame_join(self, request: MeJoinChatMembersRequest,
-                       option: Optional[RequestOption] = None) -> MeJoinChatMembersResponse:
+    async def ame_join(
+        self, request: MeJoinChatMembersRequest, option: Optional[RequestOption] = None
+    ) -> MeJoinChatMembersResponse:
         if option is None:
             option = RequestOption()
 
@@ -209,7 +242,9 @@ class ChatMembers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MeJoinChatMembersResponse = JSON.unmarshal(str(resp.content, UTF_8), MeJoinChatMembersResponse)
+        response: MeJoinChatMembersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MeJoinChatMembersResponse
+        )
         response.raw = resp
 
         return response

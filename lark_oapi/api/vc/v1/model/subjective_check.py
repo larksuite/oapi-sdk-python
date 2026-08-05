@@ -29,7 +29,9 @@ class SubjectiveCheckBuilder(object):
         self._subjective_check.key_points = key_points
         return self
 
-    def user_input_prompts(self, user_input_prompts: List[str]) -> "SubjectiveCheckBuilder":
+    def user_input_prompts(
+        self, user_input_prompts: List[str]
+    ) -> "SubjectiveCheckBuilder":
         self._subjective_check.user_input_prompts = user_input_prompts
         return self
 

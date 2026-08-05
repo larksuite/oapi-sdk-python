@@ -65,11 +65,15 @@ class ExternalApprovalBuilder(object):
         self._external_approval.external = external
         return self
 
-    def viewers(self, viewers: List[ApprovalCreateViewers]) -> "ExternalApprovalBuilder":
+    def viewers(
+        self, viewers: List[ApprovalCreateViewers]
+    ) -> "ExternalApprovalBuilder":
         self._external_approval.viewers = viewers
         return self
 
-    def i18n_resources(self, i18n_resources: List[I18nResource]) -> "ExternalApprovalBuilder":
+    def i18n_resources(
+        self, i18n_resources: List[I18nResource]
+    ) -> "ExternalApprovalBuilder":
         self._external_approval.i18n_resources = i18n_resources
         return self
 

@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .transfer_info import TransferInfo
 from .custom_field_data import CustomFieldData
 from .employment_lookup_name import EmploymentLookupName
+from .column_approval_node import ColumnApprovalNode
 
 
 class JobChange(object):
@@ -25,6 +26,7 @@ class JobChange(object):
         "employment_name": EmploymentLookupName,
         "exception_status": str,
         "no_permission_fields": List[str],
+        "approval_nodes": List[ColumnApprovalNode],
     }
 
     def __init__(self, d=None):
@@ -44,6 +46,7 @@ class JobChange(object):
         self.employment_name: Optional[EmploymentLookupName] = None
         self.exception_status: Optional[str] = None
         self.no_permission_fields: Optional[List[str]] = None
+        self.approval_nodes: Optional[List[ColumnApprovalNode]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -67,12 +70,20 @@ class JobChangeBuilder(object):
         self._job_change.status = status
         return self
 
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: str) -> "JobChangeBuilder":
-        self._job_change.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "JobChangeBuilder":
+        self._job_change.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
-    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: str) -> "JobChangeBuilder":
-        self._job_change.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "JobChangeBuilder":
+        self._job_change.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def process_id(self, process_id: str) -> "JobChangeBuilder":
@@ -103,11 +114,15 @@ class JobChangeBuilder(object):
         self._job_change.custom_fields = custom_fields
         return self
 
-    def details_of_job_status_change(self, details_of_job_status_change: List[str]) -> "JobChangeBuilder":
+    def details_of_job_status_change(
+        self, details_of_job_status_change: List[str]
+    ) -> "JobChangeBuilder":
         self._job_change.details_of_job_status_change = details_of_job_status_change
         return self
 
-    def employment_name(self, employment_name: EmploymentLookupName) -> "JobChangeBuilder":
+    def employment_name(
+        self, employment_name: EmploymentLookupName
+    ) -> "JobChangeBuilder":
         self._job_change.employment_name = employment_name
         return self
 
@@ -115,8 +130,16 @@ class JobChangeBuilder(object):
         self._job_change.exception_status = exception_status
         return self
 
-    def no_permission_fields(self, no_permission_fields: List[str]) -> "JobChangeBuilder":
+    def no_permission_fields(
+        self, no_permission_fields: List[str]
+    ) -> "JobChangeBuilder":
         self._job_change.no_permission_fields = no_permission_fields
+        return self
+
+    def approval_nodes(
+        self, approval_nodes: List[ColumnApprovalNode]
+    ) -> "JobChangeBuilder":
+        self._job_change.approval_nodes = approval_nodes
         return self
 
     def build(self) -> "JobChange":

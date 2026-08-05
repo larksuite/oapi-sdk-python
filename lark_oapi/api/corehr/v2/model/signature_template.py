@@ -32,11 +32,15 @@ class SignatureTemplateBuilder(object):
         self._signature_template.id = id
         return self
 
-    def brief_info(self, brief_info: SignatureTemplateBriefInfo) -> "SignatureTemplateBuilder":
+    def brief_info(
+        self, brief_info: SignatureTemplateBriefInfo
+    ) -> "SignatureTemplateBuilder":
         self._signature_template.brief_info = brief_info
         return self
 
-    def content_info(self, content_info: SignatureTemplateContentInfo) -> "SignatureTemplateBuilder":
+    def content_info(
+        self, content_info: SignatureTemplateContentInfo
+    ) -> "SignatureTemplateBuilder":
         self._signature_template.content_info = content_info
         return self
 

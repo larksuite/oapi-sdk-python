@@ -40,7 +40,9 @@ class UserStatsDataCellBuilder(object):
         self._user_stats_data_cell.value = value
         return self
 
-    def features(self, features: List[UserStatsDataFeature]) -> "UserStatsDataCellBuilder":
+    def features(
+        self, features: List[UserStatsDataFeature]
+    ) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.features = features
         return self
 
@@ -48,7 +50,9 @@ class UserStatsDataCellBuilder(object):
         self._user_stats_data_cell.title = title
         return self
 
-    def duration_num(self, duration_num: UserStatsDataDuration) -> "UserStatsDataCellBuilder":
+    def duration_num(
+        self, duration_num: UserStatsDataDuration
+    ) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.duration_num = duration_num
         return self
 

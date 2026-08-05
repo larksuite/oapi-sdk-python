@@ -9,7 +9,6 @@ from .create_cost_center_response_body import CreateCostCenterResponseBody
 class CreateCostCenterResponse(BaseResponse):
     _types = {
         "data": CreateCostCenterResponseBody,
-
     }
 
     def __init__(self, d=None):

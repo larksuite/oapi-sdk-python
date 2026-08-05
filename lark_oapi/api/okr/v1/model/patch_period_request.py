@@ -18,7 +18,6 @@ class PatchPeriodRequest(BaseRequest):
 
 
 class PatchPeriodRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_period_request = PatchPeriodRequest()
         patch_period_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class PatchPeriodRequestBuilder(object):
         self._patch_period_request.paths["period_id"] = str(period_id)
         return self
 
-    def request_body(self, request_body: PatchPeriodRequestBody) -> "PatchPeriodRequestBuilder":
+    def request_body(
+        self, request_body: PatchPeriodRequestBody
+    ) -> "PatchPeriodRequestBuilder":
         self._patch_period_request.request_body = request_body
         self._patch_period_request.body = request_body
         return self

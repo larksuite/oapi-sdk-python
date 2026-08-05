@@ -1,4 +1,6 @@
+from .client_assertion_configuration import *
 from .department_id import *
+from .openid_issuer import *
 from .token_info import *
 from .user_access_token_info import *
 from .user_info import *

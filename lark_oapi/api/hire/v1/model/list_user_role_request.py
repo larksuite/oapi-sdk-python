@@ -22,7 +22,6 @@ class ListUserRoleRequest(BaseRequest):
 
 
 class ListUserRoleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_role_request = ListUserRoleRequest()
         list_user_role_request.http_method = HttpMethod.GET

@@ -50,7 +50,9 @@ class WorkspaceDataTableColumnInfoBuilder(object):
         self._workspace_data_table_column_info.data_type = data_type
         return self
 
-    def is_primary_key(self, is_primary_key: bool) -> "WorkspaceDataTableColumnInfoBuilder":
+    def is_primary_key(
+        self, is_primary_key: bool
+    ) -> "WorkspaceDataTableColumnInfoBuilder":
         self._workspace_data_table_column_info.is_primary_key = is_primary_key
         return self
 
@@ -58,7 +60,9 @@ class WorkspaceDataTableColumnInfoBuilder(object):
         self._workspace_data_table_column_info.is_unique = is_unique
         return self
 
-    def is_auto_increment(self, is_auto_increment: bool) -> "WorkspaceDataTableColumnInfoBuilder":
+    def is_auto_increment(
+        self, is_auto_increment: bool
+    ) -> "WorkspaceDataTableColumnInfoBuilder":
         self._workspace_data_table_column_info.is_auto_increment = is_auto_increment
         return self
 
@@ -66,11 +70,15 @@ class WorkspaceDataTableColumnInfoBuilder(object):
         self._workspace_data_table_column_info.is_array = is_array
         return self
 
-    def is_allow_null(self, is_allow_null: bool) -> "WorkspaceDataTableColumnInfoBuilder":
+    def is_allow_null(
+        self, is_allow_null: bool
+    ) -> "WorkspaceDataTableColumnInfoBuilder":
         self._workspace_data_table_column_info.is_allow_null = is_allow_null
         return self
 
-    def default_value(self, default_value: str) -> "WorkspaceDataTableColumnInfoBuilder":
+    def default_value(
+        self, default_value: str
+    ) -> "WorkspaceDataTableColumnInfoBuilder":
         self._workspace_data_table_column_info.default_value = default_value
         return self
 

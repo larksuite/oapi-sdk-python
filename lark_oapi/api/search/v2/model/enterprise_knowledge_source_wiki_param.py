@@ -26,17 +26,25 @@ class EnterpriseKnowledgeSourceWikiParam(object):
 
 class EnterpriseKnowledgeSourceWikiParamBuilder(object):
     def __init__(self) -> None:
-        self._enterprise_knowledge_source_wiki_param = EnterpriseKnowledgeSourceWikiParam()
+        self._enterprise_knowledge_source_wiki_param = (
+            EnterpriseKnowledgeSourceWikiParam()
+        )
 
-    def searchable(self, searchable: bool) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
+    def searchable(
+        self, searchable: bool
+    ) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
         self._enterprise_knowledge_source_wiki_param.searchable = searchable
         return self
 
-    def filter(self, filter: KnowledgeSourceWikiFilter) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
+    def filter(
+        self, filter: KnowledgeSourceWikiFilter
+    ) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
         self._enterprise_knowledge_source_wiki_param.filter = filter
         return self
 
-    def reject(self, reject: KnowledgeSourceWikiReject) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
+    def reject(
+        self, reject: KnowledgeSourceWikiReject
+    ) -> "EnterpriseKnowledgeSourceWikiParamBuilder":
         self._enterprise_knowledge_source_wiki_param.reject = reject
         return self
 

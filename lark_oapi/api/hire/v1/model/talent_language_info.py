@@ -41,8 +41,9 @@ class TalentLanguageInfoBuilder(object):
         self._talent_language_info.proficiency = proficiency
         return self
 
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentLanguageInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.customized_data_list = customized_data_list
         return self
 

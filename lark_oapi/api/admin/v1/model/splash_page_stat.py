@@ -56,15 +56,21 @@ class SplashPageStatBuilder(object):
         self._splash_page_stat.skip_count = skip_count
         return self
 
-    def impression_count_accumulate(self, impression_count_accumulate: int) -> "SplashPageStatBuilder":
+    def impression_count_accumulate(
+        self, impression_count_accumulate: int
+    ) -> "SplashPageStatBuilder":
         self._splash_page_stat.impression_count_accumulate = impression_count_accumulate
         return self
 
-    def click_count_accumulate(self, click_count_accumulate: int) -> "SplashPageStatBuilder":
+    def click_count_accumulate(
+        self, click_count_accumulate: int
+    ) -> "SplashPageStatBuilder":
         self._splash_page_stat.click_count_accumulate = click_count_accumulate
         return self
 
-    def skip_count_accumulate(self, skip_count_accumulate: int) -> "SplashPageStatBuilder":
+    def skip_count_accumulate(
+        self, skip_count_accumulate: int
+    ) -> "SplashPageStatBuilder":
         self._splash_page_stat.skip_count_accumulate = skip_count_accumulate
         return self
 

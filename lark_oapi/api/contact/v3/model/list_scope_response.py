@@ -9,7 +9,6 @@ from .list_scope_response_body import ListScopeResponseBody
 class ListScopeResponse(BaseResponse):
     _types = {
         "data": ListScopeResponseBody,
-
     }
 
     def __init__(self, d=None):

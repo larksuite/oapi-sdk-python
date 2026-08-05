@@ -24,8 +24,12 @@ class MyAiVcMeetingRecapResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_recap_result = MyAiVcMeetingRecapResult()
 
-    def meeting_recap_or_fail_reason(self, meeting_recap_or_fail_reason: str) -> "MyAiVcMeetingRecapResultBuilder":
-        self._my_ai_vc_meeting_recap_result.meeting_recap_or_fail_reason = meeting_recap_or_fail_reason
+    def meeting_recap_or_fail_reason(
+        self, meeting_recap_or_fail_reason: str
+    ) -> "MyAiVcMeetingRecapResultBuilder":
+        self._my_ai_vc_meeting_recap_result.meeting_recap_or_fail_reason = (
+            meeting_recap_or_fail_reason
+        )
         return self
 
     def meeting_recap(self, meeting_recap: str) -> "MyAiVcMeetingRecapResultBuilder":

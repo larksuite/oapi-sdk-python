@@ -20,7 +20,9 @@ class EditEmpCustomOrgEmployeeCustomOrgResponseBody(object):
 
 class EditEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._edit_emp_custom_org_employee_custom_org_response_body = EditEmpCustomOrgEmployeeCustomOrgResponseBody()
+        self._edit_emp_custom_org_employee_custom_org_response_body = (
+            EditEmpCustomOrgEmployeeCustomOrgResponseBody()
+        )
 
     def data(self, data: str) -> "EditEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder":
         self._edit_emp_custom_org_employee_custom_org_response_body.data = data

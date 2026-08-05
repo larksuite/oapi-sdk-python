@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_payment_activity_detail_request import ListPaymentActivityDetailRequest
-from ..model.list_payment_activity_detail_response import ListPaymentActivityDetailResponse
+from ..model.list_payment_activity_detail_request import (
+    ListPaymentActivityDetailRequest,
+)
+from ..model.list_payment_activity_detail_response import (
+    ListPaymentActivityDetailResponse,
+)
 
 
 class PaymentActivityDetail(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListPaymentActivityDetailRequest,
-             option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
+    def list(
+        self,
+        request: ListPaymentActivityDetailRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPaymentActivityDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class PaymentActivityDetail(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListPaymentActivityDetailResponse)
+        response: ListPaymentActivityDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPaymentActivityDetailResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListPaymentActivityDetailRequest,
-                    option: Optional[RequestOption] = None) -> ListPaymentActivityDetailResponse:
+    async def alist(
+        self,
+        request: ListPaymentActivityDetailRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPaymentActivityDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class PaymentActivityDetail(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListPaymentActivityDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListPaymentActivityDetailResponse)
+        response: ListPaymentActivityDetailResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPaymentActivityDetailResponse
+        )
         response.raw = resp
 
         return response

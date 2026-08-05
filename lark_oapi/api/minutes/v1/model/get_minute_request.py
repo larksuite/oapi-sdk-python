@@ -17,7 +17,6 @@ class GetMinuteRequest(BaseRequest):
 
 
 class GetMinuteRequestBuilder(object):
-
     def __init__(self) -> None:
         get_minute_request = GetMinuteRequest()
         get_minute_request.http_method = HttpMethod.GET

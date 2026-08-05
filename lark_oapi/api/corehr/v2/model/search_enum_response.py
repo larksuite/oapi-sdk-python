@@ -9,7 +9,6 @@ from .search_enum_response_body import SearchEnumResponseBody
 class SearchEnumResponse(BaseResponse):
     _types = {
         "data": SearchEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

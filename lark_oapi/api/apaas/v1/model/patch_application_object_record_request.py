@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .patch_application_object_record_request_body import PatchApplicationObjectRecordRequestBody
+from .patch_application_object_record_request_body import (
+    PatchApplicationObjectRecordRequestBody,
+)
 
 
 class PatchApplicationObjectRecordRequest(BaseRequest):
@@ -20,7 +22,6 @@ class PatchApplicationObjectRecordRequest(BaseRequest):
 
 
 class PatchApplicationObjectRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_application_object_record_request = PatchApplicationObjectRecordRequest()
         patch_application_object_record_request.http_method = HttpMethod.PATCH
@@ -30,12 +31,18 @@ class PatchApplicationObjectRecordRequestBuilder(object):
 
     def namespace(self, namespace: str) -> "PatchApplicationObjectRecordRequestBuilder":
         self._patch_application_object_record_request.namespace = namespace
-        self._patch_application_object_record_request.paths["namespace"] = str(namespace)
+        self._patch_application_object_record_request.paths["namespace"] = str(
+            namespace
+        )
         return self
 
-    def object_api_name(self, object_api_name: str) -> "PatchApplicationObjectRecordRequestBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "PatchApplicationObjectRecordRequestBuilder":
         self._patch_application_object_record_request.object_api_name = object_api_name
-        self._patch_application_object_record_request.paths["object_api_name"] = str(object_api_name)
+        self._patch_application_object_record_request.paths["object_api_name"] = str(
+            object_api_name
+        )
         return self
 
     def id(self, id: str) -> "PatchApplicationObjectRecordRequestBuilder":
@@ -43,8 +50,9 @@ class PatchApplicationObjectRecordRequestBuilder(object):
         self._patch_application_object_record_request.paths["id"] = str(id)
         return self
 
-    def request_body(self,
-                     request_body: PatchApplicationObjectRecordRequestBody) -> "PatchApplicationObjectRecordRequestBuilder":
+    def request_body(
+        self, request_body: PatchApplicationObjectRecordRequestBody
+    ) -> "PatchApplicationObjectRecordRequestBuilder":
         self._patch_application_object_record_request.request_body = request_body
         self._patch_application_object_record_request.body = request_body
         return self

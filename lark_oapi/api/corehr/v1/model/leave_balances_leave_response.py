@@ -9,7 +9,6 @@ from .leave_balances_leave_response_body import LeaveBalancesLeaveResponseBody
 class LeaveBalancesLeaveResponse(BaseResponse):
     _types = {
         "data": LeaveBalancesLeaveResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -9,7 +9,6 @@ from .search_basic_info_city_response_body import SearchBasicInfoCityResponseBod
 class SearchBasicInfoCityResponse(BaseResponse):
     _types = {
         "data": SearchBasicInfoCityResponseBody,
-
     }
 
     def __init__(self, d=None):

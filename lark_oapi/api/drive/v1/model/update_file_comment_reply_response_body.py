@@ -20,7 +20,9 @@ class UpdateFileCommentReplyResponseBody(object):
 
 class UpdateFileCommentReplyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_file_comment_reply_response_body = UpdateFileCommentReplyResponseBody()
+        self._update_file_comment_reply_response_body = (
+            UpdateFileCommentReplyResponseBody()
+        )
 
     def data(self, data: str) -> "UpdateFileCommentReplyResponseBodyBuilder":
         self._update_file_comment_reply_response_body.data = data

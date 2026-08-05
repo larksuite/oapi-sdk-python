@@ -114,7 +114,9 @@ class TalentBasicInfoBuilder(object):
         self._talent_basic_info.hometown_city = hometown_city
         return self
 
-    def preferred_city_list(self, preferred_city_list: List[TalentCityInfo]) -> "TalentBasicInfoBuilder":
+    def preferred_city_list(
+        self, preferred_city_list: List[TalentCityInfo]
+    ) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.preferred_city_list = preferred_city_list
         return self
 
@@ -122,11 +124,15 @@ class TalentBasicInfoBuilder(object):
         self._talent_basic_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "TalentBasicInfoBuilder":
+    def identification_number(
+        self, identification_number: str
+    ) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.identification_number = identification_number
         return self
 
-    def identification(self, identification: TalentIdentificationInfo) -> "TalentBasicInfoBuilder":
+    def identification(
+        self, identification: TalentIdentificationInfo
+    ) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.identification = identification
         return self
 
@@ -142,11 +148,15 @@ class TalentBasicInfoBuilder(object):
         self._talent_basic_info.marital_status = marital_status
         return self
 
-    def current_home_address(self, current_home_address: str) -> "TalentBasicInfoBuilder":
+    def current_home_address(
+        self, current_home_address: str
+    ) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.current_home_address = current_home_address
         return self
 
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentBasicInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.customized_data_list = customized_data_list
         return self
 

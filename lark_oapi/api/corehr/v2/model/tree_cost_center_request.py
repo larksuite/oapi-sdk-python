@@ -20,12 +20,14 @@ class TreeCostCenterRequest(BaseRequest):
 
 
 class TreeCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
         tree_cost_center_request = TreeCostCenterRequest()
         tree_cost_center_request.http_method = HttpMethod.POST
         tree_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers/tree"
-        tree_cost_center_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        tree_cost_center_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._tree_cost_center_request: TreeCostCenterRequest = tree_cost_center_request
 
     def page_size(self, page_size: int) -> "TreeCostCenterRequestBuilder":
@@ -43,7 +45,9 @@ class TreeCostCenterRequestBuilder(object):
         self._tree_cost_center_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: TreeCostCenterRequestBody) -> "TreeCostCenterRequestBuilder":
+    def request_body(
+        self, request_body: TreeCostCenterRequestBody
+    ) -> "TreeCostCenterRequestBuilder":
         self._tree_cost_center_request.request_body = request_body
         self._tree_cost_center_request.body = request_body
         return self

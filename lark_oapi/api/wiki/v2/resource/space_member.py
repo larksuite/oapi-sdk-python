@@ -21,8 +21,9 @@ class SpaceMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateSpaceMemberRequest,
-               option: Optional[RequestOption] = None) -> CreateSpaceMemberResponse:
+    def create(
+        self, request: CreateSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +38,16 @@ class SpaceMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceMemberResponse)
+        response: CreateSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpaceMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateSpaceMemberRequest,
-                      option: Optional[RequestOption] = None) -> CreateSpaceMemberResponse:
+    async def acreate(
+        self, request: CreateSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,13 +58,16 @@ class SpaceMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceMemberResponse)
+        response: CreateSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpaceMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteSpaceMemberRequest,
-               option: Optional[RequestOption] = None) -> DeleteSpaceMemberResponse:
+    def delete(
+        self, request: DeleteSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> DeleteSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,13 +82,16 @@ class SpaceMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpaceMemberResponse)
+        response: DeleteSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSpaceMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteSpaceMemberRequest,
-                      option: Optional[RequestOption] = None) -> DeleteSpaceMemberResponse:
+    async def adelete(
+        self, request: DeleteSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> DeleteSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,12 +102,16 @@ class SpaceMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpaceMemberResponse)
+        response: DeleteSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteSpaceMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListSpaceMemberRequest, option: Optional[RequestOption] = None) -> ListSpaceMemberResponse:
+    def list(
+        self, request: ListSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> ListSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,13 +126,16 @@ class SpaceMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceMemberResponse)
+        response: ListSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSpaceMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSpaceMemberRequest,
-                    option: Optional[RequestOption] = None) -> ListSpaceMemberResponse:
+    async def alist(
+        self, request: ListSpaceMemberRequest, option: Optional[RequestOption] = None
+    ) -> ListSpaceMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -129,7 +146,9 @@ class SpaceMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceMemberResponse)
+        response: ListSpaceMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSpaceMemberResponse
+        )
         response.raw = resp
 
         return response

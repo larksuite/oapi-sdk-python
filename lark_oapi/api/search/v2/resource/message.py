@@ -17,7 +17,9 @@ class Message(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateMessageRequest, option: Optional[RequestOption] = None) -> CreateMessageResponse:
+    def create(
+        self, request: CreateMessageRequest, option: Optional[RequestOption] = None
+    ) -> CreateMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Message(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMessageResponse)
+        response: CreateMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMessageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateMessageRequest,
-                      option: Optional[RequestOption] = None) -> CreateMessageResponse:
+    async def acreate(
+        self, request: CreateMessageRequest, option: Optional[RequestOption] = None
+    ) -> CreateMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Message(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMessageResponse)
+        response: CreateMessageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMessageResponse
+        )
         response.raw = resp
 
         return response

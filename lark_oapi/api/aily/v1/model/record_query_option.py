@@ -28,7 +28,9 @@ class RecordQueryOptionBuilder(object):
         self._record_query_option.stringify_number = stringify_number
         return self
 
-    def normalize_column_name(self, normalize_column_name: bool) -> "RecordQueryOptionBuilder":
+    def normalize_column_name(
+        self, normalize_column_name: bool
+    ) -> "RecordQueryOptionBuilder":
         self._record_query_option.normalize_column_name = normalize_column_name
         return self
 

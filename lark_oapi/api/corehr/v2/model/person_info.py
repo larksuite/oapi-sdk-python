@@ -6,6 +6,7 @@ from .person_name import PersonName
 from .enum import Enum
 from .nationality import Nationality
 from .citizenship_status import CitizenshipStatus
+from .profile_setting_citizenship_status import ProfileSettingCitizenshipStatus
 from .enum import Enum
 from .enum import Enum
 from .phone import Phone
@@ -32,6 +33,8 @@ from .national_id import NationalId
 from .visa import Visa
 from .passport import Passport
 from .person_for_country import PersonForCountry
+from .person_name import PersonName
+from .tax_info_mys import TaxInfoMys
 
 
 class PersonInfo(object):
@@ -50,6 +53,7 @@ class PersonInfo(object):
         "nationality_id_v2": str,
         "additional_nationalities": List[Nationality],
         "citizenship_status": List[CitizenshipStatus],
+        "citizenship_status_list": List[ProfileSettingCitizenshipStatus],
         "race": Enum,
         "marital_status": Enum,
         "phone_list": List[Phone],
@@ -101,6 +105,11 @@ class PersonInfo(object):
         "visas": List[Visa],
         "passports": List[Passport],
         "person_for_countries": List[PersonForCountry],
+        "preferred_name_v2": PersonName,
+        "mother_name": str,
+        "city_of_birth": str,
+        "region_of_birth": str,
+        "tax_info_mys": TaxInfoMys,
     }
 
     def __init__(self, d=None):
@@ -118,6 +127,9 @@ class PersonInfo(object):
         self.nationality_id_v2: Optional[str] = None
         self.additional_nationalities: Optional[List[Nationality]] = None
         self.citizenship_status: Optional[List[CitizenshipStatus]] = None
+        self.citizenship_status_list: Optional[
+            List[ProfileSettingCitizenshipStatus]
+        ] = None
         self.race: Optional[Enum] = None
         self.marital_status: Optional[Enum] = None
         self.phone_list: Optional[List[Phone]] = None
@@ -169,6 +181,11 @@ class PersonInfo(object):
         self.visas: Optional[List[Visa]] = None
         self.passports: Optional[List[Passport]] = None
         self.person_for_countries: Optional[List[PersonForCountry]] = None
+        self.preferred_name_v2: Optional[PersonName] = None
+        self.mother_name: Optional[str] = None
+        self.city_of_birth: Optional[str] = None
+        self.region_of_birth: Optional[str] = None
+        self.tax_info_mys: Optional[TaxInfoMys] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -200,11 +217,15 @@ class PersonInfoBuilder(object):
         self._person_info.additional_name = additional_name
         return self
 
-    def preferred_local_full_name(self, preferred_local_full_name: str) -> "PersonInfoBuilder":
+    def preferred_local_full_name(
+        self, preferred_local_full_name: str
+    ) -> "PersonInfoBuilder":
         self._person_info.preferred_local_full_name = preferred_local_full_name
         return self
 
-    def preferred_english_full_name(self, preferred_english_full_name: str) -> "PersonInfoBuilder":
+    def preferred_english_full_name(
+        self, preferred_english_full_name: str
+    ) -> "PersonInfoBuilder":
         self._person_info.preferred_english_full_name = preferred_english_full_name
         return self
 
@@ -228,12 +249,22 @@ class PersonInfoBuilder(object):
         self._person_info.nationality_id_v2 = nationality_id_v2
         return self
 
-    def additional_nationalities(self, additional_nationalities: List[Nationality]) -> "PersonInfoBuilder":
+    def additional_nationalities(
+        self, additional_nationalities: List[Nationality]
+    ) -> "PersonInfoBuilder":
         self._person_info.additional_nationalities = additional_nationalities
         return self
 
-    def citizenship_status(self, citizenship_status: List[CitizenshipStatus]) -> "PersonInfoBuilder":
+    def citizenship_status(
+        self, citizenship_status: List[CitizenshipStatus]
+    ) -> "PersonInfoBuilder":
         self._person_info.citizenship_status = citizenship_status
+        return self
+
+    def citizenship_status_list(
+        self, citizenship_status_list: List[ProfileSettingCitizenshipStatus]
+    ) -> "PersonInfoBuilder":
+        self._person_info.citizenship_status_list = citizenship_status_list
         return self
 
     def race(self, race: Enum) -> "PersonInfoBuilder":
@@ -256,7 +287,9 @@ class PersonInfoBuilder(object):
         self._person_info.email_list = email_list
         return self
 
-    def work_experience_list(self, work_experience_list: List[WorkExperienceInfo]) -> "PersonInfoBuilder":
+    def work_experience_list(
+        self, work_experience_list: List[WorkExperienceInfo]
+    ) -> "PersonInfoBuilder":
         self._person_info.work_experience_list = work_experience_list
         return self
 
@@ -264,11 +297,15 @@ class PersonInfoBuilder(object):
         self._person_info.education_list = education_list
         return self
 
-    def bank_account_list(self, bank_account_list: List[BankAccount]) -> "PersonInfoBuilder":
+    def bank_account_list(
+        self, bank_account_list: List[BankAccount]
+    ) -> "PersonInfoBuilder":
         self._person_info.bank_account_list = bank_account_list
         return self
 
-    def national_id_list(self, national_id_list: List[NationalId]) -> "PersonInfoBuilder":
+    def national_id_list(
+        self, national_id_list: List[NationalId]
+    ) -> "PersonInfoBuilder":
         self._person_info.national_id_list = national_id_list
         return self
 
@@ -276,11 +313,15 @@ class PersonInfoBuilder(object):
         self._person_info.dependent_list = dependent_list
         return self
 
-    def emergency_contact_list(self, emergency_contact_list: List[EmergencyContact]) -> "PersonInfoBuilder":
+    def emergency_contact_list(
+        self, emergency_contact_list: List[EmergencyContact]
+    ) -> "PersonInfoBuilder":
         self._person_info.emergency_contact_list = emergency_contact_list
         return self
 
-    def date_entered_workforce(self, date_entered_workforce: str) -> "PersonInfoBuilder":
+    def date_entered_workforce(
+        self, date_entered_workforce: str
+    ) -> "PersonInfoBuilder":
         self._person_info.date_entered_workforce = date_entered_workforce
         return self
 
@@ -300,15 +341,21 @@ class PersonInfoBuilder(object):
         self._person_info.age = age
         return self
 
-    def highest_level_of_education(self, highest_level_of_education: Education) -> "PersonInfoBuilder":
+    def highest_level_of_education(
+        self, highest_level_of_education: Education
+    ) -> "PersonInfoBuilder":
         self._person_info.highest_level_of_education = highest_level_of_education
         return self
 
-    def highest_degree_of_education(self, highest_degree_of_education: Education) -> "PersonInfoBuilder":
+    def highest_degree_of_education(
+        self, highest_degree_of_education: Education
+    ) -> "PersonInfoBuilder":
         self._person_info.highest_degree_of_education = highest_degree_of_education
         return self
 
-    def personal_profile(self, personal_profile: List[PersonalProfile]) -> "PersonInfoBuilder":
+    def personal_profile(
+        self, personal_profile: List[PersonalProfile]
+    ) -> "PersonInfoBuilder":
         self._person_info.personal_profile = personal_profile
         return self
 
@@ -324,7 +371,9 @@ class PersonInfoBuilder(object):
         self._person_info.hukou_location = hukou_location
         return self
 
-    def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoBuilder":
+    def political_affiliations(
+        self, political_affiliations: List[Enum]
+    ) -> "PersonInfoBuilder":
         self._person_info.political_affiliations = political_affiliations
         return self
 
@@ -332,7 +381,9 @@ class PersonInfoBuilder(object):
         self._person_info.talent_id = talent_id
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PersonInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PersonInfoBuilder":
         self._person_info.custom_fields = custom_fields
         return self
 
@@ -344,7 +395,9 @@ class PersonInfoBuilder(object):
         self._person_info.family_address = family_address
         return self
 
-    def person_info_chns(self, person_info_chns: List[PersonInfoChn]) -> "PersonInfoBuilder":
+    def person_info_chns(
+        self, person_info_chns: List[PersonInfoChn]
+    ) -> "PersonInfoBuilder":
         self._person_info.person_info_chns = person_info_chns
         return self
 
@@ -436,8 +489,30 @@ class PersonInfoBuilder(object):
         self._person_info.passports = passports
         return self
 
-    def person_for_countries(self, person_for_countries: List[PersonForCountry]) -> "PersonInfoBuilder":
+    def person_for_countries(
+        self, person_for_countries: List[PersonForCountry]
+    ) -> "PersonInfoBuilder":
         self._person_info.person_for_countries = person_for_countries
+        return self
+
+    def preferred_name_v2(self, preferred_name_v2: PersonName) -> "PersonInfoBuilder":
+        self._person_info.preferred_name_v2 = preferred_name_v2
+        return self
+
+    def mother_name(self, mother_name: str) -> "PersonInfoBuilder":
+        self._person_info.mother_name = mother_name
+        return self
+
+    def city_of_birth(self, city_of_birth: str) -> "PersonInfoBuilder":
+        self._person_info.city_of_birth = city_of_birth
+        return self
+
+    def region_of_birth(self, region_of_birth: str) -> "PersonInfoBuilder":
+        self._person_info.region_of_birth = region_of_birth
+        return self
+
+    def tax_info_mys(self, tax_info_mys: TaxInfoMys) -> "PersonInfoBuilder":
+        self._person_info.tax_info_mys = tax_info_mys
         return self
 
     def build(self) -> "PersonInfo":

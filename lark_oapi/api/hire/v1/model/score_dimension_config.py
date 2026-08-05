@@ -26,15 +26,21 @@ class ScoreDimensionConfigBuilder(object):
     def __init__(self) -> None:
         self._score_dimension_config = ScoreDimensionConfig()
 
-    def score_dimension_type(self, score_dimension_type: int) -> "ScoreDimensionConfigBuilder":
+    def score_dimension_type(
+        self, score_dimension_type: int
+    ) -> "ScoreDimensionConfigBuilder":
         self._score_dimension_config.score_dimension_type = score_dimension_type
         return self
 
-    def lower_limit_score(self, lower_limit_score: int) -> "ScoreDimensionConfigBuilder":
+    def lower_limit_score(
+        self, lower_limit_score: int
+    ) -> "ScoreDimensionConfigBuilder":
         self._score_dimension_config.lower_limit_score = lower_limit_score
         return self
 
-    def upper_limit_score(self, upper_limit_score: int) -> "ScoreDimensionConfigBuilder":
+    def upper_limit_score(
+        self, upper_limit_score: int
+    ) -> "ScoreDimensionConfigBuilder":
         self._score_dimension_config.upper_limit_score = upper_limit_score
         return self
 

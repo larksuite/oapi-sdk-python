@@ -21,9 +21,13 @@ class BatchGetUserMailboxMessageResponseBody(object):
 
 class BatchGetUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_get_user_mailbox_message_response_body = BatchGetUserMailboxMessageResponseBody()
+        self._batch_get_user_mailbox_message_response_body = (
+            BatchGetUserMailboxMessageResponseBody()
+        )
 
-    def messages(self, messages: List[Message]) -> "BatchGetUserMailboxMessageResponseBodyBuilder":
+    def messages(
+        self, messages: List[Message]
+    ) -> "BatchGetUserMailboxMessageResponseBodyBuilder":
         self._batch_get_user_mailbox_message_response_body.messages = messages
         return self
 

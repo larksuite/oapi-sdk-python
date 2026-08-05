@@ -28,21 +28,31 @@ class CreateMessageReactionResponseBody(object):
 
 class CreateMessageReactionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_message_reaction_response_body = CreateMessageReactionResponseBody()
+        self._create_message_reaction_response_body = (
+            CreateMessageReactionResponseBody()
+        )
 
-    def reaction_id(self, reaction_id: str) -> "CreateMessageReactionResponseBodyBuilder":
+    def reaction_id(
+        self, reaction_id: str
+    ) -> "CreateMessageReactionResponseBodyBuilder":
         self._create_message_reaction_response_body.reaction_id = reaction_id
         return self
 
-    def operator(self, operator: Operator) -> "CreateMessageReactionResponseBodyBuilder":
+    def operator(
+        self, operator: Operator
+    ) -> "CreateMessageReactionResponseBodyBuilder":
         self._create_message_reaction_response_body.operator = operator
         return self
 
-    def action_time(self, action_time: int) -> "CreateMessageReactionResponseBodyBuilder":
+    def action_time(
+        self, action_time: int
+    ) -> "CreateMessageReactionResponseBodyBuilder":
         self._create_message_reaction_response_body.action_time = action_time
         return self
 
-    def reaction_type(self, reaction_type: Emoji) -> "CreateMessageReactionResponseBodyBuilder":
+    def reaction_type(
+        self, reaction_type: Emoji
+    ) -> "CreateMessageReactionResponseBodyBuilder":
         self._create_message_reaction_response_body.reaction_type = reaction_type
         return self
 

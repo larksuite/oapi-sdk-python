@@ -9,7 +9,6 @@ from .query_signature_file_response_body import QuerySignatureFileResponseBody
 class QuerySignatureFileResponse(BaseResponse):
     _types = {
         "data": QuerySignatureFileResponseBody,
-
     }
 
     def __init__(self, d=None):

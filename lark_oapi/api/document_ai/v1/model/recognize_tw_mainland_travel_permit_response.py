@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .recognize_tw_mainland_travel_permit_response_body import RecognizeTwMainlandTravelPermitResponseBody
+from .recognize_tw_mainland_travel_permit_response_body import (
+    RecognizeTwMainlandTravelPermitResponseBody,
+)
 
 
 class RecognizeTwMainlandTravelPermitResponse(BaseResponse):
     _types = {
         "data": RecognizeTwMainlandTravelPermitResponseBody,
-
     }
 
     def __init__(self, d=None):

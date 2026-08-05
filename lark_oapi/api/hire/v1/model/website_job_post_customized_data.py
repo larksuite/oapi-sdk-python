@@ -42,7 +42,9 @@ class WebsiteJobPostCustomizedDataBuilder(object):
         self._website_job_post_customized_data.object_type = object_type
         return self
 
-    def value(self, value: WebsiteJobPostCustomizedValue) -> "WebsiteJobPostCustomizedDataBuilder":
+    def value(
+        self, value: WebsiteJobPostCustomizedValue
+    ) -> "WebsiteJobPostCustomizedDataBuilder":
         self._website_job_post_customized_data.value = value
         return self
 

@@ -17,8 +17,11 @@ class MinuteTranscript(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMinuteTranscriptRequest,
-            option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
+    def get(
+        self,
+        request: GetMinuteTranscriptRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetMinuteTranscriptResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +43,18 @@ class MinuteTranscript(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteTranscriptResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), GetMinuteTranscriptResponse
+            )
 
         response.raw = resp
         return response
 
-    async def aget(self, request: GetMinuteTranscriptRequest,
-                   option: Optional[RequestOption] = None) -> GetMinuteTranscriptResponse:
+    async def aget(
+        self,
+        request: GetMinuteTranscriptRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetMinuteTranscriptResponse:
         if option is None:
             option = RequestOption()
 
@@ -64,7 +72,9 @@ class MinuteTranscript(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteTranscriptResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), GetMinuteTranscriptResponse
+            )
 
         response.raw = resp
         return response

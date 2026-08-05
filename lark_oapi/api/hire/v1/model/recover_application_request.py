@@ -16,13 +16,16 @@ class RecoverApplicationRequest(BaseRequest):
 
 
 class RecoverApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         recover_application_request = RecoverApplicationRequest()
         recover_application_request.http_method = HttpMethod.POST
-        recover_application_request.uri = "/open-apis/hire/v1/applications/:application_id/recover"
+        recover_application_request.uri = (
+            "/open-apis/hire/v1/applications/:application_id/recover"
+        )
         recover_application_request.token_types = {AccessTokenType.TENANT}
-        self._recover_application_request: RecoverApplicationRequest = recover_application_request
+        self._recover_application_request: RecoverApplicationRequest = (
+            recover_application_request
+        )
 
     def application_id(self, application_id: str) -> "RecoverApplicationRequestBuilder":
         self._recover_application_request.application_id = application_id

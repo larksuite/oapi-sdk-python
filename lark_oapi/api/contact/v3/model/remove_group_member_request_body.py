@@ -34,7 +34,9 @@ class RemoveGroupMemberRequestBodyBuilder(object):
         self._remove_group_member_request_body.member_id = member_id
         return self
 
-    def member_id_type(self, member_id_type: str) -> "RemoveGroupMemberRequestBodyBuilder":
+    def member_id_type(
+        self, member_id_type: str
+    ) -> "RemoveGroupMemberRequestBodyBuilder":
         self._remove_group_member_request_body.member_id_type = member_id_type
         return self
 

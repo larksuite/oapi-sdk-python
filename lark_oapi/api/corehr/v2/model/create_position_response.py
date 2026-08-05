@@ -9,7 +9,6 @@ from .create_position_response_body import CreatePositionResponseBody
 class CreatePositionResponse(BaseResponse):
     _types = {
         "data": CreatePositionResponseBody,
-
     }
 
     def __init__(self, d=None):

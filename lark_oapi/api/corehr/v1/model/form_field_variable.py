@@ -32,11 +32,15 @@ class FormFieldVariableBuilder(object):
         self._form_field_variable.variable_api_name = variable_api_name
         return self
 
-    def variable_name(self, variable_name: BpmDataengineI18n) -> "FormFieldVariableBuilder":
+    def variable_name(
+        self, variable_name: BpmDataengineI18n
+    ) -> "FormFieldVariableBuilder":
         self._form_field_variable.variable_name = variable_name
         return self
 
-    def variable_value(self, variable_value: FormVariableValueInfo) -> "FormFieldVariableBuilder":
+    def variable_value(
+        self, variable_value: FormVariableValueInfo
+    ) -> "FormFieldVariableBuilder":
         self._form_field_variable.variable_value = variable_value
         return self
 

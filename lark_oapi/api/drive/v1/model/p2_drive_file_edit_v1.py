@@ -26,9 +26,7 @@ class P2DriveFileEditV1Data(object):
 
 
 class P2DriveFileEditV1(EventContext):
-    _types = {
-        "event": P2DriveFileEditV1Data
-    }
+    _types = {"event": P2DriveFileEditV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

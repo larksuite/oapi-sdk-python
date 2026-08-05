@@ -16,7 +16,6 @@ class DownloadFileRequest(BaseRequest):
 
 
 class DownloadFileRequestBuilder(object):
-
     def __init__(self) -> None:
         download_file_request = DownloadFileRequest()
         download_file_request.http_method = HttpMethod.GET

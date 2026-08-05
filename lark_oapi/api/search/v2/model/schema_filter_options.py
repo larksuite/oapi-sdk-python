@@ -42,7 +42,9 @@ class SchemaFilterOptionsBuilder(object):
         self._schema_filter_options.display_name = display_name
         return self
 
-    def i18n_display_name(self, i18n_display_name: I18nMeta) -> "SchemaFilterOptionsBuilder":
+    def i18n_display_name(
+        self, i18n_display_name: I18nMeta
+    ) -> "SchemaFilterOptionsBuilder":
         self._schema_filter_options.i18n_display_name = i18n_display_name
         return self
 
@@ -50,7 +52,9 @@ class SchemaFilterOptionsBuilder(object):
         self._schema_filter_options.option_mode = option_mode
         return self
 
-    def associated_smart_filter(self, associated_smart_filter: str) -> "SchemaFilterOptionsBuilder":
+    def associated_smart_filter(
+        self, associated_smart_filter: str
+    ) -> "SchemaFilterOptionsBuilder":
         self._schema_filter_options.associated_smart_filter = associated_smart_filter
         return self
 
@@ -58,16 +62,21 @@ class SchemaFilterOptionsBuilder(object):
         self._schema_filter_options.filter_type = filter_type
         return self
 
-    def predefine_enum_values(self,
-                              predefine_enum_values: List[SchemaPredefineEnumStruct]) -> "SchemaFilterOptionsBuilder":
+    def predefine_enum_values(
+        self, predefine_enum_values: List[SchemaPredefineEnumStruct]
+    ) -> "SchemaFilterOptionsBuilder":
         self._schema_filter_options.predefine_enum_values = predefine_enum_values
         return self
 
-    def enable_client_filter(self, enable_client_filter: bool) -> "SchemaFilterOptionsBuilder":
+    def enable_client_filter(
+        self, enable_client_filter: bool
+    ) -> "SchemaFilterOptionsBuilder":
         self._schema_filter_options.enable_client_filter = enable_client_filter
         return self
 
-    def reference_datasource_id(self, reference_datasource_id: str) -> "SchemaFilterOptionsBuilder":
+    def reference_datasource_id(
+        self, reference_datasource_id: str
+    ) -> "SchemaFilterOptionsBuilder":
         self._schema_filter_options.reference_datasource_id = reference_datasource_id
         return self
 

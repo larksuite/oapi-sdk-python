@@ -35,7 +35,9 @@ class ExteranlInstanceCheckBuilder(object):
         self._exteranl_instance_check.update_time = update_time
         return self
 
-    def tasks(self, tasks: List[ExternalInstanceTask]) -> "ExteranlInstanceCheckBuilder":
+    def tasks(
+        self, tasks: List[ExternalInstanceTask]
+    ) -> "ExteranlInstanceCheckBuilder":
         self._exteranl_instance_check.tasks = tasks
         return self
 

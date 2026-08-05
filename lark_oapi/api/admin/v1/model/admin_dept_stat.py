@@ -158,7 +158,9 @@ class AdminDeptStatBuilder(object):
         self._admin_dept_stat.im_dau = im_dau
         return self
 
-    def send_messenger_user_num(self, send_messenger_user_num: int) -> "AdminDeptStatBuilder":
+    def send_messenger_user_num(
+        self, send_messenger_user_num: int
+    ) -> "AdminDeptStatBuilder":
         self._admin_dept_stat.send_messenger_user_num = send_messenger_user_num
         return self
 
@@ -166,7 +168,9 @@ class AdminDeptStatBuilder(object):
         self._admin_dept_stat.send_messenger_num = send_messenger_num
         return self
 
-    def avg_send_messenger_num(self, avg_send_messenger_num: str) -> "AdminDeptStatBuilder":
+    def avg_send_messenger_num(
+        self, avg_send_messenger_num: str
+    ) -> "AdminDeptStatBuilder":
         self._admin_dept_stat.avg_send_messenger_num = avg_send_messenger_num
         return self
 
@@ -246,7 +250,9 @@ class AdminDeptStatBuilder(object):
         self._admin_dept_stat.email_send_ext_count = email_send_ext_count
         return self
 
-    def email_receive_ext_count(self, email_receive_ext_count: int) -> "AdminDeptStatBuilder":
+    def email_receive_ext_count(
+        self, email_receive_ext_count: int
+    ) -> "AdminDeptStatBuilder":
         self._admin_dept_stat.email_receive_ext_count = email_receive_ext_count
         return self
 
@@ -254,7 +260,9 @@ class AdminDeptStatBuilder(object):
         self._admin_dept_stat.email_send_in_count = email_send_in_count
         return self
 
-    def email_receive_in_count(self, email_receive_in_count: int) -> "AdminDeptStatBuilder":
+    def email_receive_in_count(
+        self, email_receive_in_count: int
+    ) -> "AdminDeptStatBuilder":
         self._admin_dept_stat.email_receive_in_count = email_receive_in_count
         return self
 

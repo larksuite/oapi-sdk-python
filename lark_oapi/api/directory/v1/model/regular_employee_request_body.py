@@ -23,7 +23,9 @@ class RegularEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._regular_employee_request_body = RegularEmployeeRequestBody()
 
-    def openapi_options(self, openapi_options: OpenapiOptions) -> "RegularEmployeeRequestBodyBuilder":
+    def openapi_options(
+        self, openapi_options: OpenapiOptions
+    ) -> "RegularEmployeeRequestBodyBuilder":
         self._regular_employee_request_body.openapi_options = openapi_options
         return self
 

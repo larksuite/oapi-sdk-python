@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .generate_caldav_conf_setting_response_body import GenerateCaldavConfSettingResponseBody
+from .generate_caldav_conf_setting_response_body import (
+    GenerateCaldavConfSettingResponseBody,
+)
 
 
 class GenerateCaldavConfSettingResponse(BaseResponse):
     _types = {
         "data": GenerateCaldavConfSettingResponseBody,
-
     }
 
     def __init__(self, d=None):

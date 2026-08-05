@@ -83,8 +83,9 @@ class TalentEducationInfoBuilder(object):
         self._talent_education_info.tag_list = tag_list
         return self
 
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentEducationInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentEducationInfoBuilder":
         self._talent_education_info.customized_data_list = customized_data_list
         return self
 

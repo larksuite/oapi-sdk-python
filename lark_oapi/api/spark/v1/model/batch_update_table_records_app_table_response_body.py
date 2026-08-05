@@ -20,9 +20,13 @@ class BatchUpdateTableRecordsAppTableResponseBody(object):
 
 class BatchUpdateTableRecordsAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_table_records_app_table_response_body = BatchUpdateTableRecordsAppTableResponseBody()
+        self._batch_update_table_records_app_table_response_body = (
+            BatchUpdateTableRecordsAppTableResponseBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "BatchUpdateTableRecordsAppTableResponseBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "BatchUpdateTableRecordsAppTableResponseBodyBuilder":
         self._batch_update_table_records_app_table_response_body.record_ids = record_ids
         return self
 

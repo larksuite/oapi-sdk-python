@@ -17,7 +17,6 @@ class DeleteVisitorRequest(BaseRequest):
 
 
 class DeleteVisitorRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_visitor_request = DeleteVisitorRequest()
         delete_visitor_request.http_method = HttpMethod.DELETE

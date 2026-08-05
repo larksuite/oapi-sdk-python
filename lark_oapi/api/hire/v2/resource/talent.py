@@ -17,7 +17,9 @@ class Talent(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetTalentRequest, option: Optional[RequestOption] = None) -> GetTalentResponse:
+    def get(
+        self, request: GetTalentRequest, option: Optional[RequestOption] = None
+    ) -> GetTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Talent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTalentResponse)
+        response: GetTalentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTalentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTalentRequest, option: Optional[RequestOption] = None) -> GetTalentResponse:
+    async def aget(
+        self, request: GetTalentRequest, option: Optional[RequestOption] = None
+    ) -> GetTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Talent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTalentResponse)
+        response: GetTalentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTalentResponse
+        )
         response.raw = resp
 
         return response

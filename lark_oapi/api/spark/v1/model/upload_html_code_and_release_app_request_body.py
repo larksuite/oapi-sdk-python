@@ -20,7 +20,9 @@ class UploadHtmlCodeAndReleaseAppRequestBody(object):
 
 class UploadHtmlCodeAndReleaseAppRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._upload_html_code_and_release_app_request_body = UploadHtmlCodeAndReleaseAppRequestBody()
+        self._upload_html_code_and_release_app_request_body = (
+            UploadHtmlCodeAndReleaseAppRequestBody()
+        )
 
     def file(self, file: IO[Any]) -> "UploadHtmlCodeAndReleaseAppRequestBodyBuilder":
         self._upload_html_code_and_release_app_request_body.file = file

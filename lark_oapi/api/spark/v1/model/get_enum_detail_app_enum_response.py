@@ -9,7 +9,6 @@ from .get_enum_detail_app_enum_response_body import GetEnumDetailAppEnumResponse
 class GetEnumDetailAppEnumResponse(BaseResponse):
     _types = {
         "data": GetEnumDetailAppEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

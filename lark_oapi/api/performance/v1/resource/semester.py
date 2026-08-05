@@ -17,7 +17,9 @@ class Semester(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListSemesterRequest, option: Optional[RequestOption] = None) -> ListSemesterResponse:
+    def list(
+        self, request: ListSemesterRequest, option: Optional[RequestOption] = None
+    ) -> ListSemesterResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Semester(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSemesterResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSemesterResponse)
+        response: ListSemesterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSemesterResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSemesterRequest, option: Optional[RequestOption] = None) -> ListSemesterResponse:
+    async def alist(
+        self, request: ListSemesterRequest, option: Optional[RequestOption] = None
+    ) -> ListSemesterResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Semester(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSemesterResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSemesterResponse)
+        response: ListSemesterResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSemesterResponse
+        )
         response.raw = resp
 
         return response

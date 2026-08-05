@@ -28,7 +28,9 @@ class OpeningTimeExternalBuilder(object):
     def __init__(self) -> None:
         self._opening_time_external = OpeningTimeExternal()
 
-    def valid_day(self, valid_day: OpeningTimeValidDayExternal) -> "OpeningTimeExternalBuilder":
+    def valid_day(
+        self, valid_day: OpeningTimeValidDayExternal
+    ) -> "OpeningTimeExternalBuilder":
         self._opening_time_external.valid_day = valid_day
         return self
 
@@ -36,7 +38,9 @@ class OpeningTimeExternalBuilder(object):
         self._opening_time_external.weekdays = weekdays
         return self
 
-    def day_times(self, day_times: List[OpeningTimePeriodExternal]) -> "OpeningTimeExternalBuilder":
+    def day_times(
+        self, day_times: List[OpeningTimePeriodExternal]
+    ) -> "OpeningTimeExternalBuilder":
         self._opening_time_external.day_times = day_times
         return self
 

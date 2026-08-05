@@ -18,13 +18,16 @@ class GetByTalentInterviewRequest(BaseRequest):
 
 
 class GetByTalentInterviewRequestBuilder(object):
-
     def __init__(self) -> None:
         get_by_talent_interview_request = GetByTalentInterviewRequest()
         get_by_talent_interview_request.http_method = HttpMethod.GET
-        get_by_talent_interview_request.uri = "/open-apis/hire/v1/interviews/get_by_talent"
+        get_by_talent_interview_request.uri = (
+            "/open-apis/hire/v1/interviews/get_by_talent"
+        )
         get_by_talent_interview_request.token_types = {AccessTokenType.TENANT}
-        self._get_by_talent_interview_request: GetByTalentInterviewRequest = get_by_talent_interview_request
+        self._get_by_talent_interview_request: GetByTalentInterviewRequest = (
+            get_by_talent_interview_request
+        )
 
     def talent_id(self, talent_id: str) -> "GetByTalentInterviewRequestBuilder":
         self._get_by_talent_interview_request.talent_id = talent_id
@@ -36,9 +39,13 @@ class GetByTalentInterviewRequestBuilder(object):
         self._get_by_talent_interview_request.add_query("user_id_type", user_id_type)
         return self
 
-    def job_level_id_type(self, job_level_id_type: str) -> "GetByTalentInterviewRequestBuilder":
+    def job_level_id_type(
+        self, job_level_id_type: str
+    ) -> "GetByTalentInterviewRequestBuilder":
         self._get_by_talent_interview_request.job_level_id_type = job_level_id_type
-        self._get_by_talent_interview_request.add_query("job_level_id_type", job_level_id_type)
+        self._get_by_talent_interview_request.add_query(
+            "job_level_id_type", job_level_id_type
+        )
         return self
 
     def build(self) -> GetByTalentInterviewRequest:

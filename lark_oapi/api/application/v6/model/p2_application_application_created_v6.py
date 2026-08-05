@@ -31,9 +31,7 @@ class P2ApplicationApplicationCreatedV6Data(object):
 
 
 class P2ApplicationApplicationCreatedV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationCreatedV6Data
-    }
+    _types = {"event": P2ApplicationApplicationCreatedV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -28,7 +28,9 @@ class NormalLeaveUserFirstWorkTimeBuilder(object):
         self._normal_leave_user_first_work_time.user_id = user_id
         return self
 
-    def first_work_time(self, first_work_time: int) -> "NormalLeaveUserFirstWorkTimeBuilder":
+    def first_work_time(
+        self, first_work_time: int
+    ) -> "NormalLeaveUserFirstWorkTimeBuilder":
         self._normal_leave_user_first_work_time.first_work_time = first_work_time
         return self
 

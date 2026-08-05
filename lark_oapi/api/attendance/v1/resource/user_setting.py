@@ -19,8 +19,9 @@ class UserSetting(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def modify(self, request: ModifyUserSettingRequest,
-               option: Optional[RequestOption] = None) -> ModifyUserSettingResponse:
+    def modify(
+        self, request: ModifyUserSettingRequest, option: Optional[RequestOption] = None
+    ) -> ModifyUserSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class UserSetting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ModifyUserSettingResponse = JSON.unmarshal(str(resp.content, UTF_8), ModifyUserSettingResponse)
+        response: ModifyUserSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ModifyUserSettingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amodify(self, request: ModifyUserSettingRequest,
-                      option: Optional[RequestOption] = None) -> ModifyUserSettingResponse:
+    async def amodify(
+        self, request: ModifyUserSettingRequest, option: Optional[RequestOption] = None
+    ) -> ModifyUserSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +56,16 @@ class UserSetting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ModifyUserSettingResponse = JSON.unmarshal(str(resp.content, UTF_8), ModifyUserSettingResponse)
+        response: ModifyUserSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ModifyUserSettingResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryUserSettingRequest,
-              option: Optional[RequestOption] = None) -> QueryUserSettingResponse:
+    def query(
+        self, request: QueryUserSettingRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,13 +80,16 @@ class UserSetting(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserSettingResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserSettingResponse)
+        response: QueryUserSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserSettingResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryUserSettingRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserSettingResponse:
+    async def aquery(
+        self, request: QueryUserSettingRequest, option: Optional[RequestOption] = None
+    ) -> QueryUserSettingResponse:
         if option is None:
             option = RequestOption()
 
@@ -90,7 +100,9 @@ class UserSetting(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryUserSettingResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserSettingResponse)
+        response: QueryUserSettingResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryUserSettingResponse
+        )
         response.raw = resp
 
         return response

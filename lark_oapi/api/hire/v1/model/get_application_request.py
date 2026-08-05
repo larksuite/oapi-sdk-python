@@ -18,12 +18,14 @@ class GetApplicationRequest(BaseRequest):
 
 
 class GetApplicationRequestBuilder(object):
-
     def __init__(self) -> None:
         get_application_request = GetApplicationRequest()
         get_application_request.http_method = HttpMethod.GET
         get_application_request.uri = "/open-apis/hire/v1/applications/:application_id"
-        get_application_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        get_application_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._get_application_request: GetApplicationRequest = get_application_request
 
     def user_id_type(self, user_id_type: str) -> "GetApplicationRequestBuilder":

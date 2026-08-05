@@ -53,7 +53,9 @@ class PatchedFormFieldBuilder(object):
         self._patched_form_field.visible = visible
         return self
 
-    def rich_description(self, rich_description: List[AppRichDescriptionSegment]) -> "PatchedFormFieldBuilder":
+    def rich_description(
+        self, rich_description: List[AppRichDescriptionSegment]
+    ) -> "PatchedFormFieldBuilder":
         self._patched_form_field.rich_description = rich_description
         return self
 

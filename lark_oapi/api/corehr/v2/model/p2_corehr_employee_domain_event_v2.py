@@ -33,9 +33,7 @@ class P2CorehrEmployeeDomainEventV2Data(object):
 
 
 class P2CorehrEmployeeDomainEventV2(EventContext):
-    _types = {
-        "event": P2CorehrEmployeeDomainEventV2Data
-    }
+    _types = {"event": P2CorehrEmployeeDomainEventV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

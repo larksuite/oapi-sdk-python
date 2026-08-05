@@ -17,7 +17,6 @@ class DetectTextRequest(BaseRequest):
 
 
 class DetectTextRequestBuilder(object):
-
     def __init__(self) -> None:
         detect_text_request = DetectTextRequest()
         detect_text_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class DetectTextRequestBuilder(object):
         detect_text_request.token_types = {AccessTokenType.TENANT}
         self._detect_text_request: DetectTextRequest = detect_text_request
 
-    def request_body(self, request_body: DetectTextRequestBody) -> "DetectTextRequestBuilder":
+    def request_body(
+        self, request_body: DetectTextRequestBody
+    ) -> "DetectTextRequestBuilder":
         self._detect_text_request.request_body = request_body
         self._detect_text_request.body = request_body
         return self

@@ -30,12 +30,20 @@ class UserDepartmentSortInfoBuilder(object):
         self._user_department_sort_info.department_id = department_id
         return self
 
-    def order_weight_in_deparment(self, order_weight_in_deparment: str) -> "UserDepartmentSortInfoBuilder":
-        self._user_department_sort_info.order_weight_in_deparment = order_weight_in_deparment
+    def order_weight_in_deparment(
+        self, order_weight_in_deparment: str
+    ) -> "UserDepartmentSortInfoBuilder":
+        self._user_department_sort_info.order_weight_in_deparment = (
+            order_weight_in_deparment
+        )
         return self
 
-    def order_weight_among_deparments(self, order_weight_among_deparments: str) -> "UserDepartmentSortInfoBuilder":
-        self._user_department_sort_info.order_weight_among_deparments = order_weight_among_deparments
+    def order_weight_among_deparments(
+        self, order_weight_among_deparments: str
+    ) -> "UserDepartmentSortInfoBuilder":
+        self._user_department_sort_info.order_weight_among_deparments = (
+            order_weight_among_deparments
+        )
         return self
 
     def build(self) -> "UserDepartmentSortInfo":

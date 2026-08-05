@@ -9,7 +9,6 @@ from .list_badge_response_body import ListBadgeResponseBody
 class ListBadgeResponse(BaseResponse):
     _types = {
         "data": ListBadgeResponseBody,
-
     }
 
     def __init__(self, d=None):

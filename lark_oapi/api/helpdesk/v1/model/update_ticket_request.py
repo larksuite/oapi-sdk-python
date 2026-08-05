@@ -18,7 +18,6 @@ class UpdateTicketRequest(BaseRequest):
 
 
 class UpdateTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         update_ticket_request = UpdateTicketRequest()
         update_ticket_request.http_method = HttpMethod.PUT
@@ -31,7 +30,9 @@ class UpdateTicketRequestBuilder(object):
         self._update_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
 
-    def request_body(self, request_body: UpdateTicketRequestBody) -> "UpdateTicketRequestBuilder":
+    def request_body(
+        self, request_body: UpdateTicketRequestBody
+    ) -> "UpdateTicketRequestBuilder":
         self._update_ticket_request.request_body = request_body
         self._update_ticket_request.body = request_body
         return self

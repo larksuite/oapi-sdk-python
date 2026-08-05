@@ -18,29 +18,45 @@ class GetTasklistActivitySubscriptionRequest(BaseRequest):
 
 
 class GetTasklistActivitySubscriptionRequestBuilder(object):
-
     def __init__(self) -> None:
-        get_tasklist_activity_subscription_request = GetTasklistActivitySubscriptionRequest()
+        get_tasklist_activity_subscription_request = (
+            GetTasklistActivitySubscriptionRequest()
+        )
         get_tasklist_activity_subscription_request.http_method = HttpMethod.GET
         get_tasklist_activity_subscription_request.uri = "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-        get_tasklist_activity_subscription_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_tasklist_activity_subscription_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_tasklist_activity_subscription_request: GetTasklistActivitySubscriptionRequest = get_tasklist_activity_subscription_request
 
-    def user_id_type(self, user_id_type: str) -> "GetTasklistActivitySubscriptionRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetTasklistActivitySubscriptionRequestBuilder":
         self._get_tasklist_activity_subscription_request.user_id_type = user_id_type
-        self._get_tasklist_activity_subscription_request.add_query("user_id_type", user_id_type)
+        self._get_tasklist_activity_subscription_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def tasklist_guid(self, tasklist_guid: str) -> "GetTasklistActivitySubscriptionRequestBuilder":
+    def tasklist_guid(
+        self, tasklist_guid: str
+    ) -> "GetTasklistActivitySubscriptionRequestBuilder":
         self._get_tasklist_activity_subscription_request.tasklist_guid = tasklist_guid
-        self._get_tasklist_activity_subscription_request.paths["tasklist_guid"] = str(tasklist_guid)
+        self._get_tasklist_activity_subscription_request.paths["tasklist_guid"] = str(
+            tasklist_guid
+        )
         return self
 
-    def activity_subscription_guid(self,
-                                   activity_subscription_guid: str) -> "GetTasklistActivitySubscriptionRequestBuilder":
-        self._get_tasklist_activity_subscription_request.activity_subscription_guid = activity_subscription_guid
-        self._get_tasklist_activity_subscription_request.paths["activity_subscription_guid"] = str(
-            activity_subscription_guid)
+    def activity_subscription_guid(
+        self, activity_subscription_guid: str
+    ) -> "GetTasklistActivitySubscriptionRequestBuilder":
+        self._get_tasklist_activity_subscription_request.activity_subscription_guid = (
+            activity_subscription_guid
+        )
+        self._get_tasklist_activity_subscription_request.paths[
+            "activity_subscription_guid"
+        ] = str(activity_subscription_guid)
         return self
 
     def build(self) -> GetTasklistActivitySubscriptionRequest:

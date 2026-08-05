@@ -18,7 +18,6 @@ class PatchCategoryRequest(BaseRequest):
 
 
 class PatchCategoryRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_category_request = PatchCategoryRequest()
         patch_category_request.http_method = HttpMethod.PATCH

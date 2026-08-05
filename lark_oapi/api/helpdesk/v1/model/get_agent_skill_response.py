@@ -9,7 +9,6 @@ from .get_agent_skill_response_body import GetAgentSkillResponseBody
 class GetAgentSkillResponse(BaseResponse):
     _types = {
         "data": GetAgentSkillResponseBody,
-
     }
 
     def __init__(self, d=None):

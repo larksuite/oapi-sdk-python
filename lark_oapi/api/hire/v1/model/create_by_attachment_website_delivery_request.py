@@ -18,21 +18,31 @@ class CreateByAttachmentWebsiteDeliveryRequest(BaseRequest):
 
 
 class CreateByAttachmentWebsiteDeliveryRequestBuilder(object):
-
     def __init__(self) -> None:
-        create_by_attachment_website_delivery_request = CreateByAttachmentWebsiteDeliveryRequest()
+        create_by_attachment_website_delivery_request = (
+            CreateByAttachmentWebsiteDeliveryRequest()
+        )
         create_by_attachment_website_delivery_request.http_method = HttpMethod.POST
-        create_by_attachment_website_delivery_request.uri = "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
-        create_by_attachment_website_delivery_request.token_types = {AccessTokenType.TENANT}
+        create_by_attachment_website_delivery_request.uri = (
+            "/open-apis/hire/v1/websites/:website_id/deliveries/create_by_attachment"
+        )
+        create_by_attachment_website_delivery_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._create_by_attachment_website_delivery_request: CreateByAttachmentWebsiteDeliveryRequest = create_by_attachment_website_delivery_request
 
-    def website_id(self, website_id: str) -> "CreateByAttachmentWebsiteDeliveryRequestBuilder":
+    def website_id(
+        self, website_id: str
+    ) -> "CreateByAttachmentWebsiteDeliveryRequestBuilder":
         self._create_by_attachment_website_delivery_request.website_id = website_id
-        self._create_by_attachment_website_delivery_request.paths["website_id"] = str(website_id)
+        self._create_by_attachment_website_delivery_request.paths["website_id"] = str(
+            website_id
+        )
         return self
 
-    def request_body(self,
-                     request_body: WebsiteDeliveryAttachment) -> "CreateByAttachmentWebsiteDeliveryRequestBuilder":
+    def request_body(
+        self, request_body: WebsiteDeliveryAttachment
+    ) -> "CreateByAttachmentWebsiteDeliveryRequestBuilder":
         self._create_by_attachment_website_delivery_request.request_body = request_body
         self._create_by_attachment_website_delivery_request.body = request_body
         return self

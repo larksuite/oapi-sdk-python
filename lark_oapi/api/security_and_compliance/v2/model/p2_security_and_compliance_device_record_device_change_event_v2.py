@@ -26,12 +26,12 @@ class P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2Data(object):
 
 
 class P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2(EventContext):
-    _types = {
-        "event": P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2Data
-    }
+    _types = {"event": P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)
         self._types.update(super()._types)
-        self.event: Optional[P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2Data] = None
+        self.event: Optional[
+            P2SecurityAndComplianceDeviceRecordDeviceChangeEventV2Data
+        ] = None
         init(self, d, self._types)

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .eco_background_check_package_data import EcoBackgroundCheckPackageData
-from .eco_background_check_package_additional_item import EcoBackgroundCheckPackageAdditionalItem
+from .eco_background_check_package_additional_item import (
+    EcoBackgroundCheckPackageAdditionalItem,
+)
 
 
 class EcoBackgroundCheckPackage(object):
@@ -16,7 +18,9 @@ class EcoBackgroundCheckPackage(object):
     def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.package_list: Optional[List[EcoBackgroundCheckPackageData]] = None
-        self.additional_item_list: Optional[List[EcoBackgroundCheckPackageAdditionalItem]] = None
+        self.additional_item_list: Optional[
+            List[EcoBackgroundCheckPackageAdditionalItem]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,12 +36,15 @@ class EcoBackgroundCheckPackageBuilder(object):
         self._eco_background_check_package.account_id = account_id
         return self
 
-    def package_list(self, package_list: List[EcoBackgroundCheckPackageData]) -> "EcoBackgroundCheckPackageBuilder":
+    def package_list(
+        self, package_list: List[EcoBackgroundCheckPackageData]
+    ) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.package_list = package_list
         return self
 
-    def additional_item_list(self, additional_item_list: List[
-        EcoBackgroundCheckPackageAdditionalItem]) -> "EcoBackgroundCheckPackageBuilder":
+    def additional_item_list(
+        self, additional_item_list: List[EcoBackgroundCheckPackageAdditionalItem]
+    ) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.additional_item_list = additional_item_list
         return self
 

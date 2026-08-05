@@ -28,7 +28,9 @@ class BriefIndicatorBuilder(object):
         self._brief_indicator.id = id
         return self
 
-    def is_final_review_stage_used(self, is_final_review_stage_used: bool) -> "BriefIndicatorBuilder":
+    def is_final_review_stage_used(
+        self, is_final_review_stage_used: bool
+    ) -> "BriefIndicatorBuilder":
         self._brief_indicator.is_final_review_stage_used = is_final_review_stage_used
         return self
 

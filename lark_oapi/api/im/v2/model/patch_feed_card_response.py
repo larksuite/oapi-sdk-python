@@ -9,7 +9,6 @@ from .patch_feed_card_response_body import PatchFeedCardResponseBody
 class PatchFeedCardResponse(BaseResponse):
     _types = {
         "data": PatchFeedCardResponseBody,
-
     }
 
     def __init__(self, d=None):

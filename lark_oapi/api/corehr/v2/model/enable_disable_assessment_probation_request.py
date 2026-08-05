@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .enable_disable_assessment_probation_request_body import EnableDisableAssessmentProbationRequestBody
+from .enable_disable_assessment_probation_request_body import (
+    EnableDisableAssessmentProbationRequestBody,
+)
 
 
 class EnableDisableAssessmentProbationRequest(BaseRequest):
@@ -17,16 +19,22 @@ class EnableDisableAssessmentProbationRequest(BaseRequest):
 
 
 class EnableDisableAssessmentProbationRequestBuilder(object):
-
     def __init__(self) -> None:
-        enable_disable_assessment_probation_request = EnableDisableAssessmentProbationRequest()
+        enable_disable_assessment_probation_request = (
+            EnableDisableAssessmentProbationRequest()
+        )
         enable_disable_assessment_probation_request.http_method = HttpMethod.POST
-        enable_disable_assessment_probation_request.uri = "/open-apis/corehr/v2/probation/enable_disable_assessment"
-        enable_disable_assessment_probation_request.token_types = {AccessTokenType.TENANT}
+        enable_disable_assessment_probation_request.uri = (
+            "/open-apis/corehr/v2/probation/enable_disable_assessment"
+        )
+        enable_disable_assessment_probation_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._enable_disable_assessment_probation_request: EnableDisableAssessmentProbationRequest = enable_disable_assessment_probation_request
 
-    def request_body(self,
-                     request_body: EnableDisableAssessmentProbationRequestBody) -> "EnableDisableAssessmentProbationRequestBuilder":
+    def request_body(
+        self, request_body: EnableDisableAssessmentProbationRequestBody
+    ) -> "EnableDisableAssessmentProbationRequestBuilder":
         self._enable_disable_assessment_probation_request.request_body = request_body
         self._enable_disable_assessment_probation_request.body = request_body
         return self

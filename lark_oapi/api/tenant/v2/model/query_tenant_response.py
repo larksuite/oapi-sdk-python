@@ -9,7 +9,6 @@ from .query_tenant_response_body import QueryTenantResponseBody
 class QueryTenantResponse(BaseResponse):
     _types = {
         "data": QueryTenantResponseBody,
-
     }
 
     def __init__(self, d=None):

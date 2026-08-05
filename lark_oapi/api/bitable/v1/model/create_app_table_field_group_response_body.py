@@ -20,9 +20,13 @@ class CreateAppTableFieldGroupResponseBody(object):
 
 class CreateAppTableFieldGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_app_table_field_group_response_body = CreateAppTableFieldGroupResponseBody()
+        self._create_app_table_field_group_response_body = (
+            CreateAppTableFieldGroupResponseBody()
+        )
 
-    def field_groups(self, field_groups: str) -> "CreateAppTableFieldGroupResponseBodyBuilder":
+    def field_groups(
+        self, field_groups: str
+    ) -> "CreateAppTableFieldGroupResponseBodyBuilder":
         self._create_app_table_field_group_response_body.field_groups = field_groups
         return self
 

@@ -98,7 +98,9 @@ class DocFilterBuilder(object):
         self._doc_filter.my_comment_time = my_comment_time
         return self
 
-    def original_creator_ids(self, original_creator_ids: List[str]) -> "DocFilterBuilder":
+    def original_creator_ids(
+        self, original_creator_ids: List[str]
+    ) -> "DocFilterBuilder":
         self._doc_filter.original_creator_ids = original_creator_ids
         return self
 

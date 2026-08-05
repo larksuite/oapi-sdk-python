@@ -35,7 +35,9 @@ class PresentDataCallbackDialogRequestBuilder(object):
         self._present_data_callback_dialog_request.status = status
         return self
 
-    def callback_info(self, callback_info: str) -> "PresentDataCallbackDialogRequestBuilder":
+    def callback_info(
+        self, callback_info: str
+    ) -> "PresentDataCallbackDialogRequestBuilder":
         self._present_data_callback_dialog_request.callback_info = callback_info
         return self
 

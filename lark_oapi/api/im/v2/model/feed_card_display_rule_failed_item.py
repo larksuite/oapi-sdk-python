@@ -34,7 +34,9 @@ class FeedCardDisplayRuleFailedItemBuilder(object):
         self._feed_card_display_rule_failed_item.error_code = error_code
         return self
 
-    def error_message(self, error_message: str) -> "FeedCardDisplayRuleFailedItemBuilder":
+    def error_message(
+        self, error_message: str
+    ) -> "FeedCardDisplayRuleFailedItemBuilder":
         self._feed_card_display_rule_failed_item.error_message = error_message
         return self
 

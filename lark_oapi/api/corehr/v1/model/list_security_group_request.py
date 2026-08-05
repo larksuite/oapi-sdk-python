@@ -17,13 +17,14 @@ class ListSecurityGroupRequest(BaseRequest):
 
 
 class ListSecurityGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         list_security_group_request = ListSecurityGroupRequest()
         list_security_group_request.http_method = HttpMethod.GET
         list_security_group_request.uri = "/open-apis/corehr/v1/security_groups"
         list_security_group_request.token_types = {AccessTokenType.TENANT}
-        self._list_security_group_request: ListSecurityGroupRequest = list_security_group_request
+        self._list_security_group_request: ListSecurityGroupRequest = (
+            list_security_group_request
+        )
 
     def page_token(self, page_token: str) -> "ListSecurityGroupRequestBuilder":
         self._list_security_group_request.page_token = page_token

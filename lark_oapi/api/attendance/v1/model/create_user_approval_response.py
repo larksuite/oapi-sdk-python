@@ -9,7 +9,6 @@ from .create_user_approval_response_body import CreateUserApprovalResponseBody
 class CreateUserApprovalResponse(BaseResponse):
     _types = {
         "data": CreateUserApprovalResponseBody,
-
     }
 
     def __init__(self, d=None):

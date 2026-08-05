@@ -25,9 +25,13 @@ class ListApplicationInterviewResponseBody(object):
 
 class ListApplicationInterviewResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_application_interview_response_body = ListApplicationInterviewResponseBody()
+        self._list_application_interview_response_body = (
+            ListApplicationInterviewResponseBody()
+        )
 
-    def page_token(self, page_token: str) -> "ListApplicationInterviewResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListApplicationInterviewResponseBodyBuilder":
         self._list_application_interview_response_body.page_token = page_token
         return self
 
@@ -35,7 +39,9 @@ class ListApplicationInterviewResponseBodyBuilder(object):
         self._list_application_interview_response_body.has_more = has_more
         return self
 
-    def items(self, items: List[Interview]) -> "ListApplicationInterviewResponseBodyBuilder":
+    def items(
+        self, items: List[Interview]
+    ) -> "ListApplicationInterviewResponseBodyBuilder":
         self._list_application_interview_response_body.items = items
         return self
 

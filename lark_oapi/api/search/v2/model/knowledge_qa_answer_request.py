@@ -22,7 +22,9 @@ class KnowledgeQaAnswerRequest(object):
         self.query: Optional[str] = None
         self.enable_image: Optional[bool] = None
         self.knowledge_scope: Optional[str] = None
-        self.enterprise_knowledge_source: Optional[EnterpriseKnowledgeSourceParam] = None
+        self.enterprise_knowledge_source: Optional[EnterpriseKnowledgeSourceParam] = (
+            None
+        )
         self.extra: Optional[KnowledgeSourceRequestExtra] = None
         self.model_type: Optional[str] = None
         self.history_messages: Optional[List[KnowledgeQaMessage]] = None
@@ -45,16 +47,23 @@ class KnowledgeQaAnswerRequestBuilder(object):
         self._knowledge_qa_answer_request.enable_image = enable_image
         return self
 
-    def knowledge_scope(self, knowledge_scope: str) -> "KnowledgeQaAnswerRequestBuilder":
+    def knowledge_scope(
+        self, knowledge_scope: str
+    ) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.knowledge_scope = knowledge_scope
         return self
 
-    def enterprise_knowledge_source(self,
-                                    enterprise_knowledge_source: EnterpriseKnowledgeSourceParam) -> "KnowledgeQaAnswerRequestBuilder":
-        self._knowledge_qa_answer_request.enterprise_knowledge_source = enterprise_knowledge_source
+    def enterprise_knowledge_source(
+        self, enterprise_knowledge_source: EnterpriseKnowledgeSourceParam
+    ) -> "KnowledgeQaAnswerRequestBuilder":
+        self._knowledge_qa_answer_request.enterprise_knowledge_source = (
+            enterprise_knowledge_source
+        )
         return self
 
-    def extra(self, extra: KnowledgeSourceRequestExtra) -> "KnowledgeQaAnswerRequestBuilder":
+    def extra(
+        self, extra: KnowledgeSourceRequestExtra
+    ) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.extra = extra
         return self
 
@@ -62,7 +71,9 @@ class KnowledgeQaAnswerRequestBuilder(object):
         self._knowledge_qa_answer_request.model_type = model_type
         return self
 
-    def history_messages(self, history_messages: List[KnowledgeQaMessage]) -> "KnowledgeQaAnswerRequestBuilder":
+    def history_messages(
+        self, history_messages: List[KnowledgeQaMessage]
+    ) -> "KnowledgeQaAnswerRequestBuilder":
         self._knowledge_qa_answer_request.history_messages = history_messages
         return self
 

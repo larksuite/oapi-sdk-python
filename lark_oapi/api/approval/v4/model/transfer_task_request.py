@@ -18,7 +18,6 @@ class TransferTaskRequest(BaseRequest):
 
 
 class TransferTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         transfer_task_request = TransferTaskRequest()
         transfer_task_request.http_method = HttpMethod.POST

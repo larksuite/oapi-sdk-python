@@ -20,13 +20,19 @@ class ListPaymentActivityDetailRequest(BaseRequest):
 
 
 class ListPaymentActivityDetailRequestBuilder(object):
-
     def __init__(self) -> None:
         list_payment_activity_detail_request = ListPaymentActivityDetailRequest()
         list_payment_activity_detail_request.http_method = HttpMethod.GET
-        list_payment_activity_detail_request.uri = "/open-apis/payroll/v1/payment_activity_details"
-        list_payment_activity_detail_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_payment_activity_detail_request: ListPaymentActivityDetailRequest = list_payment_activity_detail_request
+        list_payment_activity_detail_request.uri = (
+            "/open-apis/payroll/v1/payment_activity_details"
+        )
+        list_payment_activity_detail_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_payment_activity_detail_request: ListPaymentActivityDetailRequest = (
+            list_payment_activity_detail_request
+        )
 
     def page_index(self, page_index: int) -> "ListPaymentActivityDetailRequestBuilder":
         self._list_payment_activity_detail_request.page_index = page_index
@@ -38,19 +44,31 @@ class ListPaymentActivityDetailRequestBuilder(object):
         self._list_payment_activity_detail_request.add_query("page_size", page_size)
         return self
 
-    def activity_id(self, activity_id: int) -> "ListPaymentActivityDetailRequestBuilder":
+    def activity_id(
+        self, activity_id: int
+    ) -> "ListPaymentActivityDetailRequestBuilder":
         self._list_payment_activity_detail_request.activity_id = activity_id
         self._list_payment_activity_detail_request.add_query("activity_id", activity_id)
         return self
 
-    def include_segment_data(self, include_segment_data: bool) -> "ListPaymentActivityDetailRequestBuilder":
-        self._list_payment_activity_detail_request.include_segment_data = include_segment_data
-        self._list_payment_activity_detail_request.add_query("include_segment_data", include_segment_data)
+    def include_segment_data(
+        self, include_segment_data: bool
+    ) -> "ListPaymentActivityDetailRequestBuilder":
+        self._list_payment_activity_detail_request.include_segment_data = (
+            include_segment_data
+        )
+        self._list_payment_activity_detail_request.add_query(
+            "include_segment_data", include_segment_data
+        )
         return self
 
-    def acct_item_ids(self, acct_item_ids: List[int]) -> "ListPaymentActivityDetailRequestBuilder":
+    def acct_item_ids(
+        self, acct_item_ids: List[int]
+    ) -> "ListPaymentActivityDetailRequestBuilder":
         self._list_payment_activity_detail_request.acct_item_ids = acct_item_ids
-        self._list_payment_activity_detail_request.add_query("acct_item_ids", acct_item_ids)
+        self._list_payment_activity_detail_request.add_query(
+            "acct_item_ids", acct_item_ids
+        )
         return self
 
     def build(self) -> ListPaymentActivityDetailRequest:

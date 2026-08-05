@@ -16,9 +16,7 @@ class P2HireApplicationDeletedV1Data(object):
 
 
 class P2HireApplicationDeletedV1(EventContext):
-    _types = {
-        "event": P2HireApplicationDeletedV1Data
-    }
+    _types = {"event": P2HireApplicationDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

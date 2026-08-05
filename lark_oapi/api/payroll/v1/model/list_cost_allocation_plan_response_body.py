@@ -25,13 +25,19 @@ class ListCostAllocationPlanResponseBody(object):
 
 class ListCostAllocationPlanResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_cost_allocation_plan_response_body = ListCostAllocationPlanResponseBody()
+        self._list_cost_allocation_plan_response_body = (
+            ListCostAllocationPlanResponseBody()
+        )
 
-    def items(self, items: List[CostAllocationPlan]) -> "ListCostAllocationPlanResponseBodyBuilder":
+    def items(
+        self, items: List[CostAllocationPlan]
+    ) -> "ListCostAllocationPlanResponseBodyBuilder":
         self._list_cost_allocation_plan_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "ListCostAllocationPlanResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListCostAllocationPlanResponseBodyBuilder":
         self._list_cost_allocation_plan_response_body.page_token = page_token
         return self
 

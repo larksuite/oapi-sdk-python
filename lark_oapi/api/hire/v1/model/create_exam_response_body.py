@@ -42,7 +42,9 @@ class CreateExamResponseBodyBuilder(object):
         self._create_exam_response_body.application_id = application_id
         return self
 
-    def exam_resource_name(self, exam_resource_name: str) -> "CreateExamResponseBodyBuilder":
+    def exam_resource_name(
+        self, exam_resource_name: str
+    ) -> "CreateExamResponseBodyBuilder":
         self._create_exam_response_body.exam_resource_name = exam_resource_name
         return self
 

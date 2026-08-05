@@ -32,15 +32,23 @@ class ParticipantListExportRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._participant_list_export_request_body = ParticipantListExportRequestBody()
 
-    def meeting_start_time(self, meeting_start_time: int) -> "ParticipantListExportRequestBodyBuilder":
-        self._participant_list_export_request_body.meeting_start_time = meeting_start_time
+    def meeting_start_time(
+        self, meeting_start_time: int
+    ) -> "ParticipantListExportRequestBodyBuilder":
+        self._participant_list_export_request_body.meeting_start_time = (
+            meeting_start_time
+        )
         return self
 
-    def meeting_end_time(self, meeting_end_time: int) -> "ParticipantListExportRequestBodyBuilder":
+    def meeting_end_time(
+        self, meeting_end_time: int
+    ) -> "ParticipantListExportRequestBodyBuilder":
         self._participant_list_export_request_body.meeting_end_time = meeting_end_time
         return self
 
-    def meeting_status(self, meeting_status: int) -> "ParticipantListExportRequestBodyBuilder":
+    def meeting_status(
+        self, meeting_status: int
+    ) -> "ParticipantListExportRequestBodyBuilder":
         self._participant_list_export_request_body.meeting_status = meeting_status
         return self
 

@@ -19,12 +19,14 @@ class MgetDepartmentRequest(BaseRequest):
 
 
 class MgetDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         mget_department_request = MgetDepartmentRequest()
         mget_department_request.http_method = HttpMethod.POST
         mget_department_request.uri = "/open-apis/directory/v1/departments/mget"
-        mget_department_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        mget_department_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._mget_department_request: MgetDepartmentRequest = mget_department_request
 
     def employee_id_type(self, employee_id_type: str) -> "MgetDepartmentRequestBuilder":
@@ -32,12 +34,18 @@ class MgetDepartmentRequestBuilder(object):
         self._mget_department_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "MgetDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "MgetDepartmentRequestBuilder":
         self._mget_department_request.department_id_type = department_id_type
-        self._mget_department_request.add_query("department_id_type", department_id_type)
+        self._mget_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: MgetDepartmentRequestBody) -> "MgetDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: MgetDepartmentRequestBody
+    ) -> "MgetDepartmentRequestBuilder":
         self._mget_department_request.request_body = request_body
         self._mget_department_request.body = request_body
         return self

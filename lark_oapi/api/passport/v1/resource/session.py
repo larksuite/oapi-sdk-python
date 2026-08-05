@@ -19,7 +19,9 @@ class Session(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def logout(self, request: LogoutSessionRequest, option: Optional[RequestOption] = None) -> LogoutSessionResponse:
+    def logout(
+        self, request: LogoutSessionRequest, option: Optional[RequestOption] = None
+    ) -> LogoutSessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class Session(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: LogoutSessionResponse = JSON.unmarshal(str(resp.content, UTF_8), LogoutSessionResponse)
+        response: LogoutSessionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LogoutSessionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alogout(self, request: LogoutSessionRequest,
-                      option: Optional[RequestOption] = None) -> LogoutSessionResponse:
+    async def alogout(
+        self, request: LogoutSessionRequest, option: Optional[RequestOption] = None
+    ) -> LogoutSessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,12 +56,16 @@ class Session(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: LogoutSessionResponse = JSON.unmarshal(str(resp.content, UTF_8), LogoutSessionResponse)
+        response: LogoutSessionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LogoutSessionResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QuerySessionRequest, option: Optional[RequestOption] = None) -> QuerySessionResponse:
+    def query(
+        self, request: QuerySessionRequest, option: Optional[RequestOption] = None
+    ) -> QuerySessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,13 +80,16 @@ class Session(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySessionResponse)
+        response: QuerySessionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySessionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySessionRequest,
-                     option: Optional[RequestOption] = None) -> QuerySessionResponse:
+    async def aquery(
+        self, request: QuerySessionRequest, option: Optional[RequestOption] = None
+    ) -> QuerySessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -88,7 +100,9 @@ class Session(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySessionResponse)
+        response: QuerySessionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySessionResponse
+        )
         response.raw = resp
 
         return response

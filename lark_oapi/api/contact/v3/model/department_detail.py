@@ -32,11 +32,15 @@ class DepartmentDetailBuilder(object):
         self._department_detail.department_id = department_id
         return self
 
-    def department_name(self, department_name: DepartmentPathName) -> "DepartmentDetailBuilder":
+    def department_name(
+        self, department_name: DepartmentPathName
+    ) -> "DepartmentDetailBuilder":
         self._department_detail.department_name = department_name
         return self
 
-    def department_path(self, department_path: DepartmentPath) -> "DepartmentDetailBuilder":
+    def department_path(
+        self, department_path: DepartmentPath
+    ) -> "DepartmentDetailBuilder":
         self._department_detail.department_path = department_path
         return self
 

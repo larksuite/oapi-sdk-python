@@ -9,7 +9,6 @@ from .id_convert_directory_user_response_body import IdConvertDirectoryUserRespo
 class IdConvertDirectoryUserResponse(BaseResponse):
     _types = {
         "data": IdConvertDirectoryUserResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -21,9 +21,13 @@ class GetAilySessionAilyMessageResponseBody(object):
 
 class GetAilySessionAilyMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_aily_session_aily_message_response_body = GetAilySessionAilyMessageResponseBody()
+        self._get_aily_session_aily_message_response_body = (
+            GetAilySessionAilyMessageResponseBody()
+        )
 
-    def message(self, message: AilyMessage) -> "GetAilySessionAilyMessageResponseBodyBuilder":
+    def message(
+        self, message: AilyMessage
+    ) -> "GetAilySessionAilyMessageResponseBodyBuilder":
         self._get_aily_session_aily_message_response_body.message = message
         return self
 

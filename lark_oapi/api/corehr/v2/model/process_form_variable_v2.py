@@ -28,15 +28,21 @@ class ProcessFormVariableV2Builder(object):
     def __init__(self) -> None:
         self._process_form_variable_v2 = ProcessFormVariableV2()
 
-    def variable_api_name(self, variable_api_name: str) -> "ProcessFormVariableV2Builder":
+    def variable_api_name(
+        self, variable_api_name: str
+    ) -> "ProcessFormVariableV2Builder":
         self._process_form_variable_v2.variable_api_name = variable_api_name
         return self
 
-    def variable_value(self, variable_value: FieldVariableValueToForReview) -> "ProcessFormVariableV2Builder":
+    def variable_value(
+        self, variable_value: FieldVariableValueToForReview
+    ) -> "ProcessFormVariableV2Builder":
         self._process_form_variable_v2.variable_value = variable_value
         return self
 
-    def sub_values(self, sub_values: List[FieldVariableSubVlaueForReview]) -> "ProcessFormVariableV2Builder":
+    def sub_values(
+        self, sub_values: List[FieldVariableSubVlaueForReview]
+    ) -> "ProcessFormVariableV2Builder":
         self._process_form_variable_v2.sub_values = sub_values
         return self
 

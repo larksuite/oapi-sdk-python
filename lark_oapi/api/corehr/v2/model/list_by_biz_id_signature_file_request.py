@@ -19,17 +19,24 @@ class ListByBizIdSignatureFileRequest(BaseRequest):
 
 
 class ListByBizIdSignatureFileRequestBuilder(object):
-
     def __init__(self) -> None:
         list_by_biz_id_signature_file_request = ListByBizIdSignatureFileRequest()
         list_by_biz_id_signature_file_request.http_method = HttpMethod.GET
-        list_by_biz_id_signature_file_request.uri = "/open-apis/corehr/v2/signature_files/list_by_biz_id"
+        list_by_biz_id_signature_file_request.uri = (
+            "/open-apis/corehr/v2/signature_files/list_by_biz_id"
+        )
         list_by_biz_id_signature_file_request.token_types = {AccessTokenType.TENANT}
-        self._list_by_biz_id_signature_file_request: ListByBizIdSignatureFileRequest = list_by_biz_id_signature_file_request
+        self._list_by_biz_id_signature_file_request: ListByBizIdSignatureFileRequest = (
+            list_by_biz_id_signature_file_request
+        )
 
-    def biz_process_id(self, biz_process_id: str) -> "ListByBizIdSignatureFileRequestBuilder":
+    def biz_process_id(
+        self, biz_process_id: str
+    ) -> "ListByBizIdSignatureFileRequestBuilder":
         self._list_by_biz_id_signature_file_request.biz_process_id = biz_process_id
-        self._list_by_biz_id_signature_file_request.add_query("biz_process_id", biz_process_id)
+        self._list_by_biz_id_signature_file_request.add_query(
+            "biz_process_id", biz_process_id
+        )
         return self
 
     def biz_type(self, biz_type: str) -> "ListByBizIdSignatureFileRequestBuilder":
@@ -37,14 +44,22 @@ class ListByBizIdSignatureFileRequestBuilder(object):
         self._list_by_biz_id_signature_file_request.add_query("biz_type", biz_type)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListByBizIdSignatureFileRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListByBizIdSignatureFileRequestBuilder":
         self._list_by_biz_id_signature_file_request.user_id_type = user_id_type
-        self._list_by_biz_id_signature_file_request.add_query("user_id_type", user_id_type)
+        self._list_by_biz_id_signature_file_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def select_sign_url(self, select_sign_url: bool) -> "ListByBizIdSignatureFileRequestBuilder":
+    def select_sign_url(
+        self, select_sign_url: bool
+    ) -> "ListByBizIdSignatureFileRequestBuilder":
         self._list_by_biz_id_signature_file_request.select_sign_url = select_sign_url
-        self._list_by_biz_id_signature_file_request.add_query("select_sign_url", select_sign_url)
+        self._list_by_biz_id_signature_file_request.add_query(
+            "select_sign_url", select_sign_url
+        )
         return self
 
     def build(self) -> ListByBizIdSignatureFileRequest:

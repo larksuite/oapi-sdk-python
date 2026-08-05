@@ -22,7 +22,9 @@ class SignatureTemplateSettingBuilder(object):
     def __init__(self) -> None:
         self._signature_template_setting = SignatureTemplateSetting()
 
-    def page_seal_types(self, page_seal_types: List[str]) -> "SignatureTemplateSettingBuilder":
+    def page_seal_types(
+        self, page_seal_types: List[str]
+    ) -> "SignatureTemplateSettingBuilder":
         self._signature_template_setting.page_seal_types = page_seal_types
         return self
 

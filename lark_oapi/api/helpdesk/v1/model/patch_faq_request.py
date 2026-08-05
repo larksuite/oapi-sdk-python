@@ -18,7 +18,6 @@ class PatchFaqRequest(BaseRequest):
 
 
 class PatchFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_faq_request = PatchFaqRequest()
         patch_faq_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class PatchFaqRequestBuilder(object):
         self._patch_faq_request.paths["id"] = str(id)
         return self
 
-    def request_body(self, request_body: PatchFaqRequestBody) -> "PatchFaqRequestBuilder":
+    def request_body(
+        self, request_body: PatchFaqRequestBody
+    ) -> "PatchFaqRequestBuilder":
         self._patch_faq_request.request_body = request_body
         self._patch_faq_request.body = request_body
         return self

@@ -19,7 +19,6 @@ class CreateGroupRequest(BaseRequest):
 
 
 class CreateGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         create_group_request = CreateGroupRequest()
         create_group_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class CreateGroupRequestBuilder(object):
         self._create_group_request.add_query("dept_type", dept_type)
         return self
 
-    def request_body(self, request_body: CreateGroupRequestBody) -> "CreateGroupRequestBuilder":
+    def request_body(
+        self, request_body: CreateGroupRequestBody
+    ) -> "CreateGroupRequestBuilder":
         self._create_group_request.request_body = request_body
         self._create_group_request.body = request_body
         return self

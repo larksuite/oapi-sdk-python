@@ -35,7 +35,9 @@ class GetFileStatisticsResponseBodyBuilder(object):
         self._get_file_statistics_response_body.file_type = file_type
         return self
 
-    def statistics(self, statistics: FileStatistics) -> "GetFileStatisticsResponseBodyBuilder":
+    def statistics(
+        self, statistics: FileStatistics
+    ) -> "GetFileStatisticsResponseBodyBuilder":
         self._get_file_statistics_response_body.statistics = statistics
         return self
 

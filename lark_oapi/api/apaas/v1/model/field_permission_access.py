@@ -36,11 +36,15 @@ class FieldPermissionAccessBuilder(object):
         self._field_permission_access.api_name = api_name
         return self
 
-    def allowed_access(self, allowed_access: List[int]) -> "FieldPermissionAccessBuilder":
+    def allowed_access(
+        self, allowed_access: List[int]
+    ) -> "FieldPermissionAccessBuilder":
         self._field_permission_access.allowed_access = allowed_access
         return self
 
-    def display_name(self, display_name: Dict[str, str]) -> "FieldPermissionAccessBuilder":
+    def display_name(
+        self, display_name: Dict[str, str]
+    ) -> "FieldPermissionAccessBuilder":
         self._field_permission_access.display_name = display_name
         return self
 

@@ -18,7 +18,6 @@ class UpdateBadgeRequest(BaseRequest):
 
 
 class UpdateBadgeRequestBuilder(object):
-
     def __init__(self) -> None:
         update_badge_request = UpdateBadgeRequest()
         update_badge_request.http_method = HttpMethod.PUT

@@ -47,34 +47,56 @@ class EditProbationRequestBodyBuilder(object):
         self._edit_probation_request_body.employment_id = employment_id
         return self
 
-    def probation_start_date(self, probation_start_date: str) -> "EditProbationRequestBodyBuilder":
+    def probation_start_date(
+        self, probation_start_date: str
+    ) -> "EditProbationRequestBodyBuilder":
         self._edit_probation_request_body.probation_start_date = probation_start_date
         return self
 
-    def probation_expected_end_date(self, probation_expected_end_date: str) -> "EditProbationRequestBodyBuilder":
-        self._edit_probation_request_body.probation_expected_end_date = probation_expected_end_date
+    def probation_expected_end_date(
+        self, probation_expected_end_date: str
+    ) -> "EditProbationRequestBodyBuilder":
+        self._edit_probation_request_body.probation_expected_end_date = (
+            probation_expected_end_date
+        )
         return self
 
-    def probation_outcome(self, probation_outcome: str) -> "EditProbationRequestBodyBuilder":
+    def probation_outcome(
+        self, probation_outcome: str
+    ) -> "EditProbationRequestBodyBuilder":
         self._edit_probation_request_body.probation_outcome = probation_outcome
         return self
 
-    def actual_probation_end_date(self, actual_probation_end_date: str) -> "EditProbationRequestBodyBuilder":
-        self._edit_probation_request_body.actual_probation_end_date = actual_probation_end_date
+    def actual_probation_end_date(
+        self, actual_probation_end_date: str
+    ) -> "EditProbationRequestBodyBuilder":
+        self._edit_probation_request_body.actual_probation_end_date = (
+            actual_probation_end_date
+        )
         return self
 
-    def probation_extend_expected_end_date(self,
-                                           probation_extend_expected_end_date: str) -> "EditProbationRequestBodyBuilder":
-        self._edit_probation_request_body.probation_extend_expected_end_date = probation_extend_expected_end_date
+    def probation_extend_expected_end_date(
+        self, probation_extend_expected_end_date: str
+    ) -> "EditProbationRequestBodyBuilder":
+        self._edit_probation_request_body.probation_extend_expected_end_date = (
+            probation_extend_expected_end_date
+        )
         return self
 
-    def extended_probation_period_duration(self,
-                                           extended_probation_period_duration: int) -> "EditProbationRequestBodyBuilder":
-        self._edit_probation_request_body.extended_probation_period_duration = extended_probation_period_duration
+    def extended_probation_period_duration(
+        self, extended_probation_period_duration: int
+    ) -> "EditProbationRequestBodyBuilder":
+        self._edit_probation_request_body.extended_probation_period_duration = (
+            extended_probation_period_duration
+        )
         return self
 
-    def extended_probation_period_unit(self, extended_probation_period_unit: str) -> "EditProbationRequestBodyBuilder":
-        self._edit_probation_request_body.extended_probation_period_unit = extended_probation_period_unit
+    def extended_probation_period_unit(
+        self, extended_probation_period_unit: str
+    ) -> "EditProbationRequestBodyBuilder":
+        self._edit_probation_request_body.extended_probation_period_unit = (
+            extended_probation_period_unit
+        )
         return self
 
     def notes(self, notes: str) -> "EditProbationRequestBodyBuilder":
@@ -85,7 +107,9 @@ class EditProbationRequestBodyBuilder(object):
         self._edit_probation_request_body.self_review = self_review
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EditProbationRequestBodyBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "EditProbationRequestBodyBuilder":
         self._edit_probation_request_body.custom_fields = custom_fields
         return self
 

@@ -25,13 +25,19 @@ class GetDocumentBlockChildrenResponseBody(object):
 
 class GetDocumentBlockChildrenResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_document_block_children_response_body = GetDocumentBlockChildrenResponseBody()
+        self._get_document_block_children_response_body = (
+            GetDocumentBlockChildrenResponseBody()
+        )
 
-    def items(self, items: List[Block]) -> "GetDocumentBlockChildrenResponseBodyBuilder":
+    def items(
+        self, items: List[Block]
+    ) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "GetDocumentBlockChildrenResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.page_token = page_token
         return self
 

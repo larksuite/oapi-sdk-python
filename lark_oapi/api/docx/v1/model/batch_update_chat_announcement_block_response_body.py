@@ -25,18 +25,30 @@ class BatchUpdateChatAnnouncementBlockResponseBody(object):
 
 class BatchUpdateChatAnnouncementBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_chat_announcement_block_response_body = BatchUpdateChatAnnouncementBlockResponseBody()
+        self._batch_update_chat_announcement_block_response_body = (
+            BatchUpdateChatAnnouncementBlockResponseBody()
+        )
 
-    def blocks(self, blocks: List[Block]) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
+    def blocks(
+        self, blocks: List[Block]
+    ) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
         self._batch_update_chat_announcement_block_response_body.blocks = blocks
         return self
 
-    def revision_id(self, revision_id: int) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
-        self._batch_update_chat_announcement_block_response_body.revision_id = revision_id
+    def revision_id(
+        self, revision_id: int
+    ) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
+        self._batch_update_chat_announcement_block_response_body.revision_id = (
+            revision_id
+        )
         return self
 
-    def client_token(self, client_token: str) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
-        self._batch_update_chat_announcement_block_response_body.client_token = client_token
+    def client_token(
+        self, client_token: str
+    ) -> "BatchUpdateChatAnnouncementBlockResponseBodyBuilder":
+        self._batch_update_chat_announcement_block_response_body.client_token = (
+            client_token
+        )
         return self
 
     def build(self) -> "BatchUpdateChatAnnouncementBlockResponseBody":

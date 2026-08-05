@@ -9,7 +9,6 @@ from .list_plan_response_body import ListPlanResponseBody
 class ListPlanResponse(BaseResponse):
     _types = {
         "data": ListPlanResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -38,7 +38,9 @@ class ApplicationPrehireBuilder(object):
         self._application_prehire.id = id
         return self
 
-    def basic_info(self, basic_info: ApplicationBasicInfo) -> "ApplicationPrehireBuilder":
+    def basic_info(
+        self, basic_info: ApplicationBasicInfo
+    ) -> "ApplicationPrehireBuilder":
         self._application_prehire.basic_info = basic_info
         return self
 

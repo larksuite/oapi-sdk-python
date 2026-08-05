@@ -19,9 +19,7 @@ class P2ApplicationApplicationVisibilityAddedV6Data(object):
 
 
 class P2ApplicationApplicationVisibilityAddedV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationVisibilityAddedV6Data
-    }
+    _types = {"event": P2ApplicationApplicationVisibilityAddedV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)

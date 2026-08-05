@@ -27,9 +27,7 @@ class P2AcsAccessRecordCreatedV1Data(object):
 
 
 class P2AcsAccessRecordCreatedV1(EventContext):
-    _types = {
-        "event": P2AcsAccessRecordCreatedV1Data
-    }
+    _types = {"event": P2AcsAccessRecordCreatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

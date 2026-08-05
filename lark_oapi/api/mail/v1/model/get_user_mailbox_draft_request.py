@@ -18,22 +18,29 @@ class GetUserMailboxDraftRequest(BaseRequest):
 
 
 class GetUserMailboxDraftRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_mailbox_draft_request = GetUserMailboxDraftRequest()
         get_user_mailbox_draft_request.http_method = HttpMethod.GET
-        get_user_mailbox_draft_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        get_user_mailbox_draft_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/drafts/:draft_id"
+        )
         get_user_mailbox_draft_request.token_types = {AccessTokenType.USER}
-        self._get_user_mailbox_draft_request: GetUserMailboxDraftRequest = get_user_mailbox_draft_request
+        self._get_user_mailbox_draft_request: GetUserMailboxDraftRequest = (
+            get_user_mailbox_draft_request
+        )
 
     def format(self, format: str) -> "GetUserMailboxDraftRequestBuilder":
         self._get_user_mailbox_draft_request.format = format
         self._get_user_mailbox_draft_request.add_query("format", format)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxDraftRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "GetUserMailboxDraftRequestBuilder":
         self._get_user_mailbox_draft_request.user_mailbox_id = user_mailbox_id
-        self._get_user_mailbox_draft_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._get_user_mailbox_draft_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def draft_id(self, draft_id: str) -> "GetUserMailboxDraftRequestBuilder":

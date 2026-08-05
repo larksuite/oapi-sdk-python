@@ -19,12 +19,14 @@ class PatchSectionRequest(BaseRequest):
 
 
 class PatchSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_section_request = PatchSectionRequest()
         patch_section_request.http_method = HttpMethod.PATCH
         patch_section_request.uri = "/open-apis/task/v2/sections/:section_guid"
-        patch_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_section_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._patch_section_request: PatchSectionRequest = patch_section_request
 
     def user_id_type(self, user_id_type: str) -> "PatchSectionRequestBuilder":
@@ -37,7 +39,9 @@ class PatchSectionRequestBuilder(object):
         self._patch_section_request.paths["section_guid"] = str(section_guid)
         return self
 
-    def request_body(self, request_body: PatchSectionRequestBody) -> "PatchSectionRequestBuilder":
+    def request_body(
+        self, request_body: PatchSectionRequestBody
+    ) -> "PatchSectionRequestBuilder":
         self._patch_section_request.request_body = request_body
         self._patch_section_request.body = request_body
         return self

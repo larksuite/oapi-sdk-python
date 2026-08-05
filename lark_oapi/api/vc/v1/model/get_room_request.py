@@ -17,7 +17,6 @@ class GetRoomRequest(BaseRequest):
 
 
 class GetRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         get_room_request = GetRoomRequest()
         get_room_request.http_method = HttpMethod.GET

@@ -17,22 +17,31 @@ class ListObjectApiNameCustomFieldRequest(BaseRequest):
 
 
 class ListObjectApiNameCustomFieldRequestBuilder(object):
-
     def __init__(self) -> None:
-        list_object_api_name_custom_field_request = ListObjectApiNameCustomFieldRequest()
+        list_object_api_name_custom_field_request = (
+            ListObjectApiNameCustomFieldRequest()
+        )
         list_object_api_name_custom_field_request.http_method = HttpMethod.GET
-        list_object_api_name_custom_field_request.uri = "/open-apis/corehr/v1/custom_fields/list_object_api_name"
+        list_object_api_name_custom_field_request.uri = (
+            "/open-apis/corehr/v1/custom_fields/list_object_api_name"
+        )
         list_object_api_name_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._list_object_api_name_custom_field_request: ListObjectApiNameCustomFieldRequest = list_object_api_name_custom_field_request
 
-    def page_token(self, page_token: str) -> "ListObjectApiNameCustomFieldRequestBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListObjectApiNameCustomFieldRequestBuilder":
         self._list_object_api_name_custom_field_request.page_token = page_token
-        self._list_object_api_name_custom_field_request.add_query("page_token", page_token)
+        self._list_object_api_name_custom_field_request.add_query(
+            "page_token", page_token
+        )
         return self
 
     def page_size(self, page_size: str) -> "ListObjectApiNameCustomFieldRequestBuilder":
         self._list_object_api_name_custom_field_request.page_size = page_size
-        self._list_object_api_name_custom_field_request.add_query("page_size", page_size)
+        self._list_object_api_name_custom_field_request.add_query(
+            "page_size", page_size
+        )
         return self
 
     def build(self) -> ListObjectApiNameCustomFieldRequest:

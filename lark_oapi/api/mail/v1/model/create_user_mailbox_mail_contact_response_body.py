@@ -21,9 +21,13 @@ class CreateUserMailboxMailContactResponseBody(object):
 
 class CreateUserMailboxMailContactResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_user_mailbox_mail_contact_response_body = CreateUserMailboxMailContactResponseBody()
+        self._create_user_mailbox_mail_contact_response_body = (
+            CreateUserMailboxMailContactResponseBody()
+        )
 
-    def mail_contact(self, mail_contact: MailContact) -> "CreateUserMailboxMailContactResponseBodyBuilder":
+    def mail_contact(
+        self, mail_contact: MailContact
+    ) -> "CreateUserMailboxMailContactResponseBodyBuilder":
         self._create_user_mailbox_mail_contact_response_body.mail_contact = mail_contact
         return self
 

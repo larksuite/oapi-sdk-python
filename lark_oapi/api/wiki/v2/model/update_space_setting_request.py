@@ -18,13 +18,17 @@ class UpdateSpaceSettingRequest(BaseRequest):
 
 
 class UpdateSpaceSettingRequestBuilder(object):
-
     def __init__(self) -> None:
         update_space_setting_request = UpdateSpaceSettingRequest()
         update_space_setting_request.http_method = HttpMethod.PUT
         update_space_setting_request.uri = "/open-apis/wiki/v2/spaces/:space_id/setting"
-        update_space_setting_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._update_space_setting_request: UpdateSpaceSettingRequest = update_space_setting_request
+        update_space_setting_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._update_space_setting_request: UpdateSpaceSettingRequest = (
+            update_space_setting_request
+        )
 
     def space_id(self, space_id: str) -> "UpdateSpaceSettingRequestBuilder":
         self._update_space_setting_request.space_id = space_id

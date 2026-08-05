@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .list_job_requirement_schema_response_body import ListJobRequirementSchemaResponseBody
+from .list_job_requirement_schema_response_body import (
+    ListJobRequirementSchemaResponseBody,
+)
 
 
 class ListJobRequirementSchemaResponse(BaseResponse):
     _types = {
         "data": ListJobRequirementSchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -21,9 +21,13 @@ class InstanceViewCalendarEventResponseBody(object):
 
 class InstanceViewCalendarEventResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._instance_view_calendar_event_response_body = InstanceViewCalendarEventResponseBody()
+        self._instance_view_calendar_event_response_body = (
+            InstanceViewCalendarEventResponseBody()
+        )
 
-    def items(self, items: List[Instance]) -> "InstanceViewCalendarEventResponseBodyBuilder":
+    def items(
+        self, items: List[Instance]
+    ) -> "InstanceViewCalendarEventResponseBodyBuilder":
         self._instance_view_calendar_event_response_body.items = items
         return self
 

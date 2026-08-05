@@ -24,12 +24,12 @@ class P2ApplicationApplicationAppVersionPublishRevokeV6Data(object):
 
 
 class P2ApplicationApplicationAppVersionPublishRevokeV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationAppVersionPublishRevokeV6Data
-    }
+    _types = {"event": P2ApplicationApplicationAppVersionPublishRevokeV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)
         self._types.update(super()._types)
-        self.event: Optional[P2ApplicationApplicationAppVersionPublishRevokeV6Data] = None
+        self.event: Optional[P2ApplicationApplicationAppVersionPublishRevokeV6Data] = (
+            None
+        )
         init(self, d, self._types)

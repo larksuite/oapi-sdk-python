@@ -17,8 +17,11 @@ class OidcAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateOidcAccessTokenRequest,
-               option: Optional[RequestOption] = None) -> CreateOidcAccessTokenResponse:
+    def create(
+        self,
+        request: CreateOidcAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateOidcAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class OidcAccessToken(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateOidcAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateOidcAccessTokenResponse)
+        response: CreateOidcAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateOidcAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateOidcAccessTokenRequest,
-                      option: Optional[RequestOption] = None) -> CreateOidcAccessTokenResponse:
+    async def acreate(
+        self,
+        request: CreateOidcAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateOidcAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class OidcAccessToken(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateOidcAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateOidcAccessTokenResponse)
+        response: CreateOidcAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateOidcAccessTokenResponse
+        )
         response.raw = resp
 
         return response

@@ -64,11 +64,15 @@ class InterviewRecordV2Builder(object):
         self._interview_record_v2.interviewer = interviewer
         return self
 
-    def attachments(self, attachments: List[InterviewAttachment]) -> "InterviewRecordV2Builder":
+    def attachments(
+        self, attachments: List[InterviewAttachment]
+    ) -> "InterviewRecordV2Builder":
         self._interview_record_v2.attachments = attachments
         return self
 
-    def module_assessments(self, module_assessments: List[ModuleAssessment]) -> "InterviewRecordV2Builder":
+    def module_assessments(
+        self, module_assessments: List[ModuleAssessment]
+    ) -> "InterviewRecordV2Builder":
         self._interview_record_v2.module_assessments = module_assessments
         return self
 

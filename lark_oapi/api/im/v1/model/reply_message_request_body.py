@@ -36,7 +36,9 @@ class ReplyMessageRequestBodyBuilder(object):
         self._reply_message_request_body.msg_type = msg_type
         return self
 
-    def reply_in_thread(self, reply_in_thread: bool) -> "ReplyMessageRequestBodyBuilder":
+    def reply_in_thread(
+        self, reply_in_thread: bool
+    ) -> "ReplyMessageRequestBodyBuilder":
         self._reply_message_request_body.reply_in_thread = reply_in_thread
         return self
 

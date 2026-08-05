@@ -62,11 +62,15 @@ class JobDetailBuilder(object):
         self._job_detail.assistant_list = assistant_list
         return self
 
-    def hiring_manager_list(self, hiring_manager_list: List[JobUserInfo]) -> "JobDetailBuilder":
+    def hiring_manager_list(
+        self, hiring_manager_list: List[JobUserInfo]
+    ) -> "JobDetailBuilder":
         self._job_detail.hiring_manager_list = hiring_manager_list
         return self
 
-    def job_requirement_list(self, job_requirement_list: List[JobRequirementSimple]) -> "JobDetailBuilder":
+    def job_requirement_list(
+        self, job_requirement_list: List[JobRequirementSimple]
+    ) -> "JobDetailBuilder":
         self._job_detail.job_requirement_list = job_requirement_list
         return self
 
@@ -78,7 +82,9 @@ class JobDetailBuilder(object):
         self._job_detail.job_config = job_config
         return self
 
-    def storefront_list(self, storefront_list: List[JobStorefront]) -> "JobDetailBuilder":
+    def storefront_list(
+        self, storefront_list: List[JobStorefront]
+    ) -> "JobDetailBuilder":
         self._job_detail.storefront_list = storefront_list
         return self
 
@@ -86,7 +92,9 @@ class JobDetailBuilder(object):
         self._job_detail.tag_list = tag_list
         return self
 
-    def stage_count_list(self, stage_count_list: List[StageCountInfo]) -> "JobDetailBuilder":
+    def stage_count_list(
+        self, stage_count_list: List[StageCountInfo]
+    ) -> "JobDetailBuilder":
         self._job_detail.stage_count_list = stage_count_list
         return self
 

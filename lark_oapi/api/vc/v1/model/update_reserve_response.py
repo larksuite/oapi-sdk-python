@@ -9,7 +9,6 @@ from .update_reserve_response_body import UpdateReserveResponseBody
 class UpdateReserveResponse(BaseResponse):
     _types = {
         "data": UpdateReserveResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -23,7 +23,9 @@ class CreateSystemStatusResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_system_status_response_body = CreateSystemStatusResponseBody()
 
-    def system_status(self, system_status: SystemStatus) -> "CreateSystemStatusResponseBodyBuilder":
+    def system_status(
+        self, system_status: SystemStatus
+    ) -> "CreateSystemStatusResponseBodyBuilder":
         self._create_system_status_response_body.system_status = system_status
         return self
 

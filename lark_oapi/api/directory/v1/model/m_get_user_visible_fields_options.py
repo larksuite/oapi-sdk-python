@@ -22,7 +22,9 @@ class MGetUserVisibleFieldsOptionsBuilder(object):
     def __init__(self) -> None:
         self._m_get_user_visible_fields_options = MGetUserVisibleFieldsOptions()
 
-    def need_field_data(self, need_field_data: bool) -> "MGetUserVisibleFieldsOptionsBuilder":
+    def need_field_data(
+        self, need_field_data: bool
+    ) -> "MGetUserVisibleFieldsOptionsBuilder":
         self._m_get_user_visible_fields_options.need_field_data = need_field_data
         return self
 

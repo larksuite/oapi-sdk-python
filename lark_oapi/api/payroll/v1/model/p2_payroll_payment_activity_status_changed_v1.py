@@ -18,9 +18,7 @@ class P2PayrollPaymentActivityStatusChangedV1Data(object):
 
 
 class P2PayrollPaymentActivityStatusChangedV1(EventContext):
-    _types = {
-        "event": P2PayrollPaymentActivityStatusChangedV1Data
-    }
+    _types = {"event": P2PayrollPaymentActivityStatusChangedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

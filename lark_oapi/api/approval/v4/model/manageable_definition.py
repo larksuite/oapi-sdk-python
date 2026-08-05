@@ -40,7 +40,9 @@ class ManageableDefinitionBuilder(object):
         self._manageable_definition.approval_status = approval_status
         return self
 
-    def approval_admin_ids(self, approval_admin_ids: List[str]) -> "ManageableDefinitionBuilder":
+    def approval_admin_ids(
+        self, approval_admin_ids: List[str]
+    ) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_admin_ids = approval_admin_ids
         return self
 

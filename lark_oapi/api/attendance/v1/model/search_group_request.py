@@ -17,7 +17,6 @@ class SearchGroupRequest(BaseRequest):
 
 
 class SearchGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         search_group_request = SearchGroupRequest()
         search_group_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class SearchGroupRequestBuilder(object):
         search_group_request.token_types = {AccessTokenType.TENANT}
         self._search_group_request: SearchGroupRequest = search_group_request
 
-    def request_body(self, request_body: SearchGroupRequestBody) -> "SearchGroupRequestBuilder":
+    def request_body(
+        self, request_body: SearchGroupRequestBody
+    ) -> "SearchGroupRequestBuilder":
         self._search_group_request.request_body = request_body
         self._search_group_request.body = request_body
         return self

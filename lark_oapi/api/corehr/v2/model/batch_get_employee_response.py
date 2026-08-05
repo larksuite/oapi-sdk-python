@@ -9,7 +9,6 @@ from .batch_get_employee_response_body import BatchGetEmployeeResponseBody
 class BatchGetEmployeeResponse(BaseResponse):
     _types = {
         "data": BatchGetEmployeeResponseBody,
-
     }
 
     def __init__(self, d=None):

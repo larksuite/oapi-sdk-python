@@ -61,7 +61,9 @@ class LeaveBalanceBuilder(object):
         self._leave_balance.leave_type_name = leave_type_name
         return self
 
-    def historical_cycles_left(self, historical_cycles_left: str) -> "LeaveBalanceBuilder":
+    def historical_cycles_left(
+        self, historical_cycles_left: str
+    ) -> "LeaveBalanceBuilder":
         self._leave_balance.historical_cycles_left = historical_cycles_left
         return self
 
@@ -81,11 +83,15 @@ class LeaveBalanceBuilder(object):
         self._leave_balance.leave_duration_unit = leave_duration_unit
         return self
 
-    def history_cycle_accrual(self, history_cycle_accrual: str) -> "LeaveBalanceBuilder":
+    def history_cycle_accrual(
+        self, history_cycle_accrual: str
+    ) -> "LeaveBalanceBuilder":
         self._leave_balance.history_cycle_accrual = history_cycle_accrual
         return self
 
-    def balance_in_current_cycle(self, balance_in_current_cycle: str) -> "LeaveBalanceBuilder":
+    def balance_in_current_cycle(
+        self, balance_in_current_cycle: str
+    ) -> "LeaveBalanceBuilder":
         self._leave_balance.balance_in_current_cycle = balance_in_current_cycle
         return self
 
@@ -109,13 +115,20 @@ class LeaveBalanceBuilder(object):
         self._leave_balance.offboarding_granted = offboarding_granted
         return self
 
-    def leave_balance_excluding_under_approval(self,
-                                               leave_balance_excluding_under_approval: str) -> "LeaveBalanceBuilder":
-        self._leave_balance.leave_balance_excluding_under_approval = leave_balance_excluding_under_approval
+    def leave_balance_excluding_under_approval(
+        self, leave_balance_excluding_under_approval: str
+    ) -> "LeaveBalanceBuilder":
+        self._leave_balance.leave_balance_excluding_under_approval = (
+            leave_balance_excluding_under_approval
+        )
         return self
 
-    def leave_quantity_under_approval(self, leave_quantity_under_approval: str) -> "LeaveBalanceBuilder":
-        self._leave_balance.leave_quantity_under_approval = leave_quantity_under_approval
+    def leave_quantity_under_approval(
+        self, leave_quantity_under_approval: str
+    ) -> "LeaveBalanceBuilder":
+        self._leave_balance.leave_quantity_under_approval = (
+            leave_quantity_under_approval
+        )
         return self
 
     def build(self) -> "LeaveBalance":

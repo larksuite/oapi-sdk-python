@@ -22,15 +22,22 @@ class CreateEmpCustomOrgEmployeeCustomOrgResponseBody(object):
 
 class CreateEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_emp_custom_org_employee_custom_org_response_body = CreateEmpCustomOrgEmployeeCustomOrgResponseBody()
+        self._create_emp_custom_org_employee_custom_org_response_body = (
+            CreateEmpCustomOrgEmployeeCustomOrgResponseBody()
+        )
 
-    def job_data_custom_org_id(self,
-                               job_data_custom_org_id: str) -> "CreateEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder":
+    def job_data_custom_org_id(
+        self, job_data_custom_org_id: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder":
         self._create_emp_custom_org_employee_custom_org_response_body.job_data_custom_org_id = job_data_custom_org_id
         return self
 
-    def version_id(self, version_id: str) -> "CreateEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder":
-        self._create_emp_custom_org_employee_custom_org_response_body.version_id = version_id
+    def version_id(
+        self, version_id: str
+    ) -> "CreateEmpCustomOrgEmployeeCustomOrgResponseBodyBuilder":
+        self._create_emp_custom_org_employee_custom_org_response_body.version_id = (
+            version_id
+        )
         return self
 
     def build(self) -> "CreateEmpCustomOrgEmployeeCustomOrgResponseBody":

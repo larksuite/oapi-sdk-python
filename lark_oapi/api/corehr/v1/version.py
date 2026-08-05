@@ -30,7 +30,9 @@ class V1(object):
         self.org_role_authorization: OrgRoleAuthorization = OrgRoleAuthorization(config)
         self.person: Person = Person(config)
         self.pre_hire: PreHire = PreHire(config)
-        self.process_form_variable_data: ProcessFormVariableData = ProcessFormVariableData(config)
+        self.process_form_variable_data: ProcessFormVariableData = (
+            ProcessFormVariableData(config)
+        )
         self.security_group: SecurityGroup = SecurityGroup(config)
         self.subdivision: Subdivision = Subdivision(config)
         self.subregion: Subregion = Subregion(config)

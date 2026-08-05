@@ -104,7 +104,9 @@ class OfferBasicInfoV2Builder(object):
         self._offer_basic_info_v2.level = level
         return self
 
-    def company_main_body(self, company_main_body: IdNameObject) -> "OfferBasicInfoV2Builder":
+    def company_main_body(
+        self, company_main_body: IdNameObject
+    ) -> "OfferBasicInfoV2Builder":
         self._offer_basic_info_v2.company_main_body = company_main_body
         return self
 
@@ -116,7 +118,9 @@ class OfferBasicInfoV2Builder(object):
         self._offer_basic_info_v2.probation_month = probation_month
         return self
 
-    def contract_period(self, contract_period: ContractPeriodInfo) -> "OfferBasicInfoV2Builder":
+    def contract_period(
+        self, contract_period: ContractPeriodInfo
+    ) -> "OfferBasicInfoV2Builder":
         self._offer_basic_info_v2.contract_period = contract_period
         return self
 
@@ -128,7 +132,9 @@ class OfferBasicInfoV2Builder(object):
         self._offer_basic_info_v2.owner = owner
         return self
 
-    def onboard_address(self, onboard_address: BaseAddressV2) -> "OfferBasicInfoV2Builder":
+    def onboard_address(
+        self, onboard_address: BaseAddressV2
+    ) -> "OfferBasicInfoV2Builder":
         self._offer_basic_info_v2.onboard_address = onboard_address
         return self
 
@@ -140,11 +146,15 @@ class OfferBasicInfoV2Builder(object):
         self._offer_basic_info_v2.remark = remark
         return self
 
-    def attachment_list(self, attachment_list: List[OfferAttachmentInfo]) -> "OfferBasicInfoV2Builder":
+    def attachment_list(
+        self, attachment_list: List[OfferAttachmentInfo]
+    ) -> "OfferBasicInfoV2Builder":
         self._offer_basic_info_v2.attachment_list = attachment_list
         return self
 
-    def customize_info_list(self, customize_info_list: List[ApplicationOfferCustomValue]) -> "OfferBasicInfoV2Builder":
+    def customize_info_list(
+        self, customize_info_list: List[ApplicationOfferCustomValue]
+    ) -> "OfferBasicInfoV2Builder":
         self._offer_basic_info_v2.customize_info_list = customize_info_list
         return self
 

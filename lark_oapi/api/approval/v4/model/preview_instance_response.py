@@ -9,7 +9,6 @@ from .preview_instance_response_body import PreviewInstanceResponseBody
 class PreviewInstanceResponse(BaseResponse):
     _types = {
         "data": PreviewInstanceResponseBody,
-
     }
 
     def __init__(self, d=None):

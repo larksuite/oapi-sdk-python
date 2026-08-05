@@ -32,11 +32,15 @@ class RoleAuthorizationBuilder(object):
         self._role_authorization.employment_id = employment_id
         return self
 
-    def permission_detail_list(self, permission_detail_list: List[PermissionDetail]) -> "RoleAuthorizationBuilder":
+    def permission_detail_list(
+        self, permission_detail_list: List[PermissionDetail]
+    ) -> "RoleAuthorizationBuilder":
         self._role_authorization.permission_detail_list = permission_detail_list
         return self
 
-    def management_scope_list(self, management_scope_list: List[ManagementScope]) -> "RoleAuthorizationBuilder":
+    def management_scope_list(
+        self, management_scope_list: List[ManagementScope]
+    ) -> "RoleAuthorizationBuilder":
         self._role_authorization.management_scope_list = management_scope_list
         return self
 

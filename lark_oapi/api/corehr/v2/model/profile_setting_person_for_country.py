@@ -32,7 +32,9 @@ class ProfileSettingPersonForCountryBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_person_for_country = ProfileSettingPersonForCountry()
 
-    def country_region(self, country_region: str) -> "ProfileSettingPersonForCountryBuilder":
+    def country_region(
+        self, country_region: str
+    ) -> "ProfileSettingPersonForCountryBuilder":
         self._profile_setting_person_for_country.country_region = country_region
         return self
 
@@ -44,16 +46,24 @@ class ProfileSettingPersonForCountryBuilder(object):
         self._profile_setting_person_for_country.religion = religion
         return self
 
-    def marital_status(self, marital_status: str) -> "ProfileSettingPersonForCountryBuilder":
+    def marital_status(
+        self, marital_status: str
+    ) -> "ProfileSettingPersonForCountryBuilder":
         self._profile_setting_person_for_country.marital_status = marital_status
         return self
 
-    def ethnicity_race(self, ethnicity_race: str) -> "ProfileSettingPersonForCountryBuilder":
+    def ethnicity_race(
+        self, ethnicity_race: str
+    ) -> "ProfileSettingPersonForCountryBuilder":
         self._profile_setting_person_for_country.ethnicity_race = ethnicity_race
         return self
 
-    def marital_status_date(self, marital_status_date: str) -> "ProfileSettingPersonForCountryBuilder":
-        self._profile_setting_person_for_country.marital_status_date = marital_status_date
+    def marital_status_date(
+        self, marital_status_date: str
+    ) -> "ProfileSettingPersonForCountryBuilder":
+        self._profile_setting_person_for_country.marital_status_date = (
+            marital_status_date
+        )
         return self
 
     def build(self) -> "ProfileSettingPersonForCountry":

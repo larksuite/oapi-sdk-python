@@ -16,13 +16,16 @@ class SubscriptionCalendarAclRequest(BaseRequest):
 
 
 class SubscriptionCalendarAclRequestBuilder(object):
-
     def __init__(self) -> None:
         subscription_calendar_acl_request = SubscriptionCalendarAclRequest()
         subscription_calendar_acl_request.http_method = HttpMethod.POST
-        subscription_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+        subscription_calendar_acl_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+        )
         subscription_calendar_acl_request.token_types = {AccessTokenType.USER}
-        self._subscription_calendar_acl_request: SubscriptionCalendarAclRequest = subscription_calendar_acl_request
+        self._subscription_calendar_acl_request: SubscriptionCalendarAclRequest = (
+            subscription_calendar_acl_request
+        )
 
     def calendar_id(self, calendar_id: str) -> "SubscriptionCalendarAclRequestBuilder":
         self._subscription_calendar_acl_request.calendar_id = calendar_id

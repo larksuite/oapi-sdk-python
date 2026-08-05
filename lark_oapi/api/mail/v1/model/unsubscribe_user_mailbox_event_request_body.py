@@ -20,9 +20,13 @@ class UnsubscribeUserMailboxEventRequestBody(object):
 
 class UnsubscribeUserMailboxEventRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._unsubscribe_user_mailbox_event_request_body = UnsubscribeUserMailboxEventRequestBody()
+        self._unsubscribe_user_mailbox_event_request_body = (
+            UnsubscribeUserMailboxEventRequestBody()
+        )
 
-    def event_type(self, event_type: int) -> "UnsubscribeUserMailboxEventRequestBodyBuilder":
+    def event_type(
+        self, event_type: int
+    ) -> "UnsubscribeUserMailboxEventRequestBodyBuilder":
         self._unsubscribe_user_mailbox_event_request_body.event_type = event_type
         return self
 

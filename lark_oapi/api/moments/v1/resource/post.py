@@ -17,7 +17,9 @@ class Post(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetPostRequest, option: Optional[RequestOption] = None) -> GetPostResponse:
+    def get(
+        self, request: GetPostRequest, option: Optional[RequestOption] = None
+    ) -> GetPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Post(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPostResponse)
+        response: GetPostResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetPostResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetPostRequest, option: Optional[RequestOption] = None) -> GetPostResponse:
+    async def aget(
+        self, request: GetPostRequest, option: Optional[RequestOption] = None
+    ) -> GetPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Post(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPostResponse)
+        response: GetPostResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetPostResponse
+        )
         response.raw = resp
 
         return response

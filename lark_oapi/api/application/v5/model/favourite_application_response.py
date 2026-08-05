@@ -9,7 +9,6 @@ from .favourite_application_response_body import FavouriteApplicationResponseBod
 class FavouriteApplicationResponse(BaseResponse):
     _types = {
         "data": FavouriteApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

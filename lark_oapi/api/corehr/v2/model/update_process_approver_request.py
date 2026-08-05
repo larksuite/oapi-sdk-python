@@ -21,22 +21,29 @@ class UpdateProcessApproverRequest(BaseRequest):
 
 
 class UpdateProcessApproverRequestBuilder(object):
-
     def __init__(self) -> None:
         update_process_approver_request = UpdateProcessApproverRequest()
         update_process_approver_request.http_method = HttpMethod.PUT
-        update_process_approver_request.uri = "/open-apis/corehr/v2/processes/:process_id/approvers/:approver_id"
+        update_process_approver_request.uri = (
+            "/open-apis/corehr/v2/processes/:process_id/approvers/:approver_id"
+        )
         update_process_approver_request.token_types = {AccessTokenType.TENANT}
-        self._update_process_approver_request: UpdateProcessApproverRequest = update_process_approver_request
+        self._update_process_approver_request: UpdateProcessApproverRequest = (
+            update_process_approver_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateProcessApproverRequestBuilder":
         self._update_process_approver_request.user_id_type = user_id_type
         self._update_process_approver_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "UpdateProcessApproverRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "UpdateProcessApproverRequestBuilder":
         self._update_process_approver_request.department_id_type = department_id_type
-        self._update_process_approver_request.add_query("department_id_type", department_id_type)
+        self._update_process_approver_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def process_id(self, process_id: str) -> "UpdateProcessApproverRequestBuilder":
@@ -49,7 +56,9 @@ class UpdateProcessApproverRequestBuilder(object):
         self._update_process_approver_request.paths["approver_id"] = str(approver_id)
         return self
 
-    def request_body(self, request_body: ProcessApprover) -> "UpdateProcessApproverRequestBuilder":
+    def request_body(
+        self, request_body: ProcessApprover
+    ) -> "UpdateProcessApproverRequestBuilder":
         self._update_process_approver_request.request_body = request_body
         self._update_process_approver_request.body = request_body
         return self

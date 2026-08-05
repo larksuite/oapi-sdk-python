@@ -18,7 +18,9 @@ class UserAttendanceRule(object):
     def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.attendance_rule: Optional[AttendanceRule] = None
-        self.attendance_rule_descriptions: Optional[List[AttendanceRuleDescription]] = None
+        self.attendance_rule_descriptions: Optional[List[AttendanceRuleDescription]] = (
+            None
+        )
         self.shift_descriptions: Optional[List[AttendanceRuleDescription]] = None
         init(self, d, self._types)
 
@@ -35,16 +37,23 @@ class UserAttendanceRuleBuilder(object):
         self._user_attendance_rule.user_id = user_id
         return self
 
-    def attendance_rule(self, attendance_rule: AttendanceRule) -> "UserAttendanceRuleBuilder":
+    def attendance_rule(
+        self, attendance_rule: AttendanceRule
+    ) -> "UserAttendanceRuleBuilder":
         self._user_attendance_rule.attendance_rule = attendance_rule
         return self
 
-    def attendance_rule_descriptions(self, attendance_rule_descriptions: List[
-        AttendanceRuleDescription]) -> "UserAttendanceRuleBuilder":
-        self._user_attendance_rule.attendance_rule_descriptions = attendance_rule_descriptions
+    def attendance_rule_descriptions(
+        self, attendance_rule_descriptions: List[AttendanceRuleDescription]
+    ) -> "UserAttendanceRuleBuilder":
+        self._user_attendance_rule.attendance_rule_descriptions = (
+            attendance_rule_descriptions
+        )
         return self
 
-    def shift_descriptions(self, shift_descriptions: List[AttendanceRuleDescription]) -> "UserAttendanceRuleBuilder":
+    def shift_descriptions(
+        self, shift_descriptions: List[AttendanceRuleDescription]
+    ) -> "UserAttendanceRuleBuilder":
         self._user_attendance_rule.shift_descriptions = shift_descriptions
         return self
 

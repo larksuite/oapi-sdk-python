@@ -16,9 +16,7 @@ class P2CorehrEmploymentConvertedV1Data(object):
 
 
 class P2CorehrEmploymentConvertedV1(EventContext):
-    _types = {
-        "event": P2CorehrEmploymentConvertedV1Data
-    }
+    _types = {"event": P2CorehrEmploymentConvertedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

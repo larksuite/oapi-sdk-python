@@ -21,9 +21,13 @@ class GetSpreadsheetSheetFloatImageResponseBody(object):
 
 class GetSpreadsheetSheetFloatImageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_spreadsheet_sheet_float_image_response_body = GetSpreadsheetSheetFloatImageResponseBody()
+        self._get_spreadsheet_sheet_float_image_response_body = (
+            GetSpreadsheetSheetFloatImageResponseBody()
+        )
 
-    def float_image(self, float_image: FloatImage) -> "GetSpreadsheetSheetFloatImageResponseBodyBuilder":
+    def float_image(
+        self, float_image: FloatImage
+    ) -> "GetSpreadsheetSheetFloatImageResponseBodyBuilder":
         self._get_spreadsheet_sheet_float_image_response_body.float_image = float_image
         return self
 

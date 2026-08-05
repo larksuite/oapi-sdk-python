@@ -22,13 +22,19 @@ class SearchAppTableRecordRequest(BaseRequest):
 
 
 class SearchAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         search_app_table_record_request = SearchAppTableRecordRequest()
         search_app_table_record_request.http_method = HttpMethod.POST
-        search_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
-        search_app_table_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._search_app_table_record_request: SearchAppTableRecordRequest = search_app_table_record_request
+        search_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/search"
+        )
+        search_app_table_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._search_app_table_record_request: SearchAppTableRecordRequest = (
+            search_app_table_record_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "SearchAppTableRecordRequestBuilder":
         self._search_app_table_record_request.user_id_type = user_id_type
@@ -55,7 +61,9 @@ class SearchAppTableRecordRequestBuilder(object):
         self._search_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
-    def request_body(self, request_body: SearchAppTableRecordRequestBody) -> "SearchAppTableRecordRequestBuilder":
+    def request_body(
+        self, request_body: SearchAppTableRecordRequestBody
+    ) -> "SearchAppTableRecordRequestBuilder":
         self._search_app_table_record_request.request_body = request_body
         self._search_app_table_record_request.body = request_body
         return self

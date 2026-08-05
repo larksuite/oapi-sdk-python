@@ -9,7 +9,6 @@ from .list_message_response_body import ListMessageResponseBody
 class ListMessageResponse(BaseResponse):
     _types = {
         "data": ListMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

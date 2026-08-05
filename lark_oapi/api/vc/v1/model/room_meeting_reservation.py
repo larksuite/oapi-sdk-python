@@ -72,11 +72,15 @@ class RoomMeetingReservationBuilder(object):
         self._room_meeting_reservation.reserver = reserver
         return self
 
-    def reserver_user_id(self, reserver_user_id: str) -> "RoomMeetingReservationBuilder":
+    def reserver_user_id(
+        self, reserver_user_id: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.reserver_user_id = reserver_user_id
         return self
 
-    def department_of_reserver(self, department_of_reserver: str) -> "RoomMeetingReservationBuilder":
+    def department_of_reserver(
+        self, department_of_reserver: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.department_of_reserver = department_of_reserver
         return self
 
@@ -88,7 +92,9 @@ class RoomMeetingReservationBuilder(object):
         self._room_meeting_reservation.accepted_number = accepted_number
         return self
 
-    def event_start_time(self, event_start_time: str) -> "RoomMeetingReservationBuilder":
+    def event_start_time(
+        self, event_start_time: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.event_start_time = event_start_time
         return self
 
@@ -100,7 +106,9 @@ class RoomMeetingReservationBuilder(object):
         self._room_meeting_reservation.event_duration = event_duration
         return self
 
-    def reservation_status(self, reservation_status: str) -> "RoomMeetingReservationBuilder":
+    def reservation_status(
+        self, reservation_status: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.reservation_status = reservation_status
         return self
 
@@ -108,7 +116,9 @@ class RoomMeetingReservationBuilder(object):
         self._room_meeting_reservation.check_in_device = check_in_device
         return self
 
-    def room_check_in_status(self, room_check_in_status: str) -> "RoomMeetingReservationBuilder":
+    def room_check_in_status(
+        self, room_check_in_status: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.room_check_in_status = room_check_in_status
         return self
 
@@ -116,11 +126,15 @@ class RoomMeetingReservationBuilder(object):
         self._room_meeting_reservation.check_in_time = check_in_time
         return self
 
-    def is_release_early(self, is_release_early: str) -> "RoomMeetingReservationBuilder":
+    def is_release_early(
+        self, is_release_early: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.is_release_early = is_release_early
         return self
 
-    def releasing_person(self, releasing_person: str) -> "RoomMeetingReservationBuilder":
+    def releasing_person(
+        self, releasing_person: str
+    ) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.releasing_person = releasing_person
         return self
 

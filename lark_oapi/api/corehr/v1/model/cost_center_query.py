@@ -92,7 +92,9 @@ class CostCenterQueryBuilder(object):
         self._cost_center_query.parent = parent
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "CostCenterQueryBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "CostCenterQueryBuilder":
         self._cost_center_query.custom_fields = custom_fields
         return self
 
@@ -104,7 +106,9 @@ class CostCenterQueryBuilder(object):
         self._cost_center_query.rate = rate
         return self
 
-    def support_cost_center(self, support_cost_center: List[SupportCostCenterItem]) -> "CostCenterQueryBuilder":
+    def support_cost_center(
+        self, support_cost_center: List[SupportCostCenterItem]
+    ) -> "CostCenterQueryBuilder":
         self._cost_center_query.support_cost_center = support_cost_center
         return self
 

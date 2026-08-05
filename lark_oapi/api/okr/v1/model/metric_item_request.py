@@ -34,15 +34,21 @@ class MetricItemRequestBuilder(object):
         self._metric_item_request.metric_item_id = metric_item_id
         return self
 
-    def metric_initial_value(self, metric_initial_value: float) -> "MetricItemRequestBuilder":
+    def metric_initial_value(
+        self, metric_initial_value: float
+    ) -> "MetricItemRequestBuilder":
         self._metric_item_request.metric_initial_value = metric_initial_value
         return self
 
-    def metric_target_value(self, metric_target_value: float) -> "MetricItemRequestBuilder":
+    def metric_target_value(
+        self, metric_target_value: float
+    ) -> "MetricItemRequestBuilder":
         self._metric_item_request.metric_target_value = metric_target_value
         return self
 
-    def metric_current_value(self, metric_current_value: float) -> "MetricItemRequestBuilder":
+    def metric_current_value(
+        self, metric_current_value: float
+    ) -> "MetricItemRequestBuilder":
         self._metric_item_request.metric_current_value = metric_current_value
         return self
 

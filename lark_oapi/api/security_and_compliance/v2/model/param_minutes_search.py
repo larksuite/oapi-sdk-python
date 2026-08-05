@@ -54,7 +54,9 @@ class ParamMinutesSearchBuilder(object):
         self._param_minutes_search.update_time_lt = update_time_lt
         return self
 
-    def participant_ids(self, participant_ids: List[str]) -> "ParamMinutesSearchBuilder":
+    def participant_ids(
+        self, participant_ids: List[str]
+    ) -> "ParamMinutesSearchBuilder":
         self._param_minutes_search.participant_ids = participant_ids
         return self
 

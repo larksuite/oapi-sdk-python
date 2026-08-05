@@ -36,7 +36,9 @@ class ProfileSettingPassportBuilder(object):
         self._profile_setting_passport.country_region = country_region
         return self
 
-    def national_id_type(self, national_id_type: str) -> "ProfileSettingPassportBuilder":
+    def national_id_type(
+        self, national_id_type: str
+    ) -> "ProfileSettingPassportBuilder":
         self._profile_setting_passport.national_id_type = national_id_type
         return self
 

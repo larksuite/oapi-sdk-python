@@ -19,13 +19,19 @@ class ReplyCalendarEventRequest(BaseRequest):
 
 
 class ReplyCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         reply_calendar_event_request = ReplyCalendarEventRequest()
         reply_calendar_event_request.http_method = HttpMethod.POST
-        reply_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/reply"
-        reply_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._reply_calendar_event_request: ReplyCalendarEventRequest = reply_calendar_event_request
+        reply_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/reply"
+        )
+        reply_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._reply_calendar_event_request: ReplyCalendarEventRequest = (
+            reply_calendar_event_request
+        )
 
     def calendar_id(self, calendar_id: str) -> "ReplyCalendarEventRequestBuilder":
         self._reply_calendar_event_request.calendar_id = calendar_id
@@ -37,7 +43,9 @@ class ReplyCalendarEventRequestBuilder(object):
         self._reply_calendar_event_request.paths["event_id"] = str(event_id)
         return self
 
-    def request_body(self, request_body: ReplyCalendarEventRequestBody) -> "ReplyCalendarEventRequestBuilder":
+    def request_body(
+        self, request_body: ReplyCalendarEventRequestBody
+    ) -> "ReplyCalendarEventRequestBuilder":
         self._reply_calendar_event_request.request_body = request_body
         self._reply_calendar_event_request.body = request_body
         return self

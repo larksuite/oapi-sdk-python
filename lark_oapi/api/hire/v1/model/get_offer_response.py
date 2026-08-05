@@ -9,7 +9,6 @@ from .get_offer_response_body import GetOfferResponseBody
 class GetOfferResponse(BaseResponse):
     _types = {
         "data": GetOfferResponseBody,
-
     }
 
     def __init__(self, d=None):

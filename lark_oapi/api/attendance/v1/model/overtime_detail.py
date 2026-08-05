@@ -21,6 +21,7 @@ class OvertimeDetail(object):
         "is_time_bank": bool,
         "instance_id": int,
         "overtime_approval_status": int,
+        "is_delete": int,
     }
 
     def __init__(self, d=None):
@@ -39,6 +40,7 @@ class OvertimeDetail(object):
         self.is_time_bank: Optional[bool] = None
         self.instance_id: Optional[int] = None
         self.overtime_approval_status: Optional[int] = None
+        self.is_delete: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -106,8 +108,14 @@ class OvertimeDetailBuilder(object):
         self._overtime_detail.instance_id = instance_id
         return self
 
-    def overtime_approval_status(self, overtime_approval_status: int) -> "OvertimeDetailBuilder":
+    def overtime_approval_status(
+        self, overtime_approval_status: int
+    ) -> "OvertimeDetailBuilder":
         self._overtime_detail.overtime_approval_status = overtime_approval_status
+        return self
+
+    def is_delete(self, is_delete: int) -> "OvertimeDetailBuilder":
+        self._overtime_detail.is_delete = is_delete
         return self
 
     def build(self) -> "OvertimeDetail":

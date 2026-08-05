@@ -9,7 +9,6 @@ from .preview_attachment_response_body import PreviewAttachmentResponseBody
 class PreviewAttachmentResponse(BaseResponse):
     _types = {
         "data": PreviewAttachmentResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -77,7 +77,9 @@ class ReserveBuilder(object):
         self._reserve.reserve_user_id = reserve_user_id
         return self
 
-    def meeting_settings(self, meeting_settings: ReserveMeetingSetting) -> "ReserveBuilder":
+    def meeting_settings(
+        self, meeting_settings: ReserveMeetingSetting
+    ) -> "ReserveBuilder":
         self._reserve.meeting_settings = meeting_settings
         return self
 

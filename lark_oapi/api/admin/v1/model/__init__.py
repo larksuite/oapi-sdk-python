@@ -3,6 +3,11 @@ from .admin_dept_stat import *
 from .admin_user_ext_contact_stat import *
 from .admin_user_stat import *
 from .administrator import *
+from .ai_usage_detail import *
+from .ai_usage_filter import *
+from .ai_usage_log import *
+from .ai_usage_note import *
+from .ai_usage_subject import *
 from .annual_base_top_ai import *
 from .annual_report_map_float import *
 from .annual_report_map_int import *
@@ -22,6 +27,7 @@ from .audit_recipient_detail import *
 from .audit_recipient_entity import *
 from .audit_web_context import *
 from .badge import *
+from .biz_type_group import *
 from .department_id import *
 from .file import *
 from .file_list import *

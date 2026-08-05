@@ -3,8 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .offer_schema_name import OfferSchemaName
-from .application_offer_basic_info_customized_object_option_value import \
-    ApplicationOfferBasicInfoCustomizedObjectOptionValue
+from .application_offer_basic_info_customized_object_option_value import (
+    ApplicationOfferBasicInfoCustomizedObjectOptionValue,
+)
 
 
 class ApplicationOfferBasicInfoCustomizedObject(object):
@@ -21,7 +22,9 @@ class ApplicationOfferBasicInfoCustomizedObject(object):
         self.name: Optional[OfferSchemaName] = None
         self.type: Optional[str] = None
         self.value: Optional[str] = None
-        self.option_value_list: Optional[List[ApplicationOfferBasicInfoCustomizedObjectOptionValue]] = None
+        self.option_value_list: Optional[
+            List[ApplicationOfferBasicInfoCustomizedObjectOptionValue]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,13 +34,17 @@ class ApplicationOfferBasicInfoCustomizedObject(object):
 
 class ApplicationOfferBasicInfoCustomizedObjectBuilder(object):
     def __init__(self) -> None:
-        self._application_offer_basic_info_customized_object = ApplicationOfferBasicInfoCustomizedObject()
+        self._application_offer_basic_info_customized_object = (
+            ApplicationOfferBasicInfoCustomizedObject()
+        )
 
     def id(self, id: str) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
         self._application_offer_basic_info_customized_object.id = id
         return self
 
-    def name(self, name: OfferSchemaName) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
+    def name(
+        self, name: OfferSchemaName
+    ) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
         self._application_offer_basic_info_customized_object.name = name
         return self
 
@@ -49,9 +56,13 @@ class ApplicationOfferBasicInfoCustomizedObjectBuilder(object):
         self._application_offer_basic_info_customized_object.value = value
         return self
 
-    def option_value_list(self, option_value_list: List[
-        ApplicationOfferBasicInfoCustomizedObjectOptionValue]) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
-        self._application_offer_basic_info_customized_object.option_value_list = option_value_list
+    def option_value_list(
+        self,
+        option_value_list: List[ApplicationOfferBasicInfoCustomizedObjectOptionValue],
+    ) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
+        self._application_offer_basic_info_customized_object.option_value_list = (
+            option_value_list
+        )
         return self
 
     def build(self) -> "ApplicationOfferBasicInfoCustomizedObject":

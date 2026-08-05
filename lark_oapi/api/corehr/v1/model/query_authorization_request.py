@@ -22,20 +22,27 @@ class QueryAuthorizationRequest(BaseRequest):
 
 
 class QueryAuthorizationRequestBuilder(object):
-
     def __init__(self) -> None:
         query_authorization_request = QueryAuthorizationRequest()
         query_authorization_request.http_method = HttpMethod.GET
         query_authorization_request.uri = "/open-apis/corehr/v1/authorizations/query"
         query_authorization_request.token_types = {AccessTokenType.TENANT}
-        self._query_authorization_request: QueryAuthorizationRequest = query_authorization_request
+        self._query_authorization_request: QueryAuthorizationRequest = (
+            query_authorization_request
+        )
 
-    def employment_id_list(self, employment_id_list: List[str]) -> "QueryAuthorizationRequestBuilder":
+    def employment_id_list(
+        self, employment_id_list: List[str]
+    ) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.employment_id_list = employment_id_list
-        self._query_authorization_request.add_query("employment_id_list", employment_id_list)
+        self._query_authorization_request.add_query(
+            "employment_id_list", employment_id_list
+        )
         return self
 
-    def role_id_list(self, role_id_list: List[str]) -> "QueryAuthorizationRequestBuilder":
+    def role_id_list(
+        self, role_id_list: List[str]
+    ) -> "QueryAuthorizationRequestBuilder":
         self._query_authorization_request.role_id_list = role_id_list
         self._query_authorization_request.add_query("role_id_list", role_id_list)
         return self

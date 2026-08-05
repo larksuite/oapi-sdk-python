@@ -24,59 +24,106 @@ class ListSignatureTemplateInfoWithThumbnailRequest(BaseRequest):
 
 
 class ListSignatureTemplateInfoWithThumbnailRequestBuilder(object):
-
     def __init__(self) -> None:
-        list_signature_template_info_with_thumbnail_request = ListSignatureTemplateInfoWithThumbnailRequest()
+        list_signature_template_info_with_thumbnail_request = (
+            ListSignatureTemplateInfoWithThumbnailRequest()
+        )
         list_signature_template_info_with_thumbnail_request.http_method = HttpMethod.GET
-        list_signature_template_info_with_thumbnail_request.uri = "/open-apis/corehr/v2/signature_template_info_with_thumbnails"
-        list_signature_template_info_with_thumbnail_request.token_types = {AccessTokenType.TENANT}
+        list_signature_template_info_with_thumbnail_request.uri = (
+            "/open-apis/corehr/v2/signature_template_info_with_thumbnails"
+        )
+        list_signature_template_info_with_thumbnail_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._list_signature_template_info_with_thumbnail_request: ListSignatureTemplateInfoWithThumbnailRequest = list_signature_template_info_with_thumbnail_request
 
-    def page_size(self, page_size: int) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+    def page_size(
+        self, page_size: int
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
         self._list_signature_template_info_with_thumbnail_request.page_size = page_size
-        self._list_signature_template_info_with_thumbnail_request.add_query("page_size", page_size)
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "page_size", page_size
+        )
         return self
 
-    def page_token(self, page_token: str) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
-        self._list_signature_template_info_with_thumbnail_request.page_token = page_token
-        self._list_signature_template_info_with_thumbnail_request.add_query("page_token", page_token)
+    def page_token(
+        self, page_token: str
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+        self._list_signature_template_info_with_thumbnail_request.page_token = (
+            page_token
+        )
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "page_token", page_token
+        )
         return self
 
     def name(self, name: str) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
         self._list_signature_template_info_with_thumbnail_request.name = name
-        self._list_signature_template_info_with_thumbnail_request.add_query("name", name)
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "name", name
+        )
         return self
 
-    def category_apiname(self, category_apiname: str) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
-        self._list_signature_template_info_with_thumbnail_request.category_apiname = category_apiname
-        self._list_signature_template_info_with_thumbnail_request.add_query("category_apiname", category_apiname)
+    def category_apiname(
+        self, category_apiname: str
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+        self._list_signature_template_info_with_thumbnail_request.category_apiname = (
+            category_apiname
+        )
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "category_apiname", category_apiname
+        )
         return self
 
-    def usage_apiname(self, usage_apiname: str) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
-        self._list_signature_template_info_with_thumbnail_request.usage_apiname = usage_apiname
-        self._list_signature_template_info_with_thumbnail_request.add_query("usage_apiname", usage_apiname)
+    def usage_apiname(
+        self, usage_apiname: str
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+        self._list_signature_template_info_with_thumbnail_request.usage_apiname = (
+            usage_apiname
+        )
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "usage_apiname", usage_apiname
+        )
         return self
 
-    def active(self, active: bool) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+    def active(
+        self, active: bool
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
         self._list_signature_template_info_with_thumbnail_request.active = active
-        self._list_signature_template_info_with_thumbnail_request.add_query("active", active)
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "active", active
+        )
         return self
 
-    def need_region_info(self, need_region_info: bool) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
-        self._list_signature_template_info_with_thumbnail_request.need_region_info = need_region_info
-        self._list_signature_template_info_with_thumbnail_request.add_query("need_region_info", need_region_info)
+    def need_region_info(
+        self, need_region_info: bool
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+        self._list_signature_template_info_with_thumbnail_request.need_region_info = (
+            need_region_info
+        )
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "need_region_info", need_region_info
+        )
         return self
 
-    def applicability_apinames(self, applicability_apinames: List[
-        str]) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+    def applicability_apinames(
+        self, applicability_apinames: List[str]
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
         self._list_signature_template_info_with_thumbnail_request.applicability_apinames = applicability_apinames
-        self._list_signature_template_info_with_thumbnail_request.add_query("applicability_apinames",
-                                                                            applicability_apinames)
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "applicability_apinames", applicability_apinames
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
-        self._list_signature_template_info_with_thumbnail_request.user_id_type = user_id_type
-        self._list_signature_template_info_with_thumbnail_request.add_query("user_id_type", user_id_type)
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "ListSignatureTemplateInfoWithThumbnailRequestBuilder":
+        self._list_signature_template_info_with_thumbnail_request.user_id_type = (
+            user_id_type
+        )
+        self._list_signature_template_info_with_thumbnail_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def build(self) -> ListSignatureTemplateInfoWithThumbnailRequest:

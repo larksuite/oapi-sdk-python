@@ -91,7 +91,9 @@ class OfferApplyFormObjectInfoBuilder(object):
         self._offer_apply_form_object_info.object_type_v2 = object_type_v2
         return self
 
-    def config(self, config: OfferApplyFormObjectConfigInfo) -> "OfferApplyFormObjectInfoBuilder":
+    def config(
+        self, config: OfferApplyFormObjectConfigInfo
+    ) -> "OfferApplyFormObjectInfoBuilder":
         self._offer_apply_form_object_info.config = config
         return self
 

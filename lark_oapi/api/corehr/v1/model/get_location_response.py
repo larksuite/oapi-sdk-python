@@ -9,7 +9,6 @@ from .get_location_response_body import GetLocationResponseBody
 class GetLocationResponse(BaseResponse):
     _types = {
         "data": GetLocationResponseBody,
-
     }
 
     def __init__(self, d=None):

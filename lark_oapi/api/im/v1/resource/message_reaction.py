@@ -9,8 +9,12 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_query_message_reaction_request import BatchQueryMessageReactionRequest
-from ..model.batch_query_message_reaction_response import BatchQueryMessageReactionResponse
+from ..model.batch_query_message_reaction_request import (
+    BatchQueryMessageReactionRequest,
+)
+from ..model.batch_query_message_reaction_response import (
+    BatchQueryMessageReactionResponse,
+)
 from ..model.create_message_reaction_request import CreateMessageReactionRequest
 from ..model.create_message_reaction_response import CreateMessageReactionResponse
 from ..model.delete_message_reaction_request import DeleteMessageReactionRequest
@@ -23,8 +27,11 @@ class MessageReaction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryMessageReactionRequest,
-                    option: Optional[RequestOption] = None) -> BatchQueryMessageReactionResponse:
+    def batch_query(
+        self,
+        request: BatchQueryMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +46,18 @@ class MessageReaction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchQueryMessageReactionResponse)
+        response: BatchQueryMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_query(self, request: BatchQueryMessageReactionRequest,
-                           option: Optional[RequestOption] = None) -> BatchQueryMessageReactionResponse:
+    async def abatch_query(
+        self,
+        request: BatchQueryMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +68,18 @@ class MessageReaction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     BatchQueryMessageReactionResponse)
+        response: BatchQueryMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateMessageReactionRequest,
-               option: Optional[RequestOption] = None) -> CreateMessageReactionResponse:
+    def create(
+        self,
+        request: CreateMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +94,18 @@ class MessageReaction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateMessageReactionResponse)
+        response: CreateMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateMessageReactionRequest,
-                      option: Optional[RequestOption] = None) -> CreateMessageReactionResponse:
+    async def acreate(
+        self,
+        request: CreateMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +116,18 @@ class MessageReaction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateMessageReactionResponse)
+        response: CreateMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteMessageReactionRequest,
-               option: Optional[RequestOption] = None) -> DeleteMessageReactionResponse:
+    def delete(
+        self,
+        request: DeleteMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +142,18 @@ class MessageReaction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 DeleteMessageReactionResponse)
+        response: DeleteMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteMessageReactionRequest,
-                      option: Optional[RequestOption] = None) -> DeleteMessageReactionResponse:
+    async def adelete(
+        self,
+        request: DeleteMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +164,18 @@ class MessageReaction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 DeleteMessageReactionResponse)
+        response: DeleteMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListMessageReactionRequest,
-             option: Optional[RequestOption] = None) -> ListMessageReactionResponse:
+    def list(
+        self,
+        request: ListMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,13 +190,18 @@ class MessageReaction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageReactionResponse)
+        response: ListMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMessageReactionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListMessageReactionRequest,
-                    option: Optional[RequestOption] = None) -> ListMessageReactionResponse:
+    async def alist(
+        self,
+        request: ListMessageReactionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListMessageReactionResponse:
         if option is None:
             option = RequestOption()
 
@@ -176,7 +212,9 @@ class MessageReaction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageReactionResponse)
+        response: ListMessageReactionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMessageReactionResponse
+        )
         response.raw = resp
 
         return response

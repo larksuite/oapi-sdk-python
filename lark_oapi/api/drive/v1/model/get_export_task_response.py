@@ -9,7 +9,6 @@ from .get_export_task_response_body import GetExportTaskResponseBody
 class GetExportTaskResponse(BaseResponse):
     _types = {
         "data": GetExportTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

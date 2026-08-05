@@ -92,7 +92,9 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.legal_names = legal_names
         return self
 
-    def additional_names(self, additional_names: List[I18n]) -> "PreHirePersonIdBuilder":
+    def additional_names(
+        self, additional_names: List[I18n]
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.additional_names = additional_names
         return self
 
@@ -112,7 +114,9 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.nationality_v2 = nationality_v2
         return self
 
-    def additional_nationalities(self, additional_nationalities: PreHireField) -> "PreHirePersonIdBuilder":
+    def additional_nationalities(
+        self, additional_nationalities: PreHireField
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.additional_nationalities = additional_nationalities
         return self
 
@@ -136,7 +140,9 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.date_of_birth = date_of_birth
         return self
 
-    def former_employer(self, former_employer: PreHireField) -> "PreHirePersonIdBuilder":
+    def former_employer(
+        self, former_employer: PreHireField
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.former_employer = former_employer
         return self
 
@@ -144,11 +150,17 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.age = age
         return self
 
-    def highest_degree_of_education(self, highest_degree_of_education: PreHireField) -> "PreHirePersonIdBuilder":
-        self._pre_hire_person_id.highest_degree_of_education = highest_degree_of_education
+    def highest_degree_of_education(
+        self, highest_degree_of_education: PreHireField
+    ) -> "PreHirePersonIdBuilder":
+        self._pre_hire_person_id.highest_degree_of_education = (
+            highest_degree_of_education
+        )
         return self
 
-    def highest_level_of_education(self, highest_level_of_education: PreHireField) -> "PreHirePersonIdBuilder":
+    def highest_level_of_education(
+        self, highest_level_of_education: PreHireField
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.highest_level_of_education = highest_level_of_education
         return self
 
@@ -160,7 +172,9 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.bank_account_number = bank_account_number
         return self
 
-    def date_entered_workforce(self, date_entered_workforce: str) -> "PreHirePersonIdBuilder":
+    def date_entered_workforce(
+        self, date_entered_workforce: str
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.date_entered_workforce = date_entered_workforce
         return self
 
@@ -172,11 +186,15 @@ class PreHirePersonIdBuilder(object):
         self._pre_hire_person_id.working_years = working_years
         return self
 
-    def person_info_chn(self, person_info_chn: PersonInfoChnForAi) -> "PreHirePersonIdBuilder":
+    def person_info_chn(
+        self, person_info_chn: PersonInfoChnForAi
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.person_info_chn = person_info_chn
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHirePersonIdBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "PreHirePersonIdBuilder":
         self._pre_hire_person_id.custom_fields = custom_fields
         return self
 

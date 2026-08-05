@@ -17,13 +17,19 @@ class DeleteTaskReminderRequest(BaseRequest):
 
 
 class DeleteTaskReminderRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_task_reminder_request = DeleteTaskReminderRequest()
         delete_task_reminder_request.http_method = HttpMethod.DELETE
-        delete_task_reminder_request.uri = "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
-        delete_task_reminder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_task_reminder_request: DeleteTaskReminderRequest = delete_task_reminder_request
+        delete_task_reminder_request.uri = (
+            "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+        )
+        delete_task_reminder_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_task_reminder_request: DeleteTaskReminderRequest = (
+            delete_task_reminder_request
+        )
 
     def task_id(self, task_id: str) -> "DeleteTaskReminderRequestBuilder":
         self._delete_task_reminder_request.task_id = task_id

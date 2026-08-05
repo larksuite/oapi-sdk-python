@@ -19,13 +19,14 @@ class CreateCustomOrgRequest(BaseRequest):
 
 
 class CreateCustomOrgRequestBuilder(object):
-
     def __init__(self) -> None:
         create_custom_org_request = CreateCustomOrgRequest()
         create_custom_org_request.http_method = HttpMethod.POST
         create_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs"
         create_custom_org_request.token_types = {AccessTokenType.TENANT}
-        self._create_custom_org_request: CreateCustomOrgRequest = create_custom_org_request
+        self._create_custom_org_request: CreateCustomOrgRequest = (
+            create_custom_org_request
+        )
 
     def client_token(self, client_token: str) -> "CreateCustomOrgRequestBuilder":
         self._create_custom_org_request.client_token = client_token
@@ -37,7 +38,9 @@ class CreateCustomOrgRequestBuilder(object):
         self._create_custom_org_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CustomOrgCreate) -> "CreateCustomOrgRequestBuilder":
+    def request_body(
+        self, request_body: CustomOrgCreate
+    ) -> "CreateCustomOrgRequestBuilder":
         self._create_custom_org_request.request_body = request_body
         self._create_custom_org_request.body = request_body
         return self

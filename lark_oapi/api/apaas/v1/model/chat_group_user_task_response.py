@@ -9,7 +9,6 @@ from .chat_group_user_task_response_body import ChatGroupUserTaskResponseBody
 class ChatGroupUserTaskResponse(BaseResponse):
     _types = {
         "data": ChatGroupUserTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

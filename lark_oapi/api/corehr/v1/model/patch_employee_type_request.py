@@ -19,25 +19,34 @@ class PatchEmployeeTypeRequest(BaseRequest):
 
 
 class PatchEmployeeTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_employee_type_request = PatchEmployeeTypeRequest()
         patch_employee_type_request.http_method = HttpMethod.PATCH
-        patch_employee_type_request.uri = "/open-apis/corehr/v1/employee_types/:employee_type_id"
+        patch_employee_type_request.uri = (
+            "/open-apis/corehr/v1/employee_types/:employee_type_id"
+        )
         patch_employee_type_request.token_types = {AccessTokenType.TENANT}
-        self._patch_employee_type_request: PatchEmployeeTypeRequest = patch_employee_type_request
+        self._patch_employee_type_request: PatchEmployeeTypeRequest = (
+            patch_employee_type_request
+        )
 
     def client_token(self, client_token: str) -> "PatchEmployeeTypeRequestBuilder":
         self._patch_employee_type_request.client_token = client_token
         self._patch_employee_type_request.add_query("client_token", client_token)
         return self
 
-    def employee_type_id(self, employee_type_id: str) -> "PatchEmployeeTypeRequestBuilder":
+    def employee_type_id(
+        self, employee_type_id: str
+    ) -> "PatchEmployeeTypeRequestBuilder":
         self._patch_employee_type_request.employee_type_id = employee_type_id
-        self._patch_employee_type_request.paths["employee_type_id"] = str(employee_type_id)
+        self._patch_employee_type_request.paths["employee_type_id"] = str(
+            employee_type_id
+        )
         return self
 
-    def request_body(self, request_body: EmployeeType) -> "PatchEmployeeTypeRequestBuilder":
+    def request_body(
+        self, request_body: EmployeeType
+    ) -> "PatchEmployeeTypeRequestBuilder":
         self._patch_employee_type_request.request_body = request_body
         self._patch_employee_type_request.body = request_body
         return self

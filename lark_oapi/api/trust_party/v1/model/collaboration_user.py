@@ -100,7 +100,9 @@ class CollaborationUserBuilder(object):
         self._collaboration_user.job_title = job_title
         return self
 
-    def custom_attrs(self, custom_attrs: List[UserCustomAttr]) -> "CollaborationUserBuilder":
+    def custom_attrs(
+        self, custom_attrs: List[UserCustomAttr]
+    ) -> "CollaborationUserBuilder":
         self._collaboration_user.custom_attrs = custom_attrs
         return self
 
@@ -108,8 +110,9 @@ class CollaborationUserBuilder(object):
         self._collaboration_user.employee_no = employee_no
         return self
 
-    def parent_department_ids(self,
-                              parent_department_ids: List[CollaborationDepartmentId]) -> "CollaborationUserBuilder":
+    def parent_department_ids(
+        self, parent_department_ids: List[CollaborationDepartmentId]
+    ) -> "CollaborationUserBuilder":
         self._collaboration_user.parent_department_ids = parent_department_ids
         return self
 

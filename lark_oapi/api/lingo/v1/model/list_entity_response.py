@@ -9,7 +9,6 @@ from .list_entity_response_body import ListEntityResponseBody
 class ListEntityResponse(BaseResponse):
     _types = {
         "data": ListEntityResponseBody,
-
     }
 
     def __init__(self, d=None):

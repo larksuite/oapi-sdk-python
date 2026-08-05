@@ -17,7 +17,6 @@ class IdConvertCardRequest(BaseRequest):
 
 
 class IdConvertCardRequestBuilder(object):
-
     def __init__(self) -> None:
         id_convert_card_request = IdConvertCardRequest()
         id_convert_card_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class IdConvertCardRequestBuilder(object):
         id_convert_card_request.token_types = {AccessTokenType.TENANT}
         self._id_convert_card_request: IdConvertCardRequest = id_convert_card_request
 
-    def request_body(self, request_body: IdConvertCardRequestBody) -> "IdConvertCardRequestBuilder":
+    def request_body(
+        self, request_body: IdConvertCardRequestBody
+    ) -> "IdConvertCardRequestBuilder":
         self._id_convert_card_request.request_body = request_body
         self._id_convert_card_request.body = request_body
         return self

@@ -4,8 +4,12 @@ from .resource import *
 class V2(object):
     def __init__(self, config: Config) -> None:
         self.activity: Activity = Activity(config)
-        self.additional_information: AdditionalInformation = AdditionalInformation(config)
-        self.additional_informations_batch: AdditionalInformationsBatch = AdditionalInformationsBatch(config)
+        self.additional_information: AdditionalInformation = AdditionalInformation(
+            config
+        )
+        self.additional_informations_batch: AdditionalInformationsBatch = (
+            AdditionalInformationsBatch(config)
+        )
         self.indicator: Indicator = Indicator(config)
         self.metric_detail: MetricDetail = MetricDetail(config)
         self.metric_field: MetricField = MetricField(config)

@@ -25,8 +25,9 @@ class AgentSkill(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAgentSkillRequest,
-               option: Optional[RequestOption] = None) -> CreateAgentSkillResponse:
+    def create(
+        self, request: CreateAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> CreateAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,13 +42,16 @@ class AgentSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAgentSkillResponse)
+        response: CreateAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAgentSkillRequest,
-                      option: Optional[RequestOption] = None) -> CreateAgentSkillResponse:
+    async def acreate(
+        self, request: CreateAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> CreateAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -58,13 +62,16 @@ class AgentSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAgentSkillResponse)
+        response: CreateAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteAgentSkillRequest,
-               option: Optional[RequestOption] = None) -> DeleteAgentSkillResponse:
+    def delete(
+        self, request: DeleteAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,13 +86,16 @@ class AgentSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSkillResponse)
+        response: DeleteAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteAgentSkillRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAgentSkillResponse:
+    async def adelete(
+        self, request: DeleteAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -96,12 +106,16 @@ class AgentSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSkillResponse)
+        response: DeleteAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetAgentSkillRequest, option: Optional[RequestOption] = None) -> GetAgentSkillResponse:
+    def get(
+        self, request: GetAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> GetAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,13 +130,16 @@ class AgentSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgentSkillResponse)
+        response: GetAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAgentSkillRequest,
-                   option: Optional[RequestOption] = None) -> GetAgentSkillResponse:
+    async def aget(
+        self, request: GetAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> GetAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,12 +150,16 @@ class AgentSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgentSkillResponse)
+        response: GetAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAgentSkillRequest, option: Optional[RequestOption] = None) -> ListAgentSkillResponse:
+    def list(
+        self, request: ListAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> ListAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,13 +174,16 @@ class AgentSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillResponse)
+        response: ListAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAgentSkillRequest,
-                    option: Optional[RequestOption] = None) -> ListAgentSkillResponse:
+    async def alist(
+        self, request: ListAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> ListAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -170,12 +194,16 @@ class AgentSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillResponse)
+        response: ListAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchAgentSkillRequest, option: Optional[RequestOption] = None) -> PatchAgentSkillResponse:
+    def patch(
+        self, request: PatchAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> PatchAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,13 +218,16 @@ class AgentSkill(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSkillResponse)
+        response: PatchAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAgentSkillResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchAgentSkillRequest,
-                     option: Optional[RequestOption] = None) -> PatchAgentSkillResponse:
+    async def apatch(
+        self, request: PatchAgentSkillRequest, option: Optional[RequestOption] = None
+    ) -> PatchAgentSkillResponse:
         if option is None:
             option = RequestOption()
 
@@ -207,7 +238,9 @@ class AgentSkill(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSkillResponse)
+        response: PatchAgentSkillResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchAgentSkillResponse
+        )
         response.raw = resp
 
         return response

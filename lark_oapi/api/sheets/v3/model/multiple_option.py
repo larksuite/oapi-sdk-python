@@ -38,7 +38,9 @@ class MultipleOptionBuilder(object):
         self._multiple_option.range = range
         return self
 
-    def data_validation_values(self, data_validation_values: List[DataValidationValue]) -> "MultipleOptionBuilder":
+    def data_validation_values(
+        self, data_validation_values: List[DataValidationValue]
+    ) -> "MultipleOptionBuilder":
         self._multiple_option.data_validation_values = data_validation_values
         return self
 

@@ -9,7 +9,6 @@ from .query_agency_response_body import QueryAgencyResponseBody
 class QueryAgencyResponse(BaseResponse):
     _types = {
         "data": QueryAgencyResponseBody,
-
     }
 
     def __init__(self, d=None):

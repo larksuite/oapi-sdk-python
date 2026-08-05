@@ -38,11 +38,15 @@ class WebsiteDeliveryWorksBuilder(object):
         self._website_delivery_works.link = link
         return self
 
-    def attachment(self, attachment: WebsiteDeliveryWorksAttachment) -> "WebsiteDeliveryWorksBuilder":
+    def attachment(
+        self, attachment: WebsiteDeliveryWorksAttachment
+    ) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.attachment = attachment
         return self
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryWorksBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.customized_data = customized_data
         return self
 

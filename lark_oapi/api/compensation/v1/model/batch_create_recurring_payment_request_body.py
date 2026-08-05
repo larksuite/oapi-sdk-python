@@ -21,9 +21,13 @@ class BatchCreateRecurringPaymentRequestBody(object):
 
 class BatchCreateRecurringPaymentRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_create_recurring_payment_request_body = BatchCreateRecurringPaymentRequestBody()
+        self._batch_create_recurring_payment_request_body = (
+            BatchCreateRecurringPaymentRequestBody()
+        )
 
-    def records(self, records: List[RecurringPaymentForCreate]) -> "BatchCreateRecurringPaymentRequestBodyBuilder":
+    def records(
+        self, records: List[RecurringPaymentForCreate]
+    ) -> "BatchCreateRecurringPaymentRequestBodyBuilder":
         self._batch_create_recurring_payment_request_body.records = records
         return self
 

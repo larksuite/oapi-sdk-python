@@ -19,7 +19,6 @@ class PatchJobGradeRequest(BaseRequest):
 
 
 class PatchJobGradeRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_job_grade_request = PatchJobGradeRequest()
         patch_job_grade_request.http_method = HttpMethod.PATCH
@@ -37,7 +36,9 @@ class PatchJobGradeRequestBuilder(object):
         self._patch_job_grade_request.paths["job_grade_id"] = str(job_grade_id)
         return self
 
-    def request_body(self, request_body: JobGradeUpdate) -> "PatchJobGradeRequestBuilder":
+    def request_body(
+        self, request_body: JobGradeUpdate
+    ) -> "PatchJobGradeRequestBuilder":
         self._patch_job_grade_request.request_body = request_body
         self._patch_job_grade_request.body = request_body
         return self

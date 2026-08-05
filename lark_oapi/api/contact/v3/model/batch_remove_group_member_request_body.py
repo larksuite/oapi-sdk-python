@@ -21,9 +21,13 @@ class BatchRemoveGroupMemberRequestBody(object):
 
 class BatchRemoveGroupMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_remove_group_member_request_body = BatchRemoveGroupMemberRequestBody()
+        self._batch_remove_group_member_request_body = (
+            BatchRemoveGroupMemberRequestBody()
+        )
 
-    def members(self, members: List[Memberlist]) -> "BatchRemoveGroupMemberRequestBodyBuilder":
+    def members(
+        self, members: List[Memberlist]
+    ) -> "BatchRemoveGroupMemberRequestBodyBuilder":
         self._batch_remove_group_member_request_body.members = members
         return self
 

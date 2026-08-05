@@ -19,20 +19,28 @@ class GetMinuteTranscriptRequest(BaseRequest):
 
 
 class GetMinuteTranscriptRequestBuilder(object):
-
     def __init__(self) -> None:
         get_minute_transcript_request = GetMinuteTranscriptRequest()
         get_minute_transcript_request.http_method = HttpMethod.GET
-        get_minute_transcript_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/transcript"
-        get_minute_transcript_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_minute_transcript_request: GetMinuteTranscriptRequest = get_minute_transcript_request
+        get_minute_transcript_request.uri = (
+            "/open-apis/minutes/v1/minutes/:minute_token/transcript"
+        )
+        get_minute_transcript_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_minute_transcript_request: GetMinuteTranscriptRequest = (
+            get_minute_transcript_request
+        )
 
     def need_speaker(self, need_speaker: bool) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.need_speaker = need_speaker
         self._get_minute_transcript_request.add_query("need_speaker", need_speaker)
         return self
 
-    def need_timestamp(self, need_timestamp: bool) -> "GetMinuteTranscriptRequestBuilder":
+    def need_timestamp(
+        self, need_timestamp: bool
+    ) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.need_timestamp = need_timestamp
         self._get_minute_transcript_request.add_query("need_timestamp", need_timestamp)
         return self

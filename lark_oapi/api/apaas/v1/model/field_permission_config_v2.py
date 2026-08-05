@@ -25,13 +25,18 @@ class FieldPermissionConfigV2Builder(object):
     def __init__(self) -> None:
         self._field_permission_config_v2 = FieldPermissionConfigV2()
 
-    def field_config_mode(self, field_config_mode: str) -> "FieldPermissionConfigV2Builder":
+    def field_config_mode(
+        self, field_config_mode: str
+    ) -> "FieldPermissionConfigV2Builder":
         self._field_permission_config_v2.field_config_mode = field_config_mode
         return self
 
-    def custom_field_permissions(self,
-                                 custom_field_permissions: List[FieldPermissionV2]) -> "FieldPermissionConfigV2Builder":
-        self._field_permission_config_v2.custom_field_permissions = custom_field_permissions
+    def custom_field_permissions(
+        self, custom_field_permissions: List[FieldPermissionV2]
+    ) -> "FieldPermissionConfigV2Builder":
+        self._field_permission_config_v2.custom_field_permissions = (
+            custom_field_permissions
+        )
         return self
 
     def build(self) -> "FieldPermissionConfigV2":

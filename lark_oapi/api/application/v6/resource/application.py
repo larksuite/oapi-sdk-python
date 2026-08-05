@@ -9,8 +9,12 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.contacts_range_configuration_application_request import ContactsRangeConfigurationApplicationRequest
-from ..model.contacts_range_configuration_application_response import ContactsRangeConfigurationApplicationResponse
+from ..model.contacts_range_configuration_application_request import (
+    ContactsRangeConfigurationApplicationRequest,
+)
+from ..model.contacts_range_configuration_application_response import (
+    ContactsRangeConfigurationApplicationResponse,
+)
 from ..model.get_application_request import GetApplicationRequest
 from ..model.get_application_response import GetApplicationResponse
 from ..model.list_application_request import ListApplicationRequest
@@ -18,15 +22,20 @@ from ..model.list_application_response import ListApplicationResponse
 from ..model.patch_application_request import PatchApplicationRequest
 from ..model.patch_application_response import PatchApplicationResponse
 from ..model.underauditlist_application_request import UnderauditlistApplicationRequest
-from ..model.underauditlist_application_response import UnderauditlistApplicationResponse
+from ..model.underauditlist_application_response import (
+    UnderauditlistApplicationResponse,
+)
 
 
 class Application(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def contacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest, option: Optional[
-        RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
+    def contacts_range_configuration(
+        self,
+        request: ContactsRangeConfigurationApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ContactsRangeConfigurationApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,15 +50,18 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 ContactsRangeConfigurationApplicationResponse)
+        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ContactsRangeConfigurationApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acontacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest,
-                                            option: Optional[
-                                                RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
+    async def acontacts_range_configuration(
+        self,
+        request: ContactsRangeConfigurationApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ContactsRangeConfigurationApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -60,13 +72,16 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 ContactsRangeConfigurationApplicationResponse)
+        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ContactsRangeConfigurationApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
+    def get(
+        self, request: GetApplicationRequest, option: Optional[RequestOption] = None
+    ) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,13 +96,16 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
+        response: GetApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetApplicationRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationResponse:
+    async def aget(
+        self, request: GetApplicationRequest, option: Optional[RequestOption] = None
+    ) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -98,12 +116,16 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
+        response: GetApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
+    def list(
+        self, request: ListApplicationRequest, option: Optional[RequestOption] = None
+    ) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,13 +140,16 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
+        response: ListApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListApplicationRequest,
-                    option: Optional[RequestOption] = None) -> ListApplicationResponse:
+    async def alist(
+        self, request: ListApplicationRequest, option: Optional[RequestOption] = None
+    ) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,13 +160,16 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
+        response: ListApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchApplicationRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationResponse:
+    def patch(
+        self, request: PatchApplicationRequest, option: Optional[RequestOption] = None
+    ) -> PatchApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +184,16 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationResponse)
+        response: PatchApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationResponse:
+    async def apatch(
+        self, request: PatchApplicationRequest, option: Optional[RequestOption] = None
+    ) -> PatchApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,13 +204,18 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationResponse)
+        response: PatchApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    def underauditlist(self, request: UnderauditlistApplicationRequest,
-                       option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
+    def underauditlist(
+        self,
+        request: UnderauditlistApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnderauditlistApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,14 +230,18 @@ class Application(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UnderauditlistApplicationResponse)
+        response: UnderauditlistApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnderauditlistApplicationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aunderauditlist(self, request: UnderauditlistApplicationRequest,
-                              option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
+    async def aunderauditlist(
+        self,
+        request: UnderauditlistApplicationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnderauditlistApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -212,8 +252,9 @@ class Application(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UnderauditlistApplicationResponse)
+        response: UnderauditlistApplicationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnderauditlistApplicationResponse
+        )
         response.raw = resp
 
         return response

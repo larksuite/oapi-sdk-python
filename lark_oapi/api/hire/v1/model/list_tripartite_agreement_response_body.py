@@ -25,13 +25,19 @@ class ListTripartiteAgreementResponseBody(object):
 
 class ListTripartiteAgreementResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_tripartite_agreement_response_body = ListTripartiteAgreementResponseBody()
+        self._list_tripartite_agreement_response_body = (
+            ListTripartiteAgreementResponseBody()
+        )
 
-    def items(self, items: List[TripartiteAgreementInfo]) -> "ListTripartiteAgreementResponseBodyBuilder":
+    def items(
+        self, items: List[TripartiteAgreementInfo]
+    ) -> "ListTripartiteAgreementResponseBodyBuilder":
         self._list_tripartite_agreement_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "ListTripartiteAgreementResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListTripartiteAgreementResponseBodyBuilder":
         self._list_tripartite_agreement_response_body.page_token = page_token
         return self
 

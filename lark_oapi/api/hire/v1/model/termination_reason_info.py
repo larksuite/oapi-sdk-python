@@ -36,7 +36,9 @@ class TerminationReasonInfoBuilder(object):
         self._termination_reason_info.name = name
         return self
 
-    def children(self, children: List[TerminationReasonChildInfo]) -> "TerminationReasonInfoBuilder":
+    def children(
+        self, children: List[TerminationReasonChildInfo]
+    ) -> "TerminationReasonInfoBuilder":
         self._termination_reason_info.children = children
         return self
 

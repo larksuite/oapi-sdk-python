@@ -17,7 +17,6 @@ class ActiveLocationRequest(BaseRequest):
 
 
 class ActiveLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         active_location_request = ActiveLocationRequest()
         active_location_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class ActiveLocationRequestBuilder(object):
         active_location_request.token_types = {AccessTokenType.TENANT}
         self._active_location_request: ActiveLocationRequest = active_location_request
 
-    def request_body(self, request_body: ActiveLocationRequestBody) -> "ActiveLocationRequestBuilder":
+    def request_body(
+        self, request_body: ActiveLocationRequestBody
+    ) -> "ActiveLocationRequestBuilder":
         self._active_location_request.request_body = request_body
         self._active_location_request.body = request_body
         return self

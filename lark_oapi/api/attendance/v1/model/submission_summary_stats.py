@@ -35,8 +35,9 @@ class SubmissionSummaryStatsBuilder(object):
         self._submission_summary_stats.value = value
         return self
 
-    def detail_stats_lists(self,
-                           detail_stats_lists: List[SubmissionSummaryStatsDetail]) -> "SubmissionSummaryStatsBuilder":
+    def detail_stats_lists(
+        self, detail_stats_lists: List[SubmissionSummaryStatsDetail]
+    ) -> "SubmissionSummaryStatsBuilder":
         self._submission_summary_stats.detail_stats_lists = detail_stats_lists
         return self
 

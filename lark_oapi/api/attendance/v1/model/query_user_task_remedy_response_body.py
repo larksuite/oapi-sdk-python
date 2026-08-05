@@ -23,7 +23,9 @@ class QueryUserTaskRemedyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_task_remedy_response_body = QueryUserTaskRemedyResponseBody()
 
-    def user_remedys(self, user_remedys: List[UserTaskRemedy]) -> "QueryUserTaskRemedyResponseBodyBuilder":
+    def user_remedys(
+        self, user_remedys: List[UserTaskRemedy]
+    ) -> "QueryUserTaskRemedyResponseBodyBuilder":
         self._query_user_task_remedy_response_body.user_remedys = user_remedys
         return self
 

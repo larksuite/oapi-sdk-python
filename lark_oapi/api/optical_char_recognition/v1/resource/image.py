@@ -17,8 +17,11 @@ class Image(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def basic_recognize(self, request: BasicRecognizeImageRequest,
-                        option: Optional[RequestOption] = None) -> BasicRecognizeImageResponse:
+    def basic_recognize(
+        self,
+        request: BasicRecognizeImageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BasicRecognizeImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class Image(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BasicRecognizeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), BasicRecognizeImageResponse)
+        response: BasicRecognizeImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BasicRecognizeImageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abasic_recognize(self, request: BasicRecognizeImageRequest,
-                               option: Optional[RequestOption] = None) -> BasicRecognizeImageResponse:
+    async def abasic_recognize(
+        self,
+        request: BasicRecognizeImageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BasicRecognizeImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class Image(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BasicRecognizeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), BasicRecognizeImageResponse)
+        response: BasicRecognizeImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BasicRecognizeImageResponse
+        )
         response.raw = resp
 
         return response

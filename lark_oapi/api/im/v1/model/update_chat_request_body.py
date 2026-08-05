@@ -80,15 +80,21 @@ class UpdateChatRequestBodyBuilder(object):
         self._update_chat_request_body.i18n_names = i18n_names
         return self
 
-    def add_member_permission(self, add_member_permission: str) -> "UpdateChatRequestBodyBuilder":
+    def add_member_permission(
+        self, add_member_permission: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.add_member_permission = add_member_permission
         return self
 
-    def share_card_permission(self, share_card_permission: str) -> "UpdateChatRequestBodyBuilder":
+    def share_card_permission(
+        self, share_card_permission: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.share_card_permission = share_card_permission
         return self
 
-    def at_all_permission(self, at_all_permission: str) -> "UpdateChatRequestBodyBuilder":
+    def at_all_permission(
+        self, at_all_permission: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.at_all_permission = at_all_permission
         return self
 
@@ -100,15 +106,23 @@ class UpdateChatRequestBodyBuilder(object):
         self._update_chat_request_body.owner_id = owner_id
         return self
 
-    def join_message_visibility(self, join_message_visibility: str) -> "UpdateChatRequestBodyBuilder":
+    def join_message_visibility(
+        self, join_message_visibility: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.join_message_visibility = join_message_visibility
         return self
 
-    def leave_message_visibility(self, leave_message_visibility: str) -> "UpdateChatRequestBodyBuilder":
-        self._update_chat_request_body.leave_message_visibility = leave_message_visibility
+    def leave_message_visibility(
+        self, leave_message_visibility: str
+    ) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.leave_message_visibility = (
+            leave_message_visibility
+        )
         return self
 
-    def membership_approval(self, membership_approval: str) -> "UpdateChatRequestBodyBuilder":
+    def membership_approval(
+        self, membership_approval: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.membership_approval = membership_approval
         return self
 
@@ -120,7 +134,9 @@ class UpdateChatRequestBodyBuilder(object):
         self._update_chat_request_body.toolkit_ids = toolkit_ids
         return self
 
-    def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "UpdateChatRequestBodyBuilder":
+    def restricted_mode_setting(
+        self, restricted_mode_setting: RestrictedModeSetting
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.restricted_mode_setting = restricted_mode_setting
         return self
 
@@ -128,7 +144,9 @@ class UpdateChatRequestBodyBuilder(object):
         self._update_chat_request_body.chat_type = chat_type
         return self
 
-    def group_message_type(self, group_message_type: str) -> "UpdateChatRequestBodyBuilder":
+    def group_message_type(
+        self, group_message_type: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.group_message_type = group_message_type
         return self
 
@@ -136,16 +154,26 @@ class UpdateChatRequestBodyBuilder(object):
         self._update_chat_request_body.urgent_setting = urgent_setting
         return self
 
-    def video_conference_setting(self, video_conference_setting: str) -> "UpdateChatRequestBodyBuilder":
-        self._update_chat_request_body.video_conference_setting = video_conference_setting
+    def video_conference_setting(
+        self, video_conference_setting: str
+    ) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.video_conference_setting = (
+            video_conference_setting
+        )
         return self
 
-    def pin_manage_setting(self, pin_manage_setting: str) -> "UpdateChatRequestBodyBuilder":
+    def pin_manage_setting(
+        self, pin_manage_setting: str
+    ) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.pin_manage_setting = pin_manage_setting
         return self
 
-    def hide_member_count_setting(self, hide_member_count_setting: str) -> "UpdateChatRequestBodyBuilder":
-        self._update_chat_request_body.hide_member_count_setting = hide_member_count_setting
+    def hide_member_count_setting(
+        self, hide_member_count_setting: str
+    ) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.hide_member_count_setting = (
+            hide_member_count_setting
+        )
         return self
 
     def build(self) -> "UpdateChatRequestBody":

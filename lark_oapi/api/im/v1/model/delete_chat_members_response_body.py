@@ -22,7 +22,9 @@ class DeleteChatMembersResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_chat_members_response_body = DeleteChatMembersResponseBody()
 
-    def invalid_id_list(self, invalid_id_list: List[str]) -> "DeleteChatMembersResponseBodyBuilder":
+    def invalid_id_list(
+        self, invalid_id_list: List[str]
+    ) -> "DeleteChatMembersResponseBodyBuilder":
         self._delete_chat_members_response_body.invalid_id_list = invalid_id_list
         return self
 

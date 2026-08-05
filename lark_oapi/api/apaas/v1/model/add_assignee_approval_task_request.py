@@ -18,20 +18,29 @@ class AddAssigneeApprovalTaskRequest(BaseRequest):
 
 
 class AddAssigneeApprovalTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         add_assignee_approval_task_request = AddAssigneeApprovalTaskRequest()
         add_assignee_approval_task_request.http_method = HttpMethod.POST
-        add_assignee_approval_task_request.uri = "/open-apis/apaas/v1/approval_tasks/:approval_task_id/add_assignee"
+        add_assignee_approval_task_request.uri = (
+            "/open-apis/apaas/v1/approval_tasks/:approval_task_id/add_assignee"
+        )
         add_assignee_approval_task_request.token_types = {AccessTokenType.TENANT}
-        self._add_assignee_approval_task_request: AddAssigneeApprovalTaskRequest = add_assignee_approval_task_request
+        self._add_assignee_approval_task_request: AddAssigneeApprovalTaskRequest = (
+            add_assignee_approval_task_request
+        )
 
-    def approval_task_id(self, approval_task_id: str) -> "AddAssigneeApprovalTaskRequestBuilder":
+    def approval_task_id(
+        self, approval_task_id: str
+    ) -> "AddAssigneeApprovalTaskRequestBuilder":
         self._add_assignee_approval_task_request.approval_task_id = approval_task_id
-        self._add_assignee_approval_task_request.paths["approval_task_id"] = str(approval_task_id)
+        self._add_assignee_approval_task_request.paths["approval_task_id"] = str(
+            approval_task_id
+        )
         return self
 
-    def request_body(self, request_body: AddAssigneeApprovalTaskRequestBody) -> "AddAssigneeApprovalTaskRequestBuilder":
+    def request_body(
+        self, request_body: AddAssigneeApprovalTaskRequestBody
+    ) -> "AddAssigneeApprovalTaskRequestBuilder":
         self._add_assignee_approval_task_request.request_body = request_body
         self._add_assignee_approval_task_request.body = request_body
         return self

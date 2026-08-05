@@ -16,17 +16,24 @@ class GetTicketCustomizedFieldRequest(BaseRequest):
 
 
 class GetTicketCustomizedFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         get_ticket_customized_field_request = GetTicketCustomizedFieldRequest()
         get_ticket_customized_field_request.http_method = HttpMethod.GET
         get_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
         get_ticket_customized_field_request.token_types = {AccessTokenType.TENANT}
-        self._get_ticket_customized_field_request: GetTicketCustomizedFieldRequest = get_ticket_customized_field_request
+        self._get_ticket_customized_field_request: GetTicketCustomizedFieldRequest = (
+            get_ticket_customized_field_request
+        )
 
-    def ticket_customized_field_id(self, ticket_customized_field_id: str) -> "GetTicketCustomizedFieldRequestBuilder":
-        self._get_ticket_customized_field_request.ticket_customized_field_id = ticket_customized_field_id
-        self._get_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(ticket_customized_field_id)
+    def ticket_customized_field_id(
+        self, ticket_customized_field_id: str
+    ) -> "GetTicketCustomizedFieldRequestBuilder":
+        self._get_ticket_customized_field_request.ticket_customized_field_id = (
+            ticket_customized_field_id
+        )
+        self._get_ticket_customized_field_request.paths[
+            "ticket_customized_field_id"
+        ] = str(ticket_customized_field_id)
         return self
 
     def build(self) -> GetTicketCustomizedFieldRequest:

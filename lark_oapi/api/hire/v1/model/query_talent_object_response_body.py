@@ -23,7 +23,9 @@ class QueryTalentObjectResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_talent_object_response_body = QueryTalentObjectResponseBody()
 
-    def items(self, items: List[CommonSchema]) -> "QueryTalentObjectResponseBodyBuilder":
+    def items(
+        self, items: List[CommonSchema]
+    ) -> "QueryTalentObjectResponseBodyBuilder":
         self._query_talent_object_response_body.items = items
         return self
 

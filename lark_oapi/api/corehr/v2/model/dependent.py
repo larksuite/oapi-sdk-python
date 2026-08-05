@@ -15,6 +15,7 @@ from .enum import Enum
 from .visa import Visa
 from .passport import Passport
 from .citizenship_status import CitizenshipStatus
+from .email import Email
 
 
 class Dependent(object):
@@ -42,6 +43,7 @@ class Dependent(object):
         "visas": List[Visa],
         "passports": List[Passport],
         "citizenship_statuses": List[CitizenshipStatus],
+        "emails": List[Email],
     }
 
     def __init__(self, d=None):
@@ -68,6 +70,7 @@ class Dependent(object):
         self.visas: Optional[List[Visa]] = None
         self.passports: Optional[List[Passport]] = None
         self.citizenship_statuses: Optional[List[CitizenshipStatus]] = None
+        self.emails: Optional[List[Email]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -107,22 +110,32 @@ class DependentBuilder(object):
         self._dependent.nationality_id_v2 = nationality_id_v2
         return self
 
-    def national_id_list(self, national_id_list: List[NationalId]) -> "DependentBuilder":
+    def national_id_list(
+        self, national_id_list: List[NationalId]
+    ) -> "DependentBuilder":
         self._dependent.national_id_list = national_id_list
         return self
 
-    def spouses_working_status(self, spouses_working_status: Enum) -> "DependentBuilder":
+    def spouses_working_status(
+        self, spouses_working_status: Enum
+    ) -> "DependentBuilder":
         self._dependent.spouses_working_status = spouses_working_status
         return self
 
-    def is_this_person_covered_by_health_insurance(self,
-                                                   is_this_person_covered_by_health_insurance: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+    def is_this_person_covered_by_health_insurance(
+        self, is_this_person_covered_by_health_insurance: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_covered_by_health_insurance = (
+            is_this_person_covered_by_health_insurance
+        )
         return self
 
-    def is_this_person_allowed_for_tax_deduction(self,
-                                                 is_this_person_allowed_for_tax_deduction: bool) -> "DependentBuilder":
-        self._dependent.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+    def is_this_person_allowed_for_tax_deduction(
+        self, is_this_person_allowed_for_tax_deduction: bool
+    ) -> "DependentBuilder":
+        self._dependent.is_this_person_allowed_for_tax_deduction = (
+            is_this_person_allowed_for_tax_deduction
+        )
         return self
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DependentBuilder":
@@ -149,7 +162,9 @@ class DependentBuilder(object):
         self._dependent.address = address
         return self
 
-    def birth_certificate_of_child(self, birth_certificate_of_child: List[File]) -> "DependentBuilder":
+    def birth_certificate_of_child(
+        self, birth_certificate_of_child: List[File]
+    ) -> "DependentBuilder":
         self._dependent.birth_certificate_of_child = birth_certificate_of_child
         return self
 
@@ -169,8 +184,14 @@ class DependentBuilder(object):
         self._dependent.passports = passports
         return self
 
-    def citizenship_statuses(self, citizenship_statuses: List[CitizenshipStatus]) -> "DependentBuilder":
+    def citizenship_statuses(
+        self, citizenship_statuses: List[CitizenshipStatus]
+    ) -> "DependentBuilder":
         self._dependent.citizenship_statuses = citizenship_statuses
+        return self
+
+    def emails(self, emails: List[Email]) -> "DependentBuilder":
+        self._dependent.emails = emails
         return self
 
     def build(self) -> "Dependent":

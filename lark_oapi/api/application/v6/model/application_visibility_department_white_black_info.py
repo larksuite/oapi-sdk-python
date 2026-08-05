@@ -24,18 +24,32 @@ class ApplicationVisibilityDepartmentWhiteBlackInfo(object):
 
 class ApplicationVisibilityDepartmentWhiteBlackInfoBuilder(object):
     def __init__(self) -> None:
-        self._application_visibility_department_white_black_info = ApplicationVisibilityDepartmentWhiteBlackInfo()
+        self._application_visibility_department_white_black_info = (
+            ApplicationVisibilityDepartmentWhiteBlackInfo()
+        )
 
-    def department_id(self, department_id: int) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
-        self._application_visibility_department_white_black_info.department_id = department_id
+    def department_id(
+        self, department_id: int
+    ) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
+        self._application_visibility_department_white_black_info.department_id = (
+            department_id
+        )
         return self
 
-    def in_white_list(self, in_white_list: bool) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
-        self._application_visibility_department_white_black_info.in_white_list = in_white_list
+    def in_white_list(
+        self, in_white_list: bool
+    ) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
+        self._application_visibility_department_white_black_info.in_white_list = (
+            in_white_list
+        )
         return self
 
-    def in_black_list(self, in_black_list: bool) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
-        self._application_visibility_department_white_black_info.in_black_list = in_black_list
+    def in_black_list(
+        self, in_black_list: bool
+    ) -> "ApplicationVisibilityDepartmentWhiteBlackInfoBuilder":
+        self._application_visibility_department_white_black_info.in_black_list = (
+            in_black_list
+        )
         return self
 
     def build(self) -> "ApplicationVisibilityDepartmentWhiteBlackInfo":

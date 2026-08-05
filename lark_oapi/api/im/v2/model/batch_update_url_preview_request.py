@@ -17,15 +17,20 @@ class BatchUpdateUrlPreviewRequest(BaseRequest):
 
 
 class BatchUpdateUrlPreviewRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_update_url_preview_request = BatchUpdateUrlPreviewRequest()
         batch_update_url_preview_request.http_method = HttpMethod.POST
-        batch_update_url_preview_request.uri = "/open-apis/im/v2/url_previews/batch_update"
+        batch_update_url_preview_request.uri = (
+            "/open-apis/im/v2/url_previews/batch_update"
+        )
         batch_update_url_preview_request.token_types = {AccessTokenType.TENANT}
-        self._batch_update_url_preview_request: BatchUpdateUrlPreviewRequest = batch_update_url_preview_request
+        self._batch_update_url_preview_request: BatchUpdateUrlPreviewRequest = (
+            batch_update_url_preview_request
+        )
 
-    def request_body(self, request_body: BatchUpdateUrlPreviewRequestBody) -> "BatchUpdateUrlPreviewRequestBuilder":
+    def request_body(
+        self, request_body: BatchUpdateUrlPreviewRequestBody
+    ) -> "BatchUpdateUrlPreviewRequestBuilder":
         self._batch_update_url_preview_request.request_body = request_body
         self._batch_update_url_preview_request.body = request_body
         return self

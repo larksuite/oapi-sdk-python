@@ -9,7 +9,6 @@ from .list_app_table_view_response_body import ListAppTableViewResponseBody
 class ListAppTableViewResponse(BaseResponse):
     _types = {
         "data": ListAppTableViewResponseBody,
-
     }
 
     def __init__(self, d=None):

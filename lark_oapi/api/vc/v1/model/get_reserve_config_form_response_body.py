@@ -23,8 +23,12 @@ class GetReserveConfigFormResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_reserve_config_form_response_body = GetReserveConfigFormResponseBody()
 
-    def reserve_form_config(self, reserve_form_config: ReserveFormConfig) -> "GetReserveConfigFormResponseBodyBuilder":
-        self._get_reserve_config_form_response_body.reserve_form_config = reserve_form_config
+    def reserve_form_config(
+        self, reserve_form_config: ReserveFormConfig
+    ) -> "GetReserveConfigFormResponseBodyBuilder":
+        self._get_reserve_config_form_response_body.reserve_form_config = (
+            reserve_form_config
+        )
         return self
 
     def build(self) -> "GetReserveConfigFormResponseBody":

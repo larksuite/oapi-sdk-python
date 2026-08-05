@@ -23,7 +23,9 @@ class CreateNationalIdTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_national_id_type_response_body = CreateNationalIdTypeResponseBody()
 
-    def national_id_type(self, national_id_type: NationalIdType) -> "CreateNationalIdTypeResponseBodyBuilder":
+    def national_id_type(
+        self, national_id_type: NationalIdType
+    ) -> "CreateNationalIdTypeResponseBodyBuilder":
         self._create_national_id_type_response_body.national_id_type = national_id_type
         return self
 

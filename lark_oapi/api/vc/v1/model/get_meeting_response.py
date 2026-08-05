@@ -9,7 +9,6 @@ from .get_meeting_response_body import GetMeetingResponseBody
 class GetMeetingResponse(BaseResponse):
     _types = {
         "data": GetMeetingResponseBody,
-
     }
 
     def __init__(self, d=None):

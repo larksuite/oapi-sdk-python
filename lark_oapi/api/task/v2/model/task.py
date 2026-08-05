@@ -230,7 +230,9 @@ class TaskBuilder(object):
         self._task.text_deliveries = text_deliveries
         return self
 
-    def attachment_deliveries(self, attachment_deliveries: List[Attachment]) -> "TaskBuilder":
+    def attachment_deliveries(
+        self, attachment_deliveries: List[Attachment]
+    ) -> "TaskBuilder":
         self._task.attachment_deliveries = attachment_deliveries
         return self
 

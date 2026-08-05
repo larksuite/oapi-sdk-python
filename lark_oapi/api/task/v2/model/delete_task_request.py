@@ -16,7 +16,6 @@ class DeleteTaskRequest(BaseRequest):
 
 
 class DeleteTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_task_request = DeleteTaskRequest()
         delete_task_request.http_method = HttpMethod.DELETE

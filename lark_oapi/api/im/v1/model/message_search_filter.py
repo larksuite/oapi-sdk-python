@@ -51,7 +51,9 @@ class MessageSearchFilterBuilder(object):
         self._message_search_filter.time_range = time_range
         return self
 
-    def include_attachment_types(self, include_attachment_types: List[str]) -> "MessageSearchFilterBuilder":
+    def include_attachment_types(
+        self, include_attachment_types: List[str]
+    ) -> "MessageSearchFilterBuilder":
         self._message_search_filter.include_attachment_types = include_attachment_types
         return self
 
@@ -71,7 +73,9 @@ class MessageSearchFilterBuilder(object):
         self._message_search_filter.is_at_me = is_at_me
         return self
 
-    def exclude_from_types(self, exclude_from_types: List[str]) -> "MessageSearchFilterBuilder":
+    def exclude_from_types(
+        self, exclude_from_types: List[str]
+    ) -> "MessageSearchFilterBuilder":
         self._message_search_filter.exclude_from_types = exclude_from_types
         return self
 

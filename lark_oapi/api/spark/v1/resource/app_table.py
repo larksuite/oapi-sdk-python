@@ -9,28 +9,49 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_update_table_records_app_table_request import BatchUpdateTableRecordsAppTableRequest
-from ..model.batch_update_table_records_app_table_response import BatchUpdateTableRecordsAppTableResponse
-from ..model.delete_table_records_app_table_request import DeleteTableRecordsAppTableRequest
-from ..model.delete_table_records_app_table_response import DeleteTableRecordsAppTableResponse
+from ..model.batch_update_table_records_app_table_request import (
+    BatchUpdateTableRecordsAppTableRequest,
+)
+from ..model.batch_update_table_records_app_table_response import (
+    BatchUpdateTableRecordsAppTableResponse,
+)
+from ..model.delete_table_records_app_table_request import (
+    DeleteTableRecordsAppTableRequest,
+)
+from ..model.delete_table_records_app_table_response import (
+    DeleteTableRecordsAppTableResponse,
+)
 from ..model.get_table_detail_app_table_request import GetTableDetailAppTableRequest
 from ..model.get_table_detail_app_table_response import GetTableDetailAppTableResponse
 from ..model.get_table_list_app_table_request import GetTableListAppTableRequest
 from ..model.get_table_list_app_table_response import GetTableListAppTableResponse
-from ..model.get_table_record_list_app_table_request import GetTableRecordListAppTableRequest
-from ..model.get_table_record_list_app_table_response import GetTableRecordListAppTableResponse
-from ..model.patch_table_records_app_table_request import PatchTableRecordsAppTableRequest
-from ..model.patch_table_records_app_table_response import PatchTableRecordsAppTableResponse
+from ..model.get_table_record_list_app_table_request import (
+    GetTableRecordListAppTableRequest,
+)
+from ..model.get_table_record_list_app_table_response import (
+    GetTableRecordListAppTableResponse,
+)
+from ..model.patch_table_records_app_table_request import (
+    PatchTableRecordsAppTableRequest,
+)
+from ..model.patch_table_records_app_table_response import (
+    PatchTableRecordsAppTableResponse,
+)
 from ..model.post_table_records_app_table_request import PostTableRecordsAppTableRequest
-from ..model.post_table_records_app_table_response import PostTableRecordsAppTableResponse
+from ..model.post_table_records_app_table_response import (
+    PostTableRecordsAppTableResponse,
+)
 
 
 class AppTable(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update_table_records(self, request: BatchUpdateTableRecordsAppTableRequest,
-                                   option: Optional[RequestOption] = None) -> BatchUpdateTableRecordsAppTableResponse:
+    def batch_update_table_records(
+        self,
+        request: BatchUpdateTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,14 +66,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           BatchUpdateTableRecordsAppTableResponse)
+        response: BatchUpdateTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_update_table_records(self, request: BatchUpdateTableRecordsAppTableRequest, option: Optional[
-        RequestOption] = None) -> BatchUpdateTableRecordsAppTableResponse:
+    async def abatch_update_table_records(
+        self,
+        request: BatchUpdateTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchUpdateTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -63,14 +88,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchUpdateTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           BatchUpdateTableRecordsAppTableResponse)
+        response: BatchUpdateTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchUpdateTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete_table_records(self, request: DeleteTableRecordsAppTableRequest,
-                             option: Optional[RequestOption] = None) -> DeleteTableRecordsAppTableResponse:
+    def delete_table_records(
+        self,
+        request: DeleteTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -85,14 +114,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      DeleteTableRecordsAppTableResponse)
+        response: DeleteTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete_table_records(self, request: DeleteTableRecordsAppTableRequest,
-                                    option: Optional[RequestOption] = None) -> DeleteTableRecordsAppTableResponse:
+    async def adelete_table_records(
+        self,
+        request: DeleteTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -103,14 +136,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      DeleteTableRecordsAppTableResponse)
+        response: DeleteTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_table_detail(self, request: GetTableDetailAppTableRequest,
-                         option: Optional[RequestOption] = None) -> GetTableDetailAppTableResponse:
+    def get_table_detail(
+        self,
+        request: GetTableDetailAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableDetailAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -125,14 +162,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTableDetailAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetTableDetailAppTableResponse)
+        response: GetTableDetailAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableDetailAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_table_detail(self, request: GetTableDetailAppTableRequest,
-                                option: Optional[RequestOption] = None) -> GetTableDetailAppTableResponse:
+    async def aget_table_detail(
+        self,
+        request: GetTableDetailAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableDetailAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -143,14 +184,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTableDetailAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetTableDetailAppTableResponse)
+        response: GetTableDetailAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableDetailAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_table_list(self, request: GetTableListAppTableRequest,
-                       option: Optional[RequestOption] = None) -> GetTableListAppTableResponse:
+    def get_table_list(
+        self,
+        request: GetTableListAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableListAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -165,13 +210,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTableListAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTableListAppTableResponse)
+        response: GetTableListAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableListAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_table_list(self, request: GetTableListAppTableRequest,
-                              option: Optional[RequestOption] = None) -> GetTableListAppTableResponse:
+    async def aget_table_list(
+        self,
+        request: GetTableListAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableListAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -182,13 +232,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTableListAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTableListAppTableResponse)
+        response: GetTableListAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableListAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_table_record_list(self, request: GetTableRecordListAppTableRequest,
-                              option: Optional[RequestOption] = None) -> GetTableRecordListAppTableResponse:
+    def get_table_record_list(
+        self,
+        request: GetTableRecordListAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableRecordListAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -203,14 +258,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTableRecordListAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetTableRecordListAppTableResponse)
+        response: GetTableRecordListAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableRecordListAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_table_record_list(self, request: GetTableRecordListAppTableRequest,
-                                     option: Optional[RequestOption] = None) -> GetTableRecordListAppTableResponse:
+    async def aget_table_record_list(
+        self,
+        request: GetTableRecordListAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetTableRecordListAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -221,14 +280,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTableRecordListAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetTableRecordListAppTableResponse)
+        response: GetTableRecordListAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTableRecordListAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch_table_records(self, request: PatchTableRecordsAppTableRequest,
-                            option: Optional[RequestOption] = None) -> PatchTableRecordsAppTableResponse:
+    def patch_table_records(
+        self,
+        request: PatchTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,14 +306,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PatchTableRecordsAppTableResponse)
+        response: PatchTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch_table_records(self, request: PatchTableRecordsAppTableRequest,
-                                   option: Optional[RequestOption] = None) -> PatchTableRecordsAppTableResponse:
+    async def apatch_table_records(
+        self,
+        request: PatchTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -261,14 +328,18 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PatchTableRecordsAppTableResponse)
+        response: PatchTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    def post_table_records(self, request: PostTableRecordsAppTableRequest,
-                           option: Optional[RequestOption] = None) -> PostTableRecordsAppTableResponse:
+    def post_table_records(
+        self,
+        request: PostTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PostTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -283,14 +354,18 @@ class AppTable(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PostTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    PostTableRecordsAppTableResponse)
+        response: PostTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PostTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apost_table_records(self, request: PostTableRecordsAppTableRequest,
-                                  option: Optional[RequestOption] = None) -> PostTableRecordsAppTableResponse:
+    async def apost_table_records(
+        self,
+        request: PostTableRecordsAppTableRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PostTableRecordsAppTableResponse:
         if option is None:
             option = RequestOption()
 
@@ -301,8 +376,9 @@ class AppTable(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PostTableRecordsAppTableResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    PostTableRecordsAppTableResponse)
+        response: PostTableRecordsAppTableResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PostTableRecordsAppTableResponse
+        )
         response.raw = resp
 
         return response

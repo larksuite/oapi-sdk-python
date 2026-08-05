@@ -18,7 +18,6 @@ class DeleteEntityRequest(BaseRequest):
 
 
 class DeleteEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_entity_request = DeleteEntityRequest()
         delete_entity_request.http_method = HttpMethod.DELETE

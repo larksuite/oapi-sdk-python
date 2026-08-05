@@ -25,13 +25,18 @@ class CompositeTalentSelfIntroductionBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_self_introduction = CompositeTalentSelfIntroduction()
 
-    def self_introduction(self, self_introduction: str) -> "CompositeTalentSelfIntroductionBuilder":
+    def self_introduction(
+        self, self_introduction: str
+    ) -> "CompositeTalentSelfIntroductionBuilder":
         self._composite_talent_self_introduction.self_introduction = self_introduction
         return self
 
-    def customized_data_list(self, customized_data_list: List[
-        TalentCustomizedDataChild]) -> "CompositeTalentSelfIntroductionBuilder":
-        self._composite_talent_self_introduction.customized_data_list = customized_data_list
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "CompositeTalentSelfIntroductionBuilder":
+        self._composite_talent_self_introduction.customized_data_list = (
+            customized_data_list
+        )
         return self
 
     def build(self) -> "CompositeTalentSelfIntroduction":

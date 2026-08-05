@@ -14,6 +14,7 @@ class Note(object):
         "artifacts": List[NoteArtifactInfo],
         "references": List[NoteReferenceInfo],
         "note_source": GeneratedSource,
+        "note_display_type": int,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class Note(object):
         self.artifacts: Optional[List[NoteArtifactInfo]] = None
         self.references: Optional[List[NoteReferenceInfo]] = None
         self.note_source: Optional[GeneratedSource] = None
+        self.note_display_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -51,6 +53,10 @@ class NoteBuilder(object):
 
     def note_source(self, note_source: GeneratedSource) -> "NoteBuilder":
         self._note.note_source = note_source
+        return self
+
+    def note_display_type(self, note_display_type: int) -> "NoteBuilder":
+        self._note.note_display_type = note_display_type
         return self
 
     def build(self) -> "Note":

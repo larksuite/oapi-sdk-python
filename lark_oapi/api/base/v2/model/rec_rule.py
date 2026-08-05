@@ -50,11 +50,15 @@ class RecRuleBuilder(object):
         self._rec_rule.other_perm = other_perm
         return self
 
-    def condition_groups(self, condition_groups: List[ConditionGroup]) -> "RecRuleBuilder":
+    def condition_groups(
+        self, condition_groups: List[ConditionGroup]
+    ) -> "RecRuleBuilder":
         self._rec_rule.condition_groups = condition_groups
         return self
 
-    def display_rec_rule_version(self, display_rec_rule_version: int) -> "RecRuleBuilder":
+    def display_rec_rule_version(
+        self, display_rec_rule_version: int
+    ) -> "RecRuleBuilder":
         self._rec_rule.display_rec_rule_version = display_rec_rule_version
         return self
 

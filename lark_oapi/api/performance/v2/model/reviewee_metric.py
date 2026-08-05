@@ -43,7 +43,9 @@ class RevieweeMetricBuilder(object):
         self._reviewee_metric.metric_details = metric_details
         return self
 
-    def reviewee_stage_statuses(self, reviewee_stage_statuses: List[RevieweeStageStatus]) -> "RevieweeMetricBuilder":
+    def reviewee_stage_statuses(
+        self, reviewee_stage_statuses: List[RevieweeStageStatus]
+    ) -> "RevieweeMetricBuilder":
         self._reviewee_metric.reviewee_stage_statuses = reviewee_stage_statuses
         return self
 

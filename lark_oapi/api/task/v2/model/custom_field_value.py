@@ -59,11 +59,15 @@ class CustomFieldValueBuilder(object):
         self._custom_field_value.member_value = member_value
         return self
 
-    def single_select_value(self, single_select_value: str) -> "CustomFieldValueBuilder":
+    def single_select_value(
+        self, single_select_value: str
+    ) -> "CustomFieldValueBuilder":
         self._custom_field_value.single_select_value = single_select_value
         return self
 
-    def multi_select_value(self, multi_select_value: List[str]) -> "CustomFieldValueBuilder":
+    def multi_select_value(
+        self, multi_select_value: List[str]
+    ) -> "CustomFieldValueBuilder":
         self._custom_field_value.multi_select_value = multi_select_value
         return self
 

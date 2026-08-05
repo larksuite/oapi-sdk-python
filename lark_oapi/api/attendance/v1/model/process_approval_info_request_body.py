@@ -30,7 +30,9 @@ class ProcessApprovalInfoRequestBodyBuilder(object):
         self._process_approval_info_request_body.approval_id = approval_id
         return self
 
-    def approval_type(self, approval_type: str) -> "ProcessApprovalInfoRequestBodyBuilder":
+    def approval_type(
+        self, approval_type: str
+    ) -> "ProcessApprovalInfoRequestBodyBuilder":
         self._process_approval_info_request_body.approval_type = approval_type
         return self
 

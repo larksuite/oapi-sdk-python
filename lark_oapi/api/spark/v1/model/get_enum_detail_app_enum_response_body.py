@@ -26,13 +26,17 @@ class GetEnumDetailAppEnumResponseBody(object):
 
 class GetEnumDetailAppEnumResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_enum_detail_app_enum_response_body = GetEnumDetailAppEnumResponseBody()
+        self._get_enum_detail_app_enum_response_body = (
+            GetEnumDetailAppEnumResponseBody()
+        )
 
     def name(self, name: str) -> "GetEnumDetailAppEnumResponseBodyBuilder":
         self._get_enum_detail_app_enum_response_body.name = name
         return self
 
-    def description(self, description: str) -> "GetEnumDetailAppEnumResponseBodyBuilder":
+    def description(
+        self, description: str
+    ) -> "GetEnumDetailAppEnumResponseBodyBuilder":
         self._get_enum_detail_app_enum_response_body.description = description
         return self
 

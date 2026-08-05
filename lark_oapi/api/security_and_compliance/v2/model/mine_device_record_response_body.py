@@ -26,15 +26,21 @@ class MineDeviceRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._mine_device_record_response_body = MineDeviceRecordResponseBody()
 
-    def device_record_id(self, device_record_id: int) -> "MineDeviceRecordResponseBodyBuilder":
+    def device_record_id(
+        self, device_record_id: int
+    ) -> "MineDeviceRecordResponseBodyBuilder":
         self._mine_device_record_response_body.device_record_id = device_record_id
         return self
 
-    def device_ownership(self, device_ownership: int) -> "MineDeviceRecordResponseBodyBuilder":
+    def device_ownership(
+        self, device_ownership: int
+    ) -> "MineDeviceRecordResponseBodyBuilder":
         self._mine_device_record_response_body.device_ownership = device_ownership
         return self
 
-    def device_status(self, device_status: int) -> "MineDeviceRecordResponseBodyBuilder":
+    def device_status(
+        self, device_status: int
+    ) -> "MineDeviceRecordResponseBodyBuilder":
         self._mine_device_record_response_body.device_status = device_status
         return self
 

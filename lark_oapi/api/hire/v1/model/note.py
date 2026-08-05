@@ -83,7 +83,9 @@ class NoteBuilder(object):
         self._note.notify_mentioned_user = notify_mentioned_user
         return self
 
-    def mention_entity_list(self, mention_entity_list: List[MentionEntity]) -> "NoteBuilder":
+    def mention_entity_list(
+        self, mention_entity_list: List[MentionEntity]
+    ) -> "NoteBuilder":
         self._note.mention_entity_list = mention_entity_list
         return self
 

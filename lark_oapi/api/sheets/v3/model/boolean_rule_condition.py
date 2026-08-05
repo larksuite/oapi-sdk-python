@@ -29,9 +29,12 @@ class BooleanRuleConditionBuilder(object):
         self._boolean_rule_condition.type = type
         return self
 
-    def boolean_conditional_values(self,
-                                   boolean_conditional_values: List[BoolRuleValue]) -> "BooleanRuleConditionBuilder":
-        self._boolean_rule_condition.boolean_conditional_values = boolean_conditional_values
+    def boolean_conditional_values(
+        self, boolean_conditional_values: List[BoolRuleValue]
+    ) -> "BooleanRuleConditionBuilder":
+        self._boolean_rule_condition.boolean_conditional_values = (
+            boolean_conditional_values
+        )
         return self
 
     def build(self) -> "BooleanRuleCondition":

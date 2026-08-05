@@ -19,7 +19,9 @@ class Draft(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDraftRequest, option: Optional[RequestOption] = None) -> CreateDraftResponse:
+    def create(
+        self, request: CreateDraftRequest, option: Optional[RequestOption] = None
+    ) -> CreateDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Draft(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDraftResponse)
+        response: CreateDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDraftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateDraftRequest, option: Optional[RequestOption] = None) -> CreateDraftResponse:
+    async def acreate(
+        self, request: CreateDraftRequest, option: Optional[RequestOption] = None
+    ) -> CreateDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Draft(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDraftResponse)
+        response: CreateDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDraftResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateDraftRequest, option: Optional[RequestOption] = None) -> UpdateDraftResponse:
+    def update(
+        self, request: UpdateDraftRequest, option: Optional[RequestOption] = None
+    ) -> UpdateDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,12 +80,16 @@ class Draft(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDraftResponse)
+        response: UpdateDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDraftResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateDraftRequest, option: Optional[RequestOption] = None) -> UpdateDraftResponse:
+    async def aupdate(
+        self, request: UpdateDraftRequest, option: Optional[RequestOption] = None
+    ) -> UpdateDraftResponse:
         if option is None:
             option = RequestOption()
 
@@ -86,7 +100,9 @@ class Draft(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDraftResponse)
+        response: UpdateDraftResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDraftResponse
+        )
         response.raw = resp
 
         return response

@@ -17,15 +17,20 @@ class QueryMultiTimelineJobRequest(BaseRequest):
 
 
 class QueryMultiTimelineJobRequestBuilder(object):
-
     def __init__(self) -> None:
         query_multi_timeline_job_request = QueryMultiTimelineJobRequest()
         query_multi_timeline_job_request.http_method = HttpMethod.POST
-        query_multi_timeline_job_request.uri = "/open-apis/corehr/v2/jobs/query_multi_timeline"
+        query_multi_timeline_job_request.uri = (
+            "/open-apis/corehr/v2/jobs/query_multi_timeline"
+        )
         query_multi_timeline_job_request.token_types = {AccessTokenType.TENANT}
-        self._query_multi_timeline_job_request: QueryMultiTimelineJobRequest = query_multi_timeline_job_request
+        self._query_multi_timeline_job_request: QueryMultiTimelineJobRequest = (
+            query_multi_timeline_job_request
+        )
 
-    def request_body(self, request_body: QueryMultiTimelineJobRequestBody) -> "QueryMultiTimelineJobRequestBuilder":
+    def request_body(
+        self, request_body: QueryMultiTimelineJobRequestBody
+    ) -> "QueryMultiTimelineJobRequestBuilder":
         self._query_multi_timeline_job_request.request_body = request_body
         self._query_multi_timeline_job_request.body = request_body
         return self

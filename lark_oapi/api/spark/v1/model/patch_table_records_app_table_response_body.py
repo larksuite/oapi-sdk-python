@@ -20,9 +20,13 @@ class PatchTableRecordsAppTableResponseBody(object):
 
 class PatchTableRecordsAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_table_records_app_table_response_body = PatchTableRecordsAppTableResponseBody()
+        self._patch_table_records_app_table_response_body = (
+            PatchTableRecordsAppTableResponseBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "PatchTableRecordsAppTableResponseBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "PatchTableRecordsAppTableResponseBodyBuilder":
         self._patch_table_records_app_table_response_body.record_ids = record_ids
         return self
 

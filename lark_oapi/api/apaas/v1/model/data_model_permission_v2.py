@@ -37,7 +37,9 @@ class DataModelPermissionV2Builder(object):
         self._data_model_permission_v2.role_api_name = role_api_name
         return self
 
-    def data_model_api_name(self, data_model_api_name: str) -> "DataModelPermissionV2Builder":
+    def data_model_api_name(
+        self, data_model_api_name: str
+    ) -> "DataModelPermissionV2Builder":
         self._data_model_permission_v2.data_model_api_name = data_model_api_name
         return self
 
@@ -45,16 +47,21 @@ class DataModelPermissionV2Builder(object):
         self._data_model_permission_v2.data_model_type = data_model_type
         return self
 
-    def access_permissions(self, access_permissions: List[int]) -> "DataModelPermissionV2Builder":
+    def access_permissions(
+        self, access_permissions: List[int]
+    ) -> "DataModelPermissionV2Builder":
         self._data_model_permission_v2.access_permissions = access_permissions
         return self
 
-    def field_permission_config(self,
-                                field_permission_config: FieldPermissionConfigV2) -> "DataModelPermissionV2Builder":
+    def field_permission_config(
+        self, field_permission_config: FieldPermissionConfigV2
+    ) -> "DataModelPermissionV2Builder":
         self._data_model_permission_v2.field_permission_config = field_permission_config
         return self
 
-    def data_model_name(self, data_model_name: Dict[str, str]) -> "DataModelPermissionV2Builder":
+    def data_model_name(
+        self, data_model_name: Dict[str, str]
+    ) -> "DataModelPermissionV2Builder":
         self._data_model_permission_v2.data_model_name = data_model_name
         return self
 

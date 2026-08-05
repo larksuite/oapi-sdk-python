@@ -9,7 +9,6 @@ from .tree_cost_center_response_body import TreeCostCenterResponseBody
 class TreeCostCenterResponse(BaseResponse):
     _types = {
         "data": TreeCostCenterResponseBody,
-
     }
 
     def __init__(self, d=None):

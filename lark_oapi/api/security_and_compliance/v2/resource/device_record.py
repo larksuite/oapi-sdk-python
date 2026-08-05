@@ -27,8 +27,9 @@ class DeviceRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDeviceRecordRequest,
-               option: Optional[RequestOption] = None) -> CreateDeviceRecordResponse:
+    def create(
+        self, request: CreateDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> CreateDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -43,13 +44,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDeviceRecordResponse)
+        response: CreateDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateDeviceRecordRequest,
-                      option: Optional[RequestOption] = None) -> CreateDeviceRecordResponse:
+    async def acreate(
+        self, request: CreateDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> CreateDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -60,13 +64,16 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDeviceRecordResponse)
+        response: CreateDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteDeviceRecordRequest,
-               option: Optional[RequestOption] = None) -> DeleteDeviceRecordResponse:
+    def delete(
+        self, request: DeleteDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> DeleteDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,13 +88,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDeviceRecordResponse)
+        response: DeleteDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteDeviceRecordRequest,
-                      option: Optional[RequestOption] = None) -> DeleteDeviceRecordResponse:
+    async def adelete(
+        self, request: DeleteDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> DeleteDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -98,12 +108,16 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDeviceRecordResponse)
+        response: DeleteDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetDeviceRecordRequest, option: Optional[RequestOption] = None) -> GetDeviceRecordResponse:
+    def get(
+        self, request: GetDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> GetDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,13 +132,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDeviceRecordResponse)
+        response: GetDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetDeviceRecordRequest,
-                   option: Optional[RequestOption] = None) -> GetDeviceRecordResponse:
+    async def aget(
+        self, request: GetDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> GetDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,13 +152,16 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDeviceRecordResponse)
+        response: GetDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListDeviceRecordRequest,
-             option: Optional[RequestOption] = None) -> ListDeviceRecordResponse:
+    def list(
+        self, request: ListDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> ListDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +176,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDeviceRecordResponse)
+        response: ListDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListDeviceRecordRequest,
-                    option: Optional[RequestOption] = None) -> ListDeviceRecordResponse:
+    async def alist(
+        self, request: ListDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> ListDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,13 +196,16 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDeviceRecordResponse)
+        response: ListDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def mine(self, request: MineDeviceRecordRequest,
-             option: Optional[RequestOption] = None) -> MineDeviceRecordResponse:
+    def mine(
+        self, request: MineDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> MineDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,13 +220,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MineDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), MineDeviceRecordResponse)
+        response: MineDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MineDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amine(self, request: MineDeviceRecordRequest,
-                    option: Optional[RequestOption] = None) -> MineDeviceRecordResponse:
+    async def amine(
+        self, request: MineDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> MineDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -211,13 +240,16 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MineDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), MineDeviceRecordResponse)
+        response: MineDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MineDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateDeviceRecordRequest,
-               option: Optional[RequestOption] = None) -> UpdateDeviceRecordResponse:
+    def update(
+        self, request: UpdateDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> UpdateDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -232,13 +264,16 @@ class DeviceRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDeviceRecordResponse)
+        response: UpdateDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDeviceRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateDeviceRecordRequest,
-                      option: Optional[RequestOption] = None) -> UpdateDeviceRecordResponse:
+    async def aupdate(
+        self, request: UpdateDeviceRecordRequest, option: Optional[RequestOption] = None
+    ) -> UpdateDeviceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -249,7 +284,9 @@ class DeviceRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDeviceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDeviceRecordResponse)
+        response: UpdateDeviceRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDeviceRecordResponse
+        )
         response.raw = resp
 
         return response

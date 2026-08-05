@@ -86,7 +86,9 @@ class HiberarchyCommonBuilder(object):
         self._hiberarchy_common.list_order = list_order
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "HiberarchyCommonBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "HiberarchyCommonBuilder":
         self._hiberarchy_common.custom_fields = custom_fields
         return self
 

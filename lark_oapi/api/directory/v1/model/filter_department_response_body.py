@@ -29,15 +29,21 @@ class FilterDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._filter_department_response_body = FilterDepartmentResponseBody()
 
-    def departments(self, departments: List[Department]) -> "FilterDepartmentResponseBodyBuilder":
+    def departments(
+        self, departments: List[Department]
+    ) -> "FilterDepartmentResponseBodyBuilder":
         self._filter_department_response_body.departments = departments
         return self
 
-    def page_response(self, page_response: PageResponse) -> "FilterDepartmentResponseBodyBuilder":
+    def page_response(
+        self, page_response: PageResponse
+    ) -> "FilterDepartmentResponseBodyBuilder":
         self._filter_department_response_body.page_response = page_response
         return self
 
-    def abnormals(self, abnormals: List[AbnormalRecord]) -> "FilterDepartmentResponseBodyBuilder":
+    def abnormals(
+        self, abnormals: List[AbnormalRecord]
+    ) -> "FilterDepartmentResponseBodyBuilder":
         self._filter_department_response_body.abnormals = abnormals
         return self
 

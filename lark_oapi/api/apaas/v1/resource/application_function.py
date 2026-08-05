@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.invoke_application_function_request import InvokeApplicationFunctionRequest
-from ..model.invoke_application_function_response import InvokeApplicationFunctionResponse
+from ..model.invoke_application_function_response import (
+    InvokeApplicationFunctionResponse,
+)
 
 
 class ApplicationFunction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def invoke(self, request: InvokeApplicationFunctionRequest,
-               option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
+    def invoke(
+        self,
+        request: InvokeApplicationFunctionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> InvokeApplicationFunctionResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class ApplicationFunction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     InvokeApplicationFunctionResponse)
+        response: InvokeApplicationFunctionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InvokeApplicationFunctionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ainvoke(self, request: InvokeApplicationFunctionRequest,
-                      option: Optional[RequestOption] = None) -> InvokeApplicationFunctionResponse:
+    async def ainvoke(
+        self,
+        request: InvokeApplicationFunctionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> InvokeApplicationFunctionResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class ApplicationFunction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: InvokeApplicationFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     InvokeApplicationFunctionResponse)
+        response: InvokeApplicationFunctionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InvokeApplicationFunctionResponse
+        )
         response.raw = resp
 
         return response

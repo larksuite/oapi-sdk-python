@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .search_basic_info_bank_branch_response_body import SearchBasicInfoBankBranchResponseBody
+from .search_basic_info_bank_branch_response_body import (
+    SearchBasicInfoBankBranchResponseBody,
+)
 
 
 class SearchBasicInfoBankBranchResponse(BaseResponse):
     _types = {
         "data": SearchBasicInfoBankBranchResponseBody,
-
     }
 
     def __init__(self, d=None):

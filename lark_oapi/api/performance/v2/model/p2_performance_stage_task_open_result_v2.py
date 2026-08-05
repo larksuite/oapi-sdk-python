@@ -17,9 +17,7 @@ class P2PerformanceStageTaskOpenResultV2Data(object):
 
 
 class P2PerformanceStageTaskOpenResultV2(EventContext):
-    _types = {
-        "event": P2PerformanceStageTaskOpenResultV2Data
-    }
+    _types = {"event": P2PerformanceStageTaskOpenResultV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

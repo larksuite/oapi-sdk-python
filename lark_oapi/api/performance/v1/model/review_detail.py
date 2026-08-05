@@ -79,7 +79,9 @@ class ReviewDetailBuilder(object):
         self._review_detail.text = text
         return self
 
-    def perf_coefficient_result(self, perf_coefficient_result: str) -> "ReviewDetailBuilder":
+    def perf_coefficient_result(
+        self, perf_coefficient_result: str
+    ) -> "ReviewDetailBuilder":
         self._review_detail.perf_coefficient_result = perf_coefficient_result
         return self
 

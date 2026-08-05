@@ -29,7 +29,9 @@ class InlineBlockBuilder(object):
         self._inline_block.block_id = block_id
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "InlineBlockBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "InlineBlockBuilder":
         self._inline_block.text_element_style = text_element_style
         return self
 

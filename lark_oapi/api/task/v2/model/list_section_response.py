@@ -9,7 +9,6 @@ from .list_section_response_body import ListSectionResponseBody
 class ListSectionResponse(BaseResponse):
     _types = {
         "data": ListSectionResponseBody,
-
     }
 
     def __init__(self, d=None):

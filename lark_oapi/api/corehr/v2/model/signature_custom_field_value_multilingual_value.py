@@ -22,7 +22,9 @@ class SignatureCustomFieldValueMultilingualValue(object):
 
 class SignatureCustomFieldValueMultilingualValueBuilder(object):
     def __init__(self) -> None:
-        self._signature_custom_field_value_multilingual_value = SignatureCustomFieldValueMultilingualValue()
+        self._signature_custom_field_value_multilingual_value = (
+            SignatureCustomFieldValueMultilingualValue()
+        )
 
     def zh(self, zh: str) -> "SignatureCustomFieldValueMultilingualValueBuilder":
         self._signature_custom_field_value_multilingual_value.zh = zh

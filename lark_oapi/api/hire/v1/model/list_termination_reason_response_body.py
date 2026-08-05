@@ -25,9 +25,13 @@ class ListTerminationReasonResponseBody(object):
 
 class ListTerminationReasonResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_termination_reason_response_body = ListTerminationReasonResponseBody()
+        self._list_termination_reason_response_body = (
+            ListTerminationReasonResponseBody()
+        )
 
-    def items(self, items: List[TerminationReason]) -> "ListTerminationReasonResponseBodyBuilder":
+    def items(
+        self, items: List[TerminationReason]
+    ) -> "ListTerminationReasonResponseBodyBuilder":
         self._list_termination_reason_response_body.items = items
         return self
 

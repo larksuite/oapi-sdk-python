@@ -21,10 +21,13 @@ class EmploymentCustomOrgRecordEmployeeCustomOrgResponseBody(object):
 
 class EmploymentCustomOrgRecordEmployeeCustomOrgResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._employment_custom_org_record_employee_custom_org_response_body = EmploymentCustomOrgRecordEmployeeCustomOrgResponseBody()
+        self._employment_custom_org_record_employee_custom_org_response_body = (
+            EmploymentCustomOrgRecordEmployeeCustomOrgResponseBody()
+        )
 
-    def custom_org_list(self, custom_org_list: List[
-        EmpCustomOrgList]) -> "EmploymentCustomOrgRecordEmployeeCustomOrgResponseBodyBuilder":
+    def custom_org_list(
+        self, custom_org_list: List[EmpCustomOrgList]
+    ) -> "EmploymentCustomOrgRecordEmployeeCustomOrgResponseBodyBuilder":
         self._employment_custom_org_record_employee_custom_org_response_body.custom_org_list = custom_org_list
         return self
 

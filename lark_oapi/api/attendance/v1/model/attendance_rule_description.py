@@ -42,11 +42,17 @@ class AttendanceRuleDescriptionBuilder(object):
         self._attendance_rule_description.allow_remedy = allow_remedy
         return self
 
-    def shift_rotation_is_schedule(self, shift_rotation_is_schedule: bool) -> "AttendanceRuleDescriptionBuilder":
-        self._attendance_rule_description.shift_rotation_is_schedule = shift_rotation_is_schedule
+    def shift_rotation_is_schedule(
+        self, shift_rotation_is_schedule: bool
+    ) -> "AttendanceRuleDescriptionBuilder":
+        self._attendance_rule_description.shift_rotation_is_schedule = (
+            shift_rotation_is_schedule
+        )
         return self
 
-    def exist_over_time_range(self, exist_over_time_range: bool) -> "AttendanceRuleDescriptionBuilder":
+    def exist_over_time_range(
+        self, exist_over_time_range: bool
+    ) -> "AttendanceRuleDescriptionBuilder":
         self._attendance_rule_description.exist_over_time_range = exist_over_time_range
         return self
 

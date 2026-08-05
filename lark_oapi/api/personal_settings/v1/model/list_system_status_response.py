@@ -9,7 +9,6 @@ from .list_system_status_response_body import ListSystemStatusResponseBody
 class ListSystemStatusResponse(BaseResponse):
     _types = {
         "data": ListSystemStatusResponseBody,
-
     }
 
     def __init__(self, d=None):

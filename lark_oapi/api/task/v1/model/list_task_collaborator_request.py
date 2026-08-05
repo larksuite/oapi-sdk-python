@@ -19,13 +19,19 @@ class ListTaskCollaboratorRequest(BaseRequest):
 
 
 class ListTaskCollaboratorRequestBuilder(object):
-
     def __init__(self) -> None:
         list_task_collaborator_request = ListTaskCollaboratorRequest()
         list_task_collaborator_request.http_method = HttpMethod.GET
-        list_task_collaborator_request.uri = "/open-apis/task/v1/tasks/:task_id/collaborators"
-        list_task_collaborator_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_task_collaborator_request: ListTaskCollaboratorRequest = list_task_collaborator_request
+        list_task_collaborator_request.uri = (
+            "/open-apis/task/v1/tasks/:task_id/collaborators"
+        )
+        list_task_collaborator_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_task_collaborator_request: ListTaskCollaboratorRequest = (
+            list_task_collaborator_request
+        )
 
     def page_size(self, page_size: int) -> "ListTaskCollaboratorRequestBuilder":
         self._list_task_collaborator_request.page_size = page_size

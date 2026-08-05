@@ -20,9 +20,13 @@ class RollbackPointsUserTaskRequestBody(object):
 
 class RollbackPointsUserTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._rollback_points_user_task_request_body = RollbackPointsUserTaskRequestBody()
+        self._rollback_points_user_task_request_body = (
+            RollbackPointsUserTaskRequestBody()
+        )
 
-    def operator_user_id(self, operator_user_id: str) -> "RollbackPointsUserTaskRequestBodyBuilder":
+    def operator_user_id(
+        self, operator_user_id: str
+    ) -> "RollbackPointsUserTaskRequestBodyBuilder":
         self._rollback_points_user_task_request_body.operator_user_id = operator_user_id
         return self
 

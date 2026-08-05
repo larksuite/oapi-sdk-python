@@ -50,7 +50,9 @@ class TerminationReasonBuilder(object):
         self._termination_reason.termination_type = termination_type
         return self
 
-    def is_used_as_evaluation(self, is_used_as_evaluation: bool) -> "TerminationReasonBuilder":
+    def is_used_as_evaluation(
+        self, is_used_as_evaluation: bool
+    ) -> "TerminationReasonBuilder":
         self._termination_reason.is_used_as_evaluation = is_used_as_evaluation
         return self
 

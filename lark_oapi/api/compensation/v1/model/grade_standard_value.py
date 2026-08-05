@@ -33,7 +33,9 @@ class GradeStandardValueBuilder(object):
         self._grade_standard_value.standard_value = standard_value
         return self
 
-    def reference_object(self, reference_object: StandardReferenceObject) -> "GradeStandardValueBuilder":
+    def reference_object(
+        self, reference_object: StandardReferenceObject
+    ) -> "GradeStandardValueBuilder":
         self._grade_standard_value.reference_object = reference_object
         return self
 

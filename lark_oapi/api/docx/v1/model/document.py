@@ -44,7 +44,9 @@ class DocumentBuilder(object):
         self._document.title = title
         return self
 
-    def display_setting(self, display_setting: DocumentDisplaySetting) -> "DocumentBuilder":
+    def display_setting(
+        self, display_setting: DocumentDisplaySetting
+    ) -> "DocumentBuilder":
         self._document.display_setting = display_setting
         return self
 

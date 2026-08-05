@@ -65,7 +65,9 @@ class TalentProjectInfoBuilder(object):
         self._talent_project_info.end_time = end_time
         return self
 
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentProjectInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "TalentProjectInfoBuilder":
         self._talent_project_info.customized_data_list = customized_data_list
         return self
 

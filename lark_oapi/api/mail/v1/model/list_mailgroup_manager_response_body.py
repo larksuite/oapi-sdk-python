@@ -27,7 +27,9 @@ class ListMailgroupManagerResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_mailgroup_manager_response_body = ListMailgroupManagerResponseBody()
 
-    def items(self, items: List[MailgroupManager]) -> "ListMailgroupManagerResponseBodyBuilder":
+    def items(
+        self, items: List[MailgroupManager]
+    ) -> "ListMailgroupManagerResponseBodyBuilder":
         self._list_mailgroup_manager_response_body.items = items
         return self
 

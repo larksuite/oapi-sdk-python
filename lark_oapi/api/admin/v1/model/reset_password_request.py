@@ -18,7 +18,6 @@ class ResetPasswordRequest(BaseRequest):
 
 
 class ResetPasswordRequestBuilder(object):
-
     def __init__(self) -> None:
         reset_password_request = ResetPasswordRequest()
         reset_password_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class ResetPasswordRequestBuilder(object):
         self._reset_password_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: ResetPasswordRequestBody) -> "ResetPasswordRequestBuilder":
+    def request_body(
+        self, request_body: ResetPasswordRequestBody
+    ) -> "ResetPasswordRequestBuilder":
         self._reset_password_request.request_body = request_body
         self._reset_password_request.body = request_body
         return self

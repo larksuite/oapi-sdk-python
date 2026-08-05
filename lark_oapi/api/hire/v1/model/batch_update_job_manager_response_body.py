@@ -21,9 +21,13 @@ class BatchUpdateJobManagerResponseBody(object):
 
 class BatchUpdateJobManagerResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_job_manager_response_body = BatchUpdateJobManagerResponseBody()
+        self._batch_update_job_manager_response_body = (
+            BatchUpdateJobManagerResponseBody()
+        )
 
-    def job_manager(self, job_manager: JobManager) -> "BatchUpdateJobManagerResponseBodyBuilder":
+    def job_manager(
+        self, job_manager: JobManager
+    ) -> "BatchUpdateJobManagerResponseBodyBuilder":
         self._batch_update_job_manager_response_body.job_manager = job_manager
         return self
 

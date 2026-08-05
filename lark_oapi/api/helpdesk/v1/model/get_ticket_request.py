@@ -16,7 +16,6 @@ class GetTicketRequest(BaseRequest):
 
 
 class GetTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         get_ticket_request = GetTicketRequest()
         get_ticket_request.http_method = HttpMethod.GET

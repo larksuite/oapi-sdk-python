@@ -223,7 +223,9 @@ class AuditLogEsFieldBuilder(object):
         self._audit_log_es_field.status = status
         return self
 
-    def failed_reason_i18n(self, failed_reason_i18n: Dict[str, str]) -> "AuditLogEsFieldBuilder":
+    def failed_reason_i18n(
+        self, failed_reason_i18n: Dict[str, str]
+    ) -> "AuditLogEsFieldBuilder":
         self._audit_log_es_field.failed_reason_i18n = failed_reason_i18n
         return self
 
@@ -235,12 +237,18 @@ class AuditLogEsFieldBuilder(object):
         self._audit_log_es_field.app_name = app_name
         return self
 
-    def keyword_field_app_version(self, keyword_field_app_version: str) -> "AuditLogEsFieldBuilder":
+    def keyword_field_app_version(
+        self, keyword_field_app_version: str
+    ) -> "AuditLogEsFieldBuilder":
         self._audit_log_es_field.keyword_field_app_version = keyword_field_app_version
         return self
 
-    def keyword_field_functional_sub_module(self, keyword_field_functional_sub_module: str) -> "AuditLogEsFieldBuilder":
-        self._audit_log_es_field.keyword_field_functional_sub_module = keyword_field_functional_sub_module
+    def keyword_field_functional_sub_module(
+        self, keyword_field_functional_sub_module: str
+    ) -> "AuditLogEsFieldBuilder":
+        self._audit_log_es_field.keyword_field_functional_sub_module = (
+            keyword_field_functional_sub_module
+        )
         return self
 
     def build(self) -> "AuditLogEsField":

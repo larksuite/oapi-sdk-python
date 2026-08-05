@@ -18,9 +18,7 @@ class P2CorehrCostCenterUpdatedV2Data(object):
 
 
 class P2CorehrCostCenterUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrCostCenterUpdatedV2Data
-    }
+    _types = {"event": P2CorehrCostCenterUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

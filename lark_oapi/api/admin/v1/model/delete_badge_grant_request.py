@@ -17,13 +17,16 @@ class DeleteBadgeGrantRequest(BaseRequest):
 
 
 class DeleteBadgeGrantRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_badge_grant_request = DeleteBadgeGrantRequest()
         delete_badge_grant_request.http_method = HttpMethod.DELETE
-        delete_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+        delete_badge_grant_request.uri = (
+            "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+        )
         delete_badge_grant_request.token_types = {AccessTokenType.TENANT}
-        self._delete_badge_grant_request: DeleteBadgeGrantRequest = delete_badge_grant_request
+        self._delete_badge_grant_request: DeleteBadgeGrantRequest = (
+            delete_badge_grant_request
+        )
 
     def badge_id(self, badge_id: str) -> "DeleteBadgeGrantRequestBuilder":
         self._delete_badge_grant_request.badge_id = badge_id

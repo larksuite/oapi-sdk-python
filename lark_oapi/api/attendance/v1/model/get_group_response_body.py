@@ -194,7 +194,9 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.bind_dept_ids = bind_dept_ids
         return self
 
-    def except_dept_ids(self, except_dept_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def except_dept_ids(
+        self, except_dept_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.except_dept_ids = except_dept_ids
         return self
 
@@ -202,15 +204,21 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.bind_user_ids = bind_user_ids
         return self
 
-    def except_user_ids(self, except_user_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def except_user_ids(
+        self, except_user_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.except_user_ids = except_user_ids
         return self
 
-    def group_leader_ids(self, group_leader_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def group_leader_ids(
+        self, group_leader_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.group_leader_ids = group_leader_ids
         return self
 
-    def sub_group_leader_ids(self, sub_group_leader_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def sub_group_leader_ids(
+        self, sub_group_leader_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.sub_group_leader_ids = sub_group_leader_ids
         return self
 
@@ -218,28 +226,46 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.allow_out_punch = allow_out_punch
         return self
 
-    def out_punch_need_approval(self, out_punch_need_approval: bool) -> "GetGroupResponseBodyBuilder":
+    def out_punch_need_approval(
+        self, out_punch_need_approval: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.out_punch_need_approval = out_punch_need_approval
         return self
 
-    def out_punch_need_post_approval(self, out_punch_need_post_approval: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.out_punch_need_post_approval = out_punch_need_post_approval
+    def out_punch_need_post_approval(
+        self, out_punch_need_post_approval: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.out_punch_need_post_approval = (
+            out_punch_need_post_approval
+        )
         return self
 
-    def out_punch_need_remark(self, out_punch_need_remark: bool) -> "GetGroupResponseBodyBuilder":
+    def out_punch_need_remark(
+        self, out_punch_need_remark: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.out_punch_need_remark = out_punch_need_remark
         return self
 
-    def out_punch_need_photo(self, out_punch_need_photo: bool) -> "GetGroupResponseBodyBuilder":
+    def out_punch_need_photo(
+        self, out_punch_need_photo: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.out_punch_need_photo = out_punch_need_photo
         return self
 
-    def out_punch_allowed_hide_addr(self, out_punch_allowed_hide_addr: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.out_punch_allowed_hide_addr = out_punch_allowed_hide_addr
+    def out_punch_allowed_hide_addr(
+        self, out_punch_allowed_hide_addr: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.out_punch_allowed_hide_addr = (
+            out_punch_allowed_hide_addr
+        )
         return self
 
-    def out_punch_allowed_adjust_addr(self, out_punch_allowed_adjust_addr: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.out_punch_allowed_adjust_addr = out_punch_allowed_adjust_addr
+    def out_punch_allowed_adjust_addr(
+        self, out_punch_allowed_adjust_addr: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.out_punch_allowed_adjust_addr = (
+            out_punch_allowed_adjust_addr
+        )
         return self
 
     def adjust_range(self, adjust_range: int) -> "GetGroupResponseBodyBuilder":
@@ -258,11 +284,15 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.remedy_limit = remedy_limit
         return self
 
-    def remedy_limit_count(self, remedy_limit_count: int) -> "GetGroupResponseBodyBuilder":
+    def remedy_limit_count(
+        self, remedy_limit_count: int
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.remedy_limit_count = remedy_limit_count
         return self
 
-    def remedy_date_limit(self, remedy_date_limit: bool) -> "GetGroupResponseBodyBuilder":
+    def remedy_date_limit(
+        self, remedy_date_limit: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.remedy_date_limit = remedy_date_limit
         return self
 
@@ -270,23 +300,35 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.remedy_date_num = remedy_date_num
         return self
 
-    def allow_remedy_type_lack(self, allow_remedy_type_lack: bool) -> "GetGroupResponseBodyBuilder":
+    def allow_remedy_type_lack(
+        self, allow_remedy_type_lack: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.allow_remedy_type_lack = allow_remedy_type_lack
         return self
 
-    def allow_remedy_type_late(self, allow_remedy_type_late: bool) -> "GetGroupResponseBodyBuilder":
+    def allow_remedy_type_late(
+        self, allow_remedy_type_late: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.allow_remedy_type_late = allow_remedy_type_late
         return self
 
-    def allow_remedy_type_early(self, allow_remedy_type_early: bool) -> "GetGroupResponseBodyBuilder":
+    def allow_remedy_type_early(
+        self, allow_remedy_type_early: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.allow_remedy_type_early = allow_remedy_type_early
         return self
 
-    def allow_remedy_type_normal(self, allow_remedy_type_normal: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.allow_remedy_type_normal = allow_remedy_type_normal
+    def allow_remedy_type_normal(
+        self, allow_remedy_type_normal: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.allow_remedy_type_normal = (
+            allow_remedy_type_normal
+        )
         return self
 
-    def show_cumulative_time(self, show_cumulative_time: bool) -> "GetGroupResponseBodyBuilder":
+    def show_cumulative_time(
+        self, show_cumulative_time: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.show_cumulative_time = show_cumulative_time
         return self
 
@@ -294,11 +336,15 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.show_over_time = show_over_time
         return self
 
-    def hide_staff_punch_time(self, hide_staff_punch_time: bool) -> "GetGroupResponseBodyBuilder":
+    def hide_staff_punch_time(
+        self, hide_staff_punch_time: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.hide_staff_punch_time = hide_staff_punch_time
         return self
 
-    def hide_clock_in_rule(self, hide_clock_in_rule: bool) -> "GetGroupResponseBodyBuilder":
+    def hide_clock_in_rule(
+        self, hide_clock_in_rule: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.hide_clock_in_rule = hide_clock_in_rule
         return self
 
@@ -310,7 +356,9 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.face_punch_cfg = face_punch_cfg
         return self
 
-    def face_live_need_action(self, face_live_need_action: bool) -> "GetGroupResponseBodyBuilder":
+    def face_live_need_action(
+        self, face_live_need_action: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.face_live_need_action = face_live_need_action
         return self
 
@@ -318,11 +366,15 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.face_downgrade = face_downgrade
         return self
 
-    def replace_basic_pic(self, replace_basic_pic: bool) -> "GetGroupResponseBodyBuilder":
+    def replace_basic_pic(
+        self, replace_basic_pic: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.replace_basic_pic = replace_basic_pic
         return self
 
-    def anti_cheat_punch_config(self, anti_cheat_punch_config: AntiCheatConfig) -> "GetGroupResponseBodyBuilder":
+    def anti_cheat_punch_config(
+        self, anti_cheat_punch_config: AntiCheatConfig
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.anti_cheat_punch_config = anti_cheat_punch_config
         return self
 
@@ -342,11 +394,15 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.group_type = group_type
         return self
 
-    def punch_day_shift_ids(self, punch_day_shift_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def punch_day_shift_ids(
+        self, punch_day_shift_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.punch_day_shift_ids = punch_day_shift_ids
         return self
 
-    def free_punch_cfg(self, free_punch_cfg: FreePunchCfg) -> "GetGroupResponseBodyBuilder":
+    def free_punch_cfg(
+        self, free_punch_cfg: FreePunchCfg
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.free_punch_cfg = free_punch_cfg
         return self
 
@@ -354,26 +410,40 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.calendar_id = calendar_id
         return self
 
-    def need_punch_special_days(self,
-                                need_punch_special_days: List[PunchSpecialDateShift]) -> "GetGroupResponseBodyBuilder":
+    def need_punch_special_days(
+        self, need_punch_special_days: List[PunchSpecialDateShift]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.need_punch_special_days = need_punch_special_days
         return self
 
-    def no_need_punch_special_days(self, no_need_punch_special_days: List[
-        PunchSpecialDateShift]) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.no_need_punch_special_days = no_need_punch_special_days
+    def no_need_punch_special_days(
+        self, no_need_punch_special_days: List[PunchSpecialDateShift]
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.no_need_punch_special_days = (
+            no_need_punch_special_days
+        )
         return self
 
-    def work_day_no_punch_as_lack(self, work_day_no_punch_as_lack: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.work_day_no_punch_as_lack = work_day_no_punch_as_lack
+    def work_day_no_punch_as_lack(
+        self, work_day_no_punch_as_lack: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.work_day_no_punch_as_lack = (
+            work_day_no_punch_as_lack
+        )
         return self
 
-    def remedy_period_type(self, remedy_period_type: int) -> "GetGroupResponseBodyBuilder":
+    def remedy_period_type(
+        self, remedy_period_type: int
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.remedy_period_type = remedy_period_type
         return self
 
-    def remedy_period_custom_date(self, remedy_period_custom_date: int) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.remedy_period_custom_date = remedy_period_custom_date
+    def remedy_period_custom_date(
+        self, remedy_period_custom_date: int
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.remedy_period_custom_date = (
+            remedy_period_custom_date
+        )
         return self
 
     def punch_type(self, punch_type: int) -> "GetGroupResponseBodyBuilder":
@@ -384,23 +454,35 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.effect_time = effect_time
         return self
 
-    def fixshift_effect_time(self, fixshift_effect_time: str) -> "GetGroupResponseBodyBuilder":
+    def fixshift_effect_time(
+        self, fixshift_effect_time: str
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.fixshift_effect_time = fixshift_effect_time
         return self
 
-    def member_effect_time(self, member_effect_time: str) -> "GetGroupResponseBodyBuilder":
+    def member_effect_time(
+        self, member_effect_time: str
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.member_effect_time = member_effect_time
         return self
 
-    def rest_clock_in_need_approval(self, rest_clock_in_need_approval: bool) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.rest_clock_in_need_approval = rest_clock_in_need_approval
+    def rest_clock_in_need_approval(
+        self, rest_clock_in_need_approval: bool
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.rest_clock_in_need_approval = (
+            rest_clock_in_need_approval
+        )
         return self
 
-    def clock_in_need_photo(self, clock_in_need_photo: bool) -> "GetGroupResponseBodyBuilder":
+    def clock_in_need_photo(
+        self, clock_in_need_photo: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.clock_in_need_photo = clock_in_need_photo
         return self
 
-    def member_status_change(self, member_status_change: MemberStatusChange) -> "GetGroupResponseBodyBuilder":
+    def member_status_change(
+        self, member_status_change: MemberStatusChange
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.member_status_change = member_status_change
         return self
 
@@ -408,51 +490,75 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.leave_need_punch = leave_need_punch
         return self
 
-    def leave_need_punch_cfg(self, leave_need_punch_cfg: LeaveNeedPunchCfg) -> "GetGroupResponseBodyBuilder":
+    def leave_need_punch_cfg(
+        self, leave_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.leave_need_punch_cfg = leave_need_punch_cfg
         return self
 
-    def go_out_need_punch(self, go_out_need_punch: int) -> "GetGroupResponseBodyBuilder":
+    def go_out_need_punch(
+        self, go_out_need_punch: int
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.go_out_need_punch = go_out_need_punch
         return self
 
-    def go_out_need_punch_cfg(self, go_out_need_punch_cfg: LeaveNeedPunchCfg) -> "GetGroupResponseBodyBuilder":
+    def go_out_need_punch_cfg(
+        self, go_out_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.go_out_need_punch_cfg = go_out_need_punch_cfg
         return self
 
-    def travel_need_punch(self, travel_need_punch: int) -> "GetGroupResponseBodyBuilder":
+    def travel_need_punch(
+        self, travel_need_punch: int
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.travel_need_punch = travel_need_punch
         return self
 
-    def travel_need_punch_cfg(self, travel_need_punch_cfg: LeaveNeedPunchCfg) -> "GetGroupResponseBodyBuilder":
+    def travel_need_punch_cfg(
+        self, travel_need_punch_cfg: LeaveNeedPunchCfg
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.travel_need_punch_cfg = travel_need_punch_cfg
         return self
 
-    def need_punch_members(self, need_punch_members: List[PunchMember]) -> "GetGroupResponseBodyBuilder":
+    def need_punch_members(
+        self, need_punch_members: List[PunchMember]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.need_punch_members = need_punch_members
         return self
 
-    def no_need_punch_members(self, no_need_punch_members: List[PunchMember]) -> "GetGroupResponseBodyBuilder":
+    def no_need_punch_members(
+        self, no_need_punch_members: List[PunchMember]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.no_need_punch_members = no_need_punch_members
         return self
 
-    def save_auto_changes(self, save_auto_changes: bool) -> "GetGroupResponseBodyBuilder":
+    def save_auto_changes(
+        self, save_auto_changes: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.save_auto_changes = save_auto_changes
         return self
 
-    def org_change_auto_adjust(self, org_change_auto_adjust: bool) -> "GetGroupResponseBodyBuilder":
+    def org_change_auto_adjust(
+        self, org_change_auto_adjust: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.org_change_auto_adjust = org_change_auto_adjust
         return self
 
-    def bind_default_dept_ids(self, bind_default_dept_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def bind_default_dept_ids(
+        self, bind_default_dept_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.bind_default_dept_ids = bind_default_dept_ids
         return self
 
-    def bind_default_user_ids(self, bind_default_user_ids: List[str]) -> "GetGroupResponseBodyBuilder":
+    def bind_default_user_ids(
+        self, bind_default_user_ids: List[str]
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.bind_default_user_ids = bind_default_user_ids
         return self
 
-    def overtime_clock_cfg(self, overtime_clock_cfg: OvertimeClockCfg) -> "GetGroupResponseBodyBuilder":
+    def overtime_clock_cfg(
+        self, overtime_clock_cfg: OvertimeClockCfg
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.overtime_clock_cfg = overtime_clock_cfg
         return self
 
@@ -460,13 +566,18 @@ class GetGroupResponseBodyBuilder(object):
         self._get_group_response_body.new_calendar_id = new_calendar_id
         return self
 
-    def allow_apply_punch(self, allow_apply_punch: bool) -> "GetGroupResponseBodyBuilder":
+    def allow_apply_punch(
+        self, allow_apply_punch: bool
+    ) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.allow_apply_punch = allow_apply_punch
         return self
 
-    def clock_in_abnormal_settings(self,
-                                   clock_in_abnormal_settings: ClockInAbnormalSettings) -> "GetGroupResponseBodyBuilder":
-        self._get_group_response_body.clock_in_abnormal_settings = clock_in_abnormal_settings
+    def clock_in_abnormal_settings(
+        self, clock_in_abnormal_settings: ClockInAbnormalSettings
+    ) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.clock_in_abnormal_settings = (
+            clock_in_abnormal_settings
+        )
         return self
 
     def build(self) -> "GetGroupResponseBody":

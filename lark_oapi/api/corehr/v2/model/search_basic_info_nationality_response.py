@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .search_basic_info_nationality_response_body import SearchBasicInfoNationalityResponseBody
+from .search_basic_info_nationality_response_body import (
+    SearchBasicInfoNationalityResponseBody,
+)
 
 
 class SearchBasicInfoNationalityResponse(BaseResponse):
     _types = {
         "data": SearchBasicInfoNationalityResponseBody,
-
     }
 
     def __init__(self, d=None):

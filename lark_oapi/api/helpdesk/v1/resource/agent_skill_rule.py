@@ -17,8 +17,9 @@ class AgentSkillRule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAgentSkillRuleRequest,
-             option: Optional[RequestOption] = None) -> ListAgentSkillRuleResponse:
+    def list(
+        self, request: ListAgentSkillRuleRequest, option: Optional[RequestOption] = None
+    ) -> ListAgentSkillRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class AgentSkillRule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAgentSkillRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillRuleResponse)
+        response: ListAgentSkillRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAgentSkillRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAgentSkillRuleRequest,
-                    option: Optional[RequestOption] = None) -> ListAgentSkillRuleResponse:
+    async def alist(
+        self, request: ListAgentSkillRuleRequest, option: Optional[RequestOption] = None
+    ) -> ListAgentSkillRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class AgentSkillRule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAgentSkillRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillRuleResponse)
+        response: ListAgentSkillRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAgentSkillRuleResponse
+        )
         response.raw = resp
 
         return response

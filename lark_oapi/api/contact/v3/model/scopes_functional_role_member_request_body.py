@@ -22,13 +22,19 @@ class ScopesFunctionalRoleMemberRequestBody(object):
 
 class ScopesFunctionalRoleMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._scopes_functional_role_member_request_body = ScopesFunctionalRoleMemberRequestBody()
+        self._scopes_functional_role_member_request_body = (
+            ScopesFunctionalRoleMemberRequestBody()
+        )
 
-    def members(self, members: List[str]) -> "ScopesFunctionalRoleMemberRequestBodyBuilder":
+    def members(
+        self, members: List[str]
+    ) -> "ScopesFunctionalRoleMemberRequestBodyBuilder":
         self._scopes_functional_role_member_request_body.members = members
         return self
 
-    def departments(self, departments: List[str]) -> "ScopesFunctionalRoleMemberRequestBodyBuilder":
+    def departments(
+        self, departments: List[str]
+    ) -> "ScopesFunctionalRoleMemberRequestBodyBuilder":
         self._scopes_functional_role_member_request_body.departments = departments
         return self
 

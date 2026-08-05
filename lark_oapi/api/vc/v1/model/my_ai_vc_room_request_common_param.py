@@ -43,11 +43,15 @@ class MyAiVcRoomRequestCommonParamBuilder(object):
         self._my_ai_vc_room_request_common_param.room_id = room_id
         return self
 
-    def client_version(self, client_version: str) -> "MyAiVcRoomRequestCommonParamBuilder":
+    def client_version(
+        self, client_version: str
+    ) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.client_version = client_version
         return self
 
-    def openapi_history(self, openapi_history: MyAiRoomOpenapiResponse) -> "MyAiVcRoomRequestCommonParamBuilder":
+    def openapi_history(
+        self, openapi_history: MyAiRoomOpenapiResponse
+    ) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.openapi_history = openapi_history
         return self
 

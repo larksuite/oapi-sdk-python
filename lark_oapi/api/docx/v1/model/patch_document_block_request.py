@@ -22,17 +22,27 @@ class PatchDocumentBlockRequest(BaseRequest):
 
 
 class PatchDocumentBlockRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_document_block_request = PatchDocumentBlockRequest()
         patch_document_block_request.http_method = HttpMethod.PATCH
-        patch_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
-        patch_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._patch_document_block_request: PatchDocumentBlockRequest = patch_document_block_request
+        patch_document_block_request.uri = (
+            "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
+        )
+        patch_document_block_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._patch_document_block_request: PatchDocumentBlockRequest = (
+            patch_document_block_request
+        )
 
-    def document_revision_id(self, document_revision_id: int) -> "PatchDocumentBlockRequestBuilder":
+    def document_revision_id(
+        self, document_revision_id: int
+    ) -> "PatchDocumentBlockRequestBuilder":
         self._patch_document_block_request.document_revision_id = document_revision_id
-        self._patch_document_block_request.add_query("document_revision_id", document_revision_id)
+        self._patch_document_block_request.add_query(
+            "document_revision_id", document_revision_id
+        )
         return self
 
     def client_token(self, client_token: str) -> "PatchDocumentBlockRequestBuilder":
@@ -55,7 +65,9 @@ class PatchDocumentBlockRequestBuilder(object):
         self._patch_document_block_request.paths["block_id"] = str(block_id)
         return self
 
-    def request_body(self, request_body: UpdateBlockRequest) -> "PatchDocumentBlockRequestBuilder":
+    def request_body(
+        self, request_body: UpdateBlockRequest
+    ) -> "PatchDocumentBlockRequestBuilder":
         self._patch_document_block_request.request_body = request_body
         self._patch_document_block_request.body = request_body
         return self

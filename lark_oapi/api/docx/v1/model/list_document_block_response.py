@@ -9,7 +9,6 @@ from .list_document_block_response_body import ListDocumentBlockResponseBody
 class ListDocumentBlockResponse(BaseResponse):
     _types = {
         "data": ListDocumentBlockResponseBody,
-
     }
 
     def __init__(self, d=None):

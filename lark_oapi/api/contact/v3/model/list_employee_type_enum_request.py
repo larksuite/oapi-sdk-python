@@ -17,13 +17,16 @@ class ListEmployeeTypeEnumRequest(BaseRequest):
 
 
 class ListEmployeeTypeEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         list_employee_type_enum_request = ListEmployeeTypeEnumRequest()
         list_employee_type_enum_request.http_method = HttpMethod.GET
-        list_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums"
+        list_employee_type_enum_request.uri = (
+            "/open-apis/contact/v3/employee_type_enums"
+        )
         list_employee_type_enum_request.token_types = {AccessTokenType.TENANT}
-        self._list_employee_type_enum_request: ListEmployeeTypeEnumRequest = list_employee_type_enum_request
+        self._list_employee_type_enum_request: ListEmployeeTypeEnumRequest = (
+            list_employee_type_enum_request
+        )
 
     def page_token(self, page_token: str) -> "ListEmployeeTypeEnumRequestBuilder":
         self._list_employee_type_enum_request.page_token = page_token

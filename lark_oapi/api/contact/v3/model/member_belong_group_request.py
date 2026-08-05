@@ -20,13 +20,14 @@ class MemberBelongGroupRequest(BaseRequest):
 
 
 class MemberBelongGroupRequestBuilder(object):
-
     def __init__(self) -> None:
         member_belong_group_request = MemberBelongGroupRequest()
         member_belong_group_request.http_method = HttpMethod.GET
         member_belong_group_request.uri = "/open-apis/contact/v3/group/member_belong"
         member_belong_group_request.token_types = {AccessTokenType.TENANT}
-        self._member_belong_group_request: MemberBelongGroupRequest = member_belong_group_request
+        self._member_belong_group_request: MemberBelongGroupRequest = (
+            member_belong_group_request
+        )
 
     def member_id(self, member_id: str) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.member_id = member_id

@@ -35,8 +35,9 @@ class CompositeTalentSnsInfoBuilder(object):
         self._composite_talent_sns_info.link = link
         return self
 
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentSnsInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[TalentCustomizedDataChild]
+    ) -> "CompositeTalentSnsInfoBuilder":
         self._composite_talent_sns_info.customized_data_list = customized_data_list
         return self
 

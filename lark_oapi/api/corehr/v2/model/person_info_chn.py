@@ -54,7 +54,9 @@ class PersonInfoChnBuilder(object):
         self._person_info_chn.leave_time = leave_time
         return self
 
-    def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoChnBuilder":
+    def political_affiliations(
+        self, political_affiliations: List[Enum]
+    ) -> "PersonInfoChnBuilder":
         self._person_info_chn.political_affiliations = political_affiliations
         return self
 

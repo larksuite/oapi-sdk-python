@@ -9,7 +9,6 @@ from .list_user_mailbox_folder_response_body import ListUserMailboxFolderRespons
 class ListUserMailboxFolderResponse(BaseResponse):
     _types = {
         "data": ListUserMailboxFolderResponseBody,
-
     }
 
     def __init__(self, d=None):

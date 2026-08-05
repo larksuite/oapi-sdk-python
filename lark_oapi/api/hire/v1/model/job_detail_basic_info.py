@@ -117,27 +117,39 @@ class JobDetailBasicInfoBuilder(object):
         self._job_detail_basic_info.requirement = requirement
         return self
 
-    def recruitment_type(self, recruitment_type: JobDetailRecruitmentType) -> "JobDetailBasicInfoBuilder":
+    def recruitment_type(
+        self, recruitment_type: JobDetailRecruitmentType
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.recruitment_type = recruitment_type
         return self
 
-    def department(self, department: JobDetailDepartment) -> "JobDetailBasicInfoBuilder":
+    def department(
+        self, department: JobDetailDepartment
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.department = department
         return self
 
-    def min_job_level(self, min_job_level: JobDetailLevel) -> "JobDetailBasicInfoBuilder":
+    def min_job_level(
+        self, min_job_level: JobDetailLevel
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.min_job_level = min_job_level
         return self
 
-    def max_job_level(self, max_job_level: JobDetailLevel) -> "JobDetailBasicInfoBuilder":
+    def max_job_level(
+        self, max_job_level: JobDetailLevel
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.max_job_level = max_job_level
         return self
 
-    def highlight_list(self, highlight_list: List[JobDetailHighlight]) -> "JobDetailBasicInfoBuilder":
+    def highlight_list(
+        self, highlight_list: List[JobDetailHighlight]
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.highlight_list = highlight_list
         return self
 
-    def job_category(self, job_category: JobDetailCategory) -> "JobDetailBasicInfoBuilder":
+    def job_category(
+        self, job_category: JobDetailCategory
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.job_category = job_category
         return self
 
@@ -173,7 +185,9 @@ class JobDetailBasicInfoBuilder(object):
         self._job_detail_basic_info.process_name = process_name
         return self
 
-    def customized_data_list(self, customized_data_list: List[JobCustomizedData]) -> "JobDetailBasicInfoBuilder":
+    def customized_data_list(
+        self, customized_data_list: List[JobCustomizedData]
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.customized_data_list = customized_data_list
         return self
 
@@ -217,7 +231,9 @@ class JobDetailBasicInfoBuilder(object):
         self._job_detail_basic_info.job_attribute = job_attribute
         return self
 
-    def target_major_list(self, target_major_list: List[JobDetailTargetMajorInfo]) -> "JobDetailBasicInfoBuilder":
+    def target_major_list(
+        self, target_major_list: List[JobDetailTargetMajorInfo]
+    ) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.target_major_list = target_major_list
         return self
 

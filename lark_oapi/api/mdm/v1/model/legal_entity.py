@@ -131,7 +131,9 @@ class LegalEntityBuilder(object):
         self._legal_entity.status = status
         return self
 
-    def legal_entity_banks(self, legal_entity_banks: List[LegalEntityBank]) -> "LegalEntityBuilder":
+    def legal_entity_banks(
+        self, legal_entity_banks: List[LegalEntityBank]
+    ) -> "LegalEntityBuilder":
         self._legal_entity.legal_entity_banks = legal_entity_banks
         return self
 

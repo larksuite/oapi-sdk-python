@@ -9,7 +9,6 @@ from .delete_file_comment_reply_response_body import DeleteFileCommentReplyRespo
 class DeleteFileCommentReplyResponse(BaseResponse):
     _types = {
         "data": DeleteFileCommentReplyResponseBody,
-
     }
 
     def __init__(self, d=None):

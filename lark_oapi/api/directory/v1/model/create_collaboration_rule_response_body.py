@@ -20,9 +20,13 @@ class CreateCollaborationRuleResponseBody(object):
 
 class CreateCollaborationRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_collaboration_rule_response_body = CreateCollaborationRuleResponseBody()
+        self._create_collaboration_rule_response_body = (
+            CreateCollaborationRuleResponseBody()
+        )
 
-    def add_rule_id(self, add_rule_id: str) -> "CreateCollaborationRuleResponseBodyBuilder":
+    def add_rule_id(
+        self, add_rule_id: str
+    ) -> "CreateCollaborationRuleResponseBodyBuilder":
         self._create_collaboration_rule_response_body.add_rule_id = add_rule_id
         return self
 

@@ -15,7 +15,6 @@ class QueryTenantRequest(BaseRequest):
 
 
 class QueryTenantRequestBuilder(object):
-
     def __init__(self) -> None:
         query_tenant_request = QueryTenantRequest()
         query_tenant_request.http_method = HttpMethod.GET

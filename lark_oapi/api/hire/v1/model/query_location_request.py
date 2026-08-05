@@ -19,7 +19,6 @@ class QueryLocationRequest(BaseRequest):
 
 
 class QueryLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         query_location_request = QueryLocationRequest()
         query_location_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class QueryLocationRequestBuilder(object):
         self._query_location_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: QueryLocationRequestBody) -> "QueryLocationRequestBuilder":
+    def request_body(
+        self, request_body: QueryLocationRequestBody
+    ) -> "QueryLocationRequestBuilder":
         self._query_location_request.request_body = request_body
         self._query_location_request.body = request_body
         return self

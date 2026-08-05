@@ -27,7 +27,9 @@ class ActivitySessionRecordBuilder(object):
     def __init__(self) -> None:
         self._activity_session_record = ActivitySessionRecord()
 
-    def activity_session_info(self, activity_session_info: ActivitySessionInfo) -> "ActivitySessionRecordBuilder":
+    def activity_session_info(
+        self, activity_session_info: ActivitySessionInfo
+    ) -> "ActivitySessionRecordBuilder":
         self._activity_session_record.activity_session_info = activity_session_info
         return self
 

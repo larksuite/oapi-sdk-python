@@ -53,7 +53,9 @@ class UpdateDepartmentBuilder(object):
         self._update_department.department_id = department_id
         return self
 
-    def custom_department_id(self, custom_department_id: str) -> "UpdateDepartmentBuilder":
+    def custom_department_id(
+        self, custom_department_id: str
+    ) -> "UpdateDepartmentBuilder":
         self._update_department.custom_department_id = custom_department_id
         return self
 
@@ -61,7 +63,9 @@ class UpdateDepartmentBuilder(object):
         self._update_department.name = name
         return self
 
-    def parent_department_id(self, parent_department_id: str) -> "UpdateDepartmentBuilder":
+    def parent_department_id(
+        self, parent_department_id: str
+    ) -> "UpdateDepartmentBuilder":
         self._update_department.parent_department_id = parent_department_id
         return self
 
@@ -89,11 +93,15 @@ class UpdateDepartmentBuilder(object):
         self._update_department.enabled_status = enabled_status
         return self
 
-    def custom_field_value_map(self, custom_field_value_map: Dict[str, CustomFieldValue]) -> "UpdateDepartmentBuilder":
+    def custom_field_value_map(
+        self, custom_field_value_map: Dict[str, CustomFieldValue]
+    ) -> "UpdateDepartmentBuilder":
         self._update_department.custom_field_value_map = custom_field_value_map
         return self
 
-    def custom_field_values(self, custom_field_values: List[CustomFieldValue]) -> "UpdateDepartmentBuilder":
+    def custom_field_values(
+        self, custom_field_values: List[CustomFieldValue]
+    ) -> "UpdateDepartmentBuilder":
         self._update_department.custom_field_values = custom_field_values
         return self
 

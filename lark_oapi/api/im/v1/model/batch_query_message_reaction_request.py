@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_query_message_reaction_request_body import BatchQueryMessageReactionRequestBody
+from .batch_query_message_reaction_request_body import (
+    BatchQueryMessageReactionRequestBody,
+)
 
 
 class BatchQueryMessageReactionRequest(BaseRequest):
@@ -18,21 +20,32 @@ class BatchQueryMessageReactionRequest(BaseRequest):
 
 
 class BatchQueryMessageReactionRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_query_message_reaction_request = BatchQueryMessageReactionRequest()
         batch_query_message_reaction_request.http_method = HttpMethod.POST
-        batch_query_message_reaction_request.uri = "/open-apis/im/v1/messages/reactions/batch_query"
-        batch_query_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._batch_query_message_reaction_request: BatchQueryMessageReactionRequest = batch_query_message_reaction_request
+        batch_query_message_reaction_request.uri = (
+            "/open-apis/im/v1/messages/reactions/batch_query"
+        )
+        batch_query_message_reaction_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._batch_query_message_reaction_request: BatchQueryMessageReactionRequest = (
+            batch_query_message_reaction_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "BatchQueryMessageReactionRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "BatchQueryMessageReactionRequestBuilder":
         self._batch_query_message_reaction_request.user_id_type = user_id_type
-        self._batch_query_message_reaction_request.add_query("user_id_type", user_id_type)
+        self._batch_query_message_reaction_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: BatchQueryMessageReactionRequestBody) -> "BatchQueryMessageReactionRequestBuilder":
+    def request_body(
+        self, request_body: BatchQueryMessageReactionRequestBody
+    ) -> "BatchQueryMessageReactionRequestBuilder":
         self._batch_query_message_reaction_request.request_body = request_body
         self._batch_query_message_reaction_request.body = request_body
         return self

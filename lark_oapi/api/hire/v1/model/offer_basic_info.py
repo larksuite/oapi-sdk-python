@@ -101,11 +101,15 @@ class OfferBasicInfoBuilder(object):
         self._offer_basic_info.contract_year = contract_year
         return self
 
-    def contract_period(self, contract_period: ContractPeriodInfo) -> "OfferBasicInfoBuilder":
+    def contract_period(
+        self, contract_period: ContractPeriodInfo
+    ) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.contract_period = contract_period
         return self
 
-    def expected_onboard_date(self, expected_onboard_date: str) -> "OfferBasicInfoBuilder":
+    def expected_onboard_date(
+        self, expected_onboard_date: str
+    ) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.expected_onboard_date = expected_onboard_date
         return self
 
@@ -133,15 +137,21 @@ class OfferBasicInfoBuilder(object):
         self._offer_basic_info.job_process_type_id = job_process_type_id
         return self
 
-    def attachment_id_list(self, attachment_id_list: List[str]) -> "OfferBasicInfoBuilder":
+    def attachment_id_list(
+        self, attachment_id_list: List[str]
+    ) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.attachment_id_list = attachment_id_list
         return self
 
-    def common_attachment_id_list(self, common_attachment_id_list: List[str]) -> "OfferBasicInfoBuilder":
+    def common_attachment_id_list(
+        self, common_attachment_id_list: List[str]
+    ) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.common_attachment_id_list = common_attachment_id_list
         return self
 
-    def attachment_description(self, attachment_description: str) -> "OfferBasicInfoBuilder":
+    def attachment_description(
+        self, attachment_description: str
+    ) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.attachment_description = attachment_description
         return self
 

@@ -18,13 +18,16 @@ class ListCostAllocationPlanRequest(BaseRequest):
 
 
 class ListCostAllocationPlanRequestBuilder(object):
-
     def __init__(self) -> None:
         list_cost_allocation_plan_request = ListCostAllocationPlanRequest()
         list_cost_allocation_plan_request.http_method = HttpMethod.GET
-        list_cost_allocation_plan_request.uri = "/open-apis/payroll/v1/cost_allocation_plans"
+        list_cost_allocation_plan_request.uri = (
+            "/open-apis/payroll/v1/cost_allocation_plans"
+        )
         list_cost_allocation_plan_request.token_types = {AccessTokenType.TENANT}
-        self._list_cost_allocation_plan_request: ListCostAllocationPlanRequest = list_cost_allocation_plan_request
+        self._list_cost_allocation_plan_request: ListCostAllocationPlanRequest = (
+            list_cost_allocation_plan_request
+        )
 
     def page_size(self, page_size: int) -> "ListCostAllocationPlanRequestBuilder":
         self._list_cost_allocation_plan_request.page_size = page_size

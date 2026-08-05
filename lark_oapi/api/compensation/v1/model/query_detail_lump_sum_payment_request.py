@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .query_detail_lump_sum_payment_request_body import QueryDetailLumpSumPaymentRequestBody
+from .query_detail_lump_sum_payment_request_body import (
+    QueryDetailLumpSumPaymentRequestBody,
+)
 
 
 class QueryDetailLumpSumPaymentRequest(BaseRequest):
@@ -20,11 +22,12 @@ class QueryDetailLumpSumPaymentRequest(BaseRequest):
 
 
 class QueryDetailLumpSumPaymentRequestBuilder(object):
-
     def __init__(self) -> None:
         query_detail_lump_sum_payment_request = QueryDetailLumpSumPaymentRequest()
         query_detail_lump_sum_payment_request.http_method = HttpMethod.POST
-        query_detail_lump_sum_payment_request.uri = "/open-apis/compensation/v1/lump_sum_payment/query_detail"
+        query_detail_lump_sum_payment_request.uri = (
+            "/open-apis/compensation/v1/lump_sum_payment/query_detail"
+        )
         query_detail_lump_sum_payment_request.token_types = {AccessTokenType.TENANT}
         self._query_detail_lump_sum_payment_request: QueryDetailLumpSumPaymentRequest = query_detail_lump_sum_payment_request
 
@@ -38,13 +41,18 @@ class QueryDetailLumpSumPaymentRequestBuilder(object):
         self._query_detail_lump_sum_payment_request.add_query("page_token", page_token)
         return self
 
-    def user_id_type(self, user_id_type: str) -> "QueryDetailLumpSumPaymentRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "QueryDetailLumpSumPaymentRequestBuilder":
         self._query_detail_lump_sum_payment_request.user_id_type = user_id_type
-        self._query_detail_lump_sum_payment_request.add_query("user_id_type", user_id_type)
+        self._query_detail_lump_sum_payment_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def request_body(self,
-                     request_body: QueryDetailLumpSumPaymentRequestBody) -> "QueryDetailLumpSumPaymentRequestBuilder":
+    def request_body(
+        self, request_body: QueryDetailLumpSumPaymentRequestBody
+    ) -> "QueryDetailLumpSumPaymentRequestBuilder":
         self._query_detail_lump_sum_payment_request.request_body = request_body
         self._query_detail_lump_sum_payment_request.body = request_body
         return self

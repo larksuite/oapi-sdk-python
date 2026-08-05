@@ -11,6 +11,7 @@ from .approval_instance import *
 from .approval_task import *
 from .seat_activity import *
 from .seat_assignment import *
+from .tenant_app_metrics import *
 from .user_task import *
 from .workspace import *
 from .workspace_enum import *

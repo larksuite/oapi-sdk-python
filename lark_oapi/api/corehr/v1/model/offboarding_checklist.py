@@ -32,15 +32,21 @@ class OffboardingChecklistBuilder(object):
         self._offboarding_checklist.checklist_status = checklist_status
         return self
 
-    def checklist_start_time(self, checklist_start_time: str) -> "OffboardingChecklistBuilder":
+    def checklist_start_time(
+        self, checklist_start_time: str
+    ) -> "OffboardingChecklistBuilder":
         self._offboarding_checklist.checklist_start_time = checklist_start_time
         return self
 
-    def checklist_finish_time(self, checklist_finish_time: str) -> "OffboardingChecklistBuilder":
+    def checklist_finish_time(
+        self, checklist_finish_time: str
+    ) -> "OffboardingChecklistBuilder":
         self._offboarding_checklist.checklist_finish_time = checklist_finish_time
         return self
 
-    def checklist_process_id(self, checklist_process_id: str) -> "OffboardingChecklistBuilder":
+    def checklist_process_id(
+        self, checklist_process_id: str
+    ) -> "OffboardingChecklistBuilder":
         self._offboarding_checklist.checklist_process_id = checklist_process_id
         return self
 

@@ -34,7 +34,9 @@ class CallbackInfoBuilder(object):
         self._callback_info.request_url = request_url
         return self
 
-    def subscribed_callbacks(self, subscribed_callbacks: List[str]) -> "CallbackInfoBuilder":
+    def subscribed_callbacks(
+        self, subscribed_callbacks: List[str]
+    ) -> "CallbackInfoBuilder":
         self._callback_info.subscribed_callbacks = subscribed_callbacks
         return self
 

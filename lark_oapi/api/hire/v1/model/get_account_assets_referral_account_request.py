@@ -17,22 +17,37 @@ class GetAccountAssetsReferralAccountRequest(BaseRequest):
 
 
 class GetAccountAssetsReferralAccountRequestBuilder(object):
-
     def __init__(self) -> None:
-        get_account_assets_referral_account_request = GetAccountAssetsReferralAccountRequest()
+        get_account_assets_referral_account_request = (
+            GetAccountAssetsReferralAccountRequest()
+        )
         get_account_assets_referral_account_request.http_method = HttpMethod.GET
-        get_account_assets_referral_account_request.uri = "/open-apis/hire/v1/referral_account/get_account_assets"
-        get_account_assets_referral_account_request.token_types = {AccessTokenType.TENANT}
+        get_account_assets_referral_account_request.uri = (
+            "/open-apis/hire/v1/referral_account/get_account_assets"
+        )
+        get_account_assets_referral_account_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._get_account_assets_referral_account_request: GetAccountAssetsReferralAccountRequest = get_account_assets_referral_account_request
 
-    def referral_account_id(self, referral_account_id: str) -> "GetAccountAssetsReferralAccountRequestBuilder":
-        self._get_account_assets_referral_account_request.referral_account_id = referral_account_id
-        self._get_account_assets_referral_account_request.add_query("referral_account_id", referral_account_id)
+    def referral_account_id(
+        self, referral_account_id: str
+    ) -> "GetAccountAssetsReferralAccountRequestBuilder":
+        self._get_account_assets_referral_account_request.referral_account_id = (
+            referral_account_id
+        )
+        self._get_account_assets_referral_account_request.add_query(
+            "referral_account_id", referral_account_id
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "GetAccountAssetsReferralAccountRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetAccountAssetsReferralAccountRequestBuilder":
         self._get_account_assets_referral_account_request.user_id_type = user_id_type
-        self._get_account_assets_referral_account_request.add_query("user_id_type", user_id_type)
+        self._get_account_assets_referral_account_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
     def build(self) -> GetAccountAssetsReferralAccountRequest:

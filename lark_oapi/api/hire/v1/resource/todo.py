@@ -17,7 +17,9 @@ class Todo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListTodoRequest, option: Optional[RequestOption] = None) -> ListTodoResponse:
+    def list(
+        self, request: ListTodoRequest, option: Optional[RequestOption] = None
+    ) -> ListTodoResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Todo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTodoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTodoResponse)
+        response: ListTodoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTodoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTodoRequest, option: Optional[RequestOption] = None) -> ListTodoResponse:
+    async def alist(
+        self, request: ListTodoRequest, option: Optional[RequestOption] = None
+    ) -> ListTodoResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Todo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTodoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTodoResponse)
+        response: ListTodoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTodoResponse
+        )
         response.raw = resp
 
         return response

@@ -23,15 +23,24 @@ class ImportAdditionalInformationResponseBody(object):
 
 class ImportAdditionalInformationResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._import_additional_information_response_body = ImportAdditionalInformationResponseBody()
+        self._import_additional_information_response_body = (
+            ImportAdditionalInformationResponseBody()
+        )
 
-    def import_record_id(self, import_record_id: str) -> "ImportAdditionalInformationResponseBodyBuilder":
-        self._import_additional_information_response_body.import_record_id = import_record_id
+    def import_record_id(
+        self, import_record_id: str
+    ) -> "ImportAdditionalInformationResponseBodyBuilder":
+        self._import_additional_information_response_body.import_record_id = (
+            import_record_id
+        )
         return self
 
-    def additional_informations(self, additional_informations: List[
-        AdditionalInformation]) -> "ImportAdditionalInformationResponseBodyBuilder":
-        self._import_additional_information_response_body.additional_informations = additional_informations
+    def additional_informations(
+        self, additional_informations: List[AdditionalInformation]
+    ) -> "ImportAdditionalInformationResponseBodyBuilder":
+        self._import_additional_information_response_body.additional_informations = (
+            additional_informations
+        )
         return self
 
     def build(self) -> "ImportAdditionalInformationResponseBody":

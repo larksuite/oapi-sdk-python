@@ -17,7 +17,9 @@ class Reviewee(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryRevieweeRequest, option: Optional[RequestOption] = None) -> QueryRevieweeResponse:
+    def query(
+        self, request: QueryRevieweeRequest, option: Optional[RequestOption] = None
+    ) -> QueryRevieweeResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class Reviewee(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRevieweeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRevieweeResponse)
+        response: QueryRevieweeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRevieweeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryRevieweeRequest,
-                     option: Optional[RequestOption] = None) -> QueryRevieweeResponse:
+    async def aquery(
+        self, request: QueryRevieweeRequest, option: Optional[RequestOption] = None
+    ) -> QueryRevieweeResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class Reviewee(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRevieweeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRevieweeResponse)
+        response: QueryRevieweeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRevieweeResponse
+        )
         response.raw = resp
 
         return response

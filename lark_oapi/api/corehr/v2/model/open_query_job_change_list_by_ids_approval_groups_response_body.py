@@ -21,10 +21,13 @@ class OpenQueryJobChangeListByIdsApprovalGroupsResponseBody(object):
 
 class OpenQueryJobChangeListByIdsApprovalGroupsResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._open_query_job_change_list_by_ids_approval_groups_response_body = OpenQueryJobChangeListByIdsApprovalGroupsResponseBody()
+        self._open_query_job_change_list_by_ids_approval_groups_response_body = (
+            OpenQueryJobChangeListByIdsApprovalGroupsResponseBody()
+        )
 
-    def job_changes(self,
-                    job_changes: List[JobChange]) -> "OpenQueryJobChangeListByIdsApprovalGroupsResponseBodyBuilder":
+    def job_changes(
+        self, job_changes: List[JobChange]
+    ) -> "OpenQueryJobChangeListByIdsApprovalGroupsResponseBodyBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_response_body.job_changes = job_changes
         return self
 

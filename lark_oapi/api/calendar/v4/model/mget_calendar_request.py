@@ -17,15 +17,19 @@ class MgetCalendarRequest(BaseRequest):
 
 
 class MgetCalendarRequestBuilder(object):
-
     def __init__(self) -> None:
         mget_calendar_request = MgetCalendarRequest()
         mget_calendar_request.http_method = HttpMethod.POST
         mget_calendar_request.uri = "/open-apis/calendar/v4/calendars/mget"
-        mget_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        mget_calendar_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._mget_calendar_request: MgetCalendarRequest = mget_calendar_request
 
-    def request_body(self, request_body: MgetCalendarRequestBody) -> "MgetCalendarRequestBuilder":
+    def request_body(
+        self, request_body: MgetCalendarRequestBody
+    ) -> "MgetCalendarRequestBuilder":
         self._mget_calendar_request.request_body = request_body
         self._mget_calendar_request.body = request_body
         return self

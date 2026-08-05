@@ -26,7 +26,9 @@ class FieldVariableValueToRecordBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_record = FieldVariableValueToRecord()
 
-    def variable_api_name(self, variable_api_name: str) -> "FieldVariableValueToRecordBuilder":
+    def variable_api_name(
+        self, variable_api_name: str
+    ) -> "FieldVariableValueToRecordBuilder":
         self._field_variable_value_to_record.variable_api_name = variable_api_name
         return self
 

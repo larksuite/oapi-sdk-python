@@ -29,7 +29,9 @@ class FieldVariableSubVlaueForReviewBuilder(object):
         self._field_variable_sub_vlaue_for_review.key = key
         return self
 
-    def value(self, value: FieldVariableValueToForReview) -> "FieldVariableSubVlaueForReviewBuilder":
+    def value(
+        self, value: FieldVariableValueToForReview
+    ) -> "FieldVariableSubVlaueForReviewBuilder":
         self._field_variable_sub_vlaue_for_review.value = value
         return self
 

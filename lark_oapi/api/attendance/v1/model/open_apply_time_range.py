@@ -25,8 +25,12 @@ class OpenApplyTimeRangeBuilder(object):
     def __init__(self) -> None:
         self._open_apply_time_range = OpenApplyTimeRange()
 
-    def overtime_attribution_date(self, overtime_attribution_date: str) -> "OpenApplyTimeRangeBuilder":
-        self._open_apply_time_range.overtime_attribution_date = overtime_attribution_date
+    def overtime_attribution_date(
+        self, overtime_attribution_date: str
+    ) -> "OpenApplyTimeRangeBuilder":
+        self._open_apply_time_range.overtime_attribution_date = (
+            overtime_attribution_date
+        )
         return self
 
     def time_range(self, time_range: OvertimeTimeRange) -> "OpenApplyTimeRangeBuilder":

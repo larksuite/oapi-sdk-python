@@ -21,35 +21,58 @@ class PatchEmployeesAdditionalJobRequest(BaseRequest):
 
 
 class PatchEmployeesAdditionalJobRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_employees_additional_job_request = PatchEmployeesAdditionalJobRequest()
         patch_employees_additional_job_request.http_method = HttpMethod.PATCH
-        patch_employees_additional_job_request.uri = "/open-apis/corehr/v2/employees/additional_jobs/:additional_job_id"
+        patch_employees_additional_job_request.uri = (
+            "/open-apis/corehr/v2/employees/additional_jobs/:additional_job_id"
+        )
         patch_employees_additional_job_request.token_types = {AccessTokenType.TENANT}
         self._patch_employees_additional_job_request: PatchEmployeesAdditionalJobRequest = patch_employees_additional_job_request
 
-    def client_token(self, client_token: str) -> "PatchEmployeesAdditionalJobRequestBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "PatchEmployeesAdditionalJobRequestBuilder":
         self._patch_employees_additional_job_request.client_token = client_token
-        self._patch_employees_additional_job_request.add_query("client_token", client_token)
+        self._patch_employees_additional_job_request.add_query(
+            "client_token", client_token
+        )
         return self
 
-    def user_id_type(self, user_id_type: str) -> "PatchEmployeesAdditionalJobRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "PatchEmployeesAdditionalJobRequestBuilder":
         self._patch_employees_additional_job_request.user_id_type = user_id_type
-        self._patch_employees_additional_job_request.add_query("user_id_type", user_id_type)
+        self._patch_employees_additional_job_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchEmployeesAdditionalJobRequestBuilder":
-        self._patch_employees_additional_job_request.department_id_type = department_id_type
-        self._patch_employees_additional_job_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchEmployeesAdditionalJobRequestBuilder":
+        self._patch_employees_additional_job_request.department_id_type = (
+            department_id_type
+        )
+        self._patch_employees_additional_job_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def additional_job_id(self, additional_job_id: str) -> "PatchEmployeesAdditionalJobRequestBuilder":
-        self._patch_employees_additional_job_request.additional_job_id = additional_job_id
-        self._patch_employees_additional_job_request.paths["additional_job_id"] = str(additional_job_id)
+    def additional_job_id(
+        self, additional_job_id: str
+    ) -> "PatchEmployeesAdditionalJobRequestBuilder":
+        self._patch_employees_additional_job_request.additional_job_id = (
+            additional_job_id
+        )
+        self._patch_employees_additional_job_request.paths["additional_job_id"] = str(
+            additional_job_id
+        )
         return self
 
-    def request_body(self, request_body: EmployeesAdditionalJobEdit) -> "PatchEmployeesAdditionalJobRequestBuilder":
+    def request_body(
+        self, request_body: EmployeesAdditionalJobEdit
+    ) -> "PatchEmployeesAdditionalJobRequestBuilder":
         self._patch_employees_additional_job_request.request_body = request_body
         self._patch_employees_additional_job_request.body = request_body
         return self

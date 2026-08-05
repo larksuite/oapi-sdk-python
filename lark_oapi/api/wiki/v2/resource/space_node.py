@@ -18,7 +18,9 @@ from ..model.list_space_node_response import ListSpaceNodeResponse
 from ..model.move_space_node_request import MoveSpaceNodeRequest
 from ..model.move_space_node_response import MoveSpaceNodeResponse
 from ..model.move_docs_to_wiki_space_node_request import MoveDocsToWikiSpaceNodeRequest
-from ..model.move_docs_to_wiki_space_node_response import MoveDocsToWikiSpaceNodeResponse
+from ..model.move_docs_to_wiki_space_node_response import (
+    MoveDocsToWikiSpaceNodeResponse,
+)
 from ..model.update_title_space_node_request import UpdateTitleSpaceNodeRequest
 from ..model.update_title_space_node_response import UpdateTitleSpaceNodeResponse
 
@@ -27,7 +29,9 @@ class SpaceNode(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def copy(self, request: CopySpaceNodeRequest, option: Optional[RequestOption] = None) -> CopySpaceNodeResponse:
+    def copy(
+        self, request: CopySpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> CopySpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,13 +46,16 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CopySpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CopySpaceNodeResponse)
+        response: CopySpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CopySpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acopy(self, request: CopySpaceNodeRequest,
-                    option: Optional[RequestOption] = None) -> CopySpaceNodeResponse:
+    async def acopy(
+        self, request: CopySpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> CopySpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,13 +66,16 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CopySpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CopySpaceNodeResponse)
+        response: CopySpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CopySpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateSpaceNodeRequest,
-               option: Optional[RequestOption] = None) -> CreateSpaceNodeResponse:
+    def create(
+        self, request: CreateSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -80,13 +90,16 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceNodeResponse)
+        response: CreateSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateSpaceNodeRequest,
-                      option: Optional[RequestOption] = None) -> CreateSpaceNodeResponse:
+    async def acreate(
+        self, request: CreateSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> CreateSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,12 +110,16 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceNodeResponse)
+        response: CreateSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListSpaceNodeRequest, option: Optional[RequestOption] = None) -> ListSpaceNodeResponse:
+    def list(
+        self, request: ListSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> ListSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +134,16 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceNodeResponse)
+        response: ListSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSpaceNodeRequest,
-                    option: Optional[RequestOption] = None) -> ListSpaceNodeResponse:
+    async def alist(
+        self, request: ListSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> ListSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,12 +154,16 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceNodeResponse)
+        response: ListSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def move(self, request: MoveSpaceNodeRequest, option: Optional[RequestOption] = None) -> MoveSpaceNodeResponse:
+    def move(
+        self, request: MoveSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> MoveSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,13 +178,16 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MoveSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveSpaceNodeResponse)
+        response: MoveSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MoveSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amove(self, request: MoveSpaceNodeRequest,
-                    option: Optional[RequestOption] = None) -> MoveSpaceNodeResponse:
+    async def amove(
+        self, request: MoveSpaceNodeRequest, option: Optional[RequestOption] = None
+    ) -> MoveSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,13 +198,18 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MoveSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveSpaceNodeResponse)
+        response: MoveSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MoveSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def move_docs_to_wiki(self, request: MoveDocsToWikiSpaceNodeRequest,
-                          option: Optional[RequestOption] = None) -> MoveDocsToWikiSpaceNodeResponse:
+    def move_docs_to_wiki(
+        self,
+        request: MoveDocsToWikiSpaceNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> MoveDocsToWikiSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -192,14 +224,18 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MoveDocsToWikiSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   MoveDocsToWikiSpaceNodeResponse)
+        response: MoveDocsToWikiSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MoveDocsToWikiSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amove_docs_to_wiki(self, request: MoveDocsToWikiSpaceNodeRequest,
-                                 option: Optional[RequestOption] = None) -> MoveDocsToWikiSpaceNodeResponse:
+    async def amove_docs_to_wiki(
+        self,
+        request: MoveDocsToWikiSpaceNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> MoveDocsToWikiSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,14 +246,18 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MoveDocsToWikiSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   MoveDocsToWikiSpaceNodeResponse)
+        response: MoveDocsToWikiSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MoveDocsToWikiSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    def update_title(self, request: UpdateTitleSpaceNodeRequest,
-                     option: Optional[RequestOption] = None) -> UpdateTitleSpaceNodeResponse:
+    def update_title(
+        self,
+        request: UpdateTitleSpaceNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateTitleSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -232,13 +272,18 @@ class SpaceNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTitleSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTitleSpaceNodeResponse)
+        response: UpdateTitleSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTitleSpaceNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate_title(self, request: UpdateTitleSpaceNodeRequest,
-                            option: Optional[RequestOption] = None) -> UpdateTitleSpaceNodeResponse:
+    async def aupdate_title(
+        self,
+        request: UpdateTitleSpaceNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateTitleSpaceNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -249,7 +294,9 @@ class SpaceNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateTitleSpaceNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTitleSpaceNodeResponse)
+        response: UpdateTitleSpaceNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateTitleSpaceNodeResponse
+        )
         response.raw = resp
 
         return response

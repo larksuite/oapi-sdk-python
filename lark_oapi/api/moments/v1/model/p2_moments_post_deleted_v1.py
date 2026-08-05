@@ -16,9 +16,7 @@ class P2MomentsPostDeletedV1Data(object):
 
 
 class P2MomentsPostDeletedV1(EventContext):
-    _types = {
-        "event": P2MomentsPostDeletedV1Data
-    }
+    _types = {"event": P2MomentsPostDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

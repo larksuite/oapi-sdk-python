@@ -9,7 +9,6 @@ from .list_file_comment_reply_response_body import ListFileCommentReplyResponseB
 class ListFileCommentReplyResponse(BaseResponse):
     _types = {
         "data": ListFileCommentReplyResponseBody,
-
     }
 
     def __init__(self, d=None):

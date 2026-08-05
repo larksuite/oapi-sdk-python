@@ -21,12 +21,14 @@ class ListAttachmentRequest(BaseRequest):
 
 
 class ListAttachmentRequestBuilder(object):
-
     def __init__(self) -> None:
         list_attachment_request = ListAttachmentRequest()
         list_attachment_request.http_method = HttpMethod.GET
         list_attachment_request.uri = "/open-apis/task/v2/attachments"
-        list_attachment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_attachment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_attachment_request: ListAttachmentRequest = list_attachment_request
 
     def page_size(self, page_size: int) -> "ListAttachmentRequestBuilder":

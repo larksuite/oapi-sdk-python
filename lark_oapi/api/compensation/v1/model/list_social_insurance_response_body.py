@@ -23,7 +23,9 @@ class ListSocialInsuranceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_social_insurance_response_body = ListSocialInsuranceResponseBody()
 
-    def items(self, items: List[SocialInsurance]) -> "ListSocialInsuranceResponseBodyBuilder":
+    def items(
+        self, items: List[SocialInsurance]
+    ) -> "ListSocialInsuranceResponseBodyBuilder":
         self._list_social_insurance_response_body.items = items
         return self
 

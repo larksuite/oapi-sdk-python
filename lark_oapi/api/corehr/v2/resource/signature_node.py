@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_by_file_id_signature_node_request import ListByFileIdSignatureNodeRequest
-from ..model.list_by_file_id_signature_node_response import ListByFileIdSignatureNodeResponse
+from ..model.list_by_file_id_signature_node_request import (
+    ListByFileIdSignatureNodeRequest,
+)
+from ..model.list_by_file_id_signature_node_response import (
+    ListByFileIdSignatureNodeResponse,
+)
 
 
 class SignatureNode(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list_by_file_id(self, request: ListByFileIdSignatureNodeRequest,
-                        option: Optional[RequestOption] = None) -> ListByFileIdSignatureNodeResponse:
+    def list_by_file_id(
+        self,
+        request: ListByFileIdSignatureNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListByFileIdSignatureNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class SignatureNode(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListByFileIdSignatureNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListByFileIdSignatureNodeResponse)
+        response: ListByFileIdSignatureNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByFileIdSignatureNodeResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_by_file_id(self, request: ListByFileIdSignatureNodeRequest,
-                               option: Optional[RequestOption] = None) -> ListByFileIdSignatureNodeResponse:
+    async def alist_by_file_id(
+        self,
+        request: ListByFileIdSignatureNodeRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListByFileIdSignatureNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class SignatureNode(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListByFileIdSignatureNodeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListByFileIdSignatureNodeResponse)
+        response: ListByFileIdSignatureNodeResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByFileIdSignatureNodeResponse
+        )
         response.raw = resp
 
         return response

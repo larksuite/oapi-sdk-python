@@ -9,7 +9,6 @@ from .list_group_response_body import ListGroupResponseBody
 class ListGroupResponse(BaseResponse):
     _types = {
         "data": ListGroupResponseBody,
-
     }
 
     def __init__(self, d=None):

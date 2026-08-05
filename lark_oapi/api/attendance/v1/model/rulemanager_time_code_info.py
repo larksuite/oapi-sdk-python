@@ -2,24 +2,31 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .rulemanager_time_code_display_name import RulemanagerTimeCodeDisplayName
+from .i18n_resource import I18nResource
+from .i18n_resource import I18nResource
 
 
 class RulemanagerTimeCodeInfo(object):
     _types = {
+        "time_code_id": str,
+        "time_code_group_id": str,
         "time_input_way": int,
         "unit_type": int,
         "step": str,
         "default_duration": str,
-        "display_names": List[RulemanagerTimeCodeDisplayName],
+        "display_names": List[I18nResource],
+        "labels": List[I18nResource],
     }
 
     def __init__(self, d=None):
+        self.time_code_id: Optional[str] = None
+        self.time_code_group_id: Optional[str] = None
         self.time_input_way: Optional[int] = None
         self.unit_type: Optional[int] = None
         self.step: Optional[str] = None
         self.default_duration: Optional[str] = None
-        self.display_names: Optional[List[RulemanagerTimeCodeDisplayName]] = None
+        self.display_names: Optional[List[I18nResource]] = None
+        self.labels: Optional[List[I18nResource]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +37,16 @@ class RulemanagerTimeCodeInfo(object):
 class RulemanagerTimeCodeInfoBuilder(object):
     def __init__(self) -> None:
         self._rulemanager_time_code_info = RulemanagerTimeCodeInfo()
+
+    def time_code_id(self, time_code_id: str) -> "RulemanagerTimeCodeInfoBuilder":
+        self._rulemanager_time_code_info.time_code_id = time_code_id
+        return self
+
+    def time_code_group_id(
+        self, time_code_group_id: str
+    ) -> "RulemanagerTimeCodeInfoBuilder":
+        self._rulemanager_time_code_info.time_code_group_id = time_code_group_id
+        return self
 
     def time_input_way(self, time_input_way: int) -> "RulemanagerTimeCodeInfoBuilder":
         self._rulemanager_time_code_info.time_input_way = time_input_way
@@ -43,12 +60,20 @@ class RulemanagerTimeCodeInfoBuilder(object):
         self._rulemanager_time_code_info.step = step
         return self
 
-    def default_duration(self, default_duration: str) -> "RulemanagerTimeCodeInfoBuilder":
+    def default_duration(
+        self, default_duration: str
+    ) -> "RulemanagerTimeCodeInfoBuilder":
         self._rulemanager_time_code_info.default_duration = default_duration
         return self
 
-    def display_names(self, display_names: List[RulemanagerTimeCodeDisplayName]) -> "RulemanagerTimeCodeInfoBuilder":
+    def display_names(
+        self, display_names: List[I18nResource]
+    ) -> "RulemanagerTimeCodeInfoBuilder":
         self._rulemanager_time_code_info.display_names = display_names
+        return self
+
+    def labels(self, labels: List[I18nResource]) -> "RulemanagerTimeCodeInfoBuilder":
+        self._rulemanager_time_code_info.labels = labels
         return self
 
     def build(self) -> "RulemanagerTimeCodeInfo":

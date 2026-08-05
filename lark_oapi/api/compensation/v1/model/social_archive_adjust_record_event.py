@@ -40,11 +40,15 @@ class SocialArchiveAdjustRecordEventBuilder(object):
         self._social_archive_adjust_record_event.id = id
         return self
 
-    def insurance_type(self, insurance_type: str) -> "SocialArchiveAdjustRecordEventBuilder":
+    def insurance_type(
+        self, insurance_type: str
+    ) -> "SocialArchiveAdjustRecordEventBuilder":
         self._social_archive_adjust_record_event.insurance_type = insurance_type
         return self
 
-    def operate_type(self, operate_type: str) -> "SocialArchiveAdjustRecordEventBuilder":
+    def operate_type(
+        self, operate_type: str
+    ) -> "SocialArchiveAdjustRecordEventBuilder":
         self._social_archive_adjust_record_event.operate_type = operate_type
         return self
 
@@ -56,14 +60,20 @@ class SocialArchiveAdjustRecordEventBuilder(object):
         self._social_archive_adjust_record_event.record_type = record_type
         return self
 
-    def after_adjust_record_detail(self,
-                                   after_adjust_record_detail: SocialArchiveDetail) -> "SocialArchiveAdjustRecordEventBuilder":
-        self._social_archive_adjust_record_event.after_adjust_record_detail = after_adjust_record_detail
+    def after_adjust_record_detail(
+        self, after_adjust_record_detail: SocialArchiveDetail
+    ) -> "SocialArchiveAdjustRecordEventBuilder":
+        self._social_archive_adjust_record_event.after_adjust_record_detail = (
+            after_adjust_record_detail
+        )
         return self
 
-    def before_adjust_record_detail(self,
-                                    before_adjust_record_detail: SocialArchiveDetail) -> "SocialArchiveAdjustRecordEventBuilder":
-        self._social_archive_adjust_record_event.before_adjust_record_detail = before_adjust_record_detail
+    def before_adjust_record_detail(
+        self, before_adjust_record_detail: SocialArchiveDetail
+    ) -> "SocialArchiveAdjustRecordEventBuilder":
+        self._social_archive_adjust_record_event.before_adjust_record_detail = (
+            before_adjust_record_detail
+        )
         return self
 
     def build(self) -> "SocialArchiveAdjustRecordEvent":

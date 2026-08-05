@@ -17,7 +17,6 @@ class SearchEnumRequest(BaseRequest):
 
 
 class SearchEnumRequestBuilder(object):
-
     def __init__(self) -> None:
         search_enum_request = SearchEnumRequest()
         search_enum_request.http_method = HttpMethod.POST
@@ -25,7 +24,9 @@ class SearchEnumRequestBuilder(object):
         search_enum_request.token_types = {AccessTokenType.TENANT}
         self._search_enum_request: SearchEnumRequest = search_enum_request
 
-    def request_body(self, request_body: SearchEnumRequestBody) -> "SearchEnumRequestBuilder":
+    def request_body(
+        self, request_body: SearchEnumRequestBody
+    ) -> "SearchEnumRequestBuilder":
         self._search_enum_request.request_body = request_body
         self._search_enum_request.body = request_body
         return self

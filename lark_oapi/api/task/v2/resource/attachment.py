@@ -23,8 +23,9 @@ class Attachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteAttachmentRequest,
-               option: Optional[RequestOption] = None) -> DeleteAttachmentResponse:
+    def delete(
+        self, request: DeleteAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,13 +40,16 @@ class Attachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAttachmentResponse)
+        response: DeleteAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteAttachmentRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAttachmentResponse:
+    async def adelete(
+        self, request: DeleteAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> DeleteAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,12 +60,16 @@ class Attachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAttachmentResponse)
+        response: DeleteAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+    def get(
+        self, request: GetAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> GetAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -76,13 +84,16 @@ class Attachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAttachmentResponse)
+        response: GetAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetAttachmentRequest,
-                   option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+    async def aget(
+        self, request: GetAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> GetAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,12 +104,16 @@ class Attachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAttachmentResponse)
+        response: GetAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListAttachmentRequest, option: Optional[RequestOption] = None) -> ListAttachmentResponse:
+    def list(
+        self, request: ListAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> ListAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,13 +128,16 @@ class Attachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAttachmentResponse)
+        response: ListAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAttachmentRequest,
-                    option: Optional[RequestOption] = None) -> ListAttachmentResponse:
+    async def alist(
+        self, request: ListAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> ListAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -130,13 +148,16 @@ class Attachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAttachmentResponse)
+        response: ListAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload(self, request: UploadAttachmentRequest,
-               option: Optional[RequestOption] = None) -> UploadAttachmentResponse:
+    def upload(
+        self, request: UploadAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> UploadAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,13 +174,16 @@ class Attachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAttachmentResponse)
+        response: UploadAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload(self, request: UploadAttachmentRequest,
-                      option: Optional[RequestOption] = None) -> UploadAttachmentResponse:
+    async def aupload(
+        self, request: UploadAttachmentRequest, option: Optional[RequestOption] = None
+    ) -> UploadAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -173,7 +197,9 @@ class Attachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAttachmentResponse)
+        response: UploadAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadAttachmentResponse
+        )
         response.raw = resp
 
         return response

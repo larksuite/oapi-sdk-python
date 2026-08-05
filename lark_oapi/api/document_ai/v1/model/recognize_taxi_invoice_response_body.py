@@ -23,7 +23,9 @@ class RecognizeTaxiInvoiceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_taxi_invoice_response_body = RecognizeTaxiInvoiceResponseBody()
 
-    def taxi_invoices(self, taxi_invoices: List[TaxiInvoice]) -> "RecognizeTaxiInvoiceResponseBodyBuilder":
+    def taxi_invoices(
+        self, taxi_invoices: List[TaxiInvoice]
+    ) -> "RecognizeTaxiInvoiceResponseBodyBuilder":
         self._recognize_taxi_invoice_response_body.taxi_invoices = taxi_invoices
         return self
 

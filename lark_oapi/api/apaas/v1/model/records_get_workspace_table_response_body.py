@@ -26,13 +26,17 @@ class RecordsGetWorkspaceTableResponseBody(object):
 
 class RecordsGetWorkspaceTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._records_get_workspace_table_response_body = RecordsGetWorkspaceTableResponseBody()
+        self._records_get_workspace_table_response_body = (
+            RecordsGetWorkspaceTableResponseBody()
+        )
 
     def has_more(self, has_more: bool) -> "RecordsGetWorkspaceTableResponseBodyBuilder":
         self._records_get_workspace_table_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "RecordsGetWorkspaceTableResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "RecordsGetWorkspaceTableResponseBodyBuilder":
         self._records_get_workspace_table_response_body.page_token = page_token
         return self
 

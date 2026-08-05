@@ -3,13 +3,17 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
+from .internal_tenant_access_token_response_body import (
+    InternalTenantAccessTokenResponseBody,
+)
 
 
 class InternalTenantAccessTokenResponse(BaseResponse):
     _types = {
-
+        "data": InternalTenantAccessTokenResponseBody,
     }
 
     def __init__(self, d=None):
         super().__init__(d)
+        self.data: Optional[InternalTenantAccessTokenResponseBody] = None
         init(self, d, self._types)

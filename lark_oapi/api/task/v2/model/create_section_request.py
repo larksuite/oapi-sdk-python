@@ -18,12 +18,14 @@ class CreateSectionRequest(BaseRequest):
 
 
 class CreateSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         create_section_request = CreateSectionRequest()
         create_section_request.http_method = HttpMethod.POST
         create_section_request.uri = "/open-apis/task/v2/sections"
-        create_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_section_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._create_section_request: CreateSectionRequest = create_section_request
 
     def user_id_type(self, user_id_type: str) -> "CreateSectionRequestBuilder":

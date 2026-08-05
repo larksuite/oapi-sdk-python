@@ -24,9 +24,13 @@ class MoveDocsToWikiSpaceNodeResponseBody(object):
 
 class MoveDocsToWikiSpaceNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._move_docs_to_wiki_space_node_response_body = MoveDocsToWikiSpaceNodeResponseBody()
+        self._move_docs_to_wiki_space_node_response_body = (
+            MoveDocsToWikiSpaceNodeResponseBody()
+        )
 
-    def wiki_token(self, wiki_token: str) -> "MoveDocsToWikiSpaceNodeResponseBodyBuilder":
+    def wiki_token(
+        self, wiki_token: str
+    ) -> "MoveDocsToWikiSpaceNodeResponseBodyBuilder":
         self._move_docs_to_wiki_space_node_response_body.wiki_token = wiki_token
         return self
 

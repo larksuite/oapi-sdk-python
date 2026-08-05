@@ -23,7 +23,9 @@ class ListAgentSkillResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_agent_skill_response_body = ListAgentSkillResponseBody()
 
-    def agent_skills(self, agent_skills: List[AgentSkill]) -> "ListAgentSkillResponseBodyBuilder":
+    def agent_skills(
+        self, agent_skills: List[AgentSkill]
+    ) -> "ListAgentSkillResponseBodyBuilder":
         self._list_agent_skill_response_body.agent_skills = agent_skills
         return self
 

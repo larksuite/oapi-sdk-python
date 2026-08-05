@@ -19,7 +19,6 @@ class GetMailgroupPermissionMemberRequest(BaseRequest):
 
 
 class GetMailgroupPermissionMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         get_mailgroup_permission_member_request = GetMailgroupPermissionMemberRequest()
         get_mailgroup_permission_member_request.http_method = HttpMethod.GET
@@ -27,24 +26,44 @@ class GetMailgroupPermissionMemberRequestBuilder(object):
         get_mailgroup_permission_member_request.token_types = {AccessTokenType.TENANT}
         self._get_mailgroup_permission_member_request: GetMailgroupPermissionMemberRequest = get_mailgroup_permission_member_request
 
-    def user_id_type(self, user_id_type: str) -> "GetMailgroupPermissionMemberRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "GetMailgroupPermissionMemberRequestBuilder":
         self._get_mailgroup_permission_member_request.user_id_type = user_id_type
-        self._get_mailgroup_permission_member_request.add_query("user_id_type", user_id_type)
+        self._get_mailgroup_permission_member_request.add_query(
+            "user_id_type", user_id_type
+        )
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetMailgroupPermissionMemberRequestBuilder":
-        self._get_mailgroup_permission_member_request.department_id_type = department_id_type
-        self._get_mailgroup_permission_member_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetMailgroupPermissionMemberRequestBuilder":
+        self._get_mailgroup_permission_member_request.department_id_type = (
+            department_id_type
+        )
+        self._get_mailgroup_permission_member_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def mailgroup_id(self, mailgroup_id: str) -> "GetMailgroupPermissionMemberRequestBuilder":
+    def mailgroup_id(
+        self, mailgroup_id: str
+    ) -> "GetMailgroupPermissionMemberRequestBuilder":
         self._get_mailgroup_permission_member_request.mailgroup_id = mailgroup_id
-        self._get_mailgroup_permission_member_request.paths["mailgroup_id"] = str(mailgroup_id)
+        self._get_mailgroup_permission_member_request.paths["mailgroup_id"] = str(
+            mailgroup_id
+        )
         return self
 
-    def permission_member_id(self, permission_member_id: str) -> "GetMailgroupPermissionMemberRequestBuilder":
-        self._get_mailgroup_permission_member_request.permission_member_id = permission_member_id
-        self._get_mailgroup_permission_member_request.paths["permission_member_id"] = str(permission_member_id)
+    def permission_member_id(
+        self, permission_member_id: str
+    ) -> "GetMailgroupPermissionMemberRequestBuilder":
+        self._get_mailgroup_permission_member_request.permission_member_id = (
+            permission_member_id
+        )
+        self._get_mailgroup_permission_member_request.paths["permission_member_id"] = (
+            str(permission_member_id)
+        )
         return self
 
     def build(self) -> GetMailgroupPermissionMemberRequest:

@@ -25,9 +25,7 @@ class P2CorehrCommonDataIdUserMappingChangedV1Data(object):
 
 
 class P2CorehrCommonDataIdUserMappingChangedV1(EventContext):
-    _types = {
-        "event": P2CorehrCommonDataIdUserMappingChangedV1Data
-    }
+    _types = {"event": P2CorehrCommonDataIdUserMappingChangedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -19,12 +19,14 @@ class PatchCommentRequest(BaseRequest):
 
 
 class PatchCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_comment_request = PatchCommentRequest()
         patch_comment_request.http_method = HttpMethod.PATCH
         patch_comment_request.uri = "/open-apis/task/v2/comments/:comment_id"
-        patch_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._patch_comment_request: PatchCommentRequest = patch_comment_request
 
     def user_id_type(self, user_id_type: str) -> "PatchCommentRequestBuilder":
@@ -37,7 +39,9 @@ class PatchCommentRequestBuilder(object):
         self._patch_comment_request.paths["comment_id"] = str(comment_id)
         return self
 
-    def request_body(self, request_body: PatchCommentRequestBody) -> "PatchCommentRequestBuilder":
+    def request_body(
+        self, request_body: PatchCommentRequestBody
+    ) -> "PatchCommentRequestBuilder":
         self._patch_comment_request.request_body = request_body
         self._patch_comment_request.body = request_body
         return self

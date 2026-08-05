@@ -9,7 +9,6 @@ from .create_access_token_response_body import CreateAccessTokenResponseBody
 class CreateAccessTokenResponse(BaseResponse):
     _types = {
         "data": CreateAccessTokenResponseBody,
-
     }
 
     def __init__(self, d=None):

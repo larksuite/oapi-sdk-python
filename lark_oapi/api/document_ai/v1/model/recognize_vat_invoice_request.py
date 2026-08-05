@@ -17,15 +17,20 @@ class RecognizeVatInvoiceRequest(BaseRequest):
 
 
 class RecognizeVatInvoiceRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_vat_invoice_request = RecognizeVatInvoiceRequest()
         recognize_vat_invoice_request.http_method = HttpMethod.POST
-        recognize_vat_invoice_request.uri = "/open-apis/document_ai/v1/vat_invoice/recognize"
+        recognize_vat_invoice_request.uri = (
+            "/open-apis/document_ai/v1/vat_invoice/recognize"
+        )
         recognize_vat_invoice_request.token_types = {AccessTokenType.TENANT}
-        self._recognize_vat_invoice_request: RecognizeVatInvoiceRequest = recognize_vat_invoice_request
+        self._recognize_vat_invoice_request: RecognizeVatInvoiceRequest = (
+            recognize_vat_invoice_request
+        )
 
-    def request_body(self, request_body: RecognizeVatInvoiceRequestBody) -> "RecognizeVatInvoiceRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeVatInvoiceRequestBody
+    ) -> "RecognizeVatInvoiceRequestBuilder":
         self._recognize_vat_invoice_request.request_body = request_body
         self._recognize_vat_invoice_request.body = request_body
         return self

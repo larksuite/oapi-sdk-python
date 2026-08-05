@@ -95,7 +95,9 @@ class ApplicationAppVersionBuilder(object):
         self._application_app_version.i18n = i18n
         return self
 
-    def common_categories(self, common_categories: List[str]) -> "ApplicationAppVersionBuilder":
+    def common_categories(
+        self, common_categories: List[str]
+    ) -> "ApplicationAppVersionBuilder":
         self._application_app_version.common_categories = common_categories
         return self
 

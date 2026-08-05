@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .move_result import MoveResult
 from .delete_space_result import DeleteSpaceResult
 from .simple_task_result import SimpleTaskResult
+from .move_wiki_to_docs_result import MoveWikiToDocsResult
 
 
 class TaskResult(object):
@@ -13,6 +14,7 @@ class TaskResult(object):
         "move_result": List[MoveResult],
         "delete_space_result": DeleteSpaceResult,
         "simple_task_result": SimpleTaskResult,
+        "move_wiki_to_docs_result": MoveWikiToDocsResult,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class TaskResult(object):
         self.move_result: Optional[List[MoveResult]] = None
         self.delete_space_result: Optional[DeleteSpaceResult] = None
         self.simple_task_result: Optional[SimpleTaskResult] = None
+        self.move_wiki_to_docs_result: Optional[MoveWikiToDocsResult] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -39,12 +42,22 @@ class TaskResultBuilder(object):
         self._task_result.move_result = move_result
         return self
 
-    def delete_space_result(self, delete_space_result: DeleteSpaceResult) -> "TaskResultBuilder":
+    def delete_space_result(
+        self, delete_space_result: DeleteSpaceResult
+    ) -> "TaskResultBuilder":
         self._task_result.delete_space_result = delete_space_result
         return self
 
-    def simple_task_result(self, simple_task_result: SimpleTaskResult) -> "TaskResultBuilder":
+    def simple_task_result(
+        self, simple_task_result: SimpleTaskResult
+    ) -> "TaskResultBuilder":
         self._task_result.simple_task_result = simple_task_result
+        return self
+
+    def move_wiki_to_docs_result(
+        self, move_wiki_to_docs_result: MoveWikiToDocsResult
+    ) -> "TaskResultBuilder":
+        self._task_result.move_wiki_to_docs_result = move_wiki_to_docs_result
         return self
 
     def build(self) -> "TaskResult":

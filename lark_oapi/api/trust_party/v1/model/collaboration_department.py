@@ -37,7 +37,9 @@ class CollaborationDepartmentBuilder(object):
     def __init__(self) -> None:
         self._collaboration_department = CollaborationDepartment()
 
-    def open_department_id(self, open_department_id: str) -> "CollaborationDepartmentBuilder":
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "CollaborationDepartmentBuilder":
         self._collaboration_department.open_department_id = open_department_id
         return self
 
@@ -57,11 +59,15 @@ class CollaborationDepartmentBuilder(object):
         self._collaboration_department.order = order
         return self
 
-    def leaders(self, leaders: List[CollaborationDepartmentLeader]) -> "CollaborationDepartmentBuilder":
+    def leaders(
+        self, leaders: List[CollaborationDepartmentLeader]
+    ) -> "CollaborationDepartmentBuilder":
         self._collaboration_department.leaders = leaders
         return self
 
-    def parent_department_id(self, parent_department_id: CollaborationDepartmentId) -> "CollaborationDepartmentBuilder":
+    def parent_department_id(
+        self, parent_department_id: CollaborationDepartmentId
+    ) -> "CollaborationDepartmentBuilder":
         self._collaboration_department.parent_department_id = parent_department_id
         return self
 

@@ -16,7 +16,6 @@ class DeleteFaqRequest(BaseRequest):
 
 
 class DeleteFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_faq_request = DeleteFaqRequest()
         delete_faq_request.http_method = HttpMethod.DELETE

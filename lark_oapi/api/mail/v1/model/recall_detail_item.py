@@ -56,16 +56,24 @@ class RecallDetailItemBuilder(object):
         self._recall_detail_item.is_mailing_list = is_mailing_list
         return self
 
-    def mailing_list_success_count(self, mailing_list_success_count: int) -> "RecallDetailItemBuilder":
+    def mailing_list_success_count(
+        self, mailing_list_success_count: int
+    ) -> "RecallDetailItemBuilder":
         self._recall_detail_item.mailing_list_success_count = mailing_list_success_count
         return self
 
-    def mailing_list_failure_count(self, mailing_list_failure_count: int) -> "RecallDetailItemBuilder":
+    def mailing_list_failure_count(
+        self, mailing_list_failure_count: int
+    ) -> "RecallDetailItemBuilder":
         self._recall_detail_item.mailing_list_failure_count = mailing_list_failure_count
         return self
 
-    def mailing_list_finish_percent(self, mailing_list_finish_percent: int) -> "RecallDetailItemBuilder":
-        self._recall_detail_item.mailing_list_finish_percent = mailing_list_finish_percent
+    def mailing_list_finish_percent(
+        self, mailing_list_finish_percent: int
+    ) -> "RecallDetailItemBuilder":
+        self._recall_detail_item.mailing_list_finish_percent = (
+            mailing_list_finish_percent
+        )
         return self
 
     def build(self) -> "RecallDetailItem":

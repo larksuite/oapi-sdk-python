@@ -25,7 +25,9 @@ class StartAppSkillRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._start_app_skill_request_body = StartAppSkillRequestBody()
 
-    def global_variable(self, global_variable: SkillGlobalVariable) -> "StartAppSkillRequestBodyBuilder":
+    def global_variable(
+        self, global_variable: SkillGlobalVariable
+    ) -> "StartAppSkillRequestBodyBuilder":
         self._start_app_skill_request_body.global_variable = global_variable
         return self
 

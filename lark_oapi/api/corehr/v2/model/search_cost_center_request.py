@@ -20,13 +20,14 @@ class SearchCostCenterRequest(BaseRequest):
 
 
 class SearchCostCenterRequestBuilder(object):
-
     def __init__(self) -> None:
         search_cost_center_request = SearchCostCenterRequest()
         search_cost_center_request.http_method = HttpMethod.POST
         search_cost_center_request.uri = "/open-apis/corehr/v2/cost_centers/search"
         search_cost_center_request.token_types = {AccessTokenType.TENANT}
-        self._search_cost_center_request: SearchCostCenterRequest = search_cost_center_request
+        self._search_cost_center_request: SearchCostCenterRequest = (
+            search_cost_center_request
+        )
 
     def page_size(self, page_size: int) -> "SearchCostCenterRequestBuilder":
         self._search_cost_center_request.page_size = page_size
@@ -43,7 +44,9 @@ class SearchCostCenterRequestBuilder(object):
         self._search_cost_center_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SearchCostCenterRequestBody) -> "SearchCostCenterRequestBuilder":
+    def request_body(
+        self, request_body: SearchCostCenterRequestBody
+    ) -> "SearchCostCenterRequestBuilder":
         self._search_cost_center_request.request_body = request_body
         self._search_cost_center_request.body = request_body
         return self

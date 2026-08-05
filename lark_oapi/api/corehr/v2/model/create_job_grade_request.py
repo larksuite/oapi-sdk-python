@@ -18,7 +18,6 @@ class CreateJobGradeRequest(BaseRequest):
 
 
 class CreateJobGradeRequestBuilder(object):
-
     def __init__(self) -> None:
         create_job_grade_request = CreateJobGradeRequest()
         create_job_grade_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class CreateJobGradeRequestBuilder(object):
         self._create_job_grade_request.add_query("client_token", client_token)
         return self
 
-    def request_body(self, request_body: JobGradeCreate) -> "CreateJobGradeRequestBuilder":
+    def request_body(
+        self, request_body: JobGradeCreate
+    ) -> "CreateJobGradeRequestBuilder":
         self._create_job_grade_request.request_body = request_body
         self._create_job_grade_request.body = request_body
         return self

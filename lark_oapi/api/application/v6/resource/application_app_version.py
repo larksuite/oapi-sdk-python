@@ -9,24 +9,39 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.contacts_range_suggest_application_app_version_request import \
-    ContactsRangeSuggestApplicationAppVersionRequest
-from ..model.contacts_range_suggest_application_app_version_response import \
-    ContactsRangeSuggestApplicationAppVersionResponse
+from ..model.contacts_range_suggest_application_app_version_request import (
+    ContactsRangeSuggestApplicationAppVersionRequest,
+)
+from ..model.contacts_range_suggest_application_app_version_response import (
+    ContactsRangeSuggestApplicationAppVersionResponse,
+)
 from ..model.get_application_app_version_request import GetApplicationAppVersionRequest
-from ..model.get_application_app_version_response import GetApplicationAppVersionResponse
-from ..model.list_application_app_version_request import ListApplicationAppVersionRequest
-from ..model.list_application_app_version_response import ListApplicationAppVersionResponse
-from ..model.patch_application_app_version_request import PatchApplicationAppVersionRequest
-from ..model.patch_application_app_version_response import PatchApplicationAppVersionResponse
+from ..model.get_application_app_version_response import (
+    GetApplicationAppVersionResponse,
+)
+from ..model.list_application_app_version_request import (
+    ListApplicationAppVersionRequest,
+)
+from ..model.list_application_app_version_response import (
+    ListApplicationAppVersionResponse,
+)
+from ..model.patch_application_app_version_request import (
+    PatchApplicationAppVersionRequest,
+)
+from ..model.patch_application_app_version_response import (
+    PatchApplicationAppVersionResponse,
+)
 
 
 class ApplicationAppVersion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def contacts_range_suggest(self, request: ContactsRangeSuggestApplicationAppVersionRequest, option: Optional[
-        RequestOption] = None) -> ContactsRangeSuggestApplicationAppVersionResponse:
+    def contacts_range_suggest(
+        self,
+        request: ContactsRangeSuggestApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ContactsRangeSuggestApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +56,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ContactsRangeSuggestApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                     ContactsRangeSuggestApplicationAppVersionResponse)
+        response: ContactsRangeSuggestApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ContactsRangeSuggestApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acontacts_range_suggest(self, request: ContactsRangeSuggestApplicationAppVersionRequest, option: Optional[
-        RequestOption] = None) -> ContactsRangeSuggestApplicationAppVersionResponse:
+    async def acontacts_range_suggest(
+        self,
+        request: ContactsRangeSuggestApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ContactsRangeSuggestApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +78,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ContactsRangeSuggestApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                     ContactsRangeSuggestApplicationAppVersionResponse)
+        response: ContactsRangeSuggestApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ContactsRangeSuggestApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetApplicationAppVersionRequest,
-            option: Optional[RequestOption] = None) -> GetApplicationAppVersionResponse:
+    def get(
+        self,
+        request: GetApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,14 +104,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetApplicationAppVersionResponse)
+        response: GetApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetApplicationAppVersionRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationAppVersionResponse:
+    async def aget(
+        self,
+        request: GetApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -99,14 +126,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetApplicationAppVersionResponse)
+        response: GetApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListApplicationAppVersionRequest,
-             option: Optional[RequestOption] = None) -> ListApplicationAppVersionResponse:
+    def list(
+        self,
+        request: ListApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +152,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListApplicationAppVersionResponse)
+        response: ListApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListApplicationAppVersionRequest,
-                    option: Optional[RequestOption] = None) -> ListApplicationAppVersionResponse:
+    async def alist(
+        self,
+        request: ListApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +174,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     ListApplicationAppVersionResponse)
+        response: ListApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchApplicationAppVersionRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationAppVersionResponse:
+    def patch(
+        self,
+        request: PatchApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,14 +200,18 @@ class ApplicationAppVersion(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchApplicationAppVersionResponse)
+        response: PatchApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchApplicationAppVersionRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationAppVersionResponse:
+    async def apatch(
+        self,
+        request: PatchApplicationAppVersionRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchApplicationAppVersionResponse:
         if option is None:
             option = RequestOption()
 
@@ -179,8 +222,9 @@ class ApplicationAppVersion(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      PatchApplicationAppVersionResponse)
+        response: PatchApplicationAppVersionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchApplicationAppVersionResponse
+        )
         response.raw = resp
 
         return response

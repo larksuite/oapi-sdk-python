@@ -41,7 +41,9 @@ class OrganizationOpLogBuilder(object):
         self._organization_op_log.object_id = object_id
         return self
 
-    def changes(self, changes: List[OperationLogEntityField]) -> "OrganizationOpLogBuilder":
+    def changes(
+        self, changes: List[OperationLogEntityField]
+    ) -> "OrganizationOpLogBuilder":
         self._organization_op_log.changes = changes
         return self
 

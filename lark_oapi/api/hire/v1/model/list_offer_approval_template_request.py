@@ -18,13 +18,16 @@ class ListOfferApprovalTemplateRequest(BaseRequest):
 
 
 class ListOfferApprovalTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
         list_offer_approval_template_request = ListOfferApprovalTemplateRequest()
         list_offer_approval_template_request.http_method = HttpMethod.GET
-        list_offer_approval_template_request.uri = "/open-apis/hire/v1/offer_approval_templates"
+        list_offer_approval_template_request.uri = (
+            "/open-apis/hire/v1/offer_approval_templates"
+        )
         list_offer_approval_template_request.token_types = {AccessTokenType.TENANT}
-        self._list_offer_approval_template_request: ListOfferApprovalTemplateRequest = list_offer_approval_template_request
+        self._list_offer_approval_template_request: ListOfferApprovalTemplateRequest = (
+            list_offer_approval_template_request
+        )
 
     def page_token(self, page_token: str) -> "ListOfferApprovalTemplateRequestBuilder":
         self._list_offer_approval_template_request.page_token = page_token
@@ -36,9 +39,15 @@ class ListOfferApprovalTemplateRequestBuilder(object):
         self._list_offer_approval_template_request.add_query("page_size", page_size)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListOfferApprovalTemplateRequestBuilder":
-        self._list_offer_approval_template_request.department_id_type = department_id_type
-        self._list_offer_approval_template_request.add_query("department_id_type", department_id_type)
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListOfferApprovalTemplateRequestBuilder":
+        self._list_offer_approval_template_request.department_id_type = (
+            department_id_type
+        )
+        self._list_offer_approval_template_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def build(self) -> ListOfferApprovalTemplateRequest:

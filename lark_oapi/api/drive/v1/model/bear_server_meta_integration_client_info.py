@@ -20,7 +20,9 @@ class BearServerMetaIntegrationClientInfo(object):
 
 class BearServerMetaIntegrationClientInfoBuilder(object):
     def __init__(self) -> None:
-        self._bear_server_meta_integration_client_info = BearServerMetaIntegrationClientInfo()
+        self._bear_server_meta_integration_client_info = (
+            BearServerMetaIntegrationClientInfo()
+        )
 
     def client_ip(self, client_ip: str) -> "BearServerMetaIntegrationClientInfoBuilder":
         self._bear_server_meta_integration_client_info.client_ip = client_ip

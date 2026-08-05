@@ -18,20 +18,29 @@ class MoveTalentTalentPoolRequest(BaseRequest):
 
 
 class MoveTalentTalentPoolRequestBuilder(object):
-
     def __init__(self) -> None:
         move_talent_talent_pool_request = MoveTalentTalentPoolRequest()
         move_talent_talent_pool_request.http_method = HttpMethod.POST
-        move_talent_talent_pool_request.uri = "/open-apis/hire/v1/talent_pools/:talent_pool_id/talent_relationship"
+        move_talent_talent_pool_request.uri = (
+            "/open-apis/hire/v1/talent_pools/:talent_pool_id/talent_relationship"
+        )
         move_talent_talent_pool_request.token_types = {AccessTokenType.TENANT}
-        self._move_talent_talent_pool_request: MoveTalentTalentPoolRequest = move_talent_talent_pool_request
+        self._move_talent_talent_pool_request: MoveTalentTalentPoolRequest = (
+            move_talent_talent_pool_request
+        )
 
-    def talent_pool_id(self, talent_pool_id: str) -> "MoveTalentTalentPoolRequestBuilder":
+    def talent_pool_id(
+        self, talent_pool_id: str
+    ) -> "MoveTalentTalentPoolRequestBuilder":
         self._move_talent_talent_pool_request.talent_pool_id = talent_pool_id
-        self._move_talent_talent_pool_request.paths["talent_pool_id"] = str(talent_pool_id)
+        self._move_talent_talent_pool_request.paths["talent_pool_id"] = str(
+            talent_pool_id
+        )
         return self
 
-    def request_body(self, request_body: MoveTalentTalentPoolRequestBody) -> "MoveTalentTalentPoolRequestBuilder":
+    def request_body(
+        self, request_body: MoveTalentTalentPoolRequestBody
+    ) -> "MoveTalentTalentPoolRequestBuilder":
         self._move_talent_talent_pool_request.request_body = request_body
         self._move_talent_talent_pool_request.body = request_body
         return self

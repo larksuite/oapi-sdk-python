@@ -9,18 +9,29 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_external_interview_assessment_request import CreateExternalInterviewAssessmentRequest
-from ..model.create_external_interview_assessment_response import CreateExternalInterviewAssessmentResponse
-from ..model.patch_external_interview_assessment_request import PatchExternalInterviewAssessmentRequest
-from ..model.patch_external_interview_assessment_response import PatchExternalInterviewAssessmentResponse
+from ..model.create_external_interview_assessment_request import (
+    CreateExternalInterviewAssessmentRequest,
+)
+from ..model.create_external_interview_assessment_response import (
+    CreateExternalInterviewAssessmentResponse,
+)
+from ..model.patch_external_interview_assessment_request import (
+    PatchExternalInterviewAssessmentRequest,
+)
+from ..model.patch_external_interview_assessment_response import (
+    PatchExternalInterviewAssessmentResponse,
+)
 
 
 class ExternalInterviewAssessment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExternalInterviewAssessmentRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+    def create(
+        self,
+        request: CreateExternalInterviewAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +46,18 @@ class ExternalInterviewAssessment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateExternalInterviewAssessmentResponse)
+        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalInterviewAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateExternalInterviewAssessmentRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+    async def acreate(
+        self,
+        request: CreateExternalInterviewAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +68,18 @@ class ExternalInterviewAssessment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateExternalInterviewAssessmentResponse)
+        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateExternalInterviewAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchExternalInterviewAssessmentRequest,
-              option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
+    def patch(
+        self,
+        request: PatchExternalInterviewAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +94,18 @@ class ExternalInterviewAssessment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            PatchExternalInterviewAssessmentResponse)
+        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchExternalInterviewAssessmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchExternalInterviewAssessmentRequest,
-                     option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
+    async def apatch(
+        self,
+        request: PatchExternalInterviewAssessmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +116,9 @@ class ExternalInterviewAssessment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            PatchExternalInterviewAssessmentResponse)
+        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchExternalInterviewAssessmentResponse
+        )
         response.raw = resp
 
         return response

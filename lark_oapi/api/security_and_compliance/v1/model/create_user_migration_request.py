@@ -18,20 +18,28 @@ class CreateUserMigrationRequest(BaseRequest):
 
 
 class CreateUserMigrationRequestBuilder(object):
-
     def __init__(self) -> None:
         create_user_migration_request = CreateUserMigrationRequest()
         create_user_migration_request.http_method = HttpMethod.POST
-        create_user_migration_request.uri = "/open-apis/security_and_compliance/v1/user_migrations"
-        create_user_migration_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_user_migration_request: CreateUserMigrationRequest = create_user_migration_request
+        create_user_migration_request.uri = (
+            "/open-apis/security_and_compliance/v1/user_migrations"
+        )
+        create_user_migration_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_user_migration_request: CreateUserMigrationRequest = (
+            create_user_migration_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateUserMigrationRequestBuilder":
         self._create_user_migration_request.user_id_type = user_id_type
         self._create_user_migration_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateUserMigrationRequestBody) -> "CreateUserMigrationRequestBuilder":
+    def request_body(
+        self, request_body: CreateUserMigrationRequestBody
+    ) -> "CreateUserMigrationRequestBuilder":
         self._create_user_migration_request.request_body = request_body
         self._create_user_migration_request.body = request_body
         return self

@@ -27,7 +27,9 @@ class ListPaymentActivityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_payment_activity_response_body = ListPaymentActivityResponseBody()
 
-    def payment_activitys(self, payment_activitys: List[PaymentActivity]) -> "ListPaymentActivityResponseBodyBuilder":
+    def payment_activitys(
+        self, payment_activitys: List[PaymentActivity]
+    ) -> "ListPaymentActivityResponseBodyBuilder":
         self._list_payment_activity_response_body.payment_activitys = payment_activitys
         return self
 

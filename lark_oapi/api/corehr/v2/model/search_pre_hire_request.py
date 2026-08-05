@@ -21,7 +21,6 @@ class SearchPreHireRequest(BaseRequest):
 
 
 class SearchPreHireRequestBuilder(object):
-
     def __init__(self) -> None:
         search_pre_hire_request = SearchPreHireRequest()
         search_pre_hire_request.http_method = HttpMethod.POST
@@ -44,12 +43,18 @@ class SearchPreHireRequestBuilder(object):
         self._search_pre_hire_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchPreHireRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchPreHireRequestBuilder":
         self._search_pre_hire_request.department_id_type = department_id_type
-        self._search_pre_hire_request.add_query("department_id_type", department_id_type)
+        self._search_pre_hire_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: SearchPreHireRequestBody) -> "SearchPreHireRequestBuilder":
+    def request_body(
+        self, request_body: SearchPreHireRequestBody
+    ) -> "SearchPreHireRequestBuilder":
         self._search_pre_hire_request.request_body = request_body
         self._search_pre_hire_request.body = request_body
         return self

@@ -36,19 +36,27 @@ class QueryReviewDataRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_review_data_request_body = QueryReviewDataRequestBody()
 
-    def semester_ids(self, semester_ids: List[int]) -> "QueryReviewDataRequestBodyBuilder":
+    def semester_ids(
+        self, semester_ids: List[int]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.semester_ids = semester_ids
         return self
 
-    def reviewee_user_ids(self, reviewee_user_ids: List[str]) -> "QueryReviewDataRequestBodyBuilder":
+    def reviewee_user_ids(
+        self, reviewee_user_ids: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.reviewee_user_ids = reviewee_user_ids
         return self
 
-    def stage_types(self, stage_types: List[str]) -> "QueryReviewDataRequestBodyBuilder":
+    def stage_types(
+        self, stage_types: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.stage_types = stage_types
         return self
 
-    def review_stage_roles(self, review_stage_roles: List[str]) -> "QueryReviewDataRequestBodyBuilder":
+    def review_stage_roles(
+        self, review_stage_roles: List[str]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.review_stage_roles = review_stage_roles
         return self
 
@@ -56,16 +64,23 @@ class QueryReviewDataRequestBodyBuilder(object):
         self._query_review_data_request_body.stage_ids = stage_ids
         return self
 
-    def need_leader_review_data_source(self,
-                                       need_leader_review_data_source: bool) -> "QueryReviewDataRequestBodyBuilder":
-        self._query_review_data_request_body.need_leader_review_data_source = need_leader_review_data_source
+    def need_leader_review_data_source(
+        self, need_leader_review_data_source: bool
+    ) -> "QueryReviewDataRequestBodyBuilder":
+        self._query_review_data_request_body.need_leader_review_data_source = (
+            need_leader_review_data_source
+        )
         return self
 
-    def updated_later_than(self, updated_later_than: int) -> "QueryReviewDataRequestBodyBuilder":
+    def updated_later_than(
+        self, updated_later_than: int
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.updated_later_than = updated_later_than
         return self
 
-    def stage_progresses(self, stage_progresses: List[int]) -> "QueryReviewDataRequestBodyBuilder":
+    def stage_progresses(
+        self, stage_progresses: List[int]
+    ) -> "QueryReviewDataRequestBodyBuilder":
         self._query_review_data_request_body.stage_progresses = stage_progresses
         return self
 

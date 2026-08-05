@@ -9,7 +9,6 @@ from .create_whiteboard_node_response_body import CreateWhiteboardNodeResponseBo
 class CreateWhiteboardNodeResponse(BaseResponse):
     _types = {
         "data": CreateWhiteboardNodeResponseBody,
-
     }
 
     def __init__(self, d=None):

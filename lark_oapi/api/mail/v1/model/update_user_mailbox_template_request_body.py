@@ -21,9 +21,13 @@ class UpdateUserMailboxTemplateRequestBody(object):
 
 class UpdateUserMailboxTemplateRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_user_mailbox_template_request_body = UpdateUserMailboxTemplateRequestBody()
+        self._update_user_mailbox_template_request_body = (
+            UpdateUserMailboxTemplateRequestBody()
+        )
 
-    def template(self, template: Template) -> "UpdateUserMailboxTemplateRequestBodyBuilder":
+    def template(
+        self, template: Template
+    ) -> "UpdateUserMailboxTemplateRequestBodyBuilder":
         self._update_user_mailbox_template_request_body.template = template
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .search_basic_info_nationality_request_body import SearchBasicInfoNationalityRequestBody
+from .search_basic_info_nationality_request_body import (
+    SearchBasicInfoNationalityRequestBody,
+)
 
 
 class SearchBasicInfoNationalityRequest(BaseRequest):
@@ -19,11 +21,12 @@ class SearchBasicInfoNationalityRequest(BaseRequest):
 
 
 class SearchBasicInfoNationalityRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_nationality_request = SearchBasicInfoNationalityRequest()
         search_basic_info_nationality_request.http_method = HttpMethod.POST
-        search_basic_info_nationality_request.uri = "/open-apis/corehr/v2/basic_info/nationalities/search"
+        search_basic_info_nationality_request.uri = (
+            "/open-apis/corehr/v2/basic_info/nationalities/search"
+        )
         search_basic_info_nationality_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_nationality_request: SearchBasicInfoNationalityRequest = search_basic_info_nationality_request
 
@@ -37,8 +40,9 @@ class SearchBasicInfoNationalityRequestBuilder(object):
         self._search_basic_info_nationality_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self,
-                     request_body: SearchBasicInfoNationalityRequestBody) -> "SearchBasicInfoNationalityRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoNationalityRequestBody
+    ) -> "SearchBasicInfoNationalityRequestBuilder":
         self._search_basic_info_nationality_request.request_body = request_body
         self._search_basic_info_nationality_request.body = request_body
         return self

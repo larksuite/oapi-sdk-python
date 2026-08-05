@@ -9,7 +9,6 @@ from .forward_thread_response_body import ForwardThreadResponseBody
 class ForwardThreadResponse(BaseResponse):
     _types = {
         "data": ForwardThreadResponseBody,
-
     }
 
     def __init__(self, d=None):

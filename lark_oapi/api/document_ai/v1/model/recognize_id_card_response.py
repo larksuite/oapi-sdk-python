@@ -9,7 +9,6 @@ from .recognize_id_card_response_body import RecognizeIdCardResponseBody
 class RecognizeIdCardResponse(BaseResponse):
     _types = {
         "data": RecognizeIdCardResponseBody,
-
     }
 
     def __init__(self, d=None):

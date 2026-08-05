@@ -6,10 +6,14 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_helpdesk_notification_approve_v1 import P2HelpdeskNotificationApproveV1
 from .model.p2_helpdesk_ticket_created_v1 import P2HelpdeskTicketCreatedV1
 from .model.p2_helpdesk_ticket_updated_v1 import P2HelpdeskTicketUpdatedV1
-from .model.p2_helpdesk_ticket_message_created_v1 import P2HelpdeskTicketMessageCreatedV1
+from .model.p2_helpdesk_ticket_message_created_v1 import (
+    P2HelpdeskTicketMessageCreatedV1,
+)
 
 
-class P2HelpdeskNotificationApproveV1Processor(IEventProcessor[P2HelpdeskNotificationApproveV1]):
+class P2HelpdeskNotificationApproveV1Processor(
+    IEventProcessor[P2HelpdeskNotificationApproveV1]
+):
     def __init__(self, f: Callable[[P2HelpdeskNotificationApproveV1], None]):
         self.f = f
 
@@ -42,7 +46,9 @@ class P2HelpdeskTicketUpdatedV1Processor(IEventProcessor[P2HelpdeskTicketUpdated
         self.f(data)
 
 
-class P2HelpdeskTicketMessageCreatedV1Processor(IEventProcessor[P2HelpdeskTicketMessageCreatedV1]):
+class P2HelpdeskTicketMessageCreatedV1Processor(
+    IEventProcessor[P2HelpdeskTicketMessageCreatedV1]
+):
     def __init__(self, f: Callable[[P2HelpdeskTicketMessageCreatedV1], None]):
         self.f = f
 

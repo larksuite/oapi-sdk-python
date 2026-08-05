@@ -14,9 +14,15 @@ from ..model.download_app_storage_response import DownloadAppStorageResponse
 from ..model.upload_app_storage_request import UploadAppStorageRequest
 from ..model.upload_app_storage_response import UploadAppStorageResponse
 from ..model.upload_complete_app_storage_request import UploadCompleteAppStorageRequest
-from ..model.upload_complete_app_storage_response import UploadCompleteAppStorageResponse
-from ..model.upload_initialize_app_storage_request import UploadInitializeAppStorageRequest
-from ..model.upload_initialize_app_storage_response import UploadInitializeAppStorageResponse
+from ..model.upload_complete_app_storage_response import (
+    UploadCompleteAppStorageResponse,
+)
+from ..model.upload_initialize_app_storage_request import (
+    UploadInitializeAppStorageRequest,
+)
+from ..model.upload_initialize_app_storage_response import (
+    UploadInitializeAppStorageResponse,
+)
 from ..model.upload_part_app_storage_request import UploadPartAppStorageRequest
 from ..model.upload_part_app_storage_response import UploadPartAppStorageResponse
 
@@ -25,8 +31,9 @@ class AppStorage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download(self, request: DownloadAppStorageRequest,
-                 option: Optional[RequestOption] = None) -> DownloadAppStorageResponse:
+    def download(
+        self, request: DownloadAppStorageRequest, option: Optional[RequestOption] = None
+    ) -> DownloadAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,13 +57,16 @@ class AppStorage(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadAppStorageResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadAppStorageResponse
+            )
 
         response.raw = resp
         return response
 
-    async def adownload(self, request: DownloadAppStorageRequest,
-                        option: Optional[RequestOption] = None) -> DownloadAppStorageResponse:
+    async def adownload(
+        self, request: DownloadAppStorageRequest, option: Optional[RequestOption] = None
+    ) -> DownloadAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +87,16 @@ class AppStorage(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadAppStorageResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadAppStorageResponse
+            )
 
         response.raw = resp
         return response
 
-    def upload(self, request: UploadAppStorageRequest,
-               option: Optional[RequestOption] = None) -> UploadAppStorageResponse:
+    def upload(
+        self, request: UploadAppStorageRequest, option: Optional[RequestOption] = None
+    ) -> UploadAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,13 +113,16 @@ class AppStorage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAppStorageResponse)
+        response: UploadAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload(self, request: UploadAppStorageRequest,
-                      option: Optional[RequestOption] = None) -> UploadAppStorageResponse:
+    async def aupload(
+        self, request: UploadAppStorageRequest, option: Optional[RequestOption] = None
+    ) -> UploadAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,13 +136,18 @@ class AppStorage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAppStorageResponse)
+        response: UploadAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload_complete(self, request: UploadCompleteAppStorageRequest,
-                        option: Optional[RequestOption] = None) -> UploadCompleteAppStorageResponse:
+    def upload_complete(
+        self,
+        request: UploadCompleteAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadCompleteAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -141,14 +162,18 @@ class AppStorage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadCompleteAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    UploadCompleteAppStorageResponse)
+        response: UploadCompleteAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadCompleteAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload_complete(self, request: UploadCompleteAppStorageRequest,
-                               option: Optional[RequestOption] = None) -> UploadCompleteAppStorageResponse:
+    async def aupload_complete(
+        self,
+        request: UploadCompleteAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadCompleteAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +184,18 @@ class AppStorage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadCompleteAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    UploadCompleteAppStorageResponse)
+        response: UploadCompleteAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadCompleteAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload_initialize(self, request: UploadInitializeAppStorageRequest,
-                          option: Optional[RequestOption] = None) -> UploadInitializeAppStorageResponse:
+    def upload_initialize(
+        self,
+        request: UploadInitializeAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadInitializeAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -181,14 +210,18 @@ class AppStorage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadInitializeAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      UploadInitializeAppStorageResponse)
+        response: UploadInitializeAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadInitializeAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload_initialize(self, request: UploadInitializeAppStorageRequest,
-                                 option: Optional[RequestOption] = None) -> UploadInitializeAppStorageResponse:
+    async def aupload_initialize(
+        self,
+        request: UploadInitializeAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadInitializeAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -199,14 +232,18 @@ class AppStorage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadInitializeAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      UploadInitializeAppStorageResponse)
+        response: UploadInitializeAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadInitializeAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    def upload_part(self, request: UploadPartAppStorageRequest,
-                    option: Optional[RequestOption] = None) -> UploadPartAppStorageResponse:
+    def upload_part(
+        self,
+        request: UploadPartAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadPartAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -223,13 +260,18 @@ class AppStorage(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadPartAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartAppStorageResponse)
+        response: UploadPartAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadPartAppStorageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload_part(self, request: UploadPartAppStorageRequest,
-                           option: Optional[RequestOption] = None) -> UploadPartAppStorageResponse:
+    async def aupload_part(
+        self,
+        request: UploadPartAppStorageRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UploadPartAppStorageResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,7 +285,9 @@ class AppStorage(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadPartAppStorageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartAppStorageResponse)
+        response: UploadPartAppStorageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadPartAppStorageResponse
+        )
         response.raw = resp
 
         return response

@@ -24,13 +24,19 @@ class FindByUserListStageTaskResponseBody(object):
 
 class FindByUserListStageTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._find_by_user_list_stage_task_response_body = FindByUserListStageTaskResponseBody()
+        self._find_by_user_list_stage_task_response_body = (
+            FindByUserListStageTaskResponseBody()
+        )
 
-    def base(self, base: SemesterBaseInfo) -> "FindByUserListStageTaskResponseBodyBuilder":
+    def base(
+        self, base: SemesterBaseInfo
+    ) -> "FindByUserListStageTaskResponseBodyBuilder":
         self._find_by_user_list_stage_task_response_body.base = base
         return self
 
-    def items(self, items: List[StageTask]) -> "FindByUserListStageTaskResponseBodyBuilder":
+    def items(
+        self, items: List[StageTask]
+    ) -> "FindByUserListStageTaskResponseBodyBuilder":
         self._find_by_user_list_stage_task_response_body.items = items
         return self
 

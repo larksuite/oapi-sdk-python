@@ -6,10 +6,14 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_calendar_calendar_changed_v4 import P2CalendarCalendarChangedV4
 from .model.p2_calendar_calendar_acl_created_v4 import P2CalendarCalendarAclCreatedV4
 from .model.p2_calendar_calendar_acl_deleted_v4 import P2CalendarCalendarAclDeletedV4
-from .model.p2_calendar_calendar_event_changed_v4 import P2CalendarCalendarEventChangedV4
+from .model.p2_calendar_calendar_event_changed_v4 import (
+    P2CalendarCalendarEventChangedV4,
+)
 
 
-class P2CalendarCalendarChangedV4Processor(IEventProcessor[P2CalendarCalendarChangedV4]):
+class P2CalendarCalendarChangedV4Processor(
+    IEventProcessor[P2CalendarCalendarChangedV4]
+):
     def __init__(self, f: Callable[[P2CalendarCalendarChangedV4], None]):
         self.f = f
 
@@ -20,7 +24,9 @@ class P2CalendarCalendarChangedV4Processor(IEventProcessor[P2CalendarCalendarCha
         self.f(data)
 
 
-class P2CalendarCalendarAclCreatedV4Processor(IEventProcessor[P2CalendarCalendarAclCreatedV4]):
+class P2CalendarCalendarAclCreatedV4Processor(
+    IEventProcessor[P2CalendarCalendarAclCreatedV4]
+):
     def __init__(self, f: Callable[[P2CalendarCalendarAclCreatedV4], None]):
         self.f = f
 
@@ -31,7 +37,9 @@ class P2CalendarCalendarAclCreatedV4Processor(IEventProcessor[P2CalendarCalendar
         self.f(data)
 
 
-class P2CalendarCalendarAclDeletedV4Processor(IEventProcessor[P2CalendarCalendarAclDeletedV4]):
+class P2CalendarCalendarAclDeletedV4Processor(
+    IEventProcessor[P2CalendarCalendarAclDeletedV4]
+):
     def __init__(self, f: Callable[[P2CalendarCalendarAclDeletedV4], None]):
         self.f = f
 
@@ -42,7 +50,9 @@ class P2CalendarCalendarAclDeletedV4Processor(IEventProcessor[P2CalendarCalendar
         self.f(data)
 
 
-class P2CalendarCalendarEventChangedV4Processor(IEventProcessor[P2CalendarCalendarEventChangedV4]):
+class P2CalendarCalendarEventChangedV4Processor(
+    IEventProcessor[P2CalendarCalendarEventChangedV4]
+):
     def __init__(self, f: Callable[[P2CalendarCalendarEventChangedV4], None]):
         self.f = f
 

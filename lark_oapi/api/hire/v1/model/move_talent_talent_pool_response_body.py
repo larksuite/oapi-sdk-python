@@ -24,7 +24,9 @@ class MoveTalentTalentPoolResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._move_talent_talent_pool_response_body = MoveTalentTalentPoolResponseBody()
 
-    def talent_pool_id(self, talent_pool_id: str) -> "MoveTalentTalentPoolResponseBodyBuilder":
+    def talent_pool_id(
+        self, talent_pool_id: str
+    ) -> "MoveTalentTalentPoolResponseBodyBuilder":
         self._move_talent_talent_pool_response_body.talent_pool_id = talent_pool_id
         return self
 

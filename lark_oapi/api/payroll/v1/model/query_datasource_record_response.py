@@ -9,7 +9,6 @@ from .query_datasource_record_response_body import QueryDatasourceRecordResponse
 class QueryDatasourceRecordResponse(BaseResponse):
     _types = {
         "data": QueryDatasourceRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,12 +20,14 @@ class GetDetailJobRequest(BaseRequest):
 
 
 class GetDetailJobRequestBuilder(object):
-
     def __init__(self) -> None:
         get_detail_job_request = GetDetailJobRequest()
         get_detail_job_request.http_method = HttpMethod.GET
         get_detail_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/get_detail"
-        get_detail_job_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        get_detail_job_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._get_detail_job_request: GetDetailJobRequest = get_detail_job_request
 
     def user_id_type(self, user_id_type: str) -> "GetDetailJobRequestBuilder":
@@ -33,7 +35,9 @@ class GetDetailJobRequestBuilder(object):
         self._get_detail_job_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "GetDetailJobRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "GetDetailJobRequestBuilder":
         self._get_detail_job_request.department_id_type = department_id_type
         self._get_detail_job_request.add_query("department_id_type", department_id_type)
         return self
@@ -43,7 +47,9 @@ class GetDetailJobRequestBuilder(object):
         self._get_detail_job_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
-    def job_family_id_type(self, job_family_id_type: str) -> "GetDetailJobRequestBuilder":
+    def job_family_id_type(
+        self, job_family_id_type: str
+    ) -> "GetDetailJobRequestBuilder":
         self._get_detail_job_request.job_family_id_type = job_family_id_type
         self._get_detail_job_request.add_query("job_family_id_type", job_family_id_type)
         return self

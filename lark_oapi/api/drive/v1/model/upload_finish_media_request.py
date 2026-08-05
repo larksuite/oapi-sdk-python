@@ -17,15 +17,21 @@ class UploadFinishMediaRequest(BaseRequest):
 
 
 class UploadFinishMediaRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_finish_media_request = UploadFinishMediaRequest()
         upload_finish_media_request.http_method = HttpMethod.POST
         upload_finish_media_request.uri = "/open-apis/drive/v1/medias/upload_finish"
-        upload_finish_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._upload_finish_media_request: UploadFinishMediaRequest = upload_finish_media_request
+        upload_finish_media_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._upload_finish_media_request: UploadFinishMediaRequest = (
+            upload_finish_media_request
+        )
 
-    def request_body(self, request_body: UploadFinishMediaRequestBody) -> "UploadFinishMediaRequestBuilder":
+    def request_body(
+        self, request_body: UploadFinishMediaRequestBody
+    ) -> "UploadFinishMediaRequestBuilder":
         self._upload_finish_media_request.request_body = request_body
         self._upload_finish_media_request.body = request_body
         return self

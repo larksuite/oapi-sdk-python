@@ -17,7 +17,6 @@ class ListContractRequest(BaseRequest):
 
 
 class ListContractRequestBuilder(object):
-
     def __init__(self) -> None:
         list_contract_request = ListContractRequest()
         list_contract_request.http_method = HttpMethod.GET

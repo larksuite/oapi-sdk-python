@@ -9,7 +9,6 @@ from .list_file_like_response_body import ListFileLikeResponseBody
 class ListFileLikeResponse(BaseResponse):
     _types = {
         "data": ListFileLikeResponseBody,
-
     }
 
     def __init__(self, d=None):

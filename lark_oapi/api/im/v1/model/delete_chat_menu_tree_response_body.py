@@ -23,7 +23,9 @@ class DeleteChatMenuTreeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_chat_menu_tree_response_body = DeleteChatMenuTreeResponseBody()
 
-    def menu_tree(self, menu_tree: ChatMenuTree) -> "DeleteChatMenuTreeResponseBodyBuilder":
+    def menu_tree(
+        self, menu_tree: ChatMenuTree
+    ) -> "DeleteChatMenuTreeResponseBodyBuilder":
         self._delete_chat_menu_tree_response_body.menu_tree = menu_tree
         return self
 

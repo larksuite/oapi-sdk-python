@@ -43,7 +43,9 @@ class InputCustomFieldValueBuilder(object):
         self._input_custom_field_value.number_value = number_value
         return self
 
-    def member_value(self, member_value: List[Member]) -> "InputCustomFieldValueBuilder":
+    def member_value(
+        self, member_value: List[Member]
+    ) -> "InputCustomFieldValueBuilder":
         self._input_custom_field_value.member_value = member_value
         return self
 
@@ -51,11 +53,15 @@ class InputCustomFieldValueBuilder(object):
         self._input_custom_field_value.datetime_value = datetime_value
         return self
 
-    def single_select_value(self, single_select_value: str) -> "InputCustomFieldValueBuilder":
+    def single_select_value(
+        self, single_select_value: str
+    ) -> "InputCustomFieldValueBuilder":
         self._input_custom_field_value.single_select_value = single_select_value
         return self
 
-    def multi_select_value(self, multi_select_value: List[str]) -> "InputCustomFieldValueBuilder":
+    def multi_select_value(
+        self, multi_select_value: List[str]
+    ) -> "InputCustomFieldValueBuilder":
         self._input_custom_field_value.multi_select_value = multi_select_value
         return self
 

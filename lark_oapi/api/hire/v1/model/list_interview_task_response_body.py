@@ -35,7 +35,9 @@ class ListInterviewTaskResponseBodyBuilder(object):
         self._list_interview_task_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[InterviewTask]) -> "ListInterviewTaskResponseBodyBuilder":
+    def items(
+        self, items: List[InterviewTask]
+    ) -> "ListInterviewTaskResponseBodyBuilder":
         self._list_interview_task_response_body.items = items
         return self
 

@@ -18,7 +18,6 @@ class MgetRoomRequest(BaseRequest):
 
 
 class MgetRoomRequestBuilder(object):
-
     def __init__(self) -> None:
         mget_room_request = MgetRoomRequest()
         mget_room_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class MgetRoomRequestBuilder(object):
         self._mget_room_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: MgetRoomRequestBody) -> "MgetRoomRequestBuilder":
+    def request_body(
+        self, request_body: MgetRoomRequestBody
+    ) -> "MgetRoomRequestBuilder":
         self._mget_room_request.request_body = request_body
         self._mget_room_request.body = request_body
         return self

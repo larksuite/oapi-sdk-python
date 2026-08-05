@@ -41,7 +41,9 @@ class MetricFieldInTemplateBuilder(object):
         self._metric_field_in_template.filed_value = filed_value
         return self
 
-    def field_value_person(self, field_value_person: User) -> "MetricFieldInTemplateBuilder":
+    def field_value_person(
+        self, field_value_person: User
+    ) -> "MetricFieldInTemplateBuilder":
         self._metric_field_in_template.field_value_person = field_value_person
         return self
 

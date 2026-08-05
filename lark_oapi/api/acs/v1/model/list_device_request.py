@@ -15,7 +15,6 @@ class ListDeviceRequest(BaseRequest):
 
 
 class ListDeviceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_device_request = ListDeviceRequest()
         list_device_request.http_method = HttpMethod.GET

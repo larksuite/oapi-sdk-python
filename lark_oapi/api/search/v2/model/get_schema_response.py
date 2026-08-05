@@ -9,7 +9,6 @@ from .get_schema_response_body import GetSchemaResponseBody
 class GetSchemaResponse(BaseResponse):
     _types = {
         "data": GetSchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

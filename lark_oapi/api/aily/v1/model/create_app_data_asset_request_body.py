@@ -37,12 +37,17 @@ class CreateAppDataAssetRequestBodyBuilder(object):
         self._create_app_data_asset_request_body.source_type = source_type
         return self
 
-    def import_knowledge_setting(self,
-                                 import_knowledge_setting: DataAssetImportKnowledgeSetting) -> "CreateAppDataAssetRequestBodyBuilder":
-        self._create_app_data_asset_request_body.import_knowledge_setting = import_knowledge_setting
+    def import_knowledge_setting(
+        self, import_knowledge_setting: DataAssetImportKnowledgeSetting
+    ) -> "CreateAppDataAssetRequestBodyBuilder":
+        self._create_app_data_asset_request_body.import_knowledge_setting = (
+            import_knowledge_setting
+        )
         return self
 
-    def description(self, description: Dict[str, str]) -> "CreateAppDataAssetRequestBodyBuilder":
+    def description(
+        self, description: Dict[str, str]
+    ) -> "CreateAppDataAssetRequestBodyBuilder":
         self._create_app_data_asset_request_body.description = description
         return self
 

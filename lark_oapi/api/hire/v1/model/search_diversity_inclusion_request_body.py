@@ -22,13 +22,19 @@ class SearchDiversityInclusionRequestBody(object):
 
 class SearchDiversityInclusionRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._search_diversity_inclusion_request_body = SearchDiversityInclusionRequestBody()
+        self._search_diversity_inclusion_request_body = (
+            SearchDiversityInclusionRequestBody()
+        )
 
-    def talent_ids(self, talent_ids: List[str]) -> "SearchDiversityInclusionRequestBodyBuilder":
+    def talent_ids(
+        self, talent_ids: List[str]
+    ) -> "SearchDiversityInclusionRequestBodyBuilder":
         self._search_diversity_inclusion_request_body.talent_ids = talent_ids
         return self
 
-    def application_ids(self, application_ids: List[str]) -> "SearchDiversityInclusionRequestBodyBuilder":
+    def application_ids(
+        self, application_ids: List[str]
+    ) -> "SearchDiversityInclusionRequestBodyBuilder":
         self._search_diversity_inclusion_request_body.application_ids = application_ids
         return self
 

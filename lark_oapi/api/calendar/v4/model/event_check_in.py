@@ -34,15 +34,21 @@ class EventCheckInBuilder(object):
         self._event_check_in.enable_check_in = enable_check_in
         return self
 
-    def check_in_start_time(self, check_in_start_time: CheckInTime) -> "EventCheckInBuilder":
+    def check_in_start_time(
+        self, check_in_start_time: CheckInTime
+    ) -> "EventCheckInBuilder":
         self._event_check_in.check_in_start_time = check_in_start_time
         return self
 
-    def check_in_end_time(self, check_in_end_time: CheckInTime) -> "EventCheckInBuilder":
+    def check_in_end_time(
+        self, check_in_end_time: CheckInTime
+    ) -> "EventCheckInBuilder":
         self._event_check_in.check_in_end_time = check_in_end_time
         return self
 
-    def need_notify_attendees(self, need_notify_attendees: bool) -> "EventCheckInBuilder":
+    def need_notify_attendees(
+        self, need_notify_attendees: bool
+    ) -> "EventCheckInBuilder":
         self._event_check_in.need_notify_attendees = need_notify_attendees
         return self
 

@@ -48,7 +48,9 @@ class WorkingHoursTypeBuilder(object):
         self._working_hours_type.name = name
         return self
 
-    def country_region_id_list(self, country_region_id_list: List[str]) -> "WorkingHoursTypeBuilder":
+    def country_region_id_list(
+        self, country_region_id_list: List[str]
+    ) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.country_region_id_list = country_region_id_list
         return self
 
@@ -60,7 +62,9 @@ class WorkingHoursTypeBuilder(object):
         self._working_hours_type.active = active
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "WorkingHoursTypeBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.custom_fields = custom_fields
         return self
 

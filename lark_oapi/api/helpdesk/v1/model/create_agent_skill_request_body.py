@@ -31,7 +31,9 @@ class CreateAgentSkillRequestBodyBuilder(object):
         self._create_agent_skill_request_body.name = name
         return self
 
-    def rules(self, rules: List[AgentSkillRule]) -> "CreateAgentSkillRequestBodyBuilder":
+    def rules(
+        self, rules: List[AgentSkillRule]
+    ) -> "CreateAgentSkillRequestBodyBuilder":
         self._create_agent_skill_request_body.rules = rules
         return self
 

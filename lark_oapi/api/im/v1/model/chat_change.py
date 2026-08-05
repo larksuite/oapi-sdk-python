@@ -91,11 +91,15 @@ class ChatChangeBuilder(object):
         self._chat_change.membership_approval = membership_approval
         return self
 
-    def join_message_visibility(self, join_message_visibility: str) -> "ChatChangeBuilder":
+    def join_message_visibility(
+        self, join_message_visibility: str
+    ) -> "ChatChangeBuilder":
         self._chat_change.join_message_visibility = join_message_visibility
         return self
 
-    def leave_message_visibility(self, leave_message_visibility: str) -> "ChatChangeBuilder":
+    def leave_message_visibility(
+        self, leave_message_visibility: str
+    ) -> "ChatChangeBuilder":
         self._chat_change.leave_message_visibility = leave_message_visibility
         return self
 
@@ -111,7 +115,9 @@ class ChatChangeBuilder(object):
         self._chat_change.labels = labels
         return self
 
-    def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "ChatChangeBuilder":
+    def restricted_mode_setting(
+        self, restricted_mode_setting: RestrictedModeSetting
+    ) -> "ChatChangeBuilder":
         self._chat_change.restricted_mode_setting = restricted_mode_setting
         return self
 

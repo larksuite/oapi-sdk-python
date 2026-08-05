@@ -102,11 +102,15 @@ class GetChatResponseBodyBuilder(object):
         self._get_chat_response_body.i18n_names = i18n_names
         return self
 
-    def add_member_permission(self, add_member_permission: str) -> "GetChatResponseBodyBuilder":
+    def add_member_permission(
+        self, add_member_permission: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.add_member_permission = add_member_permission
         return self
 
-    def share_card_permission(self, share_card_permission: str) -> "GetChatResponseBodyBuilder":
+    def share_card_permission(
+        self, share_card_permission: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.share_card_permission = share_card_permission
         return self
 
@@ -126,15 +130,21 @@ class GetChatResponseBodyBuilder(object):
         self._get_chat_response_body.owner_id = owner_id
         return self
 
-    def user_manager_id_list(self, user_manager_id_list: List[str]) -> "GetChatResponseBodyBuilder":
+    def user_manager_id_list(
+        self, user_manager_id_list: List[str]
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.user_manager_id_list = user_manager_id_list
         return self
 
-    def bot_manager_id_list(self, bot_manager_id_list: List[str]) -> "GetChatResponseBodyBuilder":
+    def bot_manager_id_list(
+        self, bot_manager_id_list: List[str]
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.bot_manager_id_list = bot_manager_id_list
         return self
 
-    def group_message_type(self, group_message_type: str) -> "GetChatResponseBodyBuilder":
+    def group_message_type(
+        self, group_message_type: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.group_message_type = group_message_type
         return self
 
@@ -150,19 +160,27 @@ class GetChatResponseBodyBuilder(object):
         self._get_chat_response_body.chat_tag = chat_tag
         return self
 
-    def join_message_visibility(self, join_message_visibility: str) -> "GetChatResponseBodyBuilder":
+    def join_message_visibility(
+        self, join_message_visibility: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.join_message_visibility = join_message_visibility
         return self
 
-    def leave_message_visibility(self, leave_message_visibility: str) -> "GetChatResponseBodyBuilder":
+    def leave_message_visibility(
+        self, leave_message_visibility: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.leave_message_visibility = leave_message_visibility
         return self
 
-    def membership_approval(self, membership_approval: str) -> "GetChatResponseBodyBuilder":
+    def membership_approval(
+        self, membership_approval: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.membership_approval = membership_approval
         return self
 
-    def moderation_permission(self, moderation_permission: str) -> "GetChatResponseBodyBuilder":
+    def moderation_permission(
+        self, moderation_permission: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.moderation_permission = moderation_permission
         return self
 
@@ -190,7 +208,9 @@ class GetChatResponseBodyBuilder(object):
         self._get_chat_response_body.toolkit_ids = toolkit_ids
         return self
 
-    def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "GetChatResponseBodyBuilder":
+    def restricted_mode_setting(
+        self, restricted_mode_setting: RestrictedModeSetting
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.restricted_mode_setting = restricted_mode_setting
         return self
 
@@ -198,16 +218,24 @@ class GetChatResponseBodyBuilder(object):
         self._get_chat_response_body.urgent_setting = urgent_setting
         return self
 
-    def video_conference_setting(self, video_conference_setting: str) -> "GetChatResponseBodyBuilder":
+    def video_conference_setting(
+        self, video_conference_setting: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.video_conference_setting = video_conference_setting
         return self
 
-    def pin_manage_setting(self, pin_manage_setting: str) -> "GetChatResponseBodyBuilder":
+    def pin_manage_setting(
+        self, pin_manage_setting: str
+    ) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.pin_manage_setting = pin_manage_setting
         return self
 
-    def hide_member_count_setting(self, hide_member_count_setting: str) -> "GetChatResponseBodyBuilder":
-        self._get_chat_response_body.hide_member_count_setting = hide_member_count_setting
+    def hide_member_count_setting(
+        self, hide_member_count_setting: str
+    ) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.hide_member_count_setting = (
+            hide_member_count_setting
+        )
         return self
 
     def chat_status(self, chat_status: str) -> "GetChatResponseBodyBuilder":

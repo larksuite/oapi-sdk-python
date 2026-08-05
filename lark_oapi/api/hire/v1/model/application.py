@@ -92,15 +92,21 @@ class ApplicationBuilder(object):
         self._application.delivery_type = delivery_type
         return self
 
-    def resume_source_info(self, resume_source_info: ApplicationResumeSource) -> "ApplicationBuilder":
+    def resume_source_info(
+        self, resume_source_info: ApplicationResumeSource
+    ) -> "ApplicationBuilder":
         self._application.resume_source_info = resume_source_info
         return self
 
-    def website_resume_source(self, website_resume_source: ApplicationWebsiteResumeSource) -> "ApplicationBuilder":
+    def website_resume_source(
+        self, website_resume_source: ApplicationWebsiteResumeSource
+    ) -> "ApplicationBuilder":
         self._application.website_resume_source = website_resume_source
         return self
 
-    def talent_attachment_resume_id(self, talent_attachment_resume_id: str) -> "ApplicationBuilder":
+    def talent_attachment_resume_id(
+        self, talent_attachment_resume_id: str
+    ) -> "ApplicationBuilder":
         self._application.talent_attachment_resume_id = talent_attachment_resume_id
         return self
 
@@ -112,7 +118,9 @@ class ApplicationBuilder(object):
         self._application.modify_time = modify_time
         return self
 
-    def stage_time_list(self, stage_time_list: List[ApplicationStageTime]) -> "ApplicationBuilder":
+    def stage_time_list(
+        self, stage_time_list: List[ApplicationStageTime]
+    ) -> "ApplicationBuilder":
         self._application.stage_time_list = stage_time_list
         return self
 
@@ -120,17 +128,24 @@ class ApplicationBuilder(object):
         self._application.termination_type = termination_type
         return self
 
-    def termination_reason_list(self, termination_reason_list: List[str]) -> "ApplicationBuilder":
+    def termination_reason_list(
+        self, termination_reason_list: List[str]
+    ) -> "ApplicationBuilder":
         self._application.termination_reason_list = termination_reason_list
         return self
 
-    def termination_reason_note(self, termination_reason_note: str) -> "ApplicationBuilder":
+    def termination_reason_note(
+        self, termination_reason_note: str
+    ) -> "ApplicationBuilder":
         self._application.termination_reason_note = termination_reason_note
         return self
 
-    def application_preferred_city_list(self,
-                                        application_preferred_city_list: List[CodeNameObject]) -> "ApplicationBuilder":
-        self._application.application_preferred_city_list = application_preferred_city_list
+    def application_preferred_city_list(
+        self, application_preferred_city_list: List[CodeNameObject]
+    ) -> "ApplicationBuilder":
+        self._application.application_preferred_city_list = (
+            application_preferred_city_list
+        )
         return self
 
     def creator_id(self, creator_id: str) -> "ApplicationBuilder":

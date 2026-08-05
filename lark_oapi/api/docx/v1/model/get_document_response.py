@@ -9,7 +9,6 @@ from .get_document_response_body import GetDocumentResponseBody
 class GetDocumentResponse(BaseResponse):
     _types = {
         "data": GetDocumentResponseBody,
-
     }
 
     def __init__(self, d=None):

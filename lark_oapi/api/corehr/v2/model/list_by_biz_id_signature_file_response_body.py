@@ -23,14 +23,24 @@ class ListByBizIdSignatureFileResponseBody(object):
 
 class ListByBizIdSignatureFileResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_by_biz_id_signature_file_response_body = ListByBizIdSignatureFileResponseBody()
+        self._list_by_biz_id_signature_file_response_body = (
+            ListByBizIdSignatureFileResponseBody()
+        )
 
-    def signature_files(self, signature_files: List[SignatureFile]) -> "ListByBizIdSignatureFileResponseBodyBuilder":
-        self._list_by_biz_id_signature_file_response_body.signature_files = signature_files
+    def signature_files(
+        self, signature_files: List[SignatureFile]
+    ) -> "ListByBizIdSignatureFileResponseBodyBuilder":
+        self._list_by_biz_id_signature_file_response_body.signature_files = (
+            signature_files
+        )
         return self
 
-    def batch_sign_url(self, batch_sign_url: str) -> "ListByBizIdSignatureFileResponseBodyBuilder":
-        self._list_by_biz_id_signature_file_response_body.batch_sign_url = batch_sign_url
+    def batch_sign_url(
+        self, batch_sign_url: str
+    ) -> "ListByBizIdSignatureFileResponseBodyBuilder":
+        self._list_by_biz_id_signature_file_response_body.batch_sign_url = (
+            batch_sign_url
+        )
         return self
 
     def build(self) -> "ListByBizIdSignatureFileResponseBody":

@@ -19,7 +19,9 @@ class Location(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListLocationRequest, option: Optional[RequestOption] = None) -> ListLocationResponse:
+    def list(
+        self, request: ListLocationRequest, option: Optional[RequestOption] = None
+    ) -> ListLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
+        response: ListLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListLocationRequest, option: Optional[RequestOption] = None) -> ListLocationResponse:
+    async def alist(
+        self, request: ListLocationRequest, option: Optional[RequestOption] = None
+    ) -> ListLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
+        response: ListLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QueryLocationRequest, option: Optional[RequestOption] = None) -> QueryLocationResponse:
+    def query(
+        self, request: QueryLocationRequest, option: Optional[RequestOption] = None
+    ) -> QueryLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,13 +80,16 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLocationResponse)
+        response: QueryLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryLocationRequest,
-                     option: Optional[RequestOption] = None) -> QueryLocationResponse:
+    async def aquery(
+        self, request: QueryLocationRequest, option: Optional[RequestOption] = None
+    ) -> QueryLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +100,9 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLocationResponse)
+        response: QueryLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryLocationResponse
+        )
         response.raw = resp
 
         return response

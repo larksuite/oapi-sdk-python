@@ -29,7 +29,9 @@ class OldDepartmentObjectBuilder(object):
         self._old_department_object.status = status
         return self
 
-    def open_department_id(self, open_department_id: str) -> "OldDepartmentObjectBuilder":
+    def open_department_id(
+        self, open_department_id: str
+    ) -> "OldDepartmentObjectBuilder":
         self._old_department_object.open_department_id = open_department_id
         return self
 

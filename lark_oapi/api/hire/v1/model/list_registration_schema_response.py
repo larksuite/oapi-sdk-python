@@ -9,7 +9,6 @@ from .list_registration_schema_response_body import ListRegistrationSchemaRespon
 class ListRegistrationSchemaResponse(BaseResponse):
     _types = {
         "data": ListRegistrationSchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -17,7 +17,9 @@ class Plan(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListPlanRequest, option: Optional[RequestOption] = None) -> ListPlanResponse:
+    def list(
+        self, request: ListPlanRequest, option: Optional[RequestOption] = None
+    ) -> ListPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Plan(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPlanResponse)
+        response: ListPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPlanResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListPlanRequest, option: Optional[RequestOption] = None) -> ListPlanResponse:
+    async def alist(
+        self, request: ListPlanRequest, option: Optional[RequestOption] = None
+    ) -> ListPlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Plan(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListPlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPlanResponse)
+        response: ListPlanResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPlanResponse
+        )
         response.raw = resp
 
         return response

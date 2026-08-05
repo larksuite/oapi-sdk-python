@@ -19,7 +19,6 @@ class DeleteUserRequest(BaseRequest):
 
 
 class DeleteUserRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_user_request = DeleteUserRequest()
         delete_user_request.http_method = HttpMethod.DELETE
@@ -37,7 +36,9 @@ class DeleteUserRequestBuilder(object):
         self._delete_user_request.paths["user_id"] = str(user_id)
         return self
 
-    def request_body(self, request_body: DeleteUserRequestBody) -> "DeleteUserRequestBuilder":
+    def request_body(
+        self, request_body: DeleteUserRequestBody
+    ) -> "DeleteUserRequestBuilder":
         self._delete_user_request.request_body = request_body
         self._delete_user_request.body = request_body
         return self

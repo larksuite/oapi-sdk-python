@@ -35,12 +35,17 @@ class SearchAssignedUserRequestBodyBuilder(object):
         self._search_assigned_user_request_body.role_id = role_id
         return self
 
-    def management_scope_list(self,
-                              management_scope_list: List[ManagementScope]) -> "SearchAssignedUserRequestBodyBuilder":
-        self._search_assigned_user_request_body.management_scope_list = management_scope_list
+    def management_scope_list(
+        self, management_scope_list: List[ManagementScope]
+    ) -> "SearchAssignedUserRequestBodyBuilder":
+        self._search_assigned_user_request_body.management_scope_list = (
+            management_scope_list
+        )
         return self
 
-    def search_method(self, search_method: str) -> "SearchAssignedUserRequestBodyBuilder":
+    def search_method(
+        self, search_method: str
+    ) -> "SearchAssignedUserRequestBodyBuilder":
         self._search_assigned_user_request_body.search_method = search_method
         return self
 

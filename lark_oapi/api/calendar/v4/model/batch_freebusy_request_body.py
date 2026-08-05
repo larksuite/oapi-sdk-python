@@ -44,15 +44,21 @@ class BatchFreebusyRequestBodyBuilder(object):
         self._batch_freebusy_request_body.user_ids = user_ids
         return self
 
-    def include_external_calendar(self, include_external_calendar: bool) -> "BatchFreebusyRequestBodyBuilder":
-        self._batch_freebusy_request_body.include_external_calendar = include_external_calendar
+    def include_external_calendar(
+        self, include_external_calendar: bool
+    ) -> "BatchFreebusyRequestBodyBuilder":
+        self._batch_freebusy_request_body.include_external_calendar = (
+            include_external_calendar
+        )
         return self
 
     def only_busy(self, only_busy: bool) -> "BatchFreebusyRequestBodyBuilder":
         self._batch_freebusy_request_body.only_busy = only_busy
         return self
 
-    def need_rsvp_status(self, need_rsvp_status: bool) -> "BatchFreebusyRequestBodyBuilder":
+    def need_rsvp_status(
+        self, need_rsvp_status: bool
+    ) -> "BatchFreebusyRequestBodyBuilder":
         self._batch_freebusy_request_body.need_rsvp_status = need_rsvp_status
         return self
 

@@ -21,10 +21,13 @@ class UpdateRoleAssignAuthorizationRequestBody(object):
 
 class UpdateRoleAssignAuthorizationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_role_assign_authorization_request_body = UpdateRoleAssignAuthorizationRequestBody()
+        self._update_role_assign_authorization_request_body = (
+            UpdateRoleAssignAuthorizationRequestBody()
+        )
 
-    def assigned_organization_items(self, assigned_organization_items: List[
-        list]) -> "UpdateRoleAssignAuthorizationRequestBodyBuilder":
+    def assigned_organization_items(
+        self, assigned_organization_items: List[list]
+    ) -> "UpdateRoleAssignAuthorizationRequestBodyBuilder":
         self._update_role_assign_authorization_request_body.assigned_organization_items = assigned_organization_items
         return self
 

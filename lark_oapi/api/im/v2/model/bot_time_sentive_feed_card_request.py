@@ -18,20 +18,25 @@ class BotTimeSentiveFeedCardRequest(BaseRequest):
 
 
 class BotTimeSentiveFeedCardRequestBuilder(object):
-
     def __init__(self) -> None:
         bot_time_sentive_feed_card_request = BotTimeSentiveFeedCardRequest()
         bot_time_sentive_feed_card_request.http_method = HttpMethod.PATCH
-        bot_time_sentive_feed_card_request.uri = "/open-apis/im/v2/feed_cards/bot_time_sentive"
+        bot_time_sentive_feed_card_request.uri = (
+            "/open-apis/im/v2/feed_cards/bot_time_sentive"
+        )
         bot_time_sentive_feed_card_request.token_types = {AccessTokenType.TENANT}
-        self._bot_time_sentive_feed_card_request: BotTimeSentiveFeedCardRequest = bot_time_sentive_feed_card_request
+        self._bot_time_sentive_feed_card_request: BotTimeSentiveFeedCardRequest = (
+            bot_time_sentive_feed_card_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "BotTimeSentiveFeedCardRequestBuilder":
         self._bot_time_sentive_feed_card_request.user_id_type = user_id_type
         self._bot_time_sentive_feed_card_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: BotTimeSentiveFeedCardRequestBody) -> "BotTimeSentiveFeedCardRequestBuilder":
+    def request_body(
+        self, request_body: BotTimeSentiveFeedCardRequestBody
+    ) -> "BotTimeSentiveFeedCardRequestBuilder":
         self._bot_time_sentive_feed_card_request.request_body = request_body
         self._bot_time_sentive_feed_card_request.body = request_body
         return self

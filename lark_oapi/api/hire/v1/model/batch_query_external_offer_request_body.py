@@ -20,10 +20,16 @@ class BatchQueryExternalOfferRequestBody(object):
 
 class BatchQueryExternalOfferRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_query_external_offer_request_body = BatchQueryExternalOfferRequestBody()
+        self._batch_query_external_offer_request_body = (
+            BatchQueryExternalOfferRequestBody()
+        )
 
-    def external_offer_id_list(self, external_offer_id_list: List[str]) -> "BatchQueryExternalOfferRequestBodyBuilder":
-        self._batch_query_external_offer_request_body.external_offer_id_list = external_offer_id_list
+    def external_offer_id_list(
+        self, external_offer_id_list: List[str]
+    ) -> "BatchQueryExternalOfferRequestBodyBuilder":
+        self._batch_query_external_offer_request_body.external_offer_id_list = (
+            external_offer_id_list
+        )
         return self
 
     def build(self) -> "BatchQueryExternalOfferRequestBody":

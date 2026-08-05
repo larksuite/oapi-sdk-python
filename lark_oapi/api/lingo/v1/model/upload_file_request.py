@@ -17,7 +17,6 @@ class UploadFileRequest(BaseRequest):
 
 
 class UploadFileRequestBuilder(object):
-
     def __init__(self) -> None:
         upload_file_request = UploadFileRequest()
         upload_file_request.http_method = HttpMethod.POST

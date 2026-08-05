@@ -50,7 +50,9 @@ class UpsertObjectiveKrBuilder(object):
         self._upsert_objective_kr.progress_rate = progress_rate
         return self
 
-    def progress_list(self, progress_list: List[ProgressItem]) -> "UpsertObjectiveKrBuilder":
+    def progress_list(
+        self, progress_list: List[ProgressItem]
+    ) -> "UpsertObjectiveKrBuilder":
         self._upsert_objective_kr.progress_list = progress_list
         return self
 

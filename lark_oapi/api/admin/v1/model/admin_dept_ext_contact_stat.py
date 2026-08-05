@@ -44,15 +44,21 @@ class AdminDeptExtContactStatBuilder(object):
         self._admin_dept_ext_contact_stat.department_name = department_name
         return self
 
-    def has_ref_contact_ucnt(self, has_ref_contact_ucnt: str) -> "AdminDeptExtContactStatBuilder":
+    def has_ref_contact_ucnt(
+        self, has_ref_contact_ucnt: str
+    ) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.has_ref_contact_ucnt = has_ref_contact_ucnt
         return self
 
-    def ref_contact_ucnt(self, ref_contact_ucnt: str) -> "AdminDeptExtContactStatBuilder":
+    def ref_contact_ucnt(
+        self, ref_contact_ucnt: str
+    ) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.ref_contact_ucnt = ref_contact_ucnt
         return self
 
-    def ref_contact_tcnt(self, ref_contact_tcnt: str) -> "AdminDeptExtContactStatBuilder":
+    def ref_contact_tcnt(
+        self, ref_contact_tcnt: str
+    ) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.ref_contact_tcnt = ref_contact_tcnt
         return self
 

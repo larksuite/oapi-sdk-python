@@ -47,8 +47,11 @@ class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_dependencies(self, request: AddDependenciesTaskRequest,
-                         option: Optional[RequestOption] = None) -> AddDependenciesTaskResponse:
+    def add_dependencies(
+        self,
+        request: AddDependenciesTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddDependenciesTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -63,13 +66,18 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddDependenciesTaskResponse)
+        response: AddDependenciesTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddDependenciesTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_dependencies(self, request: AddDependenciesTaskRequest,
-                                option: Optional[RequestOption] = None) -> AddDependenciesTaskResponse:
+    async def aadd_dependencies(
+        self,
+        request: AddDependenciesTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddDependenciesTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -80,13 +88,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddDependenciesTaskResponse)
+        response: AddDependenciesTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddDependenciesTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def add_members(self, request: AddMembersTaskRequest,
-                    option: Optional[RequestOption] = None) -> AddMembersTaskResponse:
+    def add_members(
+        self, request: AddMembersTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -101,13 +112,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddMembersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddMembersTaskResponse)
+        response: AddMembersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddMembersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_members(self, request: AddMembersTaskRequest,
-                           option: Optional[RequestOption] = None) -> AddMembersTaskResponse:
+    async def aadd_members(
+        self, request: AddMembersTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,13 +132,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddMembersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddMembersTaskResponse)
+        response: AddMembersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddMembersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def add_reminders(self, request: AddRemindersTaskRequest,
-                      option: Optional[RequestOption] = None) -> AddRemindersTaskResponse:
+    def add_reminders(
+        self, request: AddRemindersTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddRemindersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,13 +156,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddRemindersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddRemindersTaskResponse)
+        response: AddRemindersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddRemindersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_reminders(self, request: AddRemindersTaskRequest,
-                             option: Optional[RequestOption] = None) -> AddRemindersTaskResponse:
+    async def aadd_reminders(
+        self, request: AddRemindersTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddRemindersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -156,13 +176,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddRemindersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddRemindersTaskResponse)
+        response: AddRemindersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddRemindersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def add_tasklist(self, request: AddTasklistTaskRequest,
-                     option: Optional[RequestOption] = None) -> AddTasklistTaskResponse:
+    def add_tasklist(
+        self, request: AddTasklistTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddTasklistTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,13 +200,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddTasklistTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddTasklistTaskResponse)
+        response: AddTasklistTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddTasklistTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_tasklist(self, request: AddTasklistTaskRequest,
-                            option: Optional[RequestOption] = None) -> AddTasklistTaskResponse:
+    async def aadd_tasklist(
+        self, request: AddTasklistTaskRequest, option: Optional[RequestOption] = None
+    ) -> AddTasklistTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,12 +220,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddTasklistTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddTasklistTaskResponse)
+        response: AddTasklistTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddTasklistTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateTaskRequest, option: Optional[RequestOption] = None) -> CreateTaskResponse:
+    def create(
+        self, request: CreateTaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -214,12 +244,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskResponse)
+        response: CreateTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateTaskRequest, option: Optional[RequestOption] = None) -> CreateTaskResponse:
+    async def acreate(
+        self, request: CreateTaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -230,12 +264,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskResponse)
+        response: CreateTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteTaskRequest, option: Optional[RequestOption] = None) -> DeleteTaskResponse:
+    def delete(
+        self, request: DeleteTaskRequest, option: Optional[RequestOption] = None
+    ) -> DeleteTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -250,12 +288,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskResponse)
+        response: DeleteTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteTaskRequest, option: Optional[RequestOption] = None) -> DeleteTaskResponse:
+    async def adelete(
+        self, request: DeleteTaskRequest, option: Optional[RequestOption] = None
+    ) -> DeleteTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -266,12 +308,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskResponse)
+        response: DeleteTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+    def get(
+        self, request: GetTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -286,12 +332,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
+        response: GetTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+    async def aget(
+        self, request: GetTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -302,12 +352,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
+        response: GetTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListTaskRequest, option: Optional[RequestOption] = None) -> ListTaskResponse:
+    def list(
+        self, request: ListTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -322,12 +376,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskResponse)
+        response: ListTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTaskRequest, option: Optional[RequestOption] = None) -> ListTaskResponse:
+    async def alist(
+        self, request: ListTaskRequest, option: Optional[RequestOption] = None
+    ) -> ListTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -338,12 +396,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskResponse)
+        response: ListTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchTaskRequest, option: Optional[RequestOption] = None) -> PatchTaskResponse:
+    def patch(
+        self, request: PatchTaskRequest, option: Optional[RequestOption] = None
+    ) -> PatchTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -358,12 +420,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTaskResponse)
+        response: PatchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchTaskRequest, option: Optional[RequestOption] = None) -> PatchTaskResponse:
+    async def apatch(
+        self, request: PatchTaskRequest, option: Optional[RequestOption] = None
+    ) -> PatchTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -374,13 +440,18 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchTaskResponse)
+        response: PatchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove_dependencies(self, request: RemoveDependenciesTaskRequest,
-                            option: Optional[RequestOption] = None) -> RemoveDependenciesTaskResponse:
+    def remove_dependencies(
+        self,
+        request: RemoveDependenciesTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveDependenciesTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -395,14 +466,18 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RemoveDependenciesTaskResponse)
+        response: RemoveDependenciesTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveDependenciesTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_dependencies(self, request: RemoveDependenciesTaskRequest,
-                                   option: Optional[RequestOption] = None) -> RemoveDependenciesTaskResponse:
+    async def aremove_dependencies(
+        self,
+        request: RemoveDependenciesTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveDependenciesTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -413,14 +488,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RemoveDependenciesTaskResponse)
+        response: RemoveDependenciesTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveDependenciesTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove_members(self, request: RemoveMembersTaskRequest,
-                       option: Optional[RequestOption] = None) -> RemoveMembersTaskResponse:
+    def remove_members(
+        self, request: RemoveMembersTaskRequest, option: Optional[RequestOption] = None
+    ) -> RemoveMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -435,13 +512,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveMembersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveMembersTaskResponse)
+        response: RemoveMembersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveMembersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_members(self, request: RemoveMembersTaskRequest,
-                              option: Optional[RequestOption] = None) -> RemoveMembersTaskResponse:
+    async def aremove_members(
+        self, request: RemoveMembersTaskRequest, option: Optional[RequestOption] = None
+    ) -> RemoveMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -452,13 +532,18 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveMembersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveMembersTaskResponse)
+        response: RemoveMembersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveMembersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove_reminders(self, request: RemoveRemindersTaskRequest,
-                         option: Optional[RequestOption] = None) -> RemoveRemindersTaskResponse:
+    def remove_reminders(
+        self,
+        request: RemoveRemindersTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveRemindersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -473,13 +558,18 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveRemindersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRemindersTaskResponse)
+        response: RemoveRemindersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveRemindersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_reminders(self, request: RemoveRemindersTaskRequest,
-                                option: Optional[RequestOption] = None) -> RemoveRemindersTaskResponse:
+    async def aremove_reminders(
+        self,
+        request: RemoveRemindersTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveRemindersTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -490,13 +580,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveRemindersTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRemindersTaskResponse)
+        response: RemoveRemindersTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveRemindersTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def remove_tasklist(self, request: RemoveTasklistTaskRequest,
-                        option: Optional[RequestOption] = None) -> RemoveTasklistTaskResponse:
+    def remove_tasklist(
+        self, request: RemoveTasklistTaskRequest, option: Optional[RequestOption] = None
+    ) -> RemoveTasklistTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -511,13 +604,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveTasklistTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveTasklistTaskResponse)
+        response: RemoveTasklistTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveTasklistTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_tasklist(self, request: RemoveTasklistTaskRequest,
-                               option: Optional[RequestOption] = None) -> RemoveTasklistTaskResponse:
+    async def aremove_tasklist(
+        self, request: RemoveTasklistTaskRequest, option: Optional[RequestOption] = None
+    ) -> RemoveTasklistTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -528,12 +624,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveTasklistTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveTasklistTaskResponse)
+        response: RemoveTasklistTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveTasklistTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+    def search(
+        self, request: SearchTaskRequest, option: Optional[RequestOption] = None
+    ) -> SearchTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -548,12 +648,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response: SearchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+    async def asearch(
+        self, request: SearchTaskRequest, option: Optional[RequestOption] = None
+    ) -> SearchTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -564,13 +668,18 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTaskResponse)
+        response: SearchTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def set_ancestor_task(self, request: SetAncestorTaskTaskRequest,
-                          option: Optional[RequestOption] = None) -> SetAncestorTaskTaskResponse:
+    def set_ancestor_task(
+        self,
+        request: SetAncestorTaskTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SetAncestorTaskTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -585,13 +694,18 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SetAncestorTaskTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAncestorTaskTaskResponse)
+        response: SetAncestorTaskTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SetAncestorTaskTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aset_ancestor_task(self, request: SetAncestorTaskTaskRequest,
-                                 option: Optional[RequestOption] = None) -> SetAncestorTaskTaskResponse:
+    async def aset_ancestor_task(
+        self,
+        request: SetAncestorTaskTaskRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SetAncestorTaskTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -602,12 +716,16 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SetAncestorTaskTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAncestorTaskTaskResponse)
+        response: SetAncestorTaskTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SetAncestorTaskTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def tasklists(self, request: TasklistsTaskRequest, option: Optional[RequestOption] = None) -> TasklistsTaskResponse:
+    def tasklists(
+        self, request: TasklistsTaskRequest, option: Optional[RequestOption] = None
+    ) -> TasklistsTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -622,13 +740,16 @@ class Task(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TasklistsTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TasklistsTaskResponse)
+        response: TasklistsTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TasklistsTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def atasklists(self, request: TasklistsTaskRequest,
-                         option: Optional[RequestOption] = None) -> TasklistsTaskResponse:
+    async def atasklists(
+        self, request: TasklistsTaskRequest, option: Optional[RequestOption] = None
+    ) -> TasklistsTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -639,7 +760,9 @@ class Task(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TasklistsTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), TasklistsTaskResponse)
+        response: TasklistsTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TasklistsTaskResponse
+        )
         response.raw = resp
 
         return response

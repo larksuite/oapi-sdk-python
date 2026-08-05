@@ -28,7 +28,9 @@ class MgetEmployeeRequestBodyBuilder(object):
         self._mget_employee_request_body.employee_ids = employee_ids
         return self
 
-    def required_fields(self, required_fields: List[str]) -> "MgetEmployeeRequestBodyBuilder":
+    def required_fields(
+        self, required_fields: List[str]
+    ) -> "MgetEmployeeRequestBodyBuilder":
         self._mget_employee_request_body.required_fields = required_fields
         return self
 

@@ -26,13 +26,19 @@ class GetTableRecordListAppTableResponseBody(object):
 
 class GetTableRecordListAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_table_record_list_app_table_response_body = GetTableRecordListAppTableResponseBody()
+        self._get_table_record_list_app_table_response_body = (
+            GetTableRecordListAppTableResponseBody()
+        )
 
-    def has_more(self, has_more: bool) -> "GetTableRecordListAppTableResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "GetTableRecordListAppTableResponseBodyBuilder":
         self._get_table_record_list_app_table_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "GetTableRecordListAppTableResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "GetTableRecordListAppTableResponseBodyBuilder":
         self._get_table_record_list_app_table_response_body.page_token = page_token
         return self
 

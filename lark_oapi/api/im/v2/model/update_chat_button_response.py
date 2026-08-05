@@ -9,7 +9,6 @@ from .update_chat_button_response_body import UpdateChatButtonResponseBody
 class UpdateChatButtonResponse(BaseResponse):
     _types = {
         "data": UpdateChatButtonResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -20,22 +20,34 @@ class PatchDepartmentRequest(BaseRequest):
 
 
 class PatchDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_department_request = PatchDepartmentRequest()
         patch_department_request.http_method = HttpMethod.PATCH
-        patch_department_request.uri = "/open-apis/directory/v1/departments/:department_id"
-        patch_department_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._patch_department_request: PatchDepartmentRequest = patch_department_request
+        patch_department_request.uri = (
+            "/open-apis/directory/v1/departments/:department_id"
+        )
+        patch_department_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._patch_department_request: PatchDepartmentRequest = (
+            patch_department_request
+        )
 
-    def employee_id_type(self, employee_id_type: str) -> "PatchDepartmentRequestBuilder":
+    def employee_id_type(
+        self, employee_id_type: str
+    ) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.employee_id_type = employee_id_type
         self._patch_department_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "PatchDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.department_id_type = department_id_type
-        self._patch_department_request.add_query("department_id_type", department_id_type)
+        self._patch_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def department_id(self, department_id: str) -> "PatchDepartmentRequestBuilder":
@@ -43,7 +55,9 @@ class PatchDepartmentRequestBuilder(object):
         self._patch_department_request.paths["department_id"] = str(department_id)
         return self
 
-    def request_body(self, request_body: PatchDepartmentRequestBody) -> "PatchDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: PatchDepartmentRequestBody
+    ) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.request_body = request_body
         self._patch_department_request.body = request_body
         return self

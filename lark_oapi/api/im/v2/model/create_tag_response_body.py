@@ -29,7 +29,9 @@ class CreateTagResponseBodyBuilder(object):
         self._create_tag_response_body.id = id
         return self
 
-    def create_tag_fail_reason(self, create_tag_fail_reason: CreateTagFailReason) -> "CreateTagResponseBodyBuilder":
+    def create_tag_fail_reason(
+        self, create_tag_fail_reason: CreateTagFailReason
+    ) -> "CreateTagResponseBodyBuilder":
         self._create_tag_response_body.create_tag_fail_reason = create_tag_fail_reason
         return self
 

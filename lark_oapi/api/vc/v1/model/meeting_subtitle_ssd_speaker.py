@@ -34,7 +34,9 @@ class MeetingSubtitleSsdSpeakerBuilder(object):
         self._meeting_subtitle_ssd_speaker.speaker_id = speaker_id
         return self
 
-    def speaker_id_type(self, speaker_id_type: int) -> "MeetingSubtitleSsdSpeakerBuilder":
+    def speaker_id_type(
+        self, speaker_id_type: int
+    ) -> "MeetingSubtitleSsdSpeakerBuilder":
         self._meeting_subtitle_ssd_speaker.speaker_id_type = speaker_id_type
         return self
 

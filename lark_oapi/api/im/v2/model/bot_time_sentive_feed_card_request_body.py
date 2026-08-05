@@ -24,17 +24,23 @@ class BotTimeSentiveFeedCardRequestBody(object):
 
 class BotTimeSentiveFeedCardRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._bot_time_sentive_feed_card_request_body = BotTimeSentiveFeedCardRequestBody()
+        self._bot_time_sentive_feed_card_request_body = (
+            BotTimeSentiveFeedCardRequestBody()
+        )
 
     def bot_id(self, bot_id: str) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
         self._bot_time_sentive_feed_card_request_body.bot_id = bot_id
         return self
 
-    def time_sensitive(self, time_sensitive: bool) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
+    def time_sensitive(
+        self, time_sensitive: bool
+    ) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
         self._bot_time_sentive_feed_card_request_body.time_sensitive = time_sensitive
         return self
 
-    def user_ids(self, user_ids: List[str]) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
+    def user_ids(
+        self, user_ids: List[str]
+    ) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
         self._bot_time_sentive_feed_card_request_body.user_ids = user_ids
         return self
 

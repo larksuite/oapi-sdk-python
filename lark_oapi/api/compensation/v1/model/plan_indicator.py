@@ -29,7 +29,9 @@ class PlanIndicatorBuilder(object):
         self._plan_indicator.indicator_id = indicator_id
         return self
 
-    def plan_indicator_logic(self, plan_indicator_logic: AdjustmentLogic) -> "PlanIndicatorBuilder":
+    def plan_indicator_logic(
+        self, plan_indicator_logic: AdjustmentLogic
+    ) -> "PlanIndicatorBuilder":
         self._plan_indicator.plan_indicator_logic = plan_indicator_logic
         return self
 

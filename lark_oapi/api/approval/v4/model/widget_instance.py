@@ -40,7 +40,9 @@ class WidgetInstanceBuilder(object):
         self._widget_instance.status = status
         return self
 
-    def instance_operate_time(self, instance_operate_time: str) -> "WidgetInstanceBuilder":
+    def instance_operate_time(
+        self, instance_operate_time: str
+    ) -> "WidgetInstanceBuilder":
         self._widget_instance.instance_operate_time = instance_operate_time
         return self
 

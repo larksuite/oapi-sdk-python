@@ -17,13 +17,19 @@ class GetFileStatisticsRequest(BaseRequest):
 
 
 class GetFileStatisticsRequestBuilder(object):
-
     def __init__(self) -> None:
         get_file_statistics_request = GetFileStatisticsRequest()
         get_file_statistics_request.http_method = HttpMethod.GET
-        get_file_statistics_request.uri = "/open-apis/drive/v1/files/:file_token/statistics"
-        get_file_statistics_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_file_statistics_request: GetFileStatisticsRequest = get_file_statistics_request
+        get_file_statistics_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/statistics"
+        )
+        get_file_statistics_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_file_statistics_request: GetFileStatisticsRequest = (
+            get_file_statistics_request
+        )
 
     def file_type(self, file_type: str) -> "GetFileStatisticsRequestBuilder":
         self._get_file_statistics_request.file_type = file_type

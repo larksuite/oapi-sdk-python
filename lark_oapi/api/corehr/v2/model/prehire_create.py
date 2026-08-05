@@ -46,11 +46,15 @@ class PrehireCreateBuilder(object):
         self._prehire_create.offer_info = offer_info
         return self
 
-    def education_info(self, education_info: List[EducationInfo]) -> "PrehireCreateBuilder":
+    def education_info(
+        self, education_info: List[EducationInfo]
+    ) -> "PrehireCreateBuilder":
         self._prehire_create.education_info = education_info
         return self
 
-    def work_experience(self, work_experience: List[WorkExperience]) -> "PrehireCreateBuilder":
+    def work_experience(
+        self, work_experience: List[WorkExperience]
+    ) -> "PrehireCreateBuilder":
         self._prehire_create.work_experience = work_experience
         return self
 

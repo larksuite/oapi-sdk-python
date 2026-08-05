@@ -99,23 +99,33 @@ class GetInstanceResponseBodyBuilder(object):
         self._get_instance_response_body.form = form
         return self
 
-    def task_list(self, task_list: List[InstanceTask]) -> "GetInstanceResponseBodyBuilder":
+    def task_list(
+        self, task_list: List[InstanceTask]
+    ) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.task_list = task_list
         return self
 
-    def comment_list(self, comment_list: List[InstanceComment]) -> "GetInstanceResponseBodyBuilder":
+    def comment_list(
+        self, comment_list: List[InstanceComment]
+    ) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.comment_list = comment_list
         return self
 
-    def timeline(self, timeline: List[InstanceTimeline]) -> "GetInstanceResponseBodyBuilder":
+    def timeline(
+        self, timeline: List[InstanceTimeline]
+    ) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.timeline = timeline
         return self
 
-    def modified_instance_code(self, modified_instance_code: str) -> "GetInstanceResponseBodyBuilder":
+    def modified_instance_code(
+        self, modified_instance_code: str
+    ) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.modified_instance_code = modified_instance_code
         return self
 
-    def reverted_instance_code(self, reverted_instance_code: str) -> "GetInstanceResponseBodyBuilder":
+    def reverted_instance_code(
+        self, reverted_instance_code: str
+    ) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.reverted_instance_code = reverted_instance_code
         return self
 

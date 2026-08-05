@@ -87,17 +87,21 @@ class OkrDetailObjectiveBuilder(object):
         self._okr_detail_objective.modify_time = modify_time
         return self
 
-    def kr_list(self, kr_list: List[OkrDetailObjectiveKr]) -> "OkrDetailObjectiveBuilder":
+    def kr_list(
+        self, kr_list: List[OkrDetailObjectiveKr]
+    ) -> "OkrDetailObjectiveBuilder":
         self._okr_detail_objective.kr_list = kr_list
         return self
 
-    def aligning_objective_list(self,
-                                aligning_objective_list: List[OkrDetailObjectiveAlign]) -> "OkrDetailObjectiveBuilder":
+    def aligning_objective_list(
+        self, aligning_objective_list: List[OkrDetailObjectiveAlign]
+    ) -> "OkrDetailObjectiveBuilder":
         self._okr_detail_objective.aligning_objective_list = aligning_objective_list
         return self
 
-    def aligned_objective_list(self,
-                               aligned_objective_list: List[OkrDetailObjectiveAlign]) -> "OkrDetailObjectiveBuilder":
+    def aligned_objective_list(
+        self, aligned_objective_list: List[OkrDetailObjectiveAlign]
+    ) -> "OkrDetailObjectiveBuilder":
         self._okr_detail_objective.aligned_objective_list = aligned_objective_list
         return self
 

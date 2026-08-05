@@ -45,7 +45,9 @@ class GlAccountBuilder(object):
         self._gl_account.gl_account_name = gl_account_name
         return self
 
-    def i18n_gl_account_name(self, i18n_gl_account_name: List[I18nStruct]) -> "GlAccountBuilder":
+    def i18n_gl_account_name(
+        self, i18n_gl_account_name: List[I18nStruct]
+    ) -> "GlAccountBuilder":
         self._gl_account.i18n_gl_account_name = i18n_gl_account_name
         return self
 

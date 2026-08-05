@@ -18,7 +18,6 @@ class UpdateJobLevelRequest(BaseRequest):
 
 
 class UpdateJobLevelRequestBuilder(object):
-
     def __init__(self) -> None:
         update_job_level_request = UpdateJobLevelRequest()
         update_job_level_request.http_method = HttpMethod.PUT

@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .interview_assessment_dimension_args_score import InterviewAssessmentDimensionArgsScore
+from .interview_assessment_dimension_args_score import (
+    InterviewAssessmentDimensionArgsScore,
+)
 
 
 class InterviewAssessmentDimensionArgs(object):
@@ -23,8 +25,9 @@ class InterviewAssessmentDimensionArgsBuilder(object):
     def __init__(self) -> None:
         self._interview_assessment_dimension_args = InterviewAssessmentDimensionArgs()
 
-    def score_list(self, score_list: List[
-        InterviewAssessmentDimensionArgsScore]) -> "InterviewAssessmentDimensionArgsBuilder":
+    def score_list(
+        self, score_list: List[InterviewAssessmentDimensionArgsScore]
+    ) -> "InterviewAssessmentDimensionArgsBuilder":
         self._interview_assessment_dimension_args.score_list = score_list
         return self
 

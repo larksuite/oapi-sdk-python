@@ -18,7 +18,6 @@ class ListLocationRequest(BaseRequest):
 
 
 class ListLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         list_location_request = ListLocationRequest()
         list_location_request.http_method = HttpMethod.GET

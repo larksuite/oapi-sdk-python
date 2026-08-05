@@ -2,6 +2,7 @@ from .delete_space_result import *
 from .department_id import *
 from .member import *
 from .move_result import *
+from .move_wiki_to_docs_result import *
 from .node import *
 from .node_search import *
 from .setting import *

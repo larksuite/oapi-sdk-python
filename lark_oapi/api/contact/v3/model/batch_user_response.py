@@ -9,7 +9,6 @@ from .batch_user_response_body import BatchUserResponseBody
 class BatchUserResponse(BaseResponse):
     _types = {
         "data": BatchUserResponseBody,
-
     }
 
     def __init__(self, d=None):

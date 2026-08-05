@@ -9,7 +9,6 @@ from .create_notification_response_body import CreateNotificationResponseBody
 class CreateNotificationResponse(BaseResponse):
     _types = {
         "data": CreateNotificationResponseBody,
-
     }
 
     def __init__(self, d=None):

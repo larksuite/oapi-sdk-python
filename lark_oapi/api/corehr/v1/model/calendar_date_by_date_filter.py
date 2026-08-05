@@ -34,7 +34,9 @@ class CalendarDateByDateFilterBuilder(object):
     def __init__(self) -> None:
         self._calendar_date_by_date_filter = CalendarDateByDateFilter()
 
-    def wk_calendar_ids(self, wk_calendar_ids: List[str]) -> "CalendarDateByDateFilterBuilder":
+    def wk_calendar_ids(
+        self, wk_calendar_ids: List[str]
+    ) -> "CalendarDateByDateFilterBuilder":
         self._calendar_date_by_date_filter.wk_calendar_ids = wk_calendar_ids
         return self
 

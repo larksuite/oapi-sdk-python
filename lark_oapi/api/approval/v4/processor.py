@@ -4,9 +4,15 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_approval_approval_updated_v4 import P2ApprovalApprovalUpdatedV4
+from .model.p2_approval_instance_status_changed_v4 import (
+    P2ApprovalInstanceStatusChangedV4,
+)
+from .model.p2_approval_task_status_changed_v4 import P2ApprovalTaskStatusChangedV4
 
 
-class P2ApprovalApprovalUpdatedV4Processor(IEventProcessor[P2ApprovalApprovalUpdatedV4]):
+class P2ApprovalApprovalUpdatedV4Processor(
+    IEventProcessor[P2ApprovalApprovalUpdatedV4]
+):
     def __init__(self, f: Callable[[P2ApprovalApprovalUpdatedV4], None]):
         self.f = f
 
@@ -14,4 +20,30 @@ class P2ApprovalApprovalUpdatedV4Processor(IEventProcessor[P2ApprovalApprovalUpd
         return P2ApprovalApprovalUpdatedV4
 
     def do(self, data: P2ApprovalApprovalUpdatedV4) -> None:
+        self.f(data)
+
+
+class P2ApprovalInstanceStatusChangedV4Processor(
+    IEventProcessor[P2ApprovalInstanceStatusChangedV4]
+):
+    def __init__(self, f: Callable[[P2ApprovalInstanceStatusChangedV4], None]):
+        self.f = f
+
+    def type(self) -> Type[P2ApprovalInstanceStatusChangedV4]:
+        return P2ApprovalInstanceStatusChangedV4
+
+    def do(self, data: P2ApprovalInstanceStatusChangedV4) -> None:
+        self.f(data)
+
+
+class P2ApprovalTaskStatusChangedV4Processor(
+    IEventProcessor[P2ApprovalTaskStatusChangedV4]
+):
+    def __init__(self, f: Callable[[P2ApprovalTaskStatusChangedV4], None]):
+        self.f = f
+
+    def type(self) -> Type[P2ApprovalTaskStatusChangedV4]:
+        return P2ApprovalTaskStatusChangedV4
+
+    def do(self, data: P2ApprovalTaskStatusChangedV4) -> None:
         self.f(data)

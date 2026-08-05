@@ -18,7 +18,6 @@ class ListJobFamilyRequest(BaseRequest):
 
 
 class ListJobFamilyRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_family_request = ListJobFamilyRequest()
         list_job_family_request.http_method = HttpMethod.GET

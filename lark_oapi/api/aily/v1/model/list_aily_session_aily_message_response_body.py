@@ -25,17 +25,25 @@ class ListAilySessionAilyMessageResponseBody(object):
 
 class ListAilySessionAilyMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_aily_session_aily_message_response_body = ListAilySessionAilyMessageResponseBody()
+        self._list_aily_session_aily_message_response_body = (
+            ListAilySessionAilyMessageResponseBody()
+        )
 
-    def messages(self, messages: List[AilyMessage]) -> "ListAilySessionAilyMessageResponseBodyBuilder":
+    def messages(
+        self, messages: List[AilyMessage]
+    ) -> "ListAilySessionAilyMessageResponseBodyBuilder":
         self._list_aily_session_aily_message_response_body.messages = messages
         return self
 
-    def page_token(self, page_token: str) -> "ListAilySessionAilyMessageResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListAilySessionAilyMessageResponseBodyBuilder":
         self._list_aily_session_aily_message_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "ListAilySessionAilyMessageResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListAilySessionAilyMessageResponseBodyBuilder":
         self._list_aily_session_aily_message_response_body.has_more = has_more
         return self
 

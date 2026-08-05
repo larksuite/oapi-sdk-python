@@ -23,7 +23,9 @@ class ListAppBlockWorkflowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_block_workflow_response_body = ListAppBlockWorkflowResponseBody()
 
-    def workflows(self, workflows: List[BlockWorkflow]) -> "ListAppBlockWorkflowResponseBodyBuilder":
+    def workflows(
+        self, workflows: List[BlockWorkflow]
+    ) -> "ListAppBlockWorkflowResponseBodyBuilder":
         self._list_app_block_workflow_response_body.workflows = workflows
         return self
 

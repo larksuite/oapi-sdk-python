@@ -23,7 +23,9 @@ class EcoBackgroundCheckCustomFieldDataOption(object):
 
 class EcoBackgroundCheckCustomFieldDataOptionBuilder(object):
     def __init__(self) -> None:
-        self._eco_background_check_custom_field_data_option = EcoBackgroundCheckCustomFieldDataOption()
+        self._eco_background_check_custom_field_data_option = (
+            EcoBackgroundCheckCustomFieldDataOption()
+        )
 
     def key(self, key: str) -> "EcoBackgroundCheckCustomFieldDataOptionBuilder":
         self._eco_background_check_custom_field_data_option.key = key

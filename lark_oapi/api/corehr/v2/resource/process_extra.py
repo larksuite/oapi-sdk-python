@@ -17,8 +17,9 @@ class ProcessExtra(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateProcessExtraRequest,
-               option: Optional[RequestOption] = None) -> UpdateProcessExtraResponse:
+    def update(
+        self, request: UpdateProcessExtraRequest, option: Optional[RequestOption] = None
+    ) -> UpdateProcessExtraResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class ProcessExtra(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessExtraResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessExtraResponse)
+        response: UpdateProcessExtraResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessExtraResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateProcessExtraRequest,
-                      option: Optional[RequestOption] = None) -> UpdateProcessExtraResponse:
+    async def aupdate(
+        self, request: UpdateProcessExtraRequest, option: Optional[RequestOption] = None
+    ) -> UpdateProcessExtraResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class ProcessExtra(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessExtraResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateProcessExtraResponse)
+        response: UpdateProcessExtraResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessExtraResponse
+        )
         response.raw = resp
 
         return response

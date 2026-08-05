@@ -23,7 +23,9 @@ class CreateUserTaskRemedyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_task_remedy_response_body = CreateUserTaskRemedyResponseBody()
 
-    def user_remedy(self, user_remedy: UserTaskRemedy) -> "CreateUserTaskRemedyResponseBodyBuilder":
+    def user_remedy(
+        self, user_remedy: UserTaskRemedy
+    ) -> "CreateUserTaskRemedyResponseBodyBuilder":
         self._create_user_task_remedy_response_body.user_remedy = user_remedy
         return self
 

@@ -79,7 +79,9 @@ class DataAssetBuilder(object):
         self._data_asset.connect_failed_reason = connect_failed_reason
         return self
 
-    def import_knowledge_setting(self, import_knowledge_setting: DataAssetImportKnowledgeSetting) -> "DataAssetBuilder":
+    def import_knowledge_setting(
+        self, import_knowledge_setting: DataAssetImportKnowledgeSetting
+    ) -> "DataAssetBuilder":
         self._data_asset.import_knowledge_setting = import_knowledge_setting
         return self
 

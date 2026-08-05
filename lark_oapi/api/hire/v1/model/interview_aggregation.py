@@ -23,7 +23,9 @@ class InterviewAggregationBuilder(object):
     def __init__(self) -> None:
         self._interview_aggregation = InterviewAggregation()
 
-    def interviews(self, interviews: List[InterviewExtendV2]) -> "InterviewAggregationBuilder":
+    def interviews(
+        self, interviews: List[InterviewExtendV2]
+    ) -> "InterviewAggregationBuilder":
         self._interview_aggregation.interviews = interviews
         return self
 

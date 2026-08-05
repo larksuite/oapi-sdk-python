@@ -16,17 +16,24 @@ class DeleteDeviceRecordRequest(BaseRequest):
 
 
 class DeleteDeviceRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_device_record_request = DeleteDeviceRecordRequest()
         delete_device_record_request.http_method = HttpMethod.DELETE
-        delete_device_record_request.uri = "/open-apis/security_and_compliance/v2/device_records/:device_record_id"
+        delete_device_record_request.uri = (
+            "/open-apis/security_and_compliance/v2/device_records/:device_record_id"
+        )
         delete_device_record_request.token_types = {AccessTokenType.TENANT}
-        self._delete_device_record_request: DeleteDeviceRecordRequest = delete_device_record_request
+        self._delete_device_record_request: DeleteDeviceRecordRequest = (
+            delete_device_record_request
+        )
 
-    def device_record_id(self, device_record_id: int) -> "DeleteDeviceRecordRequestBuilder":
+    def device_record_id(
+        self, device_record_id: int
+    ) -> "DeleteDeviceRecordRequestBuilder":
         self._delete_device_record_request.device_record_id = device_record_id
-        self._delete_device_record_request.paths["device_record_id"] = str(device_record_id)
+        self._delete_device_record_request.paths["device_record_id"] = str(
+            device_record_id
+        )
         return self
 
     def build(self) -> DeleteDeviceRecordRequest:

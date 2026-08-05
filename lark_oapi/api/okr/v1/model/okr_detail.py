@@ -62,7 +62,9 @@ class OkrDetailBuilder(object):
         self._okr_detail.modify_time = modify_time
         return self
 
-    def objective_list(self, objective_list: List[OkrDetailObjective]) -> "OkrDetailBuilder":
+    def objective_list(
+        self, objective_list: List[OkrDetailObjective]
+    ) -> "OkrDetailBuilder":
         self._okr_detail.objective_list = objective_list
         return self
 

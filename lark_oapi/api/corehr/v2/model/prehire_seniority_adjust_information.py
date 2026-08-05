@@ -33,17 +33,28 @@ class PrehireSeniorityAdjustInformationBuilder(object):
     def __init__(self) -> None:
         self._prehire_seniority_adjust_information = PrehireSeniorityAdjustInformation()
 
-    def seniority_adjustment(self, seniority_adjustment: float) -> "PrehireSeniorityAdjustInformationBuilder":
-        self._prehire_seniority_adjust_information.seniority_adjustment = seniority_adjustment
+    def seniority_adjustment(
+        self, seniority_adjustment: float
+    ) -> "PrehireSeniorityAdjustInformationBuilder":
+        self._prehire_seniority_adjust_information.seniority_adjustment = (
+            seniority_adjustment
+        )
         return self
 
-    def seniority_adjustment_type(self, seniority_adjustment_type: str) -> "PrehireSeniorityAdjustInformationBuilder":
-        self._prehire_seniority_adjust_information.seniority_adjustment_type = seniority_adjustment_type
+    def seniority_adjustment_type(
+        self, seniority_adjustment_type: str
+    ) -> "PrehireSeniorityAdjustInformationBuilder":
+        self._prehire_seniority_adjust_information.seniority_adjustment_type = (
+            seniority_adjustment_type
+        )
         return self
 
-    def reasons_for_seniority_adjustment(self,
-                                         reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationBuilder":
-        self._prehire_seniority_adjust_information.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
+    def reasons_for_seniority_adjustment(
+        self, reasons_for_seniority_adjustment: str
+    ) -> "PrehireSeniorityAdjustInformationBuilder":
+        self._prehire_seniority_adjust_information.reasons_for_seniority_adjustment = (
+            reasons_for_seniority_adjustment
+        )
         return self
 
     def start_date(self, start_date: str) -> "PrehireSeniorityAdjustInformationBuilder":
@@ -54,7 +65,9 @@ class PrehireSeniorityAdjustInformationBuilder(object):
         self._prehire_seniority_adjust_information.end_date = end_date
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PrehireSeniorityAdjustInformationBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.custom_fields = custom_fields
         return self
 

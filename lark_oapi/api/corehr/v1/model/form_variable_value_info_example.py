@@ -23,7 +23,9 @@ class FormVariableValueInfoExampleBuilder(object):
     def __init__(self) -> None:
         self._form_variable_value_info_example = FormVariableValueInfoExample()
 
-    def object_value(self, object_value: FormFieldVariableObjectValue) -> "FormVariableValueInfoExampleBuilder":
+    def object_value(
+        self, object_value: FormFieldVariableObjectValue
+    ) -> "FormVariableValueInfoExampleBuilder":
         self._form_variable_value_info_example.object_value = object_value
         return self
 

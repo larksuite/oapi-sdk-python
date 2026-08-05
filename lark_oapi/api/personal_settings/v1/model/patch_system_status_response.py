@@ -9,7 +9,6 @@ from .patch_system_status_response_body import PatchSystemStatusResponseBody
 class PatchSystemStatusResponse(BaseResponse):
     _types = {
         "data": PatchSystemStatusResponseBody,
-
     }
 
     def __init__(self, d=None):

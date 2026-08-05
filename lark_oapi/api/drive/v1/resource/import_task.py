@@ -19,8 +19,9 @@ class ImportTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateImportTaskRequest,
-               option: Optional[RequestOption] = None) -> CreateImportTaskResponse:
+    def create(
+        self, request: CreateImportTaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateImportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +36,16 @@ class ImportTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImportTaskResponse)
+        response: CreateImportTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateImportTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateImportTaskRequest,
-                      option: Optional[RequestOption] = None) -> CreateImportTaskResponse:
+    async def acreate(
+        self, request: CreateImportTaskRequest, option: Optional[RequestOption] = None
+    ) -> CreateImportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,12 +56,16 @@ class ImportTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImportTaskResponse)
+        response: CreateImportTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateImportTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetImportTaskRequest, option: Optional[RequestOption] = None) -> GetImportTaskResponse:
+    def get(
+        self, request: GetImportTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetImportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,13 +80,16 @@ class ImportTask(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetImportTaskResponse)
+        response: GetImportTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetImportTaskResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetImportTaskRequest,
-                   option: Optional[RequestOption] = None) -> GetImportTaskResponse:
+    async def aget(
+        self, request: GetImportTaskRequest, option: Optional[RequestOption] = None
+    ) -> GetImportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -89,7 +100,9 @@ class ImportTask(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetImportTaskResponse)
+        response: GetImportTaskResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetImportTaskResponse
+        )
         response.raw = resp
 
         return response

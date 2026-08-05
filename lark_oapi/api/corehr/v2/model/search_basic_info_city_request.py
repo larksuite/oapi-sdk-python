@@ -19,13 +19,16 @@ class SearchBasicInfoCityRequest(BaseRequest):
 
 
 class SearchBasicInfoCityRequestBuilder(object):
-
     def __init__(self) -> None:
         search_basic_info_city_request = SearchBasicInfoCityRequest()
         search_basic_info_city_request.http_method = HttpMethod.POST
-        search_basic_info_city_request.uri = "/open-apis/corehr/v2/basic_info/cities/search"
+        search_basic_info_city_request.uri = (
+            "/open-apis/corehr/v2/basic_info/cities/search"
+        )
         search_basic_info_city_request.token_types = {AccessTokenType.TENANT}
-        self._search_basic_info_city_request: SearchBasicInfoCityRequest = search_basic_info_city_request
+        self._search_basic_info_city_request: SearchBasicInfoCityRequest = (
+            search_basic_info_city_request
+        )
 
     def page_size(self, page_size: int) -> "SearchBasicInfoCityRequestBuilder":
         self._search_basic_info_city_request.page_size = page_size
@@ -37,7 +40,9 @@ class SearchBasicInfoCityRequestBuilder(object):
         self._search_basic_info_city_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: SearchBasicInfoCityRequestBody) -> "SearchBasicInfoCityRequestBuilder":
+    def request_body(
+        self, request_body: SearchBasicInfoCityRequestBody
+    ) -> "SearchBasicInfoCityRequestBuilder":
         self._search_basic_info_city_request.request_body = request_body
         self._search_basic_info_city_request.body = request_body
         return self

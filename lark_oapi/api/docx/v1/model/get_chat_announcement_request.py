@@ -17,13 +17,19 @@ class GetChatAnnouncementRequest(BaseRequest):
 
 
 class GetChatAnnouncementRequestBuilder(object):
-
     def __init__(self) -> None:
         get_chat_announcement_request = GetChatAnnouncementRequest()
         get_chat_announcement_request.http_method = HttpMethod.GET
-        get_chat_announcement_request.uri = "/open-apis/docx/v1/chats/:chat_id/announcement"
-        get_chat_announcement_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_chat_announcement_request: GetChatAnnouncementRequest = get_chat_announcement_request
+        get_chat_announcement_request.uri = (
+            "/open-apis/docx/v1/chats/:chat_id/announcement"
+        )
+        get_chat_announcement_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_chat_announcement_request: GetChatAnnouncementRequest = (
+            get_chat_announcement_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "GetChatAnnouncementRequestBuilder":
         self._get_chat_announcement_request.user_id_type = user_id_type

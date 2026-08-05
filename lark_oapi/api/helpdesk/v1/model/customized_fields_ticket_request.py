@@ -16,15 +16,20 @@ class CustomizedFieldsTicketRequest(BaseRequest):
 
 
 class CustomizedFieldsTicketRequestBuilder(object):
-
     def __init__(self) -> None:
         customized_fields_ticket_request = CustomizedFieldsTicketRequest()
         customized_fields_ticket_request.http_method = HttpMethod.GET
-        customized_fields_ticket_request.uri = "/open-apis/helpdesk/v1/customized_fields"
+        customized_fields_ticket_request.uri = (
+            "/open-apis/helpdesk/v1/customized_fields"
+        )
         customized_fields_ticket_request.token_types = {AccessTokenType.TENANT}
-        self._customized_fields_ticket_request: CustomizedFieldsTicketRequest = customized_fields_ticket_request
+        self._customized_fields_ticket_request: CustomizedFieldsTicketRequest = (
+            customized_fields_ticket_request
+        )
 
-    def visible_only(self, visible_only: bool) -> "CustomizedFieldsTicketRequestBuilder":
+    def visible_only(
+        self, visible_only: bool
+    ) -> "CustomizedFieldsTicketRequestBuilder":
         self._customized_fields_ticket_request.visible_only = visible_only
         self._customized_fields_ticket_request.add_query("visible_only", visible_only)
         return self

@@ -17,15 +17,18 @@ class AddToFolderTalentRequest(BaseRequest):
 
 
 class AddToFolderTalentRequestBuilder(object):
-
     def __init__(self) -> None:
         add_to_folder_talent_request = AddToFolderTalentRequest()
         add_to_folder_talent_request.http_method = HttpMethod.POST
         add_to_folder_talent_request.uri = "/open-apis/hire/v1/talents/add_to_folder"
         add_to_folder_talent_request.token_types = {AccessTokenType.TENANT}
-        self._add_to_folder_talent_request: AddToFolderTalentRequest = add_to_folder_talent_request
+        self._add_to_folder_talent_request: AddToFolderTalentRequest = (
+            add_to_folder_talent_request
+        )
 
-    def request_body(self, request_body: AddToFolderTalentRequestBody) -> "AddToFolderTalentRequestBuilder":
+    def request_body(
+        self, request_body: AddToFolderTalentRequestBody
+    ) -> "AddToFolderTalentRequestBuilder":
         self._add_to_folder_talent_request.request_body = request_body
         self._add_to_folder_talent_request.body = request_body
         return self

@@ -25,8 +25,11 @@ class FileComment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryFileCommentRequest,
-                    option: Optional[RequestOption] = None) -> BatchQueryFileCommentResponse:
+    def batch_query(
+        self,
+        request: BatchQueryFileCommentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,14 +44,18 @@ class FileComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchQueryFileCommentResponse)
+        response: BatchQueryFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_query(self, request: BatchQueryFileCommentRequest,
-                           option: Optional[RequestOption] = None) -> BatchQueryFileCommentResponse:
+    async def abatch_query(
+        self,
+        request: BatchQueryFileCommentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchQueryFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -59,14 +66,16 @@ class FileComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchQueryFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchQueryFileCommentResponse)
+        response: BatchQueryFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchQueryFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreateFileCommentRequest,
-               option: Optional[RequestOption] = None) -> CreateFileCommentResponse:
+    def create(
+        self, request: CreateFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> CreateFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,13 +90,16 @@ class FileComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFileCommentResponse)
+        response: CreateFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateFileCommentRequest,
-                      option: Optional[RequestOption] = None) -> CreateFileCommentResponse:
+    async def acreate(
+        self, request: CreateFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> CreateFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -98,12 +110,16 @@ class FileComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFileCommentResponse)
+        response: CreateFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetFileCommentRequest, option: Optional[RequestOption] = None) -> GetFileCommentResponse:
+    def get(
+        self, request: GetFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> GetFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -118,13 +134,16 @@ class FileComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFileCommentResponse)
+        response: GetFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetFileCommentRequest,
-                   option: Optional[RequestOption] = None) -> GetFileCommentResponse:
+    async def aget(
+        self, request: GetFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> GetFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,12 +154,16 @@ class FileComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFileCommentResponse)
+        response: GetFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListFileCommentRequest, option: Optional[RequestOption] = None) -> ListFileCommentResponse:
+    def list(
+        self, request: ListFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> ListFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,13 +178,16 @@ class FileComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileCommentResponse)
+        response: ListFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListFileCommentRequest,
-                    option: Optional[RequestOption] = None) -> ListFileCommentResponse:
+    async def alist(
+        self, request: ListFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> ListFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -172,13 +198,16 @@ class FileComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileCommentResponse)
+        response: ListFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchFileCommentRequest,
-              option: Optional[RequestOption] = None) -> PatchFileCommentResponse:
+    def patch(
+        self, request: PatchFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> PatchFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -193,13 +222,16 @@ class FileComment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFileCommentResponse)
+        response: PatchFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFileCommentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchFileCommentRequest,
-                     option: Optional[RequestOption] = None) -> PatchFileCommentResponse:
+    async def apatch(
+        self, request: PatchFileCommentRequest, option: Optional[RequestOption] = None
+    ) -> PatchFileCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,7 +242,9 @@ class FileComment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchFileCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFileCommentResponse)
+        response: PatchFileCommentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchFileCommentResponse
+        )
         response.raw = resp
 
         return response

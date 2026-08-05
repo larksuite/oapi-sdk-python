@@ -84,7 +84,9 @@ class TableRoleBuilder(object):
         self._table_role.view_rules = view_rules
         return self
 
-    def field_action_rules(self, field_action_rules: Dict[str, Dict[str, int]]) -> "TableRoleBuilder":
+    def field_action_rules(
+        self, field_action_rules: Dict[str, Dict[str, int]]
+    ) -> "TableRoleBuilder":
         self._table_role.field_action_rules = field_action_rules
         return self
 

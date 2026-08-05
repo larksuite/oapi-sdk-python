@@ -9,7 +9,6 @@ from .revoke_job_change_response_body import RevokeJobChangeResponseBody
 class RevokeJobChangeResponse(BaseResponse):
     _types = {
         "data": RevokeJobChangeResponseBody,
-
     }
 
     def __init__(self, d=None):

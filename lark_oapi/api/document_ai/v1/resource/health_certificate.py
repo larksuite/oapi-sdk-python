@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.recognize_health_certificate_request import RecognizeHealthCertificateRequest
-from ..model.recognize_health_certificate_response import RecognizeHealthCertificateResponse
+from ..model.recognize_health_certificate_request import (
+    RecognizeHealthCertificateRequest,
+)
+from ..model.recognize_health_certificate_response import (
+    RecognizeHealthCertificateResponse,
+)
 
 
 class HealthCertificate(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeHealthCertificateRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeHealthCertificateResponse:
+    def recognize(
+        self,
+        request: RecognizeHealthCertificateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeHealthCertificateResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class HealthCertificate(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeHealthCertificateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecognizeHealthCertificateResponse)
+        response: RecognizeHealthCertificateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeHealthCertificateResponse
+        )
         response.raw = resp
 
         return response
 
-    async def arecognize(self, request: RecognizeHealthCertificateRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeHealthCertificateResponse:
+    async def arecognize(
+        self,
+        request: RecognizeHealthCertificateRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RecognizeHealthCertificateResponse:
         if option is None:
             option = RequestOption()
 
@@ -56,8 +67,9 @@ class HealthCertificate(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RecognizeHealthCertificateResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      RecognizeHealthCertificateResponse)
+        response: RecognizeHealthCertificateResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RecognizeHealthCertificateResponse
+        )
         response.raw = resp
 
         return response

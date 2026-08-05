@@ -18,12 +18,14 @@ class BasicBatchUserRequest(BaseRequest):
 
 
 class BasicBatchUserRequestBuilder(object):
-
     def __init__(self) -> None:
         basic_batch_user_request = BasicBatchUserRequest()
         basic_batch_user_request.http_method = HttpMethod.POST
         basic_batch_user_request.uri = "/open-apis/contact/v3/users/basic_batch"
-        basic_batch_user_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        basic_batch_user_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._basic_batch_user_request: BasicBatchUserRequest = basic_batch_user_request
 
     def user_id_type(self, user_id_type: str) -> "BasicBatchUserRequestBuilder":
@@ -31,7 +33,9 @@ class BasicBatchUserRequestBuilder(object):
         self._basic_batch_user_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: BasicBatchUserRequestBody) -> "BasicBatchUserRequestBuilder":
+    def request_body(
+        self, request_body: BasicBatchUserRequestBody
+    ) -> "BasicBatchUserRequestBuilder":
         self._basic_batch_user_request.request_body = request_body
         self._basic_batch_user_request.body = request_body
         return self

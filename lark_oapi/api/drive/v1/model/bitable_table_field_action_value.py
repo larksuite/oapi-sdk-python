@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .bitable_table_field_action_value_property import BitableTableFieldActionValueProperty
+from .bitable_table_field_action_value_property import (
+    BitableTableFieldActionValueProperty,
+)
 
 
 class BitableTableFieldActionValue(object):
@@ -47,7 +49,9 @@ class BitableTableFieldActionValueBuilder(object):
         self._bitable_table_field_action_value.description = description
         return self
 
-    def property(self, property: BitableTableFieldActionValueProperty) -> "BitableTableFieldActionValueBuilder":
+    def property(
+        self, property: BitableTableFieldActionValueProperty
+    ) -> "BitableTableFieldActionValueBuilder":
         self._bitable_table_field_action_value.property = property
         return self
 

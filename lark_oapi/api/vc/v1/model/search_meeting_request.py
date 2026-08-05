@@ -19,7 +19,6 @@ class SearchMeetingRequest(BaseRequest):
 
 
 class SearchMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         search_meeting_request = SearchMeetingRequest()
         search_meeting_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class SearchMeetingRequestBuilder(object):
         self._search_meeting_request.add_query("page_size", page_size)
         return self
 
-    def request_body(self, request_body: SearchMeetingRequestBody) -> "SearchMeetingRequestBuilder":
+    def request_body(
+        self, request_body: SearchMeetingRequestBody
+    ) -> "SearchMeetingRequestBuilder":
         self._search_meeting_request.request_body = request_body
         self._search_meeting_request.body = request_body
         return self

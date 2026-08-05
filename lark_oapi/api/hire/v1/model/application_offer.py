@@ -53,11 +53,15 @@ class ApplicationOfferBuilder(object):
         self._application_offer.application_id = application_id
         return self
 
-    def basic_info(self, basic_info: ApplicationOfferBasicInfo) -> "ApplicationOfferBuilder":
+    def basic_info(
+        self, basic_info: ApplicationOfferBasicInfo
+    ) -> "ApplicationOfferBuilder":
         self._application_offer.basic_info = basic_info
         return self
 
-    def salary_plan(self, salary_plan: ApplicationOfferSalaryPlan) -> "ApplicationOfferBuilder":
+    def salary_plan(
+        self, salary_plan: ApplicationOfferSalaryPlan
+    ) -> "ApplicationOfferBuilder":
         self._application_offer.salary_plan = salary_plan
         return self
 
@@ -73,8 +77,9 @@ class ApplicationOfferBuilder(object):
         self._application_offer.job_info = job_info
         return self
 
-    def customized_module_list(self,
-                               customized_module_list: List[ApplicationOfferCustomModule]) -> "ApplicationOfferBuilder":
+    def customized_module_list(
+        self, customized_module_list: List[ApplicationOfferCustomModule]
+    ) -> "ApplicationOfferBuilder":
         self._application_offer.customized_module_list = customized_module_list
         return self
 
@@ -82,7 +87,9 @@ class ApplicationOfferBuilder(object):
         self._application_offer.job_requirement_id = job_requirement_id
         return self
 
-    def offer_send_record_list(self, offer_send_record_list: List[OfferSendRecord]) -> "ApplicationOfferBuilder":
+    def offer_send_record_list(
+        self, offer_send_record_list: List[OfferSendRecord]
+    ) -> "ApplicationOfferBuilder":
         self._application_offer.offer_send_record_list = offer_send_record_list
         return self
 

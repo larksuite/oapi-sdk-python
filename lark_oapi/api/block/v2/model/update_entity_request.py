@@ -18,7 +18,6 @@ class UpdateEntityRequest(BaseRequest):
 
 
 class UpdateEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         update_entity_request = UpdateEntityRequest()
         update_entity_request.http_method = HttpMethod.PUT

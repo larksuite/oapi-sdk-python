@@ -20,13 +20,19 @@ class ListFileViewRecordRequest(BaseRequest):
 
 
 class ListFileViewRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         list_file_view_record_request = ListFileViewRecordRequest()
         list_file_view_record_request.http_method = HttpMethod.GET
-        list_file_view_record_request.uri = "/open-apis/drive/v1/files/:file_token/view_records"
-        list_file_view_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_file_view_record_request: ListFileViewRecordRequest = list_file_view_record_request
+        list_file_view_record_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/view_records"
+        )
+        list_file_view_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_file_view_record_request: ListFileViewRecordRequest = (
+            list_file_view_record_request
+        )
 
     def page_size(self, page_size: int) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.page_size = page_size

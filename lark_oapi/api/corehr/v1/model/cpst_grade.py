@@ -41,7 +41,9 @@ class CpstGradeBuilder(object):
         self._cpst_grade.grade_tid = grade_tid
         return self
 
-    def grade_standard_value(self, grade_standard_value: CpstGradeStandardValue) -> "CpstGradeBuilder":
+    def grade_standard_value(
+        self, grade_standard_value: CpstGradeStandardValue
+    ) -> "CpstGradeBuilder":
         self._cpst_grade.grade_standard_value = grade_standard_value
         return self
 

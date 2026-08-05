@@ -41,7 +41,9 @@ class MetricFieldInLibraryBuilder(object):
         self._metric_field_in_library.field_value = field_value
         return self
 
-    def field_value_person(self, field_value_person: User) -> "MetricFieldInLibraryBuilder":
+    def field_value_person(
+        self, field_value_person: User
+    ) -> "MetricFieldInLibraryBuilder":
         self._metric_field_in_library.field_value_person = field_value_person
         return self
 

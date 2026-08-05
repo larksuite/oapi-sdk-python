@@ -20,9 +20,7 @@ class P2ContactUserUpdatedV3Data(object):
 
 
 class P2ContactUserUpdatedV3(EventContext):
-    _types = {
-        "event": P2ContactUserUpdatedV3Data
-    }
+    _types = {"event": P2ContactUserUpdatedV3Data}
 
     def __init__(self, d=None):
         super().__init__(d)

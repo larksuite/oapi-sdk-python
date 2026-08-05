@@ -97,40 +97,62 @@ class PositionAdjustmentInfoBuilder(object):
     def __init__(self) -> None:
         self._position_adjustment_info = PositionAdjustmentInfo()
 
-    def original_job_families(self, original_job_families: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def original_job_families(
+        self, original_job_families: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_job_families = original_job_families
         return self
 
-    def target_job_families(self, target_job_families: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def target_job_families(
+        self, target_job_families: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_job_families = target_job_families
         return self
 
-    def original_department(self, original_department: str) -> "PositionAdjustmentInfoBuilder":
+    def original_department(
+        self, original_department: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_department = original_department
         return self
 
-    def target_department(self, target_department: str) -> "PositionAdjustmentInfoBuilder":
+    def target_department(
+        self, target_department: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_department = target_department
         return self
 
-    def target_draft_department(self, target_draft_department: str) -> "PositionAdjustmentInfoBuilder":
+    def target_draft_department(
+        self, target_draft_department: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_draft_department = target_draft_department
         return self
 
-    def original_cost_center(self, original_cost_center: str) -> "PositionAdjustmentInfoBuilder":
+    def original_cost_center(
+        self, original_cost_center: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_cost_center = original_cost_center
         return self
 
-    def target_cost_center(self, target_cost_center: str) -> "PositionAdjustmentInfoBuilder":
+    def target_cost_center(
+        self, target_cost_center: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_cost_center = target_cost_center
         return self
 
-    def original_working_hours_type(self, original_working_hours_type: str) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.original_working_hours_type = original_working_hours_type
+    def original_working_hours_type(
+        self, original_working_hours_type: str
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.original_working_hours_type = (
+            original_working_hours_type
+        )
         return self
 
-    def target_working_hours_type(self, target_working_hours_type: str) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.target_working_hours_type = target_working_hours_type
+    def target_working_hours_type(
+        self, target_working_hours_type: str
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.target_working_hours_type = (
+            target_working_hours_type
+        )
         return self
 
     def original_job(self, original_job: str) -> "PositionAdjustmentInfoBuilder":
@@ -141,23 +163,35 @@ class PositionAdjustmentInfoBuilder(object):
         self._position_adjustment_info.target_job = target_job
         return self
 
-    def original_is_key_position(self, original_is_key_position: bool) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.original_is_key_position = original_is_key_position
+    def original_is_key_position(
+        self, original_is_key_position: bool
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.original_is_key_position = (
+            original_is_key_position
+        )
         return self
 
-    def target_is_key_position(self, target_is_key_position: bool) -> "PositionAdjustmentInfoBuilder":
+    def target_is_key_position(
+        self, target_is_key_position: bool
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_is_key_position = target_is_key_position
         return self
 
-    def original_employee_types(self, original_employee_types: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def original_employee_types(
+        self, original_employee_types: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_employee_types = original_employee_types
         return self
 
-    def target_employee_types(self, target_employee_types: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def target_employee_types(
+        self, target_employee_types: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_employee_types = target_employee_types
         return self
 
-    def original_names(self, original_names: List[I18n]) -> "PositionAdjustmentInfoBuilder":
+    def original_names(
+        self, original_names: List[I18n]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_names = original_names
         return self
 
@@ -165,11 +199,15 @@ class PositionAdjustmentInfoBuilder(object):
         self._position_adjustment_info.target_names = target_names
         return self
 
-    def original_job_grades(self, original_job_grades: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def original_job_grades(
+        self, original_job_grades: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_job_grades = original_job_grades
         return self
 
-    def target_job_grades(self, target_job_grades: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def target_job_grades(
+        self, target_job_grades: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_job_grades = target_job_grades
         return self
 
@@ -181,11 +219,15 @@ class PositionAdjustmentInfoBuilder(object):
         self._position_adjustment_info.target_code = target_code
         return self
 
-    def original_job_levels(self, original_job_levels: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def original_job_levels(
+        self, original_job_levels: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_job_levels = original_job_levels
         return self
 
-    def target_job_levels(self, target_job_levels: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def target_job_levels(
+        self, target_job_levels: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_job_levels = target_job_levels
         return self
 
@@ -197,45 +239,69 @@ class PositionAdjustmentInfoBuilder(object):
         self._position_adjustment_info.target_active = target_active
         return self
 
-    def original_direct_leader(self, original_direct_leader: str) -> "PositionAdjustmentInfoBuilder":
+    def original_direct_leader(
+        self, original_direct_leader: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_direct_leader = original_direct_leader
         return self
 
-    def target_direct_leader(self, target_direct_leader: str) -> "PositionAdjustmentInfoBuilder":
+    def target_direct_leader(
+        self, target_direct_leader: str
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_direct_leader = target_direct_leader
         return self
 
-    def target_draft_direct_leader(self, target_draft_direct_leader: str) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.target_draft_direct_leader = target_draft_direct_leader
+    def target_draft_direct_leader(
+        self, target_draft_direct_leader: str
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.target_draft_direct_leader = (
+            target_draft_direct_leader
+        )
         return self
 
-    def original_work_locations(self, original_work_locations: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def original_work_locations(
+        self, original_work_locations: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_work_locations = original_work_locations
         return self
 
-    def target_work_locations(self, target_work_locations: List[str]) -> "PositionAdjustmentInfoBuilder":
+    def target_work_locations(
+        self, target_work_locations: List[str]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_work_locations = target_work_locations
         return self
 
-    def original_descriptions(self, original_descriptions: List[I18n]) -> "PositionAdjustmentInfoBuilder":
+    def original_descriptions(
+        self, original_descriptions: List[I18n]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.original_descriptions = original_descriptions
         return self
 
-    def target_descriptions(self, target_descriptions: List[I18n]) -> "PositionAdjustmentInfoBuilder":
+    def target_descriptions(
+        self, target_descriptions: List[I18n]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.target_descriptions = target_descriptions
         return self
 
-    def original_department_id_paths(self, original_department_id_paths: List[
-        OrgdraftDepartmentId]) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.original_department_id_paths = original_department_id_paths
+    def original_department_id_paths(
+        self, original_department_id_paths: List[OrgdraftDepartmentId]
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.original_department_id_paths = (
+            original_department_id_paths
+        )
         return self
 
-    def target_department_id_paths(self, target_department_id_paths: List[
-        OrgdraftDepartmentId]) -> "PositionAdjustmentInfoBuilder":
-        self._position_adjustment_info.target_department_id_paths = target_department_id_paths
+    def target_department_id_paths(
+        self, target_department_id_paths: List[OrgdraftDepartmentId]
+    ) -> "PositionAdjustmentInfoBuilder":
+        self._position_adjustment_info.target_department_id_paths = (
+            target_department_id_paths
+        )
         return self
 
-    def custom_fields(self, custom_fields: List[ChangeFieldPair]) -> "PositionAdjustmentInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[ChangeFieldPair]
+    ) -> "PositionAdjustmentInfoBuilder":
         self._position_adjustment_info.custom_fields = custom_fields
         return self
 

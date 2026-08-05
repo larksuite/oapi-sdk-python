@@ -18,12 +18,16 @@ class ListUserMailboxMailContactRequest(BaseRequest):
 
 
 class ListUserMailboxMailContactRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_mailbox_mail_contact_request = ListUserMailboxMailContactRequest()
         list_user_mailbox_mail_contact_request.http_method = HttpMethod.GET
-        list_user_mailbox_mail_contact_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/mail_contacts"
-        list_user_mailbox_mail_contact_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_user_mailbox_mail_contact_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/mail_contacts"
+        )
+        list_user_mailbox_mail_contact_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_user_mailbox_mail_contact_request: ListUserMailboxMailContactRequest = list_user_mailbox_mail_contact_request
 
     def page_size(self, page_size: int) -> "ListUserMailboxMailContactRequestBuilder":
@@ -36,9 +40,13 @@ class ListUserMailboxMailContactRequestBuilder(object):
         self._list_user_mailbox_mail_contact_request.add_query("page_token", page_token)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "ListUserMailboxMailContactRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "ListUserMailboxMailContactRequestBuilder":
         self._list_user_mailbox_mail_contact_request.user_mailbox_id = user_mailbox_id
-        self._list_user_mailbox_mail_contact_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._list_user_mailbox_mail_contact_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> ListUserMailboxMailContactRequest:

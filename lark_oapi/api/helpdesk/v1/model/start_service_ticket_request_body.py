@@ -28,11 +28,15 @@ class StartServiceTicketRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._start_service_ticket_request_body = StartServiceTicketRequestBody()
 
-    def human_service(self, human_service: bool) -> "StartServiceTicketRequestBodyBuilder":
+    def human_service(
+        self, human_service: bool
+    ) -> "StartServiceTicketRequestBodyBuilder":
         self._start_service_ticket_request_body.human_service = human_service
         return self
 
-    def appointed_agents(self, appointed_agents: List[str]) -> "StartServiceTicketRequestBodyBuilder":
+    def appointed_agents(
+        self, appointed_agents: List[str]
+    ) -> "StartServiceTicketRequestBodyBuilder":
         self._start_service_ticket_request_body.appointed_agents = appointed_agents
         return self
 
@@ -40,7 +44,9 @@ class StartServiceTicketRequestBodyBuilder(object):
         self._start_service_ticket_request_body.open_id = open_id
         return self
 
-    def customized_info(self, customized_info: str) -> "StartServiceTicketRequestBodyBuilder":
+    def customized_info(
+        self, customized_info: str
+    ) -> "StartServiceTicketRequestBodyBuilder":
         self._start_service_ticket_request_body.customized_info = customized_info
         return self
 

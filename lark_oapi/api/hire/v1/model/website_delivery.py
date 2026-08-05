@@ -43,9 +43,12 @@ class WebsiteDeliveryBuilder(object):
         self._website_delivery.user_id = user_id
         return self
 
-    def application_preferred_city_code_list(self, application_preferred_city_code_list: List[
-        str]) -> "WebsiteDeliveryBuilder":
-        self._website_delivery.application_preferred_city_code_list = application_preferred_city_code_list
+    def application_preferred_city_code_list(
+        self, application_preferred_city_code_list: List[str]
+    ) -> "WebsiteDeliveryBuilder":
+        self._website_delivery.application_preferred_city_code_list = (
+            application_preferred_city_code_list
+        )
         return self
 
     def channel_id(self, channel_id: str) -> "WebsiteDeliveryBuilder":

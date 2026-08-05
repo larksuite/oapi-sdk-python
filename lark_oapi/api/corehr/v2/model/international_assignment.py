@@ -49,19 +49,27 @@ class InternationalAssignmentBuilder(object):
         self._international_assignment.id = id
         return self
 
-    def assignment_city_id(self, assignment_city_id: str) -> "InternationalAssignmentBuilder":
+    def assignment_city_id(
+        self, assignment_city_id: str
+    ) -> "InternationalAssignmentBuilder":
         self._international_assignment.assignment_city_id = assignment_city_id
         return self
 
-    def assignment_company_id(self, assignment_company_id: str) -> "InternationalAssignmentBuilder":
+    def assignment_company_id(
+        self, assignment_company_id: str
+    ) -> "InternationalAssignmentBuilder":
         self._international_assignment.assignment_company_id = assignment_company_id
         return self
 
-    def assignment_country_id(self, assignment_country_id: str) -> "InternationalAssignmentBuilder":
+    def assignment_country_id(
+        self, assignment_country_id: str
+    ) -> "InternationalAssignmentBuilder":
         self._international_assignment.assignment_country_id = assignment_country_id
         return self
 
-    def assignment_reason(self, assignment_reason: I18n) -> "InternationalAssignmentBuilder":
+    def assignment_reason(
+        self, assignment_reason: I18n
+    ) -> "InternationalAssignmentBuilder":
         self._international_assignment.assignment_reason = assignment_reason
         return self
 
@@ -69,25 +77,40 @@ class InternationalAssignmentBuilder(object):
         self._international_assignment.effective_time = effective_time
         return self
 
-    def start_assignment_process_id(self, start_assignment_process_id: str) -> "InternationalAssignmentBuilder":
-        self._international_assignment.start_assignment_process_id = start_assignment_process_id
+    def start_assignment_process_id(
+        self, start_assignment_process_id: str
+    ) -> "InternationalAssignmentBuilder":
+        self._international_assignment.start_assignment_process_id = (
+            start_assignment_process_id
+        )
         return self
 
-    def end_assignment_process_id(self, end_assignment_process_id: str) -> "InternationalAssignmentBuilder":
-        self._international_assignment.end_assignment_process_id = end_assignment_process_id
+    def end_assignment_process_id(
+        self, end_assignment_process_id: str
+    ) -> "InternationalAssignmentBuilder":
+        self._international_assignment.end_assignment_process_id = (
+            end_assignment_process_id
+        )
         return self
 
     def expiration_time(self, expiration_time: str) -> "InternationalAssignmentBuilder":
         self._international_assignment.expiration_time = expiration_time
         return self
 
-    def international_assignment_status(self,
-                                        international_assignment_status: Enum) -> "InternationalAssignmentBuilder":
-        self._international_assignment.international_assignment_status = international_assignment_status
+    def international_assignment_status(
+        self, international_assignment_status: Enum
+    ) -> "InternationalAssignmentBuilder":
+        self._international_assignment.international_assignment_status = (
+            international_assignment_status
+        )
         return self
 
-    def international_assignment_type(self, international_assignment_type: Enum) -> "InternationalAssignmentBuilder":
-        self._international_assignment.international_assignment_type = international_assignment_type
+    def international_assignment_type(
+        self, international_assignment_type: Enum
+    ) -> "InternationalAssignmentBuilder":
+        self._international_assignment.international_assignment_type = (
+            international_assignment_type
+        )
         return self
 
     def build(self) -> "InternationalAssignment":

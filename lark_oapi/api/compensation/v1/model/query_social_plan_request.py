@@ -17,15 +17,18 @@ class QuerySocialPlanRequest(BaseRequest):
 
 
 class QuerySocialPlanRequestBuilder(object):
-
     def __init__(self) -> None:
         query_social_plan_request = QuerySocialPlanRequest()
         query_social_plan_request.http_method = HttpMethod.POST
         query_social_plan_request.uri = "/open-apis/compensation/v1/social_plans/query"
         query_social_plan_request.token_types = {AccessTokenType.TENANT}
-        self._query_social_plan_request: QuerySocialPlanRequest = query_social_plan_request
+        self._query_social_plan_request: QuerySocialPlanRequest = (
+            query_social_plan_request
+        )
 
-    def request_body(self, request_body: QuerySocialPlanRequestBody) -> "QuerySocialPlanRequestBuilder":
+    def request_body(
+        self, request_body: QuerySocialPlanRequestBody
+    ) -> "QuerySocialPlanRequestBuilder":
         self._query_social_plan_request.request_body = request_body
         self._query_social_plan_request.body = request_body
         return self

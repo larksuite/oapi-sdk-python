@@ -63,12 +63,15 @@ class WebsiteDeliveryEducationBuilder(object):
         self._website_delivery_education.start_time = start_time
         return self
 
-    def academic_ranking(self, academic_ranking: int) -> "WebsiteDeliveryEducationBuilder":
+    def academic_ranking(
+        self, academic_ranking: int
+    ) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.academic_ranking = academic_ranking
         return self
 
-    def customized_data(self,
-                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryEducationBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.customized_data = customized_data
         return self
 

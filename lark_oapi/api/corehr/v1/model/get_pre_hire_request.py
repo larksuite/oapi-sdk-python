@@ -16,7 +16,6 @@ class GetPreHireRequest(BaseRequest):
 
 
 class GetPreHireRequestBuilder(object):
-
     def __init__(self) -> None:
         get_pre_hire_request = GetPreHireRequest()
         get_pre_hire_request.http_method = HttpMethod.GET

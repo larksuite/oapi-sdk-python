@@ -27,7 +27,9 @@ class ListNationalIdTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_national_id_type_response_body = ListNationalIdTypeResponseBody()
 
-    def items(self, items: List[NationalIdType]) -> "ListNationalIdTypeResponseBodyBuilder":
+    def items(
+        self, items: List[NationalIdType]
+    ) -> "ListNationalIdTypeResponseBodyBuilder":
         self._list_national_id_type_response_body.items = items
         return self
 

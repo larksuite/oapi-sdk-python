@@ -19,13 +19,19 @@ class BatchGetAppTableRecordRequest(BaseRequest):
 
 
 class BatchGetAppTableRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         batch_get_app_table_record_request = BatchGetAppTableRecordRequest()
         batch_get_app_table_record_request.http_method = HttpMethod.POST
-        batch_get_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
-        batch_get_app_table_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._batch_get_app_table_record_request: BatchGetAppTableRecordRequest = batch_get_app_table_record_request
+        batch_get_app_table_record_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
+        )
+        batch_get_app_table_record_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._batch_get_app_table_record_request: BatchGetAppTableRecordRequest = (
+            batch_get_app_table_record_request
+        )
 
     def app_token(self, app_token: str) -> "BatchGetAppTableRecordRequestBuilder":
         self._batch_get_app_table_record_request.app_token = app_token
@@ -37,7 +43,9 @@ class BatchGetAppTableRecordRequestBuilder(object):
         self._batch_get_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
-    def request_body(self, request_body: BatchGetAppTableRecordRequestBody) -> "BatchGetAppTableRecordRequestBuilder":
+    def request_body(
+        self, request_body: BatchGetAppTableRecordRequestBody
+    ) -> "BatchGetAppTableRecordRequestBuilder":
         self._batch_get_app_table_record_request.request_body = request_body
         self._batch_get_app_table_record_request.body = request_body
         return self

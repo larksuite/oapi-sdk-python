@@ -38,7 +38,9 @@ class MeetingSettingsBuilder(object):
         self._meeting_settings.owner_id = owner_id
         return self
 
-    def join_meeting_permission(self, join_meeting_permission: str) -> "MeetingSettingsBuilder":
+    def join_meeting_permission(
+        self, join_meeting_permission: str
+    ) -> "MeetingSettingsBuilder":
         self._meeting_settings.join_meeting_permission = join_meeting_permission
         return self
 
@@ -58,7 +60,9 @@ class MeetingSettingsBuilder(object):
         self._meeting_settings.open_lobby = open_lobby
         return self
 
-    def allow_attendees_start(self, allow_attendees_start: bool) -> "MeetingSettingsBuilder":
+    def allow_attendees_start(
+        self, allow_attendees_start: bool
+    ) -> "MeetingSettingsBuilder":
         self._meeting_settings.allow_attendees_start = allow_attendees_start
         return self
 

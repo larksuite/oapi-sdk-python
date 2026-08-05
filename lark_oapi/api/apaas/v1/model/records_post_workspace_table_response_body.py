@@ -20,9 +20,13 @@ class RecordsPostWorkspaceTableResponseBody(object):
 
 class RecordsPostWorkspaceTableResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._records_post_workspace_table_response_body = RecordsPostWorkspaceTableResponseBody()
+        self._records_post_workspace_table_response_body = (
+            RecordsPostWorkspaceTableResponseBody()
+        )
 
-    def record_ids(self, record_ids: List[str]) -> "RecordsPostWorkspaceTableResponseBodyBuilder":
+    def record_ids(
+        self, record_ids: List[str]
+    ) -> "RecordsPostWorkspaceTableResponseBodyBuilder":
         self._records_post_workspace_table_response_body.record_ids = record_ids
         return self
 

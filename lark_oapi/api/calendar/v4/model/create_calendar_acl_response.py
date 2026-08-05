@@ -9,7 +9,6 @@ from .create_calendar_acl_response_body import CreateCalendarAclResponseBody
 class CreateCalendarAclResponse(BaseResponse):
     _types = {
         "data": CreateCalendarAclResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -29,7 +29,9 @@ class EmployeePersonNameBuilder(object):
         self._employee_person_name.employment_id = employment_id
         return self
 
-    def person_names(self, person_names: List[PersonName]) -> "EmployeePersonNameBuilder":
+    def person_names(
+        self, person_names: List[PersonName]
+    ) -> "EmployeePersonNameBuilder":
         self._employee_person_name.person_names = person_names
         return self
 

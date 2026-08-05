@@ -19,13 +19,16 @@ class ContentCardElementRequest(BaseRequest):
 
 
 class ContentCardElementRequestBuilder(object):
-
     def __init__(self) -> None:
         content_card_element_request = ContentCardElementRequest()
         content_card_element_request.http_method = HttpMethod.PUT
-        content_card_element_request.uri = "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
+        content_card_element_request.uri = (
+            "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id/content"
+        )
         content_card_element_request.token_types = {AccessTokenType.TENANT}
-        self._content_card_element_request: ContentCardElementRequest = content_card_element_request
+        self._content_card_element_request: ContentCardElementRequest = (
+            content_card_element_request
+        )
 
     def card_id(self, card_id: str) -> "ContentCardElementRequestBuilder":
         self._content_card_element_request.card_id = card_id
@@ -37,7 +40,9 @@ class ContentCardElementRequestBuilder(object):
         self._content_card_element_request.paths["element_id"] = str(element_id)
         return self
 
-    def request_body(self, request_body: ContentCardElementRequestBody) -> "ContentCardElementRequestBuilder":
+    def request_body(
+        self, request_body: ContentCardElementRequestBody
+    ) -> "ContentCardElementRequestBuilder":
         self._content_card_element_request.request_body = request_body
         self._content_card_element_request.body = request_body
         return self

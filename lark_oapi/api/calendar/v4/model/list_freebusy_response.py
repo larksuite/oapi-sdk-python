@@ -9,7 +9,6 @@ from .list_freebusy_response_body import ListFreebusyResponseBody
 class ListFreebusyResponse(BaseResponse):
     _types = {
         "data": ListFreebusyResponseBody,
-
     }
 
     def __init__(self, d=None):

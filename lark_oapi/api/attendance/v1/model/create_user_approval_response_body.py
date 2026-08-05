@@ -23,7 +23,9 @@ class CreateUserApprovalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_approval_response_body = CreateUserApprovalResponseBody()
 
-    def user_approval(self, user_approval: UserApproval) -> "CreateUserApprovalResponseBodyBuilder":
+    def user_approval(
+        self, user_approval: UserApproval
+    ) -> "CreateUserApprovalResponseBodyBuilder":
         self._create_user_approval_response_body.user_approval = user_approval
         return self
 

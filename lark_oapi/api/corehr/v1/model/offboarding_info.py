@@ -8,6 +8,7 @@ from .enum import Enum
 from .custom_field_data import CustomFieldData
 from .enum import Enum
 from .view_employment_info import ViewEmploymentInfo
+from .enum import Enum
 
 
 class OffboardingInfo(object):
@@ -38,6 +39,7 @@ class OffboardingInfo(object):
         "is_transfer_with_workforce": bool,
         "employment": ViewEmploymentInfo,
         "no_permission_fields": List[str],
+        "minor_reason": Enum,
     }
 
     def __init__(self, d=None):
@@ -67,6 +69,7 @@ class OffboardingInfo(object):
         self.is_transfer_with_workforce: Optional[bool] = None
         self.employment: Optional[ViewEmploymentInfo] = None
         self.no_permission_fields: Optional[List[str]] = None
+        self.minor_reason: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,7 +89,9 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.hrbp_id = hrbp_id
         return self
 
-    def expected_offboarding_date(self, expected_offboarding_date: str) -> "OffboardingInfoBuilder":
+    def expected_offboarding_date(
+        self, expected_offboarding_date: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.expected_offboarding_date = expected_offboarding_date
         return self
 
@@ -106,7 +111,9 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.employee_reason = employee_reason
         return self
 
-    def employee_reason_explanation(self, employee_reason_explanation: str) -> "OffboardingInfoBuilder":
+    def employee_reason_explanation(
+        self, employee_reason_explanation: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.employee_reason_explanation = employee_reason_explanation
         return self
 
@@ -118,11 +125,15 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.block_reason = block_reason
         return self
 
-    def block_reason_explanation(self, block_reason_explanation: str) -> "OffboardingInfoBuilder":
+    def block_reason_explanation(
+        self, block_reason_explanation: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.block_reason_explanation = block_reason_explanation
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "OffboardingInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.custom_fields = custom_fields
         return self
 
@@ -130,32 +141,54 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.retain_account = retain_account
         return self
 
-    def social_insurance_end_date(self, social_insurance_end_date: str) -> "OffboardingInfoBuilder":
+    def social_insurance_end_date(
+        self, social_insurance_end_date: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.social_insurance_end_date = social_insurance_end_date
         return self
 
-    def provident_fund_end_date(self, provident_fund_end_date: str) -> "OffboardingInfoBuilder":
+    def provident_fund_end_date(
+        self, provident_fund_end_date: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.provident_fund_end_date = provident_fund_end_date
         return self
 
-    def enforce_noncompete_agreement(self, enforce_noncompete_agreement: bool) -> "OffboardingInfoBuilder":
-        self._offboarding_info.enforce_noncompete_agreement = enforce_noncompete_agreement
+    def enforce_noncompete_agreement(
+        self, enforce_noncompete_agreement: bool
+    ) -> "OffboardingInfoBuilder":
+        self._offboarding_info.enforce_noncompete_agreement = (
+            enforce_noncompete_agreement
+        )
         return self
 
-    def noncompete_agreement_id(self, noncompete_agreement_id: str) -> "OffboardingInfoBuilder":
+    def noncompete_agreement_id(
+        self, noncompete_agreement_id: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.noncompete_agreement_id = noncompete_agreement_id
         return self
 
-    def noncompete_agreement_company(self, noncompete_agreement_company: str) -> "OffboardingInfoBuilder":
-        self._offboarding_info.noncompete_agreement_company = noncompete_agreement_company
+    def noncompete_agreement_company(
+        self, noncompete_agreement_company: str
+    ) -> "OffboardingInfoBuilder":
+        self._offboarding_info.noncompete_agreement_company = (
+            noncompete_agreement_company
+        )
         return self
 
-    def noncompete_agreement_start_date(self, noncompete_agreement_start_date: str) -> "OffboardingInfoBuilder":
-        self._offboarding_info.noncompete_agreement_start_date = noncompete_agreement_start_date
+    def noncompete_agreement_start_date(
+        self, noncompete_agreement_start_date: str
+    ) -> "OffboardingInfoBuilder":
+        self._offboarding_info.noncompete_agreement_start_date = (
+            noncompete_agreement_start_date
+        )
         return self
 
-    def noncompete_agreement_end_date(self, noncompete_agreement_end_date: str) -> "OffboardingInfoBuilder":
-        self._offboarding_info.noncompete_agreement_end_date = noncompete_agreement_end_date
+    def noncompete_agreement_end_date(
+        self, noncompete_agreement_end_date: str
+    ) -> "OffboardingInfoBuilder":
+        self._offboarding_info.noncompete_agreement_end_date = (
+            noncompete_agreement_end_date
+        )
         return self
 
     def sign_type(self, sign_type: Enum) -> "OffboardingInfoBuilder":
@@ -166,11 +199,15 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.signature_file = signature_file
         return self
 
-    def last_attendance_date(self, last_attendance_date: str) -> "OffboardingInfoBuilder":
+    def last_attendance_date(
+        self, last_attendance_date: str
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.last_attendance_date = last_attendance_date
         return self
 
-    def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "OffboardingInfoBuilder":
+    def is_transfer_with_workforce(
+        self, is_transfer_with_workforce: bool
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.is_transfer_with_workforce = is_transfer_with_workforce
         return self
 
@@ -178,8 +215,14 @@ class OffboardingInfoBuilder(object):
         self._offboarding_info.employment = employment
         return self
 
-    def no_permission_fields(self, no_permission_fields: List[str]) -> "OffboardingInfoBuilder":
+    def no_permission_fields(
+        self, no_permission_fields: List[str]
+    ) -> "OffboardingInfoBuilder":
         self._offboarding_info.no_permission_fields = no_permission_fields
+        return self
+
+    def minor_reason(self, minor_reason: Enum) -> "OffboardingInfoBuilder":
+        self._offboarding_info.minor_reason = minor_reason
         return self
 
     def build(self) -> "OffboardingInfo":

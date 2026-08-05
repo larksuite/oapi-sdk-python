@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .records_batch_update_workspace_table_request_body import RecordsBatchUpdateWorkspaceTableRequestBody
+from .records_batch_update_workspace_table_request_body import (
+    RecordsBatchUpdateWorkspaceTableRequestBody,
+)
 
 
 class RecordsBatchUpdateWorkspaceTableRequest(BaseRequest):
@@ -19,26 +21,38 @@ class RecordsBatchUpdateWorkspaceTableRequest(BaseRequest):
 
 
 class RecordsBatchUpdateWorkspaceTableRequestBuilder(object):
-
     def __init__(self) -> None:
-        records_batch_update_workspace_table_request = RecordsBatchUpdateWorkspaceTableRequest()
+        records_batch_update_workspace_table_request = (
+            RecordsBatchUpdateWorkspaceTableRequest()
+        )
         records_batch_update_workspace_table_request.http_method = HttpMethod.PATCH
         records_batch_update_workspace_table_request.uri = "/open-apis/apaas/v1/workspaces/:workspace_id/tables/:table_name/records_batch_update"
-        records_batch_update_workspace_table_request.token_types = {AccessTokenType.USER}
+        records_batch_update_workspace_table_request.token_types = {
+            AccessTokenType.USER
+        }
         self._records_batch_update_workspace_table_request: RecordsBatchUpdateWorkspaceTableRequest = records_batch_update_workspace_table_request
 
-    def workspace_id(self, workspace_id: str) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
+    def workspace_id(
+        self, workspace_id: str
+    ) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
         self._records_batch_update_workspace_table_request.workspace_id = workspace_id
-        self._records_batch_update_workspace_table_request.paths["workspace_id"] = str(workspace_id)
+        self._records_batch_update_workspace_table_request.paths["workspace_id"] = str(
+            workspace_id
+        )
         return self
 
-    def table_name(self, table_name: str) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
+    def table_name(
+        self, table_name: str
+    ) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
         self._records_batch_update_workspace_table_request.table_name = table_name
-        self._records_batch_update_workspace_table_request.paths["table_name"] = str(table_name)
+        self._records_batch_update_workspace_table_request.paths["table_name"] = str(
+            table_name
+        )
         return self
 
-    def request_body(self,
-                     request_body: RecordsBatchUpdateWorkspaceTableRequestBody) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
+    def request_body(
+        self, request_body: RecordsBatchUpdateWorkspaceTableRequestBody
+    ) -> "RecordsBatchUpdateWorkspaceTableRequestBuilder":
         self._records_batch_update_workspace_table_request.request_body = request_body
         self._records_batch_update_workspace_table_request.body = request_body
         return self

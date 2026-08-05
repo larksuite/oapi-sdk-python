@@ -34,7 +34,9 @@ class CreateTimeoffEventResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_timeoff_event_response_body = CreateTimeoffEventResponseBody()
 
-    def timeoff_event_id(self, timeoff_event_id: str) -> "CreateTimeoffEventResponseBodyBuilder":
+    def timeoff_event_id(
+        self, timeoff_event_id: str
+    ) -> "CreateTimeoffEventResponseBodyBuilder":
         self._create_timeoff_event_response_body.timeoff_event_id = timeoff_event_id
         return self
 

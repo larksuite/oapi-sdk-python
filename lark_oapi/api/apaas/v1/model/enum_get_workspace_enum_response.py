@@ -9,7 +9,6 @@ from .enum_get_workspace_enum_response_body import EnumGetWorkspaceEnumResponseB
 class EnumGetWorkspaceEnumResponse(BaseResponse):
     _types = {
         "data": EnumGetWorkspaceEnumResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -18,12 +18,14 @@ class CreateArchiveRequest(BaseRequest):
 
 
 class CreateArchiveRequestBuilder(object):
-
     def __init__(self) -> None:
         create_archive_request = CreateArchiveRequest()
         create_archive_request.http_method = HttpMethod.POST
         create_archive_request.uri = "/open-apis/compensation/v1/archives"
-        create_archive_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        create_archive_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._create_archive_request: CreateArchiveRequest = create_archive_request
 
     def user_id_type(self, user_id_type: str) -> "CreateArchiveRequestBuilder":
@@ -31,7 +33,9 @@ class CreateArchiveRequestBuilder(object):
         self._create_archive_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateArchiveRequestBody) -> "CreateArchiveRequestBuilder":
+    def request_body(
+        self, request_body: CreateArchiveRequestBody
+    ) -> "CreateArchiveRequestBuilder":
         self._create_archive_request.request_body = request_body
         self._create_archive_request.body = request_body
         return self

@@ -60,7 +60,9 @@ class DepartmentForPatchBuilder(object):
         self._department_for_patch.is_confidential = is_confidential
         return self
 
-    def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "DepartmentForPatchBuilder":
+    def hiberarchy_common(
+        self, hiberarchy_common: HiberarchyCommon
+    ) -> "DepartmentForPatchBuilder":
         self._department_for_patch.hiberarchy_common = hiberarchy_common
         return self
 
@@ -68,7 +70,9 @@ class DepartmentForPatchBuilder(object):
         self._department_for_patch.effective_time = effective_time
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DepartmentForPatchBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "DepartmentForPatchBuilder":
         self._department_for_patch.custom_fields = custom_fields
         return self
 
@@ -80,7 +84,9 @@ class DepartmentForPatchBuilder(object):
         self._department_for_patch.staffing_model = staffing_model
         return self
 
-    def is_prefer_manual_encoding(self, is_prefer_manual_encoding: bool) -> "DepartmentForPatchBuilder":
+    def is_prefer_manual_encoding(
+        self, is_prefer_manual_encoding: bool
+    ) -> "DepartmentForPatchBuilder":
         self._department_for_patch.is_prefer_manual_encoding = is_prefer_manual_encoding
         return self
 

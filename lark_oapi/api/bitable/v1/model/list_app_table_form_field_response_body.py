@@ -27,9 +27,13 @@ class ListAppTableFormFieldResponseBody(object):
 
 class ListAppTableFormFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_app_table_form_field_response_body = ListAppTableFormFieldResponseBody()
+        self._list_app_table_form_field_response_body = (
+            ListAppTableFormFieldResponseBody()
+        )
 
-    def items(self, items: List[FormField]) -> "ListAppTableFormFieldResponseBodyBuilder":
+    def items(
+        self, items: List[FormField]
+    ) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.items = items
         return self
 

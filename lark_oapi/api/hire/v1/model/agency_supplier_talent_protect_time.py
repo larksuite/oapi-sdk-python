@@ -30,7 +30,9 @@ class AgencySupplierTalentProtectTimeBuilder(object):
         self._agency_supplier_talent_protect_time.day = day
         return self
 
-    def use_default(self, use_default: bool) -> "AgencySupplierTalentProtectTimeBuilder":
+    def use_default(
+        self, use_default: bool
+    ) -> "AgencySupplierTalentProtectTimeBuilder":
         self._agency_supplier_talent_protect_time.use_default = use_default
         return self
 

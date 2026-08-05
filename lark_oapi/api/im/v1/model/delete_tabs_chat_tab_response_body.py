@@ -23,7 +23,9 @@ class DeleteTabsChatTabResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_tabs_chat_tab_response_body = DeleteTabsChatTabResponseBody()
 
-    def chat_tabs(self, chat_tabs: List[ChatTab]) -> "DeleteTabsChatTabResponseBodyBuilder":
+    def chat_tabs(
+        self, chat_tabs: List[ChatTab]
+    ) -> "DeleteTabsChatTabResponseBodyBuilder":
         self._delete_tabs_chat_tab_response_body.chat_tabs = chat_tabs
         return self
 

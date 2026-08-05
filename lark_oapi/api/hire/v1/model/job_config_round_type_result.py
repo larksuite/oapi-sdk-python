@@ -26,11 +26,15 @@ class JobConfigRoundTypeResultBuilder(object):
     def __init__(self) -> None:
         self._job_config_round_type_result = JobConfigRoundTypeResult()
 
-    def assessment_round(self, assessment_round: IdNameObject) -> "JobConfigRoundTypeResultBuilder":
+    def assessment_round(
+        self, assessment_round: IdNameObject
+    ) -> "JobConfigRoundTypeResultBuilder":
         self._job_config_round_type_result.assessment_round = assessment_round
         return self
 
-    def assessment_template(self, assessment_template: IdNameObject) -> "JobConfigRoundTypeResultBuilder":
+    def assessment_template(
+        self, assessment_template: IdNameObject
+    ) -> "JobConfigRoundTypeResultBuilder":
         self._job_config_round_type_result.assessment_template = assessment_template
         return self
 

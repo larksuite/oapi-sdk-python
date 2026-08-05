@@ -26,18 +26,26 @@ class AddAssigneeApprovalTaskRequestBody(object):
 
 class AddAssigneeApprovalTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._add_assignee_approval_task_request_body = AddAssigneeApprovalTaskRequestBody()
+        self._add_assignee_approval_task_request_body = (
+            AddAssigneeApprovalTaskRequestBody()
+        )
 
     def user_id(self, user_id: str) -> "AddAssigneeApprovalTaskRequestBodyBuilder":
         self._add_assignee_approval_task_request_body.user_id = user_id
         return self
 
-    def approvers(self, approvers: List[int]) -> "AddAssigneeApprovalTaskRequestBodyBuilder":
+    def approvers(
+        self, approvers: List[int]
+    ) -> "AddAssigneeApprovalTaskRequestBodyBuilder":
         self._add_assignee_approval_task_request_body.approvers = approvers
         return self
 
-    def add_assignee_type(self, add_assignee_type: str) -> "AddAssigneeApprovalTaskRequestBodyBuilder":
-        self._add_assignee_approval_task_request_body.add_assignee_type = add_assignee_type
+    def add_assignee_type(
+        self, add_assignee_type: str
+    ) -> "AddAssigneeApprovalTaskRequestBodyBuilder":
+        self._add_assignee_approval_task_request_body.add_assignee_type = (
+            add_assignee_type
+        )
         return self
 
     def opinion(self, opinion: str) -> "AddAssigneeApprovalTaskRequestBodyBuilder":

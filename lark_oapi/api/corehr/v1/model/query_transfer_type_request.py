@@ -17,23 +17,32 @@ class QueryTransferTypeRequest(BaseRequest):
 
 
 class QueryTransferTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         query_transfer_type_request = QueryTransferTypeRequest()
         query_transfer_type_request.http_method = HttpMethod.GET
         query_transfer_type_request.uri = "/open-apis/corehr/v1/transfer_types/query"
-        query_transfer_type_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._query_transfer_type_request: QueryTransferTypeRequest = query_transfer_type_request
+        query_transfer_type_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._query_transfer_type_request: QueryTransferTypeRequest = (
+            query_transfer_type_request
+        )
 
     def active(self, active: bool) -> "QueryTransferTypeRequestBuilder":
         self._query_transfer_type_request.active = active
         self._query_transfer_type_request.add_query("active", active)
         return self
 
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: List[
-        str]) -> "QueryTransferTypeRequestBuilder":
-        self._query_transfer_type_request.transfer_type_unique_identifier = transfer_type_unique_identifier
-        self._query_transfer_type_request.add_query("transfer_type_unique_identifier", transfer_type_unique_identifier)
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: List[str]
+    ) -> "QueryTransferTypeRequestBuilder":
+        self._query_transfer_type_request.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
+        self._query_transfer_type_request.add_query(
+            "transfer_type_unique_identifier", transfer_type_unique_identifier
+        )
         return self
 
     def build(self) -> QueryTransferTypeRequest:

@@ -18,9 +18,7 @@ class P2TaskTaskUpdatedV1Data(object):
 
 
 class P2TaskTaskUpdatedV1(EventContext):
-    _types = {
-        "event": P2TaskTaskUpdatedV1Data
-    }
+    _types = {"event": P2TaskTaskUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

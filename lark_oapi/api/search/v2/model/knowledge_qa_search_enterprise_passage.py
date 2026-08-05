@@ -30,13 +30,17 @@ class KnowledgeQaSearchEnterprisePassage(object):
 
 class KnowledgeQaSearchEnterprisePassageBuilder(object):
     def __init__(self) -> None:
-        self._knowledge_qa_search_enterprise_passage = KnowledgeQaSearchEnterprisePassage()
+        self._knowledge_qa_search_enterprise_passage = (
+            KnowledgeQaSearchEnterprisePassage()
+        )
 
     def id(self, id: str) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.id = id
         return self
 
-    def source_type(self, source_type: int) -> "KnowledgeQaSearchEnterprisePassageBuilder":
+    def source_type(
+        self, source_type: int
+    ) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.source_type = source_type
         return self
 

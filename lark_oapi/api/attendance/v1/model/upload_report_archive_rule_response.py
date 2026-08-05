@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .upload_report_archive_rule_response_body import UploadReportArchiveRuleResponseBody
+from .upload_report_archive_rule_response_body import (
+    UploadReportArchiveRuleResponseBody,
+)
 
 
 class UploadReportArchiveRuleResponse(BaseResponse):
     _types = {
         "data": UploadReportArchiveRuleResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -30,7 +30,9 @@ class ExtractPriceBuilder(object):
         self._extract_price.contract_price = contract_price
         return self
 
-    def contract_price_original(self, contract_price_original: str) -> "ExtractPriceBuilder":
+    def contract_price_original(
+        self, contract_price_original: str
+    ) -> "ExtractPriceBuilder":
         self._extract_price.contract_price_original = contract_price_original
         return self
 

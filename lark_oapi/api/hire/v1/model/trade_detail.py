@@ -29,7 +29,9 @@ class TradeDetailBuilder(object):
         self._trade_detail.account_id = account_id
         return self
 
-    def total_recharge_reward_info(self, total_recharge_reward_info: BonusAmount) -> "TradeDetailBuilder":
+    def total_recharge_reward_info(
+        self, total_recharge_reward_info: BonusAmount
+    ) -> "TradeDetailBuilder":
         self._trade_detail.total_recharge_reward_info = total_recharge_reward_info
         return self
 

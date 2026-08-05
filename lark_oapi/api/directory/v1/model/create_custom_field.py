@@ -73,8 +73,12 @@ class CreateCustomFieldBuilder(object):
         self._create_custom_field.create_source = create_source
         return self
 
-    def org_dimensionof_dept_field(self, org_dimensionof_dept_field: str) -> "CreateCustomFieldBuilder":
-        self._create_custom_field.org_dimensionof_dept_field = org_dimensionof_dept_field
+    def org_dimensionof_dept_field(
+        self, org_dimensionof_dept_field: str
+    ) -> "CreateCustomFieldBuilder":
+        self._create_custom_field.org_dimensionof_dept_field = (
+            org_dimensionof_dept_field
+        )
         return self
 
     def build(self) -> "CreateCustomField":

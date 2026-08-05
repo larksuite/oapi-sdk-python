@@ -54,7 +54,9 @@ class CreateMessageRequestBodyBuilder(object):
         self._create_message_request_body.message_type = message_type
         return self
 
-    def at_chatter_ids(self, at_chatter_ids: List[int]) -> "CreateMessageRequestBodyBuilder":
+    def at_chatter_ids(
+        self, at_chatter_ids: List[int]
+    ) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.at_chatter_ids = at_chatter_ids
         return self
 

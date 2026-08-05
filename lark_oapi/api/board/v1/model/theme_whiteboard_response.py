@@ -9,7 +9,6 @@ from .theme_whiteboard_response_body import ThemeWhiteboardResponseBody
 class ThemeWhiteboardResponse(BaseResponse):
     _types = {
         "data": ThemeWhiteboardResponseBody,
-
     }
 
     def __init__(self, d=None):

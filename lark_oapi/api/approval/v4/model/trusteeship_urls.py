@@ -34,7 +34,9 @@ class TrusteeshipUrlsBuilder(object):
         self._trusteeship_urls.form_detail_url = form_detail_url
         return self
 
-    def action_definition_url(self, action_definition_url: str) -> "TrusteeshipUrlsBuilder":
+    def action_definition_url(
+        self, action_definition_url: str
+    ) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.action_definition_url = action_definition_url
         return self
 
@@ -46,7 +48,9 @@ class TrusteeshipUrlsBuilder(object):
         self._trusteeship_urls.action_callback_url = action_callback_url
         return self
 
-    def pull_business_data_url(self, pull_business_data_url: str) -> "TrusteeshipUrlsBuilder":
+    def pull_business_data_url(
+        self, pull_business_data_url: str
+    ) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.pull_business_data_url = pull_business_data_url
         return self
 

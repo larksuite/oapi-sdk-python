@@ -9,7 +9,6 @@ from .create_shortcut_file_response_body import CreateShortcutFileResponseBody
 class CreateShortcutFileResponse(BaseResponse):
     _types = {
         "data": CreateShortcutFileResponseBody,
-
     }
 
     def __init__(self, d=None):

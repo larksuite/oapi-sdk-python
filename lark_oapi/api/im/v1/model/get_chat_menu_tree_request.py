@@ -16,13 +16,14 @@ class GetChatMenuTreeRequest(BaseRequest):
 
 
 class GetChatMenuTreeRequestBuilder(object):
-
     def __init__(self) -> None:
         get_chat_menu_tree_request = GetChatMenuTreeRequest()
         get_chat_menu_tree_request.http_method = HttpMethod.GET
         get_chat_menu_tree_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_tree"
         get_chat_menu_tree_request.token_types = {AccessTokenType.TENANT}
-        self._get_chat_menu_tree_request: GetChatMenuTreeRequest = get_chat_menu_tree_request
+        self._get_chat_menu_tree_request: GetChatMenuTreeRequest = (
+            get_chat_menu_tree_request
+        )
 
     def chat_id(self, chat_id: str) -> "GetChatMenuTreeRequestBuilder":
         self._get_chat_menu_tree_request.chat_id = chat_id

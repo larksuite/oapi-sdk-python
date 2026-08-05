@@ -36,7 +36,9 @@ class WorkplaceAccessDataBuilder(object):
         self._workplace_access_data.all_workplace = all_workplace
         return self
 
-    def default_workplace(self, default_workplace: AccessData) -> "WorkplaceAccessDataBuilder":
+    def default_workplace(
+        self, default_workplace: AccessData
+    ) -> "WorkplaceAccessDataBuilder":
         self._workplace_access_data.default_workplace = default_workplace
         return self
 

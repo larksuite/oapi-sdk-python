@@ -17,7 +17,9 @@ class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+    def get(
+        self, request: GetFileRequest, option: Optional[RequestOption] = None
+    ) -> GetFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -44,7 +46,9 @@ class File(object):
         response.raw = resp
         return response
 
-    async def aget(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+    async def aget(
+        self, request: GetFileRequest, option: Optional[RequestOption] = None
+    ) -> GetFileResponse:
         if option is None:
             option = RequestOption()
 

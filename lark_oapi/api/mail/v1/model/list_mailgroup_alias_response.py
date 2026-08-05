@@ -9,7 +9,6 @@ from .list_mailgroup_alias_response_body import ListMailgroupAliasResponseBody
 class ListMailgroupAliasResponse(BaseResponse):
     _types = {
         "data": ListMailgroupAliasResponseBody,
-
     }
 
     def __init__(self, d=None):

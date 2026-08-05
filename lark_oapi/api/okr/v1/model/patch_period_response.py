@@ -9,7 +9,6 @@ from .patch_period_response_body import PatchPeriodResponseBody
 class PatchPeriodResponse(BaseResponse):
     _types = {
         "data": PatchPeriodResponseBody,
-
     }
 
     def __init__(self, d=None):

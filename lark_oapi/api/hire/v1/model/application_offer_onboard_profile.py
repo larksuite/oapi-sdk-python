@@ -6,8 +6,12 @@ from .department import Department
 from .recruitment_type import RecruitmentType
 from .sequence import Sequence
 from .level import Level
-from .application_offer_onboard_profile_address import ApplicationOfferOnboardProfileAddress
-from .application_offer_onboard_profile_address import ApplicationOfferOnboardProfileAddress
+from .application_offer_onboard_profile_address import (
+    ApplicationOfferOnboardProfileAddress,
+)
+from .application_offer_onboard_profile_address import (
+    ApplicationOfferOnboardProfileAddress,
+)
 from .application_offer_basic_info_user import ApplicationOfferBasicInfoUser
 
 
@@ -53,11 +57,15 @@ class ApplicationOfferOnboardProfileBuilder(object):
         self._application_offer_onboard_profile.offer_id = offer_id
         return self
 
-    def department(self, department: Department) -> "ApplicationOfferOnboardProfileBuilder":
+    def department(
+        self, department: Department
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.department = department
         return self
 
-    def recruitment_type(self, recruitment_type: RecruitmentType) -> "ApplicationOfferOnboardProfileBuilder":
+    def recruitment_type(
+        self, recruitment_type: RecruitmentType
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.recruitment_type = recruitment_type
         return self
 
@@ -69,30 +77,41 @@ class ApplicationOfferOnboardProfileBuilder(object):
         self._application_offer_onboard_profile.level = level
         return self
 
-    def onboard_address(self,
-                        onboard_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
+    def onboard_address(
+        self, onboard_address: ApplicationOfferOnboardProfileAddress
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.onboard_address = onboard_address
         return self
 
-    def work_address(self,
-                     work_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
+    def work_address(
+        self, work_address: ApplicationOfferOnboardProfileAddress
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.work_address = work_address
         return self
 
-    def leader(self, leader: ApplicationOfferBasicInfoUser) -> "ApplicationOfferOnboardProfileBuilder":
+    def leader(
+        self, leader: ApplicationOfferBasicInfoUser
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.leader = leader
         return self
 
-    def is_work_address_same_to_onboard(self,
-                                        is_work_address_same_to_onboard: bool) -> "ApplicationOfferOnboardProfileBuilder":
-        self._application_offer_onboard_profile.is_work_address_same_to_onboard = is_work_address_same_to_onboard
+    def is_work_address_same_to_onboard(
+        self, is_work_address_same_to_onboard: bool
+    ) -> "ApplicationOfferOnboardProfileBuilder":
+        self._application_offer_onboard_profile.is_work_address_same_to_onboard = (
+            is_work_address_same_to_onboard
+        )
         return self
 
-    def probation_month(self, probation_month: int) -> "ApplicationOfferOnboardProfileBuilder":
+    def probation_month(
+        self, probation_month: int
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.probation_month = probation_month
         return self
 
-    def contract_year(self, contract_year: int) -> "ApplicationOfferOnboardProfileBuilder":
+    def contract_year(
+        self, contract_year: int
+    ) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.contract_year = contract_year
         return self
 

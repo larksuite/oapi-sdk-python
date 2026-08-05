@@ -20,7 +20,9 @@ class RecordsPatchWorkspaceTableRequestBody(object):
 
 class RecordsPatchWorkspaceTableRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._records_patch_workspace_table_request_body = RecordsPatchWorkspaceTableRequestBody()
+        self._records_patch_workspace_table_request_body = (
+            RecordsPatchWorkspaceTableRequestBody()
+        )
 
     def record(self, record: str) -> "RecordsPatchWorkspaceTableRequestBodyBuilder":
         self._records_patch_workspace_table_request_body.record = record

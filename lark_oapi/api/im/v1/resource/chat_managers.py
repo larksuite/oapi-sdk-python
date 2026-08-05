@@ -11,16 +11,23 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.add_managers_chat_managers_request import AddManagersChatManagersRequest
 from ..model.add_managers_chat_managers_response import AddManagersChatManagersResponse
-from ..model.delete_managers_chat_managers_request import DeleteManagersChatManagersRequest
-from ..model.delete_managers_chat_managers_response import DeleteManagersChatManagersResponse
+from ..model.delete_managers_chat_managers_request import (
+    DeleteManagersChatManagersRequest,
+)
+from ..model.delete_managers_chat_managers_response import (
+    DeleteManagersChatManagersResponse,
+)
 
 
 class ChatManagers(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_managers(self, request: AddManagersChatManagersRequest,
-                     option: Optional[RequestOption] = None) -> AddManagersChatManagersResponse:
+    def add_managers(
+        self,
+        request: AddManagersChatManagersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddManagersChatManagersResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +42,18 @@ class ChatManagers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: AddManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   AddManagersChatManagersResponse)
+        response: AddManagersChatManagersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddManagersChatManagersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aadd_managers(self, request: AddManagersChatManagersRequest,
-                            option: Optional[RequestOption] = None) -> AddManagersChatManagersResponse:
+    async def aadd_managers(
+        self,
+        request: AddManagersChatManagersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> AddManagersChatManagersResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +64,18 @@ class ChatManagers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: AddManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   AddManagersChatManagersResponse)
+        response: AddManagersChatManagersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), AddManagersChatManagersResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete_managers(self, request: DeleteManagersChatManagersRequest,
-                        option: Optional[RequestOption] = None) -> DeleteManagersChatManagersResponse:
+    def delete_managers(
+        self,
+        request: DeleteManagersChatManagersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteManagersChatManagersResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +90,18 @@ class ChatManagers(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      DeleteManagersChatManagersResponse)
+        response: DeleteManagersChatManagersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteManagersChatManagersResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete_managers(self, request: DeleteManagersChatManagersRequest,
-                               option: Optional[RequestOption] = None) -> DeleteManagersChatManagersResponse:
+    async def adelete_managers(
+        self,
+        request: DeleteManagersChatManagersRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteManagersChatManagersResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +112,9 @@ class ChatManagers(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      DeleteManagersChatManagersResponse)
+        response: DeleteManagersChatManagersResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteManagersChatManagersResponse
+        )
         response.raw = resp
 
         return response

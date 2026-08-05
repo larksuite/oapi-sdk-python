@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .common_schema_config import CommonSchemaConfig
 
 
 class FieldMeta(object):
@@ -12,6 +13,7 @@ class FieldMeta(object):
         "field_type": int,
         "is_custom_field": bool,
         "is_filterable": bool,
+        "field_setting": CommonSchemaConfig,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class FieldMeta(object):
         self.field_type: Optional[int] = None
         self.is_custom_field: Optional[bool] = None
         self.is_filterable: Optional[bool] = None
+        self.field_setting: Optional[CommonSchemaConfig] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class FieldMetaBuilder(object):
 
     def is_filterable(self, is_filterable: bool) -> "FieldMetaBuilder":
         self._field_meta.is_filterable = is_filterable
+        return self
+
+    def field_setting(self, field_setting: CommonSchemaConfig) -> "FieldMetaBuilder":
+        self._field_meta.field_setting = field_setting
         return self
 
     def build(self) -> "FieldMeta":

@@ -26,11 +26,15 @@ class BatchGetPathwayRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_pathway_request_body = BatchGetPathwayRequestBody()
 
-    def pathway_ids(self, pathway_ids: List[str]) -> "BatchGetPathwayRequestBodyBuilder":
+    def pathway_ids(
+        self, pathway_ids: List[str]
+    ) -> "BatchGetPathwayRequestBodyBuilder":
         self._batch_get_pathway_request_body.pathway_ids = pathway_ids
         return self
 
-    def pathway_codes(self, pathway_codes: List[str]) -> "BatchGetPathwayRequestBodyBuilder":
+    def pathway_codes(
+        self, pathway_codes: List[str]
+    ) -> "BatchGetPathwayRequestBodyBuilder":
         self._batch_get_pathway_request_body.pathway_codes = pathway_codes
         return self
 

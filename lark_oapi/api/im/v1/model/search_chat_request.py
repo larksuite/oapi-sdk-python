@@ -19,7 +19,6 @@ class SearchChatRequest(BaseRequest):
 
 
 class SearchChatRequestBuilder(object):
-
     def __init__(self) -> None:
         search_chat_request = SearchChatRequest()
         search_chat_request.http_method = HttpMethod.GET

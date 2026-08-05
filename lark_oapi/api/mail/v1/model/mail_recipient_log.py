@@ -44,9 +44,13 @@ class MailRecipientLog(object):
         self.group_total_member: Optional[int] = None
         self.recipient_mail_log: Optional[MailRecipientLogItem] = None
         self.sender_mail_location_text: Optional[str] = None
-        self.sender_mail_location_text_values: Optional[List[MailRecipientLogI18nTextParam]] = None
+        self.sender_mail_location_text_values: Optional[
+            List[MailRecipientLogI18nTextParam]
+        ] = None
         self.recipient_mail_location_text: Optional[str] = None
-        self.recipient_mail_location_text_values: Optional[List[MailRecipientLogI18nTextParam]] = None
+        self.recipient_mail_location_text_values: Optional[
+            List[MailRecipientLogI18nTextParam]
+        ] = None
         self.sender_ip: Optional[str] = None
         init(self, d, self._types)
 
@@ -107,26 +111,40 @@ class MailRecipientLogBuilder(object):
         self._mail_recipient_log.group_total_member = group_total_member
         return self
 
-    def recipient_mail_log(self, recipient_mail_log: MailRecipientLogItem) -> "MailRecipientLogBuilder":
+    def recipient_mail_log(
+        self, recipient_mail_log: MailRecipientLogItem
+    ) -> "MailRecipientLogBuilder":
         self._mail_recipient_log.recipient_mail_log = recipient_mail_log
         return self
 
-    def sender_mail_location_text(self, sender_mail_location_text: str) -> "MailRecipientLogBuilder":
+    def sender_mail_location_text(
+        self, sender_mail_location_text: str
+    ) -> "MailRecipientLogBuilder":
         self._mail_recipient_log.sender_mail_location_text = sender_mail_location_text
         return self
 
-    def sender_mail_location_text_values(self, sender_mail_location_text_values: List[
-        MailRecipientLogI18nTextParam]) -> "MailRecipientLogBuilder":
-        self._mail_recipient_log.sender_mail_location_text_values = sender_mail_location_text_values
+    def sender_mail_location_text_values(
+        self, sender_mail_location_text_values: List[MailRecipientLogI18nTextParam]
+    ) -> "MailRecipientLogBuilder":
+        self._mail_recipient_log.sender_mail_location_text_values = (
+            sender_mail_location_text_values
+        )
         return self
 
-    def recipient_mail_location_text(self, recipient_mail_location_text: str) -> "MailRecipientLogBuilder":
-        self._mail_recipient_log.recipient_mail_location_text = recipient_mail_location_text
+    def recipient_mail_location_text(
+        self, recipient_mail_location_text: str
+    ) -> "MailRecipientLogBuilder":
+        self._mail_recipient_log.recipient_mail_location_text = (
+            recipient_mail_location_text
+        )
         return self
 
-    def recipient_mail_location_text_values(self, recipient_mail_location_text_values: List[
-        MailRecipientLogI18nTextParam]) -> "MailRecipientLogBuilder":
-        self._mail_recipient_log.recipient_mail_location_text_values = recipient_mail_location_text_values
+    def recipient_mail_location_text_values(
+        self, recipient_mail_location_text_values: List[MailRecipientLogI18nTextParam]
+    ) -> "MailRecipientLogBuilder":
+        self._mail_recipient_log.recipient_mail_location_text_values = (
+            recipient_mail_location_text_values
+        )
         return self
 
     def sender_ip(self, sender_ip: str) -> "MailRecipientLogBuilder":

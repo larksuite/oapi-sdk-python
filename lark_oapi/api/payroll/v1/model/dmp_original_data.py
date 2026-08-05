@@ -29,7 +29,9 @@ class DmpOriginalDataBuilder(object):
         self._dmp_original_data.employee_number = employee_number
         return self
 
-    def time_periods(self, time_periods: List[DmpTimelineField]) -> "DmpOriginalDataBuilder":
+    def time_periods(
+        self, time_periods: List[DmpTimelineField]
+    ) -> "DmpOriginalDataBuilder":
         self._dmp_original_data.time_periods = time_periods
         return self
 

@@ -17,8 +17,9 @@ class Classification(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListClassificationRequest,
-             option: Optional[RequestOption] = None) -> ListClassificationResponse:
+    def list(
+        self, request: ListClassificationRequest, option: Optional[RequestOption] = None
+    ) -> ListClassificationResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class Classification(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListClassificationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListClassificationResponse)
+        response: ListClassificationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListClassificationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListClassificationRequest,
-                    option: Optional[RequestOption] = None) -> ListClassificationResponse:
+    async def alist(
+        self, request: ListClassificationRequest, option: Optional[RequestOption] = None
+    ) -> ListClassificationResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class Classification(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListClassificationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListClassificationResponse)
+        response: ListClassificationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListClassificationResponse
+        )
         response.raw = resp
 
         return response

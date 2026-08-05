@@ -18,7 +18,6 @@ class ListUserRequest(BaseRequest):
 
 
 class ListUserRequestBuilder(object):
-
     def __init__(self) -> None:
         list_user_request = ListUserRequest()
         list_user_request.http_method = HttpMethod.GET

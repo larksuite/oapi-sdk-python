@@ -18,7 +18,6 @@ class SetRoomConfigRequest(BaseRequest):
 
 
 class SetRoomConfigRequestBuilder(object):
-
     def __init__(self) -> None:
         set_room_config_request = SetRoomConfigRequest()
         set_room_config_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class SetRoomConfigRequestBuilder(object):
         self._set_room_config_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: SetRoomConfigRequestBody) -> "SetRoomConfigRequestBuilder":
+    def request_body(
+        self, request_body: SetRoomConfigRequestBody
+    ) -> "SetRoomConfigRequestBuilder":
         self._set_room_config_request.request_body = request_body
         self._set_room_config_request.body = request_body
         return self

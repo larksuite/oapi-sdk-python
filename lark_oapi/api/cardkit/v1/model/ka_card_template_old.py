@@ -89,7 +89,9 @@ class KaCardTemplateOldBuilder(object):
         self._ka_card_template_old.creator_id = creator_id
         return self
 
-    def variables(self, variables: List[KaCardTemplateVariable]) -> "KaCardTemplateOldBuilder":
+    def variables(
+        self, variables: List[KaCardTemplateVariable]
+    ) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.variables = variables
         return self
 

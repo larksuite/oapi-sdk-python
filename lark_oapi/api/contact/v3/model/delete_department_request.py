@@ -17,17 +17,24 @@ class DeleteDepartmentRequest(BaseRequest):
 
 
 class DeleteDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_department_request = DeleteDepartmentRequest()
         delete_department_request.http_method = HttpMethod.DELETE
-        delete_department_request.uri = "/open-apis/contact/v3/departments/:department_id"
+        delete_department_request.uri = (
+            "/open-apis/contact/v3/departments/:department_id"
+        )
         delete_department_request.token_types = {AccessTokenType.TENANT}
-        self._delete_department_request: DeleteDepartmentRequest = delete_department_request
+        self._delete_department_request: DeleteDepartmentRequest = (
+            delete_department_request
+        )
 
-    def department_id_type(self, department_id_type: str) -> "DeleteDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "DeleteDepartmentRequestBuilder":
         self._delete_department_request.department_id_type = department_id_type
-        self._delete_department_request.add_query("department_id_type", department_id_type)
+        self._delete_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def department_id(self, department_id: str) -> "DeleteDepartmentRequestBuilder":

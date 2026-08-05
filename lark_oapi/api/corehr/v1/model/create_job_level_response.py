@@ -9,7 +9,6 @@ from .create_job_level_response_body import CreateJobLevelResponseBody
 class CreateJobLevelResponse(BaseResponse):
     _types = {
         "data": CreateJobLevelResponseBody,
-
     }
 
     def __init__(self, d=None):

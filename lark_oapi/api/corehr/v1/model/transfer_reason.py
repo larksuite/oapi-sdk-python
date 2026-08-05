@@ -33,8 +33,12 @@ class TransferReasonBuilder(object):
     def __init__(self) -> None:
         self._transfer_reason = TransferReason()
 
-    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: str) -> "TransferReasonBuilder":
-        self._transfer_reason.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "TransferReasonBuilder":
+        self._transfer_reason.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def name(self, name: List[I18n]) -> "TransferReasonBuilder":
@@ -45,9 +49,12 @@ class TransferReasonBuilder(object):
         self._transfer_reason.active = active
         return self
 
-    def parent_transfer_reason_unique_identifier(self,
-                                                 parent_transfer_reason_unique_identifier: str) -> "TransferReasonBuilder":
-        self._transfer_reason.parent_transfer_reason_unique_identifier = parent_transfer_reason_unique_identifier
+    def parent_transfer_reason_unique_identifier(
+        self, parent_transfer_reason_unique_identifier: str
+    ) -> "TransferReasonBuilder":
+        self._transfer_reason.parent_transfer_reason_unique_identifier = (
+            parent_transfer_reason_unique_identifier
+        )
         return self
 
     def created_time(self, created_time: str) -> "TransferReasonBuilder":

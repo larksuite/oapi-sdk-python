@@ -21,22 +21,29 @@ class UpdateBadgeGrantRequest(BaseRequest):
 
 
 class UpdateBadgeGrantRequestBuilder(object):
-
     def __init__(self) -> None:
         update_badge_grant_request = UpdateBadgeGrantRequest()
         update_badge_grant_request.http_method = HttpMethod.PUT
-        update_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+        update_badge_grant_request.uri = (
+            "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+        )
         update_badge_grant_request.token_types = {AccessTokenType.TENANT}
-        self._update_badge_grant_request: UpdateBadgeGrantRequest = update_badge_grant_request
+        self._update_badge_grant_request: UpdateBadgeGrantRequest = (
+            update_badge_grant_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateBadgeGrantRequestBuilder":
         self._update_badge_grant_request.user_id_type = user_id_type
         self._update_badge_grant_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "UpdateBadgeGrantRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "UpdateBadgeGrantRequestBuilder":
         self._update_badge_grant_request.department_id_type = department_id_type
-        self._update_badge_grant_request.add_query("department_id_type", department_id_type)
+        self._update_badge_grant_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def badge_id(self, badge_id: str) -> "UpdateBadgeGrantRequestBuilder":

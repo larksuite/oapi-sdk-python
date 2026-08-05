@@ -73,15 +73,21 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_personal_basic_info = ProfileSettingPersonalBasicInfo()
 
-    def legal_name(self, legal_name: ProfileSettingName) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def legal_name(
+        self, legal_name: ProfileSettingName
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.legal_name = legal_name
         return self
 
-    def preferred_name(self, preferred_name: ProfileSettingName) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def preferred_name(
+        self, preferred_name: ProfileSettingName
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.preferred_name = preferred_name
         return self
 
-    def additional_name(self, additional_name: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def additional_name(
+        self, additional_name: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.additional_name = additional_name
         return self
 
@@ -89,15 +95,21 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
         self._profile_setting_personal_basic_info.gender = gender
         return self
 
-    def nationality_v2(self, nationality_v2: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def nationality_v2(
+        self, nationality_v2: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.nationality_v2 = nationality_v2
         return self
 
-    def ethnicity_race(self, ethnicity_race: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def ethnicity_race(
+        self, ethnicity_race: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.ethnicity_race = ethnicity_race
         return self
 
-    def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def phone(
+        self, phone: ProfileSettingPhone
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.phone = phone
         return self
 
@@ -105,51 +117,85 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
         self._profile_setting_personal_basic_info.email = email
         return self
 
-    def date_of_birth(self, date_of_birth: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def date_of_birth(
+        self, date_of_birth: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.date_of_birth = date_of_birth
         return self
 
-    def marital_status(self, marital_status: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def marital_status(
+        self, marital_status: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.marital_status = marital_status
         return self
 
-    def is_disabled(self, is_disabled: bool) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def is_disabled(
+        self, is_disabled: bool
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.is_disabled = is_disabled
         return self
 
-    def disable_card_number(self, disable_card_number: str) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.disable_card_number = disable_card_number
+    def disable_card_number(
+        self, disable_card_number: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.disable_card_number = (
+            disable_card_number
+        )
         return self
 
-    def is_martyr_family(self, is_martyr_family: bool) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def is_martyr_family(
+        self, is_martyr_family: bool
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.is_martyr_family = is_martyr_family
         return self
 
-    def martyr_card_number(self, martyr_card_number: str) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.martyr_card_number = martyr_card_number
+    def martyr_card_number(
+        self, martyr_card_number: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.martyr_card_number = (
+            martyr_card_number
+        )
         return self
 
-    def is_old_alone(self, is_old_alone: bool) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def is_old_alone(
+        self, is_old_alone: bool
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.is_old_alone = is_old_alone
         return self
 
-    def born_country_region(self, born_country_region: str) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.born_country_region = born_country_region
+    def born_country_region(
+        self, born_country_region: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.born_country_region = (
+            born_country_region
+        )
         return self
 
-    def political_affiliation(self, political_affiliation: str) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.political_affiliation = political_affiliation
+    def political_affiliation(
+        self, political_affiliation: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.political_affiliation = (
+            political_affiliation
+        )
         return self
 
-    def native_region(self, native_region: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def native_region(
+        self, native_region: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.native_region = native_region
         return self
 
-    def date_entered_workforce(self, date_entered_workforce: str) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.date_entered_workforce = date_entered_workforce
+    def date_entered_workforce(
+        self, date_entered_workforce: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.date_entered_workforce = (
+            date_entered_workforce
+        )
         return self
 
-    def first_entry_time(self, first_entry_time: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def first_entry_time(
+        self, first_entry_time: str
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.first_entry_time = first_entry_time
         return self
 
@@ -157,15 +203,23 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
         self._profile_setting_personal_basic_info.leave_time = leave_time
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.custom_fields = custom_fields
         return self
 
-    def additional_nationalities(self, additional_nationalities: List[str]) -> "ProfileSettingPersonalBasicInfoBuilder":
-        self._profile_setting_personal_basic_info.additional_nationalities = additional_nationalities
+    def additional_nationalities(
+        self, additional_nationalities: List[str]
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.additional_nationalities = (
+            additional_nationalities
+        )
         return self
 
-    def legal_name_v2s(self, legal_name_v2s: List[ProfileSettingName]) -> "ProfileSettingPersonalBasicInfoBuilder":
+    def legal_name_v2s(
+        self, legal_name_v2s: List[ProfileSettingName]
+    ) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.legal_name_v2s = legal_name_v2s
         return self
 

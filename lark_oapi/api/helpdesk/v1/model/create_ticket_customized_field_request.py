@@ -17,15 +17,18 @@ class CreateTicketCustomizedFieldRequest(BaseRequest):
 
 
 class CreateTicketCustomizedFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         create_ticket_customized_field_request = CreateTicketCustomizedFieldRequest()
         create_ticket_customized_field_request.http_method = HttpMethod.POST
-        create_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields"
+        create_ticket_customized_field_request.uri = (
+            "/open-apis/helpdesk/v1/ticket_customized_fields"
+        )
         create_ticket_customized_field_request.token_types = {AccessTokenType.USER}
         self._create_ticket_customized_field_request: CreateTicketCustomizedFieldRequest = create_ticket_customized_field_request
 
-    def request_body(self, request_body: TicketCustomizedField) -> "CreateTicketCustomizedFieldRequestBuilder":
+    def request_body(
+        self, request_body: TicketCustomizedField
+    ) -> "CreateTicketCustomizedFieldRequestBuilder":
         self._create_ticket_customized_field_request.request_body = request_body
         self._create_ticket_customized_field_request.body = request_body
         return self

@@ -93,7 +93,9 @@ class CalendarPeriodBuilder(object):
         self._calendar_period.manual_modified = manual_modified
         return self
 
-    def attendance_start_date(self, attendance_start_date: str) -> "CalendarPeriodBuilder":
+    def attendance_start_date(
+        self, attendance_start_date: str
+    ) -> "CalendarPeriodBuilder":
         self._calendar_period.attendance_start_date = attendance_start_date
         return self
 
@@ -101,7 +103,9 @@ class CalendarPeriodBuilder(object):
         self._calendar_period.attendance_end_date = attendance_end_date
         return self
 
-    def cut_off_date_for_paylist(self, cut_off_date_for_paylist: str) -> "CalendarPeriodBuilder":
+    def cut_off_date_for_paylist(
+        self, cut_off_date_for_paylist: str
+    ) -> "CalendarPeriodBuilder":
         self._calendar_period.cut_off_date_for_paylist = cut_off_date_for_paylist
         return self
 

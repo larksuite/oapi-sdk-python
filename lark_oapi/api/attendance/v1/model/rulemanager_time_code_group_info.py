@@ -27,7 +27,9 @@ class RulemanagerTimeCodeGroupInfoBuilder(object):
     def __init__(self) -> None:
         self._rulemanager_time_code_group_info = RulemanagerTimeCodeGroupInfo()
 
-    def efective_date(self, efective_date: str) -> "RulemanagerTimeCodeGroupInfoBuilder":
+    def efective_date(
+        self, efective_date: str
+    ) -> "RulemanagerTimeCodeGroupInfoBuilder":
         self._rulemanager_time_code_group_info.efective_date = efective_date
         return self
 
@@ -35,7 +37,9 @@ class RulemanagerTimeCodeGroupInfoBuilder(object):
         self._rulemanager_time_code_group_info.expire_date = expire_date
         return self
 
-    def time_code_infos(self, time_code_infos: List[RulemanagerTimeCodeInfo]) -> "RulemanagerTimeCodeGroupInfoBuilder":
+    def time_code_infos(
+        self, time_code_infos: List[RulemanagerTimeCodeInfo]
+    ) -> "RulemanagerTimeCodeGroupInfoBuilder":
         self._rulemanager_time_code_group_info.time_code_infos = time_code_infos
         return self
 

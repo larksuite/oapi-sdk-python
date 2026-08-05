@@ -51,8 +51,12 @@ class MetricDimensionBuilder(object):
         self._metric_dimension.name = name
         return self
 
-    def evaluation_rule_id_for_each_metric(self, evaluation_rule_id_for_each_metric: int) -> "MetricDimensionBuilder":
-        self._metric_dimension.evaluation_rule_id_for_each_metric = evaluation_rule_id_for_each_metric
+    def evaluation_rule_id_for_each_metric(
+        self, evaluation_rule_id_for_each_metric: int
+    ) -> "MetricDimensionBuilder":
+        self._metric_dimension.evaluation_rule_id_for_each_metric = (
+            evaluation_rule_id_for_each_metric
+        )
         return self
 
     def dimension_weight(self, dimension_weight: str) -> "MetricDimensionBuilder":
@@ -67,7 +71,9 @@ class MetricDimensionBuilder(object):
         self._metric_dimension.review_rule_option = review_rule_option
         return self
 
-    def custom_metric_config(self, custom_metric_config: CustomMetricConfig) -> "MetricDimensionBuilder":
+    def custom_metric_config(
+        self, custom_metric_config: CustomMetricConfig
+    ) -> "MetricDimensionBuilder":
         self._metric_dimension.custom_metric_config = custom_metric_config
         return self
 

@@ -18,12 +18,14 @@ class ReplyMessageRequest(BaseRequest):
 
 
 class ReplyMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         reply_message_request = ReplyMessageRequest()
         reply_message_request.http_method = HttpMethod.POST
         reply_message_request.uri = "/open-apis/im/v1/messages/:message_id/reply"
-        reply_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        reply_message_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._reply_message_request: ReplyMessageRequest = reply_message_request
 
     def message_id(self, message_id: str) -> "ReplyMessageRequestBuilder":
@@ -31,7 +33,9 @@ class ReplyMessageRequestBuilder(object):
         self._reply_message_request.paths["message_id"] = str(message_id)
         return self
 
-    def request_body(self, request_body: ReplyMessageRequestBody) -> "ReplyMessageRequestBuilder":
+    def request_body(
+        self, request_body: ReplyMessageRequestBody
+    ) -> "ReplyMessageRequestBuilder":
         self._reply_message_request.request_body = request_body
         self._reply_message_request.body = request_body
         return self

@@ -21,9 +21,13 @@ class ListTasklistActivitySubscriptionResponseBody(object):
 
 class ListTasklistActivitySubscriptionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_tasklist_activity_subscription_response_body = ListTasklistActivitySubscriptionResponseBody()
+        self._list_tasklist_activity_subscription_response_body = (
+            ListTasklistActivitySubscriptionResponseBody()
+        )
 
-    def items(self, items: List[TasklistActivitySubscription]) -> "ListTasklistActivitySubscriptionResponseBodyBuilder":
+    def items(
+        self, items: List[TasklistActivitySubscription]
+    ) -> "ListTasklistActivitySubscriptionResponseBodyBuilder":
         self._list_tasklist_activity_subscription_response_body.items = items
         return self
 

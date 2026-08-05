@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.search_basic_info_bank_branch_request import SearchBasicInfoBankBranchRequest
-from ..model.search_basic_info_bank_branch_response import SearchBasicInfoBankBranchResponse
+from ..model.search_basic_info_bank_branch_request import (
+    SearchBasicInfoBankBranchRequest,
+)
+from ..model.search_basic_info_bank_branch_response import (
+    SearchBasicInfoBankBranchResponse,
+)
 
 
 class BasicInfoBankBranch(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoBankBranchRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoBankBranchResponse:
+    def search(
+        self,
+        request: SearchBasicInfoBankBranchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoBankBranchResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class BasicInfoBankBranch(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoBankBranchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SearchBasicInfoBankBranchResponse)
+        response: SearchBasicInfoBankBranchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoBankBranchResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchBasicInfoBankBranchRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoBankBranchResponse:
+    async def asearch(
+        self,
+        request: SearchBasicInfoBankBranchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoBankBranchResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class BasicInfoBankBranch(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoBankBranchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SearchBasicInfoBankBranchResponse)
+        response: SearchBasicInfoBankBranchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoBankBranchResponse
+        )
         response.raw = resp
 
         return response

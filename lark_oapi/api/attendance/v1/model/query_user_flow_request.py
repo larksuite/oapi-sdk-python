@@ -19,7 +19,6 @@ class QueryUserFlowRequest(BaseRequest):
 
 
 class QueryUserFlowRequestBuilder(object):
-
     def __init__(self) -> None:
         query_user_flow_request = QueryUserFlowRequest()
         query_user_flow_request.http_method = HttpMethod.POST
@@ -32,12 +31,18 @@ class QueryUserFlowRequestBuilder(object):
         self._query_user_flow_request.add_query("employee_type", employee_type)
         return self
 
-    def include_terminated_user(self, include_terminated_user: bool) -> "QueryUserFlowRequestBuilder":
+    def include_terminated_user(
+        self, include_terminated_user: bool
+    ) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.include_terminated_user = include_terminated_user
-        self._query_user_flow_request.add_query("include_terminated_user", include_terminated_user)
+        self._query_user_flow_request.add_query(
+            "include_terminated_user", include_terminated_user
+        )
         return self
 
-    def request_body(self, request_body: QueryUserFlowRequestBody) -> "QueryUserFlowRequestBuilder":
+    def request_body(
+        self, request_body: QueryUserFlowRequestBody
+    ) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.request_body = request_body
         self._query_user_flow_request.body = request_body
         return self

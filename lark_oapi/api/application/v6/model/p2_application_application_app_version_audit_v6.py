@@ -30,9 +30,7 @@ class P2ApplicationApplicationAppVersionAuditV6Data(object):
 
 
 class P2ApplicationApplicationAppVersionAuditV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationAppVersionAuditV6Data
-    }
+    _types = {"event": P2ApplicationApplicationAppVersionAuditV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -122,7 +122,9 @@ class AuditInfoBuilder(object):
         self._audit_info.unique_id = unique_id
         return self
 
-    def common_drawers(self, common_drawers: ApiAuditCommonDrawers) -> "AuditInfoBuilder":
+    def common_drawers(
+        self, common_drawers: ApiAuditCommonDrawers
+    ) -> "AuditInfoBuilder":
         self._audit_info.common_drawers = common_drawers
         return self
 

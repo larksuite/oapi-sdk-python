@@ -19,12 +19,14 @@ class SearchEmployeeRequest(BaseRequest):
 
 
 class SearchEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         search_employee_request = SearchEmployeeRequest()
         search_employee_request.http_method = HttpMethod.POST
         search_employee_request.uri = "/open-apis/directory/v1/employees/search"
-        search_employee_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        search_employee_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._search_employee_request: SearchEmployeeRequest = search_employee_request
 
     def employee_id_type(self, employee_id_type: str) -> "SearchEmployeeRequestBuilder":
@@ -32,12 +34,18 @@ class SearchEmployeeRequestBuilder(object):
         self._search_employee_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchEmployeeRequestBuilder":
         self._search_employee_request.department_id_type = department_id_type
-        self._search_employee_request.add_query("department_id_type", department_id_type)
+        self._search_employee_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: SearchEmployeeRequestBody) -> "SearchEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: SearchEmployeeRequestBody
+    ) -> "SearchEmployeeRequestBuilder":
         self._search_employee_request.request_body = request_body
         self._search_employee_request.body = request_body
         return self

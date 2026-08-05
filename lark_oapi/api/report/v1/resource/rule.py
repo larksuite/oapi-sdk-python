@@ -17,7 +17,9 @@ class Rule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryRuleRequest, option: Optional[RequestOption] = None) -> QueryRuleResponse:
+    def query(
+        self, request: QueryRuleRequest, option: Optional[RequestOption] = None
+    ) -> QueryRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class Rule(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRuleResponse)
+        response: QueryRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRuleResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QueryRuleRequest, option: Optional[RequestOption] = None) -> QueryRuleResponse:
+    async def aquery(
+        self, request: QueryRuleRequest, option: Optional[RequestOption] = None
+    ) -> QueryRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class Rule(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRuleResponse)
+        response: QueryRuleResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRuleResponse
+        )
         response.raw = resp
 
         return response

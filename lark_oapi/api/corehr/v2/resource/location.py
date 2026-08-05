@@ -15,17 +15,27 @@ from ..model.batch_get_location_request import BatchGetLocationRequest
 from ..model.batch_get_location_response import BatchGetLocationResponse
 from ..model.patch_location_request import PatchLocationRequest
 from ..model.patch_location_response import PatchLocationResponse
-from ..model.query_multi_timeline_location_request import QueryMultiTimelineLocationRequest
-from ..model.query_multi_timeline_location_response import QueryMultiTimelineLocationResponse
-from ..model.query_recent_change_location_request import QueryRecentChangeLocationRequest
-from ..model.query_recent_change_location_response import QueryRecentChangeLocationResponse
+from ..model.query_multi_timeline_location_request import (
+    QueryMultiTimelineLocationRequest,
+)
+from ..model.query_multi_timeline_location_response import (
+    QueryMultiTimelineLocationResponse,
+)
+from ..model.query_recent_change_location_request import (
+    QueryRecentChangeLocationRequest,
+)
+from ..model.query_recent_change_location_response import (
+    QueryRecentChangeLocationResponse,
+)
 
 
 class Location(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def active(self, request: ActiveLocationRequest, option: Optional[RequestOption] = None) -> ActiveLocationResponse:
+    def active(
+        self, request: ActiveLocationRequest, option: Optional[RequestOption] = None
+    ) -> ActiveLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,13 +50,16 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ActiveLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveLocationResponse)
+        response: ActiveLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActiveLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aactive(self, request: ActiveLocationRequest,
-                      option: Optional[RequestOption] = None) -> ActiveLocationResponse:
+    async def aactive(
+        self, request: ActiveLocationRequest, option: Optional[RequestOption] = None
+    ) -> ActiveLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,13 +70,16 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ActiveLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveLocationResponse)
+        response: ActiveLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ActiveLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_get(self, request: BatchGetLocationRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetLocationResponse:
+    def batch_get(
+        self, request: BatchGetLocationRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,13 +94,16 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetLocationResponse)
+        response: BatchGetLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetLocationRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetLocationResponse:
+    async def abatch_get(
+        self, request: BatchGetLocationRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,12 +114,16 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetLocationResponse)
+        response: BatchGetLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchLocationRequest, option: Optional[RequestOption] = None) -> PatchLocationResponse:
+    def patch(
+        self, request: PatchLocationRequest, option: Optional[RequestOption] = None
+    ) -> PatchLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,13 +138,16 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchLocationResponse)
+        response: PatchLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchLocationRequest,
-                     option: Optional[RequestOption] = None) -> PatchLocationResponse:
+    async def apatch(
+        self, request: PatchLocationRequest, option: Optional[RequestOption] = None
+    ) -> PatchLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,13 +158,18 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchLocationResponse)
+        response: PatchLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineLocationRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineLocationResponse:
+    def query_multi_timeline(
+        self,
+        request: QueryMultiTimelineLocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,14 +184,18 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryMultiTimelineLocationResponse)
+        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineLocationRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineLocationResponse:
+    async def aquery_multi_timeline(
+        self,
+        request: QueryMultiTimelineLocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,14 +206,18 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryMultiTimelineLocationResponse)
+        response: QueryMultiTimelineLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeLocationRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeLocationResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeLocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -193,14 +232,18 @@ class Location(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangeLocationResponse)
+        response: QueryRecentChangeLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeLocationResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeLocationRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeLocationResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeLocationRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeLocationResponse:
         if option is None:
             option = RequestOption()
 
@@ -211,8 +254,9 @@ class Location(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeLocationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     QueryRecentChangeLocationResponse)
+        response: QueryRecentChangeLocationResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeLocationResponse
+        )
         response.raw = resp
 
         return response

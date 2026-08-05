@@ -16,12 +16,14 @@ class GetAilySessionRequest(BaseRequest):
 
 
 class GetAilySessionRequestBuilder(object):
-
     def __init__(self) -> None:
         get_aily_session_request = GetAilySessionRequest()
         get_aily_session_request.http_method = HttpMethod.GET
         get_aily_session_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id"
-        get_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        get_aily_session_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._get_aily_session_request: GetAilySessionRequest = get_aily_session_request
 
     def aily_session_id(self, aily_session_id: str) -> "GetAilySessionRequestBuilder":

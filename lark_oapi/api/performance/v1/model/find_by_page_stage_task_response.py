@@ -9,7 +9,6 @@ from .find_by_page_stage_task_response_body import FindByPageStageTaskResponseBo
 class FindByPageStageTaskResponse(BaseResponse):
     _types = {
         "data": FindByPageStageTaskResponseBody,
-
     }
 
     def __init__(self, d=None):

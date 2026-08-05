@@ -22,9 +22,13 @@ class IdConvertDirectoryUserRequestBody(object):
 
 class IdConvertDirectoryUserRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._id_convert_directory_user_request_body = IdConvertDirectoryUserRequestBody()
+        self._id_convert_directory_user_request_body = (
+            IdConvertDirectoryUserRequestBody()
+        )
 
-    def id_convert_type(self, id_convert_type: int) -> "IdConvertDirectoryUserRequestBodyBuilder":
+    def id_convert_type(
+        self, id_convert_type: int
+    ) -> "IdConvertDirectoryUserRequestBodyBuilder":
         self._id_convert_directory_user_request_body.id_convert_type = id_convert_type
         return self
 

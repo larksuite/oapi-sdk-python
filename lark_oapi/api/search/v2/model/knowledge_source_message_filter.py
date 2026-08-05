@@ -29,7 +29,9 @@ class KnowledgeSourceMessageFilterBuilder(object):
         self._knowledge_source_message_filter.chat_ids = chat_ids
         return self
 
-    def time_range(self, time_range: TimeRange) -> "KnowledgeSourceMessageFilterBuilder":
+    def time_range(
+        self, time_range: TimeRange
+    ) -> "KnowledgeSourceMessageFilterBuilder":
         self._knowledge_source_message_filter.time_range = time_range
         return self
 

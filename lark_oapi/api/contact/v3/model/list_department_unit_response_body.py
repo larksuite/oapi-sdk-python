@@ -27,7 +27,9 @@ class ListDepartmentUnitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_department_unit_response_body = ListDepartmentUnitResponseBody()
 
-    def departmentlist(self, departmentlist: List[UnitDepartment]) -> "ListDepartmentUnitResponseBodyBuilder":
+    def departmentlist(
+        self, departmentlist: List[UnitDepartment]
+    ) -> "ListDepartmentUnitResponseBodyBuilder":
         self._list_department_unit_response_body.departmentlist = departmentlist
         return self
 

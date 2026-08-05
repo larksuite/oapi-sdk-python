@@ -17,7 +17,9 @@ class TalentTag(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListTalentTagRequest, option: Optional[RequestOption] = None) -> ListTalentTagResponse:
+    def list(
+        self, request: ListTalentTagRequest, option: Optional[RequestOption] = None
+    ) -> ListTalentTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class TalentTag(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListTalentTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentTagResponse)
+        response: ListTalentTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTalentTagResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListTalentTagRequest,
-                    option: Optional[RequestOption] = None) -> ListTalentTagResponse:
+    async def alist(
+        self, request: ListTalentTagRequest, option: Optional[RequestOption] = None
+    ) -> ListTalentTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class TalentTag(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListTalentTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentTagResponse)
+        response: ListTalentTagResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListTalentTagResponse
+        )
         response.raw = resp
 
         return response

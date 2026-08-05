@@ -18,7 +18,6 @@ class CreateTaskRequest(BaseRequest):
 
 
 class CreateTaskRequestBuilder(object):
-
     def __init__(self) -> None:
         create_task_request = CreateTaskRequest()
         create_task_request.http_method = HttpMethod.POST

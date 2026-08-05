@@ -51,21 +51,29 @@ class CreateJobChangeResponseBodyBuilder(object):
         self._create_job_change_response_body.status = status
         return self
 
-    def transfer_type_unique_identifier(self,
-                                        transfer_type_unique_identifier: str) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
-    def transfer_reason_unique_identifier(self,
-                                          transfer_reason_unique_identifier: str) -> "CreateJobChangeResponseBodyBuilder":
-        self._create_job_change_response_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
+        self._create_job_change_response_body.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
     def process_id(self, process_id: str) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.process_id = process_id
         return self
 
-    def effective_date(self, effective_date: str) -> "CreateJobChangeResponseBodyBuilder":
+    def effective_date(
+        self, effective_date: str
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.effective_date = effective_date
         return self
 
@@ -73,7 +81,9 @@ class CreateJobChangeResponseBodyBuilder(object):
         self._create_job_change_response_body.created_time = created_time
         return self
 
-    def transfer_info(self, transfer_info: TransferInfo) -> "CreateJobChangeResponseBodyBuilder":
+    def transfer_info(
+        self, transfer_info: TransferInfo
+    ) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.transfer_info = transfer_info
         return self
 

@@ -21,9 +21,13 @@ class GetUserMailboxTemplateResponseBody(object):
 
 class GetUserMailboxTemplateResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_user_mailbox_template_response_body = GetUserMailboxTemplateResponseBody()
+        self._get_user_mailbox_template_response_body = (
+            GetUserMailboxTemplateResponseBody()
+        )
 
-    def template(self, template: Template) -> "GetUserMailboxTemplateResponseBodyBuilder":
+    def template(
+        self, template: Template
+    ) -> "GetUserMailboxTemplateResponseBodyBuilder":
         self._get_user_mailbox_template_response_body.template = template
         return self
 

@@ -24,22 +24,27 @@ class ListAdminUserStatRequest(BaseRequest):
 
 
 class ListAdminUserStatRequestBuilder(object):
-
     def __init__(self) -> None:
         list_admin_user_stat_request = ListAdminUserStatRequest()
         list_admin_user_stat_request.http_method = HttpMethod.GET
         list_admin_user_stat_request.uri = "/open-apis/admin/v1/admin_user_stats"
         list_admin_user_stat_request.token_types = {AccessTokenType.TENANT}
-        self._list_admin_user_stat_request: ListAdminUserStatRequest = list_admin_user_stat_request
+        self._list_admin_user_stat_request: ListAdminUserStatRequest = (
+            list_admin_user_stat_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "ListAdminUserStatRequestBuilder":
         self._list_admin_user_stat_request.user_id_type = user_id_type
         self._list_admin_user_stat_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListAdminUserStatRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListAdminUserStatRequestBuilder":
         self._list_admin_user_stat_request.department_id_type = department_id_type
-        self._list_admin_user_stat_request.add_query("department_id_type", department_id_type)
+        self._list_admin_user_stat_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def start_date(self, start_date: str) -> "ListAdminUserStatRequestBuilder":

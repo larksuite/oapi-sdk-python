@@ -9,7 +9,6 @@ from .create_file_subscription_response_body import CreateFileSubscriptionRespon
 class CreateFileSubscriptionResponse(BaseResponse):
     _types = {
         "data": CreateFileSubscriptionResponseBody,
-
     }
 
     def __init__(self, d=None):

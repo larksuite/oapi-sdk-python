@@ -29,7 +29,9 @@ class SchemaDisplayBuilder(object):
         self._schema_display.card_key = card_key
         return self
 
-    def fields_mapping(self, fields_mapping: List[SchemaDisplayFieldMapping]) -> "SchemaDisplayBuilder":
+    def fields_mapping(
+        self, fields_mapping: List[SchemaDisplayFieldMapping]
+    ) -> "SchemaDisplayBuilder":
         self._schema_display.fields_mapping = fields_mapping
         return self
 

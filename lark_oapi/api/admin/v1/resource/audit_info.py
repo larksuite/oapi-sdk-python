@@ -17,7 +17,9 @@ class AuditInfo(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAuditInfoRequest, option: Optional[RequestOption] = None) -> ListAuditInfoResponse:
+    def list(
+        self, request: ListAuditInfoRequest, option: Optional[RequestOption] = None
+    ) -> ListAuditInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class AuditInfo(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAuditInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAuditInfoResponse)
+        response: ListAuditInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAuditInfoResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAuditInfoRequest,
-                    option: Optional[RequestOption] = None) -> ListAuditInfoResponse:
+    async def alist(
+        self, request: ListAuditInfoRequest, option: Optional[RequestOption] = None
+    ) -> ListAuditInfoResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class AuditInfo(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAuditInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAuditInfoResponse)
+        response: ListAuditInfoResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAuditInfoResponse
+        )
         response.raw = resp
 
         return response

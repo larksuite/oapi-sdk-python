@@ -18,20 +18,25 @@ class QueryUserDailyShiftRequest(BaseRequest):
 
 
 class QueryUserDailyShiftRequestBuilder(object):
-
     def __init__(self) -> None:
         query_user_daily_shift_request = QueryUserDailyShiftRequest()
         query_user_daily_shift_request.http_method = HttpMethod.POST
-        query_user_daily_shift_request.uri = "/open-apis/attendance/v1/user_daily_shifts/query"
+        query_user_daily_shift_request.uri = (
+            "/open-apis/attendance/v1/user_daily_shifts/query"
+        )
         query_user_daily_shift_request.token_types = {AccessTokenType.TENANT}
-        self._query_user_daily_shift_request: QueryUserDailyShiftRequest = query_user_daily_shift_request
+        self._query_user_daily_shift_request: QueryUserDailyShiftRequest = (
+            query_user_daily_shift_request
+        )
 
     def employee_type(self, employee_type: str) -> "QueryUserDailyShiftRequestBuilder":
         self._query_user_daily_shift_request.employee_type = employee_type
         self._query_user_daily_shift_request.add_query("employee_type", employee_type)
         return self
 
-    def request_body(self, request_body: QueryUserDailyShiftRequestBody) -> "QueryUserDailyShiftRequestBuilder":
+    def request_body(
+        self, request_body: QueryUserDailyShiftRequestBody
+    ) -> "QueryUserDailyShiftRequestBuilder":
         self._query_user_daily_shift_request.request_body = request_body
         self._query_user_daily_shift_request.body = request_body
         return self

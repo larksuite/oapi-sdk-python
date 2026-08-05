@@ -18,7 +18,6 @@ class PatchTagRequest(BaseRequest):
 
 
 class PatchTagRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_tag_request = PatchTagRequest()
         patch_tag_request.http_method = HttpMethod.PATCH
@@ -31,7 +30,9 @@ class PatchTagRequestBuilder(object):
         self._patch_tag_request.paths["tag_id"] = str(tag_id)
         return self
 
-    def request_body(self, request_body: PatchTagRequestBody) -> "PatchTagRequestBuilder":
+    def request_body(
+        self, request_body: PatchTagRequestBody
+    ) -> "PatchTagRequestBuilder":
         self._patch_tag_request.request_body = request_body
         self._patch_tag_request.body = request_body
         return self

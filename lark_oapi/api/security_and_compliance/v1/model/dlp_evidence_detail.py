@@ -57,15 +57,21 @@ class DlpEvidenceDetailBuilder(object):
         self._dlp_evidence_detail.file_type_hits = file_type_hits
         return self
 
-    def file_name_ext_hits(self, file_name_ext_hits: List[str]) -> "DlpEvidenceDetailBuilder":
+    def file_name_ext_hits(
+        self, file_name_ext_hits: List[str]
+    ) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.file_name_ext_hits = file_name_ext_hits
         return self
 
-    def trigger_snippets(self, trigger_snippets: List[DlpPolicyHitProof]) -> "DlpEvidenceDetailBuilder":
+    def trigger_snippets(
+        self, trigger_snippets: List[DlpPolicyHitProof]
+    ) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.trigger_snippets = trigger_snippets
         return self
 
-    def secure_label_hits(self, secure_label_hits: List[str]) -> "DlpEvidenceDetailBuilder":
+    def secure_label_hits(
+        self, secure_label_hits: List[str]
+    ) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.secure_label_hits = secure_label_hits
         return self
 

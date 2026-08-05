@@ -36,7 +36,9 @@ class SearchAppTableRecordRequestBodyBuilder(object):
         self._search_app_table_record_request_body.view_id = view_id
         return self
 
-    def field_names(self, field_names: List[str]) -> "SearchAppTableRecordRequestBodyBuilder":
+    def field_names(
+        self, field_names: List[str]
+    ) -> "SearchAppTableRecordRequestBodyBuilder":
         self._search_app_table_record_request_body.field_names = field_names
         return self
 
@@ -48,7 +50,9 @@ class SearchAppTableRecordRequestBodyBuilder(object):
         self._search_app_table_record_request_body.filter = filter
         return self
 
-    def automatic_fields(self, automatic_fields: bool) -> "SearchAppTableRecordRequestBodyBuilder":
+    def automatic_fields(
+        self, automatic_fields: bool
+    ) -> "SearchAppTableRecordRequestBodyBuilder":
         self._search_app_table_record_request_body.automatic_fields = automatic_fields
         return self
 

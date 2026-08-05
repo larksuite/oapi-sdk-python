@@ -21,9 +21,13 @@ class QueryMultiTimelineCompanyResponseBody(object):
 
 class QueryMultiTimelineCompanyResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._query_multi_timeline_company_response_body = QueryMultiTimelineCompanyResponseBody()
+        self._query_multi_timeline_company_response_body = (
+            QueryMultiTimelineCompanyResponseBody()
+        )
 
-    def items(self, items: List[CompanyTimeline]) -> "QueryMultiTimelineCompanyResponseBodyBuilder":
+    def items(
+        self, items: List[CompanyTimeline]
+    ) -> "QueryMultiTimelineCompanyResponseBodyBuilder":
         self._query_multi_timeline_company_response_body.items = items
         return self
 

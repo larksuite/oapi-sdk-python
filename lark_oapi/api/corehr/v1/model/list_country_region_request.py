@@ -17,13 +17,14 @@ class ListCountryRegionRequest(BaseRequest):
 
 
 class ListCountryRegionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_country_region_request = ListCountryRegionRequest()
         list_country_region_request.http_method = HttpMethod.GET
         list_country_region_request.uri = "/open-apis/corehr/v1/country_regions"
         list_country_region_request.token_types = {AccessTokenType.TENANT}
-        self._list_country_region_request: ListCountryRegionRequest = list_country_region_request
+        self._list_country_region_request: ListCountryRegionRequest = (
+            list_country_region_request
+        )
 
     def page_token(self, page_token: str) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.page_token = page_token

@@ -16,7 +16,6 @@ class DeleteLocationRequest(BaseRequest):
 
 
 class DeleteLocationRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_location_request = DeleteLocationRequest()
         delete_location_request.http_method = HttpMethod.DELETE

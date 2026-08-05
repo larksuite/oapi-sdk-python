@@ -36,7 +36,9 @@ class AppAbilityWebBuilder(object):
         self._app_ability_web.pc_url = pc_url
         return self
 
-    def pc_new_page_open_mode(self, pc_new_page_open_mode: str) -> "AppAbilityWebBuilder":
+    def pc_new_page_open_mode(
+        self, pc_new_page_open_mode: str
+    ) -> "AppAbilityWebBuilder":
         self._app_ability_web.pc_new_page_open_mode = pc_new_page_open_mode
         return self
 

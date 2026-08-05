@@ -18,13 +18,19 @@ class DeleteAppTableFieldRequest(BaseRequest):
 
 
 class DeleteAppTableFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_app_table_field_request = DeleteAppTableFieldRequest()
         delete_app_table_field_request.http_method = HttpMethod.DELETE
-        delete_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
-        delete_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_app_table_field_request: DeleteAppTableFieldRequest = delete_app_table_field_request
+        delete_app_table_field_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
+        )
+        delete_app_table_field_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_app_table_field_request: DeleteAppTableFieldRequest = (
+            delete_app_table_field_request
+        )
 
     def app_token(self, app_token: str) -> "DeleteAppTableFieldRequestBuilder":
         self._delete_app_table_field_request.app_token = app_token

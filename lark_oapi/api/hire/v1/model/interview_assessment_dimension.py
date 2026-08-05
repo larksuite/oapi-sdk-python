@@ -63,11 +63,15 @@ class InterviewAssessmentDimensionBuilder(object):
         self._interview_assessment_dimension.required = required
         return self
 
-    def dimension_type(self, dimension_type: int) -> "InterviewAssessmentDimensionBuilder":
+    def dimension_type(
+        self, dimension_type: int
+    ) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.dimension_type = dimension_type
         return self
 
-    def args(self, args: InterviewAssessmentDimensionArgs) -> "InterviewAssessmentDimensionBuilder":
+    def args(
+        self, args: InterviewAssessmentDimensionArgs
+    ) -> "InterviewAssessmentDimensionBuilder":
         self._interview_assessment_dimension.args = args
         return self
 

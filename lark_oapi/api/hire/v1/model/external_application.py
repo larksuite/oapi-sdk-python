@@ -52,7 +52,9 @@ class ExternalApplicationBuilder(object):
         self._external_application.external_id = external_id
         return self
 
-    def job_recruitment_type(self, job_recruitment_type: int) -> "ExternalApplicationBuilder":
+    def job_recruitment_type(
+        self, job_recruitment_type: int
+    ) -> "ExternalApplicationBuilder":
         self._external_application.job_recruitment_type = job_recruitment_type
         return self
 
@@ -72,7 +74,9 @@ class ExternalApplicationBuilder(object):
         self._external_application.talent_id = talent_id
         return self
 
-    def termination_reason(self, termination_reason: str) -> "ExternalApplicationBuilder":
+    def termination_reason(
+        self, termination_reason: str
+    ) -> "ExternalApplicationBuilder":
         self._external_application.termination_reason = termination_reason
         return self
 

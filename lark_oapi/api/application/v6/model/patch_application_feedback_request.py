@@ -20,15 +20,20 @@ class PatchApplicationFeedbackRequest(BaseRequest):
 
 
 class PatchApplicationFeedbackRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_application_feedback_request = PatchApplicationFeedbackRequest()
         patch_application_feedback_request.http_method = HttpMethod.PATCH
-        patch_application_feedback_request.uri = "/open-apis/application/v6/applications/:app_id/feedbacks/:feedback_id"
+        patch_application_feedback_request.uri = (
+            "/open-apis/application/v6/applications/:app_id/feedbacks/:feedback_id"
+        )
         patch_application_feedback_request.token_types = {AccessTokenType.TENANT}
-        self._patch_application_feedback_request: PatchApplicationFeedbackRequest = patch_application_feedback_request
+        self._patch_application_feedback_request: PatchApplicationFeedbackRequest = (
+            patch_application_feedback_request
+        )
 
-    def user_id_type(self, user_id_type: str) -> "PatchApplicationFeedbackRequestBuilder":
+    def user_id_type(
+        self, user_id_type: str
+    ) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.user_id_type = user_id_type
         self._patch_application_feedback_request.add_query("user_id_type", user_id_type)
         return self

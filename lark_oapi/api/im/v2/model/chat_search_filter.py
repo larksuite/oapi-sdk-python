@@ -10,6 +10,7 @@ class ChatSearchFilter(object):
         "member_ids": List[str],
         "is_manager": bool,
         "disable_search_by_user": bool,
+        "chat_modes": List[str],
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class ChatSearchFilter(object):
         self.member_ids: Optional[List[str]] = None
         self.is_manager: Optional[bool] = None
         self.disable_search_by_user: Optional[bool] = None
+        self.chat_modes: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,8 +42,14 @@ class ChatSearchFilterBuilder(object):
         self._chat_search_filter.is_manager = is_manager
         return self
 
-    def disable_search_by_user(self, disable_search_by_user: bool) -> "ChatSearchFilterBuilder":
+    def disable_search_by_user(
+        self, disable_search_by_user: bool
+    ) -> "ChatSearchFilterBuilder":
         self._chat_search_filter.disable_search_by_user = disable_search_by_user
+        return self
+
+    def chat_modes(self, chat_modes: List[str]) -> "ChatSearchFilterBuilder":
+        self._chat_search_filter.chat_modes = chat_modes
         return self
 
     def build(self) -> "ChatSearchFilter":

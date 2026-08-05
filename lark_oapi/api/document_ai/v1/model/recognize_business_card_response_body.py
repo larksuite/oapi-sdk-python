@@ -21,9 +21,13 @@ class RecognizeBusinessCardResponseBody(object):
 
 class RecognizeBusinessCardResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_business_card_response_body = RecognizeBusinessCardResponseBody()
+        self._recognize_business_card_response_body = (
+            RecognizeBusinessCardResponseBody()
+        )
 
-    def business_cards(self, business_cards: List[RecognizedEntities]) -> "RecognizeBusinessCardResponseBodyBuilder":
+    def business_cards(
+        self, business_cards: List[RecognizedEntities]
+    ) -> "RecognizeBusinessCardResponseBodyBuilder":
         self._recognize_business_card_response_body.business_cards = business_cards
         return self
 

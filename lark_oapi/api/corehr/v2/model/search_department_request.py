@@ -21,13 +21,17 @@ class SearchDepartmentRequest(BaseRequest):
 
 
 class SearchDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
         search_department_request = SearchDepartmentRequest()
         search_department_request.http_method = HttpMethod.POST
         search_department_request.uri = "/open-apis/corehr/v2/departments/search"
-        search_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._search_department_request: SearchDepartmentRequest = search_department_request
+        search_department_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._search_department_request: SearchDepartmentRequest = (
+            search_department_request
+        )
 
     def page_size(self, page_size: int) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.page_size = page_size
@@ -44,12 +48,18 @@ class SearchDepartmentRequestBuilder(object):
         self._search_department_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "SearchDepartmentRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.department_id_type = department_id_type
-        self._search_department_request.add_query("department_id_type", department_id_type)
+        self._search_department_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
-    def request_body(self, request_body: SearchDepartmentRequestBody) -> "SearchDepartmentRequestBuilder":
+    def request_body(
+        self, request_body: SearchDepartmentRequestBody
+    ) -> "SearchDepartmentRequestBuilder":
         self._search_department_request.request_body = request_body
         self._search_department_request.body = request_body
         return self

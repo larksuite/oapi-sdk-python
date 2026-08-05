@@ -9,7 +9,6 @@ from .query_rule_response_body import QueryRuleResponseBody
 class QueryRuleResponse(BaseResponse):
     _types = {
         "data": QueryRuleResponseBody,
-
     }
 
     def __init__(self, d=None):

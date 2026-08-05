@@ -29,9 +29,12 @@ class MatchingRuleScopeSettingBuilder(object):
         self._matching_rule_scope_setting.is_all_scope = is_all_scope
         return self
 
-    def matching_rule_dimensions(self, matching_rule_dimensions: List[
-        MatchingRuleDimensionItem]) -> "MatchingRuleScopeSettingBuilder":
-        self._matching_rule_scope_setting.matching_rule_dimensions = matching_rule_dimensions
+    def matching_rule_dimensions(
+        self, matching_rule_dimensions: List[MatchingRuleDimensionItem]
+    ) -> "MatchingRuleScopeSettingBuilder":
+        self._matching_rule_scope_setting.matching_rule_dimensions = (
+            matching_rule_dimensions
+        )
         return self
 
     def build(self) -> "MatchingRuleScopeSetting":

@@ -30,7 +30,9 @@ class PatchTagResponseBodyBuilder(object):
         self._patch_tag_response_body.tag_info = tag_info
         return self
 
-    def patch_tag_fail_reason(self, patch_tag_fail_reason: PatchTagFailReason) -> "PatchTagResponseBodyBuilder":
+    def patch_tag_fail_reason(
+        self, patch_tag_fail_reason: PatchTagFailReason
+    ) -> "PatchTagResponseBodyBuilder":
         self._patch_tag_response_body.patch_tag_fail_reason = patch_tag_fail_reason
         return self
 

@@ -47,7 +47,9 @@ class PersonInfoChnBuilder(object):
         self._person_info_chn.native_region = native_region
         return self
 
-    def political_affiliation_list(self, political_affiliation_list: List[Enum]) -> "PersonInfoChnBuilder":
+    def political_affiliation_list(
+        self, political_affiliation_list: List[Enum]
+    ) -> "PersonInfoChnBuilder":
         self._person_info_chn.political_affiliation_list = political_affiliation_list
         return self
 
@@ -63,7 +65,9 @@ class PersonInfoChnBuilder(object):
         self._person_info_chn.person_id = person_id
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PersonInfoChnBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "PersonInfoChnBuilder":
         self._person_info_chn.custom_fields = custom_fields
         return self
 

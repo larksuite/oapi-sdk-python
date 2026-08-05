@@ -18,7 +18,6 @@ class ListPreHireRequest(BaseRequest):
 
 
 class ListPreHireRequestBuilder(object):
-
     def __init__(self) -> None:
         list_pre_hire_request = ListPreHireRequest()
         list_pre_hire_request.http_method = HttpMethod.GET

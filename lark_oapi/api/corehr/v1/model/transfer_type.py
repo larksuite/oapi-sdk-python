@@ -36,8 +36,12 @@ class TransferTypeBuilder(object):
     def __init__(self) -> None:
         self._transfer_type = TransferType()
 
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: str) -> "TransferTypeBuilder":
-        self._transfer_type.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: str
+    ) -> "TransferTypeBuilder":
+        self._transfer_type.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
     def name(self, name: List[I18n]) -> "TransferTypeBuilder":

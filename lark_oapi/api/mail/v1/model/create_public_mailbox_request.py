@@ -17,15 +17,18 @@ class CreatePublicMailboxRequest(BaseRequest):
 
 
 class CreatePublicMailboxRequestBuilder(object):
-
     def __init__(self) -> None:
         create_public_mailbox_request = CreatePublicMailboxRequest()
         create_public_mailbox_request.http_method = HttpMethod.POST
         create_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes"
         create_public_mailbox_request.token_types = {AccessTokenType.TENANT}
-        self._create_public_mailbox_request: CreatePublicMailboxRequest = create_public_mailbox_request
+        self._create_public_mailbox_request: CreatePublicMailboxRequest = (
+            create_public_mailbox_request
+        )
 
-    def request_body(self, request_body: PublicMailbox) -> "CreatePublicMailboxRequestBuilder":
+    def request_body(
+        self, request_body: PublicMailbox
+    ) -> "CreatePublicMailboxRequestBuilder":
         self._create_public_mailbox_request.request_body = request_body
         self._create_public_mailbox_request.body = request_body
         return self

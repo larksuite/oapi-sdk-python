@@ -9,7 +9,6 @@ from .create_app_table_record_response_body import CreateAppTableRecordResponseB
 class CreateAppTableRecordResponse(BaseResponse):
     _types = {
         "data": CreateAppTableRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

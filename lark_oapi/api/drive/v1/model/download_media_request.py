@@ -17,12 +17,14 @@ class DownloadMediaRequest(BaseRequest):
 
 
 class DownloadMediaRequestBuilder(object):
-
     def __init__(self) -> None:
         download_media_request = DownloadMediaRequest()
         download_media_request.http_method = HttpMethod.GET
         download_media_request.uri = "/open-apis/drive/v1/medias/:file_token/download"
-        download_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        download_media_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._download_media_request: DownloadMediaRequest = download_media_request
 
     def extra(self, extra: str) -> "DownloadMediaRequestBuilder":

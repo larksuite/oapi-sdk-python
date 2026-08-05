@@ -31,11 +31,15 @@ class AgentScheduleUpdateInfoBuilder(object):
         self._agent_schedule_update_info.agent_id = agent_id
         return self
 
-    def schedule(self, schedule: List[WeekdaySchedule]) -> "AgentScheduleUpdateInfoBuilder":
+    def schedule(
+        self, schedule: List[WeekdaySchedule]
+    ) -> "AgentScheduleUpdateInfoBuilder":
         self._agent_schedule_update_info.schedule = schedule
         return self
 
-    def agent_skill_ids(self, agent_skill_ids: List[str]) -> "AgentScheduleUpdateInfoBuilder":
+    def agent_skill_ids(
+        self, agent_skill_ids: List[str]
+    ) -> "AgentScheduleUpdateInfoBuilder":
         self._agent_schedule_update_info.agent_skill_ids = agent_skill_ids
         return self
 

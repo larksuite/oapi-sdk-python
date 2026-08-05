@@ -9,16 +9,34 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_public_mailbox_member_request import BatchCreatePublicMailboxMemberRequest
-from ..model.batch_create_public_mailbox_member_response import BatchCreatePublicMailboxMemberResponse
-from ..model.batch_delete_public_mailbox_member_request import BatchDeletePublicMailboxMemberRequest
-from ..model.batch_delete_public_mailbox_member_response import BatchDeletePublicMailboxMemberResponse
+from ..model.batch_create_public_mailbox_member_request import (
+    BatchCreatePublicMailboxMemberRequest,
+)
+from ..model.batch_create_public_mailbox_member_response import (
+    BatchCreatePublicMailboxMemberResponse,
+)
+from ..model.batch_delete_public_mailbox_member_request import (
+    BatchDeletePublicMailboxMemberRequest,
+)
+from ..model.batch_delete_public_mailbox_member_response import (
+    BatchDeletePublicMailboxMemberResponse,
+)
 from ..model.clear_public_mailbox_member_request import ClearPublicMailboxMemberRequest
-from ..model.clear_public_mailbox_member_response import ClearPublicMailboxMemberResponse
-from ..model.create_public_mailbox_member_request import CreatePublicMailboxMemberRequest
-from ..model.create_public_mailbox_member_response import CreatePublicMailboxMemberResponse
-from ..model.delete_public_mailbox_member_request import DeletePublicMailboxMemberRequest
-from ..model.delete_public_mailbox_member_response import DeletePublicMailboxMemberResponse
+from ..model.clear_public_mailbox_member_response import (
+    ClearPublicMailboxMemberResponse,
+)
+from ..model.create_public_mailbox_member_request import (
+    CreatePublicMailboxMemberRequest,
+)
+from ..model.create_public_mailbox_member_response import (
+    CreatePublicMailboxMemberResponse,
+)
+from ..model.delete_public_mailbox_member_request import (
+    DeletePublicMailboxMemberRequest,
+)
+from ..model.delete_public_mailbox_member_response import (
+    DeletePublicMailboxMemberResponse,
+)
 from ..model.get_public_mailbox_member_request import GetPublicMailboxMemberRequest
 from ..model.get_public_mailbox_member_response import GetPublicMailboxMemberResponse
 from ..model.list_public_mailbox_member_request import ListPublicMailboxMemberRequest
@@ -29,8 +47,11 @@ class PublicMailboxMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreatePublicMailboxMemberRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreatePublicMailboxMemberResponse:
+    def batch_create(
+        self,
+        request: BatchCreatePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreatePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,14 +66,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreatePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          BatchCreatePublicMailboxMemberResponse)
+        response: BatchCreatePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreatePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create(self, request: BatchCreatePublicMailboxMemberRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreatePublicMailboxMemberResponse:
+    async def abatch_create(
+        self,
+        request: BatchCreatePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreatePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -63,14 +88,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreatePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          BatchCreatePublicMailboxMemberResponse)
+        response: BatchCreatePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreatePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_delete(self, request: BatchDeletePublicMailboxMemberRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeletePublicMailboxMemberResponse:
+    def batch_delete(
+        self,
+        request: BatchDeletePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeletePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -85,14 +114,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeletePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          BatchDeletePublicMailboxMemberResponse)
+        response: BatchDeletePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeletePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_delete(self, request: BatchDeletePublicMailboxMemberRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeletePublicMailboxMemberResponse:
+    async def abatch_delete(
+        self,
+        request: BatchDeletePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeletePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -103,14 +136,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeletePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          BatchDeletePublicMailboxMemberResponse)
+        response: BatchDeletePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeletePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def clear(self, request: ClearPublicMailboxMemberRequest,
-              option: Optional[RequestOption] = None) -> ClearPublicMailboxMemberResponse:
+    def clear(
+        self,
+        request: ClearPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ClearPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -125,14 +162,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ClearPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ClearPublicMailboxMemberResponse)
+        response: ClearPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ClearPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aclear(self, request: ClearPublicMailboxMemberRequest,
-                     option: Optional[RequestOption] = None) -> ClearPublicMailboxMemberResponse:
+    async def aclear(
+        self,
+        request: ClearPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ClearPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -143,14 +184,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ClearPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ClearPublicMailboxMemberResponse)
+        response: ClearPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ClearPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def create(self, request: CreatePublicMailboxMemberRequest,
-               option: Optional[RequestOption] = None) -> CreatePublicMailboxMemberResponse:
+    def create(
+        self,
+        request: CreatePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -165,14 +210,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreatePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreatePublicMailboxMemberResponse)
+        response: CreatePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreatePublicMailboxMemberRequest,
-                      option: Optional[RequestOption] = None) -> CreatePublicMailboxMemberResponse:
+    async def acreate(
+        self,
+        request: CreatePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreatePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -183,14 +232,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreatePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreatePublicMailboxMemberResponse)
+        response: CreatePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreatePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeletePublicMailboxMemberRequest,
-               option: Optional[RequestOption] = None) -> DeletePublicMailboxMemberResponse:
+    def delete(
+        self,
+        request: DeletePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeletePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -205,14 +258,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeletePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeletePublicMailboxMemberResponse)
+        response: DeletePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeletePublicMailboxMemberRequest,
-                      option: Optional[RequestOption] = None) -> DeletePublicMailboxMemberResponse:
+    async def adelete(
+        self,
+        request: DeletePublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeletePublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -223,14 +280,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeletePublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeletePublicMailboxMemberResponse)
+        response: DeletePublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeletePublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetPublicMailboxMemberRequest,
-            option: Optional[RequestOption] = None) -> GetPublicMailboxMemberResponse:
+    def get(
+        self,
+        request: GetPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -245,14 +306,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetPublicMailboxMemberResponse)
+        response: GetPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetPublicMailboxMemberRequest,
-                   option: Optional[RequestOption] = None) -> GetPublicMailboxMemberResponse:
+    async def aget(
+        self,
+        request: GetPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -263,14 +328,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  GetPublicMailboxMemberResponse)
+        response: GetPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListPublicMailboxMemberRequest,
-             option: Optional[RequestOption] = None) -> ListPublicMailboxMemberResponse:
+    def list(
+        self,
+        request: ListPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -285,14 +354,18 @@ class PublicMailboxMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListPublicMailboxMemberResponse)
+        response: ListPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListPublicMailboxMemberRequest,
-                    option: Optional[RequestOption] = None) -> ListPublicMailboxMemberResponse:
+    async def alist(
+        self,
+        request: ListPublicMailboxMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListPublicMailboxMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -303,8 +376,9 @@ class PublicMailboxMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListPublicMailboxMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ListPublicMailboxMemberResponse)
+        response: ListPublicMailboxMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListPublicMailboxMemberResponse
+        )
         response.raw = resp
 
         return response

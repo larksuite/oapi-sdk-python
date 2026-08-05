@@ -35,7 +35,9 @@ class ApplicationInfoBuilder(object):
         self._application_info.apply_initiator_id = apply_initiator_id
         return self
 
-    def apply_initiating_time(self, apply_initiating_time: str) -> "ApplicationInfoBuilder":
+    def apply_initiating_time(
+        self, apply_initiating_time: str
+    ) -> "ApplicationInfoBuilder":
         self._application_info.apply_initiating_time = apply_initiating_time
         return self
 
@@ -47,7 +49,9 @@ class ApplicationInfoBuilder(object):
         self._application_info.process_id = process_id
         return self
 
-    def apply_initiator(self, apply_initiator: ViewEmploymentInfo) -> "ApplicationInfoBuilder":
+    def apply_initiator(
+        self, apply_initiator: ViewEmploymentInfo
+    ) -> "ApplicationInfoBuilder":
         self._application_info.apply_initiator = apply_initiator
         return self
 

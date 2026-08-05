@@ -38,11 +38,15 @@ class InternOfferStatusBuilder(object):
         self._intern_offer_status.operation = operation
         return self
 
-    def onboarding_info(self, onboarding_info: InternOfferOnboardingInfo) -> "InternOfferStatusBuilder":
+    def onboarding_info(
+        self, onboarding_info: InternOfferOnboardingInfo
+    ) -> "InternOfferStatusBuilder":
         self._intern_offer_status.onboarding_info = onboarding_info
         return self
 
-    def offboarding_info(self, offboarding_info: InternOfferOffboardingInfo) -> "InternOfferStatusBuilder":
+    def offboarding_info(
+        self, offboarding_info: InternOfferOffboardingInfo
+    ) -> "InternOfferStatusBuilder":
         self._intern_offer_status.offboarding_info = offboarding_info
         return self
 

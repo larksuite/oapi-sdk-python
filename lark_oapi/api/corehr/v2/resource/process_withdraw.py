@@ -17,8 +17,11 @@ class ProcessWithdraw(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateProcessWithdrawRequest,
-               option: Optional[RequestOption] = None) -> UpdateProcessWithdrawResponse:
+    def update(
+        self,
+        request: UpdateProcessWithdrawRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProcessWithdrawResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class ProcessWithdraw(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessWithdrawResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UpdateProcessWithdrawResponse)
+        response: UpdateProcessWithdrawResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessWithdrawResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateProcessWithdrawRequest,
-                      option: Optional[RequestOption] = None) -> UpdateProcessWithdrawResponse:
+    async def aupdate(
+        self,
+        request: UpdateProcessWithdrawRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateProcessWithdrawResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class ProcessWithdraw(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateProcessWithdrawResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 UpdateProcessWithdrawResponse)
+        response: UpdateProcessWithdrawResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateProcessWithdrawResponse
+        )
         response.raw = resp
 
         return response

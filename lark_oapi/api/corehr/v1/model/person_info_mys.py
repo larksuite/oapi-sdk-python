@@ -60,15 +60,21 @@ class PersonInfoMysBuilder(object):
         self._person_info_mys.person_id = person_id
         return self
 
-    def previous_income_in_the_current_year(self, previous_income_in_the_current_year: bool) -> "PersonInfoMysBuilder":
-        self._person_info_mys.previous_income_in_the_current_year = previous_income_in_the_current_year
+    def previous_income_in_the_current_year(
+        self, previous_income_in_the_current_year: bool
+    ) -> "PersonInfoMysBuilder":
+        self._person_info_mys.previous_income_in_the_current_year = (
+            previous_income_in_the_current_year
+        )
         return self
 
     def fresh_graduate(self, fresh_graduate: bool) -> "PersonInfoMysBuilder":
         self._person_info_mys.fresh_graduate = fresh_graduate
         return self
 
-    def previous_employers_list(self, previous_employers_list: List[PreviousEmployer]) -> "PersonInfoMysBuilder":
+    def previous_employers_list(
+        self, previous_employers_list: List[PreviousEmployer]
+    ) -> "PersonInfoMysBuilder":
         self._person_info_mys.previous_employers_list = previous_employers_list
         return self
 
@@ -100,7 +106,9 @@ class PersonInfoMysBuilder(object):
         self._person_info_mys.common_reserve_fund = common_reserve_fund
         return self
 
-    def monthly_tax_deduction(self, monthly_tax_deduction: str) -> "PersonInfoMysBuilder":
+    def monthly_tax_deduction(
+        self, monthly_tax_deduction: str
+    ) -> "PersonInfoMysBuilder":
         self._person_info_mys.monthly_tax_deduction = monthly_tax_deduction
         return self
 
@@ -108,7 +116,9 @@ class PersonInfoMysBuilder(object):
         self._person_info_mys.social_insurance = social_insurance
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PersonInfoMysBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "PersonInfoMysBuilder":
         self._person_info_mys.custom_fields = custom_fields
         return self
 

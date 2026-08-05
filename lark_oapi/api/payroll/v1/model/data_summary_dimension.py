@@ -46,24 +46,35 @@ class DataSummaryDimensionBuilder(object):
         self._data_summary_dimension.dimension_type = dimension_type
         return self
 
-    def dimension_value_id(self, dimension_value_id: str) -> "DataSummaryDimensionBuilder":
+    def dimension_value_id(
+        self, dimension_value_id: str
+    ) -> "DataSummaryDimensionBuilder":
         self._data_summary_dimension.dimension_value_id = dimension_value_id
         return self
 
-    def enum_dimension(self, enum_dimension: EnumObject) -> "DataSummaryDimensionBuilder":
+    def enum_dimension(
+        self, enum_dimension: EnumObject
+    ) -> "DataSummaryDimensionBuilder":
         self._data_summary_dimension.enum_dimension = enum_dimension
         return self
 
-    def dimension_value_lookup_info(self,
-                                    dimension_value_lookup_info: DimensionValueLookupInfo) -> "DataSummaryDimensionBuilder":
-        self._data_summary_dimension.dimension_value_lookup_info = dimension_value_lookup_info
+    def dimension_value_lookup_info(
+        self, dimension_value_lookup_info: DimensionValueLookupInfo
+    ) -> "DataSummaryDimensionBuilder":
+        self._data_summary_dimension.dimension_value_lookup_info = (
+            dimension_value_lookup_info
+        )
         return self
 
-    def dimension_names(self, dimension_names: List[I18nContent]) -> "DataSummaryDimensionBuilder":
+    def dimension_names(
+        self, dimension_names: List[I18nContent]
+    ) -> "DataSummaryDimensionBuilder":
         self._data_summary_dimension.dimension_names = dimension_names
         return self
 
-    def dimension_titles(self, dimension_titles: List[I18nContent]) -> "DataSummaryDimensionBuilder":
+    def dimension_titles(
+        self, dimension_titles: List[I18nContent]
+    ) -> "DataSummaryDimensionBuilder":
         self._data_summary_dimension.dimension_titles = dimension_titles
         return self
 

@@ -22,8 +22,12 @@ class ClockInAbnormalSettingsBuilder(object):
     def __init__(self) -> None:
         self._clock_in_abnormal_settings = ClockInAbnormalSettings()
 
-    def ignore_until_latest_clockout(self, ignore_until_latest_clockout: bool) -> "ClockInAbnormalSettingsBuilder":
-        self._clock_in_abnormal_settings.ignore_until_latest_clockout = ignore_until_latest_clockout
+    def ignore_until_latest_clockout(
+        self, ignore_until_latest_clockout: bool
+    ) -> "ClockInAbnormalSettingsBuilder":
+        self._clock_in_abnormal_settings.ignore_until_latest_clockout = (
+            ignore_until_latest_clockout
+        )
         return self
 
     def build(self) -> "ClockInAbnormalSettings":

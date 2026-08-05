@@ -9,7 +9,6 @@ from .patch_schema_response_body import PatchSchemaResponseBody
 class PatchSchemaResponse(BaseResponse):
     _types = {
         "data": PatchSchemaResponseBody,
-
     }
 
     def __init__(self, d=None):

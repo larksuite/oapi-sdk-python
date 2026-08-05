@@ -42,7 +42,9 @@ class EmployeeTypeBuilder(object):
         self._employee_type.name = name
         return self
 
-    def default_employee_type(self, default_employee_type: bool) -> "EmployeeTypeBuilder":
+    def default_employee_type(
+        self, default_employee_type: bool
+    ) -> "EmployeeTypeBuilder":
         self._employee_type.default_employee_type = default_employee_type
         return self
 
@@ -54,7 +56,9 @@ class EmployeeTypeBuilder(object):
         self._employee_type.code = code
         return self
 
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmployeeTypeBuilder":
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "EmployeeTypeBuilder":
         self._employee_type.custom_fields = custom_fields
         return self
 

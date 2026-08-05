@@ -43,15 +43,21 @@ class AskAppKnowledgeResponseBodyBuilder(object):
         self._ask_app_knowledge_response_body.finish_type = finish_type
         return self
 
-    def message(self, message: AilyKnowledgeMessage) -> "AskAppKnowledgeResponseBodyBuilder":
+    def message(
+        self, message: AilyKnowledgeMessage
+    ) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.message = message
         return self
 
-    def process_data(self, process_data: AilyKnowledgeAskProcessData) -> "AskAppKnowledgeResponseBodyBuilder":
+    def process_data(
+        self, process_data: AilyKnowledgeAskProcessData
+    ) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.process_data = process_data
         return self
 
-    def faq_result(self, faq_result: AilyKnowledgeFaq) -> "AskAppKnowledgeResponseBodyBuilder":
+    def faq_result(
+        self, faq_result: AilyKnowledgeFaq
+    ) -> "AskAppKnowledgeResponseBodyBuilder":
         self._ask_app_knowledge_response_body.faq_result = faq_result
         return self
 

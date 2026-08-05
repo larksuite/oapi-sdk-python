@@ -17,15 +17,18 @@ class UnsubscriptionMeetingRequest(BaseRequest):
 
 
 class UnsubscriptionMeetingRequestBuilder(object):
-
     def __init__(self) -> None:
         unsubscription_meeting_request = UnsubscriptionMeetingRequest()
         unsubscription_meeting_request.http_method = HttpMethod.POST
         unsubscription_meeting_request.uri = "/open-apis/vc/v1/meetings/unsubscription"
         unsubscription_meeting_request.token_types = {AccessTokenType.USER}
-        self._unsubscription_meeting_request: UnsubscriptionMeetingRequest = unsubscription_meeting_request
+        self._unsubscription_meeting_request: UnsubscriptionMeetingRequest = (
+            unsubscription_meeting_request
+        )
 
-    def request_body(self, request_body: UnsubscriptionMeetingRequestBody) -> "UnsubscriptionMeetingRequestBuilder":
+    def request_body(
+        self, request_body: UnsubscriptionMeetingRequestBody
+    ) -> "UnsubscriptionMeetingRequestBuilder":
         self._unsubscription_meeting_request.request_body = request_body
         self._unsubscription_meeting_request.body = request_body
         return self

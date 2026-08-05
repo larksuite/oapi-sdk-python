@@ -22,8 +22,12 @@ class JobRequirementUpdateOptionBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_update_option = JobRequirementUpdateOption()
 
-    def need_update_related_job(self, need_update_related_job: bool) -> "JobRequirementUpdateOptionBuilder":
-        self._job_requirement_update_option.need_update_related_job = need_update_related_job
+    def need_update_related_job(
+        self, need_update_related_job: bool
+    ) -> "JobRequirementUpdateOptionBuilder":
+        self._job_requirement_update_option.need_update_related_job = (
+            need_update_related_job
+        )
         return self
 
     def build(self) -> "JobRequirementUpdateOption":

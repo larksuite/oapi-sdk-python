@@ -9,7 +9,9 @@ from .background_check_order_creator import BackgroundCheckOrderCreator
 from .user_contact_info import UserContactInfo
 from .provider_id_name_object import ProviderIdNameObject
 from .eco_background_check_custom_field_data import EcoBackgroundCheckCustomFieldData
-from .background_check_custom_field_data_value import BackgroundCheckCustomFieldDataValue
+from .background_check_custom_field_data_value import (
+    BackgroundCheckCustomFieldDataValue,
+)
 from .background_check_item_info import BackgroundCheckItemInfo
 
 
@@ -58,7 +60,9 @@ class BackgroundCheckOrder(object):
         self.conclusion: Optional[str] = None
         self.provider_info: Optional[ProviderIdNameObject] = None
         self.custom_field_list: Optional[List[EcoBackgroundCheckCustomFieldData]] = None
-        self.custom_data_list: Optional[List[BackgroundCheckCustomFieldDataValue]] = None
+        self.custom_data_list: Optional[List[BackgroundCheckCustomFieldDataValue]] = (
+            None
+        )
         self.ext_item_info_list: Optional[List[BackgroundCheckItemInfo]] = None
         self.update_time: Optional[str] = None
         self.geo: Optional[str] = None
@@ -87,7 +91,9 @@ class BackgroundCheckOrderBuilder(object):
         self._background_check_order.order_status = order_status
         return self
 
-    def account_third_type(self, account_third_type: int) -> "BackgroundCheckOrderBuilder":
+    def account_third_type(
+        self, account_third_type: int
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.account_third_type = account_third_type
         return self
 
@@ -99,13 +105,15 @@ class BackgroundCheckOrderBuilder(object):
         self._background_check_order.name = name
         return self
 
-    def feedback_info_list(self,
-                           feedback_info_list: List[BackgroundCheckOrderFeedbackInfo]) -> "BackgroundCheckOrderBuilder":
+    def feedback_info_list(
+        self, feedback_info_list: List[BackgroundCheckOrderFeedbackInfo]
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.feedback_info_list = feedback_info_list
         return self
 
-    def process_info_list(self,
-                          process_info_list: List[BackgroundCheckOrderProcessInfo]) -> "BackgroundCheckOrderBuilder":
+    def process_info_list(
+        self, process_info_list: List[BackgroundCheckOrderProcessInfo]
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.process_info_list = process_info_list
         return self
 
@@ -113,15 +121,21 @@ class BackgroundCheckOrderBuilder(object):
         self._background_check_order.upload_time = upload_time
         return self
 
-    def candidate_info(self, candidate_info: UserContactInfo) -> "BackgroundCheckOrderBuilder":
+    def candidate_info(
+        self, candidate_info: UserContactInfo
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.candidate_info = candidate_info
         return self
 
-    def creator_info(self, creator_info: BackgroundCheckOrderCreator) -> "BackgroundCheckOrderBuilder":
+    def creator_info(
+        self, creator_info: BackgroundCheckOrderCreator
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.creator_info = creator_info
         return self
 
-    def contactor_info(self, contactor_info: UserContactInfo) -> "BackgroundCheckOrderBuilder":
+    def contactor_info(
+        self, contactor_info: UserContactInfo
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.contactor_info = contactor_info
         return self
 
@@ -137,21 +151,27 @@ class BackgroundCheckOrderBuilder(object):
         self._background_check_order.conclusion = conclusion
         return self
 
-    def provider_info(self, provider_info: ProviderIdNameObject) -> "BackgroundCheckOrderBuilder":
+    def provider_info(
+        self, provider_info: ProviderIdNameObject
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.provider_info = provider_info
         return self
 
-    def custom_field_list(self,
-                          custom_field_list: List[EcoBackgroundCheckCustomFieldData]) -> "BackgroundCheckOrderBuilder":
+    def custom_field_list(
+        self, custom_field_list: List[EcoBackgroundCheckCustomFieldData]
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.custom_field_list = custom_field_list
         return self
 
-    def custom_data_list(self,
-                         custom_data_list: List[BackgroundCheckCustomFieldDataValue]) -> "BackgroundCheckOrderBuilder":
+    def custom_data_list(
+        self, custom_data_list: List[BackgroundCheckCustomFieldDataValue]
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.custom_data_list = custom_data_list
         return self
 
-    def ext_item_info_list(self, ext_item_info_list: List[BackgroundCheckItemInfo]) -> "BackgroundCheckOrderBuilder":
+    def ext_item_info_list(
+        self, ext_item_info_list: List[BackgroundCheckItemInfo]
+    ) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.ext_item_info_list = ext_item_info_list
         return self
 

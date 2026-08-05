@@ -31,7 +31,9 @@ class Entity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateEntityRequest, option: Optional[RequestOption] = None) -> CreateEntityResponse:
+    def create(
+        self, request: CreateEntityRequest, option: Optional[RequestOption] = None
+    ) -> CreateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -46,13 +48,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
+        response: CreateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateEntityRequest,
-                      option: Optional[RequestOption] = None) -> CreateEntityResponse:
+    async def acreate(
+        self, request: CreateEntityRequest, option: Optional[RequestOption] = None
+    ) -> CreateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -63,12 +68,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
+        response: CreateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def extract(self, request: ExtractEntityRequest, option: Optional[RequestOption] = None) -> ExtractEntityResponse:
+    def extract(
+        self, request: ExtractEntityRequest, option: Optional[RequestOption] = None
+    ) -> ExtractEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,13 +92,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ExtractEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), ExtractEntityResponse)
+        response: ExtractEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ExtractEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aextract(self, request: ExtractEntityRequest,
-                       option: Optional[RequestOption] = None) -> ExtractEntityResponse:
+    async def aextract(
+        self, request: ExtractEntityRequest, option: Optional[RequestOption] = None
+    ) -> ExtractEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,12 +112,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ExtractEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), ExtractEntityResponse)
+        response: ExtractEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ExtractEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetEntityRequest, option: Optional[RequestOption] = None) -> GetEntityResponse:
+    def get(
+        self, request: GetEntityRequest, option: Optional[RequestOption] = None
+    ) -> GetEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,12 +136,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEntityResponse)
+        response: GetEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetEntityRequest, option: Optional[RequestOption] = None) -> GetEntityResponse:
+    async def aget(
+        self, request: GetEntityRequest, option: Optional[RequestOption] = None
+    ) -> GetEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -136,13 +156,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEntityResponse)
+        response: GetEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def highlight(self, request: HighlightEntityRequest,
-                  option: Optional[RequestOption] = None) -> HighlightEntityResponse:
+    def highlight(
+        self, request: HighlightEntityRequest, option: Optional[RequestOption] = None
+    ) -> HighlightEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,13 +180,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: HighlightEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), HighlightEntityResponse)
+        response: HighlightEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), HighlightEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ahighlight(self, request: HighlightEntityRequest,
-                         option: Optional[RequestOption] = None) -> HighlightEntityResponse:
+    async def ahighlight(
+        self, request: HighlightEntityRequest, option: Optional[RequestOption] = None
+    ) -> HighlightEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -174,12 +200,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: HighlightEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), HighlightEntityResponse)
+        response: HighlightEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), HighlightEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListEntityRequest, option: Optional[RequestOption] = None) -> ListEntityResponse:
+    def list(
+        self, request: ListEntityRequest, option: Optional[RequestOption] = None
+    ) -> ListEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,12 +224,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEntityResponse)
+        response: ListEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListEntityRequest, option: Optional[RequestOption] = None) -> ListEntityResponse:
+    async def alist(
+        self, request: ListEntityRequest, option: Optional[RequestOption] = None
+    ) -> ListEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,12 +244,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEntityResponse)
+        response: ListEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def match(self, request: MatchEntityRequest, option: Optional[RequestOption] = None) -> MatchEntityResponse:
+    def match(
+        self, request: MatchEntityRequest, option: Optional[RequestOption] = None
+    ) -> MatchEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -230,12 +268,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MatchEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), MatchEntityResponse)
+        response: MatchEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MatchEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amatch(self, request: MatchEntityRequest, option: Optional[RequestOption] = None) -> MatchEntityResponse:
+    async def amatch(
+        self, request: MatchEntityRequest, option: Optional[RequestOption] = None
+    ) -> MatchEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -246,12 +288,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MatchEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), MatchEntityResponse)
+        response: MatchEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MatchEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchEntityRequest, option: Optional[RequestOption] = None) -> SearchEntityResponse:
+    def search(
+        self, request: SearchEntityRequest, option: Optional[RequestOption] = None
+    ) -> SearchEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -266,13 +312,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEntityResponse)
+        response: SearchEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchEntityRequest,
-                      option: Optional[RequestOption] = None) -> SearchEntityResponse:
+    async def asearch(
+        self, request: SearchEntityRequest, option: Optional[RequestOption] = None
+    ) -> SearchEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -283,12 +332,16 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEntityResponse)
+        response: SearchEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateEntityRequest, option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+    def update(
+        self, request: UpdateEntityRequest, option: Optional[RequestOption] = None
+    ) -> UpdateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -303,13 +356,16 @@ class Entity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)
+        response: UpdateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateEntityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateEntityRequest,
-                      option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+    async def aupdate(
+        self, request: UpdateEntityRequest, option: Optional[RequestOption] = None
+    ) -> UpdateEntityResponse:
         if option is None:
             option = RequestOption()
 
@@ -320,7 +376,9 @@ class Entity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)
+        response: UpdateEntityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateEntityResponse
+        )
         response.raw = resp
 
         return response

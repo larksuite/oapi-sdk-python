@@ -9,7 +9,6 @@ from .filter_department_response_body import FilterDepartmentResponseBody
 class FilterDepartmentResponse(BaseResponse):
     _types = {
         "data": FilterDepartmentResponseBody,
-
     }
 
     def __init__(self, d=None):

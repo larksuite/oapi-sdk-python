@@ -16,7 +16,6 @@ class DeletePathwayRequest(BaseRequest):
 
 
 class DeletePathwayRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_pathway_request = DeletePathwayRequest()
         delete_pathway_request.http_method = HttpMethod.DELETE

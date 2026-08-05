@@ -19,7 +19,9 @@ class AppWorkflow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAppWorkflowRequest, option: Optional[RequestOption] = None) -> ListAppWorkflowResponse:
+    def list(
+        self, request: ListAppWorkflowRequest, option: Optional[RequestOption] = None
+    ) -> ListAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,13 +36,16 @@ class AppWorkflow(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppWorkflowResponse)
+        response: ListAppWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppWorkflowResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListAppWorkflowRequest,
-                    option: Optional[RequestOption] = None) -> ListAppWorkflowResponse:
+    async def alist(
+        self, request: ListAppWorkflowRequest, option: Optional[RequestOption] = None
+    ) -> ListAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,13 +56,16 @@ class AppWorkflow(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppWorkflowResponse)
+        response: ListAppWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListAppWorkflowResponse
+        )
         response.raw = resp
 
         return response
 
-    def update(self, request: UpdateAppWorkflowRequest,
-               option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
+    def update(
+        self, request: UpdateAppWorkflowRequest, option: Optional[RequestOption] = None
+    ) -> UpdateAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,13 +80,16 @@ class AppWorkflow(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppWorkflowResponse)
+        response: UpdateAppWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppWorkflowResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateAppWorkflowRequest,
-                      option: Optional[RequestOption] = None) -> UpdateAppWorkflowResponse:
+    async def aupdate(
+        self, request: UpdateAppWorkflowRequest, option: Optional[RequestOption] = None
+    ) -> UpdateAppWorkflowResponse:
         if option is None:
             option = RequestOption()
 
@@ -89,7 +100,9 @@ class AppWorkflow(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateAppWorkflowResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppWorkflowResponse)
+        response: UpdateAppWorkflowResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateAppWorkflowResponse
+        )
         response.raw = resp
 
         return response

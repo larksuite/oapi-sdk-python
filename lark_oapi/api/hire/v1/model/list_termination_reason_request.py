@@ -17,13 +17,14 @@ class ListTerminationReasonRequest(BaseRequest):
 
 
 class ListTerminationReasonRequestBuilder(object):
-
     def __init__(self) -> None:
         list_termination_reason_request = ListTerminationReasonRequest()
         list_termination_reason_request.http_method = HttpMethod.GET
         list_termination_reason_request.uri = "/open-apis/hire/v1/termination_reasons"
         list_termination_reason_request.token_types = {AccessTokenType.TENANT}
-        self._list_termination_reason_request: ListTerminationReasonRequest = list_termination_reason_request
+        self._list_termination_reason_request: ListTerminationReasonRequest = (
+            list_termination_reason_request
+        )
 
     def page_token(self, page_token: str) -> "ListTerminationReasonRequestBuilder":
         self._list_termination_reason_request.page_token = page_token

@@ -74,16 +74,26 @@ class ProbationInfoForSubmitBuilder(object):
         self._probation_info_for_submit.probation_id = probation_id
         return self
 
-    def probation_start_date(self, probation_start_date: str) -> "ProbationInfoForSubmitBuilder":
+    def probation_start_date(
+        self, probation_start_date: str
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.probation_start_date = probation_start_date
         return self
 
-    def probation_expected_end_date(self, probation_expected_end_date: str) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.probation_expected_end_date = probation_expected_end_date
+    def probation_expected_end_date(
+        self, probation_expected_end_date: str
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.probation_expected_end_date = (
+            probation_expected_end_date
+        )
         return self
 
-    def actual_probation_end_date(self, actual_probation_end_date: str) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.actual_probation_end_date = actual_probation_end_date
+    def actual_probation_end_date(
+        self, actual_probation_end_date: str
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.actual_probation_end_date = (
+            actual_probation_end_date
+        )
         return self
 
     def initiating_time(self, initiating_time: str) -> "ProbationInfoForSubmitBuilder":
@@ -98,7 +108,9 @@ class ProbationInfoForSubmitBuilder(object):
         self._probation_info_for_submit.initiator_id = initiator_id
         return self
 
-    def probation_status(self, probation_status: Enum) -> "ProbationInfoForSubmitBuilder":
+    def probation_status(
+        self, probation_status: Enum
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.probation_status = probation_status
         return self
 
@@ -114,36 +126,60 @@ class ProbationInfoForSubmitBuilder(object):
         self._probation_info_for_submit.process_id = process_id
         return self
 
-    def converted_via_bpm(self, converted_via_bpm: bool) -> "ProbationInfoForSubmitBuilder":
+    def converted_via_bpm(
+        self, converted_via_bpm: bool
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.converted_via_bpm = converted_via_bpm
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "ProbationInfoForSubmitBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.custom_fields = custom_fields
         return self
 
-    def final_assessment_status(self, final_assessment_status: Enum) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.final_assessment_status = final_assessment_status
+    def final_assessment_status(
+        self, final_assessment_status: Enum
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.final_assessment_status = (
+            final_assessment_status
+        )
         return self
 
-    def final_assessment_result(self, final_assessment_result: Enum) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.final_assessment_result = final_assessment_result
+    def final_assessment_result(
+        self, final_assessment_result: Enum
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.final_assessment_result = (
+            final_assessment_result
+        )
         return self
 
-    def final_assessment_score(self, final_assessment_score: float) -> "ProbationInfoForSubmitBuilder":
+    def final_assessment_score(
+        self, final_assessment_score: float
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.final_assessment_score = final_assessment_score
         return self
 
-    def final_assessment_grade(self, final_assessment_grade: Enum) -> "ProbationInfoForSubmitBuilder":
+    def final_assessment_grade(
+        self, final_assessment_grade: Enum
+    ) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.final_assessment_grade = final_assessment_grade
         return self
 
-    def final_assessment_comment(self, final_assessment_comment: str) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.final_assessment_comment = final_assessment_comment
+    def final_assessment_comment(
+        self, final_assessment_comment: str
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.final_assessment_comment = (
+            final_assessment_comment
+        )
         return self
 
-    def final_assessment_detail(self, final_assessment_detail: str) -> "ProbationInfoForSubmitBuilder":
-        self._probation_info_for_submit.final_assessment_detail = final_assessment_detail
+    def final_assessment_detail(
+        self, final_assessment_detail: str
+    ) -> "ProbationInfoForSubmitBuilder":
+        self._probation_info_for_submit.final_assessment_detail = (
+            final_assessment_detail
+        )
         return self
 
     def build(self) -> "ProbationInfoForSubmit":

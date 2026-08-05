@@ -17,7 +17,6 @@ class CreateMessageRequest(BaseRequest):
 
 
 class CreateMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         create_message_request = CreateMessageRequest()
         create_message_request.http_method = HttpMethod.POST

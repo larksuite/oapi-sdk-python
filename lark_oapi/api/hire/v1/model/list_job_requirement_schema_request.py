@@ -17,13 +17,16 @@ class ListJobRequirementSchemaRequest(BaseRequest):
 
 
 class ListJobRequirementSchemaRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_requirement_schema_request = ListJobRequirementSchemaRequest()
         list_job_requirement_schema_request.http_method = HttpMethod.GET
-        list_job_requirement_schema_request.uri = "/open-apis/hire/v1/job_requirement_schemas"
+        list_job_requirement_schema_request.uri = (
+            "/open-apis/hire/v1/job_requirement_schemas"
+        )
         list_job_requirement_schema_request.token_types = {AccessTokenType.TENANT}
-        self._list_job_requirement_schema_request: ListJobRequirementSchemaRequest = list_job_requirement_schema_request
+        self._list_job_requirement_schema_request: ListJobRequirementSchemaRequest = (
+            list_job_requirement_schema_request
+        )
 
     def page_token(self, page_token: str) -> "ListJobRequirementSchemaRequestBuilder":
         self._list_job_requirement_schema_request.page_token = page_token

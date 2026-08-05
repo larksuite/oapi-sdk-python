@@ -139,15 +139,21 @@ class UserReport2024Builder(object):
         self._user_report2024.feishu_day_cnt = feishu_day_cnt
         return self
 
-    def duration_cnt_2(self, duration_cnt_2: List[AnnualReportMapFloat]) -> "UserReport2024Builder":
+    def duration_cnt_2(
+        self, duration_cnt_2: List[AnnualReportMapFloat]
+    ) -> "UserReport2024Builder":
         self._user_report2024.duration_cnt_2 = duration_cnt_2
         return self
 
-    def im_send_msg_cnt_2(self, im_send_msg_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def im_send_msg_cnt_2(
+        self, im_send_msg_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.im_send_msg_cnt_2 = im_send_msg_cnt_2
         return self
 
-    def avg_im_send_msg_cnt_2(self, avg_im_send_msg_cnt_2: List[AnnualReportMapFloat]) -> "UserReport2024Builder":
+    def avg_im_send_msg_cnt_2(
+        self, avg_im_send_msg_cnt_2: List[AnnualReportMapFloat]
+    ) -> "UserReport2024Builder":
         self._user_report2024.avg_im_send_msg_cnt_2 = avg_im_send_msg_cnt_2
         return self
 
@@ -163,7 +169,9 @@ class UserReport2024Builder(object):
         self._user_report2024.im_emoji_top1 = im_emoji_top1
         return self
 
-    def im_emoji_top1_cnt_2(self, im_emoji_top1_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def im_emoji_top1_cnt_2(
+        self, im_emoji_top1_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.im_emoji_top1_cnt_2 = im_emoji_top1_cnt_2
         return self
 
@@ -171,7 +179,9 @@ class UserReport2024Builder(object):
         self._user_report2024.im_emoji_top2 = im_emoji_top2
         return self
 
-    def im_emoji_top2_cnt_2(self, im_emoji_top2_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def im_emoji_top2_cnt_2(
+        self, im_emoji_top2_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.im_emoji_top2_cnt_2 = im_emoji_top2_cnt_2
         return self
 
@@ -179,45 +189,65 @@ class UserReport2024Builder(object):
         self._user_report2024.im_emoji_top3 = im_emoji_top3
         return self
 
-    def im_emoji_top3_cnt_2(self, im_emoji_top3_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def im_emoji_top3_cnt_2(
+        self, im_emoji_top3_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.im_emoji_top3_cnt_2 = im_emoji_top3_cnt_2
         return self
 
-    def im_positive_reaction_cnt_2(self,
-                                   im_positive_reaction_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def im_positive_reaction_cnt_2(
+        self, im_positive_reaction_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.im_positive_reaction_cnt_2 = im_positive_reaction_cnt_2
         return self
 
-    def im_positive_reaction_cnt_rank(self, im_positive_reaction_cnt_rank: int) -> "UserReport2024Builder":
-        self._user_report2024.im_positive_reaction_cnt_rank = im_positive_reaction_cnt_rank
+    def im_positive_reaction_cnt_rank(
+        self, im_positive_reaction_cnt_rank: int
+    ) -> "UserReport2024Builder":
+        self._user_report2024.im_positive_reaction_cnt_rank = (
+            im_positive_reaction_cnt_rank
+        )
         return self
 
-    def im_positive_reaction_cnt_denominator(self,
-                                             im_positive_reaction_cnt_denominator: int) -> "UserReport2024Builder":
-        self._user_report2024.im_positive_reaction_cnt_denominator = im_positive_reaction_cnt_denominator
+    def im_positive_reaction_cnt_denominator(
+        self, im_positive_reaction_cnt_denominator: int
+    ) -> "UserReport2024Builder":
+        self._user_report2024.im_positive_reaction_cnt_denominator = (
+            im_positive_reaction_cnt_denominator
+        )
         return self
 
     def busy_day(self, busy_day: str) -> "UserReport2024Builder":
         self._user_report2024.busy_day = busy_day
         return self
 
-    def busy_day_send_msg_cnt(self, busy_day_send_msg_cnt: int) -> "UserReport2024Builder":
+    def busy_day_send_msg_cnt(
+        self, busy_day_send_msg_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.busy_day_send_msg_cnt = busy_day_send_msg_cnt
         return self
 
-    def ccm_create_cnt_2(self, ccm_create_cnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def ccm_create_cnt_2(
+        self, ccm_create_cnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.ccm_create_cnt_2 = ccm_create_cnt_2
         return self
 
-    def ccm_create_viewed_ucnt(self, ccm_create_viewed_ucnt: int) -> "UserReport2024Builder":
+    def ccm_create_viewed_ucnt(
+        self, ccm_create_viewed_ucnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.ccm_create_viewed_ucnt = ccm_create_viewed_ucnt
         return self
 
-    def ccm_create_liked_cnt(self, ccm_create_liked_cnt: int) -> "UserReport2024Builder":
+    def ccm_create_liked_cnt(
+        self, ccm_create_liked_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.ccm_create_liked_cnt = ccm_create_liked_cnt
         return self
 
-    def ccm_create_liked_max_cnt(self, ccm_create_liked_max_cnt: int) -> "UserReport2024Builder":
+    def ccm_create_liked_max_cnt(
+        self, ccm_create_liked_max_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.ccm_create_liked_max_cnt = ccm_create_liked_max_cnt
         return self
 
@@ -225,20 +255,29 @@ class UserReport2024Builder(object):
         self._user_report2024.vc_join_meeting_cnt = vc_join_meeting_cnt
         return self
 
-    def vc_all_meeting_duration_2(self,
-                                  vc_all_meeting_duration_2: List[AnnualReportMapFloat]) -> "UserReport2024Builder":
+    def vc_all_meeting_duration_2(
+        self, vc_all_meeting_duration_2: List[AnnualReportMapFloat]
+    ) -> "UserReport2024Builder":
         self._user_report2024.vc_all_meeting_duration_2 = vc_all_meeting_duration_2
         return self
 
-    def vc_join_meeting_all_user_cnt(self, vc_join_meeting_all_user_cnt: int) -> "UserReport2024Builder":
-        self._user_report2024.vc_join_meeting_all_user_cnt = vc_join_meeting_all_user_cnt
+    def vc_join_meeting_all_user_cnt(
+        self, vc_join_meeting_all_user_cnt: int
+    ) -> "UserReport2024Builder":
+        self._user_report2024.vc_join_meeting_all_user_cnt = (
+            vc_join_meeting_all_user_cnt
+        )
         return self
 
-    def vc_last_meeting_time(self, vc_last_meeting_time: str) -> "UserReport2024Builder":
+    def vc_last_meeting_time(
+        self, vc_last_meeting_time: str
+    ) -> "UserReport2024Builder":
         self._user_report2024.vc_last_meeting_time = vc_last_meeting_time
         return self
 
-    def base_create_fcnt_2(self, base_create_fcnt_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def base_create_fcnt_2(
+        self, base_create_fcnt_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_create_fcnt_2 = base_create_fcnt_2
         return self
 
@@ -246,65 +285,100 @@ class UserReport2024Builder(object):
         self._user_report2024.base_view_fcnt = base_view_fcnt
         return self
 
-    def base_create_dashboard_cnt(self, base_create_dashboard_cnt: int) -> "UserReport2024Builder":
+    def base_create_dashboard_cnt(
+        self, base_create_dashboard_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_create_dashboard_cnt = base_create_dashboard_cnt
         return self
 
-    def base_create_dashboard_rank(self, base_create_dashboard_rank: int) -> "UserReport2024Builder":
+    def base_create_dashboard_rank(
+        self, base_create_dashboard_rank: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_create_dashboard_rank = base_create_dashboard_rank
         return self
 
-    def base_create_dashboard_rank_ucnt(self, base_create_dashboard_rank_ucnt: int) -> "UserReport2024Builder":
-        self._user_report2024.base_create_dashboard_rank_ucnt = base_create_dashboard_rank_ucnt
+    def base_create_dashboard_rank_ucnt(
+        self, base_create_dashboard_rank_ucnt: int
+    ) -> "UserReport2024Builder":
+        self._user_report2024.base_create_dashboard_rank_ucnt = (
+            base_create_dashboard_rank_ucnt
+        )
         return self
 
-    def base_create_chat_cnt(self, base_create_chat_cnt: int) -> "UserReport2024Builder":
+    def base_create_chat_cnt(
+        self, base_create_chat_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_create_chat_cnt = base_create_chat_cnt
         return self
 
-    def base_workflow_ins_cnt(self, base_workflow_ins_cnt: int) -> "UserReport2024Builder":
+    def base_workflow_ins_cnt(
+        self, base_workflow_ins_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_workflow_ins_cnt = base_workflow_ins_cnt
         return self
 
-    def base_workflow_ins_rank(self, base_workflow_ins_rank: int) -> "UserReport2024Builder":
+    def base_workflow_ins_rank(
+        self, base_workflow_ins_rank: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_workflow_ins_rank = base_workflow_ins_rank
         return self
 
-    def base_workflow_ins_rank_ucnt(self, base_workflow_ins_rank_ucnt: int) -> "UserReport2024Builder":
+    def base_workflow_ins_rank_ucnt(
+        self, base_workflow_ins_rank_ucnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.base_workflow_ins_rank_ucnt = base_workflow_ins_rank_ucnt
         return self
 
-    def vc_all_read_notes_cnt(self, vc_all_read_notes_cnt: int) -> "UserReport2024Builder":
+    def vc_all_read_notes_cnt(
+        self, vc_all_read_notes_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.vc_all_read_notes_cnt = vc_all_read_notes_cnt
         return self
 
-    def meego_role_wi_cnt_v2(self, meego_role_wi_cnt_v2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def meego_role_wi_cnt_v2(
+        self, meego_role_wi_cnt_v2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.meego_role_wi_cnt_v2 = meego_role_wi_cnt_v2
         return self
 
-    def meego_common_wi_ucnt(self, meego_common_wi_ucnt: int) -> "UserReport2024Builder":
+    def meego_common_wi_ucnt(
+        self, meego_common_wi_ucnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.meego_common_wi_ucnt = meego_common_wi_ucnt
         return self
 
-    def meego_workflow_wi_cnt(self, meego_workflow_wi_cnt: int) -> "UserReport2024Builder":
+    def meego_workflow_wi_cnt(
+        self, meego_workflow_wi_cnt: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.meego_workflow_wi_cnt = meego_workflow_wi_cnt
         return self
 
-    def people_interview_num_2(self, people_interview_num_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
+    def people_interview_num_2(
+        self, people_interview_num_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
         self._user_report2024.people_interview_num_2 = people_interview_num_2
         return self
 
-    def people_interview_num_rank(self, people_interview_num_rank: int) -> "UserReport2024Builder":
+    def people_interview_num_rank(
+        self, people_interview_num_rank: int
+    ) -> "UserReport2024Builder":
         self._user_report2024.people_interview_num_rank = people_interview_num_rank
         return self
 
-    def people_interview_num_rank_ucnt(self, people_interview_num_rank_ucnt: int) -> "UserReport2024Builder":
-        self._user_report2024.people_interview_num_rank_ucnt = people_interview_num_rank_ucnt
+    def people_interview_num_rank_ucnt(
+        self, people_interview_num_rank_ucnt: int
+    ) -> "UserReport2024Builder":
+        self._user_report2024.people_interview_num_rank_ucnt = (
+            people_interview_num_rank_ucnt
+        )
         return self
 
-    def people_interview_offer_num_2(self,
-                                     people_interview_offer_num_2: List[AnnualReportMapInt]) -> "UserReport2024Builder":
-        self._user_report2024.people_interview_offer_num_2 = people_interview_offer_num_2
+    def people_interview_offer_num_2(
+        self, people_interview_offer_num_2: List[AnnualReportMapInt]
+    ) -> "UserReport2024Builder":
+        self._user_report2024.people_interview_offer_num_2 = (
+            people_interview_offer_num_2
+        )
         return self
 
     def build(self) -> "UserReport2024":

@@ -22,7 +22,6 @@ class ListFileRequest(BaseRequest):
 
 
 class ListFileRequestBuilder(object):
-
     def __init__(self) -> None:
         list_file_request = ListFileRequest()
         list_file_request.http_method = HttpMethod.GET

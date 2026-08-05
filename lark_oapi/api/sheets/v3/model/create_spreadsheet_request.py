@@ -17,15 +17,21 @@ class CreateSpreadsheetRequest(BaseRequest):
 
 
 class CreateSpreadsheetRequestBuilder(object):
-
     def __init__(self) -> None:
         create_spreadsheet_request = CreateSpreadsheetRequest()
         create_spreadsheet_request.http_method = HttpMethod.POST
         create_spreadsheet_request.uri = "/open-apis/sheets/v3/spreadsheets"
-        create_spreadsheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_spreadsheet_request: CreateSpreadsheetRequest = create_spreadsheet_request
+        create_spreadsheet_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_spreadsheet_request: CreateSpreadsheetRequest = (
+            create_spreadsheet_request
+        )
 
-    def request_body(self, request_body: Spreadsheet) -> "CreateSpreadsheetRequestBuilder":
+    def request_body(
+        self, request_body: Spreadsheet
+    ) -> "CreateSpreadsheetRequestBuilder":
         self._create_spreadsheet_request.request_body = request_body
         self._create_spreadsheet_request.body = request_body
         return self

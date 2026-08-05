@@ -17,13 +17,19 @@ class GetPermissionPublicRequest(BaseRequest):
 
 
 class GetPermissionPublicRequestBuilder(object):
-
     def __init__(self) -> None:
         get_permission_public_request = GetPermissionPublicRequest()
         get_permission_public_request.http_method = HttpMethod.GET
-        get_permission_public_request.uri = "/open-apis/drive/v2/permissions/:token/public"
-        get_permission_public_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_permission_public_request: GetPermissionPublicRequest = get_permission_public_request
+        get_permission_public_request.uri = (
+            "/open-apis/drive/v2/permissions/:token/public"
+        )
+        get_permission_public_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_permission_public_request: GetPermissionPublicRequest = (
+            get_permission_public_request
+        )
 
     def type(self, type: str) -> "GetPermissionPublicRequestBuilder":
         self._get_permission_public_request.type = type

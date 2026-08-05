@@ -17,17 +17,27 @@ class GetUserMailboxFolderRequest(BaseRequest):
 
 
 class GetUserMailboxFolderRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_mailbox_folder_request = GetUserMailboxFolderRequest()
         get_user_mailbox_folder_request.http_method = HttpMethod.GET
-        get_user_mailbox_folder_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/folders/:folder_id"
-        get_user_mailbox_folder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._get_user_mailbox_folder_request: GetUserMailboxFolderRequest = get_user_mailbox_folder_request
+        get_user_mailbox_folder_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/folders/:folder_id"
+        )
+        get_user_mailbox_folder_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._get_user_mailbox_folder_request: GetUserMailboxFolderRequest = (
+            get_user_mailbox_folder_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxFolderRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "GetUserMailboxFolderRequestBuilder":
         self._get_user_mailbox_folder_request.user_mailbox_id = user_mailbox_id
-        self._get_user_mailbox_folder_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._get_user_mailbox_folder_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def folder_id(self, folder_id: str) -> "GetUserMailboxFolderRequestBuilder":

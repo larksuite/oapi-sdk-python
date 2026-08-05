@@ -132,7 +132,9 @@ class InputTaskBuilder(object):
         self._input_task.is_milestone = is_milestone
         return self
 
-    def custom_fields(self, custom_fields: List[InputCustomFieldValue]) -> "InputTaskBuilder":
+    def custom_fields(
+        self, custom_fields: List[InputCustomFieldValue]
+    ) -> "InputTaskBuilder":
         self._input_task.custom_fields = custom_fields
         return self
 
@@ -140,7 +142,9 @@ class InputTaskBuilder(object):
         self._input_task.docx_source = docx_source
         return self
 
-    def positive_reminders(self, positive_reminders: List[Reminder]) -> "InputTaskBuilder":
+    def positive_reminders(
+        self, positive_reminders: List[Reminder]
+    ) -> "InputTaskBuilder":
         self._input_task.positive_reminders = positive_reminders
         return self
 

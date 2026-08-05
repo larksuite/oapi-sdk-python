@@ -42,7 +42,9 @@ class SalaryLevelTypeBuilder(object):
         self._salary_level_type.status = status
         return self
 
-    def salary_levels(self, salary_levels: List[SalaryLevel]) -> "SalaryLevelTypeBuilder":
+    def salary_levels(
+        self, salary_levels: List[SalaryLevel]
+    ) -> "SalaryLevelTypeBuilder":
         self._salary_level_type.salary_levels = salary_levels
         return self
 

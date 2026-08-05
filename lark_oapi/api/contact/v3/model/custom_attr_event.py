@@ -24,7 +24,9 @@ class CustomAttrEventBuilder(object):
     def __init__(self) -> None:
         self._custom_attr_event = CustomAttrEvent()
 
-    def contact_field_key(self, contact_field_key: List[str]) -> "CustomAttrEventBuilder":
+    def contact_field_key(
+        self, contact_field_key: List[str]
+    ) -> "CustomAttrEventBuilder":
         self._custom_attr_event.contact_field_key = contact_field_key
         return self
 

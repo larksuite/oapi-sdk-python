@@ -9,7 +9,6 @@ from .query_multi_timeline_job_response_body import QueryMultiTimelineJobRespons
 class QueryMultiTimelineJobResponse(BaseResponse):
     _types = {
         "data": QueryMultiTimelineJobResponseBody,
-
     }
 
     def __init__(self, d=None):

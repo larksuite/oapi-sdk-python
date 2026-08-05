@@ -53,7 +53,9 @@ class AppTableFormPatchedFieldBuilder(object):
         self._app_table_form_patched_field.visible = visible
         return self
 
-    def rich_description(self, rich_description: List[AppRichDescriptionSegment]) -> "AppTableFormPatchedFieldBuilder":
+    def rich_description(
+        self, rich_description: List[AppRichDescriptionSegment]
+    ) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.rich_description = rich_description
         return self
 

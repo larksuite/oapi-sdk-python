@@ -48,11 +48,15 @@ class JobFamilyVersionDataBuilder(object):
         self._job_family_version_data.job_family_id = job_family_id
         return self
 
-    def job_family_version_id(self, job_family_version_id: str) -> "JobFamilyVersionDataBuilder":
+    def job_family_version_id(
+        self, job_family_version_id: str
+    ) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.job_family_version_id = job_family_version_id
         return self
 
-    def job_family_names(self, job_family_names: List[I18n]) -> "JobFamilyVersionDataBuilder":
+    def job_family_names(
+        self, job_family_names: List[I18n]
+    ) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.job_family_names = job_family_names
         return self
 
@@ -76,7 +80,9 @@ class JobFamilyVersionDataBuilder(object):
         self._job_family_version_data.selectable = selectable
         return self
 
-    def parent_job_family_id(self, parent_job_family_id: str) -> "JobFamilyVersionDataBuilder":
+    def parent_job_family_id(
+        self, parent_job_family_id: str
+    ) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.parent_job_family_id = parent_job_family_id
         return self
 

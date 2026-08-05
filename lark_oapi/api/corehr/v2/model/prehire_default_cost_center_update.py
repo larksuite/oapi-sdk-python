@@ -24,7 +24,9 @@ class PrehireDefaultCostCenterUpdateBuilder(object):
     def __init__(self) -> None:
         self._prehire_default_cost_center_update = PrehireDefaultCostCenterUpdate()
 
-    def cost_center_id(self, cost_center_id: str) -> "PrehireDefaultCostCenterUpdateBuilder":
+    def cost_center_id(
+        self, cost_center_id: str
+    ) -> "PrehireDefaultCostCenterUpdateBuilder":
         self._prehire_default_cost_center_update.cost_center_id = cost_center_id
         return self
 

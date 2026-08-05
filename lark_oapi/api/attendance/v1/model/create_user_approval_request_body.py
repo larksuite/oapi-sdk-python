@@ -23,7 +23,9 @@ class CreateUserApprovalRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_approval_request_body = CreateUserApprovalRequestBody()
 
-    def user_approval(self, user_approval: UserApproval) -> "CreateUserApprovalRequestBodyBuilder":
+    def user_approval(
+        self, user_approval: UserApproval
+    ) -> "CreateUserApprovalRequestBodyBuilder":
         self._create_user_approval_request_body.user_approval = user_approval
         return self
 

@@ -46,7 +46,9 @@ class UserCustomizedFieldBuilder(object):
     def __init__(self) -> None:
         self._user_customized_field = UserCustomizedField()
 
-    def user_customized_field_id(self, user_customized_field_id: str) -> "UserCustomizedFieldBuilder":
+    def user_customized_field_id(
+        self, user_customized_field_id: str
+    ) -> "UserCustomizedFieldBuilder":
         self._user_customized_field.user_customized_field_id = user_customized_field_id
         return self
 

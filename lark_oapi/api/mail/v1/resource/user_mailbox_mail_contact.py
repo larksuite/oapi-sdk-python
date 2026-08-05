@@ -9,22 +9,41 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_user_mailbox_mail_contact_request import CreateUserMailboxMailContactRequest
-from ..model.create_user_mailbox_mail_contact_response import CreateUserMailboxMailContactResponse
-from ..model.delete_user_mailbox_mail_contact_request import DeleteUserMailboxMailContactRequest
-from ..model.delete_user_mailbox_mail_contact_response import DeleteUserMailboxMailContactResponse
-from ..model.list_user_mailbox_mail_contact_request import ListUserMailboxMailContactRequest
-from ..model.list_user_mailbox_mail_contact_response import ListUserMailboxMailContactResponse
-from ..model.patch_user_mailbox_mail_contact_request import PatchUserMailboxMailContactRequest
-from ..model.patch_user_mailbox_mail_contact_response import PatchUserMailboxMailContactResponse
+from ..model.create_user_mailbox_mail_contact_request import (
+    CreateUserMailboxMailContactRequest,
+)
+from ..model.create_user_mailbox_mail_contact_response import (
+    CreateUserMailboxMailContactResponse,
+)
+from ..model.delete_user_mailbox_mail_contact_request import (
+    DeleteUserMailboxMailContactRequest,
+)
+from ..model.delete_user_mailbox_mail_contact_response import (
+    DeleteUserMailboxMailContactResponse,
+)
+from ..model.list_user_mailbox_mail_contact_request import (
+    ListUserMailboxMailContactRequest,
+)
+from ..model.list_user_mailbox_mail_contact_response import (
+    ListUserMailboxMailContactResponse,
+)
+from ..model.patch_user_mailbox_mail_contact_request import (
+    PatchUserMailboxMailContactRequest,
+)
+from ..model.patch_user_mailbox_mail_contact_response import (
+    PatchUserMailboxMailContactResponse,
+)
 
 
 class UserMailboxMailContact(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserMailboxMailContactRequest,
-               option: Optional[RequestOption] = None) -> CreateUserMailboxMailContactResponse:
+    def create(
+        self,
+        request: CreateUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,14 +58,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateUserMailboxMailContactResponse)
+        response: CreateUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateUserMailboxMailContactRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserMailboxMailContactResponse:
+    async def acreate(
+        self,
+        request: CreateUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -57,14 +80,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateUserMailboxMailContactResponse)
+        response: CreateUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    def delete(self, request: DeleteUserMailboxMailContactRequest,
-               option: Optional[RequestOption] = None) -> DeleteUserMailboxMailContactResponse:
+    def delete(
+        self,
+        request: DeleteUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,14 +106,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteUserMailboxMailContactResponse)
+        response: DeleteUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteUserMailboxMailContactRequest,
-                      option: Optional[RequestOption] = None) -> DeleteUserMailboxMailContactResponse:
+    async def adelete(
+        self,
+        request: DeleteUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -97,14 +128,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteUserMailboxMailContactResponse)
+        response: DeleteUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListUserMailboxMailContactRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxMailContactResponse:
+    def list(
+        self,
+        request: ListUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,14 +154,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      ListUserMailboxMailContactResponse)
+        response: ListUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserMailboxMailContactRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxMailContactResponse:
+    async def alist(
+        self,
+        request: ListUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -137,14 +176,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      ListUserMailboxMailContactResponse)
+        response: ListUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    def patch(self, request: PatchUserMailboxMailContactRequest,
-              option: Optional[RequestOption] = None) -> PatchUserMailboxMailContactResponse:
+    def patch(
+        self,
+        request: PatchUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,14 +202,18 @@ class UserMailboxMailContact(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       PatchUserMailboxMailContactResponse)
+        response: PatchUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response
 
-    async def apatch(self, request: PatchUserMailboxMailContactRequest,
-                     option: Optional[RequestOption] = None) -> PatchUserMailboxMailContactResponse:
+    async def apatch(
+        self,
+        request: PatchUserMailboxMailContactRequest,
+        option: Optional[RequestOption] = None,
+    ) -> PatchUserMailboxMailContactResponse:
         if option is None:
             option = RequestOption()
 
@@ -177,8 +224,9 @@ class UserMailboxMailContact(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: PatchUserMailboxMailContactResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       PatchUserMailboxMailContactResponse)
+        response: PatchUserMailboxMailContactResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), PatchUserMailboxMailContactResponse
+        )
         response.raw = resp
 
         return response

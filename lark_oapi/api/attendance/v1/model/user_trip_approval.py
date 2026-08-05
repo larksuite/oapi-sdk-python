@@ -2,21 +2,40 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .user_trip import UserTrip
+from .region_place import RegionPlace
+from .region_place import RegionPlace
 
 
 class UserTripApproval(object):
     _types = {
-        "user_id": str,
-        "date": str,
-        "trips": List[UserTrip],
+        "approval_id": str,
+        "start_time": str,
+        "end_time": str,
+        "reason": str,
+        "approve_pass_time": str,
+        "approve_apply_time": str,
+        "departure": RegionPlace,
+        "destinations": List[RegionPlace],
+        "transportation": List[int],
+        "trip_type": int,
+        "remarks": str,
+        "status": int,
         "time_zone": str,
     }
 
     def __init__(self, d=None):
-        self.user_id: Optional[str] = None
-        self.date: Optional[str] = None
-        self.trips: Optional[List[UserTrip]] = None
+        self.approval_id: Optional[str] = None
+        self.start_time: Optional[str] = None
+        self.end_time: Optional[str] = None
+        self.reason: Optional[str] = None
+        self.approve_pass_time: Optional[str] = None
+        self.approve_apply_time: Optional[str] = None
+        self.departure: Optional[RegionPlace] = None
+        self.destinations: Optional[List[RegionPlace]] = None
+        self.transportation: Optional[List[int]] = None
+        self.trip_type: Optional[int] = None
+        self.remarks: Optional[str] = None
+        self.status: Optional[int] = None
         self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
@@ -29,16 +48,54 @@ class UserTripApprovalBuilder(object):
     def __init__(self) -> None:
         self._user_trip_approval = UserTripApproval()
 
-    def user_id(self, user_id: str) -> "UserTripApprovalBuilder":
-        self._user_trip_approval.user_id = user_id
+    def approval_id(self, approval_id: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.approval_id = approval_id
         return self
 
-    def date(self, date: str) -> "UserTripApprovalBuilder":
-        self._user_trip_approval.date = date
+    def start_time(self, start_time: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.start_time = start_time
         return self
 
-    def trips(self, trips: List[UserTrip]) -> "UserTripApprovalBuilder":
-        self._user_trip_approval.trips = trips
+    def end_time(self, end_time: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.end_time = end_time
+        return self
+
+    def reason(self, reason: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.reason = reason
+        return self
+
+    def approve_pass_time(self, approve_pass_time: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.approve_pass_time = approve_pass_time
+        return self
+
+    def approve_apply_time(self, approve_apply_time: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.approve_apply_time = approve_apply_time
+        return self
+
+    def departure(self, departure: RegionPlace) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.departure = departure
+        return self
+
+    def destinations(
+        self, destinations: List[RegionPlace]
+    ) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.destinations = destinations
+        return self
+
+    def transportation(self, transportation: List[int]) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.transportation = transportation
+        return self
+
+    def trip_type(self, trip_type: int) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.trip_type = trip_type
+        return self
+
+    def remarks(self, remarks: str) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.remarks = remarks
+        return self
+
+    def status(self, status: int) -> "UserTripApprovalBuilder":
+        self._user_trip_approval.status = status
         return self
 
     def time_zone(self, time_zone: str) -> "UserTripApprovalBuilder":

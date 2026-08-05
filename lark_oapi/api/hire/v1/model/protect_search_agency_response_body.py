@@ -30,19 +30,31 @@ class ProtectSearchAgencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._protect_search_agency_response_body = ProtectSearchAgencyResponseBody()
 
-    def is_onboarded(self, is_onboarded: bool) -> "ProtectSearchAgencyResponseBodyBuilder":
+    def is_onboarded(
+        self, is_onboarded: bool
+    ) -> "ProtectSearchAgencyResponseBodyBuilder":
         self._protect_search_agency_response_body.is_onboarded = is_onboarded
         return self
 
-    def onboarded_in_protection(self, onboarded_in_protection: bool) -> "ProtectSearchAgencyResponseBodyBuilder":
-        self._protect_search_agency_response_body.onboarded_in_protection = onboarded_in_protection
+    def onboarded_in_protection(
+        self, onboarded_in_protection: bool
+    ) -> "ProtectSearchAgencyResponseBodyBuilder":
+        self._protect_search_agency_response_body.onboarded_in_protection = (
+            onboarded_in_protection
+        )
         return self
 
-    def onboarded_protection(self, onboarded_protection: AgencyProtection) -> "ProtectSearchAgencyResponseBodyBuilder":
-        self._protect_search_agency_response_body.onboarded_protection = onboarded_protection
+    def onboarded_protection(
+        self, onboarded_protection: AgencyProtection
+    ) -> "ProtectSearchAgencyResponseBodyBuilder":
+        self._protect_search_agency_response_body.onboarded_protection = (
+            onboarded_protection
+        )
         return self
 
-    def protection_list(self, protection_list: List[AgencyProtection]) -> "ProtectSearchAgencyResponseBodyBuilder":
+    def protection_list(
+        self, protection_list: List[AgencyProtection]
+    ) -> "ProtectSearchAgencyResponseBodyBuilder":
         self._protect_search_agency_response_body.protection_list = protection_list
         return self
 

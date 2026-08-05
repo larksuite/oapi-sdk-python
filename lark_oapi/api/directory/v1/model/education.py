@@ -92,7 +92,9 @@ class EducationBuilder(object):
         self._education.school_enum = school_enum
         return self
 
-    def field_of_study_enum(self, field_of_study_enum: WuKongEnum) -> "EducationBuilder":
+    def field_of_study_enum(
+        self, field_of_study_enum: WuKongEnum
+    ) -> "EducationBuilder":
         self._education.field_of_study_enum = field_of_study_enum
         return self
 

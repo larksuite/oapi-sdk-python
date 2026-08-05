@@ -17,16 +17,20 @@ class RecognizeChinesePassportRequest(BaseRequest):
 
 
 class RecognizeChinesePassportRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_chinese_passport_request = RecognizeChinesePassportRequest()
         recognize_chinese_passport_request.http_method = HttpMethod.POST
-        recognize_chinese_passport_request.uri = "/open-apis/document_ai/v1/chinese_passport/recognize"
+        recognize_chinese_passport_request.uri = (
+            "/open-apis/document_ai/v1/chinese_passport/recognize"
+        )
         recognize_chinese_passport_request.token_types = {AccessTokenType.TENANT}
-        self._recognize_chinese_passport_request: RecognizeChinesePassportRequest = recognize_chinese_passport_request
+        self._recognize_chinese_passport_request: RecognizeChinesePassportRequest = (
+            recognize_chinese_passport_request
+        )
 
-    def request_body(self,
-                     request_body: RecognizeChinesePassportRequestBody) -> "RecognizeChinesePassportRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeChinesePassportRequestBody
+    ) -> "RecognizeChinesePassportRequestBuilder":
         self._recognize_chinese_passport_request.request_body = request_body
         self._recognize_chinese_passport_request.body = request_body
         return self

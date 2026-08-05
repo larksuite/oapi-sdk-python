@@ -30,11 +30,15 @@ class EmployeeQueryInfoDataBuilder(object):
         self._employee_query_info_data.entity_str_map = entity_str_map
         return self
 
-    def row_permission_deny_map(self, row_permission_deny_map: str) -> "EmployeeQueryInfoDataBuilder":
+    def row_permission_deny_map(
+        self, row_permission_deny_map: str
+    ) -> "EmployeeQueryInfoDataBuilder":
         self._employee_query_info_data.row_permission_deny_map = row_permission_deny_map
         return self
 
-    def col_permission_deny_map(self, col_permission_deny_map: str) -> "EmployeeQueryInfoDataBuilder":
+    def col_permission_deny_map(
+        self, col_permission_deny_map: str
+    ) -> "EmployeeQueryInfoDataBuilder":
         self._employee_query_info_data.col_permission_deny_map = col_permission_deny_map
         return self
 

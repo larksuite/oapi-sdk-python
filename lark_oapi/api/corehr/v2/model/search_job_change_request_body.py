@@ -20,6 +20,7 @@ class SearchJobChangeRequestBody(object):
         "original_department_ids": List[str],
         "employment_department_ids": List[str],
         "select_fields": List[str],
+        "filter_str": str,
     }
 
     def __init__(self, d=None):
@@ -37,6 +38,7 @@ class SearchJobChangeRequestBody(object):
         self.original_department_ids: Optional[List[str]] = None
         self.employment_department_ids: Optional[List[str]] = None
         self.select_fields: Optional[List[str]] = None
+        self.filter_str: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,11 +50,15 @@ class SearchJobChangeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_job_change_request_body = SearchJobChangeRequestBody()
 
-    def employment_ids(self, employment_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+    def employment_ids(
+        self, employment_ids: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.employment_ids = employment_ids
         return self
 
-    def job_change_ids(self, job_change_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+    def job_change_ids(
+        self, job_change_ids: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.job_change_ids = job_change_ids
         return self
 
@@ -60,50 +66,84 @@ class SearchJobChangeRequestBodyBuilder(object):
         self._search_job_change_request_body.statuses = statuses
         return self
 
-    def effective_date_start(self, effective_date_start: str) -> "SearchJobChangeRequestBodyBuilder":
+    def effective_date_start(
+        self, effective_date_start: str
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.effective_date_start = effective_date_start
         return self
 
-    def effective_date_end(self, effective_date_end: str) -> "SearchJobChangeRequestBodyBuilder":
+    def effective_date_end(
+        self, effective_date_end: str
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.effective_date_end = effective_date_end
         return self
 
-    def updated_time_start(self, updated_time_start: str) -> "SearchJobChangeRequestBodyBuilder":
+    def updated_time_start(
+        self, updated_time_start: str
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.updated_time_start = updated_time_start
         return self
 
-    def updated_time_end(self, updated_time_end: str) -> "SearchJobChangeRequestBodyBuilder":
+    def updated_time_end(
+        self, updated_time_end: str
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.updated_time_end = updated_time_end
         return self
 
-    def target_department_ids(self, target_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
-        self._search_job_change_request_body.target_department_ids = target_department_ids
+    def target_department_ids(
+        self, target_department_ids: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.target_department_ids = (
+            target_department_ids
+        )
         return self
 
-    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: List[
-        str]) -> "SearchJobChangeRequestBodyBuilder":
-        self._search_job_change_request_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+    def transfer_type_unique_identifier(
+        self, transfer_type_unique_identifier: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.transfer_type_unique_identifier = (
+            transfer_type_unique_identifier
+        )
         return self
 
-    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: List[
-        str]) -> "SearchJobChangeRequestBodyBuilder":
-        self._search_job_change_request_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+    def transfer_reason_unique_identifier(
+        self, transfer_reason_unique_identifier: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.transfer_reason_unique_identifier = (
+            transfer_reason_unique_identifier
+        )
         return self
 
-    def exception_statuses(self, exception_statuses: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+    def exception_statuses(
+        self, exception_statuses: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.exception_statuses = exception_statuses
         return self
 
-    def original_department_ids(self, original_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
-        self._search_job_change_request_body.original_department_ids = original_department_ids
+    def original_department_ids(
+        self, original_department_ids: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.original_department_ids = (
+            original_department_ids
+        )
         return self
 
-    def employment_department_ids(self, employment_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
-        self._search_job_change_request_body.employment_department_ids = employment_department_ids
+    def employment_department_ids(
+        self, employment_department_ids: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.employment_department_ids = (
+            employment_department_ids
+        )
         return self
 
-    def select_fields(self, select_fields: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+    def select_fields(
+        self, select_fields: List[str]
+    ) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.select_fields = select_fields
+        return self
+
+    def filter_str(self, filter_str: str) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.filter_str = filter_str
         return self
 
     def build(self) -> "SearchJobChangeRequestBody":

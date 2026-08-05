@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_biz_entity_tag_relation_response_body import GetBizEntityTagRelationResponseBody
+from .get_biz_entity_tag_relation_response_body import (
+    GetBizEntityTagRelationResponseBody,
+)
 
 
 class GetBizEntityTagRelationResponse(BaseResponse):
     _types = {
         "data": GetBizEntityTagRelationResponseBody,
-
     }
 
     def __init__(self, d=None):

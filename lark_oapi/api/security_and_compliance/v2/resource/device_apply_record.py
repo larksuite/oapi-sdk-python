@@ -17,8 +17,11 @@ class DeviceApplyRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateDeviceApplyRecordRequest,
-               option: Optional[RequestOption] = None) -> UpdateDeviceApplyRecordResponse:
+    def update(
+        self,
+        request: UpdateDeviceApplyRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateDeviceApplyRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +36,18 @@ class DeviceApplyRecord(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDeviceApplyRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   UpdateDeviceApplyRecordResponse)
+        response: UpdateDeviceApplyRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDeviceApplyRecordResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupdate(self, request: UpdateDeviceApplyRecordRequest,
-                      option: Optional[RequestOption] = None) -> UpdateDeviceApplyRecordResponse:
+    async def aupdate(
+        self,
+        request: UpdateDeviceApplyRecordRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UpdateDeviceApplyRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +58,9 @@ class DeviceApplyRecord(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UpdateDeviceApplyRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   UpdateDeviceApplyRecordResponse)
+        response: UpdateDeviceApplyRecordResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UpdateDeviceApplyRecordResponse
+        )
         response.raw = resp
 
         return response

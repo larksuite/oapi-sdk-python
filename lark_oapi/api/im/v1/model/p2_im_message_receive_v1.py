@@ -20,9 +20,7 @@ class P2ImMessageReceiveV1Data(object):
 
 
 class P2ImMessageReceiveV1(EventContext):
-    _types = {
-        "event": P2ImMessageReceiveV1Data
-    }
+    _types = {"event": P2ImMessageReceiveV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

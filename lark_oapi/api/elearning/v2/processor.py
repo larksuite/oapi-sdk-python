@@ -3,12 +3,20 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_elearning_course_registration_created_v2 import P2ElearningCourseRegistrationCreatedV2
-from .model.p2_elearning_course_registration_deleted_v2 import P2ElearningCourseRegistrationDeletedV2
-from .model.p2_elearning_course_registration_updated_v2 import P2ElearningCourseRegistrationUpdatedV2
+from .model.p2_elearning_course_registration_created_v2 import (
+    P2ElearningCourseRegistrationCreatedV2,
+)
+from .model.p2_elearning_course_registration_deleted_v2 import (
+    P2ElearningCourseRegistrationDeletedV2,
+)
+from .model.p2_elearning_course_registration_updated_v2 import (
+    P2ElearningCourseRegistrationUpdatedV2,
+)
 
 
-class P2ElearningCourseRegistrationCreatedV2Processor(IEventProcessor[P2ElearningCourseRegistrationCreatedV2]):
+class P2ElearningCourseRegistrationCreatedV2Processor(
+    IEventProcessor[P2ElearningCourseRegistrationCreatedV2]
+):
     def __init__(self, f: Callable[[P2ElearningCourseRegistrationCreatedV2], None]):
         self.f = f
 
@@ -19,7 +27,9 @@ class P2ElearningCourseRegistrationCreatedV2Processor(IEventProcessor[P2Elearnin
         self.f(data)
 
 
-class P2ElearningCourseRegistrationDeletedV2Processor(IEventProcessor[P2ElearningCourseRegistrationDeletedV2]):
+class P2ElearningCourseRegistrationDeletedV2Processor(
+    IEventProcessor[P2ElearningCourseRegistrationDeletedV2]
+):
     def __init__(self, f: Callable[[P2ElearningCourseRegistrationDeletedV2], None]):
         self.f = f
 
@@ -30,7 +40,9 @@ class P2ElearningCourseRegistrationDeletedV2Processor(IEventProcessor[P2Elearnin
         self.f(data)
 
 
-class P2ElearningCourseRegistrationUpdatedV2Processor(IEventProcessor[P2ElearningCourseRegistrationUpdatedV2]):
+class P2ElearningCourseRegistrationUpdatedV2Processor(
+    IEventProcessor[P2ElearningCourseRegistrationUpdatedV2]
+):
     def __init__(self, f: Callable[[P2ElearningCourseRegistrationUpdatedV2], None]):
         self.f = f
 

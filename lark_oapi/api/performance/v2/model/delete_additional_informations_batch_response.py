@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .delete_additional_informations_batch_response_body import DeleteAdditionalInformationsBatchResponseBody
+from .delete_additional_informations_batch_response_body import (
+    DeleteAdditionalInformationsBatchResponseBody,
+)
 
 
 class DeleteAdditionalInformationsBatchResponse(BaseResponse):
     _types = {
         "data": DeleteAdditionalInformationsBatchResponseBody,
-
     }
 
     def __init__(self, d=None):

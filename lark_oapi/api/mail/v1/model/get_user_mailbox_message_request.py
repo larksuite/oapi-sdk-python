@@ -18,22 +18,32 @@ class GetUserMailboxMessageRequest(BaseRequest):
 
 
 class GetUserMailboxMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_mailbox_message_request = GetUserMailboxMessageRequest()
         get_user_mailbox_message_request.http_method = HttpMethod.GET
-        get_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id"
-        get_user_mailbox_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_user_mailbox_message_request: GetUserMailboxMessageRequest = get_user_mailbox_message_request
+        get_user_mailbox_message_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id"
+        )
+        get_user_mailbox_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_user_mailbox_message_request: GetUserMailboxMessageRequest = (
+            get_user_mailbox_message_request
+        )
 
     def format(self, format: str) -> "GetUserMailboxMessageRequestBuilder":
         self._get_user_mailbox_message_request.format = format
         self._get_user_mailbox_message_request.add_query("format", format)
         return self
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxMessageRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "GetUserMailboxMessageRequestBuilder":
         self._get_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
-        self._get_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._get_user_mailbox_message_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def message_id(self, message_id: str) -> "GetUserMailboxMessageRequestBuilder":

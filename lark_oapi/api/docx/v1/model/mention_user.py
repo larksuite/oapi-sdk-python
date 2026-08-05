@@ -29,7 +29,9 @@ class MentionUserBuilder(object):
         self._mention_user.user_id = user_id
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "MentionUserBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "MentionUserBuilder":
         self._mention_user.text_element_style = text_element_style
         return self
 

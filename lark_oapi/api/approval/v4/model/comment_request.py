@@ -37,7 +37,9 @@ class CommentRequestBuilder(object):
         self._comment_request.content = content
         return self
 
-    def at_info_list(self, at_info_list: List[CommentAtInfo]) -> "CommentRequestBuilder":
+    def at_info_list(
+        self, at_info_list: List[CommentAtInfo]
+    ) -> "CommentRequestBuilder":
         self._comment_request.at_info_list = at_info_list
         return self
 

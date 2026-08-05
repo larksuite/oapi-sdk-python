@@ -25,7 +25,9 @@ class ConditionalFormatRuleBuilder(object):
     def __init__(self) -> None:
         self._conditional_format_rule = ConditionalFormatRule()
 
-    def boolean_rule(self, boolean_rule: BooleanRuleCondition) -> "ConditionalFormatRuleBuilder":
+    def boolean_rule(
+        self, boolean_rule: BooleanRuleCondition
+    ) -> "ConditionalFormatRuleBuilder":
         self._conditional_format_rule.boolean_rule = boolean_rule
         return self
 

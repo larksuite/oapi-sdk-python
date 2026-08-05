@@ -9,7 +9,6 @@ from .update_entity_response_body import UpdateEntityResponseBody
 class UpdateEntityResponse(BaseResponse):
     _types = {
         "data": UpdateEntityResponseBody,
-
     }
 
     def __init__(self, d=None):

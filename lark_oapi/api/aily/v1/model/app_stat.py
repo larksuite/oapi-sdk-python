@@ -45,7 +45,9 @@ class AppStatBuilder(object):
         self._app_stat.name = name
         return self
 
-    def avg_daily_active_user_num(self, avg_daily_active_user_num: float) -> "AppStatBuilder":
+    def avg_daily_active_user_num(
+        self, avg_daily_active_user_num: float
+    ) -> "AppStatBuilder":
         self._app_stat.avg_daily_active_user_num = avg_daily_active_user_num
         return self
 

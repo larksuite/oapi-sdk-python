@@ -41,7 +41,9 @@ class VerifActProrationBuilder(object):
         self._verif_act_proration.cutoff_date = cutoff_date
         return self
 
-    def item_values(self, item_values: List[VerifActItemValue]) -> "VerifActProrationBuilder":
+    def item_values(
+        self, item_values: List[VerifActItemValue]
+    ) -> "VerifActProrationBuilder":
         self._verif_act_proration.item_values = item_values
         return self
 

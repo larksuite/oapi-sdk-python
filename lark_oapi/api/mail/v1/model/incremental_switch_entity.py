@@ -42,7 +42,9 @@ class IncrementalSwitchEntityBuilder(object):
         self._incremental_switch_entity.email = email
         return self
 
-    def lark_department_id(self, lark_department_id: str) -> "IncrementalSwitchEntityBuilder":
+    def lark_department_id(
+        self, lark_department_id: str
+    ) -> "IncrementalSwitchEntityBuilder":
         self._incremental_switch_entity.lark_department_id = lark_department_id
         return self
 

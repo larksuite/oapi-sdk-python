@@ -9,7 +9,6 @@ from .patch_pre_hire_response_body import PatchPreHireResponseBody
 class PatchPreHireResponse(BaseResponse):
     _types = {
         "data": PatchPreHireResponseBody,
-
     }
 
     def __init__(self, d=None):

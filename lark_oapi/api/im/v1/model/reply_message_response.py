@@ -9,7 +9,6 @@ from .reply_message_response_body import ReplyMessageResponseBody
 class ReplyMessageResponse(BaseResponse):
     _types = {
         "data": ReplyMessageResponseBody,
-
     }
 
     def __init__(self, d=None):

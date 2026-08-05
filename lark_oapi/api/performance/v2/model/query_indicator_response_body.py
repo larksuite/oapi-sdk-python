@@ -27,7 +27,9 @@ class QueryIndicatorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_indicator_response_body = QueryIndicatorResponseBody()
 
-    def indicators(self, indicators: List[Indicator]) -> "QueryIndicatorResponseBodyBuilder":
+    def indicators(
+        self, indicators: List[Indicator]
+    ) -> "QueryIndicatorResponseBodyBuilder":
         self._query_indicator_response_body.indicators = indicators
         return self
 

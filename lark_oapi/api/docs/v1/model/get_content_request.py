@@ -19,7 +19,6 @@ class GetContentRequest(BaseRequest):
 
 
 class GetContentRequestBuilder(object):
-
     def __init__(self) -> None:
         get_content_request = GetContentRequest()
         get_content_request.http_method = HttpMethod.GET

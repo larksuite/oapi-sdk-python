@@ -110,7 +110,9 @@ class AppBuilder(object):
         self._app.service_status = service_status
         return self
 
-    def service_unavailable_reason(self, service_unavailable_reason: str) -> "AppBuilder":
+    def service_unavailable_reason(
+        self, service_unavailable_reason: str
+    ) -> "AppBuilder":
         self._app.service_unavailable_reason = service_unavailable_reason
         return self
 

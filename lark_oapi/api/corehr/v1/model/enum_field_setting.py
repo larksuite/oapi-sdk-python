@@ -25,7 +25,9 @@ class EnumFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._enum_field_setting = EnumFieldSetting()
 
-    def enum_field_option_list(self, enum_field_option_list: List[CommonSchemaOption]) -> "EnumFieldSettingBuilder":
+    def enum_field_option_list(
+        self, enum_field_option_list: List[CommonSchemaOption]
+    ) -> "EnumFieldSettingBuilder":
         self._enum_field_setting.enum_field_option_list = enum_field_option_list
         return self
 

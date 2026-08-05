@@ -9,20 +9,35 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.subscribe_user_mailbox_event_request import SubscribeUserMailboxEventRequest
-from ..model.subscribe_user_mailbox_event_response import SubscribeUserMailboxEventResponse
-from ..model.subscription_user_mailbox_event_request import SubscriptionUserMailboxEventRequest
-from ..model.subscription_user_mailbox_event_response import SubscriptionUserMailboxEventResponse
-from ..model.unsubscribe_user_mailbox_event_request import UnsubscribeUserMailboxEventRequest
-from ..model.unsubscribe_user_mailbox_event_response import UnsubscribeUserMailboxEventResponse
+from ..model.subscribe_user_mailbox_event_request import (
+    SubscribeUserMailboxEventRequest,
+)
+from ..model.subscribe_user_mailbox_event_response import (
+    SubscribeUserMailboxEventResponse,
+)
+from ..model.subscription_user_mailbox_event_request import (
+    SubscriptionUserMailboxEventRequest,
+)
+from ..model.subscription_user_mailbox_event_response import (
+    SubscriptionUserMailboxEventResponse,
+)
+from ..model.unsubscribe_user_mailbox_event_request import (
+    UnsubscribeUserMailboxEventRequest,
+)
+from ..model.unsubscribe_user_mailbox_event_response import (
+    UnsubscribeUserMailboxEventResponse,
+)
 
 
 class UserMailboxEvent(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def subscribe(self, request: SubscribeUserMailboxEventRequest,
-                  option: Optional[RequestOption] = None) -> SubscribeUserMailboxEventResponse:
+    def subscribe(
+        self,
+        request: SubscribeUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscribeUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +52,18 @@ class UserMailboxEvent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscribeUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SubscribeUserMailboxEventResponse)
+        response: SubscribeUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscribeUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscribe(self, request: SubscribeUserMailboxEventRequest,
-                         option: Optional[RequestOption] = None) -> SubscribeUserMailboxEventResponse:
+    async def asubscribe(
+        self,
+        request: SubscribeUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscribeUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +74,18 @@ class UserMailboxEvent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscribeUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     SubscribeUserMailboxEventResponse)
+        response: SubscribeUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscribeUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response
 
-    def subscription(self, request: SubscriptionUserMailboxEventRequest,
-                     option: Optional[RequestOption] = None) -> SubscriptionUserMailboxEventResponse:
+    def subscription(
+        self,
+        request: SubscriptionUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +100,18 @@ class UserMailboxEvent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        SubscriptionUserMailboxEventResponse)
+        response: SubscriptionUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscription(self, request: SubscriptionUserMailboxEventRequest,
-                            option: Optional[RequestOption] = None) -> SubscriptionUserMailboxEventResponse:
+    async def asubscription(
+        self,
+        request: SubscriptionUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +122,18 @@ class UserMailboxEvent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        SubscriptionUserMailboxEventResponse)
+        response: SubscriptionUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response
 
-    def unsubscribe(self, request: UnsubscribeUserMailboxEventRequest,
-                    option: Optional[RequestOption] = None) -> UnsubscribeUserMailboxEventResponse:
+    def unsubscribe(
+        self,
+        request: UnsubscribeUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscribeUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,14 +148,18 @@ class UserMailboxEvent(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscribeUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UnsubscribeUserMailboxEventResponse)
+        response: UnsubscribeUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscribeUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aunsubscribe(self, request: UnsubscribeUserMailboxEventRequest,
-                           option: Optional[RequestOption] = None) -> UnsubscribeUserMailboxEventResponse:
+    async def aunsubscribe(
+        self,
+        request: UnsubscribeUserMailboxEventRequest,
+        option: Optional[RequestOption] = None,
+    ) -> UnsubscribeUserMailboxEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -135,8 +170,9 @@ class UserMailboxEvent(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UnsubscribeUserMailboxEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UnsubscribeUserMailboxEventResponse)
+        response: UnsubscribeUserMailboxEventResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscribeUserMailboxEventResponse
+        )
         response.raw = resp
 
         return response

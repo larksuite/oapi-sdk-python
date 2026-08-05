@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_process_form_variable_data_response_body import GetProcessFormVariableDataResponseBody
+from .get_process_form_variable_data_response_body import (
+    GetProcessFormVariableDataResponseBody,
+)
 
 
 class GetProcessFormVariableDataResponse(BaseResponse):
     _types = {
         "data": GetProcessFormVariableDataResponseBody,
-
     }
 
     def __init__(self, d=None):

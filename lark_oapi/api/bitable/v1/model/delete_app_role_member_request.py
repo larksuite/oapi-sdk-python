@@ -19,15 +19,23 @@ class DeleteAppRoleMemberRequest(BaseRequest):
 
 
 class DeleteAppRoleMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_app_role_member_request = DeleteAppRoleMemberRequest()
         delete_app_role_member_request.http_method = HttpMethod.DELETE
-        delete_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/:member_id"
-        delete_app_role_member_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._delete_app_role_member_request: DeleteAppRoleMemberRequest = delete_app_role_member_request
+        delete_app_role_member_request.uri = (
+            "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/:member_id"
+        )
+        delete_app_role_member_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._delete_app_role_member_request: DeleteAppRoleMemberRequest = (
+            delete_app_role_member_request
+        )
 
-    def member_id_type(self, member_id_type: str) -> "DeleteAppRoleMemberRequestBuilder":
+    def member_id_type(
+        self, member_id_type: str
+    ) -> "DeleteAppRoleMemberRequestBuilder":
         self._delete_app_role_member_request.member_id_type = member_id_type
         self._delete_app_role_member_request.add_query("member_id_type", member_id_type)
         return self

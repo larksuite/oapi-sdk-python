@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .list_by_file_id_signature_node_response_body import ListByFileIdSignatureNodeResponseBody
+from .list_by_file_id_signature_node_response_body import (
+    ListByFileIdSignatureNodeResponseBody,
+)
 
 
 class ListByFileIdSignatureNodeResponse(BaseResponse):
     _types = {
         "data": ListByFileIdSignatureNodeResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -18,7 +18,6 @@ class CreateVisitorRequest(BaseRequest):
 
 
 class CreateVisitorRequestBuilder(object):
-
     def __init__(self) -> None:
         create_visitor_request = CreateVisitorRequest()
         create_visitor_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class CreateVisitorRequestBuilder(object):
         self._create_visitor_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateVisitorRequestBody) -> "CreateVisitorRequestBuilder":
+    def request_body(
+        self, request_body: CreateVisitorRequestBody
+    ) -> "CreateVisitorRequestBuilder":
         self._create_visitor_request.request_body = request_body
         self._create_visitor_request.body = request_body
         return self

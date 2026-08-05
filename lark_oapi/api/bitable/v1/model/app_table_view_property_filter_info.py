@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .app_table_view_property_filter_info_condition import AppTableViewPropertyFilterInfoCondition
+from .app_table_view_property_filter_info_condition import (
+    AppTableViewPropertyFilterInfoCondition,
+)
 
 
 class AppTableViewPropertyFilterInfo(object):
@@ -31,12 +33,15 @@ class AppTableViewPropertyFilterInfoBuilder(object):
         self._app_table_view_property_filter_info.conjunction = conjunction
         return self
 
-    def conditions(self, conditions: List[
-        AppTableViewPropertyFilterInfoCondition]) -> "AppTableViewPropertyFilterInfoBuilder":
+    def conditions(
+        self, conditions: List[AppTableViewPropertyFilterInfoCondition]
+    ) -> "AppTableViewPropertyFilterInfoBuilder":
         self._app_table_view_property_filter_info.conditions = conditions
         return self
 
-    def condition_omitted(self, condition_omitted: bool) -> "AppTableViewPropertyFilterInfoBuilder":
+    def condition_omitted(
+        self, condition_omitted: bool
+    ) -> "AppTableViewPropertyFilterInfoBuilder":
         self._app_table_view_property_filter_info.condition_omitted = condition_omitted
         return self
 

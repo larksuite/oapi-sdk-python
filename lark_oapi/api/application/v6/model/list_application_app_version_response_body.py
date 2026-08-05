@@ -25,17 +25,25 @@ class ListApplicationAppVersionResponseBody(object):
 
 class ListApplicationAppVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_application_app_version_response_body = ListApplicationAppVersionResponseBody()
+        self._list_application_app_version_response_body = (
+            ListApplicationAppVersionResponseBody()
+        )
 
-    def items(self, items: List[ApplicationAppVersion]) -> "ListApplicationAppVersionResponseBodyBuilder":
+    def items(
+        self, items: List[ApplicationAppVersion]
+    ) -> "ListApplicationAppVersionResponseBodyBuilder":
         self._list_application_app_version_response_body.items = items
         return self
 
-    def page_token(self, page_token: str) -> "ListApplicationAppVersionResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListApplicationAppVersionResponseBodyBuilder":
         self._list_application_app_version_response_body.page_token = page_token
         return self
 
-    def has_more(self, has_more: bool) -> "ListApplicationAppVersionResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListApplicationAppVersionResponseBodyBuilder":
         self._list_application_app_version_response_body.has_more = has_more
         return self
 

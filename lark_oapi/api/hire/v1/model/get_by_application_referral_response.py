@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .get_by_application_referral_response_body import GetByApplicationReferralResponseBody
+from .get_by_application_referral_response_body import (
+    GetByApplicationReferralResponseBody,
+)
 
 
 class GetByApplicationReferralResponse(BaseResponse):
     _types = {
         "data": GetByApplicationReferralResponseBody,
-
     }
 
     def __init__(self, d=None):

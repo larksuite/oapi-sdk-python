@@ -16,7 +16,6 @@ class CloseJobRequest(BaseRequest):
 
 
 class CloseJobRequestBuilder(object):
-
     def __init__(self) -> None:
         close_job_request = CloseJobRequest()
         close_job_request.http_method = HttpMethod.POST

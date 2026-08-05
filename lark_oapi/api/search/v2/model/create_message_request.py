@@ -20,7 +20,6 @@ class CreateMessageRequest(BaseRequest):
 
 
 class CreateMessageRequestBuilder(object):
-
     def __init__(self) -> None:
         create_message_request = CreateMessageRequest()
         create_message_request.http_method = HttpMethod.POST
@@ -43,7 +42,9 @@ class CreateMessageRequestBuilder(object):
         self._create_message_request.add_query("page_token", page_token)
         return self
 
-    def request_body(self, request_body: CreateMessageRequestBody) -> "CreateMessageRequestBuilder":
+    def request_body(
+        self, request_body: CreateMessageRequestBody
+    ) -> "CreateMessageRequestBuilder":
         self._create_message_request.request_body = request_body
         self._create_message_request.body = request_body
         return self

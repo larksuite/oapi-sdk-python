@@ -80,7 +80,9 @@ class KctxBuilder(object):
         self._kctx.host = host
         return self
 
-    def tenant_resource_route_key(self, tenant_resource_route_key: str) -> "KctxBuilder":
+    def tenant_resource_route_key(
+        self, tenant_resource_route_key: str
+    ) -> "KctxBuilder":
         self._kctx.tenant_resource_route_key = tenant_resource_route_key
         return self
 

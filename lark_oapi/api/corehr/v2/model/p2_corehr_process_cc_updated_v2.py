@@ -22,9 +22,7 @@ class P2CorehrProcessCcUpdatedV2Data(object):
 
 
 class P2CorehrProcessCcUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrProcessCcUpdatedV2Data
-    }
+    _types = {"event": P2CorehrProcessCcUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_app_table_field_group_request import CreateAppTableFieldGroupRequest
-from ..model.create_app_table_field_group_response import CreateAppTableFieldGroupResponse
+from ..model.create_app_table_field_group_response import (
+    CreateAppTableFieldGroupResponse,
+)
 
 
 class AppTableFieldGroup(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppTableFieldGroupRequest,
-               option: Optional[RequestOption] = None) -> CreateAppTableFieldGroupResponse:
+    def create(
+        self,
+        request: CreateAppTableFieldGroupRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppTableFieldGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class AppTableFieldGroup(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppTableFieldGroupResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateAppTableFieldGroupResponse)
+        response: CreateAppTableFieldGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppTableFieldGroupResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppTableFieldGroupRequest,
-                      option: Optional[RequestOption] = None) -> CreateAppTableFieldGroupResponse:
+    async def acreate(
+        self,
+        request: CreateAppTableFieldGroupRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppTableFieldGroupResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class AppTableFieldGroup(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppTableFieldGroupResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CreateAppTableFieldGroupResponse)
+        response: CreateAppTableFieldGroupResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppTableFieldGroupResponse
+        )
         response.raw = resp
 
         return response

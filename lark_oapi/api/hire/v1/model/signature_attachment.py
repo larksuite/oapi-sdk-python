@@ -44,15 +44,21 @@ class SignatureAttachmentBuilder(object):
         self._signature_attachment.file_template_id = file_template_id
         return self
 
-    def file_template_name(self, file_template_name: str) -> "SignatureAttachmentBuilder":
+    def file_template_name(
+        self, file_template_name: str
+    ) -> "SignatureAttachmentBuilder":
         self._signature_attachment.file_template_name = file_template_name
         return self
 
-    def file_template_type_id(self, file_template_type_id: str) -> "SignatureAttachmentBuilder":
+    def file_template_type_id(
+        self, file_template_type_id: str
+    ) -> "SignatureAttachmentBuilder":
         self._signature_attachment.file_template_type_id = file_template_type_id
         return self
 
-    def file_template_type_name(self, file_template_type_name: str) -> "SignatureAttachmentBuilder":
+    def file_template_type_name(
+        self, file_template_type_name: str
+    ) -> "SignatureAttachmentBuilder":
         self._signature_attachment.file_template_type_name = file_template_type_name
         return self
 

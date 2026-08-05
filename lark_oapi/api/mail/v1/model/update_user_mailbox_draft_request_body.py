@@ -20,7 +20,9 @@ class UpdateUserMailboxDraftRequestBody(object):
 
 class UpdateUserMailboxDraftRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._update_user_mailbox_draft_request_body = UpdateUserMailboxDraftRequestBody()
+        self._update_user_mailbox_draft_request_body = (
+            UpdateUserMailboxDraftRequestBody()
+        )
 
     def raw(self, raw: str) -> "UpdateUserMailboxDraftRequestBodyBuilder":
         self._update_user_mailbox_draft_request_body.raw = raw

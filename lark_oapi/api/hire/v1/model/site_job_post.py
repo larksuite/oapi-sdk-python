@@ -63,7 +63,9 @@ class SiteJobPostBuilder(object):
         self._site_job_post.city_info = city_info
         return self
 
-    def recruitment_type(self, recruitment_type: SiteJobRecruitmentType) -> "SiteJobPostBuilder":
+    def recruitment_type(
+        self, recruitment_type: SiteJobRecruitmentType
+    ) -> "SiteJobPostBuilder":
         self._site_job_post.recruitment_type = recruitment_type
         return self
 

@@ -9,7 +9,6 @@ from .primary_calendar_response_body import PrimaryCalendarResponseBody
 class PrimaryCalendarResponse(BaseResponse):
     _types = {
         "data": PrimaryCalendarResponseBody,
-
     }
 
     def __init__(self, d=None):

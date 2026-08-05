@@ -24,7 +24,9 @@ class RevokeOffboardingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._revoke_offboarding_request_body = RevokeOffboardingRequestBody()
 
-    def offboarding_id(self, offboarding_id: str) -> "RevokeOffboardingRequestBodyBuilder":
+    def offboarding_id(
+        self, offboarding_id: str
+    ) -> "RevokeOffboardingRequestBodyBuilder":
         self._revoke_offboarding_request_body.offboarding_id = offboarding_id
         return self
 

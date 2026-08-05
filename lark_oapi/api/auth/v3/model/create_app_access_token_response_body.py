@@ -6,9 +6,13 @@ from lark_oapi.core.construct import init
 
 class CreateAppAccessTokenResponseBody(object):
     _types = {
+        "app_access_token": str,
+        "expire": int,
     }
 
     def __init__(self, d=None):
+        self.app_access_token: Optional[str] = None
+        self.expire: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +23,16 @@ class CreateAppAccessTokenResponseBody(object):
 class CreateAppAccessTokenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_access_token_response_body = CreateAppAccessTokenResponseBody()
+
+    def app_access_token(
+        self, app_access_token: str
+    ) -> "CreateAppAccessTokenResponseBodyBuilder":
+        self._create_app_access_token_response_body.app_access_token = app_access_token
+        return self
+
+    def expire(self, expire: int) -> "CreateAppAccessTokenResponseBodyBuilder":
+        self._create_app_access_token_response_body.expire = expire
+        return self
 
     def build(self) -> "CreateAppAccessTokenResponseBody":
         return self._create_app_access_token_response_body

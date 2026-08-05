@@ -45,7 +45,9 @@ class SignatureTemplateCustomFieldBuilder(object):
         self._signature_template_custom_field.apiname = apiname
         return self
 
-    def custom_field_type(self, custom_field_type: Enum) -> "SignatureTemplateCustomFieldBuilder":
+    def custom_field_type(
+        self, custom_field_type: Enum
+    ) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.custom_field_type = custom_field_type
         return self
 
@@ -61,7 +63,9 @@ class SignatureTemplateCustomFieldBuilder(object):
         self._signature_template_custom_field.custom_desc = custom_desc
         return self
 
-    def common_info(self, common_info: SignatureTemplateCommonFieldInfo) -> "SignatureTemplateCustomFieldBuilder":
+    def common_info(
+        self, common_info: SignatureTemplateCommonFieldInfo
+    ) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.common_info = common_info
         return self
 

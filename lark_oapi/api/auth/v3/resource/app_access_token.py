@@ -19,8 +19,11 @@ class AppAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAppAccessTokenRequest,
-               option: Optional[RequestOption] = None) -> CreateAppAccessTokenResponse:
+    def create(
+        self,
+        request: CreateAppAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,13 +38,18 @@ class AppAccessToken(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppAccessTokenResponse)
+        response: CreateAppAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateAppAccessTokenRequest,
-                      option: Optional[RequestOption] = None) -> CreateAppAccessTokenResponse:
+    async def acreate(
+        self,
+        request: CreateAppAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateAppAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -52,13 +60,18 @@ class AppAccessToken(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateAppAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppAccessTokenResponse)
+        response: CreateAppAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateAppAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    def internal(self, request: InternalAppAccessTokenRequest,
-                 option: Optional[RequestOption] = None) -> InternalAppAccessTokenResponse:
+    def internal(
+        self,
+        request: InternalAppAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> InternalAppAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,14 +86,18 @@ class AppAccessToken(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: InternalAppAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  InternalAppAccessTokenResponse)
+        response: InternalAppAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InternalAppAccessTokenResponse
+        )
         response.raw = resp
 
         return response
 
-    async def ainternal(self, request: InternalAppAccessTokenRequest,
-                        option: Optional[RequestOption] = None) -> InternalAppAccessTokenResponse:
+    async def ainternal(
+        self,
+        request: InternalAppAccessTokenRequest,
+        option: Optional[RequestOption] = None,
+    ) -> InternalAppAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -91,8 +108,9 @@ class AppAccessToken(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: InternalAppAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  InternalAppAccessTokenResponse)
+        response: InternalAppAccessTokenResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), InternalAppAccessTokenResponse
+        )
         response.raw = resp
 
         return response

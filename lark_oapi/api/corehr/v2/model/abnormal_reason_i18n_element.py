@@ -29,7 +29,9 @@ class AbnormalReasonI18nElementBuilder(object):
         self._abnormal_reason_i18n_element.lang = lang
         return self
 
-    def elements(self, elements: List[AbnormalReasonElement]) -> "AbnormalReasonI18nElementBuilder":
+    def elements(
+        self, elements: List[AbnormalReasonElement]
+    ) -> "AbnormalReasonI18nElementBuilder":
         self._abnormal_reason_i18n_element.elements = elements
         return self
 

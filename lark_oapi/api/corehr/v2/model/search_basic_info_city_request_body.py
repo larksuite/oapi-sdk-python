@@ -26,16 +26,23 @@ class SearchBasicInfoCityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_city_request_body = SearchBasicInfoCityRequestBody()
 
-    def country_region_subdivision_id_list(self, country_region_subdivision_id_list: List[
-        str]) -> "SearchBasicInfoCityRequestBodyBuilder":
-        self._search_basic_info_city_request_body.country_region_subdivision_id_list = country_region_subdivision_id_list
+    def country_region_subdivision_id_list(
+        self, country_region_subdivision_id_list: List[str]
+    ) -> "SearchBasicInfoCityRequestBodyBuilder":
+        self._search_basic_info_city_request_body.country_region_subdivision_id_list = (
+            country_region_subdivision_id_list
+        )
         return self
 
-    def city_id_list(self, city_id_list: List[str]) -> "SearchBasicInfoCityRequestBodyBuilder":
+    def city_id_list(
+        self, city_id_list: List[str]
+    ) -> "SearchBasicInfoCityRequestBodyBuilder":
         self._search_basic_info_city_request_body.city_id_list = city_id_list
         return self
 
-    def status_list(self, status_list: List[int]) -> "SearchBasicInfoCityRequestBodyBuilder":
+    def status_list(
+        self, status_list: List[int]
+    ) -> "SearchBasicInfoCityRequestBodyBuilder":
         self._search_basic_info_city_request_body.status_list = status_list
         return self
 

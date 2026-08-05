@@ -18,13 +18,19 @@ class ListCollaborationRuleRequest(BaseRequest):
 
 
 class ListCollaborationRuleRequestBuilder(object):
-
     def __init__(self) -> None:
         list_collaboration_rule_request = ListCollaborationRuleRequest()
         list_collaboration_rule_request.http_method = HttpMethod.GET
-        list_collaboration_rule_request.uri = "/open-apis/directory/v1/collaboration_rules"
-        list_collaboration_rule_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._list_collaboration_rule_request: ListCollaborationRuleRequest = list_collaboration_rule_request
+        list_collaboration_rule_request.uri = (
+            "/open-apis/directory/v1/collaboration_rules"
+        )
+        list_collaboration_rule_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._list_collaboration_rule_request: ListCollaborationRuleRequest = (
+            list_collaboration_rule_request
+        )
 
     def page_size(self, page_size: int) -> "ListCollaborationRuleRequestBuilder":
         self._list_collaboration_rule_request.page_size = page_size
@@ -36,9 +42,13 @@ class ListCollaborationRuleRequestBuilder(object):
         self._list_collaboration_rule_request.add_query("page_token", page_token)
         return self
 
-    def target_tenant_key(self, target_tenant_key: str) -> "ListCollaborationRuleRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "ListCollaborationRuleRequestBuilder":
         self._list_collaboration_rule_request.target_tenant_key = target_tenant_key
-        self._list_collaboration_rule_request.add_query("target_tenant_key", target_tenant_key)
+        self._list_collaboration_rule_request.add_query(
+            "target_tenant_key", target_tenant_key
+        )
         return self
 
     def build(self) -> ListCollaborationRuleRequest:

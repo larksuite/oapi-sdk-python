@@ -17,7 +17,6 @@ class ListIndicatorRequest(BaseRequest):
 
 
 class ListIndicatorRequestBuilder(object):
-
     def __init__(self) -> None:
         list_indicator_request = ListIndicatorRequest()
         list_indicator_request.http_method = HttpMethod.GET

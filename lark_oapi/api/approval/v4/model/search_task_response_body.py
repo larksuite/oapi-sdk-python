@@ -33,7 +33,9 @@ class SearchTaskResponseBodyBuilder(object):
         self._search_task_response_body.count = count
         return self
 
-    def task_list(self, task_list: List[TaskSearchItem]) -> "SearchTaskResponseBodyBuilder":
+    def task_list(
+        self, task_list: List[TaskSearchItem]
+    ) -> "SearchTaskResponseBodyBuilder":
         self._search_task_response_body.task_list = task_list
         return self
 

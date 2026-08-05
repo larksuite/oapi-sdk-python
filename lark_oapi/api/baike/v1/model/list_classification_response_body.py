@@ -25,7 +25,9 @@ class ListClassificationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_classification_response_body = ListClassificationResponseBody()
 
-    def items(self, items: List[Classification]) -> "ListClassificationResponseBodyBuilder":
+    def items(
+        self, items: List[Classification]
+    ) -> "ListClassificationResponseBodyBuilder":
         self._list_classification_response_body.items = items
         return self
 

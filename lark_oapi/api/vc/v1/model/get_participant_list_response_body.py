@@ -27,7 +27,9 @@ class GetParticipantListResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_participant_list_response_body = GetParticipantListResponseBody()
 
-    def participants(self, participants: List[Participant]) -> "GetParticipantListResponseBodyBuilder":
+    def participants(
+        self, participants: List[Participant]
+    ) -> "GetParticipantListResponseBodyBuilder":
         self._get_participant_list_response_body.participants = participants
         return self
 

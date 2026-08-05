@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_leave_granting_record_response_body import CreateLeaveGrantingRecordResponseBody
+from .create_leave_granting_record_response_body import (
+    CreateLeaveGrantingRecordResponseBody,
+)
 
 
 class CreateLeaveGrantingRecordResponse(BaseResponse):
     _types = {
         "data": CreateLeaveGrantingRecordResponseBody,
-
     }
 
     def __init__(self, d=None):

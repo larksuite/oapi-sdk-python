@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .records_post_workspace_table_response_body import RecordsPostWorkspaceTableResponseBody
+from .records_post_workspace_table_response_body import (
+    RecordsPostWorkspaceTableResponseBody,
+)
 
 
 class RecordsPostWorkspaceTableResponse(BaseResponse):
     _types = {
         "data": RecordsPostWorkspaceTableResponseBody,
-
     }
 
     def __init__(self, d=None):

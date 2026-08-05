@@ -19,13 +19,19 @@ class DeleteFileVersionRequest(BaseRequest):
 
 
 class DeleteFileVersionRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_file_version_request = DeleteFileVersionRequest()
         delete_file_version_request.http_method = HttpMethod.DELETE
-        delete_file_version_request.uri = "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-        delete_file_version_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._delete_file_version_request: DeleteFileVersionRequest = delete_file_version_request
+        delete_file_version_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/versions/:version_id"
+        )
+        delete_file_version_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._delete_file_version_request: DeleteFileVersionRequest = (
+            delete_file_version_request
+        )
 
     def obj_type(self, obj_type: str) -> "DeleteFileVersionRequestBuilder":
         self._delete_file_version_request.obj_type = obj_type

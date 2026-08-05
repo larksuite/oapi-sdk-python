@@ -17,7 +17,6 @@ class GetUserFlowRequest(BaseRequest):
 
 
 class GetUserFlowRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_flow_request = GetUserFlowRequest()
         get_user_flow_request.http_method = HttpMethod.GET

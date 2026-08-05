@@ -21,13 +21,19 @@ class InstancesCalendarEventRequest(BaseRequest):
 
 
 class InstancesCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         instances_calendar_event_request = InstancesCalendarEventRequest()
         instances_calendar_event_request.http_method = HttpMethod.GET
-        instances_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/instances"
-        instances_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._instances_calendar_event_request: InstancesCalendarEventRequest = instances_calendar_event_request
+        instances_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/instances"
+        )
+        instances_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._instances_calendar_event_request: InstancesCalendarEventRequest = (
+            instances_calendar_event_request
+        )
 
     def start_time(self, start_time: str) -> "InstancesCalendarEventRequestBuilder":
         self._instances_calendar_event_request.start_time = start_time

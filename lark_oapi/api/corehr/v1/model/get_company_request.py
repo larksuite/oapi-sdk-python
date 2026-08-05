@@ -16,7 +16,6 @@ class GetCompanyRequest(BaseRequest):
 
 
 class GetCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         get_company_request = GetCompanyRequest()
         get_company_request.http_method = HttpMethod.GET

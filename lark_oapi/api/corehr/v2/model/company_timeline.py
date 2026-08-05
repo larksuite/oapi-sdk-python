@@ -67,7 +67,9 @@ class CompanyTimelineBuilder(object):
     def __init__(self) -> None:
         self._company_timeline = CompanyTimeline()
 
-    def company_version_data(self, company_version_data: List[CompanyVersionData]) -> "CompanyTimelineBuilder":
+    def company_version_data(
+        self, company_version_data: List[CompanyVersionData]
+    ) -> "CompanyTimelineBuilder":
         self._company_timeline.company_version_data = company_version_data
         return self
 
@@ -79,7 +81,9 @@ class CompanyTimelineBuilder(object):
         self._company_timeline.industry_list = industry_list
         return self
 
-    def legal_representative(self, legal_representative: List[I18n]) -> "CompanyTimelineBuilder":
+    def legal_representative(
+        self, legal_representative: List[I18n]
+    ) -> "CompanyTimelineBuilder":
         self._company_timeline.legal_representative = legal_representative
         return self
 
@@ -119,7 +123,9 @@ class CompanyTimelineBuilder(object):
         self._company_timeline.fax = fax
         return self
 
-    def registered_office_address(self, registered_office_address: List[I18n]) -> "CompanyTimelineBuilder":
+    def registered_office_address(
+        self, registered_office_address: List[I18n]
+    ) -> "CompanyTimelineBuilder":
         self._company_timeline.registered_office_address = registered_office_address
         return self
 
@@ -127,11 +133,17 @@ class CompanyTimelineBuilder(object):
         self._company_timeline.office_address = office_address
         return self
 
-    def registered_office_address_info(self, registered_office_address_info: Address) -> "CompanyTimelineBuilder":
-        self._company_timeline.registered_office_address_info = registered_office_address_info
+    def registered_office_address_info(
+        self, registered_office_address_info: Address
+    ) -> "CompanyTimelineBuilder":
+        self._company_timeline.registered_office_address_info = (
+            registered_office_address_info
+        )
         return self
 
-    def office_address_info(self, office_address_info: Address) -> "CompanyTimelineBuilder":
+    def office_address_info(
+        self, office_address_info: Address
+    ) -> "CompanyTimelineBuilder":
         self._company_timeline.office_address_info = office_address_info
         return self
 

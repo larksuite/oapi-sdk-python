@@ -56,66 +56,99 @@ class EmployeeEducationAndWorkExperienceEntity(object):
 
 class EmployeeEducationAndWorkExperienceEntityBuilder(object):
     def __init__(self) -> None:
-        self._employee_education_and_work_experience_entity = EmployeeEducationAndWorkExperienceEntity()
+        self._employee_education_and_work_experience_entity = (
+            EmployeeEducationAndWorkExperienceEntity()
+        )
 
-    def educations(self, educations: List[Education]) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def educations(
+        self, educations: List[Education]
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.educations = educations
         return self
 
-    def work_experiences(self,
-                         work_experiences: List[WorkExperience]) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.work_experiences = work_experiences
+    def work_experiences(
+        self, work_experiences: List[WorkExperience]
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.work_experiences = (
+            work_experiences
+        )
         return self
 
-    def former_employer(self, former_employer: str) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.former_employer = former_employer
+    def former_employer(
+        self, former_employer: str
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.former_employer = (
+            former_employer
+        )
         return self
 
-    def personal_profiles(self, personal_profiles: List[
-        PersonalProfile]) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.personal_profiles = personal_profiles
+    def personal_profiles(
+        self, personal_profiles: List[PersonalProfile]
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.personal_profiles = (
+            personal_profiles
+        )
         return self
 
-    def photo_of_id_portrait_side(self,
-                                  photo_of_id_portrait_side: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def photo_of_id_portrait_side(
+        self, photo_of_id_portrait_side: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.photo_of_id_portrait_side = photo_of_id_portrait_side
         return self
 
-    def photo_of_id_emblem_side(self,
-                                photo_of_id_emblem_side: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.photo_of_id_emblem_side = photo_of_id_emblem_side
+    def photo_of_id_emblem_side(
+        self, photo_of_id_emblem_side: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.photo_of_id_emblem_side = (
+            photo_of_id_emblem_side
+        )
         return self
 
-    def id_photo(self, id_photo: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def id_photo(
+        self, id_photo: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.id_photo = id_photo
         return self
 
-    def diploma(self, diploma: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def diploma(
+        self, diploma: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.diploma = diploma
         return self
 
-    def graduation_certificate(self,
-                               graduation_certificate: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.graduation_certificate = graduation_certificate
+    def graduation_certificate(
+        self, graduation_certificate: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.graduation_certificate = (
+            graduation_certificate
+        )
         return self
 
-    def certificate_of_merit(self,
-                             certificate_of_merit: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.certificate_of_merit = certificate_of_merit
+    def certificate_of_merit(
+        self, certificate_of_merit: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.certificate_of_merit = (
+            certificate_of_merit
+        )
         return self
 
-    def offboarding_paperwork(self,
-                              offboarding_paperwork: Attachment) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
-        self._employee_education_and_work_experience_entity.offboarding_paperwork = offboarding_paperwork
+    def offboarding_paperwork(
+        self, offboarding_paperwork: Attachment
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+        self._employee_education_and_work_experience_entity.offboarding_paperwork = (
+            offboarding_paperwork
+        )
         return self
 
-    def highest_level_of_education_entity(self,
-                                          highest_level_of_education_entity: Education) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def highest_level_of_education_entity(
+        self, highest_level_of_education_entity: Education
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.highest_level_of_education_entity = highest_level_of_education_entity
         return self
 
-    def highest_degree_of_education_entity(self,
-                                           highest_degree_of_education_entity: Education) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
+    def highest_degree_of_education_entity(
+        self, highest_degree_of_education_entity: Education
+    ) -> "EmployeeEducationAndWorkExperienceEntityBuilder":
         self._employee_education_and_work_experience_entity.highest_degree_of_education_entity = highest_degree_of_education_entity
         return self
 

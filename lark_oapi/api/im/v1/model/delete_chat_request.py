@@ -16,7 +16,6 @@ class DeleteChatRequest(BaseRequest):
 
 
 class DeleteChatRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_chat_request = DeleteChatRequest()
         delete_chat_request.http_method = HttpMethod.DELETE

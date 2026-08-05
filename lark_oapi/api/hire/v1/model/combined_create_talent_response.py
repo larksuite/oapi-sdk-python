@@ -9,7 +9,6 @@ from .combined_create_talent_response_body import CombinedCreateTalentResponseBo
 class CombinedCreateTalentResponse(BaseResponse):
     _types = {
         "data": CombinedCreateTalentResponseBody,
-
     }
 
     def __init__(self, d=None):

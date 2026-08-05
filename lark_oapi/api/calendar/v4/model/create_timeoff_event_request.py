@@ -18,20 +18,23 @@ class CreateTimeoffEventRequest(BaseRequest):
 
 
 class CreateTimeoffEventRequestBuilder(object):
-
     def __init__(self) -> None:
         create_timeoff_event_request = CreateTimeoffEventRequest()
         create_timeoff_event_request.http_method = HttpMethod.POST
         create_timeoff_event_request.uri = "/open-apis/calendar/v4/timeoff_events"
         create_timeoff_event_request.token_types = {AccessTokenType.TENANT}
-        self._create_timeoff_event_request: CreateTimeoffEventRequest = create_timeoff_event_request
+        self._create_timeoff_event_request: CreateTimeoffEventRequest = (
+            create_timeoff_event_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateTimeoffEventRequestBuilder":
         self._create_timeoff_event_request.user_id_type = user_id_type
         self._create_timeoff_event_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: TimeoffEvent) -> "CreateTimeoffEventRequestBuilder":
+    def request_body(
+        self, request_body: TimeoffEvent
+    ) -> "CreateTimeoffEventRequestBuilder":
         self._create_timeoff_event_request.request_body = request_body
         self._create_timeoff_event_request.body = request_body
         return self

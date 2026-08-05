@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .form_field_variable_record_value_example import FormFieldVariableRecordValueExample
+from .form_field_variable_record_value_example import (
+    FormFieldVariableRecordValueExample,
+)
 
 
 class FormFieldVariableRecordValue(object):
@@ -23,7 +25,9 @@ class FormFieldVariableRecordValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_record_value = FormFieldVariableRecordValue()
 
-    def values(self, values: FormFieldVariableRecordValueExample) -> "FormFieldVariableRecordValueBuilder":
+    def values(
+        self, values: FormFieldVariableRecordValueExample
+    ) -> "FormFieldVariableRecordValueBuilder":
         self._form_field_variable_record_value.values = values
         return self
 

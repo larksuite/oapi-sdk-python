@@ -28,7 +28,9 @@ class CreateWhiteboardNodeResponseBodyBuilder(object):
         self._create_whiteboard_node_response_body.ids = ids
         return self
 
-    def client_token(self, client_token: str) -> "CreateWhiteboardNodeResponseBodyBuilder":
+    def client_token(
+        self, client_token: str
+    ) -> "CreateWhiteboardNodeResponseBodyBuilder":
         self._create_whiteboard_node_response_body.client_token = client_token
         return self
 

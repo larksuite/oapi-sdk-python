@@ -16,17 +16,27 @@ class SendAsUserMailboxSettingRequest(BaseRequest):
 
 
 class SendAsUserMailboxSettingRequestBuilder(object):
-
     def __init__(self) -> None:
         send_as_user_mailbox_setting_request = SendAsUserMailboxSettingRequest()
         send_as_user_mailbox_setting_request.http_method = HttpMethod.GET
-        send_as_user_mailbox_setting_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/settings/send_as"
-        send_as_user_mailbox_setting_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._send_as_user_mailbox_setting_request: SendAsUserMailboxSettingRequest = send_as_user_mailbox_setting_request
+        send_as_user_mailbox_setting_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/settings/send_as"
+        )
+        send_as_user_mailbox_setting_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._send_as_user_mailbox_setting_request: SendAsUserMailboxSettingRequest = (
+            send_as_user_mailbox_setting_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "SendAsUserMailboxSettingRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "SendAsUserMailboxSettingRequestBuilder":
         self._send_as_user_mailbox_setting_request.user_mailbox_id = user_mailbox_id
-        self._send_as_user_mailbox_setting_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._send_as_user_mailbox_setting_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def build(self) -> SendAsUserMailboxSettingRequest:

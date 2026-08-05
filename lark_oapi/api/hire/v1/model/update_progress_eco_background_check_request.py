@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .update_progress_eco_background_check_request_body import UpdateProgressEcoBackgroundCheckRequestBody
+from .update_progress_eco_background_check_request_body import (
+    UpdateProgressEcoBackgroundCheckRequestBody,
+)
 
 
 class UpdateProgressEcoBackgroundCheckRequest(BaseRequest):
@@ -17,16 +19,22 @@ class UpdateProgressEcoBackgroundCheckRequest(BaseRequest):
 
 
 class UpdateProgressEcoBackgroundCheckRequestBuilder(object):
-
     def __init__(self) -> None:
-        update_progress_eco_background_check_request = UpdateProgressEcoBackgroundCheckRequest()
+        update_progress_eco_background_check_request = (
+            UpdateProgressEcoBackgroundCheckRequest()
+        )
         update_progress_eco_background_check_request.http_method = HttpMethod.POST
-        update_progress_eco_background_check_request.uri = "/open-apis/hire/v1/eco_background_checks/update_progress"
-        update_progress_eco_background_check_request.token_types = {AccessTokenType.TENANT}
+        update_progress_eco_background_check_request.uri = (
+            "/open-apis/hire/v1/eco_background_checks/update_progress"
+        )
+        update_progress_eco_background_check_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._update_progress_eco_background_check_request: UpdateProgressEcoBackgroundCheckRequest = update_progress_eco_background_check_request
 
-    def request_body(self,
-                     request_body: UpdateProgressEcoBackgroundCheckRequestBody) -> "UpdateProgressEcoBackgroundCheckRequestBuilder":
+    def request_body(
+        self, request_body: UpdateProgressEcoBackgroundCheckRequestBody
+    ) -> "UpdateProgressEcoBackgroundCheckRequestBuilder":
         self._update_progress_eco_background_check_request.request_body = request_body
         self._update_progress_eco_background_check_request.body = request_body
         return self

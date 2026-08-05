@@ -53,7 +53,9 @@ class ProfileSettingDependent(object):
         self.modify_date: Optional[str] = None
         self.visas: Optional[List[ProfileSettingVisa]] = None
         self.passports: Optional[List[ProfileSettingPassport]] = None
-        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = None
+        self.citizenship_statuses: Optional[List[ProfileSettingCitizenshipStatus]] = (
+            None
+        )
         self.national_ids: Optional[List[ProfileSettingNational]] = None
         self.nationality_v2: Optional[str] = None
         self.spouses_working_status: Optional[str] = None
@@ -79,8 +81,12 @@ class ProfileSettingDependentBuilder(object):
         self._profile_setting_dependent.date_of_birth = date_of_birth
         return self
 
-    def relationship_with_dependent(self, relationship_with_dependent: str) -> "ProfileSettingDependentBuilder":
-        self._profile_setting_dependent.relationship_with_dependent = relationship_with_dependent
+    def relationship_with_dependent(
+        self, relationship_with_dependent: str
+    ) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.relationship_with_dependent = (
+            relationship_with_dependent
+        )
         return self
 
     def gender(self, gender: str) -> "ProfileSettingDependentBuilder":
@@ -95,20 +101,27 @@ class ProfileSettingDependentBuilder(object):
         self._profile_setting_dependent.job = job
         return self
 
-    def child_birth_certificates(self, child_birth_certificates: List[
-        ProfileSettingFile]) -> "ProfileSettingDependentBuilder":
-        self._profile_setting_dependent.child_birth_certificates = child_birth_certificates
+    def child_birth_certificates(
+        self, child_birth_certificates: List[ProfileSettingFile]
+    ) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.child_birth_certificates = (
+            child_birth_certificates
+        )
         return self
 
     def employer(self, employer: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.employer = employer
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingDependentBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.custom_fields = custom_fields
         return self
 
-    def address(self, address: ProfileSettingAddress) -> "ProfileSettingDependentBuilder":
+    def address(
+        self, address: ProfileSettingAddress
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.address = address
         return self
 
@@ -120,20 +133,27 @@ class ProfileSettingDependentBuilder(object):
         self._profile_setting_dependent.modify_date = modify_date
         return self
 
-    def visas(self, visas: List[ProfileSettingVisa]) -> "ProfileSettingDependentBuilder":
+    def visas(
+        self, visas: List[ProfileSettingVisa]
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.visas = visas
         return self
 
-    def passports(self, passports: List[ProfileSettingPassport]) -> "ProfileSettingDependentBuilder":
+    def passports(
+        self, passports: List[ProfileSettingPassport]
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.passports = passports
         return self
 
-    def citizenship_statuses(self, citizenship_statuses: List[
-        ProfileSettingCitizenshipStatus]) -> "ProfileSettingDependentBuilder":
+    def citizenship_statuses(
+        self, citizenship_statuses: List[ProfileSettingCitizenshipStatus]
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.citizenship_statuses = citizenship_statuses
         return self
 
-    def national_ids(self, national_ids: List[ProfileSettingNational]) -> "ProfileSettingDependentBuilder":
+    def national_ids(
+        self, national_ids: List[ProfileSettingNational]
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.national_ids = national_ids
         return self
 
@@ -141,18 +161,26 @@ class ProfileSettingDependentBuilder(object):
         self._profile_setting_dependent.nationality_v2 = nationality_v2
         return self
 
-    def spouses_working_status(self, spouses_working_status: str) -> "ProfileSettingDependentBuilder":
+    def spouses_working_status(
+        self, spouses_working_status: str
+    ) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.spouses_working_status = spouses_working_status
         return self
 
-    def is_this_person_covered_by_health_insurance(self,
-                                                   is_this_person_covered_by_health_insurance: bool) -> "ProfileSettingDependentBuilder":
-        self._profile_setting_dependent.is_this_person_covered_by_health_insurance = is_this_person_covered_by_health_insurance
+    def is_this_person_covered_by_health_insurance(
+        self, is_this_person_covered_by_health_insurance: bool
+    ) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.is_this_person_covered_by_health_insurance = (
+            is_this_person_covered_by_health_insurance
+        )
         return self
 
-    def is_this_person_allowed_for_tax_deduction(self,
-                                                 is_this_person_allowed_for_tax_deduction: bool) -> "ProfileSettingDependentBuilder":
-        self._profile_setting_dependent.is_this_person_allowed_for_tax_deduction = is_this_person_allowed_for_tax_deduction
+    def is_this_person_allowed_for_tax_deduction(
+        self, is_this_person_allowed_for_tax_deduction: bool
+    ) -> "ProfileSettingDependentBuilder":
+        self._profile_setting_dependent.is_this_person_allowed_for_tax_deduction = (
+            is_this_person_allowed_for_tax_deduction
+        )
         return self
 
     def name(self, name: ProfileSettingName) -> "ProfileSettingDependentBuilder":

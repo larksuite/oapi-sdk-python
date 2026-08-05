@@ -13,8 +13,12 @@ from ..model.download_signature_file_request import DownloadSignatureFileRequest
 from ..model.download_signature_file_response import DownloadSignatureFileResponse
 from ..model.list_signature_file_request import ListSignatureFileRequest
 from ..model.list_signature_file_response import ListSignatureFileResponse
-from ..model.list_by_biz_id_signature_file_request import ListByBizIdSignatureFileRequest
-from ..model.list_by_biz_id_signature_file_response import ListByBizIdSignatureFileResponse
+from ..model.list_by_biz_id_signature_file_request import (
+    ListByBizIdSignatureFileRequest,
+)
+from ..model.list_by_biz_id_signature_file_response import (
+    ListByBizIdSignatureFileResponse,
+)
 from ..model.query_signature_file_request import QuerySignatureFileRequest
 from ..model.query_signature_file_response import QuerySignatureFileResponse
 from ..model.terminate_signature_file_request import TerminateSignatureFileRequest
@@ -25,8 +29,11 @@ class SignatureFile(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download(self, request: DownloadSignatureFileRequest,
-                 option: Optional[RequestOption] = None) -> DownloadSignatureFileResponse:
+    def download(
+        self,
+        request: DownloadSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,13 +55,18 @@ class SignatureFile(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadSignatureFileResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadSignatureFileResponse
+            )
 
         response.raw = resp
         return response
 
-    async def adownload(self, request: DownloadSignatureFileRequest,
-                        option: Optional[RequestOption] = None) -> DownloadSignatureFileResponse:
+    async def adownload(
+        self,
+        request: DownloadSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DownloadSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,13 +84,16 @@ class SignatureFile(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
-            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadSignatureFileResponse)
+            response = JSON.unmarshal(
+                str(resp.content, UTF_8), DownloadSignatureFileResponse
+            )
 
         response.raw = resp
         return response
 
-    def list(self, request: ListSignatureFileRequest,
-             option: Optional[RequestOption] = None) -> ListSignatureFileResponse:
+    def list(
+        self, request: ListSignatureFileRequest, option: Optional[RequestOption] = None
+    ) -> ListSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,13 +108,16 @@ class SignatureFile(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSignatureFileResponse)
+        response: ListSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListSignatureFileRequest,
-                    option: Optional[RequestOption] = None) -> ListSignatureFileResponse:
+    async def alist(
+        self, request: ListSignatureFileRequest, option: Optional[RequestOption] = None
+    ) -> ListSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -110,13 +128,18 @@ class SignatureFile(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSignatureFileResponse)
+        response: ListSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListSignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    def list_by_biz_id(self, request: ListByBizIdSignatureFileRequest,
-                       option: Optional[RequestOption] = None) -> ListByBizIdSignatureFileResponse:
+    def list_by_biz_id(
+        self,
+        request: ListByBizIdSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListByBizIdSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,14 +154,18 @@ class SignatureFile(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListByBizIdSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListByBizIdSignatureFileResponse)
+        response: ListByBizIdSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByBizIdSignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist_by_biz_id(self, request: ListByBizIdSignatureFileRequest,
-                              option: Optional[RequestOption] = None) -> ListByBizIdSignatureFileResponse:
+    async def alist_by_biz_id(
+        self,
+        request: ListByBizIdSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListByBizIdSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -149,14 +176,16 @@ class SignatureFile(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListByBizIdSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListByBizIdSignatureFileResponse)
+        response: ListByBizIdSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListByBizIdSignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    def query(self, request: QuerySignatureFileRequest,
-              option: Optional[RequestOption] = None) -> QuerySignatureFileResponse:
+    def query(
+        self, request: QuerySignatureFileRequest, option: Optional[RequestOption] = None
+    ) -> QuerySignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,13 +200,16 @@ class SignatureFile(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerySignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySignatureFileResponse)
+        response: QuerySignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery(self, request: QuerySignatureFileRequest,
-                     option: Optional[RequestOption] = None) -> QuerySignatureFileResponse:
+    async def aquery(
+        self, request: QuerySignatureFileRequest, option: Optional[RequestOption] = None
+    ) -> QuerySignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -188,13 +220,18 @@ class SignatureFile(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerySignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySignatureFileResponse)
+        response: QuerySignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerySignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    def terminate(self, request: TerminateSignatureFileRequest,
-                  option: Optional[RequestOption] = None) -> TerminateSignatureFileResponse:
+    def terminate(
+        self,
+        request: TerminateSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TerminateSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -209,14 +246,18 @@ class SignatureFile(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TerminateSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TerminateSignatureFileResponse)
+        response: TerminateSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TerminateSignatureFileResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aterminate(self, request: TerminateSignatureFileRequest,
-                         option: Optional[RequestOption] = None) -> TerminateSignatureFileResponse:
+    async def aterminate(
+        self,
+        request: TerminateSignatureFileRequest,
+        option: Optional[RequestOption] = None,
+    ) -> TerminateSignatureFileResponse:
         if option is None:
             option = RequestOption()
 
@@ -227,8 +268,9 @@ class SignatureFile(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TerminateSignatureFileResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TerminateSignatureFileResponse)
+        response: TerminateSignatureFileResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), TerminateSignatureFileResponse
+        )
         response.raw = resp
 
         return response

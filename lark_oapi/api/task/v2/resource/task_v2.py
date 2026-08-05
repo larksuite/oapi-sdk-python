@@ -19,8 +19,11 @@ class TaskV2(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list_related_task(self, request: ListRelatedTaskTaskV2Request,
-                          option: Optional[RequestOption] = None) -> ListRelatedTaskTaskV2Response:
+    def list_related_task(
+        self,
+        request: ListRelatedTaskTaskV2Request,
+        option: Optional[RequestOption] = None,
+    ) -> ListRelatedTaskTaskV2Response:
         if option is None:
             option = RequestOption()
 
@@ -35,14 +38,18 @@ class TaskV2(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListRelatedTaskTaskV2Response = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListRelatedTaskTaskV2Response)
+        response: ListRelatedTaskTaskV2Response = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRelatedTaskTaskV2Response
+        )
         response.raw = resp
 
         return response
 
-    async def alist_related_task(self, request: ListRelatedTaskTaskV2Request,
-                                 option: Optional[RequestOption] = None) -> ListRelatedTaskTaskV2Response:
+    async def alist_related_task(
+        self,
+        request: ListRelatedTaskTaskV2Request,
+        option: Optional[RequestOption] = None,
+    ) -> ListRelatedTaskTaskV2Response:
         if option is None:
             option = RequestOption()
 
@@ -53,14 +60,18 @@ class TaskV2(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListRelatedTaskTaskV2Response = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 ListRelatedTaskTaskV2Response)
+        response: ListRelatedTaskTaskV2Response = JSON.unmarshal(
+            str(resp.content, UTF_8), ListRelatedTaskTaskV2Response
+        )
         response.raw = resp
 
         return response
 
-    def task_subscription(self, request: TaskSubscriptionTaskV2Request,
-                          option: Optional[RequestOption] = None) -> TaskSubscriptionTaskV2Response:
+    def task_subscription(
+        self,
+        request: TaskSubscriptionTaskV2Request,
+        option: Optional[RequestOption] = None,
+    ) -> TaskSubscriptionTaskV2Response:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +86,18 @@ class TaskV2(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: TaskSubscriptionTaskV2Response = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TaskSubscriptionTaskV2Response)
+        response: TaskSubscriptionTaskV2Response = JSON.unmarshal(
+            str(resp.content, UTF_8), TaskSubscriptionTaskV2Response
+        )
         response.raw = resp
 
         return response
 
-    async def atask_subscription(self, request: TaskSubscriptionTaskV2Request,
-                                 option: Optional[RequestOption] = None) -> TaskSubscriptionTaskV2Response:
+    async def atask_subscription(
+        self,
+        request: TaskSubscriptionTaskV2Request,
+        option: Optional[RequestOption] = None,
+    ) -> TaskSubscriptionTaskV2Response:
         if option is None:
             option = RequestOption()
 
@@ -93,8 +108,9 @@ class TaskV2(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: TaskSubscriptionTaskV2Response = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  TaskSubscriptionTaskV2Response)
+        response: TaskSubscriptionTaskV2Response = JSON.unmarshal(
+            str(resp.content, UTF_8), TaskSubscriptionTaskV2Response
+        )
         response.raw = resp
 
         return response

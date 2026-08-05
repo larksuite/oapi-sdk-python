@@ -17,7 +17,9 @@ class JobFunction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListJobFunctionRequest, option: Optional[RequestOption] = None) -> ListJobFunctionResponse:
+    def list(
+        self, request: ListJobFunctionRequest, option: Optional[RequestOption] = None
+    ) -> ListJobFunctionResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,13 +34,16 @@ class JobFunction(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListJobFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobFunctionResponse)
+        response: ListJobFunctionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobFunctionResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListJobFunctionRequest,
-                    option: Optional[RequestOption] = None) -> ListJobFunctionResponse:
+    async def alist(
+        self, request: ListJobFunctionRequest, option: Optional[RequestOption] = None
+    ) -> ListJobFunctionResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,7 +54,9 @@ class JobFunction(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListJobFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobFunctionResponse)
+        response: ListJobFunctionResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListJobFunctionResponse
+        )
         response.raw = resp
 
         return response

@@ -18,20 +18,23 @@ class DelEmployeeCustomOrgRequest(BaseRequest):
 
 
 class DelEmployeeCustomOrgRequestBuilder(object):
-
     def __init__(self) -> None:
         del_employee_custom_org_request = DelEmployeeCustomOrgRequest()
         del_employee_custom_org_request.http_method = HttpMethod.POST
         del_employee_custom_org_request.uri = "/open-apis/corehr/v2/custom_org/del"
         del_employee_custom_org_request.token_types = {AccessTokenType.TENANT}
-        self._del_employee_custom_org_request: DelEmployeeCustomOrgRequest = del_employee_custom_org_request
+        self._del_employee_custom_org_request: DelEmployeeCustomOrgRequest = (
+            del_employee_custom_org_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "DelEmployeeCustomOrgRequestBuilder":
         self._del_employee_custom_org_request.user_id_type = user_id_type
         self._del_employee_custom_org_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: DelEmployeeCustomOrgRequestBody) -> "DelEmployeeCustomOrgRequestBuilder":
+    def request_body(
+        self, request_body: DelEmployeeCustomOrgRequestBody
+    ) -> "DelEmployeeCustomOrgRequestBuilder":
         self._del_employee_custom_org_request.request_body = request_body
         self._del_employee_custom_org_request.body = request_body
         return self

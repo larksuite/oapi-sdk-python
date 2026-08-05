@@ -12,13 +12,23 @@ from requests_toolbelt import MultipartEncoder
 from ..model.create_referral_account_request import CreateReferralAccountRequest
 from ..model.create_referral_account_response import CreateReferralAccountResponse
 from ..model.deactivate_referral_account_request import DeactivateReferralAccountRequest
-from ..model.deactivate_referral_account_response import DeactivateReferralAccountResponse
+from ..model.deactivate_referral_account_response import (
+    DeactivateReferralAccountResponse,
+)
 from ..model.enable_referral_account_request import EnableReferralAccountRequest
 from ..model.enable_referral_account_response import EnableReferralAccountResponse
-from ..model.get_account_assets_referral_account_request import GetAccountAssetsReferralAccountRequest
-from ..model.get_account_assets_referral_account_response import GetAccountAssetsReferralAccountResponse
-from ..model.reconciliation_referral_account_request import ReconciliationReferralAccountRequest
-from ..model.reconciliation_referral_account_response import ReconciliationReferralAccountResponse
+from ..model.get_account_assets_referral_account_request import (
+    GetAccountAssetsReferralAccountRequest,
+)
+from ..model.get_account_assets_referral_account_response import (
+    GetAccountAssetsReferralAccountResponse,
+)
+from ..model.reconciliation_referral_account_request import (
+    ReconciliationReferralAccountRequest,
+)
+from ..model.reconciliation_referral_account_response import (
+    ReconciliationReferralAccountResponse,
+)
 from ..model.withdraw_referral_account_request import WithdrawReferralAccountRequest
 from ..model.withdraw_referral_account_response import WithdrawReferralAccountResponse
 
@@ -27,8 +37,11 @@ class ReferralAccount(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateReferralAccountRequest,
-               option: Optional[RequestOption] = None) -> CreateReferralAccountResponse:
+    def create(
+        self,
+        request: CreateReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -43,14 +56,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateReferralAccountResponse)
+        response: CreateReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate(self, request: CreateReferralAccountRequest,
-                      option: Optional[RequestOption] = None) -> CreateReferralAccountResponse:
+    async def acreate(
+        self,
+        request: CreateReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -61,14 +78,18 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 CreateReferralAccountResponse)
+        response: CreateReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    def deactivate(self, request: DeactivateReferralAccountRequest,
-                   option: Optional[RequestOption] = None) -> DeactivateReferralAccountResponse:
+    def deactivate(
+        self,
+        request: DeactivateReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeactivateReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,14 +104,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeactivateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeactivateReferralAccountResponse)
+        response: DeactivateReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeactivateReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adeactivate(self, request: DeactivateReferralAccountRequest,
-                          option: Optional[RequestOption] = None) -> DeactivateReferralAccountResponse:
+    async def adeactivate(
+        self,
+        request: DeactivateReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeactivateReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -101,14 +126,18 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeactivateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeactivateReferralAccountResponse)
+        response: DeactivateReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeactivateReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    def enable(self, request: EnableReferralAccountRequest,
-               option: Optional[RequestOption] = None) -> EnableReferralAccountResponse:
+    def enable(
+        self,
+        request: EnableReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnableReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -123,14 +152,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EnableReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 EnableReferralAccountResponse)
+        response: EnableReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnableReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aenable(self, request: EnableReferralAccountRequest,
-                      option: Optional[RequestOption] = None) -> EnableReferralAccountResponse:
+    async def aenable(
+        self,
+        request: EnableReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EnableReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -141,14 +174,18 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EnableReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 EnableReferralAccountResponse)
+        response: EnableReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EnableReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    def get_account_assets(self, request: GetAccountAssetsReferralAccountRequest,
-                           option: Optional[RequestOption] = None) -> GetAccountAssetsReferralAccountResponse:
+    def get_account_assets(
+        self,
+        request: GetAccountAssetsReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAccountAssetsReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -163,14 +200,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetAccountAssetsReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           GetAccountAssetsReferralAccountResponse)
+        response: GetAccountAssetsReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAccountAssetsReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget_account_assets(self, request: GetAccountAssetsReferralAccountRequest,
-                                  option: Optional[RequestOption] = None) -> GetAccountAssetsReferralAccountResponse:
+    async def aget_account_assets(
+        self,
+        request: GetAccountAssetsReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetAccountAssetsReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -181,14 +222,18 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetAccountAssetsReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           GetAccountAssetsReferralAccountResponse)
+        response: GetAccountAssetsReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetAccountAssetsReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    def reconciliation(self, request: ReconciliationReferralAccountRequest,
-                       option: Optional[RequestOption] = None) -> ReconciliationReferralAccountResponse:
+    def reconciliation(
+        self,
+        request: ReconciliationReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ReconciliationReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -203,14 +248,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ReconciliationReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         ReconciliationReferralAccountResponse)
+        response: ReconciliationReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ReconciliationReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def areconciliation(self, request: ReconciliationReferralAccountRequest,
-                              option: Optional[RequestOption] = None) -> ReconciliationReferralAccountResponse:
+    async def areconciliation(
+        self,
+        request: ReconciliationReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ReconciliationReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -221,14 +270,18 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ReconciliationReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         ReconciliationReferralAccountResponse)
+        response: ReconciliationReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ReconciliationReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    def withdraw(self, request: WithdrawReferralAccountRequest,
-                 option: Optional[RequestOption] = None) -> WithdrawReferralAccountResponse:
+    def withdraw(
+        self,
+        request: WithdrawReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WithdrawReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -243,14 +296,18 @@ class ReferralAccount(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   WithdrawReferralAccountResponse)
+        response: WithdrawReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawReferralAccountResponse
+        )
         response.raw = resp
 
         return response
 
-    async def awithdraw(self, request: WithdrawReferralAccountRequest,
-                        option: Optional[RequestOption] = None) -> WithdrawReferralAccountResponse:
+    async def awithdraw(
+        self,
+        request: WithdrawReferralAccountRequest,
+        option: Optional[RequestOption] = None,
+    ) -> WithdrawReferralAccountResponse:
         if option is None:
             option = RequestOption()
 
@@ -261,8 +318,9 @@ class ReferralAccount(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: WithdrawReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   WithdrawReferralAccountResponse)
+        response: WithdrawReferralAccountResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), WithdrawReferralAccountResponse
+        )
         response.raw = resp
 
         return response

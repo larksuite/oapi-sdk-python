@@ -9,7 +9,6 @@ from .list_country_region_response_body import ListCountryRegionResponseBody
 class ListCountryRegionResponse(BaseResponse):
     _types = {
         "data": ListCountryRegionResponseBody,
-
     }
 
     def __init__(self, d=None):

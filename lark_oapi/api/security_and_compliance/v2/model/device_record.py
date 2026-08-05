@@ -194,7 +194,9 @@ class DeviceRecordBuilder(object):
         self._device_record.source = source
         return self
 
-    def cert_verified_at_unix(self, cert_verified_at_unix: int) -> "DeviceRecordBuilder":
+    def cert_verified_at_unix(
+        self, cert_verified_at_unix: int
+    ) -> "DeviceRecordBuilder":
         self._device_record.cert_verified_at_unix = cert_verified_at_unix
         return self
 

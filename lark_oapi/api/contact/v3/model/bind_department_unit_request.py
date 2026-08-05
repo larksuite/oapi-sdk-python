@@ -17,15 +17,18 @@ class BindDepartmentUnitRequest(BaseRequest):
 
 
 class BindDepartmentUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         bind_department_unit_request = BindDepartmentUnitRequest()
         bind_department_unit_request.http_method = HttpMethod.POST
         bind_department_unit_request.uri = "/open-apis/contact/v3/unit/bind_department"
         bind_department_unit_request.token_types = {AccessTokenType.TENANT}
-        self._bind_department_unit_request: BindDepartmentUnitRequest = bind_department_unit_request
+        self._bind_department_unit_request: BindDepartmentUnitRequest = (
+            bind_department_unit_request
+        )
 
-    def request_body(self, request_body: BindDepartmentUnitRequestBody) -> "BindDepartmentUnitRequestBuilder":
+    def request_body(
+        self, request_body: BindDepartmentUnitRequestBody
+    ) -> "BindDepartmentUnitRequestBuilder":
         self._bind_department_unit_request.request_body = request_body
         self._bind_department_unit_request.body = request_body
         return self

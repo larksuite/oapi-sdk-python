@@ -9,7 +9,6 @@ from .create_custom_org_response_body import CreateCustomOrgResponseBody
 class CreateCustomOrgResponse(BaseResponse):
     _types = {
         "data": CreateCustomOrgResponseBody,
-
     }
 
     def __init__(self, d=None):

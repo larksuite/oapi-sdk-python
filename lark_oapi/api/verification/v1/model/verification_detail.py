@@ -40,7 +40,9 @@ class VerificationDetailBuilder(object):
         self._verification_detail.verification_type = verification_type
         return self
 
-    def verification_source(self, verification_source: int) -> "VerificationDetailBuilder":
+    def verification_source(
+        self, verification_source: int
+    ) -> "VerificationDetailBuilder":
         self._verification_detail.verification_source = verification_source
         return self
 
@@ -60,11 +62,15 @@ class VerificationDetailBuilder(object):
         self._verification_detail.legal_person_name = legal_person_name
         return self
 
-    def enterprise_license(self, enterprise_license: str) -> "VerificationDetailBuilder":
+    def enterprise_license(
+        self, enterprise_license: str
+    ) -> "VerificationDetailBuilder":
         self._verification_detail.enterprise_license = enterprise_license
         return self
 
-    def verification_letter(self, verification_letter: str) -> "VerificationDetailBuilder":
+    def verification_letter(
+        self, verification_letter: str
+    ) -> "VerificationDetailBuilder":
         self._verification_detail.verification_letter = verification_letter
         return self
 

@@ -32,15 +32,21 @@ class DelEmployeeCustomOrgRequestBodyBuilder(object):
         self._del_employee_custom_org_request_body.user_id = user_id
         return self
 
-    def job_data_custom_org_id(self, job_data_custom_org_id: str) -> "DelEmployeeCustomOrgRequestBodyBuilder":
-        self._del_employee_custom_org_request_body.job_data_custom_org_id = job_data_custom_org_id
+    def job_data_custom_org_id(
+        self, job_data_custom_org_id: str
+    ) -> "DelEmployeeCustomOrgRequestBodyBuilder":
+        self._del_employee_custom_org_request_body.job_data_custom_org_id = (
+            job_data_custom_org_id
+        )
         return self
 
     def version_id(self, version_id: str) -> "DelEmployeeCustomOrgRequestBodyBuilder":
         self._del_employee_custom_org_request_body.version_id = version_id
         return self
 
-    def object_api_name(self, object_api_name: str) -> "DelEmployeeCustomOrgRequestBodyBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "DelEmployeeCustomOrgRequestBodyBuilder":
         self._del_employee_custom_org_request_body.object_api_name = object_api_name
         return self
 

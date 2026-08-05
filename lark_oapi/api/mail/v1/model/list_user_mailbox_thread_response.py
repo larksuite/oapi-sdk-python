@@ -9,7 +9,6 @@ from .list_user_mailbox_thread_response_body import ListUserMailboxThreadRespons
 class ListUserMailboxThreadResponse(BaseResponse):
     _types = {
         "data": ListUserMailboxThreadResponseBody,
-
     }
 
     def __init__(self, d=None):

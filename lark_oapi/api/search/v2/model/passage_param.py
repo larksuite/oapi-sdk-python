@@ -50,7 +50,9 @@ class PassageParamBuilder(object):
         self._passage_param.web_param = web_param
         return self
 
-    def helpdesk_param(self, helpdesk_param: HelpdeskPassageParam) -> "PassageParamBuilder":
+    def helpdesk_param(
+        self, helpdesk_param: HelpdeskPassageParam
+    ) -> "PassageParamBuilder":
         self._passage_param.helpdesk_param = helpdesk_param
         return self
 
@@ -58,7 +60,9 @@ class PassageParamBuilder(object):
         self._passage_param.lingo_param = lingo_param
         return self
 
-    def message_param(self, message_param: MessagePassageParam) -> "PassageParamBuilder":
+    def message_param(
+        self, message_param: MessagePassageParam
+    ) -> "PassageParamBuilder":
         self._passage_param.message_param = message_param
         return self
 

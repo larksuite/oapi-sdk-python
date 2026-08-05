@@ -9,7 +9,6 @@ from .get_user_mailbox_template_response_body import GetUserMailboxTemplateRespo
 class GetUserMailboxTemplateResponse(BaseResponse):
     _types = {
         "data": GetUserMailboxTemplateResponseBody,
-
     }
 
     def __init__(self, d=None):

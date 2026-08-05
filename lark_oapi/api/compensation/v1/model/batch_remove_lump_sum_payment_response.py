@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_remove_lump_sum_payment_response_body import BatchRemoveLumpSumPaymentResponseBody
+from .batch_remove_lump_sum_payment_response_body import (
+    BatchRemoveLumpSumPaymentResponseBody,
+)
 
 
 class BatchRemoveLumpSumPaymentResponse(BaseResponse):
     _types = {
         "data": BatchRemoveLumpSumPaymentResponseBody,
-
     }
 
     def __init__(self, d=None):

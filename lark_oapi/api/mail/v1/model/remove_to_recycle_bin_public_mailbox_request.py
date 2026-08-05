@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .remove_to_recycle_bin_public_mailbox_request_body import RemoveToRecycleBinPublicMailboxRequestBody
+from .remove_to_recycle_bin_public_mailbox_request_body import (
+    RemoveToRecycleBinPublicMailboxRequestBody,
+)
 
 
 class RemoveToRecycleBinPublicMailboxRequest(BaseRequest):
@@ -18,21 +20,31 @@ class RemoveToRecycleBinPublicMailboxRequest(BaseRequest):
 
 
 class RemoveToRecycleBinPublicMailboxRequestBuilder(object):
-
     def __init__(self) -> None:
-        remove_to_recycle_bin_public_mailbox_request = RemoveToRecycleBinPublicMailboxRequest()
+        remove_to_recycle_bin_public_mailbox_request = (
+            RemoveToRecycleBinPublicMailboxRequest()
+        )
         remove_to_recycle_bin_public_mailbox_request.http_method = HttpMethod.DELETE
         remove_to_recycle_bin_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/remove_to_recycle_bin"
-        remove_to_recycle_bin_public_mailbox_request.token_types = {AccessTokenType.TENANT}
+        remove_to_recycle_bin_public_mailbox_request.token_types = {
+            AccessTokenType.TENANT
+        }
         self._remove_to_recycle_bin_public_mailbox_request: RemoveToRecycleBinPublicMailboxRequest = remove_to_recycle_bin_public_mailbox_request
 
-    def public_mailbox_id(self, public_mailbox_id: str) -> "RemoveToRecycleBinPublicMailboxRequestBuilder":
-        self._remove_to_recycle_bin_public_mailbox_request.public_mailbox_id = public_mailbox_id
-        self._remove_to_recycle_bin_public_mailbox_request.paths["public_mailbox_id"] = str(public_mailbox_id)
+    def public_mailbox_id(
+        self, public_mailbox_id: str
+    ) -> "RemoveToRecycleBinPublicMailboxRequestBuilder":
+        self._remove_to_recycle_bin_public_mailbox_request.public_mailbox_id = (
+            public_mailbox_id
+        )
+        self._remove_to_recycle_bin_public_mailbox_request.paths[
+            "public_mailbox_id"
+        ] = str(public_mailbox_id)
         return self
 
-    def request_body(self,
-                     request_body: RemoveToRecycleBinPublicMailboxRequestBody) -> "RemoveToRecycleBinPublicMailboxRequestBuilder":
+    def request_body(
+        self, request_body: RemoveToRecycleBinPublicMailboxRequestBody
+    ) -> "RemoveToRecycleBinPublicMailboxRequestBuilder":
         self._remove_to_recycle_bin_public_mailbox_request.request_body = request_body
         self._remove_to_recycle_bin_public_mailbox_request.body = request_body
         return self

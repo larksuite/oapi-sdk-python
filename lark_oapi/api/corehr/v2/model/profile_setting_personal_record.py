@@ -29,7 +29,9 @@ class ProfileSettingPersonalRecordBuilder(object):
         self._profile_setting_personal_record.profile_type = profile_type
         return self
 
-    def files(self, files: List[ProfileSettingFile]) -> "ProfileSettingPersonalRecordBuilder":
+    def files(
+        self, files: List[ProfileSettingFile]
+    ) -> "ProfileSettingPersonalRecordBuilder":
         self._profile_setting_personal_record.files = files
         return self
 

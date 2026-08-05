@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_interview_record_attachment_request import GetInterviewRecordAttachmentRequest
-from ..model.get_interview_record_attachment_response import GetInterviewRecordAttachmentResponse
+from ..model.get_interview_record_attachment_request import (
+    GetInterviewRecordAttachmentRequest,
+)
+from ..model.get_interview_record_attachment_response import (
+    GetInterviewRecordAttachmentResponse,
+)
 
 
 class InterviewRecordAttachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetInterviewRecordAttachmentRequest,
-            option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
+    def get(
+        self,
+        request: GetInterviewRecordAttachmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetInterviewRecordAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class InterviewRecordAttachment(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        GetInterviewRecordAttachmentResponse)
+        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetInterviewRecordAttachmentResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetInterviewRecordAttachmentRequest,
-                   option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
+    async def aget(
+        self,
+        request: GetInterviewRecordAttachmentRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetInterviewRecordAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class InterviewRecordAttachment(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        GetInterviewRecordAttachmentResponse)
+        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetInterviewRecordAttachmentResponse
+        )
         response.raw = resp
 
         return response

@@ -11,18 +11,27 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_get_job_family_request import BatchGetJobFamilyRequest
 from ..model.batch_get_job_family_response import BatchGetJobFamilyResponse
-from ..model.query_multi_timeline_job_family_request import QueryMultiTimelineJobFamilyRequest
-from ..model.query_multi_timeline_job_family_response import QueryMultiTimelineJobFamilyResponse
-from ..model.query_recent_change_job_family_request import QueryRecentChangeJobFamilyRequest
-from ..model.query_recent_change_job_family_response import QueryRecentChangeJobFamilyResponse
+from ..model.query_multi_timeline_job_family_request import (
+    QueryMultiTimelineJobFamilyRequest,
+)
+from ..model.query_multi_timeline_job_family_response import (
+    QueryMultiTimelineJobFamilyResponse,
+)
+from ..model.query_recent_change_job_family_request import (
+    QueryRecentChangeJobFamilyRequest,
+)
+from ..model.query_recent_change_job_family_response import (
+    QueryRecentChangeJobFamilyResponse,
+)
 
 
 class JobFamily(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get(self, request: BatchGetJobFamilyRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
+    def batch_get(
+        self, request: BatchGetJobFamilyRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,13 +46,16 @@ class JobFamily(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobFamilyResponse)
+        response: BatchGetJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobFamilyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_get(self, request: BatchGetJobFamilyRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetJobFamilyResponse:
+    async def abatch_get(
+        self, request: BatchGetJobFamilyRequest, option: Optional[RequestOption] = None
+    ) -> BatchGetJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -54,13 +66,18 @@ class JobFamily(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchGetJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobFamilyResponse)
+        response: BatchGetJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchGetJobFamilyResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_multi_timeline(self, request: QueryMultiTimelineJobFamilyRequest,
-                             option: Optional[RequestOption] = None) -> QueryMultiTimelineJobFamilyResponse:
+    def query_multi_timeline(
+        self,
+        request: QueryMultiTimelineJobFamilyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,14 +92,18 @@ class JobFamily(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       QueryMultiTimelineJobFamilyResponse)
+        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineJobFamilyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_multi_timeline(self, request: QueryMultiTimelineJobFamilyRequest,
-                                    option: Optional[RequestOption] = None) -> QueryMultiTimelineJobFamilyResponse:
+    async def aquery_multi_timeline(
+        self,
+        request: QueryMultiTimelineJobFamilyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryMultiTimelineJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -93,14 +114,18 @@ class JobFamily(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       QueryMultiTimelineJobFamilyResponse)
+        response: QueryMultiTimelineJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryMultiTimelineJobFamilyResponse
+        )
         response.raw = resp
 
         return response
 
-    def query_recent_change(self, request: QueryRecentChangeJobFamilyRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
+    def query_recent_change(
+        self,
+        request: QueryRecentChangeJobFamilyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,14 +140,18 @@ class JobFamily(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryRecentChangeJobFamilyResponse)
+        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobFamilyResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquery_recent_change(self, request: QueryRecentChangeJobFamilyRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobFamilyResponse:
+    async def aquery_recent_change(
+        self,
+        request: QueryRecentChangeJobFamilyRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QueryRecentChangeJobFamilyResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,8 +162,9 @@ class JobFamily(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryRecentChangeJobFamilyResponse)
+        response: QueryRecentChangeJobFamilyResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QueryRecentChangeJobFamilyResponse
+        )
         response.raw = resp
 
         return response

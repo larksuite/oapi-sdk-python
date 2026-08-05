@@ -45,7 +45,9 @@ class SignatureTemplateFilterBuilder(object):
         self._signature_template_filter.apiname = apiname
         return self
 
-    def filters(self, filters: List[SignatureTemplateFilterItem]) -> "SignatureTemplateFilterBuilder":
+    def filters(
+        self, filters: List[SignatureTemplateFilterItem]
+    ) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.filters = filters
         return self
 

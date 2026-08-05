@@ -20,7 +20,9 @@ class TransferStageApplicationRequestBody(object):
 
 class TransferStageApplicationRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._transfer_stage_application_request_body = TransferStageApplicationRequestBody()
+        self._transfer_stage_application_request_body = (
+            TransferStageApplicationRequestBody()
+        )
 
     def stage_id(self, stage_id: str) -> "TransferStageApplicationRequestBodyBuilder":
         self._transfer_stage_application_request_body.stage_id = stage_id

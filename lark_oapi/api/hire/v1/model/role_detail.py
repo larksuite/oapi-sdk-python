@@ -72,15 +72,21 @@ class RoleDetailBuilder(object):
         self._role_detail.scope_of_application = scope_of_application
         return self
 
-    def has_business_management_scope(self, has_business_management_scope: bool) -> "RoleDetailBuilder":
+    def has_business_management_scope(
+        self, has_business_management_scope: bool
+    ) -> "RoleDetailBuilder":
         self._role_detail.has_business_management_scope = has_business_management_scope
         return self
 
-    def socail_permission_collection(self, socail_permission_collection: PermissionCollection) -> "RoleDetailBuilder":
+    def socail_permission_collection(
+        self, socail_permission_collection: PermissionCollection
+    ) -> "RoleDetailBuilder":
         self._role_detail.socail_permission_collection = socail_permission_collection
         return self
 
-    def campus_permission_collection(self, campus_permission_collection: PermissionCollection) -> "RoleDetailBuilder":
+    def campus_permission_collection(
+        self, campus_permission_collection: PermissionCollection
+    ) -> "RoleDetailBuilder":
         self._role_detail.campus_permission_collection = campus_permission_collection
         return self
 

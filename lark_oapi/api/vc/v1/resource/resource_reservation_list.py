@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.get_resource_reservation_list_request import GetResourceReservationListRequest
-from ..model.get_resource_reservation_list_response import GetResourceReservationListResponse
+from ..model.get_resource_reservation_list_request import (
+    GetResourceReservationListRequest,
+)
+from ..model.get_resource_reservation_list_response import (
+    GetResourceReservationListResponse,
+)
 
 
 class ResourceReservationList(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetResourceReservationListRequest,
-            option: Optional[RequestOption] = None) -> GetResourceReservationListResponse:
+    def get(
+        self,
+        request: GetResourceReservationListRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetResourceReservationListResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class ResourceReservationList(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetResourceReservationListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetResourceReservationListResponse)
+        response: GetResourceReservationListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetResourceReservationListResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetResourceReservationListRequest,
-                   option: Optional[RequestOption] = None) -> GetResourceReservationListResponse:
+    async def aget(
+        self,
+        request: GetResourceReservationListRequest,
+        option: Optional[RequestOption] = None,
+    ) -> GetResourceReservationListResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class ResourceReservationList(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetResourceReservationListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      GetResourceReservationListResponse)
+        response: GetResourceReservationListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetResourceReservationListResponse
+        )
         response.raw = resp
 
         return response

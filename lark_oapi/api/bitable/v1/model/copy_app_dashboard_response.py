@@ -9,7 +9,6 @@ from .copy_app_dashboard_response_body import CopyAppDashboardResponseBody
 class CopyAppDashboardResponse(BaseResponse):
     _types = {
         "data": CopyAppDashboardResponseBody,
-
     }
 
     def __init__(self, d=None):

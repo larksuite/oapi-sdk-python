@@ -21,7 +21,6 @@ class ListProcessRequest(BaseRequest):
 
 
 class ListProcessRequestBuilder(object):
-
     def __init__(self) -> None:
         list_process_request = ListProcessRequest()
         list_process_request.http_method = HttpMethod.GET
@@ -54,7 +53,9 @@ class ListProcessRequestBuilder(object):
         self._list_process_request.add_query("modify_time_to", modify_time_to)
         return self
 
-    def flow_definition_id(self, flow_definition_id: str) -> "ListProcessRequestBuilder":
+    def flow_definition_id(
+        self, flow_definition_id: str
+    ) -> "ListProcessRequestBuilder":
         self._list_process_request.flow_definition_id = flow_definition_id
         self._list_process_request.add_query("flow_definition_id", flow_definition_id)
         return self

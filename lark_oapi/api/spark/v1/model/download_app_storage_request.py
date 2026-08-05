@@ -18,13 +18,14 @@ class DownloadAppStorageRequest(BaseRequest):
 
 
 class DownloadAppStorageRequestBuilder(object):
-
     def __init__(self) -> None:
         download_app_storage_request = DownloadAppStorageRequest()
         download_app_storage_request.http_method = HttpMethod.GET
         download_app_storage_request.uri = "/open-apis/spark/v1/apps/:app_id/storage"
         download_app_storage_request.token_types = {AccessTokenType.USER}
-        self._download_app_storage_request: DownloadAppStorageRequest = download_app_storage_request
+        self._download_app_storage_request: DownloadAppStorageRequest = (
+            download_app_storage_request
+        )
 
     def file_key(self, file_key: str) -> "DownloadAppStorageRequestBuilder":
         self._download_app_storage_request.file_key = file_key

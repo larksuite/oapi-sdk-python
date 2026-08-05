@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .reconciliation_referral_account_request_body import ReconciliationReferralAccountRequestBody
+from .reconciliation_referral_account_request_body import (
+    ReconciliationReferralAccountRequestBody,
+)
 
 
 class ReconciliationReferralAccountRequest(BaseRequest):
@@ -17,16 +19,18 @@ class ReconciliationReferralAccountRequest(BaseRequest):
 
 
 class ReconciliationReferralAccountRequestBuilder(object):
-
     def __init__(self) -> None:
         reconciliation_referral_account_request = ReconciliationReferralAccountRequest()
         reconciliation_referral_account_request.http_method = HttpMethod.POST
-        reconciliation_referral_account_request.uri = "/open-apis/hire/v1/referral_account/reconciliation"
+        reconciliation_referral_account_request.uri = (
+            "/open-apis/hire/v1/referral_account/reconciliation"
+        )
         reconciliation_referral_account_request.token_types = {AccessTokenType.TENANT}
         self._reconciliation_referral_account_request: ReconciliationReferralAccountRequest = reconciliation_referral_account_request
 
-    def request_body(self,
-                     request_body: ReconciliationReferralAccountRequestBody) -> "ReconciliationReferralAccountRequestBuilder":
+    def request_body(
+        self, request_body: ReconciliationReferralAccountRequestBody
+    ) -> "ReconciliationReferralAccountRequestBuilder":
         self._reconciliation_referral_account_request.request_body = request_body
         self._reconciliation_referral_account_request.body = request_body
         return self

@@ -29,7 +29,9 @@ class UserCommentDocsRecordBuilder(object):
         self._user_comment_docs_record.docs = docs
         return self
 
-    def latest_comment_time(self, latest_comment_time: str) -> "UserCommentDocsRecordBuilder":
+    def latest_comment_time(
+        self, latest_comment_time: str
+    ) -> "UserCommentDocsRecordBuilder":
         self._user_comment_docs_record.latest_comment_time = latest_comment_time
         return self
 

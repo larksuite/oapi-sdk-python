@@ -20,17 +20,27 @@ class CreateCalendarEventRequest(BaseRequest):
 
 
 class CreateCalendarEventRequestBuilder(object):
-
     def __init__(self) -> None:
         create_calendar_event_request = CreateCalendarEventRequest()
         create_calendar_event_request.http_method = HttpMethod.POST
-        create_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events"
-        create_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_calendar_event_request: CreateCalendarEventRequest = create_calendar_event_request
+        create_calendar_event_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/events"
+        )
+        create_calendar_event_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_calendar_event_request: CreateCalendarEventRequest = (
+            create_calendar_event_request
+        )
 
-    def idempotency_key(self, idempotency_key: str) -> "CreateCalendarEventRequestBuilder":
+    def idempotency_key(
+        self, idempotency_key: str
+    ) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.idempotency_key = idempotency_key
-        self._create_calendar_event_request.add_query("idempotency_key", idempotency_key)
+        self._create_calendar_event_request.add_query(
+            "idempotency_key", idempotency_key
+        )
         return self
 
     def user_id_type(self, user_id_type: str) -> "CreateCalendarEventRequestBuilder":
@@ -43,7 +53,9 @@ class CreateCalendarEventRequestBuilder(object):
         self._create_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
-    def request_body(self, request_body: CalendarEvent) -> "CreateCalendarEventRequestBuilder":
+    def request_body(
+        self, request_body: CalendarEvent
+    ) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.request_body = request_body
         self._create_calendar_event_request.body = request_body
         return self

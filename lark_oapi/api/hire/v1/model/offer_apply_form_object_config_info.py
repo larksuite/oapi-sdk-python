@@ -4,7 +4,9 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .offer_apply_form_config_option_info import OfferApplyFormConfigOptionInfo
 from .offer_apply_form_config_formula_info import OfferApplyFormConfigFormulaInfo
-from .offer_apply_form_object_display_config_info import OfferApplyFormObjectDisplayConfigInfo
+from .offer_apply_form_object_display_config_info import (
+    OfferApplyFormObjectDisplayConfigInfo,
+)
 
 
 class OfferApplyFormObjectConfigInfo(object):
@@ -17,7 +19,9 @@ class OfferApplyFormObjectConfigInfo(object):
     def __init__(self, d=None):
         self.options: Optional[List[OfferApplyFormConfigOptionInfo]] = None
         self.formula: Optional[OfferApplyFormConfigFormulaInfo] = None
-        self.object_display_config: Optional[OfferApplyFormObjectDisplayConfigInfo] = None
+        self.object_display_config: Optional[OfferApplyFormObjectDisplayConfigInfo] = (
+            None
+        )
         init(self, d, self._types)
 
     @staticmethod
@@ -29,17 +33,24 @@ class OfferApplyFormObjectConfigInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_object_config_info = OfferApplyFormObjectConfigInfo()
 
-    def options(self, options: List[OfferApplyFormConfigOptionInfo]) -> "OfferApplyFormObjectConfigInfoBuilder":
+    def options(
+        self, options: List[OfferApplyFormConfigOptionInfo]
+    ) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.options = options
         return self
 
-    def formula(self, formula: OfferApplyFormConfigFormulaInfo) -> "OfferApplyFormObjectConfigInfoBuilder":
+    def formula(
+        self, formula: OfferApplyFormConfigFormulaInfo
+    ) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.formula = formula
         return self
 
-    def object_display_config(self,
-                              object_display_config: OfferApplyFormObjectDisplayConfigInfo) -> "OfferApplyFormObjectConfigInfoBuilder":
-        self._offer_apply_form_object_config_info.object_display_config = object_display_config
+    def object_display_config(
+        self, object_display_config: OfferApplyFormObjectDisplayConfigInfo
+    ) -> "OfferApplyFormObjectConfigInfoBuilder":
+        self._offer_apply_form_object_config_info.object_display_config = (
+            object_display_config
+        )
         return self
 
     def build(self) -> "OfferApplyFormObjectConfigInfo":

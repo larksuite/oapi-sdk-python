@@ -9,26 +9,43 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.create_emp_custom_org_employee_custom_org_request import CreateEmpCustomOrgEmployeeCustomOrgRequest
-from ..model.create_emp_custom_org_employee_custom_org_response import CreateEmpCustomOrgEmployeeCustomOrgResponse
+from ..model.create_emp_custom_org_employee_custom_org_request import (
+    CreateEmpCustomOrgEmployeeCustomOrgRequest,
+)
+from ..model.create_emp_custom_org_employee_custom_org_response import (
+    CreateEmpCustomOrgEmployeeCustomOrgResponse,
+)
 from ..model.del_employee_custom_org_request import DelEmployeeCustomOrgRequest
 from ..model.del_employee_custom_org_response import DelEmployeeCustomOrgResponse
-from ..model.edit_emp_custom_org_employee_custom_org_request import EditEmpCustomOrgEmployeeCustomOrgRequest
-from ..model.edit_emp_custom_org_employee_custom_org_response import EditEmpCustomOrgEmployeeCustomOrgResponse
-from ..model.employment_custom_org_record_employee_custom_org_request import \
-    EmploymentCustomOrgRecordEmployeeCustomOrgRequest
-from ..model.employment_custom_org_record_employee_custom_org_response import \
-    EmploymentCustomOrgRecordEmployeeCustomOrgResponse
-from ..model.querybyid_employee_custom_org_request import QuerybyidEmployeeCustomOrgRequest
-from ..model.querybyid_employee_custom_org_response import QuerybyidEmployeeCustomOrgResponse
+from ..model.edit_emp_custom_org_employee_custom_org_request import (
+    EditEmpCustomOrgEmployeeCustomOrgRequest,
+)
+from ..model.edit_emp_custom_org_employee_custom_org_response import (
+    EditEmpCustomOrgEmployeeCustomOrgResponse,
+)
+from ..model.employment_custom_org_record_employee_custom_org_request import (
+    EmploymentCustomOrgRecordEmployeeCustomOrgRequest,
+)
+from ..model.employment_custom_org_record_employee_custom_org_response import (
+    EmploymentCustomOrgRecordEmployeeCustomOrgResponse,
+)
+from ..model.querybyid_employee_custom_org_request import (
+    QuerybyidEmployeeCustomOrgRequest,
+)
+from ..model.querybyid_employee_custom_org_response import (
+    QuerybyidEmployeeCustomOrgResponse,
+)
 
 
 class EmployeeCustomOrg(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create_emp_custom_org(self, request: CreateEmpCustomOrgEmployeeCustomOrgRequest,
-                              option: Optional[RequestOption] = None) -> CreateEmpCustomOrgEmployeeCustomOrgResponse:
+    def create_emp_custom_org(
+        self,
+        request: CreateEmpCustomOrgEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateEmpCustomOrgEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -43,14 +60,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: CreateEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               CreateEmpCustomOrgEmployeeCustomOrgResponse)
+        response: CreateEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEmpCustomOrgEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    async def acreate_emp_custom_org(self, request: CreateEmpCustomOrgEmployeeCustomOrgRequest, option: Optional[
-        RequestOption] = None) -> CreateEmpCustomOrgEmployeeCustomOrgResponse:
+    async def acreate_emp_custom_org(
+        self,
+        request: CreateEmpCustomOrgEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> CreateEmpCustomOrgEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -61,14 +82,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: CreateEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               CreateEmpCustomOrgEmployeeCustomOrgResponse)
+        response: CreateEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), CreateEmpCustomOrgEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    def del_(self, request: DelEmployeeCustomOrgRequest,
-             option: Optional[RequestOption] = None) -> DelEmployeeCustomOrgResponse:
+    def del_(
+        self,
+        request: DelEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DelEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -83,13 +108,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DelEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), DelEmployeeCustomOrgResponse)
+        response: DelEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adel_(self, request: DelEmployeeCustomOrgRequest,
-                    option: Optional[RequestOption] = None) -> DelEmployeeCustomOrgResponse:
+    async def adel_(
+        self,
+        request: DelEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DelEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -100,13 +130,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DelEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8), DelEmployeeCustomOrgResponse)
+        response: DelEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DelEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    def edit_emp_custom_org(self, request: EditEmpCustomOrgEmployeeCustomOrgRequest,
-                            option: Optional[RequestOption] = None) -> EditEmpCustomOrgEmployeeCustomOrgResponse:
+    def edit_emp_custom_org(
+        self,
+        request: EditEmpCustomOrgEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EditEmpCustomOrgEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -121,14 +156,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EditEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             EditEmpCustomOrgEmployeeCustomOrgResponse)
+        response: EditEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditEmpCustomOrgEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aedit_emp_custom_org(self, request: EditEmpCustomOrgEmployeeCustomOrgRequest,
-                                   option: Optional[RequestOption] = None) -> EditEmpCustomOrgEmployeeCustomOrgResponse:
+    async def aedit_emp_custom_org(
+        self,
+        request: EditEmpCustomOrgEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EditEmpCustomOrgEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -139,14 +178,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EditEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             EditEmpCustomOrgEmployeeCustomOrgResponse)
+        response: EditEmpCustomOrgEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EditEmpCustomOrgEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    def employment_custom_org_record(self, request: EmploymentCustomOrgRecordEmployeeCustomOrgRequest, option: Optional[
-        RequestOption] = None) -> EmploymentCustomOrgRecordEmployeeCustomOrgResponse:
+    def employment_custom_org_record(
+        self,
+        request: EmploymentCustomOrgRecordEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EmploymentCustomOrgRecordEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,15 +204,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: EmploymentCustomOrgRecordEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                      EmploymentCustomOrgRecordEmployeeCustomOrgResponse)
+        response: EmploymentCustomOrgRecordEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EmploymentCustomOrgRecordEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aemployment_custom_org_record(self, request: EmploymentCustomOrgRecordEmployeeCustomOrgRequest,
-                                            option: Optional[
-                                                RequestOption] = None) -> EmploymentCustomOrgRecordEmployeeCustomOrgResponse:
+    async def aemployment_custom_org_record(
+        self,
+        request: EmploymentCustomOrgRecordEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> EmploymentCustomOrgRecordEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -180,14 +226,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: EmploymentCustomOrgRecordEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                      EmploymentCustomOrgRecordEmployeeCustomOrgResponse)
+        response: EmploymentCustomOrgRecordEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), EmploymentCustomOrgRecordEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    def querybyid(self, request: QuerybyidEmployeeCustomOrgRequest,
-                  option: Optional[RequestOption] = None) -> QuerybyidEmployeeCustomOrgResponse:
+    def querybyid(
+        self,
+        request: QuerybyidEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerybyidEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -202,14 +252,18 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: QuerybyidEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QuerybyidEmployeeCustomOrgResponse)
+        response: QuerybyidEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerybyidEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aquerybyid(self, request: QuerybyidEmployeeCustomOrgRequest,
-                         option: Optional[RequestOption] = None) -> QuerybyidEmployeeCustomOrgResponse:
+    async def aquerybyid(
+        self,
+        request: QuerybyidEmployeeCustomOrgRequest,
+        option: Optional[RequestOption] = None,
+    ) -> QuerybyidEmployeeCustomOrgResponse:
         if option is None:
             option = RequestOption()
 
@@ -220,8 +274,9 @@ class EmployeeCustomOrg(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: QuerybyidEmployeeCustomOrgResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QuerybyidEmployeeCustomOrgResponse)
+        response: QuerybyidEmployeeCustomOrgResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), QuerybyidEmployeeCustomOrgResponse
+        )
         response.raw = resp
 
         return response

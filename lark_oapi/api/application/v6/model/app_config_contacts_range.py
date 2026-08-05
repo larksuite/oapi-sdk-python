@@ -25,11 +25,15 @@ class AppConfigContactsRangeBuilder(object):
     def __init__(self) -> None:
         self._app_config_contacts_range = AppConfigContactsRange()
 
-    def contacts_range_type(self, contacts_range_type: str) -> "AppConfigContactsRangeBuilder":
+    def contacts_range_type(
+        self, contacts_range_type: str
+    ) -> "AppConfigContactsRangeBuilder":
         self._app_config_contacts_range.contacts_range_type = contacts_range_type
         return self
 
-    def visible_list(self, visible_list: AppContactsRangeIdList) -> "AppConfigContactsRangeBuilder":
+    def visible_list(
+        self, visible_list: AppContactsRangeIdList
+    ) -> "AppConfigContactsRangeBuilder":
         self._app_config_contacts_range.visible_list = visible_list
         return self
 

@@ -15,6 +15,7 @@ from .enum import Enum
 from .basic_department import BasicDepartment
 from .basic_employee import BasicEmployee
 from .basic_employee import BasicEmployee
+from .basic_employee import BasicEmployee
 from .international_assignment import InternationalAssignment
 from .enum import Enum
 from .enum import Enum
@@ -51,6 +52,7 @@ class EmployeeBt(object):
         "probation_end_date": str,
         "direct_manager_id": str,
         "dotted_line_manager_id": str,
+        "second_direct_manager_id": str,
         "employment_type": Enum,
         "employment_status": Enum,
         "expiration_date": str,
@@ -81,6 +83,7 @@ class EmployeeBt(object):
         "department": BasicDepartment,
         "direct_manager": BasicEmployee,
         "dotted_line_manager": BasicEmployee,
+        "second_direct_manager": BasicEmployee,
         "time_zone": str,
         "primary_international_assignment": InternationalAssignment,
         "service_company": str,
@@ -129,6 +132,7 @@ class EmployeeBt(object):
         self.probation_end_date: Optional[str] = None
         self.direct_manager_id: Optional[str] = None
         self.dotted_line_manager_id: Optional[str] = None
+        self.second_direct_manager_id: Optional[str] = None
         self.employment_type: Optional[Enum] = None
         self.employment_status: Optional[Enum] = None
         self.expiration_date: Optional[str] = None
@@ -159,6 +163,7 @@ class EmployeeBt(object):
         self.department: Optional[BasicDepartment] = None
         self.direct_manager: Optional[BasicEmployee] = None
         self.dotted_line_manager: Optional[BasicEmployee] = None
+        self.second_direct_manager: Optional[BasicEmployee] = None
         self.time_zone: Optional[str] = None
         self.primary_international_assignment: Optional[InternationalAssignment] = None
         self.service_company: Optional[str] = None
@@ -166,7 +171,9 @@ class EmployeeBt(object):
         self.work_shift: Optional[Enum] = None
         self.talent_pool_id_list: Optional[List[str]] = None
         self.custom_org: Optional[str] = None
-        self.seniority_adjust_information_list: Optional[List[SeniorityAdjustInformation]] = None
+        self.seniority_adjust_information_list: Optional[
+            List[SeniorityAdjustInformation]
+        ] = None
         self.contract_type: Optional[Enum] = None
         self.archive_cpst_plan_id: Optional[str] = None
         self.attendance_group_id: Optional[str] = None
@@ -283,8 +290,16 @@ class EmployeeBtBuilder(object):
         self._employee_bt.direct_manager_id = direct_manager_id
         return self
 
-    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeeBtBuilder":
+    def dotted_line_manager_id(
+        self, dotted_line_manager_id: str
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.dotted_line_manager_id = dotted_line_manager_id
+        return self
+
+    def second_direct_manager_id(
+        self, second_direct_manager_id: str
+    ) -> "EmployeeBtBuilder":
+        self._employee_bt.second_direct_manager_id = second_direct_manager_id
         return self
 
     def employment_type(self, employment_type: Enum) -> "EmployeeBtBuilder":
@@ -299,7 +314,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.expiration_date = expiration_date
         return self
 
-    def reason_for_offboarding(self, reason_for_offboarding: Enum) -> "EmployeeBtBuilder":
+    def reason_for_offboarding(
+        self, reason_for_offboarding: Enum
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.reason_for_offboarding = reason_for_offboarding
         return self
 
@@ -315,7 +332,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.work_email_list = work_email_list
         return self
 
-    def cost_center_list(self, cost_center_list: List[JobDataCostCenter]) -> "EmployeeBtBuilder":
+    def cost_center_list(
+        self, cost_center_list: List[JobDataCostCenter]
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.cost_center_list = cost_center_list
         return self
 
@@ -331,7 +350,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.person_info = person_info
         return self
 
-    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeeBtBuilder":
+    def custom_fields(
+        self, custom_fields: List[CustomFieldData]
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.custom_fields = custom_fields
         return self
 
@@ -343,7 +364,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.past_offboarding = past_offboarding
         return self
 
-    def regular_employee_start_date(self, regular_employee_start_date: str) -> "EmployeeBtBuilder":
+    def regular_employee_start_date(
+        self, regular_employee_start_date: str
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.regular_employee_start_date = regular_employee_start_date
         return self
 
@@ -375,7 +398,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.contract_end_date = contract_end_date
         return self
 
-    def contract_expected_end_date(self, contract_expected_end_date: str) -> "EmployeeBtBuilder":
+    def contract_expected_end_date(
+        self, contract_expected_end_date: str
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.contract_expected_end_date = contract_expected_end_date
         return self
 
@@ -383,11 +408,15 @@ class EmployeeBtBuilder(object):
         self._employee_bt.pay_group_id = pay_group_id
         return self
 
-    def assignment_pay_group_id(self, assignment_pay_group_id: str) -> "EmployeeBtBuilder":
+    def assignment_pay_group_id(
+        self, assignment_pay_group_id: str
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.assignment_pay_group_id = assignment_pay_group_id
         return self
 
-    def international_assignment(self, international_assignment: bool) -> "EmployeeBtBuilder":
+    def international_assignment(
+        self, international_assignment: bool
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.international_assignment = international_assignment
         return self
 
@@ -403,17 +432,28 @@ class EmployeeBtBuilder(object):
         self._employee_bt.direct_manager = direct_manager
         return self
 
-    def dotted_line_manager(self, dotted_line_manager: BasicEmployee) -> "EmployeeBtBuilder":
+    def dotted_line_manager(
+        self, dotted_line_manager: BasicEmployee
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.dotted_line_manager = dotted_line_manager
+        return self
+
+    def second_direct_manager(
+        self, second_direct_manager: BasicEmployee
+    ) -> "EmployeeBtBuilder":
+        self._employee_bt.second_direct_manager = second_direct_manager
         return self
 
     def time_zone(self, time_zone: str) -> "EmployeeBtBuilder":
         self._employee_bt.time_zone = time_zone
         return self
 
-    def primary_international_assignment(self,
-                                         primary_international_assignment: InternationalAssignment) -> "EmployeeBtBuilder":
-        self._employee_bt.primary_international_assignment = primary_international_assignment
+    def primary_international_assignment(
+        self, primary_international_assignment: InternationalAssignment
+    ) -> "EmployeeBtBuilder":
+        self._employee_bt.primary_international_assignment = (
+            primary_international_assignment
+        )
         return self
 
     def service_company(self, service_company: str) -> "EmployeeBtBuilder":
@@ -428,7 +468,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.work_shift = work_shift
         return self
 
-    def talent_pool_id_list(self, talent_pool_id_list: List[str]) -> "EmployeeBtBuilder":
+    def talent_pool_id_list(
+        self, talent_pool_id_list: List[str]
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.talent_pool_id_list = talent_pool_id_list
         return self
 
@@ -436,9 +478,12 @@ class EmployeeBtBuilder(object):
         self._employee_bt.custom_org = custom_org
         return self
 
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
-        SeniorityAdjustInformation]) -> "EmployeeBtBuilder":
-        self._employee_bt.seniority_adjust_information_list = seniority_adjust_information_list
+    def seniority_adjust_information_list(
+        self, seniority_adjust_information_list: List[SeniorityAdjustInformation]
+    ) -> "EmployeeBtBuilder":
+        self._employee_bt.seniority_adjust_information_list = (
+            seniority_adjust_information_list
+        )
         return self
 
     def contract_type(self, contract_type: Enum) -> "EmployeeBtBuilder":
@@ -457,8 +502,12 @@ class EmployeeBtBuilder(object):
         self._employee_bt.whether_returnee = whether_returnee
         return self
 
-    def individuals_with_headcount_or_not(self, individuals_with_headcount_or_not: Enum) -> "EmployeeBtBuilder":
-        self._employee_bt.individuals_with_headcount_or_not = individuals_with_headcount_or_not
+    def individuals_with_headcount_or_not(
+        self, individuals_with_headcount_or_not: Enum
+    ) -> "EmployeeBtBuilder":
+        self._employee_bt.individuals_with_headcount_or_not = (
+            individuals_with_headcount_or_not
+        )
         return self
 
     def hrbp(self, hrbp: List[str]) -> "EmployeeBtBuilder":
@@ -481,7 +530,9 @@ class EmployeeBtBuilder(object):
         self._employee_bt.is_dotted_leader = is_dotted_leader
         return self
 
-    def company_talent_pool_ids(self, company_talent_pool_ids: List[str]) -> "EmployeeBtBuilder":
+    def company_talent_pool_ids(
+        self, company_talent_pool_ids: List[str]
+    ) -> "EmployeeBtBuilder":
         self._employee_bt.company_talent_pool_ids = company_talent_pool_ids
         return self
 

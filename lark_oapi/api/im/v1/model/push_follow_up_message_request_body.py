@@ -23,7 +23,9 @@ class PushFollowUpMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._push_follow_up_message_request_body = PushFollowUpMessageRequestBody()
 
-    def follow_ups(self, follow_ups: List[FollowUp]) -> "PushFollowUpMessageRequestBodyBuilder":
+    def follow_ups(
+        self, follow_ups: List[FollowUp]
+    ) -> "PushFollowUpMessageRequestBodyBuilder":
         self._push_follow_up_message_request_body.follow_ups = follow_ups
         return self
 

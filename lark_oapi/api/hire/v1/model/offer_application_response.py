@@ -9,7 +9,6 @@ from .offer_application_response_body import OfferApplicationResponseBody
 class OfferApplicationResponse(BaseResponse):
     _types = {
         "data": OfferApplicationResponseBody,
-
     }
 
     def __init__(self, d=None):

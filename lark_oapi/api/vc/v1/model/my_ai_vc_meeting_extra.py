@@ -52,8 +52,12 @@ class MyAiVcMeetingExtraBuilder(object):
         self._my_ai_vc_meeting_extra.vc_feature_config = vc_feature_config
         return self
 
-    def quick_execute_param_rich_tag(self, quick_execute_param_rich_tag: str) -> "MyAiVcMeetingExtraBuilder":
-        self._my_ai_vc_meeting_extra.quick_execute_param_rich_tag = quick_execute_param_rich_tag
+    def quick_execute_param_rich_tag(
+        self, quick_execute_param_rich_tag: str
+    ) -> "MyAiVcMeetingExtraBuilder":
+        self._my_ai_vc_meeting_extra.quick_execute_param_rich_tag = (
+            quick_execute_param_rich_tag
+        )
         return self
 
     def build(self) -> "MyAiVcMeetingExtra":

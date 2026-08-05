@@ -26,7 +26,9 @@ class LocationTimelineBuilder(object):
     def __init__(self) -> None:
         self._location_timeline = LocationTimeline()
 
-    def location_version_data(self, location_version_data: List[LocationVersionData]) -> "LocationTimelineBuilder":
+    def location_version_data(
+        self, location_version_data: List[LocationVersionData]
+    ) -> "LocationTimelineBuilder":
         self._location_timeline.location_version_data = location_version_data
         return self
 

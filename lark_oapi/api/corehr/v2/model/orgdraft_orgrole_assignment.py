@@ -29,7 +29,9 @@ class OrgdraftOrgroleAssignmentBuilder(object):
         self._orgdraft_orgrole_assignment.grantee_id = grantee_id
         return self
 
-    def management_scopes(self, management_scopes: List[OrgroleAssignmentOrg]) -> "OrgdraftOrgroleAssignmentBuilder":
+    def management_scopes(
+        self, management_scopes: List[OrgroleAssignmentOrg]
+    ) -> "OrgdraftOrgroleAssignmentBuilder":
         self._orgdraft_orgrole_assignment.management_scopes = management_scopes
         return self
 

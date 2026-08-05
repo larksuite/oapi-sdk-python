@@ -90,7 +90,9 @@ class PersonNameForUpdateBuilder(object):
         self._person_name_for_update.name_type = name_type
         return self
 
-    def local_first_name_2(self, local_first_name_2: str) -> "PersonNameForUpdateBuilder":
+    def local_first_name_2(
+        self, local_first_name_2: str
+    ) -> "PersonNameForUpdateBuilder":
         self._person_name_for_update.local_first_name_2 = local_first_name_2
         return self
 
@@ -102,7 +104,9 @@ class PersonNameForUpdateBuilder(object):
         self._person_name_for_update.additional_name = additional_name
         return self
 
-    def additional_name_type(self, additional_name_type: Enum) -> "PersonNameForUpdateBuilder":
+    def additional_name_type(
+        self, additional_name_type: Enum
+    ) -> "PersonNameForUpdateBuilder":
         self._person_name_for_update.additional_name_type = additional_name_type
         return self
 
@@ -158,17 +162,28 @@ class PersonNameForUpdateBuilder(object):
         self._person_name_for_update.local_secondary = local_secondary
         return self
 
-    def display_name_local_and_western_script(self,
-                                              display_name_local_and_western_script: str) -> "PersonNameForUpdateBuilder":
-        self._person_name_for_update.display_name_local_and_western_script = display_name_local_and_western_script
+    def display_name_local_and_western_script(
+        self, display_name_local_and_western_script: str
+    ) -> "PersonNameForUpdateBuilder":
+        self._person_name_for_update.display_name_local_and_western_script = (
+            display_name_local_and_western_script
+        )
         return self
 
-    def display_name_local_script(self, display_name_local_script: str) -> "PersonNameForUpdateBuilder":
-        self._person_name_for_update.display_name_local_script = display_name_local_script
+    def display_name_local_script(
+        self, display_name_local_script: str
+    ) -> "PersonNameForUpdateBuilder":
+        self._person_name_for_update.display_name_local_script = (
+            display_name_local_script
+        )
         return self
 
-    def display_name_western_script(self, display_name_western_script: str) -> "PersonNameForUpdateBuilder":
-        self._person_name_for_update.display_name_western_script = display_name_western_script
+    def display_name_western_script(
+        self, display_name_western_script: str
+    ) -> "PersonNameForUpdateBuilder":
+        self._person_name_for_update.display_name_western_script = (
+            display_name_western_script
+        )
         return self
 
     def wk_id(self, wk_id: str) -> "PersonNameForUpdateBuilder":

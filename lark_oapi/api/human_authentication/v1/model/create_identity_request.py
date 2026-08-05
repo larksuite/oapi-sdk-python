@@ -19,7 +19,6 @@ class CreateIdentityRequest(BaseRequest):
 
 
 class CreateIdentityRequestBuilder(object):
-
     def __init__(self) -> None:
         create_identity_request = CreateIdentityRequest()
         create_identity_request.http_method = HttpMethod.POST
@@ -37,7 +36,9 @@ class CreateIdentityRequestBuilder(object):
         self._create_identity_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: CreateIdentityRequestBody) -> "CreateIdentityRequestBuilder":
+    def request_body(
+        self, request_body: CreateIdentityRequestBody
+    ) -> "CreateIdentityRequestBuilder":
         self._create_identity_request.request_body = request_body
         self._create_identity_request.body = request_body
         return self

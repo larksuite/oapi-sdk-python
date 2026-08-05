@@ -22,7 +22,9 @@ class CreateDeviceRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_device_record_response_body = CreateDeviceRecordResponseBody()
 
-    def device_record_id(self, device_record_id: int) -> "CreateDeviceRecordResponseBodyBuilder":
+    def device_record_id(
+        self, device_record_id: int
+    ) -> "CreateDeviceRecordResponseBodyBuilder":
         self._create_device_record_response_body.device_record_id = device_record_id
         return self
 

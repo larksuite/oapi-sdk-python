@@ -29,7 +29,9 @@ class TextRunBuilder(object):
         self._text_run.content = content
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "TextRunBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "TextRunBuilder":
         self._text_run.text_element_style = text_element_style
         return self
 

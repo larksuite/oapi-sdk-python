@@ -19,12 +19,14 @@ class PatchCompanyRequest(BaseRequest):
 
 
 class PatchCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_company_request = PatchCompanyRequest()
         patch_company_request.http_method = HttpMethod.PATCH
         patch_company_request.uri = "/open-apis/corehr/v1/companies/:company_id"
-        patch_company_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_company_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._patch_company_request: PatchCompanyRequest = patch_company_request
 
     def client_token(self, client_token: str) -> "PatchCompanyRequestBuilder":

@@ -20,9 +20,13 @@ class ResourceReservationListExportResponseBody(object):
 
 class ResourceReservationListExportResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._resource_reservation_list_export_response_body = ResourceReservationListExportResponseBody()
+        self._resource_reservation_list_export_response_body = (
+            ResourceReservationListExportResponseBody()
+        )
 
-    def task_id(self, task_id: str) -> "ResourceReservationListExportResponseBodyBuilder":
+    def task_id(
+        self, task_id: str
+    ) -> "ResourceReservationListExportResponseBodyBuilder":
         self._resource_reservation_list_export_response_body.task_id = task_id
         return self
 

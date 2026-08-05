@@ -35,7 +35,9 @@ class InlineFileBuilder(object):
         self._inline_file.source_block_id = source_block_id
         return self
 
-    def text_element_style(self, text_element_style: TextElementStyle) -> "InlineFileBuilder":
+    def text_element_style(
+        self, text_element_style: TextElementStyle
+    ) -> "InlineFileBuilder":
         self._inline_file.text_element_style = text_element_style
         return self
 

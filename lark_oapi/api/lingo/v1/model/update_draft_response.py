@@ -9,7 +9,6 @@ from .update_draft_response_body import UpdateDraftResponseBody
 class UpdateDraftResponse(BaseResponse):
     _types = {
         "data": UpdateDraftResponseBody,
-
     }
 
     def __init__(self, d=None):

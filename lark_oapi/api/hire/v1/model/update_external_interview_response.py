@@ -9,7 +9,6 @@ from .update_external_interview_response_body import UpdateExternalInterviewResp
 class UpdateExternalInterviewResponse(BaseResponse):
     _types = {
         "data": UpdateExternalInterviewResponseBody,
-
     }
 
     def __init__(self, d=None):

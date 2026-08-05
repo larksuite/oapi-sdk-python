@@ -11,13 +11,19 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_note_request import GetNoteRequest
 from ..model.get_note_response import GetNoteResponse
+from ..model.subscription_note_request import SubscriptionNoteRequest
+from ..model.subscription_note_response import SubscriptionNoteResponse
+from ..model.unsubscription_note_request import UnsubscriptionNoteRequest
+from ..model.unsubscription_note_response import UnsubscriptionNoteResponse
 
 
 class Note(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetNoteRequest, option: Optional[RequestOption] = None) -> GetNoteResponse:
+    def get(
+        self, request: GetNoteRequest, option: Optional[RequestOption] = None
+    ) -> GetNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +38,16 @@ class Note(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNoteResponse)
+        response: GetNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNoteResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetNoteRequest, option: Optional[RequestOption] = None) -> GetNoteResponse:
+    async def aget(
+        self, request: GetNoteRequest, option: Optional[RequestOption] = None
+    ) -> GetNoteResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +58,97 @@ class Note(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetNoteResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNoteResponse)
+        response: GetNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetNoteResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def subscription(
+        self, request: SubscriptionNoteRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionNoteResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionNoteResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def asubscription(
+        self, request: SubscriptionNoteRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionNoteResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionNoteResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def unsubscription(
+        self, request: UnsubscriptionNoteRequest, option: Optional[RequestOption] = None
+    ) -> UnsubscriptionNoteResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionNoteResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aunsubscription(
+        self, request: UnsubscriptionNoteRequest, option: Optional[RequestOption] = None
+    ) -> UnsubscriptionNoteResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionNoteResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UnsubscriptionNoteResponse
+        )
         response.raw = resp
 
         return response

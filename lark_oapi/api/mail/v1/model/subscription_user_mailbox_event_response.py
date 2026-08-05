@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .subscription_user_mailbox_event_response_body import SubscriptionUserMailboxEventResponseBody
+from .subscription_user_mailbox_event_response_body import (
+    SubscriptionUserMailboxEventResponseBody,
+)
 
 
 class SubscriptionUserMailboxEventResponse(BaseResponse):
     _types = {
         "data": SubscriptionUserMailboxEventResponseBody,
-
     }
 
     def __init__(self, d=None):

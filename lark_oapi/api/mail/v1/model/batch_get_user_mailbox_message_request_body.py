@@ -22,13 +22,17 @@ class BatchGetUserMailboxMessageRequestBody(object):
 
 class BatchGetUserMailboxMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_get_user_mailbox_message_request_body = BatchGetUserMailboxMessageRequestBody()
+        self._batch_get_user_mailbox_message_request_body = (
+            BatchGetUserMailboxMessageRequestBody()
+        )
 
     def format(self, format: str) -> "BatchGetUserMailboxMessageRequestBodyBuilder":
         self._batch_get_user_mailbox_message_request_body.format = format
         return self
 
-    def message_ids(self, message_ids: List[str]) -> "BatchGetUserMailboxMessageRequestBodyBuilder":
+    def message_ids(
+        self, message_ids: List[str]
+    ) -> "BatchGetUserMailboxMessageRequestBodyBuilder":
         self._batch_get_user_mailbox_message_request_body.message_ids = message_ids
         return self
 

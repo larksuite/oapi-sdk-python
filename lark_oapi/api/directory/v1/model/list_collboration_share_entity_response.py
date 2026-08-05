@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .list_collboration_share_entity_response_body import ListCollborationShareEntityResponseBody
+from .list_collboration_share_entity_response_body import (
+    ListCollborationShareEntityResponseBody,
+)
 
 
 class ListCollborationShareEntityResponse(BaseResponse):
     _types = {
         "data": ListCollborationShareEntityResponseBody,
-
     }
 
     def __init__(self, d=None):

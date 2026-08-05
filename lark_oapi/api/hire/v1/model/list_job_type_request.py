@@ -17,7 +17,6 @@ class ListJobTypeRequest(BaseRequest):
 
 
 class ListJobTypeRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_type_request = ListJobTypeRequest()
         list_job_type_request.http_method = HttpMethod.GET

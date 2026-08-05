@@ -17,15 +17,20 @@ class RecognizeBusinessCardRequest(BaseRequest):
 
 
 class RecognizeBusinessCardRequestBuilder(object):
-
     def __init__(self) -> None:
         recognize_business_card_request = RecognizeBusinessCardRequest()
         recognize_business_card_request.http_method = HttpMethod.POST
-        recognize_business_card_request.uri = "/open-apis/document_ai/v1/business_card/recognize"
+        recognize_business_card_request.uri = (
+            "/open-apis/document_ai/v1/business_card/recognize"
+        )
         recognize_business_card_request.token_types = {AccessTokenType.TENANT}
-        self._recognize_business_card_request: RecognizeBusinessCardRequest = recognize_business_card_request
+        self._recognize_business_card_request: RecognizeBusinessCardRequest = (
+            recognize_business_card_request
+        )
 
-    def request_body(self, request_body: RecognizeBusinessCardRequestBody) -> "RecognizeBusinessCardRequestBuilder":
+    def request_body(
+        self, request_body: RecognizeBusinessCardRequestBody
+    ) -> "RecognizeBusinessCardRequestBuilder":
         self._recognize_business_card_request.request_body = request_body
         self._recognize_business_card_request.body = request_body
         return self

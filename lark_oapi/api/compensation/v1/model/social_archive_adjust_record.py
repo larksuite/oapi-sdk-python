@@ -37,7 +37,9 @@ class SocialArchiveAdjustRecordBuilder(object):
         self._social_archive_adjust_record.record_type = record_type
         return self
 
-    def details(self, details: List[SocialArchiveDetail]) -> "SocialArchiveAdjustRecordBuilder":
+    def details(
+        self, details: List[SocialArchiveDetail]
+    ) -> "SocialArchiveAdjustRecordBuilder":
         self._social_archive_adjust_record.details = details
         return self
 

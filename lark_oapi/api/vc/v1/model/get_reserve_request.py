@@ -17,7 +17,6 @@ class GetReserveRequest(BaseRequest):
 
 
 class GetReserveRequestBuilder(object):
-
     def __init__(self) -> None:
         get_reserve_request = GetReserveRequest()
         get_reserve_request.http_method = HttpMethod.GET

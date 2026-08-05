@@ -29,7 +29,9 @@ class EmployeeActualWorkLocationBuilder(object):
         self._employee_actual_work_location.employment_id = employment_id
         return self
 
-    def work_locations(self, work_locations: List[ActualWorkLocation]) -> "EmployeeActualWorkLocationBuilder":
+    def work_locations(
+        self, work_locations: List[ActualWorkLocation]
+    ) -> "EmployeeActualWorkLocationBuilder":
         self._employee_actual_work_location.work_locations = work_locations
         return self
 

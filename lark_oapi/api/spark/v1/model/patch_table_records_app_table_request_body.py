@@ -20,7 +20,9 @@ class PatchTableRecordsAppTableRequestBody(object):
 
 class PatchTableRecordsAppTableRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_table_records_app_table_request_body = PatchTableRecordsAppTableRequestBody()
+        self._patch_table_records_app_table_request_body = (
+            PatchTableRecordsAppTableRequestBody()
+        )
 
     def record(self, record: str) -> "PatchTableRecordsAppTableRequestBodyBuilder":
         self._patch_table_records_app_table_request_body.record = record

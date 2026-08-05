@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.list_calendar_event_attendee_chat_member_request import ListCalendarEventAttendeeChatMemberRequest
-from ..model.list_calendar_event_attendee_chat_member_response import ListCalendarEventAttendeeChatMemberResponse
+from ..model.list_calendar_event_attendee_chat_member_request import (
+    ListCalendarEventAttendeeChatMemberRequest,
+)
+from ..model.list_calendar_event_attendee_chat_member_response import (
+    ListCalendarEventAttendeeChatMemberResponse,
+)
 
 
 class CalendarEventAttendeeChatMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListCalendarEventAttendeeChatMemberRequest,
-             option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
+    def list(
+        self,
+        request: ListCalendarEventAttendeeChatMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCalendarEventAttendeeChatMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class CalendarEventAttendeeChatMember(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListCalendarEventAttendeeChatMemberResponse)
+        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCalendarEventAttendeeChatMemberResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListCalendarEventAttendeeChatMemberRequest,
-                    option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
+    async def alist(
+        self,
+        request: ListCalendarEventAttendeeChatMemberRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListCalendarEventAttendeeChatMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class CalendarEventAttendeeChatMember(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListCalendarEventAttendeeChatMemberResponse)
+        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListCalendarEventAttendeeChatMemberResponse
+        )
         response.raw = resp
 
         return response

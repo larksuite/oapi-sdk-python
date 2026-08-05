@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .add_enum_option_common_data_meta_data_response_body import AddEnumOptionCommonDataMetaDataResponseBody
+from .add_enum_option_common_data_meta_data_response_body import (
+    AddEnumOptionCommonDataMetaDataResponseBody,
+)
 
 
 class AddEnumOptionCommonDataMetaDataResponse(BaseResponse):
     _types = {
         "data": AddEnumOptionCommonDataMetaDataResponseBody,
-
     }
 
     def __init__(self, d=None):

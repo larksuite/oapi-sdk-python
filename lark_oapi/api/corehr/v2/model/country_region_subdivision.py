@@ -34,19 +34,27 @@ class CountryRegionSubdivisionBuilder(object):
     def __init__(self) -> None:
         self._country_region_subdivision = CountryRegionSubdivision()
 
-    def country_region_subdivision_id(self, country_region_subdivision_id: str) -> "CountryRegionSubdivisionBuilder":
-        self._country_region_subdivision.country_region_subdivision_id = country_region_subdivision_id
+    def country_region_subdivision_id(
+        self, country_region_subdivision_id: str
+    ) -> "CountryRegionSubdivisionBuilder":
+        self._country_region_subdivision.country_region_subdivision_id = (
+            country_region_subdivision_id
+        )
         return self
 
     def name(self, name: List[I18n]) -> "CountryRegionSubdivisionBuilder":
         self._country_region_subdivision.name = name
         return self
 
-    def country_region_id(self, country_region_id: str) -> "CountryRegionSubdivisionBuilder":
+    def country_region_id(
+        self, country_region_id: str
+    ) -> "CountryRegionSubdivisionBuilder":
         self._country_region_subdivision.country_region_id = country_region_id
         return self
 
-    def subdivision_type(self, subdivision_type: Enum) -> "CountryRegionSubdivisionBuilder":
+    def subdivision_type(
+        self, subdivision_type: Enum
+    ) -> "CountryRegionSubdivisionBuilder":
         self._country_region_subdivision.subdivision_type = subdivision_type
         return self
 

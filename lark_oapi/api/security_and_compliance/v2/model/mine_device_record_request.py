@@ -15,13 +15,16 @@ class MineDeviceRecordRequest(BaseRequest):
 
 
 class MineDeviceRecordRequestBuilder(object):
-
     def __init__(self) -> None:
         mine_device_record_request = MineDeviceRecordRequest()
         mine_device_record_request.http_method = HttpMethod.GET
-        mine_device_record_request.uri = "/open-apis/security_and_compliance/v2/device_records/mine"
+        mine_device_record_request.uri = (
+            "/open-apis/security_and_compliance/v2/device_records/mine"
+        )
         mine_device_record_request.token_types = {AccessTokenType.USER}
-        self._mine_device_record_request: MineDeviceRecordRequest = mine_device_record_request
+        self._mine_device_record_request: MineDeviceRecordRequest = (
+            mine_device_record_request
+        )
 
     def build(self) -> MineDeviceRecordRequest:
         return self._mine_device_record_request

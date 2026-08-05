@@ -19,7 +19,6 @@ class GetEntityRequest(BaseRequest):
 
 
 class GetEntityRequestBuilder(object):
-
     def __init__(self) -> None:
         get_entity_request = GetEntityRequest()
         get_entity_request.http_method = HttpMethod.GET

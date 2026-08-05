@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .create_emp_custom_org_employee_custom_org_response_body import CreateEmpCustomOrgEmployeeCustomOrgResponseBody
+from .create_emp_custom_org_employee_custom_org_response_body import (
+    CreateEmpCustomOrgEmployeeCustomOrgResponseBody,
+)
 
 
 class CreateEmpCustomOrgEmployeeCustomOrgResponse(BaseResponse):
     _types = {
         "data": CreateEmpCustomOrgEmployeeCustomOrgResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -18,20 +18,25 @@ class QuerySocialArchiveRequest(BaseRequest):
 
 
 class QuerySocialArchiveRequestBuilder(object):
-
     def __init__(self) -> None:
         query_social_archive_request = QuerySocialArchiveRequest()
         query_social_archive_request.http_method = HttpMethod.POST
-        query_social_archive_request.uri = "/open-apis/compensation/v1/social_archive/query"
+        query_social_archive_request.uri = (
+            "/open-apis/compensation/v1/social_archive/query"
+        )
         query_social_archive_request.token_types = {AccessTokenType.TENANT}
-        self._query_social_archive_request: QuerySocialArchiveRequest = query_social_archive_request
+        self._query_social_archive_request: QuerySocialArchiveRequest = (
+            query_social_archive_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "QuerySocialArchiveRequestBuilder":
         self._query_social_archive_request.user_id_type = user_id_type
         self._query_social_archive_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QuerySocialArchiveRequestBody) -> "QuerySocialArchiveRequestBuilder":
+    def request_body(
+        self, request_body: QuerySocialArchiveRequestBody
+    ) -> "QuerySocialArchiveRequestBuilder":
         self._query_social_archive_request.request_body = request_body
         self._query_social_archive_request.body = request_body
         return self

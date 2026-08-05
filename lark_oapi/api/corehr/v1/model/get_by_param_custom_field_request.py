@@ -17,22 +17,33 @@ class GetByParamCustomFieldRequest(BaseRequest):
 
 
 class GetByParamCustomFieldRequestBuilder(object):
-
     def __init__(self) -> None:
         get_by_param_custom_field_request = GetByParamCustomFieldRequest()
         get_by_param_custom_field_request.http_method = HttpMethod.GET
-        get_by_param_custom_field_request.uri = "/open-apis/corehr/v1/custom_fields/get_by_param"
+        get_by_param_custom_field_request.uri = (
+            "/open-apis/corehr/v1/custom_fields/get_by_param"
+        )
         get_by_param_custom_field_request.token_types = {AccessTokenType.TENANT}
-        self._get_by_param_custom_field_request: GetByParamCustomFieldRequest = get_by_param_custom_field_request
+        self._get_by_param_custom_field_request: GetByParamCustomFieldRequest = (
+            get_by_param_custom_field_request
+        )
 
-    def object_api_name(self, object_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
+    def object_api_name(
+        self, object_api_name: str
+    ) -> "GetByParamCustomFieldRequestBuilder":
         self._get_by_param_custom_field_request.object_api_name = object_api_name
-        self._get_by_param_custom_field_request.add_query("object_api_name", object_api_name)
+        self._get_by_param_custom_field_request.add_query(
+            "object_api_name", object_api_name
+        )
         return self
 
-    def custom_api_name(self, custom_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
+    def custom_api_name(
+        self, custom_api_name: str
+    ) -> "GetByParamCustomFieldRequestBuilder":
         self._get_by_param_custom_field_request.custom_api_name = custom_api_name
-        self._get_by_param_custom_field_request.add_query("custom_api_name", custom_api_name)
+        self._get_by_param_custom_field_request.add_query(
+            "custom_api_name", custom_api_name
+        )
         return self
 
     def build(self) -> GetByParamCustomFieldRequest:

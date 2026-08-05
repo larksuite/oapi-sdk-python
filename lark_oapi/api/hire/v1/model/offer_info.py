@@ -61,7 +61,9 @@ class OfferInfoBuilder(object):
         self._offer_info.salary_info = salary_info
         return self
 
-    def customized_info_list(self, customized_info_list: List[OfferCustomizedInfo]) -> "OfferInfoBuilder":
+    def customized_info_list(
+        self, customized_info_list: List[OfferCustomizedInfo]
+    ) -> "OfferInfoBuilder":
         self._offer_info.customized_info_list = customized_info_list
         return self
 

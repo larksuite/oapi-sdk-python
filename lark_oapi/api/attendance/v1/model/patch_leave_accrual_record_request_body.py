@@ -35,29 +35,45 @@ class PatchLeaveAccrualRecordRequestBody(object):
 
 class PatchLeaveAccrualRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._patch_leave_accrual_record_request_body = PatchLeaveAccrualRecordRequestBody()
+        self._patch_leave_accrual_record_request_body = (
+            PatchLeaveAccrualRecordRequestBody()
+        )
 
-    def leave_granting_record_id(self, leave_granting_record_id: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
-        self._patch_leave_accrual_record_request_body.leave_granting_record_id = leave_granting_record_id
+    def leave_granting_record_id(
+        self, leave_granting_record_id: str
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+        self._patch_leave_accrual_record_request_body.leave_granting_record_id = (
+            leave_granting_record_id
+        )
         return self
 
-    def employment_id(self, employment_id: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def employment_id(
+        self, employment_id: str
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.employment_id = employment_id
         return self
 
-    def leave_type_id(self, leave_type_id: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def leave_type_id(
+        self, leave_type_id: str
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.leave_type_id = leave_type_id
         return self
 
-    def reason(self, reason: List[LangText]) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def reason(
+        self, reason: List[LangText]
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.reason = reason
         return self
 
-    def time_offset(self, time_offset: int) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def time_offset(
+        self, time_offset: int
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.time_offset = time_offset
         return self
 
-    def expiration_date(self, expiration_date: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def expiration_date(
+        self, expiration_date: str
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.expiration_date = expiration_date
         return self
 
@@ -65,7 +81,9 @@ class PatchLeaveAccrualRecordRequestBodyBuilder(object):
         self._patch_leave_accrual_record_request_body.quantity = quantity
         return self
 
-    def section_type(self, section_type: int) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+    def section_type(
+        self, section_type: int
+    ) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.section_type = section_type
         return self
 

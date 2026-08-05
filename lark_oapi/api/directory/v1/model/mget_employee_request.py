@@ -19,12 +19,14 @@ class MgetEmployeeRequest(BaseRequest):
 
 
 class MgetEmployeeRequestBuilder(object):
-
     def __init__(self) -> None:
         mget_employee_request = MgetEmployeeRequest()
         mget_employee_request.http_method = HttpMethod.POST
         mget_employee_request.uri = "/open-apis/directory/v1/employees/mget"
-        mget_employee_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
+        mget_employee_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._mget_employee_request: MgetEmployeeRequest = mget_employee_request
 
     def employee_id_type(self, employee_id_type: str) -> "MgetEmployeeRequestBuilder":
@@ -32,12 +34,16 @@ class MgetEmployeeRequestBuilder(object):
         self._mget_employee_request.add_query("employee_id_type", employee_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "MgetEmployeeRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "MgetEmployeeRequestBuilder":
         self._mget_employee_request.department_id_type = department_id_type
         self._mget_employee_request.add_query("department_id_type", department_id_type)
         return self
 
-    def request_body(self, request_body: MgetEmployeeRequestBody) -> "MgetEmployeeRequestBuilder":
+    def request_body(
+        self, request_body: MgetEmployeeRequestBody
+    ) -> "MgetEmployeeRequestBuilder":
         self._mget_employee_request.request_body = request_body
         self._mget_employee_request.body = request_body
         return self

@@ -9,7 +9,6 @@ from .create_user_mailbox_label_response_body import CreateUserMailboxLabelRespo
 class CreateUserMailboxLabelResponse(BaseResponse):
     _types = {
         "data": CreateUserMailboxLabelResponseBody,
-
     }
 
     def __init__(self, d=None):

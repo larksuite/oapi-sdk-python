@@ -21,9 +21,13 @@ class RecognizeVehicleInvoiceResponseBody(object):
 
 class RecognizeVehicleInvoiceResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._recognize_vehicle_invoice_response_body = RecognizeVehicleInvoiceResponseBody()
+        self._recognize_vehicle_invoice_response_body = (
+            RecognizeVehicleInvoiceResponseBody()
+        )
 
-    def vehicle_invoice(self, vehicle_invoice: VehicleInvoice) -> "RecognizeVehicleInvoiceResponseBodyBuilder":
+    def vehicle_invoice(
+        self, vehicle_invoice: VehicleInvoice
+    ) -> "RecognizeVehicleInvoiceResponseBodyBuilder":
         self._recognize_vehicle_invoice_response_body.vehicle_invoice = vehicle_invoice
         return self
 

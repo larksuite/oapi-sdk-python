@@ -21,9 +21,13 @@ class BatchUpdateDocumentBlockRequestBody(object):
 
 class BatchUpdateDocumentBlockRequestBodyBuilder(object):
     def __init__(self) -> None:
-        self._batch_update_document_block_request_body = BatchUpdateDocumentBlockRequestBody()
+        self._batch_update_document_block_request_body = (
+            BatchUpdateDocumentBlockRequestBody()
+        )
 
-    def requests(self, requests: List[UpdateBlockRequest]) -> "BatchUpdateDocumentBlockRequestBodyBuilder":
+    def requests(
+        self, requests: List[UpdateBlockRequest]
+    ) -> "BatchUpdateDocumentBlockRequestBodyBuilder":
         self._batch_update_document_block_request_body.requests = requests
         return self
 

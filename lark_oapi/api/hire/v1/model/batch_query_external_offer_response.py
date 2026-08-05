@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_query_external_offer_response_body import BatchQueryExternalOfferResponseBody
+from .batch_query_external_offer_response_body import (
+    BatchQueryExternalOfferResponseBody,
+)
 
 
 class BatchQueryExternalOfferResponse(BaseResponse):
     _types = {
         "data": BatchQueryExternalOfferResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -16,11 +16,12 @@ class GetAgentSkillRequest(BaseRequest):
 
 
 class GetAgentSkillRequestBuilder(object):
-
     def __init__(self) -> None:
         get_agent_skill_request = GetAgentSkillRequest()
         get_agent_skill_request.http_method = HttpMethod.GET
-        get_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+        get_agent_skill_request.uri = (
+            "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+        )
         get_agent_skill_request.token_types = {AccessTokenType.TENANT}
         self._get_agent_skill_request: GetAgentSkillRequest = get_agent_skill_request
 

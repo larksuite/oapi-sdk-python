@@ -20,9 +20,13 @@ class ReplaceTenantEmployeeTypeEnumOptions(object):
 
 class ReplaceTenantEmployeeTypeEnumOptionsBuilder(object):
     def __init__(self) -> None:
-        self._replace_tenant_employee_type_enum_options = ReplaceTenantEmployeeTypeEnumOptions()
+        self._replace_tenant_employee_type_enum_options = (
+            ReplaceTenantEmployeeTypeEnumOptions()
+        )
 
-    def data_source(self, data_source: int) -> "ReplaceTenantEmployeeTypeEnumOptionsBuilder":
+    def data_source(
+        self, data_source: int
+    ) -> "ReplaceTenantEmployeeTypeEnumOptionsBuilder":
         self._replace_tenant_employee_type_enum_options.data_source = data_source
         return self
 

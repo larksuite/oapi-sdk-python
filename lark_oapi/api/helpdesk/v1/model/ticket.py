@@ -144,7 +144,9 @@ class TicketBuilder(object):
         self._ticket.collaborators = collaborators
         return self
 
-    def customized_fields(self, customized_fields: List[CustomizedFieldDisplayItem]) -> "TicketBuilder":
+    def customized_fields(
+        self, customized_fields: List[CustomizedFieldDisplayItem]
+    ) -> "TicketBuilder":
         self._ticket.customized_fields = customized_fields
         return self
 
@@ -152,7 +154,9 @@ class TicketBuilder(object):
         self._ticket.agent_service_duration = agent_service_duration
         return self
 
-    def agent_first_response_duration(self, agent_first_response_duration: int) -> "TicketBuilder":
+    def agent_first_response_duration(
+        self, agent_first_response_duration: int
+    ) -> "TicketBuilder":
         self._ticket.agent_first_response_duration = agent_first_response_duration
         return self
 
@@ -172,11 +176,15 @@ class TicketBuilder(object):
         self._ticket.agent_entry_time = agent_entry_time
         return self
 
-    def agent_first_response_time(self, agent_first_response_time: int) -> "TicketBuilder":
+    def agent_first_response_time(
+        self, agent_first_response_time: int
+    ) -> "TicketBuilder":
         self._ticket.agent_first_response_time = agent_first_response_time
         return self
 
-    def agent_last_response_time(self, agent_last_response_time: int) -> "TicketBuilder":
+    def agent_last_response_time(
+        self, agent_last_response_time: int
+    ) -> "TicketBuilder":
         self._ticket.agent_last_response_time = agent_last_response_time
         return self
 

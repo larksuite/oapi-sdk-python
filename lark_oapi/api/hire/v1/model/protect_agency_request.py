@@ -18,7 +18,6 @@ class ProtectAgencyRequest(BaseRequest):
 
 
 class ProtectAgencyRequestBuilder(object):
-
     def __init__(self) -> None:
         protect_agency_request = ProtectAgencyRequest()
         protect_agency_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class ProtectAgencyRequestBuilder(object):
         self._protect_agency_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: ProtectAgencyRequestBody) -> "ProtectAgencyRequestBuilder":
+    def request_body(
+        self, request_body: ProtectAgencyRequestBody
+    ) -> "ProtectAgencyRequestBuilder":
         self._protect_agency_request.request_body = request_body
         self._protect_agency_request.body = request_body
         return self

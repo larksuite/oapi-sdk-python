@@ -23,7 +23,9 @@ class DeleteEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_employee_request_body = DeleteEmployeeRequestBody()
 
-    def options(self, options: DeleteEmployeeOptions) -> "DeleteEmployeeRequestBodyBuilder":
+    def options(
+        self, options: DeleteEmployeeOptions
+    ) -> "DeleteEmployeeRequestBodyBuilder":
         self._delete_employee_request_body.options = options
         return self
 

@@ -3,7 +3,9 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .oql_query_application_object_request_body import OqlQueryApplicationObjectRequestBody
+from .oql_query_application_object_request_body import (
+    OqlQueryApplicationObjectRequestBody,
+)
 
 
 class OqlQueryApplicationObjectRequest(BaseRequest):
@@ -18,21 +20,25 @@ class OqlQueryApplicationObjectRequest(BaseRequest):
 
 
 class OqlQueryApplicationObjectRequestBuilder(object):
-
     def __init__(self) -> None:
         oql_query_application_object_request = OqlQueryApplicationObjectRequest()
         oql_query_application_object_request.http_method = HttpMethod.POST
-        oql_query_application_object_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/oql_query"
+        oql_query_application_object_request.uri = (
+            "/open-apis/apaas/v1/applications/:namespace/objects/oql_query"
+        )
         oql_query_application_object_request.token_types = {AccessTokenType.TENANT}
-        self._oql_query_application_object_request: OqlQueryApplicationObjectRequest = oql_query_application_object_request
+        self._oql_query_application_object_request: OqlQueryApplicationObjectRequest = (
+            oql_query_application_object_request
+        )
 
     def namespace(self, namespace: str) -> "OqlQueryApplicationObjectRequestBuilder":
         self._oql_query_application_object_request.namespace = namespace
         self._oql_query_application_object_request.paths["namespace"] = str(namespace)
         return self
 
-    def request_body(self,
-                     request_body: OqlQueryApplicationObjectRequestBody) -> "OqlQueryApplicationObjectRequestBuilder":
+    def request_body(
+        self, request_body: OqlQueryApplicationObjectRequestBody
+    ) -> "OqlQueryApplicationObjectRequestBuilder":
         self._oql_query_application_object_request.request_body = request_body
         self._oql_query_application_object_request.body = request_body
         return self

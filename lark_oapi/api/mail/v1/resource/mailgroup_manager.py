@@ -9,10 +9,18 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_mailgroup_manager_request import BatchCreateMailgroupManagerRequest
-from ..model.batch_create_mailgroup_manager_response import BatchCreateMailgroupManagerResponse
-from ..model.batch_delete_mailgroup_manager_request import BatchDeleteMailgroupManagerRequest
-from ..model.batch_delete_mailgroup_manager_response import BatchDeleteMailgroupManagerResponse
+from ..model.batch_create_mailgroup_manager_request import (
+    BatchCreateMailgroupManagerRequest,
+)
+from ..model.batch_create_mailgroup_manager_response import (
+    BatchCreateMailgroupManagerResponse,
+)
+from ..model.batch_delete_mailgroup_manager_request import (
+    BatchDeleteMailgroupManagerRequest,
+)
+from ..model.batch_delete_mailgroup_manager_response import (
+    BatchDeleteMailgroupManagerResponse,
+)
 from ..model.list_mailgroup_manager_request import ListMailgroupManagerRequest
 from ..model.list_mailgroup_manager_response import ListMailgroupManagerResponse
 
@@ -21,8 +29,11 @@ class MailgroupManager(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateMailgroupManagerRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreateMailgroupManagerResponse:
+    def batch_create(
+        self,
+        request: BatchCreateMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +48,18 @@ class MailgroupManager(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchCreateMailgroupManagerResponse)
+        response: BatchCreateMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_create(self, request: BatchCreateMailgroupManagerRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreateMailgroupManagerResponse:
+    async def abatch_create(
+        self,
+        request: BatchCreateMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchCreateMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +70,18 @@ class MailgroupManager(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchCreateMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchCreateMailgroupManagerResponse)
+        response: BatchCreateMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchCreateMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response
 
-    def batch_delete(self, request: BatchDeleteMailgroupManagerRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteMailgroupManagerResponse:
+    def batch_delete(
+        self,
+        request: BatchDeleteMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,14 +96,18 @@ class MailgroupManager(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchDeleteMailgroupManagerResponse)
+        response: BatchDeleteMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response
 
-    async def abatch_delete(self, request: BatchDeleteMailgroupManagerRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteMailgroupManagerResponse:
+    async def abatch_delete(
+        self,
+        request: BatchDeleteMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> BatchDeleteMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -95,14 +118,18 @@ class MailgroupManager(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: BatchDeleteMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchDeleteMailgroupManagerResponse)
+        response: BatchDeleteMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), BatchDeleteMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListMailgroupManagerRequest,
-             option: Optional[RequestOption] = None) -> ListMailgroupManagerResponse:
+    def list(
+        self,
+        request: ListMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,13 +144,18 @@ class MailgroupManager(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupManagerResponse)
+        response: ListMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListMailgroupManagerRequest,
-                    option: Optional[RequestOption] = None) -> ListMailgroupManagerResponse:
+    async def alist(
+        self,
+        request: ListMailgroupManagerRequest,
+        option: Optional[RequestOption] = None,
+    ) -> ListMailgroupManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -134,7 +166,9 @@ class MailgroupManager(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListMailgroupManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupManagerResponse)
+        response: ListMailgroupManagerResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListMailgroupManagerResponse
+        )
         response.raw = resp
 
         return response

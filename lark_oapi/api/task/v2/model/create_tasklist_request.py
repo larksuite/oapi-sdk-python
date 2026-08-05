@@ -18,12 +18,14 @@ class CreateTasklistRequest(BaseRequest):
 
 
 class CreateTasklistRequestBuilder(object):
-
     def __init__(self) -> None:
         create_tasklist_request = CreateTasklistRequest()
         create_tasklist_request.http_method = HttpMethod.POST
         create_tasklist_request.uri = "/open-apis/task/v2/tasklists"
-        create_tasklist_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_tasklist_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._create_tasklist_request: CreateTasklistRequest = create_tasklist_request
 
     def user_id_type(self, user_id_type: str) -> "CreateTasklistRequestBuilder":
@@ -31,7 +33,9 @@ class CreateTasklistRequestBuilder(object):
         self._create_tasklist_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: InputTasklist) -> "CreateTasklistRequestBuilder":
+    def request_body(
+        self, request_body: InputTasklist
+    ) -> "CreateTasklistRequestBuilder":
         self._create_tasklist_request.request_body = request_body
         self._create_tasklist_request.body = request_body
         return self

@@ -60,7 +60,9 @@ class ApplicationTalentBasicInfoBuilder(object):
         self._application_talent_basic_info.mobile = mobile
         return self
 
-    def mobile_country_code(self, mobile_country_code: str) -> "ApplicationTalentBasicInfoBuilder":
+    def mobile_country_code(
+        self, mobile_country_code: str
+    ) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.mobile_country_code = mobile_country_code
         return self
 
@@ -68,7 +70,9 @@ class ApplicationTalentBasicInfoBuilder(object):
         self._application_talent_basic_info.email = email
         return self
 
-    def experience_years(self, experience_years: int) -> "ApplicationTalentBasicInfoBuilder":
+    def experience_years(
+        self, experience_years: int
+    ) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.experience_years = experience_years
         return self
 
@@ -76,7 +80,9 @@ class ApplicationTalentBasicInfoBuilder(object):
         self._application_talent_basic_info.age = age
         return self
 
-    def nationality(self, nationality: Nationality) -> "ApplicationTalentBasicInfoBuilder":
+    def nationality(
+        self, nationality: Nationality
+    ) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.nationality = nationality
         return self
 
@@ -92,7 +98,9 @@ class ApplicationTalentBasicInfoBuilder(object):
         self._application_talent_basic_info.hometown_city = hometown_city
         return self
 
-    def preferred_city_list(self, preferred_city_list: List[City]) -> "ApplicationTalentBasicInfoBuilder":
+    def preferred_city_list(
+        self, preferred_city_list: List[City]
+    ) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.preferred_city_list = preferred_city_list
         return self
 
@@ -100,12 +108,18 @@ class ApplicationTalentBasicInfoBuilder(object):
         self._application_talent_basic_info.mobile_code = mobile_code
         return self
 
-    def identification_type(self, identification_type: int) -> "ApplicationTalentBasicInfoBuilder":
+    def identification_type(
+        self, identification_type: int
+    ) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.identification_type = identification_type
         return self
 
-    def identification_number(self, identification_number: str) -> "ApplicationTalentBasicInfoBuilder":
-        self._application_talent_basic_info.identification_number = identification_number
+    def identification_number(
+        self, identification_number: str
+    ) -> "ApplicationTalentBasicInfoBuilder":
+        self._application_talent_basic_info.identification_number = (
+            identification_number
+        )
         return self
 
     def build(self) -> "ApplicationTalentBasicInfo":

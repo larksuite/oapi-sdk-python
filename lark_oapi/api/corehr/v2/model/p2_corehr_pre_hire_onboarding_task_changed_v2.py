@@ -29,9 +29,7 @@ class P2CorehrPreHireOnboardingTaskChangedV2Data(object):
 
 
 class P2CorehrPreHireOnboardingTaskChangedV2(EventContext):
-    _types = {
-        "event": P2CorehrPreHireOnboardingTaskChangedV2Data
-    }
+    _types = {"event": P2CorehrPreHireOnboardingTaskChangedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

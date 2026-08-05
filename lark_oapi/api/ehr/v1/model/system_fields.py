@@ -221,7 +221,9 @@ class SystemFieldsBuilder(object):
         self._system_fields.political_status = political_status
         return self
 
-    def entered_workforce_date(self, entered_workforce_date: str) -> "SystemFieldsBuilder":
+    def entered_workforce_date(
+        self, entered_workforce_date: str
+    ) -> "SystemFieldsBuilder":
         self._system_fields.entered_workforce_date = entered_workforce_date
         return self
 
@@ -249,11 +251,15 @@ class SystemFieldsBuilder(object):
         self._system_fields.bank_name = bank_name
         return self
 
-    def social_security_account(self, social_security_account: str) -> "SystemFieldsBuilder":
+    def social_security_account(
+        self, social_security_account: str
+    ) -> "SystemFieldsBuilder":
         self._system_fields.social_security_account = social_security_account
         return self
 
-    def provident_fund_account(self, provident_fund_account: str) -> "SystemFieldsBuilder":
+    def provident_fund_account(
+        self, provident_fund_account: str
+    ) -> "SystemFieldsBuilder":
         self._system_fields.provident_fund_account = provident_fund_account
         return self
 
@@ -305,7 +311,9 @@ class SystemFieldsBuilder(object):
         self._system_fields.departure_notes = departure_notes
         return self
 
-    def contract_company(self, contract_company: ContractCompany) -> "SystemFieldsBuilder":
+    def contract_company(
+        self, contract_company: ContractCompany
+    ) -> "SystemFieldsBuilder":
         self._system_fields.contract_company = contract_company
         return self
 
@@ -317,7 +325,9 @@ class SystemFieldsBuilder(object):
         self._system_fields.contract_start_date = contract_start_date
         return self
 
-    def contract_expiration_date(self, contract_expiration_date: str) -> "SystemFieldsBuilder":
+    def contract_expiration_date(
+        self, contract_expiration_date: str
+    ) -> "SystemFieldsBuilder":
         self._system_fields.contract_expiration_date = contract_expiration_date
         return self
 
@@ -333,15 +343,21 @@ class SystemFieldsBuilder(object):
         self._system_fields.family_address = family_address
         return self
 
-    def primary_emergency_contact(self, primary_emergency_contact: EmergencyContact) -> "SystemFieldsBuilder":
+    def primary_emergency_contact(
+        self, primary_emergency_contact: EmergencyContact
+    ) -> "SystemFieldsBuilder":
         self._system_fields.primary_emergency_contact = primary_emergency_contact
         return self
 
-    def emergency_contact(self, emergency_contact: List[EmergencyContact]) -> "SystemFieldsBuilder":
+    def emergency_contact(
+        self, emergency_contact: List[EmergencyContact]
+    ) -> "SystemFieldsBuilder":
         self._system_fields.emergency_contact = emergency_contact
         return self
 
-    def highest_level_of_edu(self, highest_level_of_edu: Education) -> "SystemFieldsBuilder":
+    def highest_level_of_edu(
+        self, highest_level_of_edu: Education
+    ) -> "SystemFieldsBuilder":
         self._system_fields.highest_level_of_edu = highest_level_of_edu
         return self
 
@@ -357,11 +373,15 @@ class SystemFieldsBuilder(object):
         self._system_fields.work_exp = work_exp
         return self
 
-    def id_photo_po_side(self, id_photo_po_side: List[Attachment]) -> "SystemFieldsBuilder":
+    def id_photo_po_side(
+        self, id_photo_po_side: List[Attachment]
+    ) -> "SystemFieldsBuilder":
         self._system_fields.id_photo_po_side = id_photo_po_side
         return self
 
-    def id_photo_em_side(self, id_photo_em_side: List[Attachment]) -> "SystemFieldsBuilder":
+    def id_photo_em_side(
+        self, id_photo_em_side: List[Attachment]
+    ) -> "SystemFieldsBuilder":
         self._system_fields.id_photo_em_side = id_photo_em_side
         return self
 
@@ -373,7 +393,9 @@ class SystemFieldsBuilder(object):
         self._system_fields.diploma_photo = diploma_photo
         return self
 
-    def graduation_cert(self, graduation_cert: List[Attachment]) -> "SystemFieldsBuilder":
+    def graduation_cert(
+        self, graduation_cert: List[Attachment]
+    ) -> "SystemFieldsBuilder":
         self._system_fields.graduation_cert = graduation_cert
         return self
 
@@ -381,15 +403,21 @@ class SystemFieldsBuilder(object):
         self._system_fields.cert_of_merit = cert_of_merit
         return self
 
-    def offboarding_file(self, offboarding_file: List[Attachment]) -> "SystemFieldsBuilder":
+    def offboarding_file(
+        self, offboarding_file: List[Attachment]
+    ) -> "SystemFieldsBuilder":
         self._system_fields.offboarding_file = offboarding_file
         return self
 
-    def cancel_onboarding_reason(self, cancel_onboarding_reason: int) -> "SystemFieldsBuilder":
+    def cancel_onboarding_reason(
+        self, cancel_onboarding_reason: int
+    ) -> "SystemFieldsBuilder":
         self._system_fields.cancel_onboarding_reason = cancel_onboarding_reason
         return self
 
-    def cancel_onboarding_notes(self, cancel_onboarding_notes: str) -> "SystemFieldsBuilder":
+    def cancel_onboarding_notes(
+        self, cancel_onboarding_notes: str
+    ) -> "SystemFieldsBuilder":
         self._system_fields.cancel_onboarding_notes = cancel_onboarding_notes
         return self
 

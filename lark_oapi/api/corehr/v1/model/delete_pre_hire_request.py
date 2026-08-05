@@ -16,7 +16,6 @@ class DeletePreHireRequest(BaseRequest):
 
 
 class DeletePreHireRequestBuilder(object):
-
     def __init__(self) -> None:
         delete_pre_hire_request = DeletePreHireRequest()
         delete_pre_hire_request.http_method = HttpMethod.DELETE

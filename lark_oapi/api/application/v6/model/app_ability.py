@@ -59,7 +59,9 @@ class AppAbilityBuilder(object):
         self._app_ability.bot = bot
         return self
 
-    def workplace_widgets(self, workplace_widgets: List[WorkplaceWidget]) -> "AppAbilityBuilder":
+    def workplace_widgets(
+        self, workplace_widgets: List[WorkplaceWidget]
+    ) -> "AppAbilityBuilder":
         self._app_ability.workplace_widgets = workplace_widgets
         return self
 

@@ -17,13 +17,14 @@ class ListChangeReasonRequest(BaseRequest):
 
 
 class ListChangeReasonRequestBuilder(object):
-
     def __init__(self) -> None:
         list_change_reason_request = ListChangeReasonRequest()
         list_change_reason_request.http_method = HttpMethod.GET
         list_change_reason_request.uri = "/open-apis/compensation/v1/change_reasons"
         list_change_reason_request.token_types = {AccessTokenType.TENANT}
-        self._list_change_reason_request: ListChangeReasonRequest = list_change_reason_request
+        self._list_change_reason_request: ListChangeReasonRequest = (
+            list_change_reason_request
+        )
 
     def page_size(self, page_size: int) -> "ListChangeReasonRequestBuilder":
         self._list_change_reason_request.page_size = page_size

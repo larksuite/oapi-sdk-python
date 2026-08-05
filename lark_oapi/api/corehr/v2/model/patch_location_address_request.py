@@ -21,22 +21,31 @@ class PatchLocationAddressRequest(BaseRequest):
 
 
 class PatchLocationAddressRequestBuilder(object):
-
     def __init__(self) -> None:
         patch_location_address_request = PatchLocationAddressRequest()
         patch_location_address_request.http_method = HttpMethod.PATCH
-        patch_location_address_request.uri = "/open-apis/corehr/v2/locations/:location_id/addresses/:address_id"
+        patch_location_address_request.uri = (
+            "/open-apis/corehr/v2/locations/:location_id/addresses/:address_id"
+        )
         patch_location_address_request.token_types = {AccessTokenType.TENANT}
-        self._patch_location_address_request: PatchLocationAddressRequest = patch_location_address_request
+        self._patch_location_address_request: PatchLocationAddressRequest = (
+            patch_location_address_request
+        )
 
     def client_token(self, client_token: str) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.client_token = client_token
         self._patch_location_address_request.add_query("client_token", client_token)
         return self
 
-    def need_custom_latin_address(self, need_custom_latin_address: bool) -> "PatchLocationAddressRequestBuilder":
-        self._patch_location_address_request.need_custom_latin_address = need_custom_latin_address
-        self._patch_location_address_request.add_query("need_custom_latin_address", need_custom_latin_address)
+    def need_custom_latin_address(
+        self, need_custom_latin_address: bool
+    ) -> "PatchLocationAddressRequestBuilder":
+        self._patch_location_address_request.need_custom_latin_address = (
+            need_custom_latin_address
+        )
+        self._patch_location_address_request.add_query(
+            "need_custom_latin_address", need_custom_latin_address
+        )
         return self
 
     def location_id(self, location_id: str) -> "PatchLocationAddressRequestBuilder":
@@ -49,7 +58,9 @@ class PatchLocationAddressRequestBuilder(object):
         self._patch_location_address_request.paths["address_id"] = str(address_id)
         return self
 
-    def request_body(self, request_body: LocationAddressUpdate) -> "PatchLocationAddressRequestBuilder":
+    def request_body(
+        self, request_body: LocationAddressUpdate
+    ) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.request_body = request_body
         self._patch_location_address_request.body = request_body
         return self

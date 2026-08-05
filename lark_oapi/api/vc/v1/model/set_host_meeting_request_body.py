@@ -30,7 +30,9 @@ class SetHostMeetingRequestBodyBuilder(object):
         self._set_host_meeting_request_body.host_user = host_user
         return self
 
-    def old_host_user(self, old_host_user: MeetingUser) -> "SetHostMeetingRequestBodyBuilder":
+    def old_host_user(
+        self, old_host_user: MeetingUser
+    ) -> "SetHostMeetingRequestBodyBuilder":
         self._set_host_meeting_request_body.old_host_user = old_host_user
         return self
 

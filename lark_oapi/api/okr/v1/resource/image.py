@@ -17,7 +17,9 @@ class Image(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def upload(self, request: UploadImageRequest, option: Optional[RequestOption] = None) -> UploadImageResponse:
+    def upload(
+        self, request: UploadImageRequest, option: Optional[RequestOption] = None
+    ) -> UploadImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class Image(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: UploadImageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadImageResponse)
+        response: UploadImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadImageResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aupload(self, request: UploadImageRequest, option: Optional[RequestOption] = None) -> UploadImageResponse:
+    async def aupload(
+        self, request: UploadImageRequest, option: Optional[RequestOption] = None
+    ) -> UploadImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -53,7 +59,9 @@ class Image(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: UploadImageResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadImageResponse)
+        response: UploadImageResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), UploadImageResponse
+        )
         response.raw = resp
 
         return response

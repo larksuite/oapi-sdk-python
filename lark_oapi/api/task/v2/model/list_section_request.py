@@ -21,12 +21,14 @@ class ListSectionRequest(BaseRequest):
 
 
 class ListSectionRequestBuilder(object):
-
     def __init__(self) -> None:
         list_section_request = ListSectionRequest()
         list_section_request.http_method = HttpMethod.GET
         list_section_request.uri = "/open-apis/task/v2/sections"
-        list_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_section_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._list_section_request: ListSectionRequest = list_section_request
 
     def page_size(self, page_size: int) -> "ListSectionRequestBuilder":

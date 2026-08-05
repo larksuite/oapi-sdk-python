@@ -29,7 +29,9 @@ class ReviewDataPermissionUnitBuilder(object):
         self._review_data_permission_unit.unit_id = unit_id
         return self
 
-    def fields(self, fields: List[ReviewDataPermissionField]) -> "ReviewDataPermissionUnitBuilder":
+    def fields(
+        self, fields: List[ReviewDataPermissionField]
+    ) -> "ReviewDataPermissionUnitBuilder":
         self._review_data_permission_unit.fields = fields
         return self
 

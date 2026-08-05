@@ -52,7 +52,9 @@ class AdditionalInformationBuilder(object):
         self._additional_information.time = time
         return self
 
-    def detailed_description(self, detailed_description: str) -> "AdditionalInformationBuilder":
+    def detailed_description(
+        self, detailed_description: str
+    ) -> "AdditionalInformationBuilder":
         self._additional_information.detailed_description = detailed_description
         return self
 

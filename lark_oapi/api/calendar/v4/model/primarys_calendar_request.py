@@ -18,20 +18,26 @@ class PrimarysCalendarRequest(BaseRequest):
 
 
 class PrimarysCalendarRequestBuilder(object):
-
     def __init__(self) -> None:
         primarys_calendar_request = PrimarysCalendarRequest()
         primarys_calendar_request.http_method = HttpMethod.POST
         primarys_calendar_request.uri = "/open-apis/calendar/v4/calendars/primarys"
-        primarys_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._primarys_calendar_request: PrimarysCalendarRequest = primarys_calendar_request
+        primarys_calendar_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._primarys_calendar_request: PrimarysCalendarRequest = (
+            primarys_calendar_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "PrimarysCalendarRequestBuilder":
         self._primarys_calendar_request.user_id_type = user_id_type
         self._primarys_calendar_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: PrimarysCalendarRequestBody) -> "PrimarysCalendarRequestBuilder":
+    def request_body(
+        self, request_body: PrimarysCalendarRequestBody
+    ) -> "PrimarysCalendarRequestBuilder":
         self._primarys_calendar_request.request_body = request_body
         self._primarys_calendar_request.body = request_body
         return self

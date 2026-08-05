@@ -57,19 +57,27 @@ class JobConfigDetailBuilder(object):
     def __init__(self) -> None:
         self._job_config_detail = JobConfigDetail()
 
-    def offer_apply_schema(self, offer_apply_schema: IdNameObject) -> "JobConfigDetailBuilder":
+    def offer_apply_schema(
+        self, offer_apply_schema: IdNameObject
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.offer_apply_schema = offer_apply_schema
         return self
 
-    def offer_process_conf(self, offer_process_conf: IdNameObject) -> "JobConfigDetailBuilder":
+    def offer_process_conf(
+        self, offer_process_conf: IdNameObject
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.offer_process_conf = offer_process_conf
         return self
 
-    def recommended_evaluator_list(self, recommended_evaluator_list: List[IdNameObject]) -> "JobConfigDetailBuilder":
+    def recommended_evaluator_list(
+        self, recommended_evaluator_list: List[IdNameObject]
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.recommended_evaluator_list = recommended_evaluator_list
         return self
 
-    def assessment_template(self, assessment_template: IdNameObject) -> "JobConfigDetailBuilder":
+    def assessment_template(
+        self, assessment_template: IdNameObject
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.assessment_template = assessment_template
         return self
 
@@ -77,24 +85,33 @@ class JobConfigDetailBuilder(object):
         self._job_config_detail.id = id
         return self
 
-    def interview_round_list(self, interview_round_list: List[JobConfigInterviewRound]) -> "JobConfigDetailBuilder":
+    def interview_round_list(
+        self, interview_round_list: List[JobConfigInterviewRound]
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.interview_round_list = interview_round_list
         return self
 
-    def interview_registration(self, interview_registration: RegistrationInfo) -> "JobConfigDetailBuilder":
+    def interview_registration(
+        self, interview_registration: RegistrationInfo
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.interview_registration = interview_registration
         return self
 
-    def onboard_registration(self, onboard_registration: RegistrationInfo) -> "JobConfigDetailBuilder":
+    def onboard_registration(
+        self, onboard_registration: RegistrationInfo
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.onboard_registration = onboard_registration
         return self
 
-    def interview_round_type_list(self, interview_round_type_list: List[
-        JobConfigRoundTypeResult]) -> "JobConfigDetailBuilder":
+    def interview_round_type_list(
+        self, interview_round_type_list: List[JobConfigRoundTypeResult]
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.interview_round_type_list = interview_round_type_list
         return self
 
-    def related_job_list(self, related_job_list: List[IdNameObject]) -> "JobConfigDetailBuilder":
+    def related_job_list(
+        self, related_job_list: List[IdNameObject]
+    ) -> "JobConfigDetailBuilder":
         self._job_config_detail.related_job_list = related_job_list
         return self
 
@@ -102,13 +119,20 @@ class JobConfigDetailBuilder(object):
         self._job_config_detail.job_attribute = job_attribute
         return self
 
-    def interview_appointment_config(self,
-                                     interview_appointment_config: InterviewAppointmentConfig) -> "JobConfigDetailBuilder":
-        self._job_config_detail.interview_appointment_config = interview_appointment_config
+    def interview_appointment_config(
+        self, interview_appointment_config: InterviewAppointmentConfig
+    ) -> "JobConfigDetailBuilder":
+        self._job_config_detail.interview_appointment_config = (
+            interview_appointment_config
+        )
         return self
 
-    def internship_offer_apply_schema(self, internship_offer_apply_schema: IdNameObject) -> "JobConfigDetailBuilder":
-        self._job_config_detail.internship_offer_apply_schema = internship_offer_apply_schema
+    def internship_offer_apply_schema(
+        self, internship_offer_apply_schema: IdNameObject
+    ) -> "JobConfigDetailBuilder":
+        self._job_config_detail.internship_offer_apply_schema = (
+            internship_offer_apply_schema
+        )
         return self
 
     def build(self) -> "JobConfigDetail":

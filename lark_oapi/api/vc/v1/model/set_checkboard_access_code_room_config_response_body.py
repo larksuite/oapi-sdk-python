@@ -20,10 +20,16 @@ class SetCheckboardAccessCodeRoomConfigResponseBody(object):
 
 class SetCheckboardAccessCodeRoomConfigResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._set_checkboard_access_code_room_config_response_body = SetCheckboardAccessCodeRoomConfigResponseBody()
+        self._set_checkboard_access_code_room_config_response_body = (
+            SetCheckboardAccessCodeRoomConfigResponseBody()
+        )
 
-    def access_code(self, access_code: str) -> "SetCheckboardAccessCodeRoomConfigResponseBodyBuilder":
-        self._set_checkboard_access_code_room_config_response_body.access_code = access_code
+    def access_code(
+        self, access_code: str
+    ) -> "SetCheckboardAccessCodeRoomConfigResponseBodyBuilder":
+        self._set_checkboard_access_code_room_config_response_body.access_code = (
+            access_code
+        )
         return self
 
     def build(self) -> "SetCheckboardAccessCodeRoomConfigResponseBody":

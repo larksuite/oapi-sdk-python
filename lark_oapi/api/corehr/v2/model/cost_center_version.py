@@ -60,7 +60,9 @@ class CostCenterVersionBuilder(object):
         self._cost_center_version.code = code
         return self
 
-    def parent_cost_center_id(self, parent_cost_center_id: str) -> "CostCenterVersionBuilder":
+    def parent_cost_center_id(
+        self, parent_cost_center_id: str
+    ) -> "CostCenterVersionBuilder":
         self._cost_center_version.parent_cost_center_id = parent_cost_center_id
         return self
 

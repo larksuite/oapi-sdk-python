@@ -24,12 +24,20 @@ class QueryProcessFlowDataTemplateReqBuilder(object):
     def __init__(self) -> None:
         self._query_process_flow_data_template_req = QueryProcessFlowDataTemplateReq()
 
-    def flow_definition_id(self, flow_definition_id: str) -> "QueryProcessFlowDataTemplateReqBuilder":
-        self._query_process_flow_data_template_req.flow_definition_id = flow_definition_id
+    def flow_definition_id(
+        self, flow_definition_id: str
+    ) -> "QueryProcessFlowDataTemplateReqBuilder":
+        self._query_process_flow_data_template_req.flow_definition_id = (
+            flow_definition_id
+        )
         return self
 
-    def variable_api_names(self, variable_api_names: List[str]) -> "QueryProcessFlowDataTemplateReqBuilder":
-        self._query_process_flow_data_template_req.variable_api_names = variable_api_names
+    def variable_api_names(
+        self, variable_api_names: List[str]
+    ) -> "QueryProcessFlowDataTemplateReqBuilder":
+        self._query_process_flow_data_template_req.variable_api_names = (
+            variable_api_names
+        )
         return self
 
     def build(self) -> "QueryProcessFlowDataTemplateReq":

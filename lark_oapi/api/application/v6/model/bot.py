@@ -2,15 +2,22 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .bot_menu_node import BotMenuNode
 
 
 class Bot(object):
     _types = {
         "card_request_url": str,
+        "bot_menu_enable": bool,
+        "bot_menus": List[BotMenuNode],
+        "bot_menu_display_strategy": int,
     }
 
     def __init__(self, d=None):
         self.card_request_url: Optional[str] = None
+        self.bot_menu_enable: Optional[bool] = None
+        self.bot_menus: Optional[List[BotMenuNode]] = None
+        self.bot_menu_display_strategy: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +31,18 @@ class BotBuilder(object):
 
     def card_request_url(self, card_request_url: str) -> "BotBuilder":
         self._bot.card_request_url = card_request_url
+        return self
+
+    def bot_menu_enable(self, bot_menu_enable: bool) -> "BotBuilder":
+        self._bot.bot_menu_enable = bot_menu_enable
+        return self
+
+    def bot_menus(self, bot_menus: List[BotMenuNode]) -> "BotBuilder":
+        self._bot.bot_menus = bot_menus
+        return self
+
+    def bot_menu_display_strategy(self, bot_menu_display_strategy: int) -> "BotBuilder":
+        self._bot.bot_menu_display_strategy = bot_menu_display_strategy
         return self
 
     def build(self) -> "Bot":

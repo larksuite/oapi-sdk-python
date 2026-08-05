@@ -9,7 +9,6 @@ from .get_subdivision_response_body import GetSubdivisionResponseBody
 class GetSubdivisionResponse(BaseResponse):
     _types = {
         "data": GetSubdivisionResponseBody,
-
     }
 
     def __init__(self, d=None):

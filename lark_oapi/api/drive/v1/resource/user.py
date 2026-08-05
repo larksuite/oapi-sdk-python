@@ -21,8 +21,11 @@ class User(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def remove_subscription(self, request: RemoveSubscriptionUserRequest,
-                            option: Optional[RequestOption] = None) -> RemoveSubscriptionUserResponse:
+    def remove_subscription(
+        self,
+        request: RemoveSubscriptionUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveSubscriptionUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +40,18 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: RemoveSubscriptionUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RemoveSubscriptionUserResponse)
+        response: RemoveSubscriptionUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveSubscriptionUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aremove_subscription(self, request: RemoveSubscriptionUserRequest,
-                                   option: Optional[RequestOption] = None) -> RemoveSubscriptionUserResponse:
+    async def aremove_subscription(
+        self,
+        request: RemoveSubscriptionUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> RemoveSubscriptionUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,14 +62,16 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: RemoveSubscriptionUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RemoveSubscriptionUserResponse)
+        response: RemoveSubscriptionUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), RemoveSubscriptionUserResponse
+        )
         response.raw = resp
 
         return response
 
-    def subscription(self, request: SubscriptionUserRequest,
-                     option: Optional[RequestOption] = None) -> SubscriptionUserResponse:
+    def subscription(
+        self, request: SubscriptionUserRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,13 +86,16 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionUserResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionUserResponse)
+        response: SubscriptionUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscription(self, request: SubscriptionUserRequest,
-                            option: Optional[RequestOption] = None) -> SubscriptionUserResponse:
+    async def asubscription(
+        self, request: SubscriptionUserRequest, option: Optional[RequestOption] = None
+    ) -> SubscriptionUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -94,13 +106,18 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionUserResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionUserResponse)
+        response: SubscriptionUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionUserResponse
+        )
         response.raw = resp
 
         return response
 
-    def subscription_status(self, request: SubscriptionStatusUserRequest,
-                            option: Optional[RequestOption] = None) -> SubscriptionStatusUserResponse:
+    def subscription_status(
+        self,
+        request: SubscriptionStatusUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionStatusUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,14 +132,18 @@ class User(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionStatusUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SubscriptionStatusUserResponse)
+        response: SubscriptionStatusUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionStatusUserResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asubscription_status(self, request: SubscriptionStatusUserRequest,
-                                   option: Optional[RequestOption] = None) -> SubscriptionStatusUserResponse:
+    async def asubscription_status(
+        self,
+        request: SubscriptionStatusUserRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SubscriptionStatusUserResponse:
         if option is None:
             option = RequestOption()
 
@@ -133,8 +154,9 @@ class User(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SubscriptionStatusUserResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SubscriptionStatusUserResponse)
+        response: SubscriptionStatusUserResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SubscriptionStatusUserResponse
+        )
         response.raw = resp
 
         return response

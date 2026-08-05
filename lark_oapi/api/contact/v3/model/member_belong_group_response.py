@@ -9,7 +9,6 @@ from .member_belong_group_response_body import MemberBelongGroupResponseBody
 class MemberBelongGroupResponse(BaseResponse):
     _types = {
         "data": MemberBelongGroupResponseBody,
-
     }
 
     def __init__(self, d=None):

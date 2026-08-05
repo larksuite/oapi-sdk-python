@@ -158,31 +158,47 @@ class UserReport2025Builder(object):
         self._user_report2025.feishu_active_days = feishu_active_days
         return self
 
-    def feishu_duration_busy_month(self, feishu_duration_busy_month: str) -> "UserReport2025Builder":
+    def feishu_duration_busy_month(
+        self, feishu_duration_busy_month: str
+    ) -> "UserReport2025Builder":
         self._user_report2025.feishu_duration_busy_month = feishu_duration_busy_month
         return self
 
-    def feishu_duration_busy_month_hours(self, feishu_duration_busy_month_hours: float) -> "UserReport2025Builder":
-        self._user_report2025.feishu_duration_busy_month_hours = feishu_duration_busy_month_hours
+    def feishu_duration_busy_month_hours(
+        self, feishu_duration_busy_month_hours: float
+    ) -> "UserReport2025Builder":
+        self._user_report2025.feishu_duration_busy_month_hours = (
+            feishu_duration_busy_month_hours
+        )
         return self
 
-    def busy_month_send_msg_cnt(self, busy_month_send_msg_cnt: int) -> "UserReport2025Builder":
+    def busy_month_send_msg_cnt(
+        self, busy_month_send_msg_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.busy_month_send_msg_cnt = busy_month_send_msg_cnt
         return self
 
-    def busy_month_edit_doc_cnt(self, busy_month_edit_doc_cnt: int) -> "UserReport2025Builder":
+    def busy_month_edit_doc_cnt(
+        self, busy_month_edit_doc_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.busy_month_edit_doc_cnt = busy_month_edit_doc_cnt
         return self
 
-    def busy_month_read_doc_cnt(self, busy_month_read_doc_cnt: int) -> "UserReport2025Builder":
+    def busy_month_read_doc_cnt(
+        self, busy_month_read_doc_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.busy_month_read_doc_cnt = busy_month_read_doc_cnt
         return self
 
-    def busy_month_join_meeting_cnt(self, busy_month_join_meeting_cnt: int) -> "UserReport2025Builder":
+    def busy_month_join_meeting_cnt(
+        self, busy_month_join_meeting_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.busy_month_join_meeting_cnt = busy_month_join_meeting_cnt
         return self
 
-    def busy_month_meeting_duration(self, busy_month_meeting_duration: float) -> "UserReport2025Builder":
+    def busy_month_meeting_duration(
+        self, busy_month_meeting_duration: float
+    ) -> "UserReport2025Builder":
         self._user_report2025.busy_month_meeting_duration = busy_month_meeting_duration
         return self
 
@@ -230,27 +246,39 @@ class UserReport2025Builder(object):
         self._user_report2025.ccm_create_rank = ccm_create_rank
         return self
 
-    def ccm_create_rank_ucnt(self, ccm_create_rank_ucnt: int) -> "UserReport2025Builder":
+    def ccm_create_rank_ucnt(
+        self, ccm_create_rank_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.ccm_create_rank_ucnt = ccm_create_rank_ucnt
         return self
 
-    def ccm_create_viewed_ucnt(self, ccm_create_viewed_ucnt: int) -> "UserReport2025Builder":
+    def ccm_create_viewed_ucnt(
+        self, ccm_create_viewed_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.ccm_create_viewed_ucnt = ccm_create_viewed_ucnt
         return self
 
-    def ccm_create_liked_cnt(self, ccm_create_liked_cnt: int) -> "UserReport2025Builder":
+    def ccm_create_liked_cnt(
+        self, ccm_create_liked_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.ccm_create_liked_cnt = ccm_create_liked_cnt
         return self
 
-    def ccm_create_viewed_most_ucnt(self, ccm_create_viewed_most_ucnt: int) -> "UserReport2025Builder":
+    def ccm_create_viewed_most_ucnt(
+        self, ccm_create_viewed_most_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.ccm_create_viewed_most_ucnt = ccm_create_viewed_most_ucnt
         return self
 
-    def ccm_all_read_doc_cnt(self, ccm_all_read_doc_cnt: int) -> "UserReport2025Builder":
+    def ccm_all_read_doc_cnt(
+        self, ccm_all_read_doc_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.ccm_all_read_doc_cnt = ccm_all_read_doc_cnt
         return self
 
-    def docs_ai_quickview_use_cnt(self, docs_ai_quickview_use_cnt: int) -> "UserReport2025Builder":
+    def docs_ai_quickview_use_cnt(
+        self, docs_ai_quickview_use_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.docs_ai_quickview_use_cnt = docs_ai_quickview_use_cnt
         return self
 
@@ -258,11 +286,15 @@ class UserReport2025Builder(object):
         self._user_report2025.vc_join_meeting_cnt = vc_join_meeting_cnt
         return self
 
-    def vc_join_meeting_duration(self, vc_join_meeting_duration: float) -> "UserReport2025Builder":
+    def vc_join_meeting_duration(
+        self, vc_join_meeting_duration: float
+    ) -> "UserReport2025Builder":
         self._user_report2025.vc_join_meeting_duration = vc_join_meeting_duration
         return self
 
-    def vc_org_meeting_cnt(self, vc_org_meeting_cnt: List[AnnualVcOrgCnt]) -> "UserReport2025Builder":
+    def vc_org_meeting_cnt(
+        self, vc_org_meeting_cnt: List[AnnualVcOrgCnt]
+    ) -> "UserReport2025Builder":
         self._user_report2025.vc_org_meeting_cnt = vc_org_meeting_cnt
         return self
 
@@ -274,27 +306,39 @@ class UserReport2025Builder(object):
         self._user_report2025.ai_notes_read_cnt = ai_notes_read_cnt
         return self
 
-    def knowledge_ai_use_cnt(self, knowledge_ai_use_cnt: int) -> "UserReport2025Builder":
+    def knowledge_ai_use_cnt(
+        self, knowledge_ai_use_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.knowledge_ai_use_cnt = knowledge_ai_use_cnt
         return self
 
-    def knowledge_ai_use_busy_day(self, knowledge_ai_use_busy_day: str) -> "UserReport2025Builder":
+    def knowledge_ai_use_busy_day(
+        self, knowledge_ai_use_busy_day: str
+    ) -> "UserReport2025Builder":
         self._user_report2025.knowledge_ai_use_busy_day = knowledge_ai_use_busy_day
         return self
 
-    def knowledge_ai_use_busy_day_cnt(self, knowledge_ai_use_busy_day_cnt: int) -> "UserReport2025Builder":
-        self._user_report2025.knowledge_ai_use_busy_day_cnt = knowledge_ai_use_busy_day_cnt
+    def knowledge_ai_use_busy_day_cnt(
+        self, knowledge_ai_use_busy_day_cnt: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.knowledge_ai_use_busy_day_cnt = (
+            knowledge_ai_use_busy_day_cnt
+        )
         return self
 
     def base_create_fcnt(self, base_create_fcnt: int) -> "UserReport2025Builder":
         self._user_report2025.base_create_fcnt = base_create_fcnt
         return self
 
-    def base_ai_top1_name_map(self, base_ai_top1_name_map: List[AnnualBaseTopAi]) -> "UserReport2025Builder":
+    def base_ai_top1_name_map(
+        self, base_ai_top1_name_map: List[AnnualBaseTopAi]
+    ) -> "UserReport2025Builder":
         self._user_report2025.base_ai_top1_name_map = base_ai_top1_name_map
         return self
 
-    def base_create_view_ucnt(self, base_create_view_ucnt: int) -> "UserReport2025Builder":
+    def base_create_view_ucnt(
+        self, base_create_view_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.base_create_view_ucnt = base_create_view_ucnt
         return self
 
@@ -302,56 +346,87 @@ class UserReport2025Builder(object):
         self._user_report2025.base_most_rows_cnt = base_most_rows_cnt
         return self
 
-    def base_create_dashboard_cnt(self, base_create_dashboard_cnt: int) -> "UserReport2025Builder":
+    def base_create_dashboard_cnt(
+        self, base_create_dashboard_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.base_create_dashboard_cnt = base_create_dashboard_cnt
         return self
 
-    def base_workflow_create_cnt(self, base_workflow_create_cnt: int) -> "UserReport2025Builder":
+    def base_workflow_create_cnt(
+        self, base_workflow_create_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.base_workflow_create_cnt = base_workflow_create_cnt
         return self
 
-    def base_workflow_ins_cnt(self, base_workflow_ins_cnt: int) -> "UserReport2025Builder":
+    def base_workflow_ins_cnt(
+        self, base_workflow_ins_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.base_workflow_ins_cnt = base_workflow_ins_cnt
         return self
 
-    def aily_develop_app_cnt(self, aily_develop_app_cnt: int) -> "UserReport2025Builder":
+    def aily_develop_app_cnt(
+        self, aily_develop_app_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.aily_develop_app_cnt = aily_develop_app_cnt
         return self
 
-    def aily_develop_app_active_ucnt(self, aily_develop_app_active_ucnt: int) -> "UserReport2025Builder":
-        self._user_report2025.aily_develop_app_active_ucnt = aily_develop_app_active_ucnt
+    def aily_develop_app_active_ucnt(
+        self, aily_develop_app_active_ucnt: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.aily_develop_app_active_ucnt = (
+            aily_develop_app_active_ucnt
+        )
         return self
 
-    def aily_develop_active_most_app_intents(self,
-                                             aily_develop_active_most_app_intents: int) -> "UserReport2025Builder":
-        self._user_report2025.aily_develop_active_most_app_intents = aily_develop_active_most_app_intents
+    def aily_develop_active_most_app_intents(
+        self, aily_develop_active_most_app_intents: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.aily_develop_active_most_app_intents = (
+            aily_develop_active_most_app_intents
+        )
         return self
 
     def aily_chat_cnt(self, aily_chat_cnt: int) -> "UserReport2025Builder":
         self._user_report2025.aily_chat_cnt = aily_chat_cnt
         return self
 
-    def aily_artifact_create_cnt(self, aily_artifact_create_cnt: int) -> "UserReport2025Builder":
+    def aily_artifact_create_cnt(
+        self, aily_artifact_create_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.aily_artifact_create_cnt = aily_artifact_create_cnt
         return self
 
-    def apaas_develop_app_cnt(self, apaas_develop_app_cnt: int) -> "UserReport2025Builder":
+    def apaas_develop_app_cnt(
+        self, apaas_develop_app_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.apaas_develop_app_cnt = apaas_develop_app_cnt
         return self
 
-    def apaas_develop_app_active_ucnt(self, apaas_develop_app_active_ucnt: int) -> "UserReport2025Builder":
-        self._user_report2025.apaas_develop_app_active_ucnt = apaas_develop_app_active_ucnt
+    def apaas_develop_app_active_ucnt(
+        self, apaas_develop_app_active_ucnt: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.apaas_develop_app_active_ucnt = (
+            apaas_develop_app_active_ucnt
+        )
         return self
 
-    def apaas_develop_active_most_app_ucnt(self, apaas_develop_active_most_app_ucnt: int) -> "UserReport2025Builder":
-        self._user_report2025.apaas_develop_active_most_app_ucnt = apaas_develop_active_most_app_ucnt
+    def apaas_develop_active_most_app_ucnt(
+        self, apaas_develop_active_most_app_ucnt: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.apaas_develop_active_most_app_ucnt = (
+            apaas_develop_active_most_app_ucnt
+        )
         return self
 
-    def apaas_develop_ai_run_cnt(self, apaas_develop_ai_run_cnt: int) -> "UserReport2025Builder":
+    def apaas_develop_ai_run_cnt(
+        self, apaas_develop_ai_run_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.apaas_develop_ai_run_cnt = apaas_develop_ai_run_cnt
         return self
 
-    def meego_is_project_admin(self, meego_is_project_admin: int) -> "UserReport2025Builder":
+    def meego_is_project_admin(
+        self, meego_is_project_admin: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_is_project_admin = meego_is_project_admin
         return self
 
@@ -359,28 +434,42 @@ class UserReport2025Builder(object):
         self._user_report2025.meego_create_wi_cnt = meego_create_wi_cnt
         return self
 
-    def meego_create_wi_role_ucnt(self, meego_create_wi_role_ucnt: int) -> "UserReport2025Builder":
+    def meego_create_wi_role_ucnt(
+        self, meego_create_wi_role_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_create_wi_role_ucnt = meego_create_wi_role_ucnt
         return self
 
-    def meego_most_view_wi_ucnt(self, meego_most_view_wi_ucnt: int) -> "UserReport2025Builder":
+    def meego_most_view_wi_ucnt(
+        self, meego_most_view_wi_ucnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_most_view_wi_ucnt = meego_most_view_wi_ucnt
         return self
 
-    def meego_set_ai_field_cnt(self, meego_set_ai_field_cnt: int) -> "UserReport2025Builder":
+    def meego_set_ai_field_cnt(
+        self, meego_set_ai_field_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_set_ai_field_cnt = meego_set_ai_field_cnt
         return self
 
-    def meego_ai_field_run_cnt(self, meego_ai_field_run_cnt: int) -> "UserReport2025Builder":
+    def meego_ai_field_run_cnt(
+        self, meego_ai_field_run_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_ai_field_run_cnt = meego_ai_field_run_cnt
         return self
 
-    def meego_ai_gantt_use_cnt(self, meego_ai_gantt_use_cnt: int) -> "UserReport2025Builder":
+    def meego_ai_gantt_use_cnt(
+        self, meego_ai_gantt_use_cnt: int
+    ) -> "UserReport2025Builder":
         self._user_report2025.meego_ai_gantt_use_cnt = meego_ai_gantt_use_cnt
         return self
 
-    def meego_ai_weekly_report_use_cnt(self, meego_ai_weekly_report_use_cnt: int) -> "UserReport2025Builder":
-        self._user_report2025.meego_ai_weekly_report_use_cnt = meego_ai_weekly_report_use_cnt
+    def meego_ai_weekly_report_use_cnt(
+        self, meego_ai_weekly_report_use_cnt: int
+    ) -> "UserReport2025Builder":
+        self._user_report2025.meego_ai_weekly_report_use_cnt = (
+            meego_ai_weekly_report_use_cnt
+        )
         return self
 
     def build(self) -> "UserReport2025":

@@ -19,22 +19,27 @@ class ListDepartmentUnitRequest(BaseRequest):
 
 
 class ListDepartmentUnitRequestBuilder(object):
-
     def __init__(self) -> None:
         list_department_unit_request = ListDepartmentUnitRequest()
         list_department_unit_request.http_method = HttpMethod.GET
         list_department_unit_request.uri = "/open-apis/contact/v3/unit/list_department"
         list_department_unit_request.token_types = {AccessTokenType.TENANT}
-        self._list_department_unit_request: ListDepartmentUnitRequest = list_department_unit_request
+        self._list_department_unit_request: ListDepartmentUnitRequest = (
+            list_department_unit_request
+        )
 
     def unit_id(self, unit_id: str) -> "ListDepartmentUnitRequestBuilder":
         self._list_department_unit_request.unit_id = unit_id
         self._list_department_unit_request.add_query("unit_id", unit_id)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListDepartmentUnitRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListDepartmentUnitRequestBuilder":
         self._list_department_unit_request.department_id_type = department_id_type
-        self._list_department_unit_request.add_query("department_id_type", department_id_type)
+        self._list_department_unit_request.add_query(
+            "department_id_type", department_id_type
+        )
         return self
 
     def page_token(self, page_token: str) -> "ListDepartmentUnitRequestBuilder":

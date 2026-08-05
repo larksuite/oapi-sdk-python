@@ -40,7 +40,9 @@ class ActiveCompanyRequestBodyBuilder(object):
         self._active_company_request_body.active = active
         return self
 
-    def operation_reason(self, operation_reason: str) -> "ActiveCompanyRequestBodyBuilder":
+    def operation_reason(
+        self, operation_reason: str
+    ) -> "ActiveCompanyRequestBodyBuilder":
         self._active_company_request_body.operation_reason = operation_reason
         return self
 

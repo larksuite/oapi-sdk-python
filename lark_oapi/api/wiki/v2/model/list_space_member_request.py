@@ -18,13 +18,17 @@ class ListSpaceMemberRequest(BaseRequest):
 
 
 class ListSpaceMemberRequestBuilder(object):
-
     def __init__(self) -> None:
         list_space_member_request = ListSpaceMemberRequest()
         list_space_member_request.http_method = HttpMethod.GET
         list_space_member_request.uri = "/open-apis/wiki/v2/spaces/:space_id/members"
-        list_space_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._list_space_member_request: ListSpaceMemberRequest = list_space_member_request
+        list_space_member_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._list_space_member_request: ListSpaceMemberRequest = (
+            list_space_member_request
+        )
 
     def page_size(self, page_size: int) -> "ListSpaceMemberRequestBuilder":
         self._list_space_member_request.page_size = page_size

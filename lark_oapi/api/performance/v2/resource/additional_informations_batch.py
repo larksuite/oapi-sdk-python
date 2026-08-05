@@ -9,16 +9,23 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.delete_additional_informations_batch_request import DeleteAdditionalInformationsBatchRequest
-from ..model.delete_additional_informations_batch_response import DeleteAdditionalInformationsBatchResponse
+from ..model.delete_additional_informations_batch_request import (
+    DeleteAdditionalInformationsBatchRequest,
+)
+from ..model.delete_additional_informations_batch_response import (
+    DeleteAdditionalInformationsBatchResponse,
+)
 
 
 class AdditionalInformationsBatch(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteAdditionalInformationsBatchRequest,
-               option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
+    def delete(
+        self,
+        request: DeleteAdditionalInformationsBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteAdditionalInformationsBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +40,18 @@ class AdditionalInformationsBatch(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             DeleteAdditionalInformationsBatchResponse)
+        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAdditionalInformationsBatchResponse
+        )
         response.raw = resp
 
         return response
 
-    async def adelete(self, request: DeleteAdditionalInformationsBatchRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAdditionalInformationsBatchResponse:
+    async def adelete(
+        self,
+        request: DeleteAdditionalInformationsBatchRequest,
+        option: Optional[RequestOption] = None,
+    ) -> DeleteAdditionalInformationsBatchResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +62,9 @@ class AdditionalInformationsBatch(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             DeleteAdditionalInformationsBatchResponse)
+        response: DeleteAdditionalInformationsBatchResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), DeleteAdditionalInformationsBatchResponse
+        )
         response.raw = resp
 
         return response

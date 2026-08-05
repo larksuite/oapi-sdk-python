@@ -25,17 +25,25 @@ class ListInterviewRegistrationSchemaResponseBody(object):
 
 class ListInterviewRegistrationSchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._list_interview_registration_schema_response_body = ListInterviewRegistrationSchemaResponseBody()
+        self._list_interview_registration_schema_response_body = (
+            ListInterviewRegistrationSchemaResponseBody()
+        )
 
-    def items(self, items: List[InterviewRegistrationSchema]) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
+    def items(
+        self, items: List[InterviewRegistrationSchema]
+    ) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
         self._list_interview_registration_schema_response_body.items = items
         return self
 
-    def has_more(self, has_more: bool) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
+    def has_more(
+        self, has_more: bool
+    ) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
         self._list_interview_registration_schema_response_body.has_more = has_more
         return self
 
-    def page_token(self, page_token: str) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
+    def page_token(
+        self, page_token: str
+    ) -> "ListInterviewRegistrationSchemaResponseBodyBuilder":
         self._list_interview_registration_schema_response_body.page_token = page_token
         return self
 

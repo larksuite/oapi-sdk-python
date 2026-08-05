@@ -41,7 +41,9 @@ class ListAppTableRecordResponseBodyBuilder(object):
         self._list_app_table_record_response_body.total = total
         return self
 
-    def items(self, items: List[AppTableRecord]) -> "ListAppTableRecordResponseBodyBuilder":
+    def items(
+        self, items: List[AppTableRecord]
+    ) -> "ListAppTableRecordResponseBodyBuilder":
         self._list_app_table_record_response_body.items = items
         return self
 

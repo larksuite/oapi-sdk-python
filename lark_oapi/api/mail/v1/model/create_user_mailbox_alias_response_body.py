@@ -21,10 +21,16 @@ class CreateUserMailboxAliasResponseBody(object):
 
 class CreateUserMailboxAliasResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_user_mailbox_alias_response_body = CreateUserMailboxAliasResponseBody()
+        self._create_user_mailbox_alias_response_body = (
+            CreateUserMailboxAliasResponseBody()
+        )
 
-    def user_mailbox_alias(self, user_mailbox_alias: EmailAlias) -> "CreateUserMailboxAliasResponseBodyBuilder":
-        self._create_user_mailbox_alias_response_body.user_mailbox_alias = user_mailbox_alias
+    def user_mailbox_alias(
+        self, user_mailbox_alias: EmailAlias
+    ) -> "CreateUserMailboxAliasResponseBodyBuilder":
+        self._create_user_mailbox_alias_response_body.user_mailbox_alias = (
+            user_mailbox_alias
+        )
         return self
 
     def build(self) -> "CreateUserMailboxAliasResponseBody":

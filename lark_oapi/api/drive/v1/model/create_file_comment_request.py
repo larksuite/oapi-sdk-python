@@ -20,13 +20,19 @@ class CreateFileCommentRequest(BaseRequest):
 
 
 class CreateFileCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         create_file_comment_request = CreateFileCommentRequest()
         create_file_comment_request.http_method = HttpMethod.POST
-        create_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments"
-        create_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._create_file_comment_request: CreateFileCommentRequest = create_file_comment_request
+        create_file_comment_request.uri = (
+            "/open-apis/drive/v1/files/:file_token/comments"
+        )
+        create_file_comment_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._create_file_comment_request: CreateFileCommentRequest = (
+            create_file_comment_request
+        )
 
     def file_type(self, file_type: str) -> "CreateFileCommentRequestBuilder":
         self._create_file_comment_request.file_type = file_type
@@ -43,7 +49,9 @@ class CreateFileCommentRequestBuilder(object):
         self._create_file_comment_request.paths["file_token"] = str(file_token)
         return self
 
-    def request_body(self, request_body: FileComment) -> "CreateFileCommentRequestBuilder":
+    def request_body(
+        self, request_body: FileComment
+    ) -> "CreateFileCommentRequestBuilder":
         self._create_file_comment_request.request_body = request_body
         self._create_file_comment_request.body = request_body
         return self

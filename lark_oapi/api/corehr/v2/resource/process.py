@@ -21,8 +21,11 @@ class Process(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def flow_variable_data(self, request: FlowVariableDataProcessRequest,
-                           option: Optional[RequestOption] = None) -> FlowVariableDataProcessResponse:
+    def flow_variable_data(
+        self,
+        request: FlowVariableDataProcessRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FlowVariableDataProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,14 +40,18 @@ class Process(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: FlowVariableDataProcessResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FlowVariableDataProcessResponse)
+        response: FlowVariableDataProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FlowVariableDataProcessResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aflow_variable_data(self, request: FlowVariableDataProcessRequest,
-                                  option: Optional[RequestOption] = None) -> FlowVariableDataProcessResponse:
+    async def aflow_variable_data(
+        self,
+        request: FlowVariableDataProcessRequest,
+        option: Optional[RequestOption] = None,
+    ) -> FlowVariableDataProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -55,13 +62,16 @@ class Process(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: FlowVariableDataProcessResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   FlowVariableDataProcessResponse)
+        response: FlowVariableDataProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), FlowVariableDataProcessResponse
+        )
         response.raw = resp
 
         return response
 
-    def get(self, request: GetProcessRequest, option: Optional[RequestOption] = None) -> GetProcessResponse:
+    def get(
+        self, request: GetProcessRequest, option: Optional[RequestOption] = None
+    ) -> GetProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -76,12 +86,16 @@ class Process(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), GetProcessResponse)
+        response: GetProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProcessResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetProcessRequest, option: Optional[RequestOption] = None) -> GetProcessResponse:
+    async def aget(
+        self, request: GetProcessRequest, option: Optional[RequestOption] = None
+    ) -> GetProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -92,12 +106,16 @@ class Process(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), GetProcessResponse)
+        response: GetProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetProcessResponse
+        )
         response.raw = resp
 
         return response
 
-    def list(self, request: ListProcessRequest, option: Optional[RequestOption] = None) -> ListProcessResponse:
+    def list(
+        self, request: ListProcessRequest, option: Optional[RequestOption] = None
+    ) -> ListProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,12 +130,16 @@ class Process(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), ListProcessResponse)
+        response: ListProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListProcessResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListProcessRequest, option: Optional[RequestOption] = None) -> ListProcessResponse:
+    async def alist(
+        self, request: ListProcessRequest, option: Optional[RequestOption] = None
+    ) -> ListProcessResponse:
         if option is None:
             option = RequestOption()
 
@@ -128,7 +150,9 @@ class Process(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), ListProcessResponse)
+        response: ListProcessResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListProcessResponse
+        )
         response.raw = resp
 
         return response

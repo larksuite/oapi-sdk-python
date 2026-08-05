@@ -25,9 +25,7 @@ class P2ApplicationApplicationFeedbackUpdatedV6Data(object):
 
 
 class P2ApplicationApplicationFeedbackUpdatedV6(EventContext):
-    _types = {
-        "event": P2ApplicationApplicationFeedbackUpdatedV6Data
-    }
+    _types = {"event": P2ApplicationApplicationFeedbackUpdatedV6Data}
 
     def __init__(self, d=None):
         super().__init__(d)

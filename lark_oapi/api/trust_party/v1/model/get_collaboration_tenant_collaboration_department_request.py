@@ -18,34 +18,45 @@ class GetCollaborationTenantCollaborationDepartmentRequest(BaseRequest):
 
 
 class GetCollaborationTenantCollaborationDepartmentRequestBuilder(object):
-
     def __init__(self) -> None:
-        get_collaboration_tenant_collaboration_department_request = GetCollaborationTenantCollaborationDepartmentRequest()
-        get_collaboration_tenant_collaboration_department_request.http_method = HttpMethod.GET
+        get_collaboration_tenant_collaboration_department_request = (
+            GetCollaborationTenantCollaborationDepartmentRequest()
+        )
+        get_collaboration_tenant_collaboration_department_request.http_method = (
+            HttpMethod.GET
+        )
         get_collaboration_tenant_collaboration_department_request.uri = "/open-apis/trust_party/v1/collaboration_tenants/:target_tenant_key/collaboration_departments/:target_department_id"
-        get_collaboration_tenant_collaboration_department_request.token_types = {AccessTokenType.TENANT,
-                                                                                 AccessTokenType.USER}
+        get_collaboration_tenant_collaboration_department_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_collaboration_tenant_collaboration_department_request: GetCollaborationTenantCollaborationDepartmentRequest = get_collaboration_tenant_collaboration_department_request
 
-    def target_department_id_type(self,
-                                  target_department_id_type: str) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
+    def target_department_id_type(
+        self, target_department_id_type: str
+    ) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
         self._get_collaboration_tenant_collaboration_department_request.target_department_id_type = target_department_id_type
-        self._get_collaboration_tenant_collaboration_department_request.add_query("target_department_id_type",
-                                                                                  target_department_id_type)
+        self._get_collaboration_tenant_collaboration_department_request.add_query(
+            "target_department_id_type", target_department_id_type
+        )
         return self
 
-    def target_tenant_key(self,
-                          target_tenant_key: str) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
+    def target_tenant_key(
+        self, target_tenant_key: str
+    ) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
         self._get_collaboration_tenant_collaboration_department_request.target_tenant_key = target_tenant_key
-        self._get_collaboration_tenant_collaboration_department_request.paths["target_tenant_key"] = str(
-            target_tenant_key)
+        self._get_collaboration_tenant_collaboration_department_request.paths[
+            "target_tenant_key"
+        ] = str(target_tenant_key)
         return self
 
-    def target_department_id(self,
-                             target_department_id: str) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
+    def target_department_id(
+        self, target_department_id: str
+    ) -> "GetCollaborationTenantCollaborationDepartmentRequestBuilder":
         self._get_collaboration_tenant_collaboration_department_request.target_department_id = target_department_id
-        self._get_collaboration_tenant_collaboration_department_request.paths["target_department_id"] = str(
-            target_department_id)
+        self._get_collaboration_tenant_collaboration_department_request.paths[
+            "target_department_id"
+        ] = str(target_department_id)
         return self
 
     def build(self) -> GetCollaborationTenantCollaborationDepartmentRequest:

@@ -60,7 +60,9 @@ class JobLevelBuilder(object):
         self._job_level.i18n_name = i18n_name
         return self
 
-    def i18n_description(self, i18n_description: List[I18nContent]) -> "JobLevelBuilder":
+    def i18n_description(
+        self, i18n_description: List[I18nContent]
+    ) -> "JobLevelBuilder":
         self._job_level.i18n_description = i18n_description
         return self
 

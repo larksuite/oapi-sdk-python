@@ -19,7 +19,9 @@ class District(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListDistrictRequest, option: Optional[RequestOption] = None) -> ListDistrictResponse:
+    def list(
+        self, request: ListDistrictRequest, option: Optional[RequestOption] = None
+    ) -> ListDistrictResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,12 +36,16 @@ class District(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListDistrictResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDistrictResponse)
+        response: ListDistrictResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDistrictResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListDistrictRequest, option: Optional[RequestOption] = None) -> ListDistrictResponse:
+    async def alist(
+        self, request: ListDistrictRequest, option: Optional[RequestOption] = None
+    ) -> ListDistrictResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,12 +56,16 @@ class District(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListDistrictResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDistrictResponse)
+        response: ListDistrictResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListDistrictResponse
+        )
         response.raw = resp
 
         return response
 
-    def search(self, request: SearchDistrictRequest, option: Optional[RequestOption] = None) -> SearchDistrictResponse:
+    def search(
+        self, request: SearchDistrictRequest, option: Optional[RequestOption] = None
+    ) -> SearchDistrictResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,13 +80,16 @@ class District(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchDistrictResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDistrictResponse)
+        response: SearchDistrictResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDistrictResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchDistrictRequest,
-                      option: Optional[RequestOption] = None) -> SearchDistrictResponse:
+    async def asearch(
+        self, request: SearchDistrictRequest, option: Optional[RequestOption] = None
+    ) -> SearchDistrictResponse:
         if option is None:
             option = RequestOption()
 
@@ -87,7 +100,9 @@ class District(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchDistrictResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDistrictResponse)
+        response: SearchDistrictResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchDistrictResponse
+        )
         response.raw = resp
 
         return response

@@ -9,7 +9,6 @@ from .icon_app_response_body import IconAppResponseBody
 class IconAppResponse(BaseResponse):
     _types = {
         "data": IconAppResponseBody,
-
     }
 
     def __init__(self, d=None):

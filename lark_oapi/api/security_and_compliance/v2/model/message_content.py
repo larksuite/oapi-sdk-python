@@ -64,7 +64,9 @@ class MessageContent(object):
         self.image_content: Optional[MessageImageContent] = None
         self.audio_content: Optional[MessageAudioContent] = None
         self.media_content: Optional[MessageMediaContent] = None
-        self.share_calendar_event_content: Optional[MessageShareCalendarEventContent] = None
+        self.share_calendar_event_content: Optional[
+            MessageShareCalendarEventContent
+        ] = None
         self.general_calendar_content: Optional[MessageGeneralCalendarContent] = None
         init(self, d, self._types)
 
@@ -85,28 +87,39 @@ class MessageContentBuilder(object):
         self._message_content.post_content = post_content
         return self
 
-    def merge_forward_content(self, merge_forward_content: MessageMergeForwardContent) -> "MessageContentBuilder":
+    def merge_forward_content(
+        self, merge_forward_content: MessageMergeForwardContent
+    ) -> "MessageContentBuilder":
         self._message_content.merge_forward_content = merge_forward_content
         return self
 
-    def system_content(self, system_content: MessageSystemContent) -> "MessageContentBuilder":
+    def system_content(
+        self, system_content: MessageSystemContent
+    ) -> "MessageContentBuilder":
         self._message_content.system_content = system_content
         return self
 
-    def location_content(self, location_content: MessageLocationContent) -> "MessageContentBuilder":
+    def location_content(
+        self, location_content: MessageLocationContent
+    ) -> "MessageContentBuilder":
         self._message_content.location_content = location_content
         return self
 
-    def share_group_chat_content(self,
-                                 share_group_chat_content: MessageShareGroupChatContent) -> "MessageContentBuilder":
+    def share_group_chat_content(
+        self, share_group_chat_content: MessageShareGroupChatContent
+    ) -> "MessageContentBuilder":
         self._message_content.share_group_chat_content = share_group_chat_content
         return self
 
-    def share_user_card_content(self, share_user_card_content: MessageShareUserCardContent) -> "MessageContentBuilder":
+    def share_user_card_content(
+        self, share_user_card_content: MessageShareUserCardContent
+    ) -> "MessageContentBuilder":
         self._message_content.share_user_card_content = share_user_card_content
         return self
 
-    def sticker_content(self, sticker_content: MessageStickerContent) -> "MessageContentBuilder":
+    def sticker_content(
+        self, sticker_content: MessageStickerContent
+    ) -> "MessageContentBuilder":
         self._message_content.sticker_content = sticker_content
         return self
 
@@ -114,19 +127,27 @@ class MessageContentBuilder(object):
         self._message_content.card_content = card_content
         return self
 
-    def video_chat_content(self, video_chat_content: MessageVideoChatContent) -> "MessageContentBuilder":
+    def video_chat_content(
+        self, video_chat_content: MessageVideoChatContent
+    ) -> "MessageContentBuilder":
         self._message_content.video_chat_content = video_chat_content
         return self
 
-    def to_do_content(self, to_do_content: MessageTodoContent) -> "MessageContentBuilder":
+    def to_do_content(
+        self, to_do_content: MessageTodoContent
+    ) -> "MessageContentBuilder":
         self._message_content.to_do_content = to_do_content
         return self
 
-    def hong_bao_content(self, hong_bao_content: MessageHongBaoContent) -> "MessageContentBuilder":
+    def hong_bao_content(
+        self, hong_bao_content: MessageHongBaoContent
+    ) -> "MessageContentBuilder":
         self._message_content.hong_bao_content = hong_bao_content
         return self
 
-    def calendar_content(self, calendar_content: MessageCalendarContent) -> "MessageContentBuilder":
+    def calendar_content(
+        self, calendar_content: MessageCalendarContent
+    ) -> "MessageContentBuilder":
         self._message_content.calendar_content = calendar_content
         return self
 
@@ -134,25 +155,35 @@ class MessageContentBuilder(object):
         self._message_content.file_content = file_content
         return self
 
-    def image_content(self, image_content: MessageImageContent) -> "MessageContentBuilder":
+    def image_content(
+        self, image_content: MessageImageContent
+    ) -> "MessageContentBuilder":
         self._message_content.image_content = image_content
         return self
 
-    def audio_content(self, audio_content: MessageAudioContent) -> "MessageContentBuilder":
+    def audio_content(
+        self, audio_content: MessageAudioContent
+    ) -> "MessageContentBuilder":
         self._message_content.audio_content = audio_content
         return self
 
-    def media_content(self, media_content: MessageMediaContent) -> "MessageContentBuilder":
+    def media_content(
+        self, media_content: MessageMediaContent
+    ) -> "MessageContentBuilder":
         self._message_content.media_content = media_content
         return self
 
-    def share_calendar_event_content(self,
-                                     share_calendar_event_content: MessageShareCalendarEventContent) -> "MessageContentBuilder":
-        self._message_content.share_calendar_event_content = share_calendar_event_content
+    def share_calendar_event_content(
+        self, share_calendar_event_content: MessageShareCalendarEventContent
+    ) -> "MessageContentBuilder":
+        self._message_content.share_calendar_event_content = (
+            share_calendar_event_content
+        )
         return self
 
-    def general_calendar_content(self,
-                                 general_calendar_content: MessageGeneralCalendarContent) -> "MessageContentBuilder":
+    def general_calendar_content(
+        self, general_calendar_content: MessageGeneralCalendarContent
+    ) -> "MessageContentBuilder":
         self._message_content.general_calendar_content = general_calendar_content
         return self
 

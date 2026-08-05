@@ -9,7 +9,6 @@ from .task_subscription_task_v2_response_body import TaskSubscriptionTaskV2Respo
 class TaskSubscriptionTaskV2Response(BaseResponse):
     _types = {
         "data": TaskSubscriptionTaskV2ResponseBody,
-
     }
 
     def __init__(self, d=None):

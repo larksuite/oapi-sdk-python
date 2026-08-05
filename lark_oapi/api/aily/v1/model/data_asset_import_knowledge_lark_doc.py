@@ -36,7 +36,9 @@ class DataAssetImportKnowledgeLarkDocBuilder(object):
         self._data_asset_import_knowledge_lark_doc.token = token
         return self
 
-    def with_sub_docs(self, with_sub_docs: bool) -> "DataAssetImportKnowledgeLarkDocBuilder":
+    def with_sub_docs(
+        self, with_sub_docs: bool
+    ) -> "DataAssetImportKnowledgeLarkDocBuilder":
         self._data_asset_import_knowledge_lark_doc.with_sub_docs = with_sub_docs
         return self
 

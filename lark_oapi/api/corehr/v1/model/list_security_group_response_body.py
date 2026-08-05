@@ -27,7 +27,9 @@ class ListSecurityGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_security_group_response_body = ListSecurityGroupResponseBody()
 
-    def items(self, items: List[SecurityGroup]) -> "ListSecurityGroupResponseBodyBuilder":
+    def items(
+        self, items: List[SecurityGroup]
+    ) -> "ListSecurityGroupResponseBodyBuilder":
         self._list_security_group_response_body.items = items
         return self
 

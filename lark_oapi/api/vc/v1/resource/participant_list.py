@@ -17,8 +17,9 @@ class ParticipantList(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetParticipantListRequest,
-            option: Optional[RequestOption] = None) -> GetParticipantListResponse:
+    def get(
+        self, request: GetParticipantListRequest, option: Optional[RequestOption] = None
+    ) -> GetParticipantListResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +34,16 @@ class ParticipantList(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: GetParticipantListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetParticipantListResponse)
+        response: GetParticipantListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetParticipantListResponse
+        )
         response.raw = resp
 
         return response
 
-    async def aget(self, request: GetParticipantListRequest,
-                   option: Optional[RequestOption] = None) -> GetParticipantListResponse:
+    async def aget(
+        self, request: GetParticipantListRequest, option: Optional[RequestOption] = None
+    ) -> GetParticipantListResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +54,9 @@ class ParticipantList(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: GetParticipantListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetParticipantListResponse)
+        response: GetParticipantListResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), GetParticipantListResponse
+        )
         response.raw = resp
 
         return response

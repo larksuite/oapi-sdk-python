@@ -10,6 +10,7 @@ class ListCompanyRequest(BaseRequest):
         super().__init__()
         self.page_token: Optional[str] = None
         self.page_size: Optional[str] = None
+        self.effective_date: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListCompanyRequestBuilder":
@@ -17,7 +18,6 @@ class ListCompanyRequest(BaseRequest):
 
 
 class ListCompanyRequestBuilder(object):
-
     def __init__(self) -> None:
         list_company_request = ListCompanyRequest()
         list_company_request.http_method = HttpMethod.GET
@@ -33,6 +33,11 @@ class ListCompanyRequestBuilder(object):
     def page_size(self, page_size: str) -> "ListCompanyRequestBuilder":
         self._list_company_request.page_size = page_size
         self._list_company_request.add_query("page_size", page_size)
+        return self
+
+    def effective_date(self, effective_date: str) -> "ListCompanyRequestBuilder":
+        self._list_company_request.effective_date = effective_date
+        self._list_company_request.add_query("effective_date", effective_date)
         return self
 
     def build(self) -> ListCompanyRequest:

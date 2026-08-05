@@ -3,13 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_query_external_interview_response_body import BatchQueryExternalInterviewResponseBody
+from .batch_query_external_interview_response_body import (
+    BatchQueryExternalInterviewResponseBody,
+)
 
 
 class BatchQueryExternalInterviewResponse(BaseResponse):
     _types = {
         "data": BatchQueryExternalInterviewResponseBody,
-
     }
 
     def __init__(self, d=None):

@@ -21,9 +21,7 @@ class P2CorehrLocationUpdatedV2Data(object):
 
 
 class P2CorehrLocationUpdatedV2(EventContext):
-    _types = {
-        "event": P2CorehrLocationUpdatedV2Data
-    }
+    _types = {"event": P2CorehrLocationUpdatedV2Data}
 
     def __init__(self, d=None):
         super().__init__(d)

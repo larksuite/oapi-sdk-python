@@ -40,7 +40,9 @@ class Project(object):
         self.status: Optional[int] = None
         self.extend_info: Optional[List[ExtendField]] = None
         self.is_all_company: Optional[bool] = None
-        self.project_company_dept_mappings: Optional[List[ProjectCompanyDeptMapping]] = None
+        self.project_company_dept_mappings: Optional[
+            List[ProjectCompanyDeptMapping]
+        ] = None
         self.multi_language_name: Optional[List[MultiLanguage]] = None
         init(self, d, self._types)
 
@@ -69,7 +71,9 @@ class ProjectBuilder(object):
         self._project.type = type
         return self
 
-    def responsible_user_union_id(self, responsible_user_union_id: str) -> "ProjectBuilder":
+    def responsible_user_union_id(
+        self, responsible_user_union_id: str
+    ) -> "ProjectBuilder":
         self._project.responsible_user_union_id = responsible_user_union_id
         return self
 
@@ -105,12 +109,15 @@ class ProjectBuilder(object):
         self._project.is_all_company = is_all_company
         return self
 
-    def project_company_dept_mappings(self, project_company_dept_mappings: List[
-        ProjectCompanyDeptMapping]) -> "ProjectBuilder":
+    def project_company_dept_mappings(
+        self, project_company_dept_mappings: List[ProjectCompanyDeptMapping]
+    ) -> "ProjectBuilder":
         self._project.project_company_dept_mappings = project_company_dept_mappings
         return self
 
-    def multi_language_name(self, multi_language_name: List[MultiLanguage]) -> "ProjectBuilder":
+    def multi_language_name(
+        self, multi_language_name: List[MultiLanguage]
+    ) -> "ProjectBuilder":
         self._project.multi_language_name = multi_language_name
         return self
 

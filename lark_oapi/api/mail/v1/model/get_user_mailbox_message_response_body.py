@@ -21,7 +21,9 @@ class GetUserMailboxMessageResponseBody(object):
 
 class GetUserMailboxMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._get_user_mailbox_message_response_body = GetUserMailboxMessageResponseBody()
+        self._get_user_mailbox_message_response_body = (
+            GetUserMailboxMessageResponseBody()
+        )
 
     def message(self, message: Message) -> "GetUserMailboxMessageResponseBodyBuilder":
         self._get_user_mailbox_message_response_body.message = message

@@ -22,7 +22,9 @@ class CreateWebsiteChannelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_website_channel_request_body = CreateWebsiteChannelRequestBody()
 
-    def channel_name(self, channel_name: str) -> "CreateWebsiteChannelRequestBodyBuilder":
+    def channel_name(
+        self, channel_name: str
+    ) -> "CreateWebsiteChannelRequestBodyBuilder":
         self._create_website_channel_request_body.channel_name = channel_name
         return self
 

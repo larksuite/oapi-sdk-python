@@ -18,7 +18,6 @@ class QuerySessionRequest(BaseRequest):
 
 
 class QuerySessionRequestBuilder(object):
-
     def __init__(self) -> None:
         query_session_request = QuerySessionRequest()
         query_session_request.http_method = HttpMethod.POST
@@ -31,7 +30,9 @@ class QuerySessionRequestBuilder(object):
         self._query_session_request.add_query("user_id_type", user_id_type)
         return self
 
-    def request_body(self, request_body: QuerySessionRequestBody) -> "QuerySessionRequestBuilder":
+    def request_body(
+        self, request_body: QuerySessionRequestBody
+    ) -> "QuerySessionRequestBuilder":
         self._query_session_request.request_body = request_body
         self._query_session_request.body = request_body
         return self

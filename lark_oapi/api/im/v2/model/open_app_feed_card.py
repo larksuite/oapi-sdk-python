@@ -58,7 +58,9 @@ class OpenAppFeedCardBuilder(object):
         self._open_app_feed_card.preview = preview
         return self
 
-    def status_label(self, status_label: OpenFeedStatusLabel) -> "OpenAppFeedCardBuilder":
+    def status_label(
+        self, status_label: OpenFeedStatusLabel
+    ) -> "OpenAppFeedCardBuilder":
         self._open_app_feed_card.status_label = status_label
         return self
 

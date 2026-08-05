@@ -28,7 +28,9 @@ class PatchChatAnnouncementRequestBodyBuilder(object):
         self._patch_chat_announcement_request_body.revision = revision
         return self
 
-    def requests(self, requests: List[str]) -> "PatchChatAnnouncementRequestBodyBuilder":
+    def requests(
+        self, requests: List[str]
+    ) -> "PatchChatAnnouncementRequestBodyBuilder":
         self._patch_chat_announcement_request_body.requests = requests
         return self
 

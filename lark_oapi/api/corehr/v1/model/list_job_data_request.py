@@ -24,7 +24,6 @@ class ListJobDataRequest(BaseRequest):
 
 
 class ListJobDataRequestBuilder(object):
-
     def __init__(self) -> None:
         list_job_data_request = ListJobDataRequest()
         list_job_data_request.http_method = HttpMethod.GET
@@ -47,7 +46,9 @@ class ListJobDataRequestBuilder(object):
         self._list_job_data_request.add_query("employment_id", employment_id)
         return self
 
-    def job_data_id_list(self, job_data_id_list: List[str]) -> "ListJobDataRequestBuilder":
+    def job_data_id_list(
+        self, job_data_id_list: List[str]
+    ) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.job_data_id_list = job_data_id_list
         self._list_job_data_request.add_query("job_data_id_list", job_data_id_list)
         return self
@@ -72,7 +73,9 @@ class ListJobDataRequestBuilder(object):
         self._list_job_data_request.add_query("user_id_type", user_id_type)
         return self
 
-    def department_id_type(self, department_id_type: str) -> "ListJobDataRequestBuilder":
+    def department_id_type(
+        self, department_id_type: str
+    ) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.department_id_type = department_id_type
         self._list_job_data_request.add_query("department_id_type", department_id_type)
         return self

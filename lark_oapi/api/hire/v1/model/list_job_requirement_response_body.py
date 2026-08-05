@@ -35,7 +35,9 @@ class ListJobRequirementResponseBodyBuilder(object):
         self._list_job_requirement_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[JobRequirementDto]) -> "ListJobRequirementResponseBodyBuilder":
+    def items(
+        self, items: List[JobRequirementDto]
+    ) -> "ListJobRequirementResponseBodyBuilder":
         self._list_job_requirement_response_body.items = items
         return self
 

@@ -17,17 +17,27 @@ class GetUserMailboxTemplateRequest(BaseRequest):
 
 
 class GetUserMailboxTemplateRequestBuilder(object):
-
     def __init__(self) -> None:
         get_user_mailbox_template_request = GetUserMailboxTemplateRequest()
         get_user_mailbox_template_request.http_method = HttpMethod.GET
-        get_user_mailbox_template_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/templates/:template_id"
-        get_user_mailbox_template_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
-        self._get_user_mailbox_template_request: GetUserMailboxTemplateRequest = get_user_mailbox_template_request
+        get_user_mailbox_template_request.uri = (
+            "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/templates/:template_id"
+        )
+        get_user_mailbox_template_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
+        self._get_user_mailbox_template_request: GetUserMailboxTemplateRequest = (
+            get_user_mailbox_template_request
+        )
 
-    def user_mailbox_id(self, user_mailbox_id: str) -> "GetUserMailboxTemplateRequestBuilder":
+    def user_mailbox_id(
+        self, user_mailbox_id: str
+    ) -> "GetUserMailboxTemplateRequestBuilder":
         self._get_user_mailbox_template_request.user_mailbox_id = user_mailbox_id
-        self._get_user_mailbox_template_request.paths["user_mailbox_id"] = str(user_mailbox_id)
+        self._get_user_mailbox_template_request.paths["user_mailbox_id"] = str(
+            user_mailbox_id
+        )
         return self
 
     def template_id(self, template_id: str) -> "GetUserMailboxTemplateRequestBuilder":

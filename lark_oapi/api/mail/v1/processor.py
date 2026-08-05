@@ -3,10 +3,14 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
-from .model.p2_mail_user_mailbox_event_message_received_v1 import P2MailUserMailboxEventMessageReceivedV1
+from .model.p2_mail_user_mailbox_event_message_received_v1 import (
+    P2MailUserMailboxEventMessageReceivedV1,
+)
 
 
-class P2MailUserMailboxEventMessageReceivedV1Processor(IEventProcessor[P2MailUserMailboxEventMessageReceivedV1]):
+class P2MailUserMailboxEventMessageReceivedV1Processor(
+    IEventProcessor[P2MailUserMailboxEventMessageReceivedV1]
+):
     def __init__(self, f: Callable[[P2MailUserMailboxEventMessageReceivedV1], None]):
         self.f = f
 

@@ -16,12 +16,16 @@ class GetMinuteMediaRequest(BaseRequest):
 
 
 class GetMinuteMediaRequestBuilder(object):
-
     def __init__(self) -> None:
         get_minute_media_request = GetMinuteMediaRequest()
         get_minute_media_request.http_method = HttpMethod.GET
-        get_minute_media_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/media"
-        get_minute_media_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_minute_media_request.uri = (
+            "/open-apis/minutes/v1/minutes/:minute_token/media"
+        )
+        get_minute_media_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
         self._get_minute_media_request: GetMinuteMediaRequest = get_minute_media_request
 
     def minute_token(self, minute_token: str) -> "GetMinuteMediaRequestBuilder":

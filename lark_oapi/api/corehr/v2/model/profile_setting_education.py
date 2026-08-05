@@ -55,7 +55,9 @@ class ProfileSettingEducationBuilder(object):
         self._profile_setting_education.end_date = end_date
         return self
 
-    def level_of_education(self, level_of_education: str) -> "ProfileSettingEducationBuilder":
+    def level_of_education(
+        self, level_of_education: str
+    ) -> "ProfileSettingEducationBuilder":
         self._profile_setting_education.level_of_education = level_of_education
         return self
 
@@ -67,11 +69,15 @@ class ProfileSettingEducationBuilder(object):
         self._profile_setting_education.degree = degree
         return self
 
-    def field_of_study_enum(self, field_of_study_enum: str) -> "ProfileSettingEducationBuilder":
+    def field_of_study_enum(
+        self, field_of_study_enum: str
+    ) -> "ProfileSettingEducationBuilder":
         self._profile_setting_education.field_of_study_enum = field_of_study_enum
         return self
 
-    def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingEducationBuilder":
+    def custom_fields(
+        self, custom_fields: List[ProfileSettingCustomField]
+    ) -> "ProfileSettingEducationBuilder":
         self._profile_setting_education.custom_fields = custom_fields
         return self
 

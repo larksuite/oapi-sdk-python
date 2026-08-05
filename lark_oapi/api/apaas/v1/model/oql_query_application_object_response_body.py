@@ -22,9 +22,13 @@ class OqlQueryApplicationObjectResponseBody(object):
 
 class OqlQueryApplicationObjectResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._oql_query_application_object_response_body = OqlQueryApplicationObjectResponseBody()
+        self._oql_query_application_object_response_body = (
+            OqlQueryApplicationObjectResponseBody()
+        )
 
-    def columns(self, columns: List[str]) -> "OqlQueryApplicationObjectResponseBodyBuilder":
+    def columns(
+        self, columns: List[str]
+    ) -> "OqlQueryApplicationObjectResponseBodyBuilder":
         self._oql_query_application_object_response_body.columns = columns
         return self
 

@@ -29,7 +29,9 @@ class WebsiteDeliveryAwardBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_award = WebsiteDeliveryAward()
 
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryAwardBuilder":
+    def customized_data(
+        self, customized_data: List[WebsiteDeliveryCustomizedData]
+    ) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.customized_data = customized_data
         return self
 

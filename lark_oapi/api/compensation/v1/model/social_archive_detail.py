@@ -98,7 +98,9 @@ class SocialArchiveDetailBuilder(object):
         self._social_archive_detail.base_salary = base_salary
         return self
 
-    def insurance_details(self, insurance_details: List[SocialArchiveItem]) -> "SocialArchiveDetailBuilder":
+    def insurance_details(
+        self, insurance_details: List[SocialArchiveItem]
+    ) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.insurance_details = insurance_details
         return self
 

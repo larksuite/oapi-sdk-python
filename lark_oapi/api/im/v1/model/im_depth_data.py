@@ -94,23 +94,33 @@ class ImDepthDataBuilder(object):
         self._im_depth_data.mobile_send_msg_rate = mobile_send_msg_rate
         return self
 
-    def mobile_avg_send_msg_cnt(self, mobile_avg_send_msg_cnt: float) -> "ImDepthDataBuilder":
+    def mobile_avg_send_msg_cnt(
+        self, mobile_avg_send_msg_cnt: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.mobile_avg_send_msg_cnt = mobile_avg_send_msg_cnt
         return self
 
-    def meeting_group_send_msg_rate(self, meeting_group_send_msg_rate: float) -> "ImDepthDataBuilder":
+    def meeting_group_send_msg_rate(
+        self, meeting_group_send_msg_rate: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.meeting_group_send_msg_rate = meeting_group_send_msg_rate
         return self
 
-    def tenant_group_send_msg_rate(self, tenant_group_send_msg_rate: float) -> "ImDepthDataBuilder":
+    def tenant_group_send_msg_rate(
+        self, tenant_group_send_msg_rate: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.tenant_group_send_msg_rate = tenant_group_send_msg_rate
         return self
 
-    def dept_group_send_msg_rate(self, dept_group_send_msg_rate: float) -> "ImDepthDataBuilder":
+    def dept_group_send_msg_rate(
+        self, dept_group_send_msg_rate: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.dept_group_send_msg_rate = dept_group_send_msg_rate
         return self
 
-    def topic_group_send_msg_rate(self, topic_group_send_msg_rate: float) -> "ImDepthDataBuilder":
+    def topic_group_send_msg_rate(
+        self, topic_group_send_msg_rate: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.topic_group_send_msg_rate = topic_group_send_msg_rate
         return self
 
@@ -138,7 +148,9 @@ class ImDepthDataBuilder(object):
         self._im_depth_data.file_send_msg_rate = file_send_msg_rate
         return self
 
-    def sticker_send_msg_rate(self, sticker_send_msg_rate: float) -> "ImDepthDataBuilder":
+    def sticker_send_msg_rate(
+        self, sticker_send_msg_rate: float
+    ) -> "ImDepthDataBuilder":
         self._im_depth_data.sticker_send_msg_rate = sticker_send_msg_rate
         return self
 

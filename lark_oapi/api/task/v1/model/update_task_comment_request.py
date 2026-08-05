@@ -20,13 +20,19 @@ class UpdateTaskCommentRequest(BaseRequest):
 
 
 class UpdateTaskCommentRequestBuilder(object):
-
     def __init__(self) -> None:
         update_task_comment_request = UpdateTaskCommentRequest()
         update_task_comment_request.http_method = HttpMethod.PUT
-        update_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-        update_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._update_task_comment_request: UpdateTaskCommentRequest = update_task_comment_request
+        update_task_comment_request.uri = (
+            "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+        )
+        update_task_comment_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._update_task_comment_request: UpdateTaskCommentRequest = (
+            update_task_comment_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "UpdateTaskCommentRequestBuilder":
         self._update_task_comment_request.user_id_type = user_id_type
@@ -43,7 +49,9 @@ class UpdateTaskCommentRequestBuilder(object):
         self._update_task_comment_request.paths["comment_id"] = str(comment_id)
         return self
 
-    def request_body(self, request_body: UpdateTaskCommentRequestBody) -> "UpdateTaskCommentRequestBuilder":
+    def request_body(
+        self, request_body: UpdateTaskCommentRequestBody
+    ) -> "UpdateTaskCommentRequestBuilder":
         self._update_task_comment_request.request_body = request_body
         self._update_task_comment_request.body = request_body
         return self

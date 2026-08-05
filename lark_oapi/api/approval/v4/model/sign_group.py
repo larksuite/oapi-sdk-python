@@ -47,7 +47,9 @@ class SignGroupBuilder(object):
         self._sign_group.account_code = account_code
         return self
 
-    def boilerplate_unique_code(self, boilerplate_unique_code: str) -> "SignGroupBuilder":
+    def boilerplate_unique_code(
+        self, boilerplate_unique_code: str
+    ) -> "SignGroupBuilder":
         self._sign_group.boilerplate_unique_code = boilerplate_unique_code
         return self
 

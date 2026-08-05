@@ -31,11 +31,15 @@ class ImportMetricDetailRequestBodyBuilder(object):
         self._import_metric_detail_request_body.semester_id = semester_id
         return self
 
-    def import_record_name(self, import_record_name: str) -> "ImportMetricDetailRequestBodyBuilder":
+    def import_record_name(
+        self, import_record_name: str
+    ) -> "ImportMetricDetailRequestBodyBuilder":
         self._import_metric_detail_request_body.import_record_name = import_record_name
         return self
 
-    def imported_metrics(self, imported_metrics: List[ImportedMetric]) -> "ImportMetricDetailRequestBodyBuilder":
+    def imported_metrics(
+        self, imported_metrics: List[ImportedMetric]
+    ) -> "ImportMetricDetailRequestBodyBuilder":
         self._import_metric_detail_request_body.imported_metrics = imported_metrics
         return self
 

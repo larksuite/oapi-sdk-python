@@ -10,15 +10,20 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.match_compensation_standard_request import MatchCompensationStandardRequest
-from ..model.match_compensation_standard_response import MatchCompensationStandardResponse
+from ..model.match_compensation_standard_response import (
+    MatchCompensationStandardResponse,
+)
 
 
 class CompensationStandard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def match(self, request: MatchCompensationStandardRequest,
-              option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
+    def match(
+        self,
+        request: MatchCompensationStandardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> MatchCompensationStandardResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,14 +38,18 @@ class CompensationStandard(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     MatchCompensationStandardResponse)
+        response: MatchCompensationStandardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MatchCompensationStandardResponse
+        )
         response.raw = resp
 
         return response
 
-    async def amatch(self, request: MatchCompensationStandardRequest,
-                     option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
+    async def amatch(
+        self,
+        request: MatchCompensationStandardRequest,
+        option: Optional[RequestOption] = None,
+    ) -> MatchCompensationStandardResponse:
         if option is None:
             option = RequestOption()
 
@@ -51,8 +60,9 @@ class CompensationStandard(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     MatchCompensationStandardResponse)
+        response: MatchCompensationStandardResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MatchCompensationStandardResponse
+        )
         response.raw = resp
 
         return response

@@ -20,7 +20,9 @@ class MailGroupAsSenderPermissionMember(object):
 
 class MailGroupAsSenderPermissionMemberBuilder(object):
     def __init__(self) -> None:
-        self._mail_group_as_sender_permission_member = MailGroupAsSenderPermissionMember()
+        self._mail_group_as_sender_permission_member = (
+            MailGroupAsSenderPermissionMember()
+        )
 
     def user_id(self, user_id: str) -> "MailGroupAsSenderPermissionMemberBuilder":
         self._mail_group_as_sender_permission_member.user_id = user_id

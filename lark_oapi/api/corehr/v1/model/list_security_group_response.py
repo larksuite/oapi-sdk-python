@@ -9,7 +9,6 @@ from .list_security_group_response_body import ListSecurityGroupResponseBody
 class ListSecurityGroupResponse(BaseResponse):
     _types = {
         "data": ListSecurityGroupResponseBody,
-
     }
 
     def __init__(self, d=None):

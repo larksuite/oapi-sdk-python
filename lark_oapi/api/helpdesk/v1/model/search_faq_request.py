@@ -19,7 +19,6 @@ class SearchFaqRequest(BaseRequest):
 
 
 class SearchFaqRequestBuilder(object):
-
     def __init__(self) -> None:
         search_faq_request = SearchFaqRequest()
         search_faq_request.http_method = HttpMethod.GET

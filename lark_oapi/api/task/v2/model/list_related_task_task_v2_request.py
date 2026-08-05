@@ -19,13 +19,16 @@ class ListRelatedTaskTaskV2Request(BaseRequest):
 
 
 class ListRelatedTaskTaskV2RequestBuilder(object):
-
     def __init__(self) -> None:
         list_related_task_task_v2_request = ListRelatedTaskTaskV2Request()
         list_related_task_task_v2_request.http_method = HttpMethod.GET
-        list_related_task_task_v2_request.uri = "/open-apis/task/v2/task_v2/list_related_task"
+        list_related_task_task_v2_request.uri = (
+            "/open-apis/task/v2/task_v2/list_related_task"
+        )
         list_related_task_task_v2_request.token_types = {AccessTokenType.USER}
-        self._list_related_task_task_v2_request: ListRelatedTaskTaskV2Request = list_related_task_task_v2_request
+        self._list_related_task_task_v2_request: ListRelatedTaskTaskV2Request = (
+            list_related_task_task_v2_request
+        )
 
     def page_size(self, page_size: int) -> "ListRelatedTaskTaskV2RequestBuilder":
         self._list_related_task_task_v2_request.page_size = page_size

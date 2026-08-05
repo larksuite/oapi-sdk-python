@@ -2,7 +2,9 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .bitable_table_record_action_field_identity_user import BitableTableRecordActionFieldIdentityUser
+from .bitable_table_record_action_field_identity_user import (
+    BitableTableRecordActionFieldIdentityUser,
+)
 
 
 class BitableTableRecordActionFieldIdentity(object):
@@ -21,10 +23,13 @@ class BitableTableRecordActionFieldIdentity(object):
 
 class BitableTableRecordActionFieldIdentityBuilder(object):
     def __init__(self) -> None:
-        self._bitable_table_record_action_field_identity = BitableTableRecordActionFieldIdentity()
+        self._bitable_table_record_action_field_identity = (
+            BitableTableRecordActionFieldIdentity()
+        )
 
-    def users(self,
-              users: List[BitableTableRecordActionFieldIdentityUser]) -> "BitableTableRecordActionFieldIdentityBuilder":
+    def users(
+        self, users: List[BitableTableRecordActionFieldIdentityUser]
+    ) -> "BitableTableRecordActionFieldIdentityBuilder":
         self._bitable_table_record_action_field_identity.users = users
         return self
 

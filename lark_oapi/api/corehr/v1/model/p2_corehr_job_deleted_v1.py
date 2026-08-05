@@ -16,9 +16,7 @@ class P2CorehrJobDeletedV1Data(object):
 
 
 class P2CorehrJobDeletedV1(EventContext):
-    _types = {
-        "event": P2CorehrJobDeletedV1Data
-    }
+    _types = {"event": P2CorehrJobDeletedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

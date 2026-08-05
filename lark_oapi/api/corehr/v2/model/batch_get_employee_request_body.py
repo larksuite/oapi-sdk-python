@@ -34,7 +34,9 @@ class BatchGetEmployeeRequestBodyBuilder(object):
         self._batch_get_employee_request_body.fields = fields
         return self
 
-    def employment_ids(self, employment_ids: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
+    def employment_ids(
+        self, employment_ids: List[str]
+    ) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.employment_ids = employment_ids
         return self
 
@@ -42,7 +44,9 @@ class BatchGetEmployeeRequestBodyBuilder(object):
         self._batch_get_employee_request_body.person_ids = person_ids
         return self
 
-    def work_emails(self, work_emails: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
+    def work_emails(
+        self, work_emails: List[str]
+    ) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.work_emails = work_emails
         return self
 

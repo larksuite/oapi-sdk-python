@@ -70,7 +70,9 @@ class CalendarEventRespBuilder(object):
         self._calendar_event_resp.event_id = event_id
         return self
 
-    def organizer_calendar_id(self, organizer_calendar_id: str) -> "CalendarEventRespBuilder":
+    def organizer_calendar_id(
+        self, organizer_calendar_id: str
+    ) -> "CalendarEventRespBuilder":
         self._calendar_event_resp.organizer_calendar_id = organizer_calendar_id
         return self
 

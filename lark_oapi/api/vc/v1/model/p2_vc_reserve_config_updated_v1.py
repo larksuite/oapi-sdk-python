@@ -27,9 +27,7 @@ class P2VcReserveConfigUpdatedV1Data(object):
 
 
 class P2VcReserveConfigUpdatedV1(EventContext):
-    _types = {
-        "event": P2VcReserveConfigUpdatedV1Data
-    }
+    _types = {"event": P2VcReserveConfigUpdatedV1Data}
 
     def __init__(self, d=None):
         super().__init__(d)

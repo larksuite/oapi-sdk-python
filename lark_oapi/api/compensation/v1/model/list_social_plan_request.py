@@ -19,7 +19,6 @@ class ListSocialPlanRequest(BaseRequest):
 
 
 class ListSocialPlanRequestBuilder(object):
-
     def __init__(self) -> None:
         list_social_plan_request = ListSocialPlanRequest()
         list_social_plan_request.http_method = HttpMethod.GET

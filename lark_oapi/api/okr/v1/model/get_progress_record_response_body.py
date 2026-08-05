@@ -42,7 +42,9 @@ class GetProgressRecordResponseBodyBuilder(object):
         self._get_progress_record_response_body.content = content
         return self
 
-    def progress_rate(self, progress_rate: ProgressRateNew) -> "GetProgressRecordResponseBodyBuilder":
+    def progress_rate(
+        self, progress_rate: ProgressRateNew
+    ) -> "GetProgressRecordResponseBodyBuilder":
         self._get_progress_record_response_body.progress_rate = progress_rate
         return self
 

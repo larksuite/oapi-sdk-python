@@ -27,7 +27,9 @@ class ListCountryRegionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_country_region_response_body = ListCountryRegionResponseBody()
 
-    def items(self, items: List[CountryRegion]) -> "ListCountryRegionResponseBodyBuilder":
+    def items(
+        self, items: List[CountryRegion]
+    ) -> "ListCountryRegionResponseBodyBuilder":
         self._list_country_region_response_body.items = items
         return self
 

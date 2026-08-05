@@ -22,7 +22,9 @@ class SearchEnumRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_enum_request_body = SearchEnumRequestBody()
 
-    def enum_apiname_lists(self, enum_apiname_lists: List[str]) -> "SearchEnumRequestBodyBuilder":
+    def enum_apiname_lists(
+        self, enum_apiname_lists: List[str]
+    ) -> "SearchEnumRequestBodyBuilder":
         self._search_enum_request_body.enum_apiname_lists = enum_apiname_lists
         return self
 

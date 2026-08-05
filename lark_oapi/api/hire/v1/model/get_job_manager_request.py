@@ -18,11 +18,12 @@ class GetJobManagerRequest(BaseRequest):
 
 
 class GetJobManagerRequestBuilder(object):
-
     def __init__(self) -> None:
         get_job_manager_request = GetJobManagerRequest()
         get_job_manager_request.http_method = HttpMethod.GET
-        get_job_manager_request.uri = "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+        get_job_manager_request.uri = (
+            "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+        )
         get_job_manager_request.token_types = {AccessTokenType.TENANT}
         self._get_job_manager_request: GetJobManagerRequest = get_job_manager_request
 

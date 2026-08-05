@@ -10,6 +10,7 @@ class ListSpaceRequest(BaseRequest):
         super().__init__()
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.space_type: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListSpaceRequestBuilder":
@@ -17,7 +18,6 @@ class ListSpaceRequest(BaseRequest):
 
 
 class ListSpaceRequestBuilder(object):
-
     def __init__(self) -> None:
         list_space_request = ListSpaceRequest()
         list_space_request.http_method = HttpMethod.GET
@@ -33,6 +33,11 @@ class ListSpaceRequestBuilder(object):
     def page_token(self, page_token: str) -> "ListSpaceRequestBuilder":
         self._list_space_request.page_token = page_token
         self._list_space_request.add_query("page_token", page_token)
+        return self
+
+    def space_type(self, space_type: str) -> "ListSpaceRequestBuilder":
+        self._list_space_request.space_type = space_type
+        self._list_space_request.add_query("space_type", space_type)
         return self
 
     def build(self) -> ListSpaceRequest:

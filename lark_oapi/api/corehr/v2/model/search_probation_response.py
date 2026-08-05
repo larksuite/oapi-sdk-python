@@ -9,7 +9,6 @@ from .search_probation_response_body import SearchProbationResponseBody
 class SearchProbationResponse(BaseResponse):
     _types = {
         "data": SearchProbationResponseBody,
-
     }
 
     def __init__(self, d=None):

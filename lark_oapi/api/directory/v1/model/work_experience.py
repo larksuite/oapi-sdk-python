@@ -38,7 +38,9 @@ class WorkExperienceBuilder(object):
         self._work_experience.id = id
         return self
 
-    def company_organization(self, company_organization: str) -> "WorkExperienceBuilder":
+    def company_organization(
+        self, company_organization: str
+    ) -> "WorkExperienceBuilder":
         self._work_experience.company_organization = company_organization
         return self
 

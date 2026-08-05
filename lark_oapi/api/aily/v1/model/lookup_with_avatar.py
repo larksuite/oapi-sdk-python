@@ -10,6 +10,8 @@ class LookupWithAvatar(object):
         "name": str,
         "tenant_id": str,
         "lark_user_id": str,
+        "open_user_id": str,
+        "open_id": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,8 @@ class LookupWithAvatar(object):
         self.name: Optional[str] = None
         self.tenant_id: Optional[str] = None
         self.lark_user_id: Optional[str] = None
+        self.open_user_id: Optional[str] = None
+        self.open_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +46,14 @@ class LookupWithAvatarBuilder(object):
 
     def lark_user_id(self, lark_user_id: str) -> "LookupWithAvatarBuilder":
         self._lookup_with_avatar.lark_user_id = lark_user_id
+        return self
+
+    def open_user_id(self, open_user_id: str) -> "LookupWithAvatarBuilder":
+        self._lookup_with_avatar.open_user_id = open_user_id
+        return self
+
+    def open_id(self, open_id: str) -> "LookupWithAvatarBuilder":
+        self._lookup_with_avatar.open_id = open_id
         return self
 
     def build(self) -> "LookupWithAvatar":

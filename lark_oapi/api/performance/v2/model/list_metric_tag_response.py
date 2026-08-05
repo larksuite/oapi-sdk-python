@@ -9,7 +9,6 @@ from .list_metric_tag_response_body import ListMetricTagResponseBody
 class ListMetricTagResponse(BaseResponse):
     _types = {
         "data": ListMetricTagResponseBody,
-
     }
 
     def __init__(self, d=None):

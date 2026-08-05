@@ -23,7 +23,9 @@ class ApiAuditCommonDrawersBuilder(object):
     def __init__(self) -> None:
         self._api_audit_common_drawers = ApiAuditCommonDrawers()
 
-    def common_draw_info_list(self, common_draw_info_list: List[ApiAuditDrawerInfo]) -> "ApiAuditCommonDrawersBuilder":
+    def common_draw_info_list(
+        self, common_draw_info_list: List[ApiAuditDrawerInfo]
+    ) -> "ApiAuditCommonDrawersBuilder":
         self._api_audit_common_drawers.common_draw_info_list = common_draw_info_list
         return self
 

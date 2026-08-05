@@ -17,8 +17,11 @@ class BasicInfoCity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoCityRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoCityResponse:
+    def search(
+        self,
+        request: SearchBasicInfoCityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,13 +36,18 @@ class BasicInfoCity(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoCityResponse)
+        response: SearchBasicInfoCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCityResponse
+        )
         response.raw = resp
 
         return response
 
-    async def asearch(self, request: SearchBasicInfoCityRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoCityResponse:
+    async def asearch(
+        self,
+        request: SearchBasicInfoCityRequest,
+        option: Optional[RequestOption] = None,
+    ) -> SearchBasicInfoCityResponse:
         if option is None:
             option = RequestOption()
 
@@ -50,7 +58,9 @@ class BasicInfoCity(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: SearchBasicInfoCityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoCityResponse)
+        response: SearchBasicInfoCityResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), SearchBasicInfoCityResponse
+        )
         response.raw = resp
 
         return response

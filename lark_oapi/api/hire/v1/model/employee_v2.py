@@ -72,11 +72,15 @@ class EmployeeV2Builder(object):
         self._employee_v2.onboard_time = onboard_time
         return self
 
-    def expected_conversion_time(self, expected_conversion_time: str) -> "EmployeeV2Builder":
+    def expected_conversion_time(
+        self, expected_conversion_time: str
+    ) -> "EmployeeV2Builder":
         self._employee_v2.expected_conversion_time = expected_conversion_time
         return self
 
-    def actual_conversion_time(self, actual_conversion_time: str) -> "EmployeeV2Builder":
+    def actual_conversion_time(
+        self, actual_conversion_time: str
+    ) -> "EmployeeV2Builder":
         self._employee_v2.actual_conversion_time = actual_conversion_time
         return self
 

@@ -17,7 +17,9 @@ class UserOkr(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListUserOkrRequest, option: Optional[RequestOption] = None) -> ListUserOkrResponse:
+    def list(
+        self, request: ListUserOkrRequest, option: Optional[RequestOption] = None
+    ) -> ListUserOkrResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,12 +34,16 @@ class UserOkr(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 反序列化
-        response: ListUserOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserOkrResponse)
+        response: ListUserOkrResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserOkrResponse
+        )
         response.raw = resp
 
         return response
 
-    async def alist(self, request: ListUserOkrRequest, option: Optional[RequestOption] = None) -> ListUserOkrResponse:
+    async def alist(
+        self, request: ListUserOkrRequest, option: Optional[RequestOption] = None
+    ) -> ListUserOkrResponse:
         if option is None:
             option = RequestOption()
 
@@ -48,7 +54,9 @@ class UserOkr(object):
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
-        response: ListUserOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserOkrResponse)
+        response: ListUserOkrResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), ListUserOkrResponse
+        )
         response.raw = resp
 
         return response

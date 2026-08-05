@@ -19,13 +19,19 @@ class CreateCalendarAclRequest(BaseRequest):
 
 
 class CreateCalendarAclRequestBuilder(object):
-
     def __init__(self) -> None:
         create_calendar_acl_request = CreateCalendarAclRequest()
         create_calendar_acl_request.http_method = HttpMethod.POST
-        create_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-        create_calendar_acl_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
-        self._create_calendar_acl_request: CreateCalendarAclRequest = create_calendar_acl_request
+        create_calendar_acl_request.uri = (
+            "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+        )
+        create_calendar_acl_request.token_types = {
+            AccessTokenType.TENANT,
+            AccessTokenType.USER,
+        }
+        self._create_calendar_acl_request: CreateCalendarAclRequest = (
+            create_calendar_acl_request
+        )
 
     def user_id_type(self, user_id_type: str) -> "CreateCalendarAclRequestBuilder":
         self._create_calendar_acl_request.user_id_type = user_id_type
@@ -37,7 +43,9 @@ class CreateCalendarAclRequestBuilder(object):
         self._create_calendar_acl_request.paths["calendar_id"] = str(calendar_id)
         return self
 
-    def request_body(self, request_body: CalendarAcl) -> "CreateCalendarAclRequestBuilder":
+    def request_body(
+        self, request_body: CalendarAcl
+    ) -> "CreateCalendarAclRequestBuilder":
         self._create_calendar_acl_request.request_body = request_body
         self._create_calendar_acl_request.body = request_body
         return self

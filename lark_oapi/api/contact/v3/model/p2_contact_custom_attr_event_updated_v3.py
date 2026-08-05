@@ -20,9 +20,7 @@ class P2ContactCustomAttrEventUpdatedV3Data(object):
 
 
 class P2ContactCustomAttrEventUpdatedV3(EventContext):
-    _types = {
-        "event": P2ContactCustomAttrEventUpdatedV3Data
-    }
+    _types = {"event": P2ContactCustomAttrEventUpdatedV3Data}
 
     def __init__(self, d=None):
         super().__init__(d)

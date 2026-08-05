@@ -20,7 +20,9 @@ class CreateAppAvatarUploadResponseBody(object):
 
 class CreateAppAvatarUploadResponseBodyBuilder(object):
     def __init__(self) -> None:
-        self._create_app_avatar_upload_response_body = CreateAppAvatarUploadResponseBody()
+        self._create_app_avatar_upload_response_body = (
+            CreateAppAvatarUploadResponseBody()
+        )
 
     def url(self, url: str) -> "CreateAppAvatarUploadResponseBodyBuilder":
         self._create_app_avatar_upload_response_body.url = url
