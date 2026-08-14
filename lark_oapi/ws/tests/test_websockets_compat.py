@@ -17,6 +17,20 @@ class _FakeConn:
         pass
 
 
+def test_redact_ws_url_preserves_diagnostic_context_and_query_shape():
+    url = (
+        "wss://msg-frontier.example.test/ws/v2?fpid=493&"
+        "access%5Fkey=access%2Fsecret&ticket=first&ticket=second&"
+        "empty=&value-less#fragment"
+    )
+
+    assert ws_client._redact_ws_url(url) == (
+        "wss://msg-frontier.example.test/ws/v2?fpid=493&"
+        "access%5Fkey=REDACTED&ticket=REDACTED&ticket=REDACTED&"
+        "empty=&value-less#fragment"
+    )
+
+
 def test_parse_ws_connection_exception_reads_new_invalid_status_response_headers():
     exc = RuntimeError("handshake failed")
     exc.response = SimpleNamespace(
@@ -111,6 +125,39 @@ async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
         "uri": "ws://example.test/callback?device_id=device&service_id=42",
         "proxy": None,
     }
+
+
+@pytest.mark.asyncio
+async def test_connection_lifecycle_logs_redact_credentials_without_changing_connection_url(monkeypatch):
+    original_url = (
+        "wss://msg-frontier.example.test/ws/v2?device_id=device&service_id=42&"
+        "access_key=access-key-test-value&ticket=ticket-test-value"
+    )
+    captured = {"logs": []}
+
+    async def fake_connect(uri, **kwargs):
+        captured["uri"] = uri
+        return _FakeConn()
+
+    client = ws_client.Client("app_id", "app_secret")
+    monkeypatch.setattr(client, "_get_conn_url", lambda: original_url)
+    monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
+    monkeypatch.setattr(ws_client.logger, "info", captured["logs"].append)
+    monkeypatch.setattr(
+        ws_client.loop,
+        "create_task",
+        lambda coro: coro.close() if hasattr(coro, "close") else None,
+    )
+
+    await client._connect()
+    await client._disconnect()
+
+    assert captured["uri"] == original_url
+    assert len(captured["logs"]) == 2
+    assert all("access-key-test-value" not in log for log in captured["logs"])
+    assert all("ticket-test-value" not in log for log in captured["logs"])
+    assert all("device_id=device" in log for log in captured["logs"])
+    assert all(log.count("REDACTED") == 2 for log in captured["logs"])
 
 
 @pytest.mark.asyncio
