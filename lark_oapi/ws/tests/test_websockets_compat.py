@@ -1,5 +1,6 @@
 from types import SimpleNamespace
 
+import asyncio
 import pytest
 
 from lark_oapi.ws import client as ws_client
@@ -15,6 +16,10 @@ from lark_oapi.ws.exception import ClientException
 class _FakeConn:
     async def close(self):
         pass
+
+
+async def _noop():
+    pass
 
 
 def test_parse_ws_connection_exception_reads_new_invalid_status_response_headers():
@@ -92,17 +97,15 @@ async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
         return _FakeConn()
 
     client = ws_client.Client("app_id", "app_secret")
+    client._loop = asyncio.get_running_loop()
+    client._stop_event = asyncio.Event()
     monkeypatch.setattr(
         client,
         "_get_conn_url",
         lambda: "ws://example.test/callback?device_id=device&service_id=42",
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
-    monkeypatch.setattr(
-        ws_client.loop,
-        "create_task",
-        lambda coro: coro.close() if hasattr(coro, "close") else None,
-    )
+    monkeypatch.setattr(client, "_receive_message_loop", _noop)
 
     await client._connect()
     await client._disconnect()
@@ -122,17 +125,15 @@ async def test_connect_does_not_pass_proxy_to_older_websockets(monkeypatch):
         return _FakeConn()
 
     client = ws_client.Client("app_id", "app_secret")
+    client._loop = asyncio.get_running_loop()
+    client._stop_event = asyncio.Event()
     monkeypatch.setattr(
         client,
         "_get_conn_url",
         lambda: "ws://example.test/callback?device_id=device&service_id=42",
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
-    monkeypatch.setattr(
-        ws_client.loop,
-        "create_task",
-        lambda coro: coro.close() if hasattr(coro, "close") else None,
-    )
+    monkeypatch.setattr(client, "_receive_message_loop", _noop)
 
     await client._connect()
     await client._disconnect()
