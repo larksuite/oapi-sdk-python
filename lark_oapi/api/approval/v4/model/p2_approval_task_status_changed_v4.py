@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
 from .user_id import UserId
+from .user_id import UserId
 
 
 class P2ApprovalTaskStatusChangedV4Data(object):
@@ -15,6 +16,7 @@ class P2ApprovalTaskStatusChangedV4Data(object):
         "assigned_user": UserId,
         "status": str,
         "operate_time": str,
+        "subscriber_id_list": List[UserId],
     }
 
     def __init__(self, d=None):
@@ -25,6 +27,7 @@ class P2ApprovalTaskStatusChangedV4Data(object):
         self.assigned_user: Optional[UserId] = None
         self.status: Optional[str] = None
         self.operate_time: Optional[str] = None
+        self.subscriber_id_list: Optional[List[UserId]] = None
         init(self, d, self._types)
 
 

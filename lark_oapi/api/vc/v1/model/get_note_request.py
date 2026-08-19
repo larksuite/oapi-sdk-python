@@ -21,7 +21,7 @@ class GetNoteRequestBuilder(object):
         get_note_request = GetNoteRequest()
         get_note_request.http_method = HttpMethod.GET
         get_note_request.uri = "/open-apis/vc/v1/notes/:note_id"
-        get_note_request.token_types = {AccessTokenType.USER}
+        get_note_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_note_request: GetNoteRequest = get_note_request
 
     def user_id_type(self, user_id_type: str) -> "GetNoteRequestBuilder":

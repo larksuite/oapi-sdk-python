@@ -7,6 +7,8 @@ from .hit_content import HitContent
 from .proof_content_detail import ProofContentDetail
 from .detect_rule import DetectRule
 from .resource_attribute import ResourceAttribute
+from .object_attribute import ObjectAttribute
+from .action_condition import ActionCondition
 
 
 class PolicyLogItem(object):
@@ -23,6 +25,12 @@ class PolicyLogItem(object):
         "proof_details": List[ProofContentDetail],
         "detect_rules": List[DetectRule],
         "resource_attributes": List[ResourceAttribute],
+        "app_owner_id": str,
+        "app_owner_name": str,
+        "app_delegator_id": str,
+        "app_delegator_name": str,
+        "object_attributes": List[ObjectAttribute],
+        "action_conditions": List[ActionCondition],
     }
 
     def __init__(self, d=None):
@@ -38,6 +46,12 @@ class PolicyLogItem(object):
         self.proof_details: Optional[List[ProofContentDetail]] = None
         self.detect_rules: Optional[List[DetectRule]] = None
         self.resource_attributes: Optional[List[ResourceAttribute]] = None
+        self.app_owner_id: Optional[str] = None
+        self.app_owner_name: Optional[str] = None
+        self.app_delegator_id: Optional[str] = None
+        self.app_delegator_name: Optional[str] = None
+        self.object_attributes: Optional[List[ObjectAttribute]] = None
+        self.action_conditions: Optional[List[ActionCondition]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -99,6 +113,34 @@ class PolicyLogItemBuilder(object):
         self, resource_attributes: List[ResourceAttribute]
     ) -> "PolicyLogItemBuilder":
         self._policy_log_item.resource_attributes = resource_attributes
+        return self
+
+    def app_owner_id(self, app_owner_id: str) -> "PolicyLogItemBuilder":
+        self._policy_log_item.app_owner_id = app_owner_id
+        return self
+
+    def app_owner_name(self, app_owner_name: str) -> "PolicyLogItemBuilder":
+        self._policy_log_item.app_owner_name = app_owner_name
+        return self
+
+    def app_delegator_id(self, app_delegator_id: str) -> "PolicyLogItemBuilder":
+        self._policy_log_item.app_delegator_id = app_delegator_id
+        return self
+
+    def app_delegator_name(self, app_delegator_name: str) -> "PolicyLogItemBuilder":
+        self._policy_log_item.app_delegator_name = app_delegator_name
+        return self
+
+    def object_attributes(
+        self, object_attributes: List[ObjectAttribute]
+    ) -> "PolicyLogItemBuilder":
+        self._policy_log_item.object_attributes = object_attributes
+        return self
+
+    def action_conditions(
+        self, action_conditions: List[ActionCondition]
+    ) -> "PolicyLogItemBuilder":
+        self._policy_log_item.action_conditions = action_conditions
         return self
 
     def build(self) -> "PolicyLogItem":

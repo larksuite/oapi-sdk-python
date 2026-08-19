@@ -53,6 +53,8 @@ from .normal_leave_balance import *
 from .normal_leave_type import *
 from .normal_leave_user_account import *
 from .normal_leave_user_first_work_time import *
+from .open_api_create_time_record_period_result import *
+from .open_api_time_record_period_info import *
 from .open_apply_time_range import *
 from .option_field import *
 from .out_record import *
@@ -67,6 +69,7 @@ from .punch_member import *
 from .punch_special_date_shift import *
 from .punch_time_rule import *
 from .punch_time_simple_rule import *
+from .query_time_block_record import *
 from .region_place import *
 from .remedy_record import *
 from .report_data import *

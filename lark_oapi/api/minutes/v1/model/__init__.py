@@ -8,8 +8,10 @@ from .minutes_filter import *
 from .minutes_meta import *
 from .minutes_search_item import *
 from .statictics import *
+from .subscription_meeting import *
 from .time_range import *
 from .transcript_word import *
+from .transcript_word_replace_count import *
 from .user_id import *
 from .user_view_detail import *
 from .artifacts_minute_request import *

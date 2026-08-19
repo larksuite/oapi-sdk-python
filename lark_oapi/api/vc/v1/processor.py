@@ -3,6 +3,10 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_vc_bot_meeting_activity_v1 import P2VcBotMeetingActivityV1
+from .model.p2_vc_bot_meeting_ended_v1 import P2VcBotMeetingEndedV1
+from .model.p2_vc_bot_meeting_invited_v1 import P2VcBotMeetingInvitedV1
+from .model.p2_vc_bot_meeting_started_v1 import P2VcBotMeetingStartedV1
 from .model.p2_vc_meeting_all_meeting_ended_v1 import P2VcMeetingAllMeetingEndedV1
 from .model.p2_vc_meeting_all_meeting_started_v1 import P2VcMeetingAllMeetingStartedV1
 from .model.p2_vc_meeting_join_meeting_v1 import P2VcMeetingJoinMeetingV1
@@ -25,6 +29,50 @@ from .model.p2_vc_room_updated_v1 import P2VcRoomUpdatedV1
 from .model.p2_vc_room_level_created_v1 import P2VcRoomLevelCreatedV1
 from .model.p2_vc_room_level_deleted_v1 import P2VcRoomLevelDeletedV1
 from .model.p2_vc_room_level_updated_v1 import P2VcRoomLevelUpdatedV1
+
+
+class P2VcBotMeetingActivityV1Processor(IEventProcessor[P2VcBotMeetingActivityV1]):
+    def __init__(self, f: Callable[[P2VcBotMeetingActivityV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcBotMeetingActivityV1]:
+        return P2VcBotMeetingActivityV1
+
+    def do(self, data: P2VcBotMeetingActivityV1) -> None:
+        self.f(data)
+
+
+class P2VcBotMeetingEndedV1Processor(IEventProcessor[P2VcBotMeetingEndedV1]):
+    def __init__(self, f: Callable[[P2VcBotMeetingEndedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcBotMeetingEndedV1]:
+        return P2VcBotMeetingEndedV1
+
+    def do(self, data: P2VcBotMeetingEndedV1) -> None:
+        self.f(data)
+
+
+class P2VcBotMeetingInvitedV1Processor(IEventProcessor[P2VcBotMeetingInvitedV1]):
+    def __init__(self, f: Callable[[P2VcBotMeetingInvitedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcBotMeetingInvitedV1]:
+        return P2VcBotMeetingInvitedV1
+
+    def do(self, data: P2VcBotMeetingInvitedV1) -> None:
+        self.f(data)
+
+
+class P2VcBotMeetingStartedV1Processor(IEventProcessor[P2VcBotMeetingStartedV1]):
+    def __init__(self, f: Callable[[P2VcBotMeetingStartedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2VcBotMeetingStartedV1]:
+        return P2VcBotMeetingStartedV1
+
+    def do(self, data: P2VcBotMeetingStartedV1) -> None:
+        self.f(data)
 
 
 class P2VcMeetingAllMeetingEndedV1Processor(

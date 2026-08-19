@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .qa_image_property import QaImageProperty
 from .qa_ref_property import QaRefProperty
 from .qa_board_property import QaBoardProperty
+from .qa_chat_property import QaChatProperty
 
 
 class Annotation(object):
@@ -14,6 +15,7 @@ class Annotation(object):
         "image": QaImageProperty,
         "ref": QaRefProperty,
         "board": QaBoardProperty,
+        "chat": QaChatProperty,
     }
 
     def __init__(self, d=None):
@@ -22,6 +24,7 @@ class Annotation(object):
         self.image: Optional[QaImageProperty] = None
         self.ref: Optional[QaRefProperty] = None
         self.board: Optional[QaBoardProperty] = None
+        self.chat: Optional[QaChatProperty] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -51,6 +54,10 @@ class AnnotationBuilder(object):
 
     def board(self, board: QaBoardProperty) -> "AnnotationBuilder":
         self._annotation.board = board
+        return self
+
+    def chat(self, chat: QaChatProperty) -> "AnnotationBuilder":
+        self._annotation.chat = chat
         return self
 
     def build(self) -> "Annotation":

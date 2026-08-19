@@ -6,6 +6,7 @@ from .i18n import I18n
 from .i18n import I18n
 from .enum import Enum
 from .enum import Enum
+from .object_field_data import ObjectFieldData
 
 
 class LocationUpdate(object):
@@ -21,6 +22,7 @@ class LocationUpdate(object):
         "locale": Enum,
         "time_zone_id": str,
         "display_language_id": str,
+        "custom_fields": List[ObjectFieldData],
         "is_prefer_manual_encoding": bool,
     }
 
@@ -36,6 +38,7 @@ class LocationUpdate(object):
         self.locale: Optional[Enum] = None
         self.time_zone_id: Optional[str] = None
         self.display_language_id: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.is_prefer_manual_encoding: Optional[bool] = None
         init(self, d, self._types)
 
@@ -92,6 +95,12 @@ class LocationUpdateBuilder(object):
 
     def display_language_id(self, display_language_id: str) -> "LocationUpdateBuilder":
         self._location_update.display_language_id = display_language_id
+        return self
+
+    def custom_fields(
+        self, custom_fields: List[ObjectFieldData]
+    ) -> "LocationUpdateBuilder":
+        self._location_update.custom_fields = custom_fields
         return self
 
     def is_prefer_manual_encoding(

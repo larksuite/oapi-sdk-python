@@ -1,5 +1,6 @@
 from .acl import *
 from .annotation import *
+from .answer_knowledge_qa_scene_context import *
 from .batch_item_result import *
 from .callback_action import *
 from .callback_action_value import *
@@ -77,6 +78,7 @@ from .patch_schema_property import *
 from .present import *
 from .present_data_callback_dialog_request import *
 from .qa_board_property import *
+from .qa_chat_property import *
 from .qa_image_meta import *
 from .qa_image_property import *
 from .qa_ref_property import *

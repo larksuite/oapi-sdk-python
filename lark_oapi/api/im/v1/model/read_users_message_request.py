@@ -25,7 +25,10 @@ class ReadUsersMessageRequestBuilder(object):
         read_users_message_request.uri = (
             "/open-apis/im/v1/messages/:message_id/read_users"
         )
-        read_users_message_request.token_types = {AccessTokenType.TENANT}
+        read_users_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._read_users_message_request: ReadUsersMessageRequest = (
             read_users_message_request
         )

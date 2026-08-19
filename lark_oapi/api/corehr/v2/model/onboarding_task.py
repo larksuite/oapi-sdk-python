@@ -11,6 +11,7 @@ class OnboardingTask(object):
         "operator_id": str,
         "task_code": str,
         "current_operators": List[str],
+        "rejection_reason": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class OnboardingTask(object):
         self.operator_id: Optional[str] = None
         self.task_code: Optional[str] = None
         self.current_operators: Optional[List[str]] = None
+        self.rejection_reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -50,6 +52,10 @@ class OnboardingTaskBuilder(object):
         self, current_operators: List[str]
     ) -> "OnboardingTaskBuilder":
         self._onboarding_task.current_operators = current_operators
+        return self
+
+    def rejection_reason(self, rejection_reason: str) -> "OnboardingTaskBuilder":
+        self._onboarding_task.rejection_reason = rejection_reason
         return self
 
     def build(self) -> "OnboardingTask":

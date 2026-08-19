@@ -29,6 +29,8 @@ from .common_head import *
 from .cover_option import *
 from .department_id import *
 from .docs_link import *
+from .document import *
+from .document_change import *
 from .export_task import *
 from .file import *
 from .file_block_change_info import *
