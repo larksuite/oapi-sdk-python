@@ -6,7 +6,7 @@ import json
 import random
 import time
 from typing import Callable, Dict, Mapping, Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, urlunparse, urlencode
 
 import requests
 import websockets
@@ -28,12 +28,6 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
-try:
-    loop = asyncio.get_event_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
 
 def _get_by_key(headers: RepeatedCompositeFieldContainer, key: str) -> str:
     for header in headers:
@@ -41,6 +35,31 @@ def _get_by_key(headers: RepeatedCompositeFieldContainer, key: str) -> str:
             return header.value
 
     raise HeaderNotFoundException(key)
+
+
+# Query parameters on the WS endpoint URL whose values are credentials
+# (access_key, ticket) and must never appear in logs.
+_SENSITIVE_QUERY_KEYS = ("access_key", "ticket")
+
+
+def _redact_conn_url(url: Optional[str]) -> Optional[str]:
+    """Return a copy of ``url`` safe for logging.
+
+    The WS endpoint URL carries ``access_key`` and ``ticket`` credentials as
+    query parameters; those values are masked while the rest of the URL
+    (scheme, host, path, other params) is preserved. The returned URL must
+    only be used for logging - never for connecting.
+    """
+    if not url:
+        return url
+    u = urlparse(url)
+    if not u.query:
+        return url
+    q = parse_qs(u.query, keep_blank_values=True)
+    for key in _SENSITIVE_QUERY_KEYS:
+        if key in q:
+            q[key] = ["***"]
+    return urlunparse(u._replace(query=urlencode(q, doseq=True)))
 
 
 def _new_ping_frame(service_id: int) -> Frame:
@@ -151,7 +170,13 @@ class Client(object):
         self._reconnect_interval: int = 120
         self._ping_interval: int = 120
         self._cache: ExpiringCache = ExpiringCache(clear_interval=30)
-        self._lock = asyncio.Lock()
+        # Event loop owned by this client instance (created lazily on first
+        # use). Previously a module-level global was shared by every client,
+        # which broke multi-bot setups (issues #119 / #133).
+        self._loop: Optional[asyncio.AbstractEventLoop] = None
+        # asyncio primitives bind to an event loop; created lazily on the
+        # client's own loop so it never binds to a foreign loop.
+        self._lock: Optional[asyncio.Lock] = None
         # Observer hooks for higher-level wrappers (e.g. FeishuChannel) to
         # react to reconnect lifecycle. ``on_reconnecting`` fires when the
         # client decides a connection was lost and starts retrying;
@@ -161,7 +186,28 @@ class Client(object):
         self.on_reconnected: Callable[[], None] = lambda: None
         logger.setLevel(log_level.value)
 
+    def _get_loop(self) -> asyncio.AbstractEventLoop:
+        """Return the event loop this client runs on.
+
+        Every client owns a dedicated loop, created lazily on first use, so
+        multiple clients (multi-bot, one thread per bot) never share a loop,
+        and a client constructed inside an already-running loop (e.g. inside
+        ``asyncio.run``) is not tied to it. See issues #119 / #133.
+        """
+        if self._loop is None or self._loop.is_closed():
+            self._loop = asyncio.new_event_loop()
+        return self._loop
+
+    def _get_lock(self) -> asyncio.Lock:
+        # asyncio primitives bind to the running loop when created; create the
+        # lock lazily (from a coroutine running on the client's own loop) so
+        # it never binds to a foreign loop.
+        if self._lock is None:
+            self._lock = asyncio.Lock()
+        return self._lock
+
     def start(self) -> None:
+        loop = self._get_loop()
         try:
             loop.run_until_complete(self._connect())
         except ClientException as e:
@@ -191,7 +237,8 @@ class Client(object):
                 await asyncio.sleep(self._ping_interval)
 
     async def _connect(self) -> None:
-        await self._lock.acquire()
+        lock = self._get_lock()
+        await lock.acquire()
         if self._conn is not None:
             return
         try:
@@ -207,12 +254,12 @@ class Client(object):
             self._conn_id = conn_id
             self._service_id = service_id
 
-            logger.info(self._fmt_log("connected to {}", conn_url))
-            loop.create_task(self._receive_message_loop())
+            logger.info(self._fmt_log("connected to {}", _redact_conn_url(conn_url)))
+            asyncio.get_running_loop().create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
-            self._lock.release()
+            lock.release()
 
     async def _receive_message_loop(self):
         try:
@@ -220,7 +267,7 @@ class Client(object):
                 if self._conn is None:
                     raise ConnectionClosedException("connection is closed")
                 msg = await self._conn.recv()
-                loop.create_task(self._handle_message(msg))
+                asyncio.get_running_loop().create_task(self._handle_message(msg))
         except Exception as e:
             logger.error(self._fmt_log("receive message loop exit, err: {}", e))
             await self._disconnect()
@@ -413,7 +460,7 @@ class Client(object):
             if self._conn is None:
                 return
             await self._conn.close()
-            logger.info(self._fmt_log("disconnected to {}", self._conn_url))
+            logger.info(self._fmt_log("disconnected to {}", _redact_conn_url(self._conn_url)))
         finally:
             self._conn = None
             self._conn_url = ""
