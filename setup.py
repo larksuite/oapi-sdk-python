@@ -31,7 +31,9 @@ setup(
         "requests>=2.25",
         "requests_toolbelt>=0.9",
         "pycryptodome>=3.9",
-        "websockets>=11,<16",
+        # websockets 16 requires Python >=3.10; pip selects an older compatible
+        # release when installing the SDK on Python 3.8 or 3.9.
+        "websockets>=11,<17",
         "httpx>=0.24,<1.0",
     ],
     extras_require={
