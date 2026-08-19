@@ -13,7 +13,7 @@ class ChildrenDepartmentRequest(BaseRequest):
         self.fetch_child: Optional[bool] = None
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
-        self.department_id: Optional[int] = None
+        self.department_id: Optional[str] = None
 
     @staticmethod
     def builder() -> "ChildrenDepartmentRequestBuilder":
@@ -64,9 +64,9 @@ class ChildrenDepartmentRequestBuilder(object):
         self._children_department_request.add_query("page_token", page_token)
         return self
 
-    def department_id(self, department_id: int) -> "ChildrenDepartmentRequestBuilder":
+    def department_id(self, department_id: str) -> "ChildrenDepartmentRequestBuilder":
         self._children_department_request.department_id = department_id
-        self._children_department_request.paths["department_id"] = str(department_id)
+        self._children_department_request.paths["department_id"] = department_id
         return self
 
     def build(self) -> ChildrenDepartmentRequest:
