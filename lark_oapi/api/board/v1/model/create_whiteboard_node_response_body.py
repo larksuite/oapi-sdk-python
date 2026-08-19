@@ -8,11 +8,13 @@ class CreateWhiteboardNodeResponseBody(object):
     _types = {
         "ids": List[str],
         "client_token": str,
+        "previous_revision": int,
     }
 
     def __init__(self, d=None):
         self.ids: Optional[List[str]] = None
         self.client_token: Optional[str] = None
+        self.previous_revision: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,6 +34,12 @@ class CreateWhiteboardNodeResponseBodyBuilder(object):
         self, client_token: str
     ) -> "CreateWhiteboardNodeResponseBodyBuilder":
         self._create_whiteboard_node_response_body.client_token = client_token
+        return self
+
+    def previous_revision(
+        self, previous_revision: int
+    ) -> "CreateWhiteboardNodeResponseBodyBuilder":
+        self._create_whiteboard_node_response_body.previous_revision = previous_revision
         return self
 
     def build(self) -> "CreateWhiteboardNodeResponseBody":

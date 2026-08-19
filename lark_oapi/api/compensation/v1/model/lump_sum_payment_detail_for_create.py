@@ -15,7 +15,8 @@ class LumpSumPaymentDetailForCreate(object):
         "issuance_pay_group_id": str,
         "detail_reference_period_start_date": str,
         "detail_reference_period_end_date": str,
-        "is_not_issued_due_to_offboardings": int,
+        "is_not_issued_due_to_offboarding": int,
+        "issuance_index": int,
     }
 
     def __init__(self, d=None):
@@ -28,7 +29,8 @@ class LumpSumPaymentDetailForCreate(object):
         self.issuance_pay_group_id: Optional[str] = None
         self.detail_reference_period_start_date: Optional[str] = None
         self.detail_reference_period_end_date: Optional[str] = None
-        self.is_not_issued_due_to_offboardings: Optional[int] = None
+        self.is_not_issued_due_to_offboarding: Optional[int] = None
+        self.issuance_index: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -98,12 +100,18 @@ class LumpSumPaymentDetailForCreateBuilder(object):
         )
         return self
 
-    def is_not_issued_due_to_offboardings(
-        self, is_not_issued_due_to_offboardings: int
+    def is_not_issued_due_to_offboarding(
+        self, is_not_issued_due_to_offboarding: int
     ) -> "LumpSumPaymentDetailForCreateBuilder":
-        self._lump_sum_payment_detail_for_create.is_not_issued_due_to_offboardings = (
-            is_not_issued_due_to_offboardings
+        self._lump_sum_payment_detail_for_create.is_not_issued_due_to_offboarding = (
+            is_not_issued_due_to_offboarding
         )
+        return self
+
+    def issuance_index(
+        self, issuance_index: int
+    ) -> "LumpSumPaymentDetailForCreateBuilder":
+        self._lump_sum_payment_detail_for_create.issuance_index = issuance_index
         return self
 
     def build(self) -> "LumpSumPaymentDetailForCreate":

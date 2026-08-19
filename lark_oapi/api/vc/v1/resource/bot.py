@@ -11,6 +11,12 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.events_bot_request import EventsBotRequest
 from ..model.events_bot_response import EventsBotResponse
+from ..model.join_bot_request import JoinBotRequest
+from ..model.join_bot_response import JoinBotResponse
+from ..model.leave_bot_request import LeaveBotRequest
+from ..model.leave_bot_response import LeaveBotResponse
+from ..model.message_bot_request import MessageBotRequest
+from ..model.message_bot_response import MessageBotResponse
 from ..model.user_active_meeting_bot_request import UserActiveMeetingBotRequest
 from ..model.user_active_meeting_bot_response import UserActiveMeetingBotResponse
 
@@ -58,6 +64,138 @@ class Bot(object):
         # 反序列化
         response: EventsBotResponse = JSON.unmarshal(
             str(resp.content, UTF_8), EventsBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def join(
+        self, request: JoinBotRequest, option: Optional[RequestOption] = None
+    ) -> JoinBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: JoinBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), JoinBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def ajoin(
+        self, request: JoinBotRequest, option: Optional[RequestOption] = None
+    ) -> JoinBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: JoinBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), JoinBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def leave(
+        self, request: LeaveBotRequest, option: Optional[RequestOption] = None
+    ) -> LeaveBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: LeaveBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LeaveBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def aleave(
+        self, request: LeaveBotRequest, option: Optional[RequestOption] = None
+    ) -> LeaveBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: LeaveBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), LeaveBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    def message(
+        self, request: MessageBotRequest, option: Optional[RequestOption] = None
+    ) -> MessageBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: MessageBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MessageBotResponse
+        )
+        response.raw = resp
+
+        return response
+
+    async def amessage(
+        self, request: MessageBotRequest, option: Optional[RequestOption] = None
+    ) -> MessageBotResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: MessageBotResponse = JSON.unmarshal(
+            str(resp.content, UTF_8), MessageBotResponse
         )
         response.raw = resp
 

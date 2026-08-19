@@ -24,7 +24,10 @@ class SearchMessageRequestBuilder(object):
         search_message_request = SearchMessageRequest()
         search_message_request.http_method = HttpMethod.POST
         search_message_request.uri = "/open-apis/im/v1/messages/search"
-        search_message_request.token_types = {AccessTokenType.USER}
+        search_message_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._search_message_request: SearchMessageRequest = search_message_request
 
     def page_size(self, page_size: int) -> "SearchMessageRequestBuilder":

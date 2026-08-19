@@ -12,6 +12,7 @@ class Notice(object):
         "file_token": str,
         "from_user_id": UserId,
         "to_user_id": UserId,
+        "from_user_type": str,
         "notice_type": str,
     }
 
@@ -20,6 +21,7 @@ class Notice(object):
         self.file_token: Optional[str] = None
         self.from_user_id: Optional[UserId] = None
         self.to_user_id: Optional[UserId] = None
+        self.from_user_type: Optional[str] = None
         self.notice_type: Optional[str] = None
         init(self, d, self._types)
 
@@ -46,6 +48,10 @@ class NoticeBuilder(object):
 
     def to_user_id(self, to_user_id: UserId) -> "NoticeBuilder":
         self._notice.to_user_id = to_user_id
+        return self
+
+    def from_user_type(self, from_user_type: str) -> "NoticeBuilder":
+        self._notice.from_user_type = from_user_type
         return self
 
     def notice_type(self, notice_type: str) -> "NoticeBuilder":

@@ -17,6 +17,12 @@ from .content_text_run import *
 from .content_text_style import *
 from .cycle import *
 from .department_id import *
+from .event_content_block import *
+from .event_content_block_element import *
+from .event_content_mention import *
+from .event_content_paragraph import *
+from .event_content_paragraph_element import *
+from .event_owner import *
 from .indicator import *
 from .indicator_unit import *
 from .key_result import *
@@ -26,6 +32,7 @@ from .objective_weight import *
 from .owner import *
 from .progress import *
 from .progress_rate import *
+from .user_id import *
 from .delete_okr_alignment_request import *
 from .get_okr_alignment_request import *
 from .list_okr_category_request import *

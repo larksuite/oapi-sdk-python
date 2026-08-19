@@ -12,6 +12,7 @@ class P2DriveNoticeCommentAddV1Data(object):
         "comment_id": str,
         "reply_id": str,
         "is_mentioned": bool,
+        "visibility": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class P2DriveNoticeCommentAddV1Data(object):
         self.comment_id: Optional[str] = None
         self.reply_id: Optional[str] = None
         self.is_mentioned: Optional[bool] = None
+        self.visibility: Optional[str] = None
         init(self, d, self._types)
 
 

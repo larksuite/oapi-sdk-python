@@ -46,6 +46,8 @@ from .feed_group_updater import *
 from .flag_item import *
 from .follow_up import *
 from .group_item_failed_reason import *
+from .handle_membership_application_item import *
+from .handle_membership_application_result import *
 from .i18n_content import *
 from .i18n_names import *
 from .im_depth_data import *
@@ -58,6 +60,8 @@ from .list_member import *
 from .list_members_truncation import *
 from .list_moderator import *
 from .list_notify_status import *
+from .membership_application import *
+from .membership_application_member import *
 from .mention import *
 from .mention_event import *
 from .message import *
@@ -65,6 +69,7 @@ from .message_reaction import *
 from .message_body import *
 from .message_cot import *
 from .message_query import *
+from .message_read_status import *
 from .message_search_filter import *
 from .message_search_item import *
 from .message_search_meta import *

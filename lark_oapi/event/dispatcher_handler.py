@@ -2328,6 +2328,54 @@ class EventDispatcherHandlerBuilder(object):
         )
         return self
 
+    def register_p2_vc_bot_meeting_activity_v1(
+        self, f: Callable[[P2VcBotMeetingActivityV1], None]
+    ) -> "EventDispatcherHandlerBuilder":
+        if "p2.vc.bot.meeting_activity_v1" in self._processorMap:
+            raise EventException(
+                "processor already registered, type: p2.vc.bot.meeting_activity_v1"
+            )
+        self._processorMap["p2.vc.bot.meeting_activity_v1"] = (
+            P2VcBotMeetingActivityV1Processor(f)
+        )
+        return self
+
+    def register_p2_vc_bot_meeting_ended_v1(
+        self, f: Callable[[P2VcBotMeetingEndedV1], None]
+    ) -> "EventDispatcherHandlerBuilder":
+        if "p2.vc.bot.meeting_ended_v1" in self._processorMap:
+            raise EventException(
+                "processor already registered, type: p2.vc.bot.meeting_ended_v1"
+            )
+        self._processorMap["p2.vc.bot.meeting_ended_v1"] = (
+            P2VcBotMeetingEndedV1Processor(f)
+        )
+        return self
+
+    def register_p2_vc_bot_meeting_invited_v1(
+        self, f: Callable[[P2VcBotMeetingInvitedV1], None]
+    ) -> "EventDispatcherHandlerBuilder":
+        if "p2.vc.bot.meeting_invited_v1" in self._processorMap:
+            raise EventException(
+                "processor already registered, type: p2.vc.bot.meeting_invited_v1"
+            )
+        self._processorMap["p2.vc.bot.meeting_invited_v1"] = (
+            P2VcBotMeetingInvitedV1Processor(f)
+        )
+        return self
+
+    def register_p2_vc_bot_meeting_started_v1(
+        self, f: Callable[[P2VcBotMeetingStartedV1], None]
+    ) -> "EventDispatcherHandlerBuilder":
+        if "p2.vc.bot.meeting_started_v1" in self._processorMap:
+            raise EventException(
+                "processor already registered, type: p2.vc.bot.meeting_started_v1"
+            )
+        self._processorMap["p2.vc.bot.meeting_started_v1"] = (
+            P2VcBotMeetingStartedV1Processor(f)
+        )
+        return self
+
     def register_p2_vc_meeting_all_meeting_ended_v1(
         self, f: Callable[[P2VcMeetingAllMeetingEndedV1], None]
     ) -> "EventDispatcherHandlerBuilder":

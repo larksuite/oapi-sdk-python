@@ -24,7 +24,10 @@ class SearchMinuteRequestBuilder(object):
         search_minute_request = SearchMinuteRequest()
         search_minute_request.http_method = HttpMethod.POST
         search_minute_request.uri = "/open-apis/minutes/v1/minutes/search"
-        search_minute_request.token_types = {AccessTokenType.USER}
+        search_minute_request.token_types = {
+            AccessTokenType.USER,
+            AccessTokenType.TENANT,
+        }
         self._search_minute_request: SearchMinuteRequest = search_minute_request
 
     def page_size(self, page_size: int) -> "SearchMinuteRequestBuilder":

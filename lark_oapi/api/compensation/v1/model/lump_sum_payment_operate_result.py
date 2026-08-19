@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .lump_sum_payment_detail_operate_result import LumpSumPaymentDetailOperateResult
 
 
 class LumpSumPaymentOperateResult(object):
@@ -10,6 +11,7 @@ class LumpSumPaymentOperateResult(object):
         "unique_id": str,
         "code": int,
         "message": str,
+        "detail_results": List[LumpSumPaymentDetailOperateResult],
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,7 @@ class LumpSumPaymentOperateResult(object):
         self.unique_id: Optional[str] = None
         self.code: Optional[int] = None
         self.message: Optional[str] = None
+        self.detail_results: Optional[List[LumpSumPaymentDetailOperateResult]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +45,12 @@ class LumpSumPaymentOperateResultBuilder(object):
 
     def message(self, message: str) -> "LumpSumPaymentOperateResultBuilder":
         self._lump_sum_payment_operate_result.message = message
+        return self
+
+    def detail_results(
+        self, detail_results: List[LumpSumPaymentDetailOperateResult]
+    ) -> "LumpSumPaymentOperateResultBuilder":
+        self._lump_sum_payment_operate_result.detail_results = detail_results
         return self
 
     def build(self) -> "LumpSumPaymentOperateResult":

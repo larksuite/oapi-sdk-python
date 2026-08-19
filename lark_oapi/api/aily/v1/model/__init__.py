@@ -71,12 +71,14 @@ from .session import *
 from .skill import *
 from .skill_base_info import *
 from .skill_call import *
+from .skill_category_info_for_open_api import *
 from .skill_global_variable import *
 from .skill_instance import *
 from .source_setting import *
 from .suggestion import *
 from .table import *
 from .tenant_builtin_skill_detail import *
+from .tenant_builtin_skill_operation_info import *
 from .visibility_config import *
 from .visibility_entity import *
 from .get_agent_agent_artifact_request import *

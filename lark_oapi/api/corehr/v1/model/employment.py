@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .enum import Enum
 from .enum import Enum
+from .enum import Enum
 from .object_field_data import ObjectFieldData
 from .email import Email
 from .enum import Enum
@@ -30,11 +31,14 @@ class Employment(object):
         "employee_number": str,
         "effective_time": str,
         "expiration_time": str,
+        "recruitment_type": Enum,
         "employment_type": Enum,
         "person_id": str,
         "probation_period": int,
         "on_probation": str,
         "probation_end_date": str,
+        "whether_to_pay_social_security_elsewhere": bool,
+        "whether_returnee": bool,
         "primary_employment": bool,
         "condition_worker": bool,
         "employment_status": Enum,
@@ -67,11 +71,14 @@ class Employment(object):
         self.employee_number: Optional[str] = None
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
+        self.recruitment_type: Optional[Enum] = None
         self.employment_type: Optional[Enum] = None
         self.person_id: Optional[str] = None
         self.probation_period: Optional[int] = None
         self.on_probation: Optional[str] = None
         self.probation_end_date: Optional[str] = None
+        self.whether_to_pay_social_security_elsewhere: Optional[bool] = None
+        self.whether_returnee: Optional[bool] = None
         self.primary_employment: Optional[bool] = None
         self.condition_worker: Optional[bool] = None
         self.employment_status: Optional[Enum] = None
@@ -157,6 +164,10 @@ class EmploymentBuilder(object):
         self._employment.expiration_time = expiration_time
         return self
 
+    def recruitment_type(self, recruitment_type: Enum) -> "EmploymentBuilder":
+        self._employment.recruitment_type = recruitment_type
+        return self
+
     def employment_type(self, employment_type: Enum) -> "EmploymentBuilder":
         self._employment.employment_type = employment_type
         return self
@@ -175,6 +186,18 @@ class EmploymentBuilder(object):
 
     def probation_end_date(self, probation_end_date: str) -> "EmploymentBuilder":
         self._employment.probation_end_date = probation_end_date
+        return self
+
+    def whether_to_pay_social_security_elsewhere(
+        self, whether_to_pay_social_security_elsewhere: bool
+    ) -> "EmploymentBuilder":
+        self._employment.whether_to_pay_social_security_elsewhere = (
+            whether_to_pay_social_security_elsewhere
+        )
+        return self
+
+    def whether_returnee(self, whether_returnee: bool) -> "EmploymentBuilder":
+        self._employment.whether_returnee = whether_returnee
         return self
 
     def primary_employment(self, primary_employment: bool) -> "EmploymentBuilder":

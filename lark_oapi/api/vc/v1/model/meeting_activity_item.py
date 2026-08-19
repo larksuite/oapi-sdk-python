@@ -9,6 +9,7 @@ from .transcript_item import TranscriptItem
 from .chat_message_item import ChatMessageItem
 from .magic_share_started_item import MagicShareStartedItem
 from .magic_share_ended_item import MagicShareEndedItem
+from .document_context_changed_item import DocumentContextChangedItem
 
 
 class MeetingActivityItem(object):
@@ -21,6 +22,7 @@ class MeetingActivityItem(object):
         "chat_received_items": List[ChatMessageItem],
         "magic_share_started_items": List[MagicShareStartedItem],
         "magic_share_ended_items": List[MagicShareEndedItem],
+        "document_context_changed_items": List[DocumentContextChangedItem],
     }
 
     def __init__(self, d=None):
@@ -32,6 +34,9 @@ class MeetingActivityItem(object):
         self.chat_received_items: Optional[List[ChatMessageItem]] = None
         self.magic_share_started_items: Optional[List[MagicShareStartedItem]] = None
         self.magic_share_ended_items: Optional[List[MagicShareEndedItem]] = None
+        self.document_context_changed_items: Optional[
+            List[DocumentContextChangedItem]
+        ] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -93,6 +98,14 @@ class MeetingActivityItemBuilder(object):
         self, magic_share_ended_items: List[MagicShareEndedItem]
     ) -> "MeetingActivityItemBuilder":
         self._meeting_activity_item.magic_share_ended_items = magic_share_ended_items
+        return self
+
+    def document_context_changed_items(
+        self, document_context_changed_items: List[DocumentContextChangedItem]
+    ) -> "MeetingActivityItemBuilder":
+        self._meeting_activity_item.document_context_changed_items = (
+            document_context_changed_items
+        )
         return self
 
     def build(self) -> "MeetingActivityItem":

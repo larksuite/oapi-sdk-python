@@ -64,6 +64,7 @@ from .api.task.service import TaskService
 from .api.tenant.service import TenantService
 from .api.translation.service import TranslationService
 from .api.trust_party.service import TrustPartyService
+from .api.unified_kms.service import UnifiedKmsService
 from .api.vc.service import VcService
 from .api.verification.service import VerificationService
 from .api.wiki.service import WikiService
@@ -154,6 +155,7 @@ class Client(object):
         self.tenant: Optional[TenantService] = None
         self.translation: Optional[TranslationService] = None
         self.trust_party: Optional[TrustPartyService] = None
+        self.unified_kms: Optional[UnifiedKmsService] = None
         self.vc: Optional[VcService] = None
         self.verification: Optional[VerificationService] = None
         self.wiki: Optional[WikiService] = None
@@ -345,6 +347,7 @@ class ClientBuilder(object):
         client.tenant = TenantService(self._config)
         client.translation = TranslationService(self._config)
         client.trust_party = TrustPartyService(self._config)
+        client.unified_kms = UnifiedKmsService(self._config)
         client.vc = VcService(self._config)
         client.verification = VerificationService(self._config)
         client.wiki = WikiService(self._config)

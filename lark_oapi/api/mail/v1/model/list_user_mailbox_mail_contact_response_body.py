@@ -10,12 +10,14 @@ class ListUserMailboxMailContactResponseBody(object):
         "items": List[MailContact],
         "page_token": str,
         "has_more": bool,
+        "hint": str,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[MailContact]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
+        self.hint: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -45,6 +47,10 @@ class ListUserMailboxMailContactResponseBodyBuilder(object):
         self, has_more: bool
     ) -> "ListUserMailboxMailContactResponseBodyBuilder":
         self._list_user_mailbox_mail_contact_response_body.has_more = has_more
+        return self
+
+    def hint(self, hint: str) -> "ListUserMailboxMailContactResponseBodyBuilder":
+        self._list_user_mailbox_mail_contact_response_body.hint = hint
         return self
 
     def build(self) -> "ListUserMailboxMailContactResponseBody":

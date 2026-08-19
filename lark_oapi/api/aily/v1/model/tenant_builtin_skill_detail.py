@@ -3,6 +3,8 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .visibility_config import VisibilityConfig
+from .skill_category_info_for_open_api import SkillCategoryInfoForOpenApi
+from .tenant_builtin_skill_operation_info import TenantBuiltinSkillOperationInfo
 
 
 class TenantBuiltinSkillDetail(object):
@@ -16,6 +18,9 @@ class TenantBuiltinSkillDetail(object):
         "scan_fail_reason": str,
         "visibility": VisibilityConfig,
         "updated_at": str,
+        "tags_json": str,
+        "category_info": SkillCategoryInfoForOpenApi,
+        "operation_info": TenantBuiltinSkillOperationInfo,
     }
 
     def __init__(self, d=None):
@@ -28,6 +33,9 @@ class TenantBuiltinSkillDetail(object):
         self.scan_fail_reason: Optional[str] = None
         self.visibility: Optional[VisibilityConfig] = None
         self.updated_at: Optional[str] = None
+        self.tags_json: Optional[str] = None
+        self.category_info: Optional[SkillCategoryInfoForOpenApi] = None
+        self.operation_info: Optional[TenantBuiltinSkillOperationInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -77,6 +85,22 @@ class TenantBuiltinSkillDetailBuilder(object):
 
     def updated_at(self, updated_at: str) -> "TenantBuiltinSkillDetailBuilder":
         self._tenant_builtin_skill_detail.updated_at = updated_at
+        return self
+
+    def tags_json(self, tags_json: str) -> "TenantBuiltinSkillDetailBuilder":
+        self._tenant_builtin_skill_detail.tags_json = tags_json
+        return self
+
+    def category_info(
+        self, category_info: SkillCategoryInfoForOpenApi
+    ) -> "TenantBuiltinSkillDetailBuilder":
+        self._tenant_builtin_skill_detail.category_info = category_info
+        return self
+
+    def operation_info(
+        self, operation_info: TenantBuiltinSkillOperationInfo
+    ) -> "TenantBuiltinSkillDetailBuilder":
+        self._tenant_builtin_skill_detail.operation_info = operation_info
         return self
 
     def build(self) -> "TenantBuiltinSkillDetail":

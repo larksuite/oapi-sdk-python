@@ -16,7 +16,7 @@ class LumpSumPaymentDetailForUpdate(object):
         "issuance_pay_group_id": str,
         "detail_reference_period_start_date": str,
         "detail_reference_period_end_date": str,
-        "is_not_issued_due_to_offboardings": int,
+        "is_not_issued_due_to_offboarding": int,
     }
 
     def __init__(self, d=None):
@@ -30,7 +30,7 @@ class LumpSumPaymentDetailForUpdate(object):
         self.issuance_pay_group_id: Optional[str] = None
         self.detail_reference_period_start_date: Optional[str] = None
         self.detail_reference_period_end_date: Optional[str] = None
-        self.is_not_issued_due_to_offboardings: Optional[int] = None
+        self.is_not_issued_due_to_offboarding: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,11 +104,11 @@ class LumpSumPaymentDetailForUpdateBuilder(object):
         )
         return self
 
-    def is_not_issued_due_to_offboardings(
-        self, is_not_issued_due_to_offboardings: int
+    def is_not_issued_due_to_offboarding(
+        self, is_not_issued_due_to_offboarding: int
     ) -> "LumpSumPaymentDetailForUpdateBuilder":
-        self._lump_sum_payment_detail_for_update.is_not_issued_due_to_offboardings = (
-            is_not_issued_due_to_offboardings
+        self._lump_sum_payment_detail_for_update.is_not_issued_due_to_offboarding = (
+            is_not_issued_due_to_offboarding
         )
         return self
 
