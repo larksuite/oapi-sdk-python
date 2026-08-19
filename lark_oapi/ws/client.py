@@ -6,7 +6,7 @@ import json
 import random
 import time
 from typing import Callable, Dict, Mapping, Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, unquote_plus, urlparse, urlsplit, urlunsplit
 
 import requests
 import websockets
@@ -63,6 +63,21 @@ def _ordinal(n: int):
     else:
         suffix = suffixes.get(n % 10, 'th')
     return str(n) + suffix
+
+
+def _redact_ws_url(url: str) -> str:
+    parsed = urlsplit(url)
+    if not parsed.query:
+        return url
+
+    redacted_query = []
+    for parameter in parsed.query.split("&"):
+        key, separator, _ = parameter.partition("=")
+        if separator and unquote_plus(key) in {"access_key", "ticket"}:
+            parameter = f"{key}=REDACTED"
+        redacted_query.append(parameter)
+
+    return urlunsplit(parsed._replace(query="&".join(redacted_query)))
 
 
 async def _select():
@@ -207,7 +222,7 @@ class Client(object):
             self._conn_id = conn_id
             self._service_id = service_id
 
-            logger.info(self._fmt_log("connected to {}", conn_url))
+            logger.info(self._fmt_log("connected to {}", _redact_ws_url(conn_url)))
             loop.create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
@@ -413,7 +428,7 @@ class Client(object):
             if self._conn is None:
                 return
             await self._conn.close()
-            logger.info(self._fmt_log("disconnected to {}", self._conn_url))
+            logger.info(self._fmt_log("disconnected to {}", _redact_ws_url(self._conn_url)))
         finally:
             self._conn = None
             self._conn_url = ""
