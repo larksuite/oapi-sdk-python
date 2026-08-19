@@ -28,12 +28,6 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
-try:
-    loop = asyncio.get_event_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
 
 def _get_by_key(headers: RepeatedCompositeFieldContainer, key: str) -> str:
     for header in headers:
@@ -151,7 +145,13 @@ class Client(object):
         self._reconnect_interval: int = 120
         self._ping_interval: int = 120
         self._cache: ExpiringCache = ExpiringCache(clear_interval=30)
-        self._lock = asyncio.Lock()
+        # Event loop owned by this client instance (created lazily on first
+        # use). Previously a module-level global was shared by every client,
+        # which broke multi-bot setups (issues #119 / #133).
+        self._loop: Optional[asyncio.AbstractEventLoop] = None
+        # asyncio primitives bind to an event loop; created lazily on the
+        # client's own loop so it never binds to a foreign loop.
+        self._lock: Optional[asyncio.Lock] = None
         # Observer hooks for higher-level wrappers (e.g. FeishuChannel) to
         # react to reconnect lifecycle. ``on_reconnecting`` fires when the
         # client decides a connection was lost and starts retrying;
@@ -161,7 +161,28 @@ class Client(object):
         self.on_reconnected: Callable[[], None] = lambda: None
         logger.setLevel(log_level.value)
 
+    def _get_loop(self) -> asyncio.AbstractEventLoop:
+        """Return the event loop this client runs on.
+
+        Every client owns a dedicated loop, created lazily on first use, so
+        multiple clients (multi-bot, one thread per bot) never share a loop,
+        and a client constructed inside an already-running loop (e.g. inside
+        ``asyncio.run``) is not tied to it. See issues #119 / #133.
+        """
+        if self._loop is None or self._loop.is_closed():
+            self._loop = asyncio.new_event_loop()
+        return self._loop
+
+    def _get_lock(self) -> asyncio.Lock:
+        # asyncio primitives bind to the running loop when created; create the
+        # lock lazily (from a coroutine running on the client's own loop) so
+        # it never binds to a foreign loop.
+        if self._lock is None:
+            self._lock = asyncio.Lock()
+        return self._lock
+
     def start(self) -> None:
+        loop = self._get_loop()
         try:
             loop.run_until_complete(self._connect())
         except ClientException as e:
@@ -191,7 +212,8 @@ class Client(object):
                 await asyncio.sleep(self._ping_interval)
 
     async def _connect(self) -> None:
-        await self._lock.acquire()
+        lock = self._get_lock()
+        await lock.acquire()
         if self._conn is not None:
             return
         try:
@@ -208,11 +230,11 @@ class Client(object):
             self._service_id = service_id
 
             logger.info(self._fmt_log("connected to {}", conn_url))
-            loop.create_task(self._receive_message_loop())
+            asyncio.get_running_loop().create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
-            self._lock.release()
+            lock.release()
 
     async def _receive_message_loop(self):
         try:
@@ -220,7 +242,7 @@ class Client(object):
                 if self._conn is None:
                     raise ConnectionClosedException("connection is closed")
                 msg = await self._conn.recv()
-                loop.create_task(self._handle_message(msg))
+                asyncio.get_running_loop().create_task(self._handle_message(msg))
         except Exception as e:
             logger.error(self._fmt_log("receive message loop exit, err: {}", e))
             await self._disconnect()
