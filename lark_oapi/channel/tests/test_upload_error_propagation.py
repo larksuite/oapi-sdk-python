@@ -34,7 +34,7 @@ async def test_gather_buffer_missing_local_file_raises_upload_failed(tmp_path):
         await gather_buffer(source, "fallback.bin")
     err = ei.value
     assert err.code == FeishuChannelErrorCode.UPLOAD_FAILED
-    assert nonexistent in str(err)
+    assert repr(nonexistent) in str(err)
     # Concrete OSError preserved via ``from e`` — callers can inspect.
     assert err.__cause__ is not None
     assert isinstance(err.__cause__, OSError)
