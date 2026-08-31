@@ -133,6 +133,42 @@ def test_post_resources_include_images_media_audio_and_files_deduped():
     ]
 
 
+def test_post_attachment_zone_renders_files_and_folders():
+    # Attachment zone lives at the top level of the post JSON, outside the
+    # locale document: files: [{file_key, file_name, is_folder}].
+    post = {
+        "zh_cn": {
+            "title": "报告",
+            "content": [[{"tag": "text", "text": "正文"}]],
+        },
+        "files": [
+            {"file_key": "file_a", "file_name": "report.pdf"},
+            {"file_key": "file_b"},
+            {"file_key": "dir_1", "file_name": "assets", "is_folder": True},
+        ],
+    }
+
+    t, r = flatten(PostContent(post=post))
+
+    assert "# 报告" in t
+    assert '正文' in t
+    assert '<file key="file_a" name="report.pdf"/>' in t
+    assert '<file key="file_b"/>' in t
+    assert '<folder key="dir_1" name="assets"/>' in t
+    # Files are downloadable resources; folders are tag-only.
+    assert [(x.type, x.file_key, x.file_name) for x in r] == [
+        ("file", "file_a", "report.pdf"),
+        ("file", "file_b", None),
+    ]
+
+
+def test_post_attachment_zone_ignores_empty_files():
+    post = {"zh_cn": {"content": [[{"tag": "text", "text": "hi"}]]}, "files": []}
+    t, r = flatten(PostContent(post=post))
+    assert "hi" in t
+    assert r == []
+
+
 def test_post_direct_document_shape_flattens_text_and_resources():
     post = {
         "title": "Direct",

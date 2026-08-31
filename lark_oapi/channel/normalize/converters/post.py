@@ -3,12 +3,29 @@
 from typing import Any, Dict, List, Tuple
 
 from ...types import PostContent, ResourceDescriptor
+from ._utils import attr
 
 
 def convert(content: PostContent) -> Tuple[str, List[ResourceDescriptor]]:
     md = _post_to_markdown(content.post) if content.post else content.text
     resources = _post_resources(content.post) if content.post else []
     return md, resources
+
+
+def _attachment_files(post: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Top-level attachment zone (``files`` array) of a post message.
+
+    The rich-text attachment zone lives at the top level of the post JSON,
+    outside any locale document: ``files: [{file_key, file_name, is_folder}]``.
+    Standalone file/folder tags are rendered the same way as the file/folder
+    message converters (``<file key="..." name="..."/>`` / ``<folder .../>``).
+    """
+    if not isinstance(post, dict):
+        return []
+    files = post.get("files")
+    if not isinstance(files, list):
+        return []
+    return [f for f in files if isinstance(f, dict) and isinstance(f.get("file_key"), str) and f["file_key"]]
 
 
 def _iter_documents(post: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -68,6 +85,19 @@ def _post_to_markdown(post: Dict[str, Any]) -> str:
         line = "".join(chunks)
         if line:
             lines.append(line)
+    for f in _attachment_files(post):
+        key = f["file_key"]
+        name = f.get("file_name") or ""
+        if f.get("is_folder"):
+            if name:
+                lines.append(f'<folder key="{key}" name="{attr(name)}"/>')
+            else:
+                lines.append(f'<folder key="{key}"/>')
+        else:
+            if name:
+                lines.append(f'<file key="{key}" name="{attr(name)}"/>')
+            else:
+                lines.append(f'<file key="{key}"/>')
     return "\n\n".join(lines).strip()
 
 
@@ -104,4 +134,10 @@ def _post_resources(post: Dict[str, Any]) -> List[ResourceDescriptor]:
                     add("audio", el.get("file_key"))
                 elif tag == "file":
                     add("file", el.get("file_key"), file_name=el.get("file_name"))
+    # Attachment zone: files are downloadable resources; folders are rendered
+    # as tags only (mirrors the standalone folder converter, resources=[]).
+    for f in _attachment_files(post):
+        if f.get("is_folder"):
+            continue
+        add("file", f.get("file_key"), file_name=f.get("file_name"))
     return resources
