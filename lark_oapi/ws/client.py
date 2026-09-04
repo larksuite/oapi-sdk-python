@@ -28,6 +28,10 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
+
+_ENDPOINT_CONNECT_TIMEOUT = 10
+_ENDPOINT_READ_TIMEOUT = 30
+
 try:
     loop = asyncio.get_event_loop()
 except RuntimeError:
@@ -262,6 +266,7 @@ class Client(object):
             url,
             headers=headers,
             json=body,
+            timeout=(_ENDPOINT_CONNECT_TIMEOUT, _ENDPOINT_READ_TIMEOUT),
         )
         if response.status_code != http.HTTPStatus.OK:
             msg = "system busy"

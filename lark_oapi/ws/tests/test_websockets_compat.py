@@ -52,10 +52,11 @@ def test_parse_ws_connection_exception_keeps_legacy_headers_behavior():
 def test_get_conn_url_sends_custom_headers(monkeypatch):
     captured = {}
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         captured["url"] = url
         captured["headers"] = headers
         captured["json"] = json
+        captured["timeout"] = timeout
         return SimpleNamespace(
             status_code=200,
             content=b'{"code":0,"data":{"URL":"ws://example.test/callback?device_id=device&service_id=42"}}',
@@ -76,6 +77,7 @@ def test_get_conn_url_sends_custom_headers(monkeypatch):
     assert client._get_conn_url() == "ws://example.test/callback?device_id=device&service_id=42"
     assert captured["url"] == client._domain + ws_client.GEN_ENDPOINT_URI
     assert captured["json"] == {"AppID": "app_id", "AppSecret": "app_secret"}
+    assert captured["timeout"] == (10, 30)
     assert captured["headers"]["x-tt-env"] == "boe"
     assert captured["headers"]["x-use-ppe"] == "1"
     assert captured["headers"]["locale"] == "zh"
