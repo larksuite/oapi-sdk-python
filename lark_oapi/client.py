@@ -12,6 +12,7 @@ from .core.access_token import AccessToken
 from .core.http import Transport
 from .api.acs.service import AcsService
 from .api.admin.service import AdminService
+from .api.agent.service import AgentService
 from .api.aily.service import AilyService
 from .api.apaas.service import ApaasService
 from .api.application.service import ApplicationService
@@ -103,6 +104,7 @@ class Client(object):
         self._config: Optional[Config] = None
         self.acs: Optional[AcsService] = None
         self.admin: Optional[AdminService] = None
+        self.agent: Optional[AgentService] = None
         self.aily: Optional[AilyService] = None
         self.apaas: Optional[ApaasService] = None
         self.application: Optional[ApplicationService] = None
@@ -295,6 +297,7 @@ class ClientBuilder(object):
         # 初始化 服务
         client.acs = AcsService(self._config)
         client.admin = AdminService(self._config)
+        client.agent = AgentService(self._config)
         client.aily = AilyService(self._config)
         client.apaas = ApaasService(self._config)
         client.application = ApplicationService(self._config)
