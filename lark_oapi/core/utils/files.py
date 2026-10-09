@@ -1,4 +1,5 @@
 import io
+import os
 from email.utils import decode_rfc2231
 from typing import Any, Dict, Optional
 from urllib.parse import unquote
@@ -42,14 +43,17 @@ class Files(object):
     def parse_form_data(obj: Any) -> Dict[str, Any]:
         fd = {}
         if isinstance(obj, dict):
-            fd = obj
+            fd = dict(obj)
         elif not hasattr(obj, "__dict__"):
             return fd
         else:
-            fd = vars(obj)
+            fd = dict(vars(obj))
 
         for k, v in fd.items():
-            if v is None or isinstance(v, io.IOBase) or isinstance(v, tuple):
+            if isinstance(v, (io.IOBase, tuple)):
+                fd[k] = Files._file_value(obj, k, v)
+                continue
+            if v is None:
                 continue
             fd[k] = str(v)
 
@@ -63,8 +67,8 @@ class Files(object):
         if isinstance(obj, dict):
             to_del_keys = []
             for k, v in obj.items():
-                if isinstance(v, io.IOBase):
-                    files[k] = v
+                if isinstance(v, (io.IOBase, tuple)):
+                    files[k] = Files._file_value(obj, k, v)
                     to_del_keys.append(k)
             for k in to_del_keys:
                 del obj[k]
@@ -72,8 +76,27 @@ class Files(object):
             return None
         else:
             for k, v in vars(obj).items():
-                if isinstance(v, io.IOBase):
-                    files[k] = v
+                if isinstance(v, (io.IOBase, tuple)):
+                    files[k] = Files._file_value(obj, k, v)
                     setattr(obj, k, None)
 
         return files
+
+    @staticmethod
+    def _file_value(obj: Any, field: str, value: Any):
+        """Normalize filenames while retaining the stream and tuple MIME/headers."""
+        filename_field = getattr(obj, "_file_names", {}).get(field)
+        filename = getattr(obj, filename_field, None) if filename_field else None
+        if filename is not None and not isinstance(filename, str):
+            raise ValueError("upload filename must be a string")
+        if filename:
+            if filename in (".", "..") or any(c in filename for c in "/\\\r\n\x00"):
+                raise ValueError("upload filename must not contain paths or control characters")
+            if isinstance(value, tuple):
+                return (filename,) + value[1:]
+            return (filename, value)
+        if isinstance(value, tuple):
+            return value
+        name = getattr(value, "name", None)
+        filename = os.path.basename(name) if isinstance(name, str) else "upload"
+        return (filename or "upload", value)

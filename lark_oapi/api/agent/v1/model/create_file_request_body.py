@@ -5,6 +5,9 @@ from lark_oapi.core.construct import init
 
 
 class CreateFileRequestBody(object):
+    _file_names = {
+        "file": "filename",
+    }
     _types = {
         "file": IO[Any],
         "uuid": str,
