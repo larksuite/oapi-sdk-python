@@ -1,5 +1,7 @@
 # Feishu OpenPlatform Server SDK for Python
 
+Agent v1 runnable examples (chat, SSE, uploads, resume and interruption): [guide / 中文说明](./samples/agent/README.md).
+
 [中文](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/README.zh.md)
 
 The Feishu Open Platform provides server-side APIs for messaging, contacts,
