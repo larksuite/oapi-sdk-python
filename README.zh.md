@@ -228,3 +228,11 @@ MIT
 [_单击_](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=575k28fa-2c12-400a-80c0-2d8924e00d38)或扫码加入讨论群。
 
 <img src="doc/qrcode.png" width="200" alt="讨论群">
+
+## Webhook 来源校验
+
+未配置 EncryptKey 且显式配置非空 VerificationToken 时，SDK 会在分发普通事件和回调前严格校验 token：v1 使用顶层 `token`，v2 使用 `header.token`；缺失、null、空字符串、非字符串或不匹配均拒绝。显式配置 VerificationToken 后，challenge 请求同样必须通过校验。
+
+两个凭证都为空时保留原有行为。加密事件继续使用现有解密和签名校验；长连接继续通过内部可信分发路径处理。
+
+回滚：撤销本次修复会恢复已配置 VerificationToken 却未严格校验的缺口；回滚前应确保 Webhook 入口已有独立来源校验。
