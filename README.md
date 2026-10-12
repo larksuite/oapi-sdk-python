@@ -244,3 +244,23 @@ MIT
 
 Click [Server SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN)
 in the upper right corner of the documentation page and submit feedback.
+
+## Webhook authentication
+
+When no EncryptKey is configured and a nonempty VerificationToken is explicitly supplied, the SDK validates the token before invoking event or callback handlers: top-level `token` for v1 and `header.token` for v2. Missing, null, empty, non-string, or mismatched tokens are rejected. Challenge responses also validate explicitly configured verification tokens.
+
+Leaving both credentials empty retains the previous behavior. Encrypted events retain existing decryption and signature checks, and WebSocket clients continue using trusted internal dispatch.
+
+Rollback: reverting this change restores the validation gap for explicitly configured VerificationTokens. Keep independent webhook authentication in place before rolling back.
+
+### Runtime webhook credentials
+
+Register a combined provider while building the handler:
+
+```python
+handler = (lark.EventDispatcherHandler.builder("", "")
+    .webhook_credentials_provider(credential_store.get_webhook_credentials)
+    .build())
+```
+
+The provider is called once per HTTP webhook (events, callbacks, and challenge), before decryption and validation. It is not called while building the handler or by trusted WebSocket dispatch. The returned pair overrides static credentials for that request only; the next request sees updates. The example store method returns a `lark.WebhookCredentials` value and reads the complete pair atomically from a thread-safe local cache. Providers must return promptly, with caller-owned timeouts for any I/O. Empty strings retain legacy empty-configuration behavior. Invalid results and exceptions reject the request without static fallback, and original exception details are not logged or returned. Provider registration is initialization-only. Monitor acquisition latency and failures in the provider. Remove the provider registration to return to static credentials.

@@ -228,3 +228,17 @@ MIT
 [_单击_](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=575k28fa-2c12-400a-80c0-2d8924e00d38)或扫码加入讨论群。
 
 <img src="doc/qrcode.png" width="200" alt="讨论群">
+
+## Webhook 来源校验
+
+未配置 EncryptKey 且显式配置非空 VerificationToken 时，SDK 会在分发普通事件和回调前严格校验 token：v1 使用顶层 `token`，v2 使用 `header.token`；缺失、null、空字符串、非字符串或不匹配均拒绝。显式配置 VerificationToken 后，challenge 请求同样必须通过校验。
+
+两个凭证都为空时保留原有行为。加密事件继续使用现有解密和签名校验；长连接继续通过内部可信分发路径处理。
+
+回滚：撤销本次修复会恢复已配置 VerificationToken 却未严格校验的缺口；回滚前应确保 Webhook 入口已有独立来源校验。
+
+### 运行中更新 Webhook 凭证
+
+构建 handler 时，通过 `.webhook_credentials_provider(provider)` 注册返回 `lark.WebhookCredentials(encrypt_key=..., verification_token=...)` 的函数。初始化不调用；每次事件、回调或 challenge 请求在解密和认证前调用一次，并将两项凭证复制为该请求的快照。下一次请求使用更新后的值，长连接内部可信分发不调用 Provider。
+
+Provider 只在初始化阶段注册，应从线程安全的本地缓存一次读取完整配置；如需 I/O，由实现方设置超时。返回两个空字符串时保留旧的空配置行为；返回类型不合法或抛异常时拒绝请求，不回退到静态凭证，也不输出原始异常内容。可在 Provider 内观测读取耗时和失败次数；移除注册即可恢复静态配置。
