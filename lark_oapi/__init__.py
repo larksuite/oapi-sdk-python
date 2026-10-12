@@ -5,7 +5,11 @@ from .client import Client
 from .core import *
 from .event.context import EventContext
 from .event.custom import CustomizedEvent
-from .event.dispatcher_handler import EventDispatcherHandler
+from .event.dispatcher_handler import (
+    EventDispatcherHandler,
+    WebhookCredentials,
+    WebhookCredentialsProvider,
+)
 from .scene.registration import register_app, aregister_app
 
 # ``lark_oapi.channel`` is available as a submodule but NOT eagerly imported
