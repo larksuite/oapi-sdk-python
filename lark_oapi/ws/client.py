@@ -28,11 +28,11 @@ from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
-try:
-    loop = asyncio.get_event_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
+# Backward-compatible module-level reference. Deprecated — new code should
+# rely on the per-instance ``Client._loop`` instead.  Retained so that any
+# third-party code importing ``from lark_oapi.ws.client import loop`` does
+# not break immediately; it will point to the *last* loop set by start().
+loop: Optional[asyncio.AbstractEventLoop] = None
 
 
 def _get_by_key(headers: RepeatedCompositeFieldContainer, key: str) -> str:
@@ -63,11 +63,6 @@ def _ordinal(n: int):
     else:
         suffix = suffixes.get(n % 10, 'th')
     return str(n) + suffix
-
-
-async def _select():
-    while True:
-        await asyncio.sleep(3600)
 
 
 def _ws_connect_kwargs():
@@ -142,6 +137,8 @@ class Client(object):
         self._conn_url: str = ""
         self._service_id: str = ""
         self._conn_id: str = ""
+        self._loop: Optional[asyncio.AbstractEventLoop] = None
+        self._stop_event: Optional[asyncio.Event] = None
         # Local defaults; the Feishu WS endpoint authoritatively replaces these
         # via _configure() on every handshake (and may push updates mid-session
         # via CONTROL frames). Matches node-sdk parent SDK — user-facing
@@ -162,24 +159,78 @@ class Client(object):
         logger.setLevel(log_level.value)
 
     def start(self) -> None:
+        """Start the WebSocket client (blocking).
+
+        Creates a new event loop for this client instance so that multiple
+        Client objects can run concurrently in separate threads without
+        interfering with each other.
+        """
+        global loop
+
+        self._loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(self._loop)
+        # Keep module-level reference updated for backward compatibility.
+        loop = self._loop
+        self._stop_event = asyncio.Event()
+
         try:
-            loop.run_until_complete(self._connect())
+            self._loop.run_until_complete(self._run())
+        except ClientException:
+            raise
+        finally:
+            self._loop.close()
+            self._loop = None
+            self._stop_event = None
+
+    async def start_async(self) -> None:
+        """Start the WebSocket client within an already-running event loop.
+
+        Use this when integrating with async frameworks (FastAPI, aiohttp, etc.)
+        where an event loop is already running::
+
+            async def main():
+                client = Client(app_id, app_secret, event_handler=handler)
+                await client.start_async()
+        """
+        self._loop = asyncio.get_running_loop()
+        self._stop_event = asyncio.Event()
+        try:
+            await self._run()
+        finally:
+            self._loop = None
+            self._stop_event = None
+
+    def stop(self) -> None:
+        """Gracefully stop the client (thread-safe).
+
+        Can be called from any thread. The client will disconnect and
+        ``start()`` / ``start_async()`` will return.
+        """
+        if self._loop and self._stop_event:
+            self._loop.call_soon_threadsafe(self._stop_event.set)
+
+    async def _run(self) -> None:
+        """Core run loop: connect, dispatch, wait for stop signal."""
+        try:
+            await self._connect()
         except ClientException as e:
             logger.error(self._fmt_log("connect failed, err: {}", e))
             raise e
         except Exception as e:
             logger.error(self._fmt_log("connect failed, err: {}", e))
-            loop.run_until_complete(self._disconnect())
+            await self._disconnect()
             if self._auto_reconnect:
-                loop.run_until_complete(self._reconnect())
+                await self._reconnect()
             else:
                 raise e
 
-        loop.create_task(self._ping_loop())
-        loop.run_until_complete(_select())
+        self._loop.create_task(self._ping_loop())
+        # Block until stop() is called or the event loop is closed.
+        await self._stop_event.wait()
+        await self._disconnect()
 
     async def _ping_loop(self):
-        while True:
+        while not self._stop_event.is_set():
             try:
                 if self._conn is not None:
                     frame = _new_ping_frame(int(self._service_id))
@@ -187,8 +238,13 @@ class Client(object):
                     logger.debug(self._fmt_log("ping success"))
             except Exception as e:
                 logger.warn(self._fmt_log("ping failed, err: {}", e))
-            finally:
-                await asyncio.sleep(self._ping_interval)
+            # Use wait_for so that stop() can interrupt the sleep.
+            try:
+                await asyncio.wait_for(self._stop_event.wait(),
+                                       timeout=self._ping_interval)
+                return  # stop_event was set
+            except asyncio.TimeoutError:
+                pass
 
     async def _connect(self) -> None:
         await self._lock.acquire()
@@ -208,7 +264,7 @@ class Client(object):
             self._service_id = service_id
 
             logger.info(self._fmt_log("connected to {}", conn_url))
-            loop.create_task(self._receive_message_loop())
+            self._loop.create_task(self._receive_message_loop())
         except InvalidHandshake as e:
             _parse_ws_conn_exception(e)
         finally:
@@ -219,14 +275,23 @@ class Client(object):
             while True:
                 if self._conn is None:
                     raise ConnectionClosedException("connection is closed")
-                msg = await self._conn.recv()
-                loop.create_task(self._handle_message(msg))
+                if self._stop_event.is_set():
+                    return
+                msg = await asyncio.wait_for(self._conn.recv(), timeout=300)
+                self._loop.create_task(self._handle_message(msg))
         except Exception as e:
+            if self._stop_event.is_set():
+                return
             logger.error(self._fmt_log("receive message loop exit, err: {}", e))
             await self._disconnect()
             if self._auto_reconnect:
-                await self._reconnect()
+                try:
+                    await self._reconnect()
+                except Exception as re:
+                    logger.error(self._fmt_log("reconnect failed permanently, err: {}", re))
+                    self._stop_event.set()
             else:
+                self._stop_event.set()
                 raise e
 
     def _get_conn_url(self) -> str:
@@ -369,24 +434,40 @@ class Client(object):
         # 首次重连随机抖动
         if self._reconnect_nonce > 0:
             nonce = random.random() * self._reconnect_nonce
-            await asyncio.sleep(nonce)
+            try:
+                await asyncio.wait_for(self._stop_event.wait(), timeout=nonce)
+                return  # stop() was called during nonce delay
+            except asyncio.TimeoutError:
+                pass
 
         # 重连
         if self._reconnect_count >= 0:
             for i in range(self._reconnect_count):
+                if self._stop_event.is_set():
+                    return
                 if await self._try_connect(i):
                     self._fire_on_reconnected()
                     return
-                await asyncio.sleep(self._reconnect_interval)
+                try:
+                    await asyncio.wait_for(self._stop_event.wait(),
+                                           timeout=self._reconnect_interval)
+                    return  # stop() was called during interval
+                except asyncio.TimeoutError:
+                    pass
             raise ServerUnreachableException(
                 f"unable to connect to the server after trying {self._reconnect_count} times")
         else:
             i = 0
-            while True:
+            while not self._stop_event.is_set():
                 if await self._try_connect(i):
                     self._fire_on_reconnected()
                     return
-                await asyncio.sleep(self._reconnect_interval)
+                try:
+                    await asyncio.wait_for(self._stop_event.wait(),
+                                           timeout=self._reconnect_interval)
+                    return  # stop() was called during interval
+                except asyncio.TimeoutError:
+                    pass
                 i += 1
 
     def _fire_on_reconnected(self) -> None:
