@@ -128,6 +128,7 @@ class InboundPipeline:
             event_id: Optional[str],
             message_event: Any,
             sender: Any,
+            bot_open_id: Optional[str] = None,
     ) -> Optional[InboundMessage]:
         """Return InboundMessage or None if the event was deduped / filtered."""
         msg = _message_to_dict(message_event)
@@ -159,8 +160,10 @@ class InboundPipeline:
         content = parse_message_content(message_type, msg.get("content"))
 
         # Process mentions for text / post (node-aligned: extract → resolve).
+        # ``bot_open_id`` lets extract_mentions flag self-mentions so
+        # ``InboundMessage.mentioned_bot`` is correct (fixes #134).
         raw_mentions = msg.get("mentions") or []
-        ext = extract_mentions(raw_mentions)
+        ext = extract_mentions(raw_mentions, bot_open_id=bot_open_id)
         mentions: List[Mention] = list(ext.mention_list)
         mentioned_all = ext.mentioned_all
         if isinstance(content, TextContent):
@@ -257,6 +260,7 @@ class InboundPipeline:
             sender=sender_identity,
             mentions=mentions,
             mentioned_all=mentioned_all,
+            mentioned_bot=ext.mentioned_bot,
             reply=reply,
             content=content,
             raw=msg if isinstance(msg, dict) else {},

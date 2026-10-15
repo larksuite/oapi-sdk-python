@@ -186,3 +186,54 @@ async def test_interactive_is_refetched_and_version_detected():
     inbound = await p.process(event_id="e", message_event=msg, sender=_sender())
     assert isinstance(inbound.content, InteractiveContent)
     assert inbound.content.card_version == "v2"
+
+
+# ---------------------------------------------------------------------------
+# mentioned_bot (#134): the field must be set when the bot is in mentions[]
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_mentioned_bot_true_when_bot_in_mentions():
+    msg = _msg(
+        mentions=[
+            {"key": "@_user_1", "id": {"open_id": "ou_user"}, "name": "Alice"},
+            {"key": "@_user_2", "id": {"open_id": "ou_bot"}, "name": "my-bot"},
+        ]
+    )
+    p = InboundPipeline(PipelineConfig(), PipelineDeps())
+    inbound = await p.process(
+        event_id="e", message_event=msg, sender=_sender(), bot_open_id="ou_bot"
+    )
+    assert inbound is not None
+    assert inbound.mentioned_bot is True
+    # the bot self-mention is excluded from the public mention list
+    assert [m.open_id for m in inbound.mentions] == ["ou_user"]
+
+
+@pytest.mark.asyncio
+async def test_mentioned_bot_false_without_bot_open_id():
+    msg = _msg(
+        mentions=[{"key": "@_user_1", "id": {"open_id": "ou_user"}, "name": "Alice"}]
+    )
+    p = InboundPipeline(PipelineConfig(), PipelineDeps())
+    inbound = await p.process(event_id="e", message_event=msg, sender=_sender())
+    assert inbound is not None
+    assert inbound.mentioned_bot is False
+
+
+@pytest.mark.asyncio
+async def test_mentioned_bot_false_when_bot_not_mentioned():
+    msg = _msg(
+        mentions=[
+            {"key": "@_user_1", "id": {"open_id": "ou_user"}, "name": "Alice"},
+            {"key": "@_user_2", "id": {"open_id": "ou_other"}, "name": "Bob"},
+        ]
+    )
+    p = InboundPipeline(PipelineConfig(), PipelineDeps())
+    inbound = await p.process(
+        event_id="e", message_event=msg, sender=_sender(), bot_open_id="ou_bot"
+    )
+    assert inbound is not None
+    assert inbound.mentioned_bot is False
+    assert len(inbound.mentions) == 2

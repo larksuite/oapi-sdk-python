@@ -1156,6 +1156,7 @@ class FeishuChannel:
                 event_id=event_id,
                 message_event=message,
                 sender=sender,
+                bot_open_id=self._bot_open_id,
             )
             if inbound is None:
                 return
