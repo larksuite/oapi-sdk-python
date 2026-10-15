@@ -83,7 +83,7 @@ def test_get_conn_url_sends_custom_headers(monkeypatch):
 
 
 @pytest.mark.asyncio
-async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
+async def test_connect_disables_websockets_15_and_16_automatic_proxy(monkeypatch):
     captured = {}
 
     async def fake_connect(uri, *, proxy=True):
