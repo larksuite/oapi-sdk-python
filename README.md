@@ -264,3 +264,19 @@ handler = (lark.EventDispatcherHandler.builder("", "")
 ```
 
 The provider is called once per HTTP webhook (events, callbacks, and challenge), before decryption and validation. It is not called while building the handler or by trusted WebSocket dispatch. The returned pair overrides static credentials for that request only; the next request sees updates. The example store method returns a `lark.WebhookCredentials` value and reads the complete pair atomically from a thread-safe local cache. Providers must return promptly, with caller-owned timeouts for any I/O. Empty strings retain legacy empty-configuration behavior. Invalid results and exceptions reject the request without static fallback, and original exception details are not logged or returned. Provider registration is initialization-only. Monitor acquisition latency and failures in the provider. Remove the provider registration to return to static credentials.
+
+## WebSocket connection host and handshake headers
+
+`domain` controls HTTP endpoint discovery. The optional connection host replaces only the WebSocket URL `host[:port]`, preserving scheme, path and query. Default DNS and TLS/SNI follow the resulting hostname; existing custom transport settings still apply. Domains below are placeholders.
+
+```python
+client = lark.ws.Client(
+    os.environ["APP_ID"], os.environ["APP_SECRET"],
+    domain="https://bootstrap.example.com",
+    connection_host="websocket.example.com:443",
+    connection_headers={"X-Route": "events"},
+    event_handler=event_handler,
+)
+```
+
+Handshake headers are copied at initialization and for each handshake, including reconnects, and are never forwarded to endpoint discovery. Omitting both settings preserves existing behavior. Host, Connection, Upgrade and Sec-WebSocket-* cannot be overridden through headers. Basic host checks reject empty values, schemes/paths and query parameters; other address and header settings are passed to the underlying libraries without additional SDK format checks. These basic host and reserved-header checks run before network I/O (Start returns an error in Go; construction/build throws in other SDKs). Use trusted developer configuration, not headers/hosts supplied by an end-user request.
