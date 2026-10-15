@@ -177,6 +177,24 @@ async def test_bot_identity_retry_loop_respects_shutdown():
     ch.stop()
 
 
+def test_bot_identity_retry_task_is_cancelled_on_stop():
+    """The fire-and-forget retry must participate in channel shutdown."""
+    ch = _channel()
+    ch._ensure_bg_loop()
+    ch._BOT_IDENTITY_RETRY_DELAYS_S = (3600,)
+
+    ch._start_bot_identity_retry_loop()
+
+    with ch._bg_tasks_lock:
+        pending = list(ch._bg_tasks)
+    assert len(pending) == 1
+    assert not pending[0].done()
+
+    ch.stop()
+
+    assert pending[0].cancelled()
+
+
 def test_bot_identity_store_is_atomic_under_concurrent_writes():
     """Two threads writing the identity simultaneously must never leave
     the pair of fields in a half-updated state (fresh ``_bot_identity`` +
