@@ -88,7 +88,7 @@ class Any(object):
         return '/' in self.type_url and self.TypeName() == descriptor.full_name
 
 
-_EPOCH_DATETIME_NAIVE = datetime.datetime.utcfromtimestamp(0)
+_EPOCH_DATETIME_NAIVE = datetime.datetime(1970, 1, 1)
 _EPOCH_DATETIME_AWARE = datetime.datetime.fromtimestamp(
     0, tz=datetime.timezone.utc)
 
@@ -192,7 +192,7 @@ class Timestamp(object):
 
     def GetCurrentTime(self):
         """Get the current UTC into Timestamp."""
-        self.FromDatetime(datetime.datetime.utcnow())
+        self.FromDatetime(datetime.datetime.now(tz=datetime.timezone.utc))
 
     def ToNanoseconds(self):
         """Converts Timestamp to nanoseconds since epoch."""
