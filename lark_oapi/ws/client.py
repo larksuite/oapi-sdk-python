@@ -21,6 +21,9 @@ from lark_oapi.core.log import logger
 from lark_oapi.core.utils import Strings
 from lark_oapi.core.utils.user_agent import build_user_agent
 from lark_oapi.event.dispatcher_handler import EventDispatcherHandler
+from lark_oapi.ws.connection_config import (
+    build_connection_url, snapshot_connection_headers, validate_connection_host,
+)
 from lark_oapi.ws.const import *
 from lark_oapi.ws.enum import FrameType, MessageType
 from lark_oapi.ws.exception import *
@@ -70,14 +73,19 @@ async def _select():
         await asyncio.sleep(3600)
 
 
-def _ws_connect_kwargs():
+def _ws_connect_kwargs(connection_headers=None):
     params = inspect.signature(websockets.connect).parameters
+    kwargs = {}
+    if connection_headers:
+        # websockets 14 renamed extra_headers to additional_headers.
+        key = "additional_headers" if "additional_headers" in params else "extra_headers"
+        kwargs[key] = dict(connection_headers)
     if "proxy" in params:
         # websockets 15 enables environment proxy discovery by default. The SDK
         # historically connected directly, so preserve that behavior when the
         # parameter exists.
-        return {"proxy": None}
-    return {}
+        kwargs["proxy"] = None
+    return kwargs
 
 
 def _get_ws_conn_exception_headers(e):
@@ -125,7 +133,19 @@ class Client(object):
                  source: Optional[str] = None,
                  extra_ua_tags: Optional[list] = None,
                  headers: Optional[Mapping[str, str]] = None,
-                 client_assertion_provider=None) -> None:
+                 client_assertion_provider=None,
+                 connection_host: Optional[str] = None,
+                 connection_headers: Optional[Mapping[str, str]] = None) -> None:
+        """Create a client with optional handshake-only host[:port] and headers.
+
+        The host preserves the endpoint path/query; TLS follows the resulting
+        hostname. Headers are copied and reused on reconnect. Protocol-owned
+        headers and invalid configuration are rejected during construction.
+        Existing domain/headers continue to configure bootstrap only.
+        """
+        validate_connection_host(connection_host)
+        self._connection_host = connection_host
+        self._connection_headers = snapshot_connection_headers(connection_headers)
         self._app_id: str = app_id
         self._app_secret: str = app_secret
         self._log_level: LogLevel = log_level
@@ -195,13 +215,13 @@ class Client(object):
         if self._conn is not None:
             return
         try:
-            conn_url = self._get_conn_url()
+            conn_url = build_connection_url(self._get_conn_url(), self._connection_host)
             u = urlparse(conn_url)
             q = parse_qs(u.query)
             conn_id = q[DEVICE_ID][0]
             service_id = q[SERVICE_ID][0]
 
-            conn = await websockets.connect(conn_url, **_ws_connect_kwargs())
+            conn = await websockets.connect(conn_url, **_ws_connect_kwargs(self._connection_headers))
             self._conn = conn
             self._conn_url = conn_url
             self._conn_id = conn_id

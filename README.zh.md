@@ -242,3 +242,19 @@ MIT
 构建 handler 时，通过 `.webhook_credentials_provider(provider)` 注册返回 `lark.WebhookCredentials(encrypt_key=..., verification_token=...)` 的函数。初始化不调用；每次事件、回调或 challenge 请求在解密和认证前调用一次，并将两项凭证复制为该请求的快照。下一次请求使用更新后的值，长连接内部可信分发不调用 Provider。
 
 Provider 只在初始化阶段注册，应从线程安全的本地缓存一次读取完整配置；如需 I/O，由实现方设置超时。返回两个空字符串时保留旧的空配置行为；返回类型不合法或抛异常时拒绝请求，不回退到静态凭证，也不输出原始异常内容。可在 Provider 内观测读取耗时和失败次数；移除注册即可恢复静态配置。
+
+## WebSocket 连接 Host 与握手 Header
+
+`domain` 用于 HTTP 获取连接地址。新增的连接 Host 只改写 WebSocket URL 的 `host[:port]`，保留协议、路径和查询参数；默认 DNS、TLS/SNI 跟随最终域名，已有自定义传输配置仍然生效。以下域名仅为占位示例。
+
+```python
+client = lark.ws.Client(
+    os.environ["APP_ID"], os.environ["APP_SECRET"],
+    domain="https://bootstrap.example.com",
+    connection_host="websocket.example.com:443",
+    connection_headers={"X-Route": "events"},
+    event_handler=event_handler,
+)
+```
+
+握手 Header 在初始化时复制，每次连接再使用独立副本，首次连接和重连均生效，不发送到 HTTP 获取连接地址的请求。未配置时保留原行为。Host、Connection、Upgrade、Sec-WebSocket-* 不允许通过 Header 覆盖。Host 只检查空值、协议/路径和查询参数；其他地址及 Header 配置直接传入底层库，不增加 SDK 格式校验。上述基础 Host 和保留 Header 检查在网络调用前执行（Go 在 Start 返回错误，其他语言在构造或 build 时抛错）。只使用开发者可信配置，不直接透传终端请求中的 Host/Header。
