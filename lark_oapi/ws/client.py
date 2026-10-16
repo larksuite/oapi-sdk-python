@@ -75,7 +75,7 @@ async def _select():
 
 def _ws_connect_kwargs(connection_headers=None):
     params = inspect.signature(websockets.connect).parameters
-    kwargs = {}
+    kwargs = {"compression": None}
     if connection_headers:
         # websockets 14 renamed extra_headers to additional_headers.
         key = "additional_headers" if "additional_headers" in params else "extra_headers"

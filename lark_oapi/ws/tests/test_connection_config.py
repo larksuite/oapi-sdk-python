@@ -56,10 +56,10 @@ async def test_handshake_isolation_snapshot_and_reconnect(monkeypatch, new_api):
         headers["X-Route"] = "transport-mutated"
         return FakeConnection()
 
-    async def legacy_connect(uri, *, extra_headers):
+    async def legacy_connect(uri, *, extra_headers, compression="deflate"):
         return capture(uri, extra_headers, "not-passed")
 
-    async def modern_connect(uri, *, additional_headers, proxy=True):
+    async def modern_connect(uri, *, additional_headers, proxy=True, compression="deflate"):
         return capture(uri, additional_headers, proxy)
 
     configured = {"X-Route": "ws-only"}

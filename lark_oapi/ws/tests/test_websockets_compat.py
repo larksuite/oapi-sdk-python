@@ -1,3 +1,4 @@
+import asyncio
 from types import SimpleNamespace
 
 import pytest
@@ -86,7 +87,7 @@ def test_get_conn_url_sends_custom_headers(monkeypatch):
 async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
     captured = {}
 
-    async def fake_connect(uri, *, proxy=True):
+    async def fake_connect(uri, *, proxy=True, compression="deflate"):
         captured["uri"] = uri
         captured["proxy"] = proxy
         return _FakeConn()
@@ -117,7 +118,7 @@ async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
 async def test_connect_does_not_pass_proxy_to_older_websockets(monkeypatch):
     captured = {}
 
-    async def fake_connect(uri):
+    async def fake_connect(uri, *, compression="deflate"):
         captured["uri"] = uri
         return _FakeConn()
 
@@ -140,3 +141,34 @@ async def test_connect_does_not_pass_proxy_to_older_websockets(monkeypatch):
     assert captured == {
         "uri": "ws://example.test/callback?device_id=device&service_id=42",
     }
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("connection_headers", [None, {"X-Route": "events"}])
+async def test_connect_and_reconnect_do_not_negotiate_compression(monkeypatch, connection_headers):
+    compression_offers = []
+
+    async def handle_connection(conn, path=None):
+        request = getattr(conn, "request", None)
+        headers = request.headers if request is not None else conn.request_headers
+        compression_offers.append(headers.get("Sec-WebSocket-Extensions"))
+        await conn.wait_closed()
+
+    # Keep SDK background tasks out of this handshake-only test.
+    monkeypatch.setattr(ws_client, "ExpiringCache", lambda **kwargs: SimpleNamespace())
+    monkeypatch.setattr(ws_client, "loop", SimpleNamespace(create_task=lambda coro: coro.close()))
+    client = ws_client.Client("app_id", "app_secret", connection_headers=connection_headers)
+
+    async with ws_client.websockets.serve(handle_connection, "127.0.0.1", 0, close_timeout=1) as server:
+        port = server.sockets[0].getsockname()[1]
+        monkeypatch.setattr(
+            client, "_get_conn_url",
+            lambda: f"ws://127.0.0.1:{port}/callback?device_id=device&service_id=42",
+        )
+        for _ in range(2):
+            try:
+                await asyncio.wait_for(client._connect(), timeout=5)
+            finally:
+                await asyncio.wait_for(client._disconnect(), timeout=5)
+
+    assert compression_offers == [None, None]
