@@ -1,6 +1,5 @@
 from lark_oapi.core.const import (
     ERR_CODE_CLIENT_ASSERTION_MODE_NOT_SUPPORTED,
-    ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
 )
 from lark_oapi.core.exception import ClientAssertionException, NoAuthorizationException
 from lark_oapi.core.model import *
@@ -16,16 +15,14 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
     if config.client_assertion_provider is not None:
         if Strings.is_empty(config.app_id):
             raise NoAuthorizationException("app_id not found")
-        if AppType.ISV == config.app_type:
-            raise ClientAssertionException(
-                ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
-                "ClientAssertion mode is not supported for ISV apps",
-            )
         if Strings.is_not_empty(option.user_access_token) and AccessTokenType.USER in request.token_types:
             request.token_types = {AccessTokenType.USER}
             return
         if AccessTokenType.TENANT in request.token_types:
-            option.tenant_access_token = TokenManager.get_self_tenant_token(config)
+            if AppType.ISV == config.app_type:
+                option.tenant_access_token = TokenManager.get_isv_tenant_token(config, option.tenant_key, option.app_ticket)
+            else:
+                option.tenant_access_token = TokenManager.get_self_tenant_token(config)
             request.token_types = {AccessTokenType.TENANT}
             return
         if AccessTokenType.APP in request.token_types:

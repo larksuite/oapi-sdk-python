@@ -6,6 +6,7 @@ import pytest
 from lark_oapi.core.client_assertion import ClientAssertionToken, TargetInfo
 from lark_oapi.core.exception import ClientAssertionException
 from lark_oapi.core.model import Config
+from lark_oapi.core.enum import AppType
 from lark_oapi.core.token import TokenManager
 
 
@@ -195,3 +196,104 @@ def test_get_self_app_token_blocked_in_client_assertion_mode():
         TokenManager.get_self_app_token(config)
 
     assert err.value.code == 7100
+
+
+def test_isv_assertion_tenant_exchange_and_cache(monkeypatch):
+    provider = RecordingProvider()
+    config = _config(provider)
+    config.app_type = AppType.ISV
+    config.app_secret = "unused-secret"
+    cache = DictCache()
+    monkeypatch.setattr(TokenManager, "cache", cache)
+    requests = []
+
+    def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
+        body = json.loads(data.decode())
+        requests.append(body)
+        assert url == "https://accounts.feishu.cn/oauth/v3/token"
+        assert headers["Content-Type"] == "application/json"
+        return _response({"access_token": "token-" + body["tenant_key"], "expires_in": 7200, "token_type": "Bearer"})
+
+    import lark_oapi.core.http.transport as transport
+    monkeypatch.setattr(transport.requests, "request", fake_request)
+    for tenant in ["tenant-A", "tenant-B", "tenant-A", "tenant-B"]:
+        assert TokenManager.get_isv_tenant_token(config, tenant, "") == "token-" + tenant
+    assert len(requests) == 2
+    assert requests[0] == {
+        "grant_type": "client_credentials", "client_id": "cli_a",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion": "client-assertion", "tenant_key": "tenant-A",
+    }
+    assert len(provider.calls) == 2
+    assert len(cache.data) == 2
+
+
+@pytest.mark.parametrize("failure,status", [
+    ({"code": 400}, 200), ({"error": "invalid_client"}, 200),
+    ({"access_token": ""}, 200), ({"expires_in": 0}, 200),
+    ({"token_type": "Other"}, 200), ({}, 400),
+])
+def test_isv_rejects_failed_responses_without_caching(monkeypatch, failure, status):
+    config = _config(RecordingProvider())
+    config.app_type = AppType.ISV
+    cache = DictCache()
+    monkeypatch.setattr(TokenManager, "cache", cache)
+    import lark_oapi.core.http.transport as transport
+    monkeypatch.setattr(transport.requests, "request", lambda *args, **kwargs: _response({
+        "access_token": "test-token", "expires_in": 7200, "token_type": "Bearer", **failure,
+    }, status))
+    with pytest.raises(ClientAssertionException):
+        TokenManager.get_isv_tenant_token(config, "tenant-A", "")
+    assert cache.data == {}
+
+
+def test_isv_proxy_and_endpoint_cache_isolation(monkeypatch):
+    config = _config(RecordingProvider(ClientAssertionToken("client-assertion", TargetInfo("proxy.example.com", "/proxy"))))
+    config.app_type = AppType.ISV
+    cache = DictCache()
+    monkeypatch.setattr(TokenManager, "cache", cache)
+    calls = []
+    def fake_request(method, url, headers=None, **kwargs):
+        calls.append(url)
+        assert headers["X-Target-Service"] == "accounts.feishu.cn"
+        return _response({"access_token": "test-token", "expires_in": 7200, "token_type": "Bearer"})
+    import lark_oapi.core.http.transport as transport
+    monkeypatch.setattr(transport.requests, "request", fake_request)
+    for prefix in ["/region-A", "/region-B", "/region-A"]:
+        config.oauth_base_url = "https://accounts.feishu.cn" + prefix
+        assert TokenManager.get_isv_tenant_token(config, "tenant-A", "") == "test-token"
+    assert calls == ["https://proxy.example.com/proxy/oauth/v3/token"] * 2
+
+
+def test_isv_cache_write_failure_keeps_existing_behavior(monkeypatch):
+    config = _config(RecordingProvider())
+    config.app_type = AppType.ISV
+    cache = DictCache()
+    failure = RuntimeError("cache unavailable")
+    def fail_set(*args):
+        raise failure
+    monkeypatch.setattr(cache, "set", fail_set)
+    monkeypatch.setattr(TokenManager, "cache", cache)
+    import lark_oapi.core.http.transport as transport
+    monkeypatch.setattr(transport.requests, "request", lambda *args, **kwargs: _response({
+        "access_token": "test-token", "expires_in": 7200, "token_type": "Bearer",
+    }))
+    with pytest.raises(RuntimeError) as caught:
+        TokenManager.get_isv_tenant_token(config, "tenant-A", "")
+    assert caught.value is failure
+
+
+def test_isv_short_lifetime_keeps_existing_cache_write(monkeypatch):
+    import time
+    import lark_oapi.core.http.transport as transport
+    config = _config(RecordingProvider())
+    config.app_type = AppType.ISV
+    cache = DictCache()
+    monkeypatch.setattr(TokenManager, "cache", cache)
+    monkeypatch.setattr(transport.requests, "request", lambda *args, **kwargs: _response({
+        "access_token": "test-token", "expires_in": 60, "token_type": "Bearer",
+    }))
+    before = int(time.time())
+    assert TokenManager.get_isv_tenant_token(config, "tenant-A", "") == "test-token"
+    assert len(cache.data) == 1
+    assert before <= next(iter(cache.expires.values())) <= int(time.time())
