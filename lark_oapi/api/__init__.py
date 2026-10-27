@@ -1,59 +1,26 @@
-from . import authen
-from . import contact
-from . import document_ai
-from . import hire
-from . import mdm
-from . import personal_settings
-from . import block
-from . import corehr
-from . import optical_char_recognition
-from . import unified_kms
-from . import performance
-from . import calendar
-from . import lingo
-from . import report
-from . import task
-from . import vc
-from . import bitable
-from . import docs
-from . import tenant
-from . import board
-from . import docx
-from . import helpdesk
-from . import admin
-from . import approval
-from . import compensation
-from . import drive
-from . import sheets
-from . import ehr
-from . import security_and_compliance
-from . import acs
-from . import okr
-from . import search
-from . import base
-from . import translation
-from . import trust_party
-from . import auth
-from . import im
-from . import passport
-from . import payroll
-from . import spark
-from . import aily
-from . import attendance
-from . import event
-from . import minutes
-from . import wiki
-from . import directory
-from . import elearning
-from . import mail
-from . import moments
-from . import apaas
-from . import workplace
-from . import baike
-from . import cardkit
-from . import meeting_room
-from . import speech_to_text
-from . import verification
-from . import application
-from . import bot
-from . import human_authentication
+"""Lazy access to generated Lark API product groups.
+
+Importing one product group should not load every generated API version and model.
+"""
+
+from importlib import import_module
+from pkgutil import iter_modules
+
+
+__all__ = sorted(
+    module.name
+    for module in iter_modules(__path__)
+    if module.ispkg and module.name != "gray_test_open_sg"
+)
+
+
+def __getattr__(name):
+    if name not in __all__:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    module = import_module(f".{name}", __name__)
+    globals()[name] = module
+    return module
+
+
+def __dir__():
+    return sorted(set(globals()) | set(__all__))
