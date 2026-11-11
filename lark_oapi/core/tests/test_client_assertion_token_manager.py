@@ -228,12 +228,18 @@ def test_isv_assertion_tenant_exchange_and_cache(monkeypatch):
     assert len(cache.data) == 2
 
 
-@pytest.mark.parametrize("failure,status", [
-    ({"code": 400}, 200), ({"error": "invalid_client"}, 200),
-    ({"access_token": ""}, 200), ({"expires_in": 0}, 200),
-    ({"token_type": "Other"}, 200), ({}, 400),
+@pytest.mark.parametrize("failure,status,message", [
+    ({"code": 400, "error_description": "assertion rejected", "error": "invalid_client"}, 200, "ISV tenant token exchange failed (HTTP 200), error: invalid_client, error_description: assertion rejected"),
+    ({"code": 400, "error_description": "assertion rejected"}, 200, "ISV tenant token exchange failed (HTTP 200), error_description: assertion rejected"),
+    ({"code": 400}, 200, "ISV tenant token exchange failed (HTTP 200)"),
+    ({"error": "invalid_client"}, 200, "ISV tenant token exchange failed (HTTP 200), error: invalid_client"),
+    ({"error": "invalid_client", "error_description": "assertion rejected", "code": 400}, 400, "ISV tenant token exchange failed (HTTP 400), error: invalid_client, error_description: assertion rejected"),
+    ({}, 400, "ISV tenant token exchange failed (HTTP 400)"),
+    ({"access_token": ""}, 200, "access_token is empty"),
+    ({"expires_in": 0}, 200, "expires_in must be positive"),
+    ({"token_type": "Other"}, 200, "token_type must be Bearer"),
 ])
-def test_isv_rejects_failed_responses_without_caching(monkeypatch, failure, status):
+def test_isv_rejects_failed_responses_without_caching(monkeypatch, caplog, failure, status, message):
     config = _config(RecordingProvider())
     config.app_type = AppType.ISV
     cache = DictCache()
@@ -242,8 +248,14 @@ def test_isv_rejects_failed_responses_without_caching(monkeypatch, failure, stat
     monkeypatch.setattr(transport.requests, "request", lambda *args, **kwargs: _response({
         "access_token": "test-token", "expires_in": 7200, "token_type": "Bearer", **failure,
     }, status))
-    with pytest.raises(ClientAssertionException):
+    with pytest.raises(ClientAssertionException) as exc:
         TokenManager.get_isv_tenant_token(config, "tenant-A", "")
+    assert message in exc.value.msg
+    is_exchange_error = status != 200 or failure.get("code", 0) != 0 or failure.get("error")
+    assert exc.value.code == (failure.get("code") or status if is_exchange_error else 0)
+    assert message in caplog.text
+    assert "client-assertion" not in caplog.text
+    assert "test-token" not in caplog.text
     assert cache.data == {}
 
 

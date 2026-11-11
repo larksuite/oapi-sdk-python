@@ -141,12 +141,22 @@ class TokenManager(object):
         resp = json.loads(str(raw.content, UTF_8))
         access_token = resp.get("access_token")
         if is_isv and (raw.status_code != 200 or resp.get("code", 0) != 0 or resp.get("error")):
-            logger.warning("ISV tenant token exchange failed, aud:%s, status:%s, code:%s", aud, raw.status_code, resp.get("code", 0))
-            raise ClientAssertionException(resp.get("code") or raw.status_code, "ISV tenant token exchange failed")
+            msg = f"ISV tenant token exchange failed (HTTP {raw.status_code})"
+            if resp.get("error"):
+                msg += f", error: {resp['error']}"
+            if resp.get("error_description"):
+                msg += f", error_description: {resp['error_description']}"
+            logger.warning("ISV tenant token exchange failed, aud:%s, status:%s, code:%s, msg:%s", aud, raw.status_code, resp.get("code", 0), msg)
+            raise ClientAssertionException(resp.get("code") or raw.status_code, msg)
         if is_isv and (Strings.is_empty(access_token) or int(resp.get("expires_in") or 0) <= 0
                        or (resp.get("token_type") or "").lower() != "bearer"):
-            logger.warning("invalid ISV tenant token response, aud:%s", aud)
-            raise ClientAssertionException(resp.get("code") or 0, "invalid ISV tenant token response")
+            msg = "token_type must be Bearer"
+            if Strings.is_empty(access_token):
+                msg = "access_token is empty"
+            elif int(resp.get("expires_in") or 0) <= 0:
+                msg = "expires_in must be positive"
+            logger.warning("invalid ISV tenant token response, aud:%s, msg:%s", aud, msg)
+            raise ClientAssertionException(resp.get("code") or 0, "invalid ISV tenant token response: " + msg)
         if Strings.is_empty(access_token):
             msg = resp.get("error_description") or resp.get("error") or "oauth token response missing access token"
             raise ClientAssertionException(resp.get("code") or 0, msg)
