@@ -12,14 +12,16 @@ from lark_oapi.core.const import (
     ERR_CODE_CLIENT_ASSERTION_RETRIEVE_FAILED,
     ERR_CODE_CLIENT_ASSERTION_TOKEN_EMPTY,
     GRANT_TYPE_JWT_BEARER,
+    GRANT_TYPE_CLIENT_CREDENTIALS,
     OAUTH_TOKEN_URI,
     UTF_8,
     X_TARGET_SERVICE,
 )
-from lark_oapi.core.exception import ClientAssertionException, ObtainAccessTokenException
+from lark_oapi.core.exception import ClientAssertionException, NoAuthorizationException, ObtainAccessTokenException
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import BaseRequest, Config, RawResponse, RequestOption
-from lark_oapi.core.enum import HttpMethod
+from lark_oapi.core.enum import AppType, HttpMethod
+from lark_oapi.core.log import logger
 from .access_token_response import AccessTokenResponse
 from .create_isv_app_token_request import CreateIsvAppTokenRequest
 from .create_isv_tenant_token_request import CreateIsvTenantTokenRequest
@@ -68,7 +70,7 @@ class TokenManager(object):
     @staticmethod
     def get_self_tenant_token(config: Config) -> str:
         if config.client_assertion_provider is not None:
-            return TokenManager._get_self_tenant_token_by_client_assertion(config)
+            return TokenManager._get_tenant_token_by_client_assertion(config)
 
         # 读缓存
         cache_key = f"self_tenant_token:{config.app_id}"
@@ -97,10 +99,16 @@ class TokenManager(object):
         return token
 
     @staticmethod
-    def _get_self_tenant_token_by_client_assertion(config: Config) -> str:
+    def _get_tenant_token_by_client_assertion(config: Config, tenant_key: str = "") -> str:
+        is_isv = config.app_type == AppType.ISV
+        if is_isv and (Strings.is_empty(tenant_key) or not tenant_key.strip()):
+            logger.warning("ISV tenant token exchange requires tenant key")
+            raise NoAuthorizationException("tenant_key not found")
         oauth_base_url = resolve_oauth_base_url(config)
         aud = resolve_oauth_aud(config)
         cache_key = f"self_tenant_token:client_assertion:{config.app_id}:{aud}"
+        if is_isv:
+            cache_key = f"isv_tenant_token:client_assertion:{config.app_id}:{tenant_key}:{oauth_base_url}:client_credentials"
         token = TokenManager.cache.get(cache_key)
         if Strings.is_not_empty(token):
             return token
@@ -117,11 +125,13 @@ class TokenManager(object):
         req.uri = oauth_base_url + OAUTH_TOKEN_URI
         req.headers = {CONTENT_TYPE: APPLICATION_JSON}
         req.body = {
-            "grant_type": GRANT_TYPE_JWT_BEARER,
+            "grant_type": GRANT_TYPE_CLIENT_CREDENTIALS if is_isv else GRANT_TYPE_JWT_BEARER,
             "client_assertion_type": CLIENT_ASSERTION_TYPE_JWT_BEARER,
             "client_assertion": assertion_token.value,
             "client_id": config.app_id,
         }
+        if is_isv:
+            req.body["tenant_key"] = tenant_key
         option = RequestOption()
         if assertion_token.target_info is not None:
             req.uri = build_proxy_url(assertion_token.target_info, OAUTH_TOKEN_URI)
@@ -130,6 +140,23 @@ class TokenManager(object):
         raw = Transport.execute(config, req, option)
         resp = json.loads(str(raw.content, UTF_8))
         access_token = resp.get("access_token")
+        if is_isv and (raw.status_code != 200 or resp.get("code", 0) != 0 or resp.get("error")):
+            msg = f"ISV tenant token exchange failed (HTTP {raw.status_code})"
+            if resp.get("error"):
+                msg += f", error: {resp['error']}"
+            if resp.get("error_description"):
+                msg += f", error_description: {resp['error_description']}"
+            logger.warning("ISV tenant token exchange failed, aud:%s, status:%s, code:%s, msg:%s", aud, raw.status_code, resp.get("code", 0), msg)
+            raise ClientAssertionException(resp.get("code") or raw.status_code, msg)
+        if is_isv and (Strings.is_empty(access_token) or int(resp.get("expires_in") or 0) <= 0
+                       or (resp.get("token_type") or "").lower() != "bearer"):
+            msg = "token_type must be Bearer"
+            if Strings.is_empty(access_token):
+                msg = "access_token is empty"
+            elif int(resp.get("expires_in") or 0) <= 0:
+                msg = "expires_in must be positive"
+            logger.warning("invalid ISV tenant token response, aud:%s, msg:%s", aud, msg)
+            raise ClientAssertionException(resp.get("code") or 0, "invalid ISV tenant token response: " + msg)
         if Strings.is_empty(access_token):
             msg = resp.get("error_description") or resp.get("error") or "oauth token response missing access token"
             raise ClientAssertionException(resp.get("code") or 0, msg)
@@ -173,6 +200,9 @@ class TokenManager(object):
 
     @staticmethod
     def get_isv_tenant_token(config: Config, tenant_key: str, app_ticket: str) -> str:
+        if config.client_assertion_provider is not None:
+            return TokenManager._get_tenant_token_by_client_assertion(config, tenant_key)
+
         # 读缓存
         cache_key = f"isv_tenant_token:{config.app_id}:{tenant_key}"
         token = TokenManager.cache.get(cache_key)

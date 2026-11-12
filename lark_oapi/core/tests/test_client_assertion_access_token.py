@@ -5,6 +5,7 @@ import pytest
 
 from lark_oapi import Client
 from lark_oapi.core.client_assertion import ClientAssertionToken, TargetInfo
+from lark_oapi.core.enum import AppType
 from lark_oapi.core.exception import AccessTokenException, ClientAssertionException
 
 
@@ -31,9 +32,11 @@ def _client(provider=None, app_secret="", oauth_base_url="https://accounts.feish
     return builder.build()
 
 
-def test_access_token_authorization_code_with_client_assertion(monkeypatch):
+@pytest.mark.parametrize("app_type", [AppType.SELF, AppType.ISV])
+def test_access_token_authorization_code_with_client_assertion(monkeypatch, app_type):
     provider = RecordingProvider()
     client = _client(provider)
+    client.config.app_type = app_type
     captured = {}
 
     def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
@@ -63,8 +66,10 @@ def test_access_token_authorization_code_with_client_assertion(monkeypatch):
     assert provider.calls == ["accounts.feishu.cn"]
 
 
-def test_access_token_refresh_with_client_assertion(monkeypatch):
+@pytest.mark.parametrize("app_type", [AppType.SELF, AppType.ISV])
+def test_access_token_refresh_with_client_assertion(monkeypatch, app_type):
     client = _client(RecordingProvider())
+    client.config.app_type = app_type
     captured = {}
 
     def fake_request(method, url, headers=None, params=None, data=None, timeout=None):

@@ -1,5 +1,7 @@
 # Feishu OpenPlatform Server SDK for Python
 
+[商店应用 ClientAssertion 认证](docs/isv-client-assertion.md)
+
 [中文](https://github.com/larksuite/oapi-sdk-python/blob/HEAD/README.zh.md)
 
 The Feishu Open Platform provides server-side APIs for messaging, contacts,
@@ -49,7 +51,7 @@ response = client.im.v1.message.create(request)
 
 ## ClientAssertion Keyless Mode
 
-For self-built apps that use an external signing service, the SDK can fetch
+For self-built apps and eligible ISV apps that use an external signing service, the SDK can fetch
 tenant tokens with `client_assertion` instead of `app_secret`. The SDK does not
 generate, parse, sign, or store JWT private keys; your provider supplies the
 final assertion string.
@@ -73,8 +75,9 @@ client = lark.Client.builder() \
 ```
 
 If you use a custom OpenAPI domain, also configure `oauth_base_url(...)` so the
-SDK can derive the OAuth audience correctly. Keyless mode is for self-built
-apps only and does not support AppAccessToken-only APIs.
+SDK can derive the OAuth audience correctly. Eligible ISV apps also set
+`app_type(lark.AppType.ISV)` and pass `tenant_key` for tenant API calls.
+Keyless mode does not support AppAccessToken-only APIs.
 
 ## One-Click App Registration
 
