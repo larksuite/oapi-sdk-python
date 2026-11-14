@@ -32,16 +32,14 @@ async def test_invalid_credentials_error_has_not_connected_code():
     """
     ch = _channel()
 
-    # Force the WS handshake to fail the way an "invalid credential"
-    # response from Feishu would (``_get_conn_url`` raises ClientException
-    # synchronously inside ``WSClient.start``).
-    def _bad_url(self):
+    # Simulate the terminal error returned by endpoint discovery.
+    def _bad_endpoint(self):
         raise ClientException(1000040346, "app_id is invalid")
 
     raised: Exception | None = None
     with patch(
-            "lark_oapi.ws.client.Client._get_conn_url",
-            _bad_url,
+            "lark_oapi.ws.client.Client._request_endpoint",
+            _bad_endpoint,
     ):
         try:
             await asyncio.wait_for(ch.connect(), timeout=10)

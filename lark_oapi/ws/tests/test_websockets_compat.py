@@ -52,7 +52,8 @@ def test_parse_ws_connection_exception_keeps_legacy_headers_behavior():
 def test_get_conn_url_sends_custom_headers(monkeypatch):
     captured = {}
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
+        captured["timeout"] = timeout
         captured["url"] = url
         captured["headers"] = headers
         captured["json"] = json
@@ -74,6 +75,7 @@ def test_get_conn_url_sends_custom_headers(monkeypatch):
     monkeypatch.setattr(ws_client.requests, "post", fake_post)
 
     assert client._get_conn_url() == "ws://example.test/callback?device_id=device&service_id=42"
+    assert captured["timeout"] == (10, 30)
     assert captured["url"] == client._domain + ws_client.GEN_ENDPOINT_URI
     assert captured["json"] == {"AppID": "app_id", "AppSecret": "app_secret"}
     assert captured["headers"]["x-tt-env"] == "boe"
@@ -94,8 +96,8 @@ async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
     client = ws_client.Client("app_id", "app_secret")
     monkeypatch.setattr(
         client,
-        "_get_conn_url",
-        lambda: "ws://example.test/callback?device_id=device&service_id=42",
+        "_request_endpoint",
+        lambda: ws_client.Endpoint({"URL": "ws://example.test/callback?device_id=device&service_id=42"}),
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
     monkeypatch.setattr(
@@ -124,8 +126,8 @@ async def test_connect_does_not_pass_proxy_to_older_websockets(monkeypatch):
     client = ws_client.Client("app_id", "app_secret")
     monkeypatch.setattr(
         client,
-        "_get_conn_url",
-        lambda: "ws://example.test/callback?device_id=device&service_id=42",
+        "_request_endpoint",
+        lambda: ws_client.Endpoint({"URL": "ws://example.test/callback?device_id=device&service_id=42"}),
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
     monkeypatch.setattr(
