@@ -5,6 +5,7 @@ import inspect
 import json
 import random
 import time
+from contextvars import copy_context
 from typing import Callable, Dict, Mapping, Optional
 from urllib.parse import urlparse, parse_qs
 
@@ -212,10 +213,16 @@ class Client(object):
 
     async def _connect(self) -> None:
         await self._lock.acquire()
-        if self._conn is not None:
-            return
         try:
-            conn_url = build_connection_url(self._get_conn_url(), self._connection_host)
+            if self._conn is not None:
+                return
+            # Endpoint discovery uses Requests and may call a synchronous credential provider.
+            endpoint = await asyncio.get_running_loop().run_in_executor(
+                None, copy_context().run, self._request_endpoint,
+            )
+            if endpoint.ClientConfig is not None:
+                self._configure(endpoint.ClientConfig)
+            conn_url = build_connection_url(endpoint.URL, self._connection_host)
             u = urlparse(conn_url)
             q = parse_qs(u.query)
             conn_id = q[DEVICE_ID][0]
@@ -250,6 +257,12 @@ class Client(object):
                 raise e
 
     def _get_conn_url(self) -> str:
+        endpoint = self._request_endpoint()
+        if endpoint.ClientConfig is not None:
+            self._configure(endpoint.ClientConfig)
+        return endpoint.URL
+
+    def _request_endpoint(self) -> Endpoint:
         if Strings.is_empty(self._app_id) or (
                 self._client_assertion_provider is None and Strings.is_empty(self._app_secret)
         ):
@@ -282,6 +295,7 @@ class Client(object):
             url,
             headers=headers,
             json=body,
+            timeout=(10, 30),
         )
         if response.status_code != http.HTTPStatus.OK:
             msg = "system busy"
@@ -302,11 +316,7 @@ class Client(object):
         else:
             raise ClientException(resp.code, resp.msg)
 
-        data = resp.data
-        if data.ClientConfig is not None:
-            self._configure(data.ClientConfig)
-
-        return data.URL
+        return resp.data
 
     async def _handle_message(self, msg: bytes) -> None:
         try:

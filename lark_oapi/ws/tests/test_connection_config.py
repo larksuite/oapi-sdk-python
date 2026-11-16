@@ -42,15 +42,19 @@ async def test_handshake_isolation_snapshot_and_reconnect(monkeypatch, new_api):
     requests = []
     handshakes = []
 
-    def fake_post(url, *, headers, json):
+    def fake_post(url, *, headers, json, timeout):
         requests.append((url, headers))
-        return SimpleNamespace(status_code=200, content=b'{"code":0,"data":{"URL":"wss://original.test/a%2Fb?device_id=d&service_id=42&x=%2F&x=2"}}')
+        return SimpleNamespace(status_code=200, content=(
+            b'{"code":0,"data":{"URL":"wss://original.test/a%2Fb?device_id=d&service_id=42&x=%2F&x=2",'
+            b'"ClientConfig":{"PingInterval":9,"ReconnectCount":2,"ReconnectInterval":4,"ReconnectNonce":1}}}'
+        ))
 
     class FakeConnection:
         async def close(self):
             pass
 
     def capture(uri, headers, proxy):
+        assert client._ping_interval == 9
         handshakes.append((uri, dict(headers), proxy))
         # A transport may mutate its own copy; the next attempt must be unaffected.
         headers["X-Route"] = "transport-mutated"
