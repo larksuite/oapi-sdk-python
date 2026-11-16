@@ -88,9 +88,9 @@ class Any(object):
         return '/' in self.type_url and self.TypeName() == descriptor.full_name
 
 
-_EPOCH_DATETIME_NAIVE = datetime.datetime.utcfromtimestamp(0)
-_EPOCH_DATETIME_AWARE = datetime.datetime.fromtimestamp(
-    0, tz=datetime.timezone.utc)
+_EPOCH_DATETIME_NAIVE = datetime.datetime(1970, 1, 1, tzinfo=None)
+_EPOCH_DATETIME_AWARE = _EPOCH_DATETIME_NAIVE.replace(
+    tzinfo=datetime.timezone.utc)
 
 
 class Timestamp(object):
