@@ -72,15 +72,30 @@ def test_verify_client_assertion_rejects_app_only():
     assert err.value.code == 7103
 
 
-def test_verify_client_assertion_rejects_isv():
+def test_verify_isv_requires_tenant_before_provider():
+    provider = RecordingProvider()
+    config = _config(provider)
+    config.app_type = AppType.ISV
+    with pytest.raises(NoAuthorizationException, match="tenant_key"):
+        verify(config, _request(AccessTokenType.TENANT), RequestOption())
+    assert provider.calls == []
+
+
+def test_verify_isv_routes_tenant_and_prefers_explicit_user_token(monkeypatch):
     config = _config(RecordingProvider())
     config.app_type = AppType.ISV
-    req = _request(AccessTokenType.TENANT)
-
-    with pytest.raises(ClientAssertionException) as err:
-        verify(config, req, RequestOption())
-
-    assert err.value.code == 7100
+    option = RequestOption()
+    option.tenant_key = "tenant-A"
+    calls = []
+    def exchange(conf, tenant, ticket):
+        calls.append(tenant)
+        return "test-tat"
+    monkeypatch.setattr(TokenManager, "get_isv_tenant_token", staticmethod(exchange))
+    verify(config, _request(AccessTokenType.TENANT), option)
+    assert option.tenant_access_token == "test-tat"
+    option.user_access_token = "test-uat"
+    verify(config, _request(AccessTokenType.TENANT, AccessTokenType.USER), option)
+    assert calls == ["tenant-A"]
 
 
 def test_verify_app_secret_mode_still_requires_app_secret():
