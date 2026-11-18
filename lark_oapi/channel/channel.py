@@ -972,9 +972,7 @@ class FeishuChannel:
         if self._bg_loop is None:
             return
         try:
-            asyncio.run_coroutine_threadsafe(
-                self._bot_identity_retry_loop(), self._bg_loop
-            )
+            self.schedule(self._bot_identity_retry_loop())
         except RuntimeError:  # pragma: no cover - loop already stopped
             pass
 
