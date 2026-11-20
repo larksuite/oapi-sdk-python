@@ -68,17 +68,18 @@ strictly increasing `sequence` number per `card_id`.
 Recommended pattern:
 
 ```python
-seq = 0
+async def stream_updates():
+    seq = 0
 
-async def patch(text):
-    nonlocal seq
+    async def patch(text):
+        nonlocal seq
+        seq += 1
+        await channel.update_card_element_content(card_id, "main", text, sequence=seq)
+
+    # ... stream tokens, calling patch() ...
+
     seq += 1
-    await channel.update_card_element_content(card_id, "main", text, sequence=seq)
-
-# ... stream tokens, calling patch() ...
-
-seq += 1
-await channel.finish_streaming_card(card_id, sequence=seq)
+    await channel.finish_streaming_card(card_id, sequence=seq)
 ```
 
 ## `finish_streaming_card` vs `update_card`
