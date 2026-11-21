@@ -17,6 +17,12 @@ class _FakeConn:
         pass
 
 
+async def _noop_receive_loop():
+    # _connect() schedules the receive loop on the running loop via
+    # create_task; these tests only assert connect kwargs, so neutralize it.
+    return
+
+
 def test_parse_ws_connection_exception_reads_new_invalid_status_response_headers():
     exc = RuntimeError("handshake failed")
     exc.response = SimpleNamespace(
@@ -98,11 +104,7 @@ async def test_connect_disables_websockets_15_automatic_proxy(monkeypatch):
         lambda: "ws://example.test/callback?device_id=device&service_id=42",
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
-    monkeypatch.setattr(
-        ws_client.loop,
-        "create_task",
-        lambda coro: coro.close() if hasattr(coro, "close") else None,
-    )
+    monkeypatch.setattr(client, "_receive_message_loop", _noop_receive_loop)
 
     await client._connect()
     await client._disconnect()
@@ -128,11 +130,7 @@ async def test_connect_does_not_pass_proxy_to_older_websockets(monkeypatch):
         lambda: "ws://example.test/callback?device_id=device&service_id=42",
     )
     monkeypatch.setattr(ws_client.websockets, "connect", fake_connect)
-    monkeypatch.setattr(
-        ws_client.loop,
-        "create_task",
-        lambda coro: coro.close() if hasattr(coro, "close") else None,
-    )
+    monkeypatch.setattr(client, "_receive_message_loop", _noop_receive_loop)
 
     await client._connect()
     await client._disconnect()

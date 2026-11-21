@@ -853,9 +853,7 @@ class FeishuChannel:
     def _stop_private_ws_client(self, ws: Any) -> None:
         disconnect = getattr(ws, "_disconnect", None)
         try:
-            from lark_oapi.ws import client as ws_client_module
-
-            ws_loop = getattr(ws_client_module, "loop", None)
+            ws_loop = getattr(ws, "_loop", None)
             if callable(disconnect) and ws_loop is not None:
                 if ws_loop.is_running():
                     try:
