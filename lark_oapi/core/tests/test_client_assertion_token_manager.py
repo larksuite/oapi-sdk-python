@@ -120,6 +120,7 @@ def test_client_assertion_tenant_token_cache_does_not_reuse_app_secret_entry(mon
 
 
 def test_get_self_tenant_token_by_client_assertion_with_proxy(monkeypatch):
+    audience = "fsopen.example.test"
     provider = RecordingProvider(
         ClientAssertionToken(
             "client-assertion",
@@ -127,6 +128,8 @@ def test_get_self_tenant_token_by_client_assertion_with_proxy(monkeypatch):
         )
     )
     config = _config(provider)
+    config.oauth_base_url = "http://mesh.example.test:18080"
+    config.oauth_audience = audience
     cache = DictCache()
     monkeypatch.setattr(TokenManager, "cache", cache)
     captured = {}
@@ -141,8 +144,9 @@ def test_get_self_tenant_token_by_client_assertion_with_proxy(monkeypatch):
     monkeypatch.setattr(transport.requests, "request", fake_request)
 
     assert TokenManager.get_self_tenant_token(config) == "tenant-token"
+    assert provider.calls == [audience]
     assert captured["url"] == "https://proxy.example.com/proxy/oauth/v3/token"
-    assert captured["headers"]["X-Target-Service"] == "accounts.feishu.cn"
+    assert captured["headers"]["X-Target-Service"] == audience
 
 
 @pytest.mark.parametrize("token", [None, ClientAssertionToken("")])

@@ -11,6 +11,7 @@ class Config(object):
         self.app_secret: Optional[str] = None
         self.domain: str = FEISHU_DOMAIN  # 域名, 默认为 https://open.feishu.cn
         self.oauth_base_url: Optional[str] = None
+        self.oauth_audience: Optional[str] = None
         self.client_assertion_provider: Optional[Any] = None
         self.timeout: Optional[float] = 30  # client timeout in seconds (default 30s); override via ClientBuilder.timeout()
         self.app_type: AppType = AppType.SELF  # 应用类型, 默认为自建应用; 若设为 ISV 需在 request_option 中配置 tenant_key

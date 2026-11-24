@@ -56,6 +56,9 @@ def resolve_oauth_base_url(config) -> str:
 
 
 def resolve_oauth_aud(config) -> str:
+    audience = getattr(config, "oauth_audience", None)
+    if audience:
+        return audience
     return extract_aud_from_url(resolve_oauth_base_url(config))
 
 
