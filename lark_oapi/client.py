@@ -248,6 +248,11 @@ class ClientBuilder(object):
         self._config.oauth_base_url = oauth_base_url
         return self
 
+    def oauth_audience(self, audience: str) -> "ClientBuilder":
+        """Set the Client Assertion audience. An empty value uses the OAuth URL host."""
+        self._config.oauth_audience = audience
+        return self
+
     def domain(self, domain: str) -> "ClientBuilder":
         _validate_domain(domain)
         self._config.domain = domain

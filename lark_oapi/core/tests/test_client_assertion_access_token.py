@@ -195,13 +195,21 @@ def test_access_token_rejects_200_without_access_token(monkeypatch):
 
 
 def test_access_token_proxy_keeps_custom_headers(monkeypatch):
+    audience = "fsopen.example.test"
     provider = RecordingProvider(
         ClientAssertionToken(
             "client-assertion",
             TargetInfo(target_service="proxy.example.com", target_prefix="/proxy"),
         )
     )
-    client = _client(provider)
+    client = (
+        Client.builder()
+        .app_id("cli_a")
+        .oauth_base_url("http://mesh.example.test:18080")
+        .oauth_audience(audience)
+        .client_assertion_provider(provider)
+        .build()
+    )
     captured = {}
 
     def fake_request(method, url, headers=None, params=None, data=None, timeout=None):
@@ -218,6 +226,7 @@ def test_access_token_proxy_keeps_custom_headers(monkeypatch):
         headers={"X-Custom": "custom-value"},
     )
 
+    assert provider.calls == [audience]
     assert captured["url"] == "https://proxy.example.com/proxy/oauth/v3/token"
     assert captured["headers"]["X-Custom"] == "custom-value"
-    assert captured["headers"]["X-Target-Service"] == "accounts.feishu.cn"
+    assert captured["headers"]["X-Target-Service"] == audience
