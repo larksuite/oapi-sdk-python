@@ -357,10 +357,8 @@ class Client(object):
         resp = Response(code=http.HTTPStatus.OK)
         try:
             start = int(round(time.time() * 1000))
-            if message_type == MessageType.EVENT:
+            if message_type in (MessageType.EVENT, MessageType.CARD):
                 result = self._event_handler._do_without_validation(pl)
-            elif message_type == MessageType.CARD:
-                return
             else:
                 return
             end = int(round(time.time() * 1000))
