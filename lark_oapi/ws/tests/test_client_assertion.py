@@ -32,7 +32,7 @@ def _ok_response():
 def test_ws_get_conn_url_with_app_secret_keeps_existing_behavior(monkeypatch):
     captured = {}
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         captured["url"] = url
         captured["headers"] = headers
         captured["json"] = json
@@ -49,7 +49,7 @@ def test_ws_get_conn_url_with_client_assertion(monkeypatch):
     captured = {}
     provider = RecordingProvider()
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         captured["url"] = url
         captured["headers"] = headers
         captured["json"] = json
@@ -72,7 +72,7 @@ def test_ws_get_conn_url_with_client_assertion_proxy(monkeypatch):
         )
     ])
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         captured["url"] = url
         captured["headers"] = headers
         captured["json"] = json
@@ -102,7 +102,7 @@ def test_ws_get_conn_url_retrieves_token_each_time(monkeypatch):
         ClientAssertionToken("assertion-2"),
     ])
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         assertions.append(json["ClientAssertion"])
         return _ok_response()
 
@@ -151,7 +151,7 @@ def test_ws_provider_error_is_not_wrapped():
 def test_ws_non_200_uses_server_msg_when_available(monkeypatch):
     provider = RecordingProvider()
 
-    def fake_post(url, *, headers=None, json=None):
+    def fake_post(url, *, headers=None, json=None, timeout=None):
         return SimpleNamespace(
             status_code=500,
             content=b'{"code":20050,"msg":"target service unavailable"}',
