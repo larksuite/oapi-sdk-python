@@ -59,14 +59,19 @@ def _safe_json(raw: Any) -> Dict[str, Any]:
 def _flatten_post_text(post: Dict[str, Any]) -> Tuple[str, str]:
     """Return (title, plain_text) from a post AST.
 
-    Post content has locale keys (`zh_cn`, `en_us`). We pick the first locale.
+    Post content may be locale-keyed (``{"zh_cn": {...}, "en_us": {...}}``)
+    or carry ``content`` directly (the classic single-locale post shape).
+    For locale-keyed payloads the first locale is used.
     """
     if not isinstance(post, dict):
         return "", ""
-    first_key = next(iter(post), None)
-    if first_key is None:
-        return "", ""
-    locale_doc = post.get(first_key)
+    if "content" in post:
+        locale_doc = post
+    else:
+        first_key = next(iter(post), None)
+        if first_key is None:
+            return "", ""
+        locale_doc = post.get(first_key)
     if not isinstance(locale_doc, dict):
         return "", ""
     title = locale_doc.get("title") or ""
@@ -82,8 +87,19 @@ def _flatten_post_text(post: Dict[str, Any]) -> Tuple[str, str]:
             elif tag == "a":
                 chunk.append(el.get("text") or el.get("href") or "")
             elif tag == "at":
-                nm = el.get("user_name") or el.get("user_id") or ""
-                chunk.append(f"@{nm}" if nm else "@")
+                el_id = el.get("id")
+                is_all = el.get("user_id") == "all" or (
+                    isinstance(el_id, dict) and el_id.get("user_id") == "all"
+                )
+                if is_all:
+                    # Mention-all node: render the ``@_all`` placeholder so the
+                    # pipeline's mention-all probes (``text_has_mention_all`` /
+                    # ``resolve_mentions``) fire for rich-text @all messages.
+                    # See https://github.com/larksuite/oapi-sdk-python/issues/138
+                    chunk.append("@_all")
+                else:
+                    nm = el.get("user_name") or el.get("user_id") or ""
+                    chunk.append(f"@{nm}" if nm else "@")
             elif tag == "emotion":
                 chunk.append(f":{el.get('emoji_type') or ''}:")
             elif tag == "img":
